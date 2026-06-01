@@ -1,0 +1,73 @@
+# Final QA Report
+
+Date: 2026-06-01
+
+This pass covers visual polish, SEO readiness, accessibility basics, performance readiness, and deployment checks for the current ARS Green Steel redesign.
+
+Client-confirmed business data and missing old-site media assets are intentionally excluded from this pass and can be added later.
+
+## Visual Polish Completed
+
+- Reduced interior page hero height so content pages feel less oversized.
+- Reduced shared page heading and metric scale for better desktop/tablet/mobile balance.
+- Kept the approved full-screen homepage hero concept intact.
+- Improved long-text resilience with safer word wrapping.
+- Preserved blue-first brand hierarchy with red used only as accent emphasis.
+- Corrected homepage blog links to use the preserved legacy `/blog.html` route.
+- Cleaned visible “blocked/pending” language from business-data pages in the previous verification pass.
+
+## Accessibility Completed
+
+- Added skip-to-content link.
+- Added reduced-motion handling for users who prefer less animation.
+- Improved mobile navigation state with `aria-expanded` and `aria-controls`.
+- Added keyboard Escape handling for header menus.
+- Added menu region labels for desktop mega menu content.
+- Added pressed state to audience journey selector buttons.
+- Added `name`, autocomplete, and input-mode attributes to lead form fields.
+- Marked decorative background videos as hidden from assistive technology.
+- Reduced video preload behavior from `auto` to `metadata` on major background videos.
+
+## SEO Completed
+
+- Added global metadata base and Open Graph defaults.
+- Added canonical metadata for dynamic legacy and blog routes.
+- Added `/robots.txt`.
+- Added `/sitemap.xml`.
+- Included static routes, legacy routes, and blog routes in the sitemap.
+- Preserved old ARS URLs and blog article URLs.
+
+## Performance Completed
+
+- Changed hero/background video preload from `auto` to `metadata` where appropriate.
+- Confirmed production build completes successfully.
+- Confirmed sitemap and robots routes are generated.
+- Kept missing old-site assets from rendering as broken remote images.
+
+## Automated Checks
+
+| Check | Result |
+|---|---|
+| Internal route checker | Passed |
+| ESLint | Passed |
+| Production build | Passed |
+| Static route generation | Passed, 141 routes generated |
+| Robots generation | Passed |
+| Sitemap generation | Passed |
+
+## Browser QA Limitation
+
+The sandbox could not start a new local server for browser review because binding to a local port returned `EPERM`.
+
+The currently open browser preview can still be used manually for visual review, but this pass could not complete automated screenshot inspection from the sandbox.
+
+## Still Pending After This QA Pass
+
+- Manual browser review on the existing local preview.
+- Final client-approved email inbox.
+- Final WhatsApp number.
+- Live steel prices and update process.
+- Calculator formula, units, assumptions, and disclaimer.
+- Approved dealer list.
+- Missing original old-site assets, PDFs, certificates, brochures, videos, and remaining images.
+- Final deployment target setup after GitHub/Vercel or hosting choice is confirmed.

@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ARS Group Website Redesign
 
-## Getting Started
+Modern website prototype for ARS Group, built as a conversion-led industrial product experience.
 
-First, run the development server:
+## Stack
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- React Three Fiber / Three.js
+- Lucide icons
+
+## Local Preview
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+If the local file watcher is unstable, use a production preview:
 
-## Learn More
+```bash
+npm run build
+npm run start -- --port 3001
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+http://localhost:3001
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Current Prototype
 
-## Deploy on Vercel
+The first screen includes:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Branded ARS navigation
+- Cinematic dark hero
+- Lightweight animated 3D steel/rebar visual
+- Trust metrics
+- Price / calculator / dealer action cards
+- Product range section
+- Audience pathway section
+- Sales/contact CTA
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment Workflow
+
+Recommended flow:
+
+1. Push this project to GitHub.
+2. Connect the GitHub repository to Vercel.
+3. Use the Vercel preview URL for client approval.
+4. After approval, connect the real ARS domain or a staging subdomain.
+
+This keeps future changes smooth: update code, push to GitHub, and Vercel deploys automatically.
+
