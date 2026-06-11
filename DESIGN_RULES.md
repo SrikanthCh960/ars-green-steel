@@ -156,6 +156,22 @@ Rules:
 
 ## Typography System
 
+### Font Families
+
+Use:
+
+- Body/UI: `Inter`
+- Headings/display: `IBM Plex Sans`
+- Technical labels/spec metadata: `IBM Plex Sans Condensed`
+- Implementation should use local/self-hosted font files when available; keep modern system fallbacks so builds are not blocked by external font services.
+
+Guidelines:
+
+- Inter should carry most reading, navigation, button, form, and table text.
+- IBM Plex Sans should carry brand confidence in headings and product/story moments.
+- IBM Plex Sans Condensed should be used sparingly for grade labels, technical metadata, certification markers, and compact proof text.
+- Avoid decorative or overly trendy fonts that weaken the industrial credibility of ARS.
+
 ### Display
 
 Use for:
@@ -167,8 +183,8 @@ Use for:
 Style:
 
 - Uppercase where appropriate
-- Very bold
-- Tight line height
+- Very bold for the hero only
+- Controlled line height
 - Large scale
 - Minimal wording
 
@@ -177,6 +193,7 @@ Guidelines:
 - Use display typography to create confidence and scale.
 - Do not use oversized typography in every section.
 - Display type should be reserved for major brand/story moments.
+- Post-hero section headings should usually be title case or sentence case, not forced uppercase.
 
 ### H1
 

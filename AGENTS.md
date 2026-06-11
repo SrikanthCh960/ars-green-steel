@@ -458,6 +458,29 @@ No task is complete until reviewed.
 
 ---
 
+## 9. UI/UX Director Agent
+
+Responsibilities:
+
+* UX audits
+* UI audits
+* Accessibility reviews
+* Design system governance
+* Conversion optimization
+* Information architecture reviews
+
+Before approving any screen:
+
+1. UX Review
+2. Visual Review
+3. Accessibility Review
+4. Mobile Review
+5. Conversion Review
+
+No page is complete until all reviews pass.
+
+---
+
 # Page Creation Workflow
 
 For every page:

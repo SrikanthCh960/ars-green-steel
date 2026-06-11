@@ -111,7 +111,7 @@ export function SectionIntro({
       <div>
         <div className="mb-8 flex items-center gap-4">
           <span className="h-[2px] w-12 bg-brand-blue" />
-          <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">{eyebrow}</p>
+          <p className="font-technical text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">{eyebrow}</p>
         </div>
         <h2 className="max-w-5xl break-words font-display text-[clamp(2rem,4.5vw,4.8rem)] font-black uppercase leading-[0.96] tracking-normal text-ink-900">
           {title}
@@ -151,7 +151,7 @@ export function CardGrid({ cards, columns = 3 }: { cards: Card[]; columns?: 2 | 
                 ) : (
                   <span className="h-[2px] w-12 bg-brand-blue" />
                 )}
-                {card.meta ? <span className="text-xs font-bold uppercase tracking-[0.22em] text-grey-600">{card.meta}</span> : null}
+                {card.meta ? <span className="font-technical text-xs font-bold uppercase tracking-[0.22em] text-grey-600">{card.meta}</span> : null}
               </div>
               <h3 className="font-display text-3xl font-black tracking-normal text-ink-900">{card.title}</h3>
               <p className="mt-5 text-base leading-7 text-steel-700">{card.text}</p>
@@ -228,7 +228,7 @@ export function ProofMetrics({
             <article key={metric.kicker} className="border-b border-ink-900/14 py-8 md:border-b-0 md:border-r md:px-8 first:md:pl-0 last:md:border-r-0">
               <div className="mb-6 flex items-center gap-2">
                 <span className="text-brand-blue">-&gt;</span>
-                <p className="text-xs font-bold uppercase tracking-[0.28em] text-grey-600">{metric.kicker}</p>
+                <p className="font-technical text-xs font-bold uppercase tracking-[0.28em] text-grey-600">{metric.kicker}</p>
               </div>
               <p className="font-display text-[clamp(2.7rem,4.4vw,4.8rem)] font-black leading-none text-ink-900">{metric.value}</p>
               <p className="mt-5 max-w-xs text-base leading-7 text-steel-700">{metric.label}</p>

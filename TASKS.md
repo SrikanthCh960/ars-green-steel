@@ -42,6 +42,7 @@ The execution order prioritizes:
 | Restrict `#F76369` to accent use only | High | Done | Brand hierarchy update | Red supports editorial emphasis without overpowering ARS blue. |
 | Define final CTA color rules for primary, secondary, ghost, and text links | Critical | Done | Color system | All calls to action feel consistent, premium, and conversion-focused. |
 | Standardize typography scale for display, H1, H2, H3, body, and captions | High | Done | `DESIGN_RULES.md` | Headings and section copy follow a controlled editorial hierarchy. |
+| Apply final ARS font stack with IBM Plex Sans, Inter, and IBM Plex Sans Condensed | High | Done | Typography recommendation | The site uses an engineered, readable industrial font stack with safe fallbacks; self-hosted font files can be added when available. |
 | Define reusable spacing rhythm for hero, sections, cards, and grids | High | Done | Typography scale | Sections feel related instead of visually disconnected. |
 | Define card style rules for product, proof, tool, and audience cards | High | Done | Color and spacing rules | Cards feel industrial and editorial, not SaaS-like. |
 | Audit current homepage against the design rules | High | Done | Current implementation | Clear list of UI areas that need brand and layout correction. |
@@ -60,6 +61,11 @@ The execution order prioritizes:
 | Refine the product range section to match the blue-led system | High | Done | Card and CTA rules | Product cards support faster product understanding and next actions. |
 | Add or refine the Buying Assistant section | Critical | Done | Homepage conversion journey | Visitors can quickly choose price, calculator, dealer, or quote paths. |
 | Refine Audience Paths section using the agreed editorial tab/card style | High | Done | Audience journey content | Home owners, engineers, contractors, and dealers each see a clear path. |
+| Redesign Audience Paths with premium image cards and hover interactions | High | Done | Visual reference and existing audience routes | The second section now uses a modern image-card system with blue pills, arrow motion, CTA line animation, and a proof metric strip. |
+| Add width-expansion hover behavior to Audience Paths cards | High | Done | Premium image-card section | Hovering or focusing a desktop audience card expands it horizontally while nearby cards adjust smoothly. |
+| Refine post-hero homepage title scale for industrial readability | High | Done | Visual designer review | Section titles now use restrained title case and smaller display sizing so content scans better after the hero. |
+| Rebuild homepage around the approved user journey | Critical | Done | Client journey feedback | Homepage now flows from hero to audience cards, fastest route actions, product paths, merged trust proof, testimonials, blogs, and footer. |
+| Replace hero word animation with reliable CSS-driven rotation | High | Done | Hero animation QA | Hero word animation no longer depends on client state timing and includes reduced-motion fallback. |
 | Add Quality and Manufacturing homepage section | High | Done | Proof content and media | Manufacturing credibility becomes visible before the user reaches contact. |
 | Recover critical homepage content from `CONTENT_RECOVERY_PLAN.md` | Critical | Done | `CONTENT_RECOVERY_PLAN.md`, current homepage | Homepage now surfaces critical price, calculator, dealer, quote, product proof, rod-size, certification, contact, and client/project proof placeholders without visual clutter. |
 | Add Green Steel / Sustainability homepage section | Medium | Not started | Sustainability content | ARS green positioning becomes a visible part of the homepage story. |

@@ -25,7 +25,7 @@ export function ContactCta({
       <div className="ars-container">
         <div className="grid gap-10 border-b border-ink-900/10 pb-12 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
+            <p className="font-technical text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
               {eyebrow}
             </p>
             <h2 className="mt-5 max-w-4xl font-display text-[clamp(2.25rem,4.7vw,5.5rem)] font-black uppercase leading-[0.94] tracking-normal">

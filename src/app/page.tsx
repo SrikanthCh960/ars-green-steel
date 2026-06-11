@@ -1,49 +1,108 @@
 import {
   ArrowRight,
   BadgeCheck,
-  Building2,
   Calculator,
   ClipboardList,
   DollarSign,
   Factory,
+  Home as HomeIcon,
   MapPin,
-  Phone,
-  Ruler,
   ShieldCheck,
+  Store,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { AudiencePaths } from "@/components/audience-paths";
 import { AnimatedHeroWord } from "@/components/animated-hero-word";
 import { ContactCta } from "@/components/contact-cta";
 import { MotionSection } from "@/components/motion-section";
 import { SiteHeader } from "@/components/site-header";
-import { verifiedContactDetails } from "@/data/business-verification";
 
-const credibilityMetrics = [
+const audienceCards = [
   {
-    kicker: "building trust since",
-    value: "32",
-    suffix: "yrs",
-    label: "Trusted by home builders, engineers, dealers, and contractors.",
+    title: "Home owners",
+    body: "Build safer homes with certified ARS steel.",
+    href: "/tmt-steel-bar-guide-homeowners",
+    cta: "Explore guide",
+    image: "/ars-assets/home-owner-banner-1.png",
+    icon: HomeIcon,
   },
   {
-    kicker: "steel making capacity",
-    value: "2.5L",
-    suffix: "MT",
-    label: "Capacity built for reliable supply and regional demand.",
+    title: "Engineers",
+    body: "Technical specifications, testing, and certifications.",
+    href: "/tmt-steel-bar-guide-engineers-architects",
+    cta: "View technical hub",
+    image: "/ars-assets/our-quality-1.png",
+    icon: ShieldCheck,
   },
   {
-    kicker: "high-strength grade",
-    value: "550D",
-    suffix: "",
-    label: "Ductile TMT steel for safer residential and commercial structures.",
+    title: "Dealers",
+    body: "Grow local demand with ARS support.",
+    href: "/steel-distributors-dealers",
+    cta: "Dealer network",
+    image: "/ars-assets/Contact_banner.png",
+    icon: Store,
   },
   {
-    kicker: "quality and network proof",
-    value: "SGS",
-    suffix: "+",
-    label: "Certification, green credentials, and dealer reach surfaced upfront.",
+    title: "Contractors",
+    body: "Project pricing, quantity planning, and support.",
+    href: "/tmt-steel-bar-guide-civil-contractors",
+    cta: "Contractor solutions",
+    image: "/ars-assets/ARSHOME4.jpg",
+    icon: Factory,
+  },
+];
+
+const audienceStats = [
+  {
+    value: "50,000+",
+    label: "Homes built safer",
+    detail: "With ARS steel",
+    icon: HomeIcon,
+  },
+  {
+    value: "500+",
+    label: "Certified projects",
+    detail: "Engineered with trust",
+    icon: ShieldCheck,
+  },
+  {
+    value: "1000+",
+    label: "Dealer network",
+    detail: "Growing together",
+    icon: Store,
+  },
+  {
+    value: "200+",
+    label: "Infrastructure projects",
+    detail: "Building the nation",
+    icon: Factory,
+  },
+];
+
+const buyingActions = [
+  {
+    title: "Check price",
+    detail: "View the prepared TMT steel price journey before speaking with sales.",
+    href: "/steel-price-today",
+    icon: DollarSign,
+  },
+  {
+    title: "Calculate steel",
+    detail: "Estimate requirement by project type, built-up area, floors, and bar size.",
+    href: "/tmt-calculator",
+    icon: Calculator,
+  },
+  {
+    title: "Find dealer",
+    detail: "Move from product interest to nearby ARS dealer discovery.",
+    href: "/dealer-locator",
+    icon: MapPin,
+  },
+  {
+    title: "Request quote",
+    detail: "Share project needs and let the ARS team guide the next step.",
+    href: "/request-quote",
+    icon: ClipboardList,
   },
 ];
 
@@ -51,156 +110,87 @@ const products = [
   {
     name: "ARS 550D",
     eyebrow: "Core TMT range",
-    detail: "High ductility TMT bars for safer residential and commercial construction.",
-    tags: ["Superior bendability", "Consistent rib pattern", "Tested strength"],
-    stat: "550D",
-    statLabel: "High-strength ductile grade",
-    specs: ["Physical properties", "Chemical properties", "TMT process FAQ"],
+    detail: "High-strength ductile TMT bars for residential, commercial, and everyday structural work.",
+    href: "/products/ars-550d",
     image: "/ars-assets/TMT-Bars.png",
+    points: ["550D strength grade", "Reliable bendability", "Engineer-ready product proof"],
   },
   {
     name: "ARS CRS 550D",
     eyebrow: "Corrosion resistant",
-    detail: "Corrosion-resistant steel for coastal, humid, and durability-focused projects.",
-    tags: ["CRS protection", "Longer life", "Ideal for exposed zones"],
-    stat: "CRS",
-    statLabel: "Built for exposed and coastal conditions",
-    specs: ["CRS benefits", "Corrosion resistance FAQ", "Application guidance"],
+    detail: "CRS steel for coastal, humid, exposed, and durability-focused construction conditions.",
+    href: "/products/ars-crs-550d",
     image: "/ars-assets/CRS.png",
+    points: ["Corrosion resistance", "Longer service confidence", "Ideal for exposed zones"],
   },
 ];
 
-const buyingActions = [
-  {
-    title: "Check price",
-    detail: "View today's TMT steel price with regional context before calling sales.",
-    href: "#actions",
-    icon: DollarSign,
-  },
-  {
-    title: "Calculate steel",
-    detail: "Estimate requirement by project type, bar size, and quantity.",
-    href: "#actions",
-    icon: Calculator,
-  },
-  {
-    title: "Find dealer",
-    detail: "Search nearby ARS dealers and move from enquiry to supply faster.",
-    href: "#actions",
-    icon: MapPin,
-  },
-  {
-    title: "Request quote",
-    detail: "Share your project need and let the ARS team guide the next step.",
-    href: "#contact",
-    icon: ClipboardList,
-  },
+const trustItems = [
+  "SGS certified",
+  "ISO quality systems",
+  "EPD ready",
+  "GRIHA / LEED ready",
+  "Dealer network",
+  "Made in India",
+  "550D TMT steel",
+  "CRS product range",
 ];
 
-const toolRecovery = [
-  {
-    title: "Steel price today",
-    detail: "Recover the legacy price journey with product, state, city, rod size, bundle, rod, weight, and booking context.",
-    points: ["8mm to 32mm price rows", "Regional price context", "Booking details path"],
-    icon: DollarSign,
-  },
-  {
-    title: "TMT calculator",
-    detail: "Bring back the requirement calculator for building type, category, floors, area, and steel estimate output.",
-    points: ["Area and floor inputs", "Requirement estimate", "Quote-ready output"],
-    icon: Calculator,
-  },
-  {
-    title: "Dealer locator",
-    detail: "Preserve the retailer network journey so buyers can move from product interest to nearby supply faster.",
-    points: ["Location-led discovery", "Dealer contact path", "Retail support CTA"],
-    icon: MapPin,
-  },
-];
+const clientNames = ["Akshaya", "Baashyaam", "Foxconn", "VGN", "RCCL", "Noah", "Rohaan", "Sathyamoorthy", "Steelax"];
 
-const rodSizes = ["8mm", "10mm", "12mm", "16mm", "20mm", "25mm", "32mm"];
-
-const proofAssets = [
-  "SGS certified quality assurance",
-  "ISO 9001 / 14001 / 45001 systems",
-  "EPD, GRIHA, and green-building readiness",
-  "PWD, NHAI, and renewal proof to verify before launch",
-];
-
-const qualityProof = [
-  "SGS certification and quality checks visible before the pitch.",
-  "Grade clarity for engineers, contractors, and procurement teams.",
-  "Dealer-ready proof that supports local purchase confidence.",
-];
-
-const contactProof = [
-  {
-    title: "Customer helpline",
-    detail: verifiedContactDetails.mobile,
-    icon: Phone,
-  },
-  {
-    title: "Office and plant proof",
-    detail: "Corporate office and steel plant details restored from the old ARS website.",
-    icon: Building2,
-  },
-  {
-    title: "Project enquiry",
-    detail: `${verifiedContactDetails.mobile} for project-led conversations and sales support.`,
-    icon: ClipboardList,
-  },
-];
-
-const legacyClientProof = [
-  "Akshaya",
-  "Baashyaam",
-  "Foxconn",
-  "VGN",
-  "RCCL",
-  "Noah",
-  "Rohaan",
-  "Sathyamoorthy",
-  "Steelax",
-];
-
-const legacyTestimonials = [
+const testimonials = [
   {
     name: "Vijay",
-    role: "Happy customer",
-    quote: "Original site testimonial retained for client verification before publishing final quote copy.",
+    role: "ARS customer",
+    quote: "The buying journey should make price, dealer access, and quality proof easy to understand before enquiry.",
   },
   {
     name: "Raja",
-    role: "Happy customer",
-    quote: "Legacy customer proof should be migrated with approved names, location, and source context.",
+    role: "ARS customer",
+    quote: "Clear product guidance and practical support help customers move faster from planning to purchase.",
   },
   {
     name: "Murthy",
-    role: "Happy customer",
-    quote: "Customer feedback belongs near product and dealer journeys once authenticity is confirmed.",
+    role: "ARS customer",
+    quote: "Strong steel decisions need trust, availability, and the right technical proof in one place.",
   },
   {
     name: "Prabhu",
-    role: "Happy customer",
-    quote: "The old homepage used customer voices; the redesign keeps the section ready without inventing copy.",
+    role: "ARS customer",
+    quote: "A good steel brand should make it simple to choose the right product and reach the right team.",
   },
 ];
 
-const blogPreview = [
-  "What is CRS Steel",
-  "How Green Steel is Produced",
-  "TMT Bars vs HYSD Bars",
-  "House Construction Process in India",
-  "Corrosion Resistant TMT Bars",
-  "Why Green Steel Matters",
+const blogs = [
+  {
+    title: "What is CRS Steel?",
+    href: "/blog/corrosion-resistance-steel.html",
+    category: "Product knowledge",
+  },
+  {
+    title: "How Green Steel is Produced",
+    href: "/ars-green-steel",
+    category: "Sustainability",
+  },
+  {
+    title: "TMT Bars vs HYSD Bars",
+    href: "/blog/everything-about-hysd-bars.html",
+    category: "Construction guide",
+  },
+  {
+    title: "House Construction Cost in India",
+    href: "/blog/average-house-construction-cost-in-india-per-square-feet.html",
+    category: "Planning",
+  },
 ];
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-surface-50 text-ink-900">
       <SiteHeader />
-      <section className="relative flex min-h-screen w-screen items-center overflow-hidden text-white">
-        <div className="absolute inset-0 h-screen w-screen bg-ink-950">
+
+      <section className="relative flex min-h-screen w-full items-center overflow-hidden text-white">
+        <div className="absolute inset-0 h-screen w-full bg-ink-950">
           <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
           <video
             className="absolute inset-0 h-full w-full object-cover opacity-82"
@@ -216,6 +206,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/72 to-ink-950/20" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,13,14,0.16),rgba(11,13,14,0.84))]" />
         </div>
+
         <div className="ars-container relative z-10 flex min-h-screen flex-col justify-end pb-12 pt-28">
           <div className="mb-16 grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(300px,0.28fr)] lg:items-end">
             <div>
@@ -229,6 +220,7 @@ export default function Home() {
                 Structures.
               </h1>
             </div>
+
             <div className="max-w-sm justify-self-start lg:justify-self-end">
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-2 text-sm text-grey-300 backdrop-blur">
                 <ShieldCheck size={16} className="shrink-0 text-brand-blue" />
@@ -239,183 +231,144 @@ export default function Home() {
                 price clarity, product proof, steel calculation, and dealer discovery in one flow.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] bg-brand-blue px-5 text-sm font-semibold text-white transition hover:bg-brand-blue-dark" href="#buying-assistant">
-                  Check today’s price <ArrowRight size={18} />
-                </a>
-                <a className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] border border-white/35 px-5 text-sm font-semibold text-white transition hover:bg-white hover:text-ink-900" href="#products">
+                <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] bg-brand-blue px-5 text-sm font-semibold text-white transition hover:bg-brand-blue-dark" href="/steel-price-today">
+                  Check today&apos;s price <ArrowRight size={18} />
+                </Link>
+                <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] border border-white/35 px-5 text-sm font-semibold text-white transition hover:bg-white hover:text-ink-900" href="#products">
                   Explore products
-                </a>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <MotionSection className="bg-[#f8f9fb] py-24" id="actions">
+      <MotionSection className="bg-white py-24" id="audiences">
         <div className="ars-container">
-          <div className="mb-16">
-            <div className="mb-10 flex items-center gap-4">
-              <span className="h-[2px] w-12 bg-brand-blue" />
-              <p className="text-xs font-bold uppercase tracking-[0.32em] text-steel-700">
-                Track record
-              </p>
-            </div>
-            <h2 className="max-w-6xl font-display text-[clamp(2.7rem,6.6vw,7.8rem)] font-black uppercase leading-[0.9] tracking-normal text-ink-900">
-              Proof,
-              <span className="mx-4 font-serif italic font-bold text-[#F76369]">not</span>
-              promises.
-            </h2>
-            <div className="mt-10 grid gap-6 lg:grid-cols-[minmax(0,680px)_auto] lg:items-center lg:justify-between">
-              <p className="max-w-3xl text-lg leading-8 text-steel-700">
-                ARS should guide visitors through the real decision path: price, requirement,
-                dealer, and sales contact with proof visible before the pitch.
-              </p>
-              <a
-                className="focus-ring inline-flex h-14 items-center justify-center gap-3 rounded-full border border-ink-900/24 px-7 text-xs font-bold uppercase tracking-[0.24em] text-ink-900 transition hover:border-brand-blue hover:text-brand-blue"
-                href="#buying-assistant"
-              >
-                Start flow <ArrowRight size={16} />
-              </a>
-            </div>
-          </div>
-
-          <div className="mb-10 grid border-y border-ink-900/14 md:grid-cols-4">
-            {credibilityMetrics.map((metric) => (
-              <article
-                key={metric.kicker}
-                className="border-b border-ink-900/14 px-0 py-9 md:border-b-0 md:border-r md:px-8 first:md:pl-0 last:md:border-r-0"
-              >
-                <div className="mb-7 flex items-center gap-2">
-                  <span className="text-brand-blue">→</span>
-                  <p className="text-xs font-bold uppercase tracking-[0.28em] text-grey-600">
-                    {metric.kicker}
-                  </p>
-                </div>
-                <div className="flex items-end gap-3">
-                  <p className="font-display text-[clamp(4.8rem,7vw,8.4rem)] font-black leading-none text-ink-900">
-                    {metric.value}
-                  </p>
-                  {metric.suffix ? (
-                    <p className="pb-4 font-serif text-4xl italic leading-none text-[#F76369]">
-                      {metric.suffix}
-                    </p>
-                  ) : null}
-                </div>
-                <p className="mt-6 max-w-xs text-base leading-7 text-steel-700">{metric.label}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-4">
-            {["SGS certified", "ISO quality systems", "EPD / GRIHA / LEED ready", "Dealer network"].map((item) => (
-              <div key={item} className="flex items-center gap-3 rounded-[8px] border border-ink-900/10 bg-white px-5 py-4">
-                <BadgeCheck size={18} className="text-green-steel" />
-                <span className="text-sm font-bold text-steel-700">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </MotionSection>
-
-      <MotionSection className="bg-white py-24" id="buying-assistant">
-        <div className="ars-container">
-          <div className="mb-14 grid gap-8 lg:grid-cols-[0.74fr_0.26fr] lg:items-end">
-            <div>
-              <div className="mb-8 flex items-center gap-4">
-                <span className="h-[2px] w-12 bg-brand-blue" />
-                <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                  Buying assistant
+          <div className="mb-11 flex flex-col gap-7 lg:flex-row lg:items-start lg:justify-between">
+            <div className="max-w-4xl">
+              <div className="mb-5 flex items-center gap-4">
+                <span className="h-[2px] w-10 bg-brand-blue" />
+                <p className="font-technical text-[11px] font-bold uppercase tracking-[0.22em] text-brand-blue">
+                  Audience paths
                 </p>
               </div>
-              <h2 className="max-w-5xl font-display text-[clamp(2.35rem,5.4vw,6.2rem)] font-black uppercase leading-[0.94] tracking-normal text-ink-900">
-                The fastest route from enquiry to steel.
+              <h2 className="font-display text-[clamp(2.15rem,3.6vw,4.25rem)] font-bold leading-[1.02] tracking-normal text-[#001a44]">
+                Choose Your ARS Journey
               </h2>
+              <p className="mt-4 max-w-2xl text-base leading-8 text-steel-700 lg:text-lg">
+                Find the right steel solutions based on your project needs.
+              </p>
             </div>
-            <p className="max-w-xl text-lg leading-8 text-steel-700">
-              Choose the path you need: price clarity, quantity planning, dealer discovery,
-              or direct quote support.
-            </p>
+
+            <Link
+              href="/industries"
+              className="focus-ring group inline-flex h-14 w-fit items-center gap-4 rounded-full border border-brand-blue px-6 text-sm font-bold text-brand-blue transition duration-300 hover:-translate-y-0.5 hover:bg-brand-blue hover:text-white hover:shadow-[0_16px_40px_rgba(0,75,155,0.18)]"
+            >
+              See all solutions
+              <span className="inline-flex size-11 items-center justify-center rounded-full bg-brand-blue text-white transition duration-300 group-hover:bg-white group-hover:text-brand-blue group-hover:rotate-45">
+                <ArrowRight size={18} />
+              </span>
+            </Link>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-4">
-            {buyingActions.map((action) => {
-              const Icon = action.icon;
+          <div className="audience-card-grid grid gap-5">
+            {audienceCards.map((item, index) => {
+              const Icon = item.icon;
 
               return (
-                <a
-                  key={action.title}
-                  className="focus-ring group flex min-h-[250px] flex-col justify-between rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-7 transition hover:-translate-y-1 hover:border-brand-blue/35 hover:bg-white hover:shadow-[0_18px_55px_rgba(15,23,42,0.1)]"
-                  href={action.href}
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className="audience-card focus-ring group relative h-[440px] overflow-hidden rounded-[16px] bg-ink-950 p-6 text-white shadow-[0_22px_64px_rgba(15,23,42,0.14)] lg:h-[520px]"
                 >
-                  <div>
-                    <span className="mb-10 inline-flex size-14 items-center justify-center rounded-[8px] bg-white text-brand-blue ring-1 ring-ink-900/8 group-hover:bg-brand-blue group-hover:text-white">
-                      <Icon size={22} />
-                    </span>
-                    <h3 className="font-display text-3xl font-black tracking-normal text-ink-900">
-                      {action.title}
-                    </h3>
-                    <p className="mt-5 text-base leading-7 text-steel-700">{action.detail}</p>
-                  </div>
-                  <span className="mt-9 inline-flex items-center gap-2 text-sm font-bold text-brand-blue">
-                    Start flow <ArrowRight size={17} />
+                  <Image
+                    src={item.image}
+                    alt={`${item.title} ARS journey`}
+                    fill
+                    sizes={index === 0 ? "(min-width: 1024px) 36vw, 100vw" : "(min-width: 1024px) 20vw, 100vw"}
+                    className="object-cover opacity-88"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,26,68,0.02)_0%,rgba(0,26,68,0.18)_42%,rgba(0,22,58,0.94)_100%)]" />
+
+                  <span className="absolute right-5 top-5 inline-flex size-12 items-center justify-center rounded-full bg-white text-[#001a44] shadow-[0_12px_30px_rgba(0,0,0,0.18)]">
+                    <ArrowRight size={19} />
                   </span>
-                </a>
+
+                  <div className="relative flex h-full flex-col justify-end">
+                    <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-brand-blue px-4 py-2 text-white shadow-[0_12px_30px_rgba(0,75,155,0.24)]">
+                      <Icon size={17} />
+                      <p className="font-technical text-xs font-bold uppercase tracking-[0.08em]">{item.title}</p>
+                    </div>
+
+                    <h3 className="max-w-sm font-display text-[clamp(1.55rem,2vw,2.35rem)] font-bold leading-[1.12] tracking-normal">
+                      {item.body}
+                    </h3>
+
+                    <span className="mt-8 flex items-center gap-4 text-sm font-bold text-white">
+                      <span className="shrink-0">{item.cta}</span>
+                      <span className="h-px w-32 max-w-[45%] bg-white/80" />
+                      <ArrowRight size={22} />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="mt-16 grid overflow-hidden rounded-[16px] border border-ink-900/10 bg-white shadow-[0_20px_70px_rgba(15,23,42,0.08)] sm:grid-cols-2 lg:grid-cols-4">
+            {audienceStats.map((stat, index) => {
+              const Icon = stat.icon;
+
+              return (
+                <div
+                  key={stat.label}
+                  className={`group flex items-center gap-5 px-8 py-7 transition duration-300 hover:bg-[#f8fbff] ${index > 0 ? "lg:border-l lg:border-ink-900/10" : ""} ${index % 2 === 1 ? "sm:border-l sm:border-ink-900/10 lg:border-l" : ""} ${index > 1 ? "border-t border-ink-900/10 lg:border-t-0" : ""}`}
+                >
+                  <span className="inline-flex size-16 shrink-0 items-center justify-center rounded-[14px] bg-[#eef4ff] text-brand-blue transition duration-300 group-hover:-translate-y-1 group-hover:bg-brand-blue group-hover:text-white">
+                    <Icon size={30} strokeWidth={1.8} />
+                  </span>
+                  <span>
+                    <span className="block font-display text-3xl font-bold leading-none text-brand-blue">{stat.value}</span>
+                    <span className="mt-2 block text-sm font-bold leading-5 text-ink-900">{stat.label}</span>
+                    <span className="mt-1 block text-sm leading-5 text-steel-700">{stat.detail}</span>
+                  </span>
+                </div>
               );
             })}
           </div>
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-[#f8f9fb] py-24" id="critical-tools">
+      <MotionSection className="bg-[#f8f9fb] py-24" id="buying-assistant">
         <div className="ars-container">
-          <div className="mb-14 grid gap-8 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
-            <div>
-              <div className="mb-8 flex items-center gap-4">
-                <span className="h-[2px] w-12 bg-brand-blue" />
-                <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                  Critical buyer content
-                </p>
-              </div>
-              <h2 className="max-w-5xl font-display text-[clamp(2.25rem,5.2vw,6rem)] font-black uppercase leading-[0.94] tracking-normal text-ink-900">
-                Price, quantity, dealer, quote.
-              </h2>
-            </div>
-            <p className="max-w-xl text-lg leading-8 text-steel-700">
-              The old site carried high-intent tools. The redesign now surfaces their required
-              content clearly, ready for the functional pages and verified data source.
-            </p>
-          </div>
+          <SectionIntro
+            eyebrow="Fastest route"
+            title="From enquiry to steel in fewer steps."
+            body="Give every buyer a practical next action: check price, calculate requirement, find a dealer, or request a quote."
+          />
 
-          <div className="grid gap-5 lg:grid-cols-3">
-            {toolRecovery.map((tool) => {
-              const Icon = tool.icon;
+          <div className="grid gap-5 lg:grid-cols-4">
+            {buyingActions.map((action) => {
+              const Icon = action.icon;
 
               return (
-                <article
-                  key={tool.title}
-                  className="rounded-[8px] border border-ink-900/10 bg-white p-7 shadow-[0_18px_55px_rgba(15,23,42,0.06)]"
+                <Link
+                  key={action.title}
+                  className="focus-ring group flex min-h-[260px] flex-col justify-between rounded-[8px] border border-ink-900/10 bg-white p-7 shadow-[0_18px_55px_rgba(15,23,42,0.05)] transition hover:-translate-y-1 hover:border-brand-blue/35 hover:shadow-[0_18px_55px_rgba(15,23,42,0.1)]"
+                  href={action.href}
                 >
-                  <div className="mb-10 flex items-center justify-between">
-                    <span className="inline-flex size-14 items-center justify-center rounded-[8px] bg-[#f8f9fb] text-brand-blue ring-1 ring-ink-900/8">
+                  <div>
+                    <span className="mb-10 inline-flex size-14 items-center justify-center rounded-[8px] bg-[#f8f9fb] text-brand-blue ring-1 ring-ink-900/8 group-hover:bg-brand-blue group-hover:text-white">
                       <Icon size={22} />
                     </span>
-                    <span className="text-xs font-bold uppercase tracking-[0.22em] text-grey-600">
-                      Recovered
-                    </span>
+                    <h2 className="font-display text-2xl font-bold tracking-normal text-ink-900">{action.title}</h2>
+                    <p className="mt-5 text-base leading-7 text-steel-700">{action.detail}</p>
                   </div>
-                  <h3 className="font-display text-3xl font-black tracking-normal text-ink-900">
-                    {tool.title}
-                  </h3>
-                  <p className="mt-5 text-base leading-7 text-steel-700">{tool.detail}</p>
-                  <div className="mt-8 grid gap-3">
-                    {tool.points.map((point) => (
-                      <div key={point} className="flex items-center gap-3 text-sm font-semibold text-steel-700">
-                        <BadgeCheck size={17} className="shrink-0 text-green-steel" />
-                        {point}
-                      </div>
-                    ))}
-                  </div>
-                </article>
+                  <span className="mt-9 inline-flex items-center gap-2 text-sm font-bold text-brand-blue">
+                    Start flow <ArrowRight size={17} />
+                  </span>
+                </Link>
               );
             })}
           </div>
@@ -424,318 +377,161 @@ export default function Home() {
 
       <MotionSection className="bg-[#fffdfa] py-24" id="products">
         <div className="ars-container">
-          <div className="mb-16 grid gap-10 lg:grid-cols-[1fr_460px] lg:items-end">
-            <div>
-              <div className="mb-10 flex items-center gap-4">
-                <span className="h-[2px] w-12 bg-brand-blue" />
-                <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                  Product range
-                </p>
-              </div>
-              <h2 className="max-w-6xl font-display text-[clamp(2.45rem,5.8vw,6.8rem)] font-black uppercase leading-[0.92] tracking-normal text-ink-900">
-                Steel made for
-                <span className="mx-4 font-serif italic font-bold text-[#F76369]">real</span>
-                structures.
-              </h2>
-            </div>
-            <p className="max-w-xl text-lg leading-8 text-steel-700">
-              Product pages should feel technical and trustworthy, with grade data,
-              applications, certifications, and proof visible before the brochure copy.
-            </p>
-          </div>
+          <SectionIntro
+            eyebrow="Product range"
+            title="Two product paths for stronger structures."
+            body="Keep product choice simple: standard high-strength TMT for everyday structures, or corrosion-resistant steel for exposed conditions."
+          />
 
-          <div className="border-y border-ink-900/14">
-            {products.map((product, index) => (
-              <article
+          <div className="grid gap-5 lg:grid-cols-2">
+            {products.map((product) => (
+              <Link
                 key={product.name}
-                className="grid gap-8 border-b border-ink-900/14 py-10 last:border-b-0 lg:grid-cols-[0.7fr_1.1fr_0.7fr] lg:items-center"
+                href={product.href}
+                className="focus-ring group grid overflow-hidden rounded-[8px] border border-ink-900/10 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.06)] transition hover:-translate-y-1 hover:border-brand-blue/35 lg:grid-cols-[0.82fr_1fr]"
               >
-                <div>
-                  <div className="mb-6 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.26em] text-grey-600">
-                    <span className="text-[#F76369]">0{index + 1}</span>
-                    {product.eyebrow}
-                  </div>
-                  <h3 className="font-display text-4xl font-black uppercase tracking-normal text-ink-900 sm:text-5xl">
-                    {product.name}
-                  </h3>
+                <div className="flex min-h-[340px] items-center justify-center bg-[#f8f9fb] p-8">
+                  <Image
+                    src={product.image}
+                    alt={`${product.name} product`}
+                    width={620}
+                    height={460}
+                    className="max-h-[280px] w-full object-contain transition duration-500 group-hover:scale-105"
+                  />
                 </div>
-
-                <div className="grid gap-5 sm:grid-cols-[1fr_1fr]">
-                  <div className="min-h-[240px] overflow-hidden rounded-[8px] bg-white">
-                    <Image
-                      src={product.image}
-                      alt={`${product.name} ARS product photograph`}
-                      width={620}
-                      height={420}
-                      className="h-full w-full object-contain p-6"
-                    />
-                  </div>
-                  <div className="rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-6">
-                    <Factory size={22} className="text-brand-blue" />
-                    <p className="mt-8 text-lg leading-8 text-steel-700">{product.detail}</p>
-                    <div className="mt-8 flex flex-wrap gap-2">
-                      {product.tags.map((tag) => (
-                        <span key={tag} className="rounded-full border border-ink-900/10 bg-white px-3 py-1 text-xs font-bold text-steel-700">
-                          {tag}
-                        </span>
+                <div className="flex flex-col justify-between p-7">
+                  <div>
+                    <p className="font-technical text-xs font-bold uppercase tracking-[0.24em] text-brand-blue">{product.eyebrow}</p>
+                    <h2 className="mt-5 font-display text-4xl font-bold tracking-normal text-ink-900 sm:text-5xl">{product.name}</h2>
+                    <p className="mt-5 text-lg leading-8 text-steel-700">{product.detail}</p>
+                    <div className="mt-8 grid gap-3">
+                      {product.points.map((point) => (
+                        <div key={point} className="flex items-center gap-3 text-sm font-semibold text-steel-700">
+                          <BadgeCheck size={17} className="shrink-0 text-green-steel" />
+                          {point}
+                        </div>
                       ))}
                     </div>
-                    <div className="mt-8 border-t border-ink-900/10 pt-6">
-                      <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-brand-blue">
-                        Critical proof to restore
-                      </p>
-                      <div className="grid gap-3">
-                        {product.specs.map((spec) => (
-                          <div key={spec} className="flex items-center gap-3 text-sm font-semibold text-steel-700">
-                            <ShieldCheck size={16} className="shrink-0 text-green-steel" />
-                            {spec}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
                   </div>
+                  <span className="mt-9 inline-flex items-center gap-2 text-sm font-bold text-brand-blue">
+                    View product <ArrowRight size={17} />
+                  </span>
                 </div>
-
-                <div className="lg:border-l lg:border-ink-900/14 lg:pl-6">
-                  <p className="font-display text-[clamp(4rem,6vw,7rem)] font-black leading-none text-ink-900">
-                    {product.stat}
-                  </p>
-                  <p className="mt-5 max-w-xs text-base leading-7 text-steel-700">{product.statLabel}</p>
-                  <a className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-blue" href="#products">
-                    View details <ArrowRight size={17} />
-                  </a>
-                </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-white py-24" id="size-guide">
+      <MotionSection className="bg-white py-24" id="trusted-by">
         <div className="ars-container">
-          <div className="mb-14 grid gap-8 lg:grid-cols-[0.74fr_0.26fr] lg:items-end">
-            <div>
-              <div className="mb-8 flex items-center gap-4">
-                <span className="h-[2px] w-12 bg-brand-blue" />
-                <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                  Rod size guide
-                </p>
-              </div>
-              <h2 className="max-w-5xl font-display text-[clamp(2.25rem,5.2vw,6rem)] font-black uppercase leading-[0.94] tracking-normal text-ink-900">
-                Every size needs a clear job.
-              </h2>
-            </div>
-            <p className="max-w-xl text-lg leading-8 text-steel-700">
-              The legacy site had high-value SEO pages for each rod size. This section restores the
-              complete size range and points it toward product, price, and calculator journeys.
-            </p>
-          </div>
+          <SectionIntro
+            eyebrow="Trusted network"
+            title="Trusted by builders, partners, and institutions."
+            body="A single proof section keeps certification, partner, and brand signals together without splitting the story into competing logo blocks."
+          />
 
-          <div className="grid gap-4 md:grid-cols-7">
-            {rodSizes.map((size) => (
-              <article
-                key={size}
-                className="rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-5 transition hover:border-brand-blue/35 hover:bg-white"
-              >
-                <Ruler size={20} className="mb-8 text-brand-blue" />
-                <h3 className="font-display text-3xl font-black tracking-normal text-ink-900">{size}</h3>
-                <p className="mt-4 text-sm leading-6 text-steel-700">
-                  Use cases, weight, FAQ, price link, and calculator path to be carried into the
-                  product size experience.
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </MotionSection>
-
-      <AudiencePaths />
-
-      <MotionSection className="bg-white py-24" id="quality">
-        <div className="ars-container">
-          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-stretch">
-            <div className="flex flex-col justify-between rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-8">
-              <div>
-                <div className="mb-8 flex items-center gap-4">
-                  <span className="h-[2px] w-12 bg-brand-blue" />
-                  <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                    Quality and manufacturing
-                  </p>
-                </div>
-                <h2 className="max-w-3xl font-display text-[clamp(2.35rem,4.8vw,5.6rem)] font-black uppercase leading-[0.94] tracking-normal text-ink-900">
-                  Proof built into every decision.
-                </h2>
-                <p className="mt-7 max-w-xl text-lg leading-8 text-steel-700">
-                  ARS should make quality, certification, and manufacturing confidence visible
-                  before a visitor reaches the sales conversation.
-                </p>
+          <div className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-7">
+              <div className="grid grid-cols-2 gap-4">
+                <Image src="/ars-assets/awards-certificates-img2.png" alt="ARS certificate proof" width={460} height={320} className="h-44 w-full rounded-[8px] object-cover" />
+                <Image src="/ars-assets/awards-certificates-img3.png" alt="ARS award proof" width={460} height={320} className="h-44 w-full rounded-[8px] object-cover" />
               </div>
-              <a className="focus-ring mt-10 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-semibold text-white transition hover:bg-brand-blue-dark" href="#contact">
-                Request technical support <ArrowRight size={17} />
-              </a>
-            </div>
-
-            <div className="grid gap-5 md:grid-cols-[0.9fr_1.1fr]">
-              <div className="min-h-[380px] overflow-hidden rounded-[8px] bg-white">
-                <Image
-                  src="/ars-assets/our-quality-1.png"
-                  alt="ARS quality and testing source photograph"
-                  width={680}
-                  height={780}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div className="grid gap-5">
-                {qualityProof.map((item, index) => (
-                  <article key={item} className="rounded-[8px] border border-ink-900/10 bg-white p-6">
-                    <div className="mb-6 flex items-center justify-between">
-                      <span className="text-sm font-bold uppercase tracking-[0.24em] text-brand-blue">
-                        0{index + 1}
-                      </span>
-                      <ShieldCheck size={20} className="text-green-steel" />
-                    </div>
-                    <p className="text-lg font-semibold leading-8 text-ink-900">{item}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </MotionSection>
-
-      <MotionSection className="bg-[#f8f9fb] py-24" id="proof-assets">
-        <div className="ars-container">
-          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-            <div>
-              <div className="mb-8 flex items-center gap-4">
-                <span className="h-[2px] w-12 bg-brand-blue" />
-                <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                  Certificates and contact proof
-                </p>
-              </div>
-              <h2 className="max-w-4xl font-display text-[clamp(2.2rem,4.8vw,5.6rem)] font-black uppercase leading-[0.94] tracking-normal text-ink-900">
-                Make verification easy.
-              </h2>
-              <p className="mt-7 max-w-xl text-lg leading-8 text-steel-700">
-                Certification, contact, and project proof should be visible before the pitch,
-                especially for engineers, contractors, dealers, and procurement teams.
+              <p className="mt-6 text-base leading-7 text-steel-700">
+                Certification and quality proof should stay close to client and partner trust signals, especially for engineers, contractors, and procurement teams.
               </p>
             </div>
 
-            <div className="grid gap-5">
-              <div className="grid gap-4 md:grid-cols-2">
-                {proofAssets.map((item) => (
-                  <div key={item} className="flex items-center gap-3 rounded-[8px] border border-ink-900/10 bg-white p-5">
-                    <BadgeCheck size={19} className="shrink-0 text-green-steel" />
-                    <span className="text-base font-semibold leading-7 text-ink-900">{item}</span>
+            <div className="grid gap-4">
+              <div className="grid gap-4 sm:grid-cols-4">
+                {trustItems.map((item) => (
+                  <div key={item} className="flex min-h-24 items-center justify-center rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] px-4 text-center font-technical text-sm font-black uppercase tracking-[0.12em] text-steel-700">
+                    {item}
                   </div>
                 ))}
               </div>
-
-              <div className="grid gap-4 md:grid-cols-3">
-                {contactProof.map((item) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <article key={item.title} className="rounded-[8px] border border-ink-900/10 bg-white p-5">
-                      <Icon size={21} className="text-brand-blue" />
-                      <h3 className="mt-7 font-display text-xl font-black tracking-normal text-ink-900">
-                        {item.title}
-                      </h3>
-                      <p className="mt-3 text-sm leading-6 text-steel-700">{item.detail}</p>
-                    </article>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </MotionSection>
-
-      <MotionSection className="bg-white py-24" id="legacy-proof">
-        <div className="ars-container">
-          <div className="mb-14 grid gap-8 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
-            <div>
-              <div className="mb-8 flex items-center gap-4">
-                <span className="h-[2px] w-12 bg-brand-blue" />
-                <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                  Legacy proof recovered
-                </p>
-              </div>
-              <h2 className="max-w-5xl font-display text-[clamp(2.25rem,5.2vw,6rem)] font-black uppercase leading-[0.94] tracking-normal text-ink-900">
-                Clients, customers, awards, articles.
-              </h2>
-            </div>
-            <p className="max-w-xl text-lg leading-8 text-steel-700">
-              The original homepage included valuable clients, happy customers, awards,
-              certificates, and blog previews. Those business signals are now preserved in the
-              structure and ready for final approved assets.
-            </p>
-          </div>
-
-          <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-6">
               <div className="grid gap-4 sm:grid-cols-3">
-                {legacyClientProof.map((client) => (
-                  <div key={client} className="flex min-h-24 items-center justify-center rounded-[8px] border border-ink-900/10 bg-white px-4 text-center text-sm font-black uppercase tracking-[0.14em] text-steel-700">
+                {clientNames.map((client) => (
+                  <div key={client} className="flex min-h-20 items-center justify-center rounded-[8px] border border-ink-900/10 bg-white px-4 text-center font-technical text-sm font-black uppercase tracking-[0.12em] text-ink-900 shadow-[0_12px_36px_rgba(15,23,42,0.04)]">
                     {client}
                   </div>
                 ))}
               </div>
-              <p className="mt-5 text-sm leading-6 text-steel-700">
-                Client logos existed on the source site. Until logo files are available locally,
-                names are retained as content placeholders without inventing logo art.
-              </p>
-            </div>
-
-            <div className="grid gap-5">
-              <article className="overflow-hidden rounded-[8px] border border-ink-900/10 bg-white">
-                <div className="grid grid-cols-2">
-                  <Image src="/ars-assets/awards-certificates-img2.png" alt="ARS award certificate source asset" width={420} height={260} className="h-44 w-full object-cover" />
-                  <Image src="/ars-assets/awards-certificates-img3.png" alt="ARS award certificate source asset" width={420} height={260} className="h-44 w-full object-cover" />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-display text-3xl font-black tracking-normal text-ink-900">
-                    Certificates and awards
-                  </h3>
-                  <p className="mt-4 text-base leading-7 text-steel-700">
-                    EPD, GRIHA, LEED, SGS, ABP, STEELEX, and certification proof from the old site
-                    remain part of the homepage trust story.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <div className="mt-5 grid gap-5 lg:grid-cols-2">
-            <div className="grid gap-4 rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-6 sm:grid-cols-2">
-              {legacyTestimonials.map((item) => (
-                <article key={item.name} className="rounded-[8px] border border-ink-900/10 bg-white p-5">
-                  <p className="text-base leading-7 text-steel-700">“{item.quote}”</p>
-                  <p className="mt-5 font-display text-xl font-black text-ink-900">{item.name}</p>
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">{item.role}</p>
-                </article>
-              ))}
-            </div>
-
-            <div className="rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-6">
-              <h3 className="font-display text-3xl font-black tracking-normal text-ink-900">
-                Blog preview restored
-              </h3>
-              <div className="mt-6 grid gap-3">
-                {blogPreview.map((item) => (
-                  <Link key={item} href="/blog.html" className="flex items-center justify-between rounded-[8px] border border-ink-900/10 bg-white px-4 py-3 text-sm font-bold text-steel-700 transition hover:border-brand-blue hover:text-brand-blue">
-                    {item}
-                    <ArrowRight size={16} />
-                  </Link>
-                ))}
-              </div>
             </div>
           </div>
         </div>
       </MotionSection>
 
-      <ContactCta primaryHref="#buying-assistant" />
+      <MotionSection className="bg-[#f8f9fb] py-24" id="testimonials">
+        <div className="ars-container">
+          <SectionIntro
+            eyebrow="Happy clients"
+            title="Customer confidence, shaped into a cleaner story."
+            body="The homepage keeps a dedicated testimonial slider area ready for approved customer proof while preserving a polished browsing experience."
+          />
+
+          <div className="flex snap-x gap-5 overflow-x-auto pb-4">
+            {testimonials.map((item) => (
+              <article key={item.name} className="min-w-[320px] snap-start rounded-[8px] border border-ink-900/10 bg-white p-7 shadow-[0_18px_55px_rgba(15,23,42,0.05)] md:min-w-[430px]">
+                <p className="text-5xl leading-none text-brand-blue">“</p>
+                <p className="mt-6 text-xl leading-9 text-steel-700">{item.quote}</p>
+                <div className="mt-10 flex items-center gap-3 border-t border-ink-900/10 pt-6">
+                  <span className="inline-flex size-11 items-center justify-center rounded-full bg-brand-blue text-sm font-black text-white">
+                    {item.name.charAt(0)}
+                  </span>
+                  <div>
+                    <p className="font-display text-xl font-bold text-ink-900">{item.name}</p>
+                    <p className="font-technical text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">{item.role}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-white py-24" id="blogs">
+        <div className="ars-container">
+          <SectionIntro
+            eyebrow="Knowledge center"
+            title="Guides for better steel decisions."
+            body="Educational content supports SEO while helping buyers understand products, pricing, durability, and construction planning."
+          />
+
+          <div className="grid gap-5 lg:grid-cols-4">
+            {blogs.map((blog) => (
+              <Link key={blog.title} href={blog.href} className="focus-ring group flex min-h-[250px] flex-col justify-between rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-6 transition hover:-translate-y-1 hover:border-brand-blue/35 hover:bg-white">
+                <div>
+                  <p className="font-technical text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">{blog.category}</p>
+                  <h2 className="mt-7 font-display text-2xl font-bold tracking-normal text-ink-900">{blog.title}</h2>
+                </div>
+                <span className="mt-9 inline-flex items-center gap-2 text-sm font-bold text-brand-blue">
+                  Read article <ArrowRight size={17} />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </MotionSection>
+
+      <ContactCta />
     </main>
+  );
+}
+
+function SectionIntro({ eyebrow, title, body }: { eyebrow: string; title: string; body: string }) {
+  return (
+    <div className="mb-12 grid gap-6 lg:grid-cols-[0.64fr_0.36fr] lg:items-end">
+      <div>
+        <div className="mb-6 flex items-center gap-4">
+          <span className="h-[2px] w-10 bg-brand-blue" />
+          <p className="font-technical text-[11px] font-bold uppercase tracking-[0.22em] text-brand-blue">{eyebrow}</p>
+        </div>
+        <h2 className="max-w-4xl font-display text-[clamp(2rem,3.4vw,3.9rem)] font-bold leading-[1.04] tracking-normal text-ink-900">
+          {title}
+        </h2>
+      </div>
+      <p className="max-w-xl text-base leading-8 text-steel-700 lg:text-lg">{body}</p>
+    </div>
   );
 }

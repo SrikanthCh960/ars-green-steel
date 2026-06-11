@@ -138,23 +138,39 @@ Green:
 
 ## 2. Typography Patterns
 
+### Font Stack
+
+Current implementation:
+
+- Body and UI: `Inter`
+- Display and headings: `IBM Plex Sans`
+- Technical labels and specification-style text: `IBM Plex Sans Condensed`
+- Fallback: `Arial`, `Helvetica`, `system-ui`, `sans-serif`
+- The project currently uses a CSS font stack with production-safe fallbacks; self-hosted font files should be added when the approved font files are available.
+
+Rules:
+
+- Use Inter for readable body copy, navigation, forms, buttons, tables, and utility UI.
+- Use IBM Plex Sans for hero, page titles, section headings, product names, and strong editorial moments.
+- Use IBM Plex Sans Condensed sparingly for technical labels, spec metadata, grade labels, and compact proof markers.
+- Do not mix decorative fonts into industrial sections unless there is a clear brand reason.
+
 ### Display Heading
 
 Current usage:
 
 - Hero headline
-- Track Record headline
-- Buying Assistant headline
-- Product Range headline
-- Quality and Manufacturing headline
+- Major page hero statements
+- Product and trust hero sections
 - Contact CTA headline
 
 Pattern:
 
 - `font-display`
-- Heavy / black weight
-- Uppercase
-- Tight line height around `0.9-0.94`
+- IBM Plex Sans
+- Heavy weight only for the main hero
+- Title case or sentence case after the hero
+- Controlled line height around `1.0-1.08`
 - Responsive `clamp()` sizing
 - Dark navy on light sections
 - White on hero
@@ -162,27 +178,26 @@ Pattern:
 Use for:
 
 - Major campaign statements
-- Section-defining editorial headlines
+- Section-defining industrial headlines
 - High-impact proof or conversion moments
 
 Rules:
 
-- Use display scale for major sections only.
+- Use the largest display scale for the homepage hero only.
+- Keep post-hero section headings more restrained for scanability.
 - Do not use oversized typography inside small cards.
 - Keep copy short and direct.
 
-### Serif Italic Accent
+### Italic Accent
 
 Current usage:
 
 - Hero animated word
-- "not" in "Proof, not promises"
-- "real" in "Steel made for real structures"
-- Metric suffixes such as `yrs`
+- Select editorial emphasis words
 
 Pattern:
 
-- Serif font
+- IBM Plex Sans
 - Italic
 - Accent red
 - Used inline with large display text

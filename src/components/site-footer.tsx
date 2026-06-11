@@ -99,7 +99,7 @@ export function SiteFooter() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {footerColumns.map((column) => (
             <div key={column.title}>
-              <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-ink-900">
+              <h3 className="font-technical text-sm font-bold uppercase tracking-[0.18em] text-ink-900">
                 {column.title}
               </h3>
               <ul className="mt-4 space-y-3">

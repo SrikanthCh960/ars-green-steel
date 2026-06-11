@@ -2,123 +2,113 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, Calculator, ChevronDown, Menu, Search, ShieldCheck, X } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight, BadgeCheck, Calculator, ChevronDown, Menu, Search, ShieldCheck } from "lucide-react";
 
 const routeLinks = [
-  { label: "Products", href: "/products", menu: "products" },
-  { label: "Segments", href: "/industries", menu: "segments" },
-  { label: "Applications", href: "/projects", menu: "applications" },
-  { label: "Green Steel", href: "/green-steel", menu: "green" },
-  { label: "Buy", href: "/services", menu: "services" },
+  { label: "Home", href: "/" },
   { label: "About", href: "/about", menu: "about" },
-  { label: "Media", href: "/blog.html", menu: "media" },
+  { label: "Products", href: "/products", menu: "products" },
+  { label: "Sustainability", href: "/green-steel", menu: "sustainability" },
+  { label: "Solutions", href: "/industries", menu: "solutions" },
+  { label: "Resources", href: "/blog.html", menu: "resources" },
+  { label: "Press & Media", href: "/video", menu: "pressMedia" },
   { label: "Contact", href: "/contact", menu: "contact" },
 ];
 
 const megaMenus = {
-  products: {
-    eyebrow: "Product proof",
-    title: "Choose steel by grade, size, and site condition.",
-    visual: "Product finder",
-    visualSrc: "/ars-assets/products-all.png",
-    links: [
-      { label: "All Products", href: "/products" },
-      { label: "ARS 550D", href: "/products/ars-550d" },
-      { label: "ARS CRS 550D", href: "/products/ars-crs-550d" },
-      { label: "8mm Steel Rod", href: "/8-mm-steel-rod" },
-      { label: "10mm Steel Rod", href: "/10-mm-steel-rod" },
-      { label: "12mm Steel Rod", href: "/12-mm-steel-rod" },
-      { label: "16mm Steel Rod", href: "/16-mm-steel-rod" },
-      { label: "20mm Steel Rod", href: "/20-mm-steel-rod" },
-      { label: "25mm Steel Rod", href: "/25-mm-steel-rod" },
-      { label: "32mm Steel Rod", href: "/32-mm-steel-rod" },
-    ],
-    proof: ["550D ductility", "CRS corrosion resistance", "8mm to 32mm rod sizes"],
-  },
-  segments: {
-    eyebrow: "Audience paths",
-    title: "Guide each buyer to the proof and action they need.",
-    visual: "Buyer journeys",
-    visualSrc: "/ars-assets/home-owner-banner-1.png",
-    links: [
-      { label: "Home Owners", href: "/tmt-steel-bar-guide-homeowners" },
-      { label: "Engineers & Architects", href: "/tmt-steel-bar-guide-engineers-architects" },
-      { label: "Civil Contractors", href: "/tmt-steel-bar-guide-civil-contractors" },
-      { label: "Dealers & Distributors", href: "/steel-distributors-dealers" },
-      { label: "All Industries", href: "/industries" },
-    ],
-    proof: ["Home builds", "Technical proof", "Dealer support"],
-  },
-  applications: {
-    eyebrow: "Applications",
-    title: "Show where ARS steel fits in real construction.",
-    visual: "Project types",
-    visualSrc: "/ars-assets/ARSHOME4.jpg",
-    links: [
-      { label: "Institutions", href: "/institutions-projects-tmt-steel-bars" },
-      { label: "Bridges & Flyovers", href: "/bridges-projects-tmt-steel-bars" },
-      { label: "Road Projects", href: "/road-projects-tmt-steel-bars" },
-      { label: "All Projects", href: "/projects" },
-      { label: "Request Project Quote", href: "/request-quote" },
-    ],
-    proof: ["Institutions", "Bridges", "Road projects"],
-  },
-  green: {
-    eyebrow: "Green steel",
-    title: "Make sustainability proof visible and verifiable.",
-    visual: "Green proof",
-    visualSrc: "/ars-assets/our-quality-1.png",
-    links: [
-      { label: "Green Steel", href: "/green-steel" },
-      { label: "Certifications", href: "/certifications" },
-      { label: "Our Quality", href: "/our-quality" },
-      { label: "Steel Testing", href: "/steel-testing" },
-      { label: "Manufacturing", href: "/manufacturing" },
-    ],
-    proof: ["EPD", "GRIHA / LEED", "Testing proof"],
-  },
-  services: {
-    eyebrow: "Buying assistance",
-    title: "Move from enquiry to steel with fewer calls.",
-    visual: "Buying assistant",
-    visualSrc: "/ars-assets/our-quality-1.png",
-    links: [
-      { label: "Steel Price Today", href: "/steel-price-today" },
-      { label: "TMT Calculator", href: "/tmt-calculator" },
-      { label: "Dealer Locator", href: "/dealer-locator" },
-      { label: "Request Quote", href: "/request-quote" },
-      { label: "Contact Sales", href: "/contact" },
-    ],
-    proof: ["Price clarity", "Requirement planning", "Dealer discovery"],
-  },
   about: {
     eyebrow: "Company trust",
-    title: "See legacy, leadership, manufacturing strength, and proof.",
-    visual: "ARS legacy",
+    title: "Understand ARS Group, leadership, manufacturing, quality, and client proof.",
+    visual: "ARS Group",
     visualSrc: "/ars-assets/right-about-us.png-compress.webp",
     links: [
-      { label: "About ARS", href: "/about" },
-      { label: "Core Team", href: "/our-team" },
-      { label: "CSR", href: "/csr" },
-      { label: "Careers", href: "/careers" },
-      { label: "Manufacturing Strength", href: "/manufacturing" },
+      { label: "ARS Group", href: "/about" },
+      { label: "Vision & Mission", href: "/about#vision" },
+      { label: "Leadership", href: "/our-team" },
+      { label: "Manufacturing", href: "/manufacturing" },
+      { label: "Quality Policy", href: "/our-quality" },
+      { label: "Certifications", href: "/certifications" },
+      { label: "Clients", href: "/#legacy-proof" },
     ],
-    proof: ["Since 1992", "Manufacturing strength", "Dealer confidence"],
+    proof: ["Since 1992", "Leadership proof", "Manufacturing strength"],
   },
-  media: {
-    eyebrow: "Media",
-    title: "Keep ARS education, blogs, and video content available.",
-    visual: "Resources",
+  products: {
+    eyebrow: "Product proof",
+    title: "Choose ARS steel by grade, application, specification, and project need.",
+    visual: "Products",
+    visualSrc: "/ars-assets/products-all.png",
+    links: [
+      { label: "ARS 550D TMT Bar", href: "/products/ars-550d" },
+      { label: "ARS CRS 550D", href: "/products/ars-crs-550d" },
+      { label: "Product Comparison", href: "/products#comparison" },
+      { label: "Product Applications", href: "/projects" },
+      { label: "Residential Construction", href: "/tmt-steel-bar-guide-homeowners" },
+      { label: "Commercial Buildings", href: "/projects" },
+      { label: "Infrastructure Projects", href: "/tmt-steel-bar-guide-civil-contractors" },
+      { label: "Technical Specifications", href: "/products/ars-550d#technical-specifications" },
+      { label: "Download Product Brochure", href: "/products#brochure" },
+    ],
+    proof: ["550D ductility", "CRS corrosion resistance", "Residential to infrastructure use"],
+  },
+  sustainability: {
+    eyebrow: "Sustainability",
+    title: "Show green steel, embodied carbon, certifications, and reports clearly.",
+    visual: "Green steel",
+    visualSrc: "/ars-assets/our-quality-1.png",
+    links: [
+      { label: "What is Green Steel", href: "/green-steel#what-is-green-steel" },
+      { label: "ARS Green Steel", href: "/ars-green-steel" },
+      { label: "Embodied Carbon", href: "/green-steel#embodied-carbon" },
+      { label: "Certifications & Recognitions", href: "/certifications" },
+      { label: "Reports & Downloads", href: "/certifications#downloads" },
+    ],
+    proof: ["Green steel story", "EPD / GRIHA / LEED readiness", "Downloadable proof"],
+  },
+  solutions: {
+    eyebrow: "Solutions",
+    title: "Guide each audience to the proof, product, and next action they need.",
+    visual: "Audience paths",
+    visualSrc: "/ars-assets/home-owner-banner-1.png",
+    links: [
+      { label: "For Home Owners", href: "/tmt-steel-bar-guide-homeowners" },
+      { label: "For Engineers & Architects", href: "/tmt-steel-bar-guide-engineers-architects" },
+      { label: "For Contractors", href: "/tmt-steel-bar-guide-civil-contractors" },
+      { label: "For Dealers", href: "/steel-distributors-dealers" },
+    ],
+    proof: ["Home builds", "Technical specification", "Dealer support"],
+  },
+  resources: {
+    eyebrow: "Resources",
+    title: "Help buyers estimate, compare, learn, and move toward enquiry.",
+    visual: "Knowledge center",
     visualSrc: "/ars-assets/awards-certificates-img3.png",
     links: [
-      { label: "Blogs", href: "/blog.html" },
-      { label: "Videos", href: "/video" },
-      { label: "Quality Articles", href: "/blog/corrosion-resistance-steel.html" },
-      { label: "Green Steel Articles", href: "/ars-green-steel" },
-      { label: "Contact Media Team", href: "/contact" },
+      { label: "Steel Price Today", href: "/steel-price-today" },
+      { label: "Price Calculator", href: "/tmt-calculator" },
+      { label: "Construction Estimation", href: "/tmt-calculator#construction-estimation" },
+      { label: "Blog / Knowledge Center", href: "/blog.html" },
+      { label: "Guides & Articles", href: "/blog.html" },
+      { label: "TMT Bar Calculator", href: "/tmt-calculator" },
+      { label: "Construction Cost Estimator", href: "/blog/average-house-construction-cost-in-india-per-square-feet.html" },
+      { label: "Careers", href: "/careers" },
+      { label: "FAQs", href: "/blog.html#faqs" },
     ],
-    proof: ["Blogs", "Videos", "Education"],
+    proof: ["Price clarity", "Calculator journey", "Construction education"],
+  },
+  pressMedia: {
+    eyebrow: "Press media",
+    title: "Keep commercials, news, events, gallery, videos, and success proof accessible.",
+    visual: "Media gallery",
+    visualSrc: "/ars-assets/awards-certificates-img2.png",
+    links: [
+      { label: "TV Commercials", href: "/video" },
+      { label: "News & Press Releases", href: "/blog.html" },
+      { label: "Events", href: "/blog.html#events" },
+      { label: "Gallery", href: "/video" },
+      { label: "Videos", href: "/video" },
+      { label: "Success Stories", href: "/projects#success-stories" },
+    ],
+    proof: ["Video gallery", "Knowledge articles", "Project proof"],
   },
   contact: {
     eyebrow: "Next step",
@@ -130,6 +120,7 @@ const megaMenus = {
       { label: "Request Quote", href: "/request-quote" },
       { label: "Dealer Locator", href: "/dealer-locator" },
       { label: "Become a Dealer", href: "/become-a-dealer" },
+      { label: "Talk to an Expert", href: "/contact" },
     ],
     proof: ["Customer helpline", "Project enquiry", "Office and plant"],
   },
@@ -137,45 +128,42 @@ const megaMenus = {
 
 export function SiteHeader() {
   const links = routeLinks;
-  const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const active = activeMenu ? megaMenus[activeMenu as keyof typeof megaMenus] : null;
   const mobileMenuId = "site-mobile-navigation";
 
   return (
     <header
       className="fixed inset-x-0 top-0 z-50 px-0 text-ink-900 lg:px-4 lg:pt-3"
-      onMouseLeave={() => setActiveMenu(null)}
-      onKeyDown={(event) => {
-        if (event.key === "Escape") {
-          setActiveMenu(null);
-          setMobileOpen(false);
-        }
-      }}
     >
-      <div className="overflow-hidden border-b border-ink-900/10 bg-[#f7f4ee]/96 shadow-[0_22px_70px_rgba(15,23,42,0.16)] backdrop-blur-xl lg:rounded-b-[28px] lg:border lg:border-ink-900/10">
+      <div className="border-b border-ink-900/10 bg-[#f7f4ee]/96 shadow-[0_22px_70px_rgba(15,23,42,0.16)] backdrop-blur-xl lg:rounded-b-[28px] lg:border lg:border-ink-900/10">
       <div className="ars-container flex h-20 items-center justify-between">
-        <Link href="/" className="focus-ring flex items-center gap-3" onClick={() => setMobileOpen(false)}>
+        <Link href="/" className="focus-ring flex items-center gap-3">
           <span className="flex h-14 w-[132px] items-center justify-center">
             <Image src="/ars-green-steel.svg" alt="ARS Green Steel" width={132} height={62} priority />
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 text-[15px] font-semibold text-steel-700 lg:flex">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="group inline-flex items-center gap-1.5 border-b-2 border-transparent py-2 transition hover:border-brand-blue hover:text-ink-900"
-              onMouseEnter={() => setActiveMenu(link.menu)}
-              onFocus={() => setActiveMenu(link.menu)}
-              aria-haspopup="true"
-              aria-expanded={activeMenu === link.menu}
-            >
-              {link.label}
-              <ChevronDown size={14} className="text-brand-blue transition group-hover:rotate-180" />
-            </a>
-          ))}
+        <nav className="hidden items-center gap-5 text-[14px] font-semibold text-steel-700 xl:flex">
+          {links.map((link) => {
+            const menu = link.menu ? megaMenus[link.menu as keyof typeof megaMenus] : null;
+
+            return (
+              <div key={link.label} className="group/menu">
+                <a
+                  href={link.href}
+                  className="inline-flex items-center gap-1.5 border-b-2 border-transparent py-2 transition hover:border-brand-blue hover:text-ink-900 focus-visible:border-brand-blue"
+                  aria-haspopup={menu ? "true" : undefined}
+                >
+                  {link.label}
+                  {menu ? <ChevronDown size={14} className="text-brand-blue transition group-hover/menu:rotate-180" /> : null}
+                </a>
+                {menu ? (
+                  <div className="invisible absolute left-0 right-0 top-full hidden border-t border-ink-900/10 bg-[#f7f4ee]/98 opacity-0 shadow-[0_32px_80px_rgba(15,23,42,0.18)] transition group-hover/menu:visible group-hover/menu:block group-hover/menu:opacity-100 group-focus-within/menu:visible group-focus-within/menu:block group-focus-within/menu:opacity-100" role="region" aria-label={`${menu.eyebrow} menu`}>
+                    <MegaMenuContent menu={menu} />
+                  </div>
+                ) : null}
+              </div>
+            );
+          })}
         </nav>
 
         <div className="flex items-center gap-3">
@@ -188,109 +176,124 @@ export function SiteHeader() {
           <Link className="focus-ring inline-flex h-11 items-center gap-2 rounded-full bg-brand-blue px-5 text-sm font-bold text-white shadow-[0_12px_30px_rgba(0,75,155,0.24)] transition hover:bg-brand-blue-dark" href="/request-quote">
             Get quote <ArrowRight size={16} />
           </Link>
-          <button
-            className="focus-ring inline-flex size-11 items-center justify-center rounded-full border border-ink-900/12 bg-white/60 text-ink-900 lg:hidden"
-            type="button"
-            aria-label="Toggle navigation"
-            aria-expanded={mobileOpen}
-            aria-controls={mobileMenuId}
-            onClick={() => setMobileOpen((value) => !value)}
-          >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <details className="group/details xl:hidden">
+            <summary
+              className="focus-ring inline-flex size-11 cursor-pointer list-none items-center justify-center rounded-full border border-ink-900/12 bg-white/60 text-ink-900 [&::-webkit-details-marker]:hidden"
+              aria-label="Toggle navigation"
+              aria-controls={mobileMenuId}
+            >
+              <Menu size={20} />
+            </summary>
+            <div id={mobileMenuId} className="absolute left-0 right-0 top-full max-h-[calc(100vh-80px)] overflow-y-auto border-t border-ink-900/10 bg-[#f7f4ee] shadow-[0_24px_60px_rgba(15,23,42,0.16)]">
+              <div className="ars-container grid gap-5 py-5">
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {[
+                    { label: "Steel Price", href: "/steel-price-today", icon: Search },
+                    { label: "Calculator", href: "/tmt-calculator", icon: Calculator },
+                    { label: "Dealer Locator", href: "/dealer-locator", icon: ShieldCheck },
+                  ].map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <a key={item.label} className="flex items-center gap-3 rounded-[14px] bg-white px-4 py-3 text-sm font-bold text-ink-900 shadow-[0_10px_28px_rgba(15,23,42,0.06)]" href={item.href}>
+                        <Icon size={17} className="text-brand-blue" />
+                        {item.label}
+                      </a>
+                    );
+                  })}
+                </div>
+                <nav className="grid gap-2">
+                  {routeLinks.map((link) => (
+                    link.menu ? (
+                      <details key={link.label} className="border-t border-ink-900/10 py-3">
+                        <summary className="flex cursor-pointer list-none items-center justify-between text-base font-bold text-ink-900 [&::-webkit-details-marker]:hidden">
+                          {link.label}
+                          <ChevronDown size={16} className="text-brand-blue" />
+                        </summary>
+                        <div className="mt-4 grid gap-3 pl-3">
+                          {megaMenus[link.menu as keyof typeof megaMenus].links.map((item) => (
+                            <a key={item.label} className="flex items-center justify-between text-sm font-semibold text-steel-700" href={item.href}>
+                              {item.label}
+                              <ArrowRight size={14} className="text-brand-blue" />
+                            </a>
+                          ))}
+                        </div>
+                      </details>
+                    ) : (
+                      <a key={link.label} className="flex items-center justify-between border-t border-ink-900/10 py-3 text-base font-bold text-ink-900" href={link.href}>
+                        {link.label}
+                        <ArrowRight size={16} className="text-brand-blue" />
+                      </a>
+                    )
+                  ))}
+                </nav>
+              </div>
+            </div>
+          </details>
         </div>
       </div>
-
-      {active ? (
-        <div className="hidden border-t border-ink-900/10 lg:block" role="region" aria-label={`${active.eyebrow} menu`}>
-          <div className="ars-container grid gap-12 py-9 lg:grid-cols-[360px_1fr_280px] lg:items-center">
-            <Link className="group relative min-h-[190px] overflow-hidden rounded-[22px] bg-ink-900 p-6 text-white shadow-[0_20px_55px_rgba(15,23,42,0.18)]" href={active.links[0]?.href ?? "/products"}>
-              <Image
-                src={active.visualSrc}
-                alt={`${active.visual} ARS source asset`}
-                fill
-                sizes="360px"
-                className="object-cover transition duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,.08),rgba(15,23,42,.82))]" />
-              <div className="absolute -right-10 -top-10 size-36 rounded-full border border-white/24" />
-              <div className="absolute bottom-5 right-5 inline-flex size-12 items-center justify-center rounded-full bg-white text-brand-blue transition group-hover:translate-x-1">
-                <ArrowRight size={20} />
-              </div>
-              <div className="relative mt-20">
-                <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/70">{active.eyebrow}</p>
-                <p className="mt-2 font-display text-3xl font-black uppercase leading-tight">{active.visual}</p>
-              </div>
-            </Link>
-
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-blue">{active.eyebrow}</p>
-              <p className="mt-4 max-w-2xl font-display text-4xl font-black uppercase leading-tight text-ink-900">
-                {active.title}
-              </p>
-              <div className="mt-8 grid gap-x-12 gap-y-5 sm:grid-cols-2">
-                {active.links.map((item) => (
-                  <a key={item.label} className="focus-ring group flex items-center gap-4 text-lg font-semibold text-steel-700 transition hover:text-brand-blue" href={item.href}>
-                    <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-white text-brand-blue ring-1 ring-ink-900/10 transition group-hover:bg-brand-blue group-hover:text-white">
-                      <ArrowRight size={17} />
-                    </span>
-                    {item.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-[22px] border border-ink-900/10 bg-white/62 p-6">
-              <div className="mb-5 flex items-center gap-2 text-sm font-bold text-ink-900">
-                <ShieldCheck size={18} className="text-brand-blue" />
-                Proof points
-              </div>
-              <div className="grid gap-4">
-                {active.proof.map((item) => (
-                  <div key={item} className="flex items-center gap-3 text-sm font-semibold text-steel-700">
-                    <BadgeCheck size={16} className="shrink-0 text-green-steel" />
-                    {item}
-                  </div>
-                ))}
-              </div>
-              <Link className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-brand-blue" href="/request-quote">
-                Start enquiry <ArrowRight size={16} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      ) : null}
-
-      {mobileOpen ? (
-        <div id={mobileMenuId} className="max-h-[calc(100vh-80px)] overflow-y-auto border-t border-ink-900/10 bg-[#f7f4ee] lg:hidden">
-          <div className="ars-container grid gap-5 py-5">
-            <div className="grid gap-3 sm:grid-cols-3">
-              {[
-                { label: "Steel Price", href: "/steel-price-today", icon: Search },
-                { label: "Calculator", href: "/tmt-calculator", icon: Calculator },
-                { label: "Dealer Locator", href: "/dealer-locator", icon: ShieldCheck },
-              ].map((item) => {
-                const Icon = item.icon;
-                return (
-                  <a key={item.label} className="flex items-center gap-3 rounded-[14px] bg-white px-4 py-3 text-sm font-bold text-ink-900 shadow-[0_10px_28px_rgba(15,23,42,0.06)]" href={item.href} onClick={() => setMobileOpen(false)}>
-                    <Icon size={17} className="text-brand-blue" />
-                    {item.label}
-                  </a>
-                );
-              })}
-            </div>
-            <nav className="grid gap-2">
-              {routeLinks.map((link) => (
-                <a key={link.label} className="flex items-center justify-between border-t border-ink-900/10 py-3 text-base font-bold text-ink-900" href={link.href} onClick={() => setMobileOpen(false)}>
-                  {link.label}
-                  <ArrowRight size={16} className="text-brand-blue" />
-                </a>
-              ))}
-            </nav>
-          </div>
-        </div>
-      ) : null}
       </div>
     </header>
+  );
+}
+
+type MegaMenu = (typeof megaMenus)[keyof typeof megaMenus];
+
+function MegaMenuContent({ menu }: { menu: MegaMenu }) {
+  return (
+    <div className="ars-container grid gap-12 py-9 lg:grid-cols-[360px_1fr_280px] lg:items-center">
+      <Link className="group relative min-h-[190px] overflow-hidden rounded-[22px] bg-ink-900 p-6 text-white shadow-[0_20px_55px_rgba(15,23,42,0.18)]" href={menu.links[0]?.href ?? "/products"}>
+        <Image
+          src={menu.visualSrc}
+          alt={`${menu.visual} ARS source asset`}
+          fill
+          sizes="360px"
+          className="object-cover transition duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,.08),rgba(15,23,42,.82))]" />
+        <div className="absolute -right-10 -top-10 size-36 rounded-full border border-white/24" />
+        <div className="absolute bottom-5 right-5 inline-flex size-12 items-center justify-center rounded-full bg-white text-brand-blue transition group-hover:translate-x-1">
+          <ArrowRight size={20} />
+        </div>
+        <div className="relative mt-20">
+          <p className="font-technical text-xs font-bold uppercase tracking-[0.28em] text-white/70">{menu.eyebrow}</p>
+          <p className="mt-2 font-display text-3xl font-black uppercase leading-tight">{menu.visual}</p>
+        </div>
+      </Link>
+
+      <div>
+        <p className="font-technical text-xs font-bold uppercase tracking-[0.28em] text-brand-blue">{menu.eyebrow}</p>
+        <p className="mt-4 max-w-2xl font-display text-4xl font-black uppercase leading-tight text-ink-900">
+          {menu.title}
+        </p>
+        <div className="mt-8 grid gap-x-12 gap-y-5 sm:grid-cols-2">
+          {menu.links.map((item) => (
+            <a key={item.label} className="focus-ring group flex items-center gap-4 text-lg font-semibold text-steel-700 transition hover:text-brand-blue" href={item.href}>
+              <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-white text-brand-blue ring-1 ring-ink-900/10 transition group-hover:bg-brand-blue group-hover:text-white">
+                <ArrowRight size={17} />
+              </span>
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div className="rounded-[22px] border border-ink-900/10 bg-white/62 p-6">
+        <div className="mb-5 flex items-center gap-2 text-sm font-bold text-ink-900">
+          <ShieldCheck size={18} className="text-brand-blue" />
+          Proof points
+        </div>
+        <div className="grid gap-4">
+          {menu.proof.map((item) => (
+            <div key={item} className="flex items-center gap-3 text-sm font-semibold text-steel-700">
+              <BadgeCheck size={16} className="shrink-0 text-green-steel" />
+              {item}
+            </div>
+          ))}
+        </div>
+        <Link className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-brand-blue" href="/request-quote">
+          Start enquiry <ArrowRight size={16} />
+        </Link>
+      </div>
+    </div>
   );
 }
