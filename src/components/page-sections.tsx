@@ -107,17 +107,17 @@ export function SectionIntro({
   body?: string;
 }) {
   return (
-    <div className="mb-14 grid gap-8 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
+    <div className="mb-14 max-w-4xl">
       <div>
-        <div className="mb-8 flex items-center gap-4">
-          <span className="h-[2px] w-12 bg-brand-blue" />
-          <p className="font-technical text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">{eyebrow}</p>
+        <div className="mb-6 flex items-center gap-4">
+          <span className="h-[2px] w-10 bg-brand-blue" />
+          <p className="font-technical text-[11px] font-bold uppercase tracking-[0.22em] text-brand-blue">{eyebrow}</p>
         </div>
-        <h2 className="max-w-5xl break-words font-display text-[clamp(2rem,4.5vw,4.8rem)] font-black uppercase leading-[0.96] tracking-normal text-ink-900">
+        <h2 className="max-w-4xl break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal text-ink-900">
           {title}
         </h2>
       </div>
-      {body ? <p className="max-w-xl text-lg leading-8 text-steel-700">{body}</p> : null}
+      {body ? <p className="mt-4 max-w-2xl text-base leading-8 text-steel-700 lg:text-lg">{body}</p> : null}
     </div>
   );
 }

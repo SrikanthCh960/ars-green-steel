@@ -30,7 +30,10 @@ export default function RequestQuotePage() {
         <div className="ars-container grid gap-8 lg:grid-cols-[0.36fr_0.64fr] lg:items-start">
           <div className="rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-7">
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-blue">Before you submit</p>
-            <h2 className="mt-5 font-display text-4xl font-black uppercase leading-tight text-ink-900">Useful quote details</h2>
+            <h2 className="mt-4 font-display text-[clamp(2rem,3.4vw,3.5rem)] font-bold leading-[1.04] tracking-normal text-ink-900">Useful quote details</h2>
+            <p className="mt-4 text-base leading-7 text-steel-700">
+              Share these details so the sales team can respond with clearer pricing and availability.
+            </p>
             <div className="mt-8 grid gap-4">
               {["Product grade: ARS 550D or ARS CRS 550D", "Rod size: 8mm, 10mm, 12mm, 16mm, 20mm, 25mm, or 32mm", "Approximate quantity or built-up area", "Delivery location and project stage"].map((item) => (
                 <div key={item} className="flex gap-3 text-base leading-7 text-steel-700">

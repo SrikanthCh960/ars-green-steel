@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, Calculator, ChevronDown, Menu, Search, ShieldCheck } from "lucide-react";
+import { useState } from "react";
 
 const routeLinks = [
   { label: "Home", href: "/" },
@@ -129,12 +130,18 @@ const megaMenus = {
 export function SiteHeader() {
   const links = routeLinks;
   const mobileMenuId = "site-mobile-navigation";
+  const [activeMenu, setActiveMenu] = useState<keyof typeof megaMenus | null>(null);
+  const hasOpenMenu = activeMenu !== null;
+  const activeMegaMenu = activeMenu ? megaMenus[activeMenu] : null;
 
   return (
     <header
-      className="fixed inset-x-0 top-0 z-50 px-0 text-ink-900 lg:px-4 lg:pt-3"
+      data-menu-open={hasOpenMenu ? "true" : "false"}
+      className="site-header fixed inset-x-0 top-0 z-50 px-0 text-ink-900 lg:px-4 lg:pt-3"
+      onMouseLeave={() => setActiveMenu(null)}
+      onPointerLeave={() => setActiveMenu(null)}
     >
-      <div className="border-b border-ink-900/10 bg-[#f7f4ee]/96 shadow-[0_22px_70px_rgba(15,23,42,0.16)] backdrop-blur-xl lg:rounded-b-[28px] lg:border lg:border-ink-900/10">
+      <div className="site-header-shell border-b border-ink-900/10 bg-[#f7f4ee]/96 shadow-[0_22px_70px_rgba(15,23,42,0.16)] backdrop-blur-xl lg:rounded-b-[28px] lg:border lg:border-ink-900/10">
       <div className="ars-container flex h-20 items-center justify-between">
         <Link href="/" className="focus-ring flex items-center gap-3">
           <span className="flex h-14 w-[132px] items-center justify-center">
@@ -144,23 +151,27 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-5 text-[14px] font-semibold text-steel-700 xl:flex">
           {links.map((link) => {
-            const menu = link.menu ? megaMenus[link.menu as keyof typeof megaMenus] : null;
+            const menuKey = link.menu as keyof typeof megaMenus | undefined;
+            const menu = menuKey ? megaMenus[menuKey] : null;
+            const isOpen = menuKey ? activeMenu === menuKey : false;
 
             return (
-              <div key={link.label} className="group/menu">
+              <div
+                key={link.label}
+                className="site-nav-item group/menu"
+                onMouseEnter={() => setActiveMenu(menuKey ?? null)}
+                onPointerEnter={() => setActiveMenu(menuKey ?? null)}
+              >
                 <a
                   href={link.href}
-                  className="inline-flex items-center gap-1.5 border-b-2 border-transparent py-2 transition hover:border-brand-blue hover:text-ink-900 focus-visible:border-brand-blue"
+                  className="inline-flex h-20 items-center gap-1.5 border-b-2 border-transparent transition hover:border-brand-blue hover:text-ink-900 focus-visible:border-brand-blue"
                   aria-haspopup={menu ? "true" : undefined}
+                  aria-expanded={menu ? isOpen : undefined}
+                  onFocus={() => setActiveMenu(menuKey ?? null)}
                 >
                   {link.label}
-                  {menu ? <ChevronDown size={14} className="text-brand-blue transition group-hover/menu:rotate-180" /> : null}
+                  {menu ? <ChevronDown size={14} className={`text-brand-blue transition ${isOpen ? "rotate-180" : ""}`} /> : null}
                 </a>
-                {menu ? (
-                  <div className="invisible absolute left-0 right-0 top-full hidden border-t border-ink-900/10 bg-[#f7f4ee]/98 opacity-0 shadow-[0_32px_80px_rgba(15,23,42,0.18)] transition group-hover/menu:visible group-hover/menu:block group-hover/menu:opacity-100 group-focus-within/menu:visible group-focus-within/menu:block group-focus-within/menu:opacity-100" role="region" aria-label={`${menu.eyebrow} menu`}>
-                    <MegaMenuContent menu={menu} />
-                  </div>
-                ) : null}
               </div>
             );
           })}
@@ -232,6 +243,17 @@ export function SiteHeader() {
         </div>
       </div>
       </div>
+      {activeMegaMenu ? (
+        <div
+          className="site-mega-menu is-open absolute left-0 right-0 top-full border-t border-ink-900/10 bg-[#f7f4ee]/98 shadow-[0_32px_80px_rgba(15,23,42,0.18)]"
+          role="region"
+          aria-label={`${activeMegaMenu.eyebrow} menu`}
+          onMouseEnter={() => setActiveMenu(activeMenu)}
+          onPointerEnter={() => setActiveMenu(activeMenu)}
+        >
+          <MegaMenuContent menu={activeMegaMenu} />
+        </div>
+      ) : null}
     </header>
   );
 }

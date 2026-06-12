@@ -60,7 +60,7 @@ export function LeadForm({
         <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-blue">
           {intent === "dealer" ? "Dealer support" : intent === "contact" ? "Sales contact" : "Quote request"}
         </p>
-        <h2 className="mt-4 font-display text-4xl font-black uppercase leading-tight text-ink-900">
+        <h2 className="mt-4 font-display text-[clamp(2rem,3.4vw,3.5rem)] font-bold leading-[1.04] tracking-normal text-ink-900">
           {title}
         </h2>
         <p className="mt-4 text-base leading-7 text-steel-700">{body}</p>

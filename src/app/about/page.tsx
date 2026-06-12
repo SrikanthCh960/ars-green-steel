@@ -202,7 +202,7 @@ export default function AboutPage() {
                   Track record
                 </p>
               </div>
-              <h2 className="max-w-full break-words font-display text-[clamp(2.1rem,6vw,6.9rem)] font-black uppercase leading-[0.92] tracking-normal text-ink-900">
+              <h2 className="max-w-full break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal text-ink-900">
                 Confidence,{" "}
                 <span className="mx-4 font-serif italic font-bold text-[#F76369]">earned</span>
                 {" "}
@@ -247,7 +247,7 @@ export default function AboutPage() {
                   Company story
                 </p>
               </div>
-              <h2 className="break-words font-display text-[clamp(2.1rem,4.8vw,5.6rem)] font-black uppercase leading-[0.94] tracking-normal">
+              <h2 className="break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal">
                 A steel brand made for real structures.
               </h2>
             </div>
@@ -289,7 +289,7 @@ export default function AboutPage() {
                   Critical recovered proof
                 </p>
               </div>
-              <h2 className="max-w-5xl break-words font-display text-[clamp(2.1rem,5vw,5.8rem)] font-black uppercase leading-[0.94] tracking-normal">
+              <h2 className="max-w-5xl break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal">
                 Trust content that cannot be lost.
               </h2>
             </div>
@@ -328,7 +328,7 @@ export default function AboutPage() {
                   Manufacturing strength
                 </p>
               </div>
-              <h2 className="max-w-full break-words font-display text-[clamp(2.1rem,5vw,5.8rem)] font-black uppercase leading-[0.94] tracking-normal">
+              <h2 className="max-w-full break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal">
                 Capability that supports trust at scale.
               </h2>
             </div>
@@ -370,7 +370,7 @@ export default function AboutPage() {
                 Operating philosophy
               </p>
             </div>
-            <h2 className="break-words font-display text-[clamp(2.1rem,5vw,5.8rem)] font-black uppercase leading-[0.94] tracking-normal">
+            <h2 className="break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal">
               Proof before claims.
             </h2>
           </div>
@@ -405,7 +405,7 @@ export default function AboutPage() {
                     Dealer and green steel confidence
                   </p>
                 </div>
-                <h2 className="break-words font-display text-[clamp(2.05rem,4.2vw,4.9rem)] font-black uppercase leading-[0.94] tracking-normal">
+                <h2 className="break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal">
                   Built for buyers who need clarity.
                 </h2>
               </div>
@@ -450,7 +450,7 @@ export default function AboutPage() {
                   Contact recovery
                 </p>
               </div>
-              <h2 className="break-words font-display text-[clamp(2.05rem,4.6vw,5.3rem)] font-black uppercase leading-[0.94] tracking-normal">
+              <h2 className="break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal">
                 Trust should end with a real path to ARS.
               </h2>
               <p className="mt-7 max-w-xl text-lg leading-8 text-steel-700">
