@@ -8,14 +8,13 @@ import {
   IndianRupee,
   MapPin,
   RefreshCw,
-  ShieldCheck,
   Zap,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { AnimatedHeroWord } from "@/components/animated-hero-word";
 import { AudienceJourneySection } from "@/components/audience-journey-section";
 import { ContactCta } from "@/components/contact-cta";
+import { HomeHero } from "@/components/home-hero";
 import { MotionSection } from "@/components/motion-section";
 import { SiteHeader } from "@/components/site-header";
 
@@ -188,59 +187,7 @@ export default function Home() {
     <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
       <SiteHeader />
 
-      <section className="relative flex min-h-screen w-full items-center overflow-hidden text-white">
-        <div className="absolute inset-0 h-screen w-full bg-ink-950">
-          <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
-          <video
-            className="absolute inset-0 h-full w-full object-cover opacity-82"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-hidden="true"
-          >
-            <source src="/videos/ars-intro.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/72 to-ink-950/20" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,13,14,0.16),rgba(11,13,14,0.84))]" />
-        </div>
-
-        <div className="ars-container relative z-10 flex min-h-screen flex-col justify-end pb-12 pt-28">
-          <div className="mb-16 grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(300px,0.28fr)] lg:items-end">
-            <div>
-              <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-2 text-sm text-grey-300 backdrop-blur">
-                <span className="size-2 rounded-full bg-brand-blue" />
-                Since 1992 · Certified TMT steel
-              </div>
-              <h1 className="max-w-[980px] font-display text-[clamp(2.8rem,7.6vw,7.7rem)] font-black uppercase leading-[0.93] tracking-normal text-white">
-                We Build
-                <AnimatedHeroWord />
-                Structures.
-              </h1>
-            </div>
-
-            <div className="max-w-sm justify-self-start lg:justify-self-end">
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-2 text-sm text-grey-300 backdrop-blur">
-                <ShieldCheck size={16} className="shrink-0 text-brand-blue" />
-                Certified TMT steel for modern construction
-              </div>
-              <p className="text-base leading-8 text-grey-300">
-                Tested, traceable TMT steel for home owners, engineers, contractors, and dealers:
-                price clarity, product proof, steel calculation, and dealer discovery in one flow.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] bg-brand-blue px-5 text-sm font-semibold text-white transition hover:bg-brand-blue-dark" href="/steel-price-today">
-                  Check today&apos;s price <ArrowRight size={18} />
-                </Link>
-                <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] border border-white/35 px-5 text-sm font-semibold text-white transition hover:bg-white hover:text-ink-900" href="#products">
-                  Explore products
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeHero />
 
       <AudienceJourneySection />
 
@@ -446,40 +393,37 @@ export default function Home() {
 
       <MotionSection className="bg-[#07351f] py-24 text-white" id="ars-green-steel">
         <div className="ars-container">
-          <div className="grid gap-12 lg:grid-cols-[0.48fr_0.52fr] lg:items-end">
-            <div>
-              <div className="section-kicker-row">
-                <span className="section-kicker-line section-kicker-line-green" />
-                <p className="section-kicker section-kicker-green">
-                  ARS Green Steel
-                </p>
-              </div>
-              <h2 className="section-title section-title-light">
-                What Makes ARS Green Steel Different?
-              </h2>
-            </div>
-            <div className="lg:justify-self-end">
-              <p className="section-copy section-copy-light section-copy-flush max-w-xl">
-                Pioneering sustainable steel manufacturing for a greener India through lower-emission practices,
-                recycled inputs, and energy-efficient process thinking.
+          <div className="mx-auto max-w-5xl text-center">
+            <div className="section-kicker-row justify-center">
+              <span className="section-kicker-line section-kicker-line-green" />
+              <p className="section-kicker section-kicker-green">
+                ARS Green Steel
               </p>
-              <Link
-                className="focus-ring mt-7 inline-flex w-fit items-center gap-2 text-sm font-bold text-emerald-300 transition hover:text-white"
-                href="/ars-green-steel"
-              >
-                Learn more about Green Steel <ArrowRight size={17} />
-              </Link>
+              <span className="section-kicker-line section-kicker-line-green" />
             </div>
+            <h2 className="section-title section-title-light mx-auto">
+              What Makes ARS Green Steel Different?
+            </h2>
+            <p className="section-copy section-copy-light mx-auto mt-6 max-w-3xl">
+              Pioneering sustainable steel manufacturing for a greener India through lower-emission practices,
+              recycled inputs, and energy-efficient process thinking.
+            </p>
+            <Link
+              className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] border border-emerald-300/30 px-5 text-sm font-bold text-emerald-200 transition hover:border-white/45 hover:bg-white hover:text-[#07351f]"
+              href="/ars-green-steel"
+            >
+              Learn more about Green Steel <ArrowRight size={17} />
+            </Link>
           </div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mt-14 grid gap-5 md:grid-cols-3">
             {greenSteelFeatures.map((feature) => {
               const Icon = feature.icon;
 
               return (
                 <article
                   key={feature.title}
-                  className="rounded-[12px] border border-emerald-300/12 bg-white/[0.055] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.14)]"
+                  className="rounded-[8px] border border-emerald-300/12 bg-white/[0.055] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.14)]"
                 >
                   <span className="inline-flex size-14 items-center justify-center rounded-[8px] bg-emerald-300/12 text-emerald-300 ring-1 ring-emerald-300/10">
                     <Icon size={24} />

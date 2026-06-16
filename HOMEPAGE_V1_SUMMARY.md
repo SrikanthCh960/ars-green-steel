@@ -39,9 +39,11 @@ Content:
 
 Motion:
 
-- The hero word animation is now CSS-driven through `AnimatedHeroWord`.
-- It rotates through `STRENGTH`, `SAFETY`, `TRUST`, and `GREEN STEEL`.
-- Reduced-motion users see a static first word.
+- The hero is now driven by the reusable `HomeHero` component.
+- The hero word rotates through `STRENGTH`, `SAFETY`, `TRUST`, and `GREEN STEEL`.
+- Each animated word is paired with a synchronized right-side proof card containing image, label, short copy, and proof point.
+- CTAs remain stable below the proof card so users always have clear next actions.
+- Reduced-motion users see a static first state.
 
 ### 2. Audience Journey Cards
 
@@ -160,7 +162,8 @@ Pattern:
 ## Component Notes
 
 - `SiteHeader`: global navigation and document-aligned mega menu.
-- `AnimatedHeroWord`: CSS-based hero word rotation.
+- `HomeHero`: synchronized hero word and proof-card animation over the approved ARS video.
+- `AnimatedHeroWord`: older CSS-based word rotation component retained but no longer used by the homepage.
 - `MotionSection`: visible-by-default section wrapper with subtle reveal motion.
 - `ContactCta`: shared homepage ending and footer wrapper.
 - Homepage-specific cards are currently defined in `src/app/page.tsx` and can be extracted after visual approval.

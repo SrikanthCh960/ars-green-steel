@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { HomeownersGuidePage } from "@/components/homeowners-guide-page";
 import { LegacyPageRenderer } from "@/components/legacy-page-renderer";
 import { getLegacyPage, getLegacyTopLevelPages } from "@/lib/legacy-content";
 
@@ -38,6 +39,10 @@ export default async function LegacyPage({ params }: { params: Promise<{ slug: s
 
   if (!page || page.kind === "blog") {
     notFound();
+  }
+
+  if (slug === "tmt-steel-bar-guide-homeowners") {
+    return <HomeownersGuidePage />;
   }
 
   return <LegacyPageRenderer page={page} />;

@@ -55,6 +55,7 @@ The execution order prioritizes:
 |---|---|---|---|---|
 | Update homepage CTAs to follow the blue-primary hierarchy | Critical | Done | Phase 1 CTA rules | Main actions immediately communicate trust and brand consistency. |
 | Refine the hero headline scale and animated accent word | High | Done | Current hero structure | Hero remains bold but avoids oversized or crowded typography. |
+| Pair hero animated words with synchronized proof cards | High | Done | Hero concept feedback | Strength, safety, trust, and green steel each have matching right-side proof content while CTAs stay stable. |
 | Keep the approved background video as the hero media | Critical | Done | Existing `ars-intro.mp4` | Hero continues using the client-provided visual direction. |
 | Remove proof metrics from inside the hero if still visually attached | High | Done | Hero audit | Hero becomes cleaner and the proof content gets its own section. |
 | Redesign the proof / track-record section in light mode | Critical | Done | Phase 1 color hierarchy | Proof feels premium and consistent with the rest of the page. |
@@ -65,7 +66,7 @@ The execution order prioritizes:
 | Add width-expansion hover behavior to Audience Paths cards | High | Done | Premium image-card section | Hovering or focusing a desktop audience card expands it horizontally while nearby cards adjust smoothly. |
 | Refine post-hero homepage title scale for industrial readability | High | Done | Visual designer review | Section titles now use restrained title case and smaller display sizing so content scans better after the hero. |
 | Rebuild homepage around the approved user journey | Critical | Done | Client journey feedback | Homepage now flows from hero to audience cards, fastest route actions, product paths, merged trust proof, testimonials, blogs, and footer. |
-| Replace hero word animation with reliable CSS-driven rotation | High | Done | Hero animation QA | Hero word animation no longer depends on client state timing and includes reduced-motion fallback. |
+| Replace hero word animation with synchronized motion treatment | High | Done | Hero animation QA | Hero word and proof card animate together with reduced-motion fallback and no horizontal overflow across desktop, tablet, and mobile. |
 | Add Quality and Manufacturing homepage section | High | Done | Proof content and media | Manufacturing credibility becomes visible before the user reaches contact. |
 | Recover critical homepage content from `CONTENT_RECOVERY_PLAN.md` | Critical | Done | `CONTENT_RECOVERY_PLAN.md`, current homepage | Homepage now surfaces critical price, calculator, dealer, quote, product proof, rod-size, certification, contact, and client/project proof placeholders without visual clutter. |
 | Add Green Steel / Sustainability homepage section | Medium | Not started | Sustainability content | ARS green positioning becomes a visible part of the homepage story. |
