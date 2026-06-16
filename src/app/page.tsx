@@ -391,8 +391,21 @@ export default function Home() {
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-[#07351f] py-24 text-white" id="ars-green-steel">
-        <div className="ars-container">
+      <MotionSection className="relative overflow-hidden bg-[#07351f] py-24 text-white" id="ars-green-steel">
+        <div className="absolute inset-0">
+          <Image
+            src="/ars-assets/ARS-green-bg.png"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,31,18,0.7),rgba(5,31,18,0.82))]" />
+          <div className="absolute inset-0 bg-white/8" />
+        </div>
+
+        <div className="ars-container relative z-10">
           <div className="mx-auto max-w-5xl text-center">
             <div className="section-kicker-row justify-center">
               <span className="section-kicker-line section-kicker-line-green" />
@@ -423,15 +436,15 @@ export default function Home() {
               return (
                 <article
                   key={feature.title}
-                  className="rounded-[8px] border border-emerald-300/12 bg-white/[0.055] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.14)]"
+                  className="rounded-[8px] border border-white/18 bg-white/10 p-7 shadow-[0_20px_60px_rgba(0,0,0,0.18)] backdrop-blur-[2px]"
                 >
-                  <span className="inline-flex size-14 items-center justify-center rounded-[8px] bg-emerald-300/12 text-emerald-300 ring-1 ring-emerald-300/10">
+                  <span className="inline-flex size-14 items-center justify-center rounded-[8px] bg-white/12 text-emerald-200 ring-1 ring-white/12">
                     <Icon size={24} />
                   </span>
                   <h3 className="mt-8 font-display text-2xl font-bold tracking-normal text-white">
                     {feature.title}
                   </h3>
-                  <p className="mt-4 text-sm leading-7 text-emerald-50/68">
+                  <p className="mt-4 text-sm leading-7 text-white/78">
                     {feature.text}
                   </p>
                 </article>

@@ -82,14 +82,14 @@ export function HomeHero() {
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,13,14,0.12),rgba(11,13,14,0.9))]" />
       </div>
 
-      <div className="ars-container relative z-10 flex min-h-[100svh] flex-col justify-center py-24 sm:py-28">
-        <div className="grid min-w-0 gap-7 sm:gap-8 lg:grid-cols-[minmax(0,0.46fr)_minmax(420px,0.54fr)] lg:items-center lg:gap-14 xl:gap-20">
+      <div className="ars-container relative z-10 flex min-h-[100svh] flex-col justify-center py-24 sm:py-28 lg:justify-end lg:pb-14 lg:pt-32">
+        <div className="grid min-w-0 gap-7 sm:gap-8 lg:grid-cols-[minmax(0,0.46fr)_minmax(420px,0.54fr)] lg:items-end lg:gap-14 xl:gap-20">
           <div className="min-w-0">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-2 text-sm text-grey-300 backdrop-blur sm:mb-7">
               <span className="size-2 rounded-full bg-brand-blue" />
               Since 1992 · Certified TMT steel
             </div>
-            <h1 className="max-w-[760px] font-display text-[clamp(2.4rem,9.8vw,3rem)] font-black uppercase leading-[0.95] tracking-normal text-white sm:text-[clamp(3.05rem,6.2vw,6.75rem)]">
+            <h1 className="max-w-[760px] font-display text-[clamp(2.4rem,9vw,3rem)] font-black uppercase leading-[0.95] tracking-normal text-white sm:text-[clamp(3rem,5vw,4rem)]">
               <span className="sr-only" aria-live="polite">
                 We Build {active.word} Structures.
               </span>
@@ -125,12 +125,12 @@ export function HomeHero() {
             </div>
           </div>
 
-          <div className="w-full justify-self-start lg:justify-self-end">
+          <div className="w-full justify-self-start lg:max-w-[520px] lg:self-end lg:justify-self-end">
             <AnimatePresence mode="wait" initial={false}>
               <motion.article
                 key={active.word}
                 data-card-title={active.title}
-                className="relative aspect-[1.45/1] min-h-[250px] overflow-hidden rounded-[16px] border border-white/20 bg-ink-900 shadow-[0_30px_100px_rgba(0,0,0,0.42)] sm:aspect-[1.48/1] sm:min-h-[420px] lg:min-h-[440px]"
+                className="relative aspect-[1.45/1] min-h-[210px] overflow-hidden rounded-[16px] border border-white/20 bg-ink-900 shadow-[0_30px_100px_rgba(0,0,0,0.42)] sm:aspect-[1.48/1] sm:min-h-[320px] lg:min-h-[280px]"
                 initial={reduceMotion ? false : { opacity: 0, scale: 0.98, y: 18 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.985, y: -12 }}
@@ -147,14 +147,14 @@ export function HomeHero() {
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-950/92 via-ink-950/28 to-transparent" />
                 <div className="absolute inset-0 bg-gradient-to-r from-ink-950/28 via-transparent to-transparent" />
 
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-8">
-                  <p className="font-display text-2xl font-black uppercase leading-none tracking-normal text-white sm:text-4xl">
+                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
+                  <p className="font-display text-2xl font-black uppercase leading-none tracking-normal text-white sm:text-[2rem]">
                     {active.eyebrow}
                   </p>
-                  <p className="mt-2 max-w-[520px] text-base leading-6 text-white/88 sm:mt-3 sm:text-xl sm:leading-8">
+                  <p className="mt-2 max-w-[520px] text-base leading-6 text-white/88 sm:mt-3 sm:text-lg sm:leading-7">
                     {active.title}
                   </p>
-                  <p className="mt-3 inline-flex rounded-full border border-white/16 bg-white/10 px-3 py-2 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-white/84 backdrop-blur sm:mt-4 sm:text-xs sm:tracking-[0.16em]">
+                  <p className="mt-3 inline-flex rounded-full border border-white/16 bg-white/10 px-3 py-2 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-white/84 backdrop-blur sm:text-xs sm:tracking-[0.16em]">
                     {active.proof}
                   </p>
                 </div>
