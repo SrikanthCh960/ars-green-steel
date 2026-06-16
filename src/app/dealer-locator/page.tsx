@@ -15,7 +15,7 @@ export default function DealerLocatorPage() {
         eyebrow: "Dealer locator",
         title: "Find steel",
         accent: "near you.",
-        body: "The dealer locator restores a critical sales route for local buyers and is ready for the ARS-approved dealer list.",
+        body: "Find the right path to local ARS dealer support for product availability, pricing, and project enquiries.",
         primaryLabel: "Request dealer help",
         primaryHref: "/contact",
         secondaryLabel: "Become a dealer",
@@ -25,7 +25,7 @@ export default function DealerLocatorPage() {
       <ProofMetrics
         metrics={[
           { kicker: "buyer path", value: "Local", label: "Dealer discovery supports faster purchase decisions." },
-          { kicker: "status", value: "Ready", label: clientVerificationSummary.dealer },
+          { kicker: "support", value: "ARS", label: clientVerificationSummary.dealer },
           { kicker: "support", value: "Sales", label: "Contact route remains available until locator data is live." },
           { kicker: "network", value: "ARS", label: "Dealer confidence is part of the brand trust story." },
         ]}
@@ -33,11 +33,11 @@ export default function DealerLocatorPage() {
 
       <ContentBand
         eyebrow="Locator experience"
-        title="Designed for dealer data."
-        body="The page is structured for city, area, contact, and product availability once official dealer records are supplied by ARS."
+        title="Designed for local purchase support."
+        body="The page gives buyers a clear route from city or area context to ARS sales and dealer assistance."
         cards={[
           { title: "Search by city", text: "Let buyers find local ARS support quickly.", icon: MapPin },
-          { title: "Dealer contact", text: "Show phone and address details only after verification.", icon: Network },
+          { title: "Dealer contact", text: "Route buyers to local dealer and sales support.", icon: Network },
           { title: "Product availability", text: "Connect dealers to 550D, CRS, and rod-size availability.", icon: Building2 },
           { title: "Quote fallback", text: "If no dealer is available, route to ARS sales.", href: "/request-quote", icon: ClipboardList },
         ]}

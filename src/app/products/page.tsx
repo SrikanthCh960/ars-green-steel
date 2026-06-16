@@ -15,7 +15,7 @@ const productCards = [
     href: "/products/ars-550d",
     icon: ShieldCheck,
     imageSrc: "/ars-assets/TMT-Bars.png",
-    imageAlt: "ARS 550D TMT bars source product photograph",
+    imageAlt: "ARS 550D TMT bars product photograph",
     points: ["High ductility", "Strong bendability", "Tested quality"],
   },
   {
@@ -24,7 +24,7 @@ const productCards = [
     href: "/products/ars-crs-550d",
     icon: Waves,
     imageSrc: "/ars-assets/CRS.png",
-    imageAlt: "ARS CRS 550D source product photograph",
+    imageAlt: "ARS CRS 550D product photograph",
     points: ["CRS protection", "Durability focus", "Coastal-ready use"],
   },
 ];
@@ -57,7 +57,7 @@ export default function ProductsPage() {
         metrics={[
           { kicker: "main grade", value: "550D", label: "High-strength ductile TMT steel for safer modern structures." },
           { kicker: "corrosion option", value: "CRS", label: "Durability-led product path for coastal and exposed conditions." },
-          { kicker: "rod sizes", value: "8-32", label: "Common bar-size journey recovered for buying decisions." },
+          { kicker: "rod sizes", value: "8-32", label: "Common bar-size journey for buying decisions." },
           { kicker: "proof", value: "SGS", label: "Certification and testing routes remain connected to product choice." },
         ]}
       />
@@ -75,7 +75,7 @@ export default function ProductsPage() {
           <SectionIntro
             eyebrow="Bar sizes"
             title="Rod sizes buyers already search for."
-            body="The legacy size content is preserved as a clean decision table and can later connect to live pricing and calculator outputs."
+            body="The size table gives buyers quick context before checking price, estimating quantity, or requesting a quote."
           />
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {sizes.map((item) => (
@@ -96,9 +96,9 @@ export default function ProductsPage() {
         title="Connect product proof to construction use."
         tone="warm"
         cards={[
-          { title: "Homes and apartments", text: "Clear grade, size, and price routes for families and small contractors.", href: "/industries#residential", icon: Building2, imageSrc: "/ars-assets/home-owner-banner-1.png", imageAlt: "ARS home construction source asset" },
-          { title: "Commercial projects", text: "Specification-led proof for engineers, architects, and procurement teams.", href: "/industries", icon: BadgeCheck, imageSrc: "/ars-assets/products-all.png", imageAlt: "ARS product range source asset" },
-          { title: "Infrastructure", text: "Heavy-load and durability guidance for road, bridge, and institutional projects.", href: "/projects", icon: Factory, imageSrc: "/ars-assets/ARSHOME4.jpg", imageAlt: "ARS infrastructure source asset" },
+          { title: "Homes and apartments", text: "Clear grade, size, and price routes for families and small contractors.", href: "/industries#residential", icon: Building2, imageSrc: "/ars-assets/home-owner-banner-1.png", imageAlt: "ARS home construction" },
+          { title: "Commercial projects", text: "Specification-led proof for engineers, architects, and procurement teams.", href: "/industries", icon: BadgeCheck, imageSrc: "/ars-assets/products-all.png", imageAlt: "ARS product range" },
+          { title: "Infrastructure", text: "Heavy-load and durability guidance for road, bridge, and institutional projects.", href: "/projects", icon: Factory, imageSrc: "/ars-assets/ARSHOME4.jpg", imageAlt: "ARS infrastructure" },
         ]}
       />
     </PageShell>

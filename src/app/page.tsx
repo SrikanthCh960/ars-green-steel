@@ -6,7 +6,6 @@ import {
   ClipboardList,
   Download,
   IndianRupee,
-  Leaf,
   MapPin,
   RefreshCw,
   ShieldCheck,
@@ -248,16 +247,16 @@ export default function Home() {
       <MotionSection className="bg-[#071222] py-24 text-white" id="buying-assistant">
         <div className="ars-container">
           <div className="mb-12 max-w-4xl">
-            <div className="mb-5 flex items-center gap-4">
-              <span className="h-[2px] w-10 bg-brand-blue" />
-              <p className="font-technical text-[11px] font-bold uppercase tracking-[0.22em] text-white/72">
+            <div className="section-kicker-row">
+              <span className="section-kicker-line" />
+              <p className="section-kicker section-kicker-light">
                 Fastest route
               </p>
             </div>
-            <h2 className="font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.02] tracking-normal text-white">
+            <h2 className="section-title section-title-light">
               From enquiry to steel in fewer steps.
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300 lg:text-lg">
+            <p className="section-copy section-copy-light">
               Give every buyer a practical next action: check price, calculate requirement,
               find a dealer, or request a quote.
             </p>
@@ -293,16 +292,16 @@ export default function Home() {
       <MotionSection className="bg-[#fffdfa] py-16 lg:min-h-[90vh] lg:py-18" id="products">
         <div className="ars-container flex min-h-[calc(90vh-96px)] flex-col justify-center">
           <div className="mb-8 max-w-4xl lg:mb-10">
-            <div className="mb-5 flex items-center gap-4">
-              <span className="h-[2px] w-10 bg-brand-blue" />
-              <p className="font-technical text-[11px] font-bold uppercase tracking-[0.22em] text-brand-blue">
+            <div className="section-kicker-row">
+              <span className="section-kicker-line" />
+              <p className="section-kicker">
                 Product range
               </p>
             </div>
-            <h2 className="max-w-4xl font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal text-ink-900">
+            <h2 className="section-title">
               Two product paths for stronger structures.
             </h2>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-steel-700 lg:text-lg">
+            <p className="section-copy">
               Keep product choice simple: standard high-strength TMT for everyday structures, or
               corrosion-resistant steel for exposed conditions.
             </p>
@@ -445,50 +444,27 @@ export default function Home() {
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-white" id="ars-green-steel">
-        <div className="grid min-h-[780px] lg:grid-cols-2">
-          <div className="flex bg-[#07351f] text-white">
-            <div className="mx-auto flex w-full max-w-[720px] flex-col justify-between px-8 py-14 sm:px-12 lg:px-[60px] lg:py-[72px]">
-              <div>
-                <div className="inline-flex items-center gap-3 rounded-full border border-emerald-300/25 bg-emerald-400/10 px-4 py-2 text-emerald-300">
-                  <Leaf size={18} />
-                  <p className="font-technical text-xs font-bold uppercase tracking-[0.12em]">
-                    ARS Green Steel
-                  </p>
-                </div>
-
-                <h2 className="mt-10 max-w-[620px] font-display text-[clamp(2.4rem,4.4vw,4.6rem)] font-bold leading-[1.02] tracking-normal text-white">
-                  What Makes ARS Green Steel Different?
-                </h2>
-                <p className="mt-6 max-w-[600px] text-base leading-8 text-emerald-50/72 lg:text-lg">
-                  Pioneering sustainable steel manufacturing for a greener India.
+      <MotionSection className="bg-[#07351f] py-24 text-white" id="ars-green-steel">
+        <div className="ars-container">
+          <div className="grid gap-12 lg:grid-cols-[0.48fr_0.52fr] lg:items-end">
+            <div>
+              <div className="section-kicker-row">
+                <span className="section-kicker-line section-kicker-line-green" />
+                <p className="section-kicker section-kicker-green">
+                  ARS Green Steel
                 </p>
-
-                <div className="mt-10 grid gap-6">
-                  {greenSteelFeatures.map((feature) => {
-                    const Icon = feature.icon;
-
-                    return (
-                      <article key={feature.title} className="flex gap-4">
-                        <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-[8px] bg-emerald-300/12 text-emerald-300 ring-1 ring-emerald-300/10">
-                          <Icon size={24} />
-                        </span>
-                        <div>
-                          <h3 className="font-display text-lg font-bold tracking-normal text-white">
-                            {feature.title}
-                          </h3>
-                          <p className="mt-2 max-w-[560px] text-sm leading-7 text-emerald-50/68">
-                            {feature.text}
-                          </p>
-                        </div>
-                      </article>
-                    );
-                  })}
-                </div>
               </div>
-
+              <h2 className="section-title section-title-light">
+                What Makes ARS Green Steel Different?
+              </h2>
+            </div>
+            <div className="lg:justify-self-end">
+              <p className="section-copy section-copy-light section-copy-flush max-w-xl">
+                Pioneering sustainable steel manufacturing for a greener India through lower-emission practices,
+                recycled inputs, and energy-efficient process thinking.
+              </p>
               <Link
-                className="focus-ring mt-12 inline-flex w-fit items-center gap-2 text-sm font-bold text-emerald-300 transition hover:text-white"
+                className="focus-ring mt-7 inline-flex w-fit items-center gap-2 text-sm font-bold text-emerald-300 transition hover:text-white"
                 href="/ars-green-steel"
               >
                 Learn more about Green Steel <ArrowRight size={17} />
@@ -496,15 +472,27 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative min-h-[520px] overflow-hidden bg-[#d9dfc8] lg:min-h-[780px]">
-            <Image
-              src="/ars-assets/right-about-us.png-compress.webp"
-              alt="ARS Green Steel manufacturing facility"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,53,31,0.04)_0%,rgba(8,53,31,0.18)_52%,rgba(8,53,31,0.72)_100%)]" />
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {greenSteelFeatures.map((feature) => {
+              const Icon = feature.icon;
+
+              return (
+                <article
+                  key={feature.title}
+                  className="rounded-[12px] border border-emerald-300/12 bg-white/[0.055] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.14)]"
+                >
+                  <span className="inline-flex size-14 items-center justify-center rounded-[8px] bg-emerald-300/12 text-emerald-300 ring-1 ring-emerald-300/10">
+                    <Icon size={24} />
+                  </span>
+                  <h3 className="mt-8 font-display text-2xl font-bold tracking-normal text-white">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-emerald-50/68">
+                    {feature.text}
+                  </p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </MotionSection>

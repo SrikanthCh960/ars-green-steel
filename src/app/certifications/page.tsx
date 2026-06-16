@@ -8,12 +8,12 @@ export const metadata: Metadata = {
 };
 
 const certifications = [
-  { title: "SGS certified", text: "Quality proof should stay visible as a primary trust signal for buyers and engineers.", icon: ShieldCheck, meta: "Quality", imageSrc: "/ars-assets/our-quality-1.png", imageAlt: "ARS quality and certification source asset" },
+  { title: "SGS certified", text: "Quality proof stays visible as a primary trust signal for buyers and engineers.", icon: ShieldCheck, meta: "Quality", imageSrc: "/ars-assets/our-quality-1.png", imageAlt: "ARS quality and certification" },
   { title: "ISO systems", text: "ISO 9001, ISO 14001, and ISO 45001 references support process and safety credibility.", icon: BadgeCheck, meta: "Systems" },
   { title: "EPD / GRIHA / LEED ready", text: "Green-building proof helps developers and institutions evaluate future-ready materials.", icon: Leaf, meta: "Green" },
-  { title: "PWD and NHAI approvals", text: "Legacy approval content should be restored once client-approved files are attached.", icon: ClipboardCheck, meta: "Projects" },
+  { title: "PWD and NHAI approvals", text: "Approval references support public-work, infrastructure, and institutional buying confidence.", icon: ClipboardCheck, meta: "Projects" },
   { title: "Product renewals", text: "TMT bar and billet renewal references matter for technical and procurement review.", icon: FileCheck, meta: "Renewals" },
-  { title: "Awards", text: "ABP India Infrastructure 2024 and ISPAT Udyog Ratan 2024 can support reputation once verified.", icon: Award, meta: "Recognition", imageSrc: "/ars-assets/awards-certificates-img2.png", imageAlt: "ARS awards certificate source asset" },
+  { title: "Awards", text: "Industry recognition helps buyers see ARS as a credible and established steel partner.", icon: Award, meta: "Recognition", imageSrc: "/ars-assets/awards-certificates-img2.png", imageAlt: "ARS awards certificate" },
 ];
 
 export default function CertificationsPage() {
@@ -35,7 +35,7 @@ export default function CertificationsPage() {
           { kicker: "quality", value: "SGS", label: "Primary quality proof for product confidence." },
           { kicker: "systems", value: "ISO", label: "Quality, environment, and safety system references." },
           { kicker: "green", value: "EPD", label: "Environmental product declaration and green-building readiness." },
-          { kicker: "approval", value: "PWD", label: "Public project approval references to verify and attach." },
+          { kicker: "approval", value: "PWD", label: "Public project approval references support infrastructure confidence." },
         ]}
       />
 
@@ -43,7 +43,7 @@ export default function CertificationsPage() {
         id="sgs"
         eyebrow="Certification library"
         title="Keep proof easy to scan."
-        body="Each card is a restored content destination. Final downloads can be added once approved certificate files are provided."
+        body="Each card groups certification and approval proof so buyers can quickly find the quality signals they need."
         cards={certifications}
         tone="white"
       />
@@ -53,9 +53,9 @@ export default function CertificationsPage() {
         eyebrow="Testing proof"
         title="Make quality process visible."
         cards={[
-          { title: "Bend and rebend", text: "A practical quality topic for engineers and site teams evaluating ductility.", icon: ClipboardCheck, imageSrc: "/ars-assets/TMT-Bars.png", imageAlt: "ARS TMT bars testing source asset" },
-          { title: "Tensile testing", text: "Supports strength claims and product specification review.", icon: ShieldCheck, imageSrc: "/ars-assets/products-all.png", imageAlt: "ARS product testing source asset" },
-          { title: "Spectrometer and lab", text: "Chemical consistency and lab process content should be restored with verified details.", icon: FileCheck, imageSrc: "/ars-assets/our-quality-1.png", imageAlt: "ARS lab and quality source asset" },
+          { title: "Bend and rebend", text: "A practical quality topic for engineers and site teams evaluating ductility.", icon: ClipboardCheck, imageSrc: "/ars-assets/TMT-Bars.png", imageAlt: "ARS TMT bars testing" },
+          { title: "Tensile testing", text: "Supports strength claims and product specification review.", icon: ShieldCheck, imageSrc: "/ars-assets/products-all.png", imageAlt: "ARS product testing" },
+          { title: "Spectrometer and lab", text: "Chemical consistency and lab process information supports technical review.", icon: FileCheck, imageSrc: "/ars-assets/our-quality-1.png", imageAlt: "ARS lab and quality" },
         ]}
       />
     </PageShell>

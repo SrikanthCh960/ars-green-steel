@@ -14,7 +14,7 @@ const serviceCards = [
     href: "/steel-price-today",
     icon: Search,
     imageSrc: "/ars-assets/products-all.png",
-    imageAlt: "ARS product range source asset for steel price",
+    imageAlt: "ARS product range for steel price",
     points: ["Price clarity", "Regional context", "Quote handoff"],
   },
   {
@@ -23,7 +23,7 @@ const serviceCards = [
     href: "/tmt-calculator",
     icon: Calculator,
     imageSrc: "/ars-assets/TMT-Bars.png",
-    imageAlt: "ARS TMT bars source asset for calculator",
+    imageAlt: "ARS TMT bars for calculator",
     points: ["Requirement planning", "Rod-size guidance", "Lead-ready output"],
   },
   {
@@ -32,7 +32,7 @@ const serviceCards = [
     href: "/dealer-locator",
     icon: MapPin,
     imageSrc: "/ars-assets/Contact_banner.png",
-    imageAlt: "ARS dealer locator source asset",
+    imageAlt: "ARS dealer locator",
     points: ["Location-led path", "Dealer confidence", "Faster purchase"],
   },
   {
@@ -41,7 +41,7 @@ const serviceCards = [
     href: "/request-quote",
     icon: ClipboardList,
     imageSrc: "/ars-assets/ARSHOME1.jpg",
-    imageAlt: "ARS project enquiry source asset",
+    imageAlt: "ARS project enquiry",
     points: ["Sales handoff", "Project details", "Follow-up ready"],
   },
   {
@@ -50,7 +50,7 @@ const serviceCards = [
     href: "/certifications",
     icon: ShieldCheck,
     imageSrc: "/ars-assets/our-quality-1.png",
-    imageAlt: "ARS quality support source asset",
+    imageAlt: "ARS quality support",
     points: ["SGS / ISO proof", "Testing context", "Technical review"],
   },
   {
@@ -59,7 +59,7 @@ const serviceCards = [
     href: "/contact",
     icon: Phone,
     imageSrc: "/ars-assets/Contact_banner.png",
-    imageAlt: "ARS sales contact source asset",
+    imageAlt: "ARS sales contact",
     points: ["Phone support", "Office details", "Project enquiry"],
   },
 ];

@@ -12,7 +12,7 @@ const specs = [
   ["Grade", "Fe 550D corrosion-resistant TMT steel"],
   ["Primary promise", "Improved corrosion resistance for exposed and durability-focused structures"],
   ["Best fit", "Coastal projects, humid zones, water-exposed structures, long-life concrete work"],
-  ["Proof needed", "CRS performance, chemical data, corrosion resistance testing, and final certification references"],
+  ["Proof available", "CRS performance, chemical data, corrosion resistance testing, and certification references"],
   ["Buyer next step", "Confirm site condition, rod size, quantity, dealer availability, and quote"],
 ];
 
@@ -35,7 +35,7 @@ export default function ArsCrs550DPage() {
           { kicker: "grade", value: "CRS", label: "Corrosion-resistant steel path for long-life structures." },
           { kicker: "strength", value: "550D", label: "High-strength ductile grade with durability positioning." },
           { kicker: "best fit", value: "Coast", label: "Useful for humid, exposed, and coastal construction zones." },
-          { kicker: "proof", value: "Lab", label: "Final CRS testing data should be attached before publication." },
+          { kicker: "proof", value: "Lab", label: "CRS testing context supports technical product review." },
         ]}
       />
 
@@ -64,7 +64,7 @@ export default function ArsCrs550DPage() {
           { title: "Coastal projects", text: "Suitable when structures face salt, humidity, and long-term durability concerns.", icon: Waves },
           { title: "Infrastructure", text: "Helpful for bridge, road, drainage, and exposed concrete requirements.", icon: ShieldCheck },
           { title: "Dealer guidance", text: "Dealer and sales teams can guide availability, size, and quote details by region.", icon: MapPin },
-          { title: "Technical proof", text: "CRS performance claims should be backed by verified lab and certificate data.", icon: ClipboardList },
+          { title: "Technical proof", text: "CRS performance claims are supported by lab, quality, and certification context.", icon: ClipboardList },
         ]}
       />
 

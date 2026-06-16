@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { ArrowRight, Download, ExternalLink, FileText, ImageIcon, Phone, Play, ShieldCheck } from "lucide-react";
-import { ContentBand, PageShell, ProofMetrics, SectionIntro } from "@/components/page-sections";
+import { Download, ExternalLink, FileText, ImageIcon, Phone, Play, ShieldCheck } from "lucide-react";
+import { ContentBand, PageShell, SectionIntro } from "@/components/page-sections";
 import type { LegacyAsset, LegacyPage } from "@/lib/legacy-content";
 
 function splitTitle(title: string) {
   const words = title.split(" ").filter(Boolean);
   if (words.length <= 3) {
-    return { title, accent: "restored." };
+    return { title, accent: "" };
   }
 
   return {
@@ -17,8 +17,7 @@ function splitTitle(title: string) {
 
 function assetLabel(asset: LegacyAsset) {
   if (asset.type === "pdf") return "Download PDF";
-  if (asset.type === "image" && asset.downloaded) return "Local ARS image";
-  if (asset.type === "image") return "Source image mapped";
+  if (asset.type === "image") return "ARS image";
   return "Open asset";
 }
 
@@ -35,6 +34,31 @@ function sentenceCaseTitle(title: string) {
     .replace(/\b(Ars|Tmt|Crs|Sgs|Epd|Iso|Serc|Bis|Nhai|Pwd|Griha)\b/g, (word) => word.toUpperCase());
 }
 
+function isInternalMigrationCopy(text: string) {
+  const normalized = text.toLowerCase();
+  return [
+    "retained from the original ars blog",
+    "retained from the original ars page",
+    "retained for content parity",
+    "reviewed for final editorial polish",
+    "final page-level polish",
+    "original section retained",
+    "old ars website",
+    "source page",
+    "asset download",
+    "before production approval",
+    "client verification",
+  ].some((phrase) => normalized.includes(phrase));
+}
+
+function publicBodyCopy(text: string | undefined) {
+  if (!text || isInternalMigrationCopy(text)) {
+    return "This topic helps buyers, engineers, contractors, and dealers review ARS steel information before moving into product, price, or quote support.";
+  }
+
+  return text;
+}
+
 export function LegacyPageRenderer({ page }: { page: LegacyPage }) {
   const heroTitle = splitTitle(page.title);
   const sectionCards = page.sections
@@ -42,17 +66,21 @@ export function LegacyPageRenderer({ page }: { page: LegacyPage }) {
     .slice(0, 18)
     .map((section) => ({
       title: sentenceCaseTitle(section.title),
-      text: section.body || "Original section retained from the old ARS website. Final body copy should be verified against the source page before production approval.",
+      text: publicBodyCopy(section.body),
       icon: section.body ? FileText : ShieldCheck,
     }));
   const articleSections = page.sections
     .filter((section) => section.title && section.body)
     .slice(0, 18);
   const paragraphs = page.paragraphs
-    .filter((item) => item.length > 40 && !articleSections.some((section) => section.body === item))
+    .filter((item) => item.length > 40 && !isInternalMigrationCopy(item) && !articleSections.some((section) => section.body === item))
     .slice(0, 8);
-  const imageAssets = page.assets.filter((asset) => asset.type === "image").slice(0, 9);
-  const downloadAssets = page.assets.filter((asset) => asset.type === "pdf").slice(0, 12);
+  const imageAssets = page.assets
+    .filter((asset) => asset.type === "image" && asset.downloaded && asset.localPath)
+    .slice(0, 9);
+  const downloadAssets = page.assets
+    .filter((asset) => asset.type === "pdf")
+    .slice(0, 12);
   const contactItems = [
     ...page.contact.phones.map((value) => ({ title: "Phone", text: value })),
     ...page.contact.emails.map((value) => ({ title: "Email", text: value })),
@@ -62,25 +90,16 @@ export function LegacyPageRenderer({ page }: { page: LegacyPage }) {
   return (
     <PageShell
       hero={{
-        eyebrow: page.kind === "blog" ? "Legacy article restored" : "Legacy page restored",
+        eyebrow: page.kind === "blog" ? "ARS knowledge center" : "ARS Green Steel",
         title: heroTitle.title,
-        accent: heroTitle.accent,
+        accent: heroTitle.accent || undefined,
         body: page.intro,
         primaryLabel: "Request quote",
         primaryHref: "/request-quote",
-        secondaryLabel: "Original source",
-        secondaryHref: page.sourceUrl,
+        secondaryLabel: "Contact ARS",
+        secondaryHref: "/contact",
       }}
     >
-      <ProofMetrics
-        metrics={[
-          { kicker: "source", value: "Old", label: `Original URL preserved: ${page.path}` },
-          { kicker: "sections", value: String(page.sections.length), label: "Original section headings extracted and retained." },
-          { kicker: "assets", value: String(page.assets.length), label: "Images, downloads, and media references mapped from the source page." },
-          { kicker: "status", value: page.needsClientVerification ? "Check" : "Live", label: page.needsClientVerification ? "Some source details need client verification." : "Content restored from source crawl." },
-        ]}
-      />
-
       {page.kind === "blog" && articleSections.length ? (
         <section className="bg-white py-24">
           <div className="ars-container grid gap-12 lg:grid-cols-[0.32fr_0.68fr]">
@@ -101,7 +120,7 @@ export function LegacyPageRenderer({ page }: { page: LegacyPage }) {
                 <section key={section.title} id={section.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")} className={index === 0 ? "" : "mt-12 border-t border-ink-900/10 pt-10"}>
                   <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-brand-blue">Section {index + 1}</p>
                   <h2 className="font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal text-ink-900">{sentenceCaseTitle(section.title)}</h2>
-                  <p className="mt-6 text-lg leading-9 text-steel-700">{section.body}</p>
+                  <p className="mt-6 text-lg leading-9 text-steel-700">{publicBodyCopy(section.body)}</p>
                 </section>
               ))}
             </article>
@@ -109,9 +128,9 @@ export function LegacyPageRenderer({ page }: { page: LegacyPage }) {
         </section>
       ) : sectionCards.length ? (
         <ContentBand
-          eyebrow="Restored page sections"
-          title="Old content, cleaned into the modern system."
-          body="These blocks preserve the original ARS section structure while removing repeated navigation, calculator, and form extraction noise."
+          eyebrow="Page highlights"
+          title="Key information for confident steel decisions."
+          body="Browse product, quality, application, and support information relevant to this ARS page."
           cards={sectionCards}
           columns={2}
         />
@@ -121,14 +140,14 @@ export function LegacyPageRenderer({ page }: { page: LegacyPage }) {
         <section className="bg-white py-24">
           <div className="ars-container">
             <SectionIntro
-              eyebrow="Detailed copy"
-              title="Supporting content restored for review."
-              body="These blocks keep useful source text visible without overwhelming the main page flow."
+              eyebrow="More details"
+              title="Additional information"
+              body="Supporting information is organized for buyers, engineers, contractors, and dealers who want to review the topic in more depth."
             />
             <div className="grid gap-5 lg:grid-cols-2">
               {paragraphs.map((paragraph, index) => (
                 <article key={`${page.slug}-paragraph-${index}`} className="rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-7">
-                  <p className="text-xs font-bold uppercase tracking-[0.24em] text-brand-blue">Copy block {index + 1}</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.24em] text-brand-blue">Detail {index + 1}</p>
                   <p className="mt-4 text-base leading-8 text-steel-700">{paragraph}</p>
                 </article>
               ))}
@@ -141,9 +160,9 @@ export function LegacyPageRenderer({ page }: { page: LegacyPage }) {
         <section className="bg-[#f8f9fb] py-24">
           <div className="ars-container">
             <SectionIntro
-              eyebrow="Source media"
-              title="Original assets mapped, not invented."
-              body="Image files are mapped from the original ARS website. Locally available assets are shown directly; missing files remain clearly marked until the original domain or client asset pack is available."
+              eyebrow="Media and downloads"
+              title="Useful ARS resources"
+              body="Browse relevant images, documents, and references connected to this topic."
             />
             {imageAssets.length ? (
               <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -158,12 +177,7 @@ export function LegacyPageRenderer({ page }: { page: LegacyPage }) {
                           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                           className="object-cover transition duration-500 group-hover:scale-105"
                         />
-                      ) : (
-                        <div className="grid justify-items-center gap-3 px-6 text-center">
-                          <ImageIcon size={30} />
-                          <p className="text-xs font-bold uppercase tracking-[0.2em] text-steel-700">Original ARS image missing locally</p>
-                        </div>
-                      )}
+                      ) : null}
                     </div>
                     <div className="p-5">
                       <div className="flex items-center gap-2 text-sm font-bold text-brand-blue">
@@ -197,9 +211,9 @@ export function LegacyPageRenderer({ page }: { page: LegacyPage }) {
         <section className="bg-white py-24">
           <div className="ars-container">
             <SectionIntro
-              eyebrow="Video references"
-              title="Original video embeds retained."
-              body="These are the old site video references. They remain external embeds until approved local video files are supplied."
+              eyebrow="Video resources"
+              title="ARS video references"
+              body="Watch relevant ARS videos and media references for this topic."
             />
             <div className="grid gap-5 lg:grid-cols-2">
               {page.videos.map((video) => (
@@ -208,7 +222,7 @@ export function LegacyPageRenderer({ page }: { page: LegacyPage }) {
                     <iframe className="aspect-video w-full" src={video.url} title={`${page.title} video`} allowFullScreen loading="lazy" />
                   ) : (
                     <a className="flex min-h-48 items-center justify-center gap-3 text-base font-bold text-brand-blue" href={video.url} target="_blank" rel="noreferrer">
-                      <Play size={20} /> Open source video
+                      <Play size={20} /> Open video
                     </a>
                   )}
                 </article>
@@ -220,21 +234,13 @@ export function LegacyPageRenderer({ page }: { page: LegacyPage }) {
 
       {contactItems.length ? (
         <ContentBand
-          eyebrow="Original contact details"
-          title="Contact data restored from the source page."
-          body={page.needsClientVerification ? "Email values appeared protected in the old markup and should be confirmed by the client before final launch." : "These details came from the old website crawl."}
+          eyebrow="Contact ARS"
+          title="Get support from the ARS team."
+          body="Reach the ARS team for product, project, dealer, or quote support."
           tone="white"
           cards={contactItems.map((item) => ({ title: item.title, text: item.text, icon: Phone }))}
         />
       ) : null}
-
-      <section className="bg-[#f8f9fb] py-16">
-        <div className="ars-container">
-          <a className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-bold text-white transition hover:bg-brand-blue-dark" href={page.sourceUrl} target="_blank" rel="noreferrer">
-            Compare original page <ArrowRight size={17} />
-          </a>
-        </div>
-      </section>
     </PageShell>
   );
 }

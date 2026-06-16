@@ -8,18 +8,18 @@ export const verifiedContactDetails = {
   plant:
     "B-1/S, Sipcot Industrial Complex, Gummidipoondi, Chennai - 601 201.",
   plantPhones: "044-2792 2552, 2846, 1749",
-  publicEmail: "Public inbox to be confirmed by ARS before launch",
-  whatsapp: "To be confirmed by ARS",
+  publicEmail: "Use the enquiry form for email support",
+  whatsapp: "Use the sales helpline for quick support",
 };
 
 export const steelPriceRows = [
-  ["8mm", "Light reinforcement", "Awaiting ARS rate"],
-  ["10mm", "Slabs and residential work", "Awaiting ARS rate"],
-  ["12mm", "General construction", "Awaiting ARS rate"],
-  ["16mm", "Columns and beams", "Awaiting ARS rate"],
-  ["20mm", "Heavy members", "Awaiting ARS rate"],
-  ["25mm", "Large structures", "Awaiting ARS rate"],
-  ["32mm", "Mega structures", "Awaiting ARS rate"],
+  ["8mm", "Light reinforcement", "Contact for current rate"],
+  ["10mm", "Slabs and residential work", "Contact for current rate"],
+  ["12mm", "General construction", "Contact for current rate"],
+  ["16mm", "Columns and beams", "Contact for current rate"],
+  ["20mm", "Heavy members", "Contact for current rate"],
+  ["25mm", "Large structures", "Contact for current rate"],
+  ["32mm", "Mega structures", "Contact for current rate"],
 ];
 
 export const calculatorInputFields = [
@@ -41,11 +41,11 @@ export const dealerDataRequirements = [
 
 export const clientVerificationSummary = {
   pricing:
-    "ARS must confirm live rates, update frequency, regional logic, and price disclaimer before publishing current prices.",
+    "Current rates depend on size, quantity, location, and market movement. Contact ARS sales for today’s pricing.",
   calculator:
-    "ARS technical and sales teams must confirm formula, units, assumptions, and output format before activating calculations.",
+    "Estimate support is designed to move buyers from project details to a sales conversation quickly.",
   dealer:
-    "ARS must provide an approved dealer list before public dealer results are shown.",
+    "ARS sales can route buyers to the right local dealer or support contact.",
   contact:
-    "Old-site contact details are restored; ARS must confirm the public email inbox and WhatsApp usage before launch.",
+    "Use the listed phone numbers, office details, and enquiry form to reach ARS for product, dealer, and project support.",
 };

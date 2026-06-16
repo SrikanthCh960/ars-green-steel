@@ -19,7 +19,7 @@ export default function BecomeDealerPage() {
         eyebrow="Dealer enquiry"
         title="Build with"
         accent="ARS network."
-        body="Dealer interest needs a separate path from consumer quote requests, with brand proof and territory context."
+        body="Start a dealer or distributor enquiry with clear product proof, territory context, and ARS sales support."
         primaryLabel="Start dealer enquiry"
         primaryHref="#dealer-form"
         secondaryLabel="View products"
@@ -39,9 +39,9 @@ export default function BecomeDealerPage() {
         eyebrow="Dealer value"
         title="A practical route for distribution interest."
         cards={[
-          { title: "Brand proof", text: "Use legacy, product, certification, and manufacturing content to support dealer confidence.", icon: BadgeCheck },
+          { title: "Brand proof", text: "Use product, certification, and manufacturing confidence to support dealer conversations.", icon: BadgeCheck },
           { title: "Product clarity", text: "ARS 550D and CRS 550D give dealers clear product stories to sell.", href: "/products", icon: Building2 },
-          { title: "Local discovery", text: "Approved dealer data can later power the public dealer locator.", href: "/dealer-locator", icon: MapPin },
+          { title: "Local discovery", text: "Dealer enquiries can connect local demand with the right ARS sales route.", href: "/dealer-locator", icon: MapPin },
         ]}
         tone="white"
       />

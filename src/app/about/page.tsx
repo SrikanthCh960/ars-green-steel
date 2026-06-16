@@ -95,11 +95,11 @@ const commitments = [
 const recoveredProof = [
   {
     title: "Product proof",
-    text: "ARS 550D and ARS CRS 550D need technical specs, physical and chemical properties, and FAQs carried into the product experience.",
+    text: "ARS 550D and ARS CRS 550D bring technical specs, physical and chemical properties, and FAQs into the product experience.",
   },
   {
     title: "Certification proof",
-    text: "SGS, ISO, EPD, GRIHA, PWD, NHAI, renewal, and award proof should be visible as verified trust assets.",
+    text: "SGS, ISO, EPD, GRIHA, PWD, NHAI, renewal, and award proof make trust easier to evaluate.",
   },
   {
     title: "Testing proof",
@@ -115,19 +115,19 @@ const contactRecovery = [
   {
     title: "Customer helpline",
     value: verifiedContactDetails.mobile,
-    note: "Restored from the old ARS website.",
+    note: "Primary customer and sales support number.",
     icon: Phone,
   },
   {
     title: "Project enquiry",
     value: verifiedContactDetails.mobile,
-    note: "Use primary sales number until ARS confirms a separate project line.",
+    note: "Use the sales helpline for project and bulk enquiries.",
     icon: ClipboardList,
   },
   {
     title: "Office and plant",
     value: "Corporate office and steel plant",
-    note: "Exact address details restored on the Contact page.",
+    note: "Address details are available on the Contact page.",
     icon: Building2,
   },
 ];
@@ -210,7 +210,7 @@ export default function AboutPage() {
               </h2>
             </div>
             <p className="max-w-xl text-lg leading-8 text-steel-700">
-              The About page should work like a trust gateway: enough legacy, proof, and
+              The About page works like a trust gateway: enough history, proof, and
               capability to help serious visitors feel ready to enquire.
             </p>
           </div>
@@ -447,15 +447,15 @@ export default function AboutPage() {
               <div className="mb-8 flex items-center gap-4">
                 <span className="h-[2px] w-12 bg-brand-blue" />
                 <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                  Contact recovery
+                  Contact access
                 </p>
               </div>
               <h2 className="break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal">
                 Trust should end with a real path to ARS.
               </h2>
               <p className="mt-7 max-w-xl text-lg leading-8 text-steel-700">
-                Legacy contact content is critical. It should be restored as verified customer,
-                project, office, and plant contact proof before client presentation.
+                Strong contact access matters for buyers who are ready to discuss product,
+                dealer, office, plant, or project requirements.
               </p>
             </div>
             <div className="grid gap-5 md:grid-cols-3">

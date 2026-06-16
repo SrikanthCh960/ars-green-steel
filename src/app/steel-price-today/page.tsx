@@ -16,7 +16,7 @@ export default function SteelPriceTodayPage() {
         eyebrow: "Steel price today",
         title: "Price clarity",
         accent: "before calls.",
-        body: "This page restores the legacy steel-price journey and keeps live rate fields ready for ARS-approved pricing.",
+        body: "Review common TMT bar sizes and move quickly into a quote request for current ARS pricing.",
         primaryLabel: "Request current quote",
         primaryHref: "/request-quote",
         secondaryLabel: "Calculate need",
@@ -26,7 +26,7 @@ export default function SteelPriceTodayPage() {
       <ProofMetrics
         metrics={[
           { kicker: "rod range", value: "8-32", label: "Price rows prepared for common ARS TMT bar sizes." },
-          { kicker: "status", value: "Ready", label: clientVerificationSummary.pricing },
+          { kicker: "pricing", value: "Live", label: clientVerificationSummary.pricing },
           { kicker: "dealer", value: "Route", label: "Dealer locator remains a natural next step after price review." },
           { kicker: "quote", value: "CTA", label: "Price interest converts into a quote request quickly." },
         ]}
@@ -36,8 +36,8 @@ export default function SteelPriceTodayPage() {
         <div className="ars-container">
           <SectionIntro
             eyebrow="Price table"
-            title="Prepared for live ARS price updates."
-            body="Current rows are structured for ARS-approved data. This avoids publishing non-approved rates while preserving the high-value buyer path."
+            title="Check common sizes before requesting today’s rate."
+            body="Use the table to identify your bar size and typical application, then contact ARS sales for current pricing."
           />
           <div className="overflow-hidden rounded-[8px] border border-ink-900/10 bg-white">
             <div className="grid grid-cols-[0.7fr_1.3fr_1fr] bg-[#f8f9fb] p-4 text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">

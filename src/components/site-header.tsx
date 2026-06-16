@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, Calculator, ChevronDown, Menu, Search, ShieldCheck } from "lucide-react";
-import { useState } from "react";
 
 const routeLinks = [
   { label: "Home", href: "/" },
@@ -130,16 +129,10 @@ const megaMenus = {
 export function SiteHeader() {
   const links = routeLinks;
   const mobileMenuId = "site-mobile-navigation";
-  const [activeMenu, setActiveMenu] = useState<keyof typeof megaMenus | null>(null);
-  const hasOpenMenu = activeMenu !== null;
-  const activeMegaMenu = activeMenu ? megaMenus[activeMenu] : null;
 
   return (
     <header
-      data-menu-open={hasOpenMenu ? "true" : "false"}
       className="site-header fixed inset-x-0 top-0 z-50 px-0 text-ink-900 lg:px-4 lg:pt-3"
-      onMouseLeave={() => setActiveMenu(null)}
-      onPointerLeave={() => setActiveMenu(null)}
     >
       <div className="site-header-shell border-b border-ink-900/10 bg-[#f7f4ee]/96 shadow-[0_22px_70px_rgba(15,23,42,0.16)] backdrop-blur-xl lg:rounded-b-[28px] lg:border lg:border-ink-900/10">
       <div className="ars-container flex h-20 items-center justify-between">
@@ -153,25 +146,26 @@ export function SiteHeader() {
           {links.map((link) => {
             const menuKey = link.menu as keyof typeof megaMenus | undefined;
             const menu = menuKey ? megaMenus[menuKey] : null;
-            const isOpen = menuKey ? activeMenu === menuKey : false;
 
             return (
-              <div
-                key={link.label}
-                className="site-nav-item group/menu"
-                onMouseEnter={() => setActiveMenu(menuKey ?? null)}
-                onPointerEnter={() => setActiveMenu(menuKey ?? null)}
-              >
+              <div key={link.label} className="site-nav-item group/menu">
                 <a
                   href={link.href}
                   className="inline-flex h-20 items-center gap-1.5 border-b-2 border-transparent transition hover:border-brand-blue hover:text-ink-900 focus-visible:border-brand-blue"
                   aria-haspopup={menu ? "true" : undefined}
-                  aria-expanded={menu ? isOpen : undefined}
-                  onFocus={() => setActiveMenu(menuKey ?? null)}
                 >
                   {link.label}
-                  {menu ? <ChevronDown size={14} className={`text-brand-blue transition ${isOpen ? "rotate-180" : ""}`} /> : null}
+                  {menu ? <ChevronDown size={14} className="text-brand-blue transition group-hover/menu:rotate-180 group-focus-within/menu:rotate-180" /> : null}
                 </a>
+                {menu ? (
+                  <div
+                    className="site-mega-menu absolute left-0 right-0 top-[calc(100%-1px)] border-x border-b border-ink-900/10 bg-[#f7f4ee]/98 shadow-[0_32px_80px_rgba(15,23,42,0.18)]"
+                    role="region"
+                    aria-label={`${menu.eyebrow} menu`}
+                  >
+                    <MegaMenuContent menu={menu} />
+                  </div>
+                ) : null}
               </div>
             );
           })}
@@ -243,17 +237,6 @@ export function SiteHeader() {
         </div>
       </div>
       </div>
-      {activeMegaMenu ? (
-        <div
-          className="site-mega-menu is-open absolute left-0 right-0 top-full border-t border-ink-900/10 bg-[#f7f4ee]/98 shadow-[0_32px_80px_rgba(15,23,42,0.18)]"
-          role="region"
-          aria-label={`${activeMegaMenu.eyebrow} menu`}
-          onMouseEnter={() => setActiveMenu(activeMenu)}
-          onPointerEnter={() => setActiveMenu(activeMenu)}
-        >
-          <MegaMenuContent menu={activeMegaMenu} />
-        </div>
-      ) : null}
     </header>
   );
 }
@@ -266,7 +249,7 @@ function MegaMenuContent({ menu }: { menu: MegaMenu }) {
       <Link className="group relative min-h-[190px] overflow-hidden rounded-[22px] bg-ink-900 p-6 text-white shadow-[0_20px_55px_rgba(15,23,42,0.18)]" href={menu.links[0]?.href ?? "/products"}>
         <Image
           src={menu.visualSrc}
-          alt={`${menu.visual} ARS source asset`}
+          alt={`${menu.visual} ARS`}
           fill
           sizes="360px"
           className="object-cover transition duration-500 group-hover:scale-105"

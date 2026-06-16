@@ -19,7 +19,7 @@ export default function RequestQuotePage() {
         eyebrow="Quote request"
         title="Tell us what"
         accent="you need."
-        body="The quote path captures product, rod size, quantity, site location, and project context so the ARS team can respond with fewer follow-up calls once the final enquiry destination is confirmed."
+        body="Share product, rod size, quantity, site location, and project context so the ARS team can respond with fewer follow-up calls."
         primaryLabel="Call sales"
         primaryHref="tel:+919710411111"
         secondaryLabel="Calculate first"

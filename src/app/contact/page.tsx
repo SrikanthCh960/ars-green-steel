@@ -21,7 +21,7 @@ export default function ContactPage() {
         eyebrow="Contact ARS"
         title="Talk to the"
         accent="right team."
-        body="Use one clear contact path for product, quote, dealer, project, office, and plant enquiries. Details below are restored from the old ARS website and organized for final ARS confirmation."
+        body="Use one clear contact path for product, quote, dealer, project, office, and plant enquiries."
         primaryLabel="Request quote"
         primaryHref="/request-quote"
         secondaryLabel="Call sales"
@@ -31,9 +31,9 @@ export default function ContactPage() {
       <ProofMetrics
         metrics={[
           { kicker: "helpline", value: "9710", label: `${verifiedContactDetails.mobile} for sales and customer enquiries.` },
-          { kicker: "office", value: "044", label: `${verifiedContactDetails.officePhone} restored from the old contact page.` },
+          { kicker: "office", value: "044", label: `${verifiedContactDetails.officePhone} for corporate office support.` },
           { kicker: "plant", value: "TN", label: verifiedContactDetails.plant },
-          { kicker: "fax", value: "4350", label: `${verifiedContactDetails.fax} restored from the old contact page.` },
+          { kicker: "fax", value: "4350", label: `${verifiedContactDetails.fax} for office communication.` },
         ]}
       />
 
@@ -43,7 +43,7 @@ export default function ContactPage() {
             <div className="mb-8 overflow-hidden rounded-[8px] border border-ink-900/10 bg-[#f8f9fb]">
               <Image
                 src="/ars-assets/Contact_banner.png"
-                alt="ARS contact and dealer support source asset"
+                alt="ARS contact and dealer support"
                 width={760}
                 height={420}
                 className="h-64 w-full object-cover"
@@ -85,7 +85,7 @@ export default function ContactPage() {
         title="Choose the action closest to your need."
         cards={[
           { title: "Request quote", text: "Share grade, rod size, quantity, and delivery location.", href: "/request-quote", icon: Phone },
-          { title: "Find dealer", text: "Locate nearby dealer support once ARS-approved dealer data is added.", href: "/dealer-locator", icon: MapPin },
+          { title: "Find dealer", text: "Route your enquiry to nearby dealer support through the ARS team.", href: "/dealer-locator", icon: MapPin },
           { title: "Become a dealer", text: "Start a dealer or distributor interest path.", href: "/become-a-dealer", icon: Building2 },
         ]}
       />
