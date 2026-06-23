@@ -63,9 +63,9 @@ export function HomeHero() {
     <section
       aria-label="ARS Green Steel hero"
       data-active-word={active.word}
-      className="relative flex min-h-[100svh] w-full items-center overflow-hidden text-white"
+      className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-bg-dark text-white"
     >
-      <div className="absolute inset-0 h-full w-full bg-ink-950">
+      <div className="absolute inset-0 h-full w-full bg-bg-dark">
         <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
         <video
           className="absolute inset-0 h-full w-full object-cover opacity-82"
@@ -78,8 +78,8 @@ export function HomeHero() {
         >
           <source src="/videos/ars-intro.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/78 to-ink-950/24" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,13,14,0.12),rgba(11,13,14,0.9))]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-bg-dark via-bg-dark/82 to-bg-dark/20" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,30,0.08),rgba(6,13,30,0.92))]" />
       </div>
 
       <div className="ars-container relative z-10 flex min-h-[100svh] flex-col justify-center py-24 sm:py-28 lg:justify-end lg:pb-14 lg:pt-32">
@@ -89,13 +89,13 @@ export function HomeHero() {
               <span className="size-2 rounded-full bg-brand-blue" />
               Since 1992 · Certified TMT steel
             </div>
-            <h1 className="max-w-[760px] font-display text-[clamp(2.4rem,9vw,3rem)] font-black uppercase leading-[0.95] tracking-normal text-white sm:text-[clamp(3rem,5vw,4rem)]">
+            <h1 className="max-w-[760px] font-display text-[clamp(2.4rem,9vw,3rem)] font-extrabold uppercase leading-[0.95] tracking-normal text-white sm:text-[clamp(3rem,5vw,4rem)]">
               <span className="sr-only" aria-live="polite">
                 We Build {active.word} Structures.
               </span>
               <span aria-hidden="true">
                 We Build
-                <span className="relative block min-h-[0.98em] overflow-hidden text-[#F76369]">
+                <span className="relative block min-h-[0.98em] overflow-hidden text-brand-red">
                   <AnimatePresence mode="popLayout" initial={false}>
                     <motion.span
                       key={active.word}
@@ -116,10 +116,10 @@ export function HomeHero() {
               {active.copy}
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row">
-              <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] bg-brand-blue px-5 text-sm font-semibold text-white transition hover:bg-brand-blue-dark" href="/steel-price-today">
+              <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] bg-brand-red px-5 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(196,30,58,0.26)] transition hover:bg-brand-red-dark" href="/steel-price-today">
                 Check today&apos;s price <ArrowRight size={18} />
               </Link>
-              <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] border border-white/35 px-5 text-sm font-semibold text-white transition hover:bg-white hover:text-ink-900" href="#products">
+              <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] border border-white/28 bg-white/8 px-5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white hover:text-ink-900" href="#products">
                 Explore products <ArrowRight size={18} />
               </Link>
             </div>
@@ -130,7 +130,7 @@ export function HomeHero() {
               <motion.article
                 key={active.word}
                 data-card-title={active.title}
-                className="relative aspect-[1.45/1] min-h-[210px] overflow-hidden rounded-[16px] border border-white/20 bg-ink-900 shadow-[0_30px_100px_rgba(0,0,0,0.42)] sm:aspect-[1.48/1] sm:min-h-[320px] lg:min-h-[280px]"
+                className="relative aspect-[1.45/1] min-h-[210px] overflow-hidden rounded-[20px] border border-white/15 bg-white/[0.07] shadow-[var(--shadow-strong)] backdrop-blur sm:aspect-[1.48/1] sm:min-h-[320px] lg:min-h-[280px]"
                 initial={reduceMotion ? false : { opacity: 0, scale: 0.98, y: 18 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.985, y: -12 }}
@@ -144,8 +144,8 @@ export function HomeHero() {
                   className={active.imageFit === "contain" ? "object-contain p-12 opacity-95" : "object-cover opacity-92"}
                   priority={activeIndex === 0}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/92 via-ink-950/28 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-ink-950/28 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/94 via-bg-dark/34 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-bg-dark/34 via-transparent to-transparent" />
 
                 <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
                   <p className="font-display text-2xl font-black uppercase leading-none tracking-normal text-white sm:text-[2rem]">

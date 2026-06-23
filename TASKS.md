@@ -63,6 +63,16 @@ The execution order prioritizes:
 
 ## Phase 2 - Homepage Refinement
 
+### Approved Homepage Theme Refresh - 2026-06-23
+
+| Task | Priority | Status | Dependencies | Expected Outcome |
+|---|---|---|---|---|
+| Create `homepage-figma-refresh` branch from approved design-system branch | Critical | Done | `design-system-sync` | Homepage work is isolated for review and GitHub tracking. |
+| Apply approved dark navy, royal blue, and crimson hierarchy to homepage hero | Critical | Done | `ARS-DESIGN-HANDOFF.md`, `HomeHero` | Hero now reflects the approved premium industrial theme while preserving existing content and animation. |
+| Refresh homepage section rhythm with dark navy feature bands and light blue-tinted surfaces | High | Done | Updated global tokens | Homepage reads closer to the approved Figma Make direction without rebuilding structure. |
+| Update audience, buying, product, trust, green steel, testimonials, and blog section surfaces | High | Done | Existing homepage components | Key sections feel more consistent with the approved design language. |
+| Run production build after homepage refresh | Critical | Done | Updated homepage files | Build passes before local preview and branch push. |
+
 | Task | Priority | Status | Dependencies | Expected Outcome |
 |---|---|---|---|---|
 | Update homepage CTAs to follow the blue-primary hierarchy | Critical | Done | Phase 1 CTA rules | Main actions immediately communicate trust and brand consistency. |

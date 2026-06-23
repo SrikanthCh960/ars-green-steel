@@ -184,14 +184,15 @@ const blogs = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
+    <main className="min-h-screen overflow-x-clip bg-background text-ink-900">
       <SiteHeader />
 
       <HomeHero />
 
       <AudienceJourneySection />
 
-      <MotionSection className="bg-[#071222] py-24 text-white" id="buying-assistant">
+      <MotionSection className="relative overflow-hidden bg-bg-dark py-24 text-white" id="buying-assistant">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(196,30,58,0.16),transparent_28%),radial-gradient(circle_at_84%_12%,rgba(13,43,110,0.34),transparent_32%)]" />
         <div className="ars-container">
           <div className="mb-12 max-w-4xl">
             <div className="section-kicker-row">
@@ -216,11 +217,11 @@ export default function Home() {
               return (
                 <Link
                   key={action.title}
-                  className="focus-ring group flex min-h-[260px] flex-col justify-between rounded-[8px] border border-white/10 bg-white/[0.055] p-7 shadow-[0_24px_70px_rgba(0,0,0,0.18)] transition duration-300 hover:-translate-y-1 hover:border-brand-blue/50 hover:bg-white/[0.08]"
+                  className="focus-ring group flex min-h-[260px] flex-col justify-between rounded-[16px] border border-white/12 bg-white/[0.07] p-7 shadow-[var(--shadow-card)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-brand-red/50 hover:bg-white/[0.1]"
                   href={action.href}
                 >
                   <div>
-                    <span className="mb-10 inline-flex size-14 items-center justify-center rounded-[8px] bg-white/8 text-white ring-1 ring-white/10 transition duration-300 group-hover:bg-brand-blue group-hover:text-white">
+                    <span className="mb-10 inline-flex size-14 items-center justify-center rounded-[12px] bg-white/8 text-white ring-1 ring-white/10 transition duration-300 group-hover:bg-brand-red group-hover:text-white">
                       <Icon size={22} />
                     </span>
                     <h2 className="font-display text-2xl font-bold tracking-normal text-white">{action.title}</h2>
@@ -236,7 +237,7 @@ export default function Home() {
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-[#fffdfa] py-16 lg:min-h-[90vh] lg:py-18" id="products">
+      <MotionSection className="bg-surface-50 py-16 lg:min-h-[90vh] lg:py-18" id="products">
         <div className="ars-container flex min-h-[calc(90vh-96px)] flex-col justify-center">
           <div className="mb-8 max-w-4xl lg:mb-10">
             <div className="section-kicker-row">
@@ -258,9 +259,9 @@ export default function Home() {
             {products.map((product) => (
               <article
                 key={product.name}
-                className="group grid overflow-hidden rounded-[12px] border border-ink-900/10 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 hover:border-brand-blue/45 hover:shadow-[0_22px_72px_rgba(0,75,155,0.1)] lg:grid-cols-[260px_minmax(0,1fr)_220px]"
+                className="group grid overflow-hidden rounded-[18px] border border-brand-blue/12 bg-white shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:border-brand-blue/45 hover:shadow-[0_22px_72px_rgba(13,43,110,0.12)] lg:grid-cols-[260px_minmax(0,1fr)_220px]"
               >
-                <div className="flex min-h-[180px] items-center justify-center bg-[#f8f9fb] p-6 lg:min-h-[216px]">
+                <div className="flex min-h-[180px] items-center justify-center bg-surface-100 p-6 lg:min-h-[216px]">
                   <Image
                     src={product.image}
                     alt={`${product.name} product`}
@@ -298,7 +299,7 @@ export default function Home() {
                     View product <ArrowRight size={17} />
                   </Link>
                   <Link
-                    className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] border border-brand-blue/30 bg-white px-5 text-sm font-bold text-brand-blue transition hover:border-brand-blue hover:bg-[#f2f7ff]"
+                    className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] border border-brand-blue/30 bg-white px-5 text-sm font-bold text-brand-blue transition hover:border-brand-blue hover:bg-surface-50"
                     href={product.brochureHref}
                     download
                   >
@@ -310,7 +311,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-5 grid gap-4 rounded-[12px] border border-ink-900/10 bg-white/70 p-5 lg:grid-cols-3">
+          <div className="mt-5 grid gap-4 rounded-[16px] border border-brand-blue/10 bg-white/78 p-5 shadow-[var(--shadow-soft)] lg:grid-cols-3">
             {["Grade clarity", "Application fit", "Proof-led selection"].map((item) => (
               <div key={item} className="flex items-center gap-3 text-sm font-bold text-steel-700">
                 <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-[#edf5ff] text-brand-blue">
@@ -341,7 +342,7 @@ export default function Home() {
                   {[...certificateCards, ...certificateCards].map((item, index) => (
                     <article
                       key={`${item.label}-${index}`}
-                      className="marquee-card min-w-[280px] border border-ink-900/10 bg-[#f8f9fb]"
+                      className="marquee-card min-w-[280px] border border-brand-blue/10 bg-surface-50"
                       aria-hidden={index >= certificateCards.length}
                     >
                       {item.image ? (
@@ -391,7 +392,7 @@ export default function Home() {
         </div>
       </MotionSection>
 
-      <MotionSection className="relative overflow-hidden bg-[#07351f] py-24 text-white" id="ars-green-steel">
+      <MotionSection className="relative overflow-hidden bg-bg-dark py-24 text-white" id="ars-green-steel">
         <div className="absolute inset-0">
           <Image
             src="/ars-assets/ARS-green-bg.png"
@@ -401,8 +402,8 @@ export default function Home() {
             className="object-cover"
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,31,18,0.7),rgba(5,31,18,0.82))]" />
-          <div className="absolute inset-0 bg-white/8" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,30,0.72),rgba(6,13,30,0.9))]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(22,101,52,0.32),transparent_28%)]" />
         </div>
 
         <div className="ars-container relative z-10">
@@ -436,7 +437,7 @@ export default function Home() {
               return (
                 <article
                   key={feature.title}
-                  className="rounded-[8px] border border-white/18 bg-white/10 p-7 shadow-[0_20px_60px_rgba(0,0,0,0.18)] backdrop-blur-[2px]"
+                className="rounded-[16px] border border-white/12 bg-white/[0.07] p-7 shadow-[var(--shadow-card)] backdrop-blur-[2px]"
                 >
                   <span className="inline-flex size-14 items-center justify-center rounded-[8px] bg-white/12 text-emerald-200 ring-1 ring-white/12">
                     <Icon size={24} />
@@ -454,7 +455,7 @@ export default function Home() {
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-[#f8f9fb] py-24" id="testimonials">
+      <MotionSection className="bg-surface-50 py-24" id="testimonials">
         <div className="ars-container">
           <SectionIntro
             eyebrow="Happy clients"
@@ -464,7 +465,7 @@ export default function Home() {
 
           <div className="flex snap-x gap-5 overflow-x-auto pb-4">
             {testimonials.map((item) => (
-              <article key={item.name} className="min-w-[320px] snap-start rounded-[8px] border border-ink-900/10 bg-white p-7 shadow-[0_18px_55px_rgba(15,23,42,0.05)] md:min-w-[430px]">
+              <article key={item.name} className="min-w-[320px] snap-start rounded-[16px] border border-brand-blue/10 bg-white p-7 shadow-[var(--shadow-soft)] md:min-w-[430px]">
                 <p className="text-5xl leading-none text-brand-blue">“</p>
                 <p className="mt-6 text-xl leading-9 text-steel-700">{item.quote}</p>
                 <div className="mt-10 flex items-center gap-3 border-t border-ink-900/10 pt-6">
@@ -492,7 +493,7 @@ export default function Home() {
 
           <div className="grid gap-5 lg:grid-cols-4">
             {blogs.map((blog) => (
-              <Link key={blog.title} href={blog.href} className="focus-ring group flex min-h-[250px] flex-col justify-between rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-6 transition hover:-translate-y-1 hover:border-brand-blue/35 hover:bg-white">
+              <Link key={blog.title} href={blog.href} className="focus-ring group flex min-h-[250px] flex-col justify-between rounded-[16px] border border-brand-blue/10 bg-surface-50 p-6 transition hover:-translate-y-1 hover:border-brand-blue/35 hover:bg-white">
                 <div>
                   <p className="font-technical text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">{blog.category}</p>
                   <h2 className="mt-7 font-display text-2xl font-bold tracking-normal text-ink-900">{blog.title}</h2>

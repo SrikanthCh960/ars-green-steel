@@ -79,7 +79,7 @@ export function AudienceJourneySection() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="bg-white py-24" id="audiences">
+    <section className="bg-surface-50 py-24" id="audiences">
       <div className="ars-container">
         <div className="mb-11 max-w-4xl">
           <div className="section-kicker-row mb-5">
@@ -88,7 +88,7 @@ export function AudienceJourneySection() {
               Audience paths
             </p>
           </div>
-          <h2 className="font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.02] tracking-normal text-[#001a44]">
+          <h2 className="font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.02] tracking-normal text-ink-900">
             Choose Your ARS Journey
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-8 text-steel-700 lg:text-lg">
@@ -114,7 +114,7 @@ export function AudienceJourneySection() {
               >
                 <Link
                   href={item.href}
-                  className="audience-journey-card focus-ring group relative block h-[440px] overflow-hidden rounded-[16px] bg-ink-950 p-6 text-white shadow-[0_22px_64px_rgba(15,23,42,0.14)] lg:h-full"
+                  className="audience-journey-card focus-ring group relative block h-[440px] overflow-hidden rounded-[20px] bg-bg-dark p-6 text-white shadow-[0_22px_64px_rgba(13,43,110,0.18)] lg:h-full"
                 >
                   <Image
                     src={item.image}
@@ -124,10 +124,10 @@ export function AudienceJourneySection() {
                     className="object-cover opacity-90"
                     priority={index === 0}
                   />
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,26,68,0.02)_0%,rgba(0,26,68,0.18)_42%,rgba(0,22,58,0.94)_100%)]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,30,0.02)_0%,rgba(13,43,110,0.2)_42%,rgba(6,13,30,0.95)_100%)]" />
 
                   <motion.span
-                    className="absolute right-5 top-5 inline-flex size-12 items-center justify-center rounded-full bg-white text-[#001a44] shadow-[0_12px_30px_rgba(0,0,0,0.18)]"
+                    className="absolute right-5 top-5 inline-flex size-12 items-center justify-center rounded-full bg-white text-brand-blue shadow-[0_12px_30px_rgba(0,0,0,0.18)]"
                     animate={{ rotate: isActive ? -45 : 0, scale: isActive ? 1.04 : 1 }}
                     transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
                   >
@@ -135,7 +135,7 @@ export function AudienceJourneySection() {
                   </motion.span>
 
                   <div className="relative flex h-full flex-col justify-end">
-                    <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-brand-blue px-4 py-2 text-white shadow-[0_12px_30px_rgba(0,75,155,0.24)]">
+                    <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full bg-brand-blue px-4 py-2 text-white shadow-[0_12px_30px_rgba(13,43,110,0.28)]">
                       <Icon size={17} />
                       <p className="font-technical text-xs font-bold uppercase tracking-[0.08em]">{item.title}</p>
                     </div>
@@ -160,7 +160,7 @@ export function AudienceJourneySection() {
           })}
         </div>
 
-        <div className="mt-16 grid overflow-hidden rounded-[16px] border border-ink-900/10 bg-white shadow-[0_20px_70px_rgba(15,23,42,0.08)] sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid overflow-hidden rounded-[18px] border border-brand-blue/10 bg-white shadow-[var(--shadow-soft)] sm:grid-cols-2 lg:grid-cols-4">
           {audienceStats.map((stat, index) => {
             const Icon = stat.icon;
 
