@@ -8,6 +8,8 @@ This task plan is based on:
 - `PROJECT_BRIEF.md`
 - `DESIGN_RULES.md`
 - `ROADMAP.md`
+- `ARS-DESIGN-HANDOFF.md` supplied by the client team
+- Approved Figma Make website direction
 
 The execution order prioritizes:
 
@@ -34,6 +36,16 @@ The execution order prioritizes:
 ---
 
 ## Phase 1 - Design Foundation
+
+### Approved Design System Sync - 2026-06-23
+
+| Task | Priority | Status | Dependencies | Expected Outcome |
+|---|---|---|---|---|
+| Create `design-system-sync` branch from current working state | Critical | Done | Current `main` branch and existing local UI edits | Approved design-system work is isolated for review and GitHub tracking. |
+| Align global CSS tokens to approved Figma Make theme | Critical | Done | `ARS-DESIGN-HANDOFF.md` | Site foundation now supports dark navy, royal blue, crimson accents, light blue surfaces, glass overlays, and IBM Plex Sans. |
+| Keep existing class names backward compatible during migration | Critical | Done | Current component usage | Existing pages continue building while the visual system is migrated step by step. |
+| Update `DESIGN_SYSTEM.md` and `DESIGN_RULES.md` to the approved client direction | Critical | Done | Approved Figma Make handoff | Future page work follows the same client-approved visual rules. |
+| Run production build after token update | Critical | Done | Updated tokens and docs | Build passes before the branch is considered ready for review. |
 
 | Task | Priority | Status | Dependencies | Expected Outcome |
 |---|---|---|---|---|

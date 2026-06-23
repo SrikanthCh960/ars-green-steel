@@ -1,8 +1,16 @@
 # ARS Green Steel Design System
 
+## Approved Client Direction
+
+This document now follows the client-approved Figma Make direction supplied in `ARS-DESIGN-HANDOFF.md`.
+
+The approved visual system is not a green/white sustainability palette. ARS Green Steel should use a premium industrial palette built around dark navy, royal blue, crimson accents, light blue-tinted surfaces, glass overlays, and strong industrial imagery.
+
+Green remains a sustainability/product-story accent only.
+
 ## Purpose
 
-This design system is extracted from the approved Homepage V1 implementation.
+This design system is extracted from the approved ARS design handoff and adapted to the current Next.js implementation.
 
 It documents the reusable visual patterns that should guide future pages, component extraction, and UI decisions across the ARS Green Steel website.
 
@@ -32,16 +40,17 @@ These patterns should become the foundation for product pages, tool pages, appli
 
 ## 1. Color Hierarchy
 
-### Primary Brand Blue
+### Primary Brand Blue / Royal Blue
 
 Token:
 
-- `#004B9B`
+- `#0D2B6E`
 
 Current implementation:
 
-- `--brand-blue: #004b9b`
-- `--foundation-blue: #004b9b`
+- `--brand-blue: #0d2b6e`
+- `--foundation-blue: #0d2b6e`
+- `--primary: #0D2B6E` in the approved handoff language
 
 Use for:
 
@@ -65,52 +74,57 @@ Rule:
 
 Token:
 
-- `#F76369`
+- `#C41E3A`
 
 Current implementation:
 
-- `--brand-red: #f76369`
+- `--brand-red: #c41e3a`
+- `--accent: #C41E3A` in the approved handoff language
 
 Use for:
 
+- Primary conversion emphasis in approved Figma theme
 - Animated hero word
-- Serif italic emphasis words
+- Editorial emphasis words
 - Metric suffixes
 - Product index numbers
-- Small editorial highlights only
+- Badges and highlights where stronger action is needed
 
 Rule:
 
-- Red must not be used as the default CTA color.
-- Red supports the editorial voice; blue drives action.
+- Crimson may be used for high-priority CTA emphasis in the approved dark theme.
+- Blue remains the trust/navigation/action color for most interface states.
+- Do not let red overpower the industrial navy/blue identity.
 
 ### Dark Foundation
 
 Tokens:
 
-- `#0F172A` design-system dark navy
-- `#0B0D0E` implementation ink base
-- `#151719` implementation ink text
+- `#060D1E` primary dark navy
+- `#0A0F1E` secondary dark surface
+- `#08112A` deepest overlay/navy
 
 Use for:
 
 - Hero video overlay
-- Fixed header background
+- Header/nav dark states
 - Strong headline text
 - Media panel base color
+- Feature sections where dark treatment adds impact
 
 Rule:
 
-- Dark treatment is strongest in the hero.
-- Post-hero sections should usually be light.
+- The site is dual-mode: premium dark navy feature sections alternating with light blue-tinted content sections.
+- Do not use green as the main dark-section identity.
 
 ### Light Foundation
 
 Tokens:
 
 - `#FFFFFF`
-- `#F8FAFC`
-- Implementation surfaces: `#f8f9fb`, `#fffdfa`
+- `#F4F7FF`
+- `#E8ECF4`
+- Implementation surfaces: `#f4f7ff`, `#e8ecf4`, `#fff`
 
 Use for:
 
@@ -122,7 +136,7 @@ Use for:
 
 Rule:
 
-- Light surfaces dominate the post-hero experience.
+- Light surfaces should feel editorial, calm, and slightly blue-tinted.
 
 ### Supporting Colors
 
@@ -142,17 +156,18 @@ Green:
 
 Current implementation:
 
-- Body and UI: `Inter`
+- Body and UI: `IBM Plex Sans`
 - Display and headings: `IBM Plex Sans`
-- Technical labels and specification-style text: `IBM Plex Sans Condensed`
+- Technical labels and specification-style text: `IBM Plex Sans`
 - Fallback: `Arial`, `Helvetica`, `system-ui`, `sans-serif`
-- The project currently uses a CSS font stack with production-safe fallbacks; self-hosted font files should be added when the approved font files are available.
+- The approved handoff uses IBM Plex Sans weights `400, 500, 600, 700, 800`.
+- The project currently imports IBM Plex Sans from Google Fonts; self-hosting can be done later if needed.
 
 Rules:
 
-- Use Inter for readable body copy, navigation, forms, buttons, tables, and utility UI.
-- Use IBM Plex Sans for hero, page titles, section headings, product names, and strong editorial moments.
-- Use IBM Plex Sans Condensed sparingly for technical labels, spec metadata, grade labels, and compact proof markers.
+- Use IBM Plex Sans for readable body copy, navigation, forms, buttons, tables, hero copy, page titles, product names, and editorial moments.
+- Use heavier weights only where the design requires industrial confidence.
+- Technical labels can use uppercase IBM Plex Sans with letter spacing instead of a separate condensed font.
 - Do not mix decorative fonts into industrial sections unless there is a clear brand reason.
 
 ### Display Heading
@@ -199,7 +214,7 @@ Pattern:
 
 - IBM Plex Sans
 - Italic
-- Accent red
+- Crimson accent
 - Used inline with large display text
 
 Rules:

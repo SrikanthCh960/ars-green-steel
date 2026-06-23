@@ -82,9 +82,9 @@ export function AudienceJourneySection() {
     <section className="bg-white py-24" id="audiences">
       <div className="ars-container">
         <div className="mb-11 max-w-4xl">
-          <div className="mb-5 flex items-center gap-4">
-            <span className="h-[2px] w-10 bg-brand-blue" />
-            <p className="font-technical text-[11px] font-bold uppercase tracking-[0.22em] text-brand-blue">
+          <div className="section-kicker-row mb-5">
+            <span className="section-kicker-line" />
+            <p className="section-kicker">
               Audience paths
             </p>
           </div>

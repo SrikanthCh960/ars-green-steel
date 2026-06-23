@@ -1,5 +1,15 @@
 # ARS Green Steel Design Rules
 
+## Client-Approved Theme Baseline
+
+The approved Figma Make direction is a premium industrial dark-navy and royal-blue system with controlled crimson accents.
+
+Important:
+
+- "Green Steel" is the sustainability/product story, not the dominant visual palette.
+- Do not turn the website into a green/white environmental theme.
+- Use dark navy, royal blue, crimson, light blue-tinted surfaces, industrial imagery, and glass overlays as the primary visual language.
+
 ## Purpose
 
 These rules define how the ARS Green Steel website should look, feel, and behave across the homepage, product pages, conversion tools, and future content pages.
@@ -23,9 +33,9 @@ The website must not feel:
 
 ## Color System
 
-### Primary Brand Blue
+### Primary Brand Blue / Royal Blue
 
-Hex: `#004B9B`
+Hex: `#0D2B6E`
 
 Use for:
 
@@ -47,12 +57,12 @@ Meaning:
 Rules:
 
 - Blue is the primary brand color.
-- Use blue for the main action on a page or section.
-- If a user should click one main action, that action should usually be blue.
+- Use blue for navigation, trust states, product links, focus states, and most interface actions.
+- If a section has multiple actions, blue should usually remain the dependable action color.
 
 ### Accent Red
 
-Hex: `#F76369`
+Hex: `#C41E3A`
 
 Use for:
 
@@ -62,6 +72,7 @@ Use for:
 - Secondary highlights
 - Important metric suffixes
 - Selected motion/interaction accents
+- Primary hero/conversion emphasis when matching the approved Figma theme
 
 Meaning:
 
@@ -72,14 +83,17 @@ Meaning:
 
 Rules:
 
-- Use red sparingly.
+- Use crimson deliberately.
+- Crimson may carry high-priority conversion emphasis in dark sections.
 - Red must not become the dominant identity color.
 - Do not use red for every button, icon, line, and highlight.
-- Red should support blue, not compete with it.
+- Red should support the navy/blue industrial identity, not compete with it.
 
 ### Dark Navy
 
-Hex: `#0F172A`
+Hex: `#060D1E`
+
+Secondary dark: `#0A0F1E`
 
 Use for:
 
@@ -91,8 +105,8 @@ Use for:
 Rules:
 
 - Use dark navy with intention.
-- Do not default to dark sections after the hero.
-- Prefer light editorial sections unless a dark treatment adds real impact.
+- The approved site is dual-mode: dark navy feature sections alternate with light blue-tinted editorial sections.
+- Dark sections should use strong imagery, glass cards, or proof-driven layouts so they feel premium rather than heavy.
 
 ### Steel Grey
 
@@ -114,7 +128,9 @@ Rules:
 
 ### Light Surface
 
-Hex: `#F8FAFC`
+Hex: `#F4F7FF`
+
+Secondary light: `#E8ECF4`
 
 Use for:
 
@@ -125,7 +141,7 @@ Use for:
 
 Rules:
 
-- Light surfaces should feel clean, premium, and editorial.
+- Light surfaces should feel clean, premium, editorial, and subtly blue-tinted.
 - Avoid heavy shadows and overly rounded SaaS-style cards.
 
 ### White
@@ -147,12 +163,13 @@ Rules:
 
 ### Recommended Color Ratio
 
-- 60% White
-- 20% Light Surface
-- 10% Brand Blue
-- 5% Dark Navy
-- 3% Steel Grey
-- 2% Accent Red
+- 35% Dark Navy
+- 30% White / Light Surface
+- 15% Royal Blue
+- 10% Industrial imagery
+- 6% Steel Grey
+- 3% Crimson
+- 1% Sustainability Green
 
 ## Typography System
 
@@ -160,16 +177,17 @@ Rules:
 
 Use:
 
-- Body/UI: `Inter`
+- Body/UI: `IBM Plex Sans`
 - Headings/display: `IBM Plex Sans`
-- Technical labels/spec metadata: `IBM Plex Sans Condensed`
-- Implementation should use local/self-hosted font files when available; keep modern system fallbacks so builds are not blocked by external font services.
+- Technical labels/spec metadata: uppercase `IBM Plex Sans` with tracking
+- Implementation currently loads IBM Plex Sans weights `400, 500, 600, 700, 800`.
+- Self-hosted font files can replace the external import later if required.
 
 Guidelines:
 
-- Inter should carry most reading, navigation, button, form, and table text.
-- IBM Plex Sans should carry brand confidence in headings and product/story moments.
-- IBM Plex Sans Condensed should be used sparingly for grade labels, technical metadata, certification markers, and compact proof text.
+- IBM Plex Sans should carry reading, navigation, button, form, table, heading, product, and story moments.
+- Use 500/600 for normal headings, 700/800 for major brand moments.
+- Technical labels should be uppercase, compact, and letter-spaced.
 - Avoid decorative or overly trendy fonts that weaken the industrial credibility of ARS.
 
 ### Display

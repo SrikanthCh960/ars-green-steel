@@ -68,7 +68,10 @@ export function AudiencePaths() {
     <section className="bg-[#f8f9fb] py-24 text-ink-900">
       <div className="ars-container">
         <div className="mb-14 max-w-4xl">
-          <p className="text-sm font-bold uppercase tracking-[0.22em] text-foundation-blue">Audience paths</p>
+          <div className="section-kicker-row">
+            <span className="section-kicker-line" />
+            <p className="section-kicker">Audience paths</p>
+          </div>
           <h2 className="mt-4 font-display text-4xl font-bold tracking-normal sm:text-5xl">
             One website, four clear journeys.
           </h2>
