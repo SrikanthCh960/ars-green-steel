@@ -51,7 +51,7 @@ The execution order prioritizes:
 |---|---|---|---|---|
 | Add primary brand blue `#004B9B` into the active design token system | Critical | Done | `DESIGN_RULES.md` | Blue becomes the clear primary brand color across the site. |
 | Replace legacy primary red usage where red behaves like the main brand color | Critical | Done | Color audit of current UI | Red stops dominating buttons, links, highlights, and section identity. |
-| Restrict `#F76369` to accent use only | High | Done | Brand hierarchy update | Red supports editorial emphasis without overpowering ARS blue. |
+| Replace legacy coral red with single secondary red `#DE121A` | High | Done | Brand hierarchy update | Red supports conversion and editorial emphasis through one consistent approved token. |
 | Define final CTA color rules for primary, secondary, ghost, and text links | Critical | Done | Color system | All calls to action feel consistent, premium, and conversion-focused. |
 | Standardize typography scale for display, H1, H2, H3, body, and captions | High | Done | `DESIGN_RULES.md` | Headings and section copy follow a controlled editorial hierarchy. |
 | Apply final ARS font stack with IBM Plex Sans, Inter, and IBM Plex Sans Condensed | High | Done | Typography recommendation | The site uses an engineered, readable industrial font stack with safe fallbacks; self-hosted font files can be added when available. |

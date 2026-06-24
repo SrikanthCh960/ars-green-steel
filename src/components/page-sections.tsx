@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight, BadgeCheck } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
 import { MotionSection } from "@/components/motion-section";
+import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 
 type HeroProps = {
@@ -59,7 +60,7 @@ export function PageHero({
             <h1 className="max-w-6xl break-words font-display text-[clamp(2.6rem,6.4vw,6.25rem)] font-black uppercase leading-[0.92] tracking-normal text-white">
               {title}
               {accent ? (
-                <span className="block font-serif italic text-[#F76369]">{accent}</span>
+                <span className="block font-serif italic text-brand-red">{accent}</span>
               ) : null}
             </h1>
           </div>
@@ -109,10 +110,7 @@ export function SectionIntro({
   return (
     <div className="section-intro">
       <div>
-        <div className="section-kicker-row">
-          <span className="section-kicker-line" />
-          <p className="section-kicker">{eyebrow}</p>
-        </div>
+        <SectionKicker>{eyebrow}</SectionKicker>
         <h2 className="section-title">
           {title}
         </h2>

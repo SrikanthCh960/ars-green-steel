@@ -165,7 +165,7 @@ export default function AboutPage() {
               <h1 className="max-w-6xl font-display text-[clamp(3rem,7.2vw,7.2rem)] font-black uppercase leading-[0.92] tracking-normal text-white">
                 Built on trust.
                 <span className="block">
-                  Proven by <span className="font-serif italic text-[#F76369]">steel.</span>
+                  Proven by <span className="font-serif italic text-brand-red">steel.</span>
                 </span>
               </h1>
             </div>
@@ -204,7 +204,7 @@ export default function AboutPage() {
               </div>
               <h2 className="max-w-full break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal text-ink-900">
                 Confidence,{" "}
-                <span className="mx-4 font-serif italic font-bold text-[#F76369]">earned</span>
+                <span className="mx-4 font-serif italic font-bold text-brand-red">earned</span>
                 {" "}
                 over time.
               </h2>

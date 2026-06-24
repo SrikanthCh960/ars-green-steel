@@ -132,9 +132,9 @@ export function SiteHeader() {
 
   return (
     <header
-      className="site-header fixed inset-x-0 top-0 z-50 px-0 text-ink-900 lg:px-4 lg:pt-3"
+      className="site-header sticky inset-x-0 top-0 z-50 bg-white text-ink-900"
     >
-      <div className="site-header-shell border-b border-ink-900/10 bg-[#f7f4ee]/96 shadow-[0_22px_70px_rgba(15,23,42,0.16)] backdrop-blur-xl lg:rounded-b-[28px] lg:border lg:border-ink-900/10">
+      <div className="site-header-shell border-b border-ink-900/10 bg-white shadow-[0_8px_28px_rgba(13,43,110,0.08)]">
       <div className="ars-container flex h-20 items-center justify-between">
         <Link href="/" className="focus-ring flex items-center gap-3">
           <span className="flex h-14 w-[132px] items-center justify-center">
@@ -159,7 +159,7 @@ export function SiteHeader() {
                 </a>
                 {menu ? (
                   <div
-                    className="site-mega-menu absolute left-0 right-0 top-[calc(100%-1px)] border-x border-b border-ink-900/10 bg-[#f7f4ee]/98 shadow-[0_32px_80px_rgba(15,23,42,0.18)]"
+                    className="site-mega-menu absolute left-0 right-0 top-[calc(100%-1px)] border-b border-ink-900/10 bg-white shadow-[0_32px_80px_rgba(15,23,42,0.14)]"
                     role="region"
                     aria-label={`${menu.eyebrow} menu`}
                   >
@@ -178,7 +178,7 @@ export function SiteHeader() {
           >
             <Search size={16} /> Steel price
           </Link>
-          <Link className="focus-ring inline-flex h-11 items-center gap-2 rounded-full bg-brand-blue px-5 text-sm font-bold text-white shadow-[0_12px_30px_rgba(0,75,155,0.24)] transition hover:bg-brand-blue-dark" href="/request-quote">
+          <Link className="focus-ring inline-flex h-11 items-center gap-2 rounded-full bg-brand-red px-5 text-sm font-bold text-white shadow-[0_12px_30px_rgba(222,18,26,0.24)] transition hover:bg-brand-red-dark" href="/request-quote">
             Get quote <ArrowRight size={16} />
           </Link>
           <details className="group/details xl:hidden">
@@ -189,7 +189,7 @@ export function SiteHeader() {
             >
               <Menu size={20} />
             </summary>
-            <div id={mobileMenuId} className="absolute left-0 right-0 top-full max-h-[calc(100vh-80px)] overflow-y-auto border-t border-ink-900/10 bg-[#f7f4ee] shadow-[0_24px_60px_rgba(15,23,42,0.16)]">
+            <div id={mobileMenuId} className="absolute left-0 right-0 top-full max-h-[calc(100vh-80px)] overflow-y-auto border-t border-ink-900/10 bg-white shadow-[0_24px_60px_rgba(15,23,42,0.16)]">
               <div className="ars-container grid gap-5 py-5">
                 <div className="grid gap-3 sm:grid-cols-3">
                   {[

@@ -74,12 +74,12 @@ Rule:
 
 Token:
 
-- `#C41E3A`
+- `#DE121A`
 
 Current implementation:
 
-- `--brand-red: #c41e3a`
-- `--accent: #C41E3A` in the approved handoff language
+- `--brand-red: #de121a`
+- `--accent: #DE121A` as the single approved secondary red
 
 Use for:
 
@@ -239,13 +239,15 @@ Pattern:
 - Bold
 - Wide letter spacing
 - Small text
-- Blue for key sections
+- Secondary brand red `#DE121A` for standard light-section kickers
 - Steel grey for secondary metadata
-- Often paired with a 48px horizontal blue rule
+- Paired with a 40px horizontal rule using the same variant color
 
-Reusable component candidate:
+Reusable component:
 
-- `SectionKicker`
+- `SectionKicker` in `src/components/section-kicker.tsx`
+- Variants: `brand`, `light`, `green`
+- Use `showEndLine` only for centered editorial labels such as the Green Steel section.
 
 ### Body Copy
 
@@ -889,6 +891,7 @@ These components already exist and should remain reusable:
 | `MotionSection` | `src/components/motion-section.tsx` | Scroll reveal wrapper for homepage sections |
 | `AnimatedHeroWord` | `src/components/animated-hero-word.tsx` | Rotating hero emphasis word |
 | `AudiencePaths` | `src/components/audience-paths.tsx` | Audience-specific tabbed journey section |
+| `SectionKicker` | `src/components/section-kicker.tsx` | Reusable section label with brand, light, and green variants |
 
 ### Should Become Reusable
 
@@ -900,7 +903,6 @@ These patterns are currently embedded in `src/app/page.tsx` and should be extrac
 | `SiteHeader` | `Header` inside `page.tsx` | Global navigation |
 | `HeroSection` | Video hero | Homepage and campaign pages |
 | `HeroVideoBackground` | Hero video and overlays | Video-led hero sections |
-| `SectionKicker` | Label plus horizontal rule | Major section labels |
 | `EditorialHeading` | Large uppercase section headings | Hero, proof, product, CTA sections |
 | `PrimaryButton` | Blue CTA buttons | Main conversion actions |
 | `SecondaryButton` | Outline/secondary buttons | Supporting actions |
@@ -949,8 +951,7 @@ Extract these first because they repeat across most future pages:
 4. `PrimaryButton`
 5. `SecondaryButton`
 6. `TextCTA`
-7. `SectionKicker`
-8. `EditorialHeading`
+7. `EditorialHeading`
 
 ### Second Extraction Pass
 

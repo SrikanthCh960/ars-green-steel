@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactCta } from "@/components/contact-cta";
+import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
@@ -39,10 +40,7 @@ export default function TermsOfUsePage() {
       <section className="border-b border-ink-900/8 bg-[#f8f9fb] pt-32 pb-14 lg:pt-36 lg:pb-18">
         <div className="ars-container">
           <div className="max-w-4xl">
-            <div className="section-kicker-row">
-              <span className="section-kicker-line" />
-              <p className="section-kicker">Legal</p>
-            </div>
+            <SectionKicker>Legal</SectionKicker>
             <h1 className="section-title">Terms of Use</h1>
             <p className="section-copy max-w-3xl">
               These terms explain how the ARS Green Steel website, content, and enquiry channels should be used.

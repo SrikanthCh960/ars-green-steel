@@ -62,7 +62,7 @@ Rules:
 
 ### Accent Red
 
-Hex: `#C41E3A`
+Hex: `#DE121A`
 
 Use for:
 

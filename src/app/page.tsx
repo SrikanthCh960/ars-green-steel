@@ -16,6 +16,7 @@ import { AudienceJourneySection } from "@/components/audience-journey-section";
 import { ContactCta } from "@/components/contact-cta";
 import { HomeHero } from "@/components/home-hero";
 import { MotionSection } from "@/components/motion-section";
+import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 
 const buyingActions = [
@@ -192,15 +193,10 @@ export default function Home() {
       <AudienceJourneySection />
 
       <MotionSection className="relative overflow-hidden bg-bg-dark py-24 text-white" id="buying-assistant">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(196,30,58,0.16),transparent_28%),radial-gradient(circle_at_84%_12%,rgba(13,43,110,0.34),transparent_32%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(222,18,26,0.16),transparent_28%),radial-gradient(circle_at_84%_12%,rgba(13,43,110,0.34),transparent_32%)]" />
         <div className="ars-container">
           <div className="mb-12 max-w-4xl">
-            <div className="section-kicker-row">
-              <span className="section-kicker-line" />
-              <p className="section-kicker section-kicker-light">
-                Fastest route
-              </p>
-            </div>
+            <SectionKicker variant="light">Fastest route</SectionKicker>
             <h2 className="section-title section-title-light">
               From enquiry to steel in fewer steps.
             </h2>
@@ -240,12 +236,7 @@ export default function Home() {
       <MotionSection className="bg-surface-50 py-16 lg:min-h-[90vh] lg:py-18" id="products">
         <div className="ars-container flex min-h-[calc(90vh-96px)] flex-col justify-center">
           <div className="mb-8 max-w-4xl lg:mb-10">
-            <div className="section-kicker-row">
-              <span className="section-kicker-line" />
-              <p className="section-kicker">
-                Product range
-              </p>
-            </div>
+            <SectionKicker>Product range</SectionKicker>
             <h2 className="section-title">
               Two product paths for stronger structures.
             </h2>
@@ -408,13 +399,9 @@ export default function Home() {
 
         <div className="ars-container relative z-10">
           <div className="mx-auto max-w-5xl text-center">
-            <div className="section-kicker-row justify-center">
-              <span className="section-kicker-line section-kicker-line-green" />
-              <p className="section-kicker section-kicker-green">
-                ARS Green Steel
-              </p>
-              <span className="section-kicker-line section-kicker-line-green" />
-            </div>
+            <SectionKicker variant="green" align="center" showEndLine>
+              ARS Green Steel
+            </SectionKicker>
             <h2 className="section-title section-title-light mx-auto">
               What Makes ARS Green Steel Different?
             </h2>
@@ -516,10 +503,7 @@ function SectionIntro({ eyebrow, title, body }: { eyebrow: string; title: string
   return (
     <div className="mb-12 max-w-4xl">
       <div>
-        <div className="section-kicker-row mb-6">
-          <span className="section-kicker-line" />
-          <p className="section-kicker">{eyebrow}</p>
-        </div>
+        <SectionKicker className="mb-6">{eyebrow}</SectionKicker>
         <h2 className="max-w-4xl font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal text-ink-900">
           {title}
         </h2>

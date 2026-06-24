@@ -2,7 +2,7 @@ const words = ["STRENGTH", "SAFETY", "TRUST", "GREEN STEEL"];
 
 export function AnimatedHeroWord() {
   return (
-    <span className="hero-word-rotator relative block min-h-[0.95em] overflow-hidden text-[#F76369]" aria-label="strength safety trust green steel">
+    <span className="hero-word-rotator relative block min-h-[0.95em] overflow-hidden text-brand-red" aria-label="strength safety trust green steel">
       {words.map((word, index) => (
         <span
           key={word}

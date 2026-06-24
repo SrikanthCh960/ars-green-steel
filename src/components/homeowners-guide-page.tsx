@@ -14,6 +14,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
+import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 
 const decisionCards = [
@@ -118,10 +119,7 @@ function SectionHeading({
 }) {
   return (
     <div className="section-intro">
-      <div className="section-kicker-row">
-        <span className={light ? "section-kicker-line bg-white/70" : "section-kicker-line"} />
-        <p className={light ? "section-kicker section-kicker-light" : "section-kicker"}>{eyebrow}</p>
-      </div>
+      <SectionKicker variant={light ? "light" : "brand"}>{eyebrow}</SectionKicker>
       <h2 className={light ? "section-title section-title-light" : "section-title"}>{title}</h2>
       <p className={light ? "section-copy section-copy-light" : "section-copy"}>{body}</p>
     </div>
@@ -386,10 +384,7 @@ export function HomeownersGuidePage() {
       <section className="bg-white py-20 lg:py-28">
         <div className="ars-container grid gap-10 rounded-[24px] bg-[#f4f8fc] p-6 md:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
-            <div className="section-kicker-row">
-              <span className="section-kicker-line" />
-              <p className="section-kicker">Talk to ARS</p>
-            </div>
+            <SectionKicker>Talk to ARS</SectionKicker>
             <h2 className="section-title">Get support from the ARS team.</h2>
             <p className="section-copy">
               Reach the team for product selection, dealer discovery, steel quantity planning, or site-level support before you finalize your home construction materials.

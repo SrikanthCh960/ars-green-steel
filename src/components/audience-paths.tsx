@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, BadgeCheck, Calculator, Factory, Home, MapPin, ShieldCheck, Store } from "lucide-react";
 import { useState } from "react";
+import { SectionKicker } from "@/components/section-kicker";
 
 const audienceData = [
   {
@@ -68,10 +69,7 @@ export function AudiencePaths() {
     <section className="bg-[#f8f9fb] py-24 text-ink-900">
       <div className="ars-container">
         <div className="mb-14 max-w-4xl">
-          <div className="section-kicker-row">
-            <span className="section-kicker-line" />
-            <p className="section-kicker">Audience paths</p>
-          </div>
+          <SectionKicker>Audience paths</SectionKicker>
           <h2 className="mt-4 font-display text-4xl font-bold tracking-normal sm:text-5xl">
             One website, four clear journeys.
           </h2>

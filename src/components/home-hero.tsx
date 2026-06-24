@@ -63,12 +63,12 @@ export function HomeHero() {
     <section
       aria-label="ARS Green Steel hero"
       data-active-word={active.word}
-      className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-bg-dark text-white"
+      className="relative flex min-h-[calc(100svh-80px)] w-full items-center overflow-hidden bg-bg-dark text-white"
     >
       <div className="absolute inset-0 h-full w-full bg-bg-dark">
         <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
         <video
-          className="absolute inset-0 h-full w-full object-cover opacity-82"
+          className="absolute inset-0 h-full w-full object-cover opacity-100"
           autoPlay
           muted
           loop
@@ -78,11 +78,11 @@ export function HomeHero() {
         >
           <source src="/videos/ars-intro.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-bg-dark via-bg-dark/82 to-bg-dark/20" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,30,0.08),rgba(6,13,30,0.92))]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-bg-dark/72 via-bg-dark/46 to-bg-dark/10" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,30,0.02),rgba(6,13,30,0.68))]" />
       </div>
 
-      <div className="ars-container relative z-10 flex min-h-[100svh] flex-col justify-center py-24 sm:py-28 lg:justify-end lg:pb-14 lg:pt-32">
+      <div className="ars-container relative z-10 flex min-h-[calc(100svh-80px)] flex-col justify-center py-20 sm:py-24 lg:justify-end lg:pb-14 lg:pt-24">
         <div className="grid min-w-0 gap-7 sm:gap-8 lg:grid-cols-[minmax(0,0.46fr)_minmax(420px,0.54fr)] lg:items-end lg:gap-14 xl:gap-20">
           <div className="min-w-0">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-2 text-sm text-grey-300 backdrop-blur sm:mb-7">
@@ -116,7 +116,7 @@ export function HomeHero() {
               {active.copy}
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row">
-              <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] bg-brand-red px-5 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(196,30,58,0.26)] transition hover:bg-brand-red-dark" href="/steel-price-today">
+              <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] bg-brand-red px-5 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(222,18,26,0.26)] transition hover:bg-brand-red-dark" href="/steel-price-today">
                 Check today&apos;s price <ArrowRight size={18} />
               </Link>
               <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] border border-white/28 bg-white/8 px-5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white hover:text-ink-900" href="#products">
