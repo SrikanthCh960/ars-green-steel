@@ -142,7 +142,7 @@ The visual identity should feel:
 
 ### Primary Brand Blue
 
-HEX: #004B9B
+HEX: #0D2B6E
 
 Usage:
 
@@ -163,7 +163,7 @@ Represents:
 
 ### Accent Red
 
-HEX: #F76369
+HEX: #DE121A
 
 Usage:
 
@@ -189,7 +189,7 @@ Do not allow red to overpower the blue brand identity.
 
 ### Dark Navy
 
-HEX: #0F172A
+HEX: #060D1E
 
 Usage:
 
@@ -419,6 +419,14 @@ Responsibilities:
 Rules:
 
 Always check existing components before creating new components.
+
+Read `COMPONENT_INVENTORY.md` before creating or extracting a reusable component.
+
+If a reusable component is created or materially changed, update `COMPONENT_INVENTORY.md` in the same commit.
+
+Use `SectionKicker` for section labels instead of manually rebuilding kicker line/text markup.
+
+Do not introduce new component variants unless the use case cannot be solved by an existing component or token.
 
 ---
 

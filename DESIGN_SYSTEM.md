@@ -882,6 +882,11 @@ Reusable component candidate:
 
 ## 12. Reusable Component Map
 
+Canonical registry:
+
+- `COMPONENT_INVENTORY.md`
+- Any reusable component created or materially changed must be added there in the same commit.
+
 ### Already Reusable
 
 These components already exist and should remain reusable:
