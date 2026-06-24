@@ -355,6 +355,32 @@ html {
   padding: 24px;
 }
 
+.testimonial-marquee-frame::before,
+.testimonial-marquee-frame::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: min(11vw, 132px);
+  content: "";
+  pointer-events: none;
+}
+
+.testimonial-marquee-frame::before {
+  left: 0;
+  background: linear-gradient(90deg, #f4f7ff 0%, rgba(244, 247, 255, 0) 100%);
+}
+
+.testimonial-marquee-frame::after {
+  right: 0;
+  background: linear-gradient(270deg, #f4f7ff 0%, rgba(244, 247, 255, 0) 100%);
+}
+
+.testimonial-marquee-track {
+  will-change: transform;
+  animation: testimonial-marquee 46s linear infinite;
+}
+
 @keyframes marquee-left {
   from {
     transform: translateX(-50%);
@@ -365,6 +391,15 @@ html {
 }
 
 @keyframes marquee-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes testimonial-marquee {
   from {
     transform: translateX(0);
   }
@@ -413,7 +448,17 @@ html {
     flex-wrap: wrap;
   }
 
+  .testimonial-marquee-track {
+    width: auto;
+    animation: none !important;
+    flex-wrap: wrap;
+  }
+
   .marquee-card[aria-hidden="true"] {
+    display: none;
+  }
+
+  .testimonial-marquee-track [aria-hidden="true"] {
     display: none;
   }
 

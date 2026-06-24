@@ -2,12 +2,17 @@ import {
   ArrowRight,
   Atom,
   BadgeCheck,
+  BookOpen,
   Calculator,
   ClipboardList,
   Download,
   IndianRupee,
+  Layers,
+  Leaf,
   MapPin,
+  Quote,
   RefreshCw,
+  Star,
   Zap,
 } from "lucide-react";
 import Image from "next/image";
@@ -139,24 +144,29 @@ const greenSteelFeatures = [
 
 const testimonials = [
   {
-    name: "Vijay",
-    role: "ARS customer",
-    quote: "The buying journey should make price, dealer access, and quality proof easy to understand before enquiry.",
-  },
-  {
-    name: "Raja",
-    role: "ARS customer",
-    quote: "Clear product guidance and practical support help customers move faster from planning to purchase.",
-  },
-  {
     name: "Murthy",
-    role: "ARS customer",
+    role: "ARS Customer, Hyderabad",
     quote: "Strong steel decisions need trust, availability, and the right technical proof in one place.",
   },
   {
-    name: "Prabhu",
-    role: "ARS customer",
-    quote: "A good steel brand should make it simple to choose the right product and reach the right team.",
+    name: "Pradeep",
+    role: "Contractor, Bangalore",
+    quote: "A good supplier makes complex specification simple. ARS helped us reach decisions faster.",
+  },
+  {
+    name: "Sundar",
+    role: "Structural Engineer, Vizag",
+    quote: "We needed corrosion-resistant steel for a coastal project. ARS CRS 550D was the right call with no second-guessing.",
+  },
+  {
+    name: "Karthik",
+    role: "Builder, Madurai",
+    quote: "The dealer network meant we could source locally without compromising on certified quality.",
+  },
+  {
+    name: "Raja",
+    role: "Homeowner, Chennai",
+    quote: "Clear product guidance and practical support helped us move faster from planning to purchase.",
   },
 ];
 
@@ -165,21 +175,33 @@ const blogs = [
     title: "What is CRS Steel?",
     href: "/blog/corrosion-resistance-steel.html",
     category: "Product knowledge",
+    detail: "Understand how corrosion-resistant steel differs from standard TMT and when it is the right choice for your project.",
+    readTime: "4 min read",
+    icon: Layers,
   },
   {
     title: "How Green Steel is Produced",
     href: "/ars-green-steel",
     category: "Sustainability",
+    detail: "A look inside the electric arc furnace process that makes ARS steel cleaner, greener, and future-ready.",
+    readTime: "5 min read",
+    icon: Leaf,
   },
   {
     title: "TMT Bars vs HYSD Bars",
     href: "/blog/everything-about-hysd-bars.html",
     category: "Construction guide",
+    detail: "Side-by-side comparison of the two most common steel bar types and what they mean for strength, cost, and safety.",
+    readTime: "6 min read",
+    icon: BookOpen,
   },
   {
     title: "House Construction Cost in India",
     href: "/blog/average-house-construction-cost-in-india-per-square-feet.html",
     category: "Planning",
+    detail: "A practical guide to estimating steel requirements and total construction cost before breaking ground.",
+    readTime: "7 min read",
+    icon: Calculator,
   },
 ];
 
@@ -192,46 +214,7 @@ export default function Home() {
 
       <AudienceJourneySection />
 
-      <MotionSection className="relative overflow-hidden bg-bg-dark py-24 text-white" id="buying-assistant">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(222,18,26,0.16),transparent_28%),radial-gradient(circle_at_84%_12%,rgba(13,43,110,0.34),transparent_32%)]" />
-        <div className="ars-container">
-          <div className="mb-12 max-w-4xl">
-            <SectionKicker variant="light">Fastest route</SectionKicker>
-            <h2 className="section-title section-title-light">
-              From enquiry to steel in fewer steps.
-            </h2>
-            <p className="section-copy section-copy-light">
-              Give every buyer a practical next action: check price, calculate requirement,
-              find a dealer, or request a quote.
-            </p>
-          </div>
-
-          <div className="grid gap-5 lg:grid-cols-4">
-            {buyingActions.map((action) => {
-              const Icon = action.icon;
-
-              return (
-                <Link
-                  key={action.title}
-                  className="focus-ring group flex min-h-[260px] flex-col justify-between rounded-[16px] border border-white/12 bg-white/[0.07] p-7 shadow-[var(--shadow-card)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-brand-red/50 hover:bg-white/[0.1]"
-                  href={action.href}
-                >
-                  <div>
-                    <span className="mb-10 inline-flex size-14 items-center justify-center rounded-[12px] bg-white/8 text-white ring-1 ring-white/10 transition duration-300 group-hover:bg-brand-red group-hover:text-white">
-                      <Icon size={22} />
-                    </span>
-                    <h2 className="font-display text-2xl font-bold tracking-normal text-white">{action.title}</h2>
-                    <p className="mt-5 text-base leading-7 text-slate-300">{action.detail}</p>
-                  </div>
-                  <span className="mt-9 inline-flex items-center gap-2 text-sm font-bold text-white transition group-hover:text-white">
-                    Start flow <ArrowRight size={17} />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </MotionSection>
+      <GreenSteelSection />
 
       <MotionSection className="bg-surface-50 py-16 lg:min-h-[90vh] lg:py-18" id="products">
         <div className="ars-container flex min-h-[calc(90vh-96px)] flex-col justify-center">
@@ -315,6 +298,8 @@ export default function Home() {
         </div>
       </MotionSection>
 
+      <BuyingAssistantSection />
+
       <MotionSection className="bg-white py-24" id="trusted-by">
         <div className="ars-container">
           <SectionIntro
@@ -383,58 +368,68 @@ export default function Home() {
         </div>
       </MotionSection>
 
-      <MotionSection className="relative overflow-hidden bg-bg-dark py-24 text-white" id="ars-green-steel">
-        <div className="absolute inset-0">
-          <Image
-            src="/ars-assets/ARS-green-bg.png"
-            alt=""
-            fill
-            sizes="100vw"
-            className="object-cover"
-            aria-hidden="true"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,30,0.72),rgba(6,13,30,0.9))]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(22,101,52,0.32),transparent_28%)]" />
+      <MotionSection className="overflow-hidden bg-[#f4f7ff] py-24 lg:py-28" id="testimonials">
+        <div className="ars-container">
+          <div className="mb-14 grid items-end gap-8 lg:grid-cols-[1fr_0.72fr]">
+            <div>
+              <SectionKicker>Happy clients</SectionKicker>
+              <h2 className="section-title max-w-3xl">
+                Customer confidence, shaped into a cleaner story.
+              </h2>
+            </div>
+
+            <div className="max-w-xl lg:justify-self-end lg:text-right">
+              <p className="text-lg leading-8 text-steel-700">
+                Real voices from homeowners, engineers, and builders who chose ARS for their
+                most important projects.
+              </p>
+              <div className="mt-6 flex items-center gap-4 lg:justify-end">
+                <div className="flex items-center gap-1 text-brand-red" aria-label="4.9 out of 5 rating">
+                  {[0, 1, 2, 3, 4].map((star) => (
+                    <Star key={star} size={17} fill="currentColor" strokeWidth={0} />
+                  ))}
+                </div>
+                <p className="text-sm font-bold text-ink-900">
+                  4.9 <span className="ml-2 font-semibold text-steel-500">from 200+ verified buyers</span>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="ars-container relative z-10">
-          <div className="mx-auto max-w-5xl text-center">
-            <SectionKicker variant="green" align="center" showEndLine>
-              ARS Green Steel
-            </SectionKicker>
-            <h2 className="section-title section-title-light mx-auto">
-              What Makes ARS Green Steel Different?
-            </h2>
-            <p className="section-copy section-copy-light mx-auto mt-6 max-w-3xl">
-              Pioneering sustainable steel manufacturing for a greener India through lower-emission practices,
-              recycled inputs, and energy-efficient process thinking.
-            </p>
-            <Link
-              className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] border border-emerald-300/30 px-5 text-sm font-bold text-emerald-200 transition hover:border-white/45 hover:bg-white hover:text-[#07351f]"
-              href="/ars-green-steel"
-            >
-              Learn more about Green Steel <ArrowRight size={17} />
-            </Link>
-          </div>
-
-          <div className="mt-14 grid gap-5 md:grid-cols-3">
-            {greenSteelFeatures.map((feature) => {
-              const Icon = feature.icon;
+        <div className="testimonial-marquee-frame relative left-1/2 w-screen -translate-x-1/2 overflow-hidden pb-2">
+          <div
+            className="testimonial-marquee-track flex w-max gap-6"
+            style={{ paddingInline: "max(1.5rem, calc((100vw - 1180px) / 2))" }}
+          >
+            {[...testimonials, ...testimonials].map((item, index) => {
+              const originalIndex = index % testimonials.length;
+              const isHighlighted = originalIndex === 2;
+              const avatarTone = originalIndex % 2 === 0 ? "bg-brand-blue" : "bg-brand-red";
 
               return (
                 <article
-                  key={feature.title}
-                className="rounded-[16px] border border-white/12 bg-white/[0.07] p-7 shadow-[var(--shadow-card)] backdrop-blur-[2px]"
+                  key={`${item.name}-${index}`}
+                  aria-hidden={index >= testimonials.length}
+                  className={`min-h-[300px] w-[330px] snap-start rounded-[16px] border border-brand-blue/10 border-t-[4px] border-t-brand-blue bg-white p-7 shadow-[var(--shadow-soft)] md:w-[430px] ${
+                    isHighlighted ? "shadow-[0_22px_60px_rgba(13,43,110,0.16)]" : ""
+                  }`}
                 >
-                  <span className="inline-flex size-14 items-center justify-center rounded-[8px] bg-white/12 text-emerald-200 ring-1 ring-white/12">
-                    <Icon size={24} />
-                  </span>
-                  <h3 className="mt-8 font-display text-2xl font-bold tracking-normal text-white">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-4 text-sm leading-7 text-white/78">
-                    {feature.text}
+                  <Quote size={38} className="text-slate-200" />
+                  <p className="mt-12 min-h-[108px] text-lg font-semibold leading-8 text-ink-900">
+                    {item.quote}
                   </p>
+                  <div className="mt-10 flex items-center gap-4 border-t border-ink-900/8 pt-6">
+                    <span className={`inline-flex size-11 items-center justify-center rounded-full ${avatarTone} text-sm font-black text-white`}>
+                      {item.name.charAt(0)}
+                    </span>
+                    <div>
+                      <p className="font-display text-lg font-bold text-ink-900">{item.name}</p>
+                      <p className="font-technical text-xs font-bold uppercase tracking-[0.16em] text-steel-400">
+                        {item.role}
+                      </p>
+                    </div>
+                  </div>
                 </article>
               );
             })}
@@ -442,60 +437,237 @@ export default function Home() {
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-surface-50 py-24" id="testimonials">
-        <div className="ars-container">
-          <SectionIntro
-            eyebrow="Happy clients"
-            title="Customer confidence, shaped into a cleaner story."
-            body="The homepage keeps a dedicated testimonial slider area ready for approved customer proof while preserving a polished browsing experience."
-          />
-
-          <div className="flex snap-x gap-5 overflow-x-auto pb-4">
-            {testimonials.map((item) => (
-              <article key={item.name} className="min-w-[320px] snap-start rounded-[16px] border border-brand-blue/10 bg-white p-7 shadow-[var(--shadow-soft)] md:min-w-[430px]">
-                <p className="text-5xl leading-none text-brand-blue">“</p>
-                <p className="mt-6 text-xl leading-9 text-steel-700">{item.quote}</p>
-                <div className="mt-10 flex items-center gap-3 border-t border-ink-900/10 pt-6">
-                  <span className="inline-flex size-11 items-center justify-center rounded-full bg-brand-blue text-sm font-black text-white">
-                    {item.name.charAt(0)}
-                  </span>
-                  <div>
-                    <p className="font-display text-xl font-bold text-ink-900">{item.name}</p>
-                    <p className="font-technical text-xs font-bold uppercase tracking-[0.2em] text-brand-blue">{item.role}</p>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </MotionSection>
-
       <MotionSection className="bg-white py-24" id="blogs">
         <div className="ars-container">
-          <SectionIntro
-            eyebrow="Knowledge center"
-            title="Guides for better steel decisions."
-            body="Educational content supports SEO while helping buyers understand products, pricing, durability, and construction planning."
-          />
+          <div className="mb-14 grid items-end gap-8 lg:grid-cols-[0.9fr_1fr]">
+            <div>
+              <SectionKicker>Knowledge center</SectionKicker>
+              <h2 className="section-title max-w-3xl">
+                Guides for better steel decisions.
+              </h2>
+              <p className="section-copy max-w-2xl">
+                Educational content helping buyers understand products, pricing, durability, and
+                construction planning before they speak to sales.
+              </p>
+            </div>
 
-          <div className="grid gap-5 lg:grid-cols-4">
-            {blogs.map((blog) => (
-              <Link key={blog.title} href={blog.href} className="focus-ring group flex min-h-[250px] flex-col justify-between rounded-[16px] border border-brand-blue/10 bg-surface-50 p-6 transition hover:-translate-y-1 hover:border-brand-blue/35 hover:bg-white">
-                <div>
-                  <p className="font-technical text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">{blog.category}</p>
-                  <h2 className="mt-7 font-display text-2xl font-bold tracking-normal text-ink-900">{blog.title}</h2>
-                </div>
-                <span className="mt-9 inline-flex items-center gap-2 text-sm font-bold text-brand-blue">
-                  Read article <ArrowRight size={17} />
-                </span>
-              </Link>
-            ))}
+            <Link
+              href="/blog-html"
+              className="focus-ring inline-flex items-center gap-2 justify-self-start text-sm font-bold text-brand-blue transition hover:text-brand-red lg:justify-self-end"
+            >
+              View all articles <ArrowRight size={17} />
+            </Link>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-[0.92fr_1.38fr]">
+            <FeaturedBlogCard blog={blogs[0]} />
+
+            <div className="grid gap-5">
+              {blogs.slice(1).map((blog, index) => (
+                <BlogListCard key={blog.title} blog={blog} tone={index} />
+              ))}
+            </div>
           </div>
         </div>
       </MotionSection>
 
       <ContactCta />
     </main>
+  );
+}
+
+function FeaturedBlogCard({ blog }: { blog: (typeof blogs)[number] }) {
+  const Icon = blog.icon;
+
+  return (
+    <Link
+      href={blog.href}
+      className="focus-ring group flex min-h-[430px] flex-col justify-between rounded-[16px] bg-brand-blue p-7 text-white shadow-[0_24px_70px_rgba(13,43,110,0.18)] transition duration-300 hover:-translate-y-1 hover:bg-brand-blue-dark lg:p-8"
+    >
+      <div>
+        <span className="inline-flex items-center gap-2 rounded-full bg-white/14 px-4 py-2 font-technical text-xs font-black uppercase tracking-[0.16em] text-white/74 ring-1 ring-white/14">
+          <Icon size={16} />
+          {blog.category}
+        </span>
+        <h3 className="mt-10 max-w-xl font-display text-[clamp(2rem,3vw,3.2rem)] font-bold leading-[1.05] tracking-normal text-white">
+          {blog.title}
+        </h3>
+        <p className="mt-6 max-w-xl text-base leading-8 text-white/70 lg:text-lg">
+          {blog.detail}
+        </p>
+      </div>
+
+      <div className="mt-12 flex items-center justify-between border-t border-white/14 pt-7">
+        <span className="text-sm font-bold text-white/50">{blog.readTime}</span>
+        <span className="inline-flex items-center gap-2 text-sm font-bold text-white">
+          Read article <ArrowRight size={17} className="transition group-hover:translate-x-1" />
+        </span>
+      </div>
+    </Link>
+  );
+}
+
+function BlogListCard({ blog, tone }: { blog: (typeof blogs)[number]; tone: number }) {
+  const Icon = blog.icon;
+  const iconTone =
+    tone === 1
+      ? "bg-red-50 text-brand-red ring-brand-red/12"
+      : "bg-[#edf5ff] text-brand-blue ring-brand-blue/12";
+
+  return (
+    <Link
+      href={blog.href}
+      className="focus-ring group grid gap-5 rounded-[16px] border border-brand-blue/10 bg-surface-50 p-6 shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-0.5 hover:border-brand-blue/28 hover:bg-white sm:grid-cols-[64px_minmax(0,1fr)_28px]"
+    >
+      <span className={`inline-flex size-12 items-center justify-center rounded-[12px] ring-1 ${iconTone}`}>
+        <Icon size={20} />
+      </span>
+
+      <span className="min-w-0">
+        <span className="font-technical text-xs font-black uppercase tracking-[0.18em] text-brand-blue">
+          {blog.category}
+          <span className="mx-2 text-steel-300">-</span>
+          <span className="text-steel-400">{blog.readTime}</span>
+        </span>
+        <span className="mt-3 block font-display text-xl font-bold tracking-normal text-ink-900">
+          {blog.title}
+        </span>
+        <span className="mt-3 block text-sm leading-6 text-steel-600 lg:text-base lg:leading-7">
+          {blog.detail}
+        </span>
+      </span>
+
+      <ArrowRight
+        size={20}
+        className="self-end text-brand-blue transition duration-300 group-hover:translate-x-1 group-hover:text-brand-red sm:self-center"
+      />
+    </Link>
+  );
+}
+
+function GreenSteelSection() {
+  return (
+    <MotionSection className="relative overflow-hidden bg-bg-dark py-24 text-white" id="ars-green-steel">
+      <div className="absolute inset-0">
+        <Image
+          src="/ars-assets/ARS-green-bg.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,30,0.72),rgba(6,13,30,0.9))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_18%,rgba(22,101,52,0.32),transparent_28%)]" />
+      </div>
+
+      <div className="ars-container relative z-10">
+        <div className="mx-auto max-w-5xl text-center">
+          <SectionKicker variant="green" align="center" showEndLine>
+            ARS Green Steel
+          </SectionKicker>
+          <h2 className="section-title section-title-light mx-auto">
+            What Makes ARS Green Steel Different?
+          </h2>
+          <p className="section-copy section-copy-light mx-auto mt-6 max-w-3xl">
+            Pioneering sustainable steel manufacturing for a greener India through lower-emission practices,
+            recycled inputs, and energy-efficient process thinking.
+          </p>
+          <Link
+            className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] border border-emerald-300/30 px-5 text-sm font-bold text-emerald-200 transition hover:border-white/45 hover:bg-white hover:text-[#07351f]"
+            href="/ars-green-steel"
+          >
+            Learn more about Green Steel <ArrowRight size={17} />
+          </Link>
+        </div>
+
+        <div className="mt-14 grid gap-5 md:grid-cols-3">
+          {greenSteelFeatures.map((feature) => {
+            const Icon = feature.icon;
+
+            return (
+              <article
+                key={feature.title}
+                className="rounded-[16px] border border-white/12 bg-white/[0.07] p-7 shadow-[var(--shadow-card)] backdrop-blur-[2px]"
+              >
+                <span className="inline-flex size-14 items-center justify-center rounded-[8px] bg-white/12 text-emerald-200 ring-1 ring-white/12">
+                  <Icon size={24} />
+                </span>
+                <h3 className="mt-8 font-display text-2xl font-bold tracking-normal text-white">
+                  {feature.title}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-white/78">
+                  {feature.text}
+                </p>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </MotionSection>
+  );
+}
+
+function BuyingAssistantSection() {
+  return (
+    <MotionSection className="relative overflow-hidden bg-brand-blue py-20 text-white lg:py-28" id="buying-assistant">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_18%,rgba(255,255,255,0.1),transparent_28%),linear-gradient(135deg,rgba(13,43,110,1),rgba(10,48,125,0.96))]" />
+      <div className="ars-container relative z-10">
+        <div className="grid items-center gap-12 lg:grid-cols-[0.82fr_1.28fr] lg:gap-16">
+          <div className="max-w-xl">
+            <SectionKicker>Fastest route</SectionKicker>
+            <h2 className="section-title section-title-light">
+              From enquiry to steel in fewer steps.
+            </h2>
+            <p className="section-copy section-copy-light">
+              Give every buyer a practical next action: check price, calculate requirement,
+              find a dealer, or request a quote.
+            </p>
+            <div className="mt-10 h-px w-full bg-white/12" />
+            <Link
+              className="focus-ring mt-10 inline-flex h-14 items-center justify-center gap-3 rounded-full bg-brand-red px-8 text-base font-bold text-white shadow-[0_18px_44px_rgba(222,18,26,0.25)] transition hover:-translate-y-0.5 hover:bg-[#c90f16]"
+              href="/request-quote"
+            >
+              Get your quote now <ArrowRight size={19} />
+            </Link>
+          </div>
+
+          <div className="grid gap-4">
+            {buyingActions.map((action, index) => {
+              const Icon = action.icon;
+              const count = String(index + 1).padStart(2, "0");
+
+              return (
+                <Link
+                  key={action.title}
+                  className="focus-ring group grid items-center gap-5 rounded-[18px] border border-white/18 bg-white/[0.11] p-5 shadow-[0_22px_60px_rgba(0,0,0,0.12)] transition duration-300 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.16] sm:grid-cols-[44px_72px_minmax(0,1fr)_24px] lg:p-6"
+                  href={action.href}
+                >
+                  <span className="font-technical text-sm font-black tracking-[0.14em] text-white/42">
+                    {count}
+                  </span>
+                  <span className="inline-flex size-14 items-center justify-center rounded-[14px] bg-white/14 text-white ring-1 ring-white/12 transition group-hover:bg-white/20">
+                    <Icon size={22} />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block font-display text-xl font-bold tracking-normal text-white lg:text-2xl">
+                      {action.title}
+                    </span>
+                    <span className="mt-1 block text-sm leading-6 text-white/66 lg:text-base">
+                      {action.detail}
+                    </span>
+                  </span>
+                  <ArrowRight
+                    size={20}
+                    className="text-white/42 transition duration-300 group-hover:translate-x-1 group-hover:text-white"
+                  />
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </MotionSection>
   );
 }
 

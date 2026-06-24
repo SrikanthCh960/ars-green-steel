@@ -26,7 +26,7 @@ After creating or materially changing a reusable component, update this file in 
 | `HomeHero` | `src/components/home-hero.tsx` | Homepage hero with video, animated word, CTAs, and proof copy | Codex-owned; do not reuse blindly for inner pages | Homepage |
 | `AudienceJourneySection` | `src/components/audience-journey-section.tsx` | Figma-aligned audience cards for homepage journey routing | Default active card is Dealers; hover expands desktop cards | Homepage Section 2 |
 | `AnimatedHeroWord` | `src/components/animated-hero-word.tsx` | Legacy rotating hero word helper | Uses brand red token | Available where needed |
-| `ContactCta` | `src/components/contact-cta.tsx` | Reusable lead-generation CTA band | Use near page endings before footer | Page shells |
+| `ContactCta` | `src/components/contact-cta.tsx` | Reusable lead-generation CTA band rendered immediately before the global footer | Supports custom eyebrow, headline, body, primary CTA, and secondary CTA | Page shells and homepage ending |
 | `LeadForm` | `src/components/lead-form.tsx` | Reusable enquiry form UI | Final submission destination pending client input | Contact and quote flows |
 | `PageShell` | `src/components/page-sections.tsx` | Shared page wrapper with header, hero, content, and CTA | For structured interior pages | Multiple pages |
 | `PageHero` | `src/components/page-sections.tsx` | Video-led interior page hero | Uses shared brand hierarchy | Multiple pages |
