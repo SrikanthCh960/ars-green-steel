@@ -1,134 +1,140 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   ArrowRight,
-  BadgeCheck,
+  Award,
+  BookOpen,
   Building2,
-  ClipboardList,
-  Factory,
-  Handshake,
-  Leaf,
-  Network,
+  CheckCircle2,
+  MapPin,
+  Mail,
+  Package,
   Phone,
   ShieldCheck,
+  Users,
+  Zap,
 } from "lucide-react";
-import { ContactCta } from "@/components/contact-cta";
 import { MotionSection } from "@/components/motion-section";
+import { SectionKicker } from "@/components/section-kicker";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { verifiedContactDetails } from "@/data/business-verification";
 
 export const metadata: Metadata = {
   title: "About ARS Green Steel",
   description:
-    "Learn about ARS Green Steel's manufacturing strength, quality systems, dealer network, and trusted TMT steel legacy.",
+    "Since 1992, ARS Green Steel has built a legacy of certified TMT steel manufacturing — proven through certifications, testing, and structures that stand.",
 };
 
-const proofMetrics = [
+const stats = [
+  { value: "1992", label: "Founded", sub: "Over three decades of steel manufacturing trust." },
+  { value: "2.5L MT", label: "Annual Capacity", sub: "Certified steel output supporting regional demand." },
+  { value: "550D", label: "Flagship Grade", sub: "Fe-550D high-strength TMT for structural integrity." },
+  { value: "SGS", label: "Certifications", sub: "Third-party certification and testing proof across the range." },
+];
+
+const storyPoints = [
+  "BIS-certified manufacturing facility",
+  "Full traceability from melt to dispatch",
+  "In-house and third-party quality labs",
+  "Dedicated technical support team",
+];
+
+const pillars = [
   {
-    kicker: "building trust since",
-    value: "1992",
-    label: "A long-running steel brand built around reliability, supply confidence, and construction trust.",
+    icon: <Package size={20} />,
+    title: "Product proof",
+    desc: "Every ARS TMT bar is produced to IS 1786:2008 — the benchmark for safe structural steel in India.",
   },
   {
-    kicker: "steel making capacity",
-    value: "2.5L MT",
-    label: "Manufacturing capability designed to support regional demand and project timelines.",
+    icon: <Award size={20} />,
+    title: "Certification proof",
+    desc: "SGS-verified and BIS-certified. Third-party validation that goes beyond self-declaration.",
   },
   {
-    kicker: "high-strength grade",
-    value: "550D",
-    label: "Product clarity for home owners, engineers, contractors, and procurement teams.",
+    icon: <Zap size={20} />,
+    title: "Testing proof",
+    desc: "Tensile, bend & rebend, and chemical composition checked at production batches — not just sampled.",
   },
   {
-    kicker: "quality proof",
-    value: "SGS+",
-    label: "Certification, quality systems, green readiness, and dealer confidence in one brand story.",
+    icon: <Users size={20} />,
+    title: "Buyer proof",
+    desc: "Builders, engineers, and dealers who return to ARS for every new project. That is the real certificate.",
   },
 ];
 
-const trustCards = [
-  {
-    title: "Manufacturing strength",
-    text: "ARS should make plant capability, process discipline, and supply reliability visible before the sales conversation.",
-    icon: Factory,
-  },
-  {
-    title: "Certified quality",
-    text: "Quality proof, certifications, and technical clarity help engineers and procurement teams verify the brand quickly.",
-    icon: ShieldCheck,
-  },
-  {
-    title: "Dealer confidence",
-    text: "A visible dealer network supports faster local discovery, stronger enquiries, and easier purchase decisions.",
-    icon: Network,
-  },
+const capabilityTiles = [
+  { val: "2.5L MT", label: "Annual output" },
+  { val: "100%", label: "In-house QC" },
+  { val: "Fe-550D", label: "Primary grade" },
+  { val: "South India", label: "Dealer network" },
 ];
 
-const timeline = [
+const milestones = [
   {
     year: "1992",
     title: "Foundation of trust",
-    text: "ARS begins building its reputation around dependable steel supply and construction confidence.",
+    desc: "ARS Steel established to manufacture certifiable, traceable, and reliable TMT bars for Indian construction.",
   },
   {
     year: "550D",
     title: "Product clarity",
-    text: "High-strength ductile TMT steel becomes the core proof point for safer residential and commercial structures.",
+    desc: "The Fe-550D TMT range delivers superior yield strength and ductility for demanding structural applications.",
   },
   {
     year: "SGS",
-    title: "Proof before claims",
-    text: "Certification and quality checks become central to how ARS earns confidence from technical buyers.",
+    title: "Quality testing",
+    desc: "Third-party SGS certification validates our processes against recognised quality benchmarks.",
   },
   {
     year: "Next",
-    title: "Green steel leadership",
-    text: "The brand story expands toward sustainability, EPD readiness, and future-ready construction standards.",
+    title: "What is building",
+    desc: "Expanding the dealer network, strengthening sustainability practices, and advancing green steel readiness.",
   },
 ];
 
-const commitments = [
-  "Make product proof easier to find before visitors submit an enquiry.",
-  "Support home owners, engineers, contractors, dealers, and procurement teams with clear pathways.",
-  "Keep price, calculator, dealer, and quote actions close to every major trust section.",
+const audiences = [
+  {
+    icon: <Users size={20} />,
+    title: "Home Owners",
+    desc: "The clearest path from steel selection to safe construction — certified products and dealer access in one network.",
+    cta: "Explore products",
+    href: "/products",
+  },
+  {
+    icon: <BookOpen size={20} />,
+    title: "Engineers & Architects",
+    desc: "Grade specifications, technical documentation, and testing detail — everything needed to specify with confidence.",
+    cta: "View 550D specs",
+    href: "/products/ars-550d",
+  },
+  {
+    icon: <Building2 size={20} />,
+    title: "Builders & Contractors",
+    desc: "Consistent supply, certified quality, and a dealer network designed to meet project timelines without compromise.",
+    cta: "Find your dealer",
+    href: "/dealer-locator",
+  },
 ];
 
-const recoveredProof = [
+const contacts = [
   {
-    title: "Product proof",
-    text: "ARS 550D and ARS CRS 550D bring technical specs, physical and chemical properties, and FAQs into the product experience.",
+    icon: <Phone size={18} />,
+    title: "Customer hotline",
+    detail: verifiedContactDetails.mobile,
+    sub: "Mon – Sat, 9am – 6pm",
   },
   {
-    title: "Certification proof",
-    text: "SGS, ISO, EPD, GRIHA, PWD, NHAI, renewal, and award proof make trust easier to evaluate.",
-  },
-  {
-    title: "Testing proof",
-    text: "Bend/rebend, martensite/ring, tensile, spectrometer, lab, and free on-site testing content remain critical.",
-  },
-  {
-    title: "Buyer proof",
-    text: "Price, calculator, dealer locator, quote, client proof, and project proof should stay close to each trust section.",
-  },
-];
-
-const contactRecovery = [
-  {
-    title: "Customer helpline",
-    value: verifiedContactDetails.mobile,
-    note: "Primary customer and sales support number.",
-    icon: Phone,
-  },
-  {
+    icon: <Mail size={18} />,
     title: "Project enquiry",
-    value: verifiedContactDetails.mobile,
-    note: "Use the sales helpline for project and bulk enquiries.",
-    icon: ClipboardList,
+    detail: "Enquiry form",
+    sub: "We aim to respond within a day",
   },
   {
-    title: "Office and plant",
-    value: "Corporate office and steel plant",
-    note: "Address details are available on the Contact page.",
-    icon: Building2,
+    icon: <MapPin size={18} />,
+    title: "Office & plant",
+    detail: "Chennai, Tamil Nadu",
+    sub: "By prior appointment",
   },
 ];
 
@@ -137,11 +143,16 @@ export default function AboutPage() {
     <main className="min-h-screen bg-surface-50 text-ink-900">
       <SiteHeader />
 
-      <section className="relative flex min-h-[78vh] items-end overflow-hidden text-white">
-        <div className="absolute inset-0 bg-ink-950">
+      {/* ── Hero ── */}
+      <section
+        className="relative flex items-end overflow-hidden bg-ink-950"
+        style={{ height: "68vh", minHeight: "500px", maxHeight: "720px" }}
+      >
+        <div className="absolute inset-0">
           <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
           <video
-            className="absolute inset-0 h-full w-full object-cover opacity-64"
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: "center 40%" }}
             autoPlay
             muted
             loop
@@ -151,342 +162,309 @@ export default function AboutPage() {
           >
             <source src="/videos/ars-intro.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/78 to-ink-950/28" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,13,14,0.1),rgba(11,13,14,0.86))]" />
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(to right, rgba(6,13,30,0.92) 0%, rgba(6,13,30,0.6) 55%, rgba(6,13,30,0.25) 100%)" }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(to top, rgba(6,13,30,0.9) 0%, rgba(6,13,30,0.05) 60%, transparent 100%)" }}
+          />
         </div>
 
-        <div className="ars-container relative z-10 pb-16 pt-32">
-          <div className="grid gap-10 lg:grid-cols-[0.76fr_0.24fr] lg:items-end">
-            <div>
-              <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-2 text-sm text-grey-300 backdrop-blur">
-                <span className="size-2 rounded-full bg-brand-blue" />
-                About ARS Green Steel
-              </div>
-              <h1 className="max-w-6xl font-display text-[clamp(3rem,7.2vw,7.2rem)] font-black uppercase leading-[0.92] tracking-normal text-white">
-                Built on trust.
-                <span className="block">
-                  Proven by <span className="font-serif italic text-brand-red">steel.</span>
-                </span>
-              </h1>
+        <div className="ars-container relative z-10 w-full pb-16">
+          <div className="max-w-2xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
+              <Building2 size={12} className="text-white/50" />
+              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS Group</span>
             </div>
-
-            <div className="max-w-md lg:justify-self-end">
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-2 text-sm text-grey-300 backdrop-blur">
-                <ShieldCheck size={16} className="shrink-0 text-brand-blue" />
-                Manufacturing, quality, and dealer proof
-              </div>
-              <p className="text-base leading-8 text-grey-300">
-                ARS Green Steel should be understood through what serious buyers look for:
-                reliable supply, certified quality, product clarity, and practical enquiry support.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:flex-col">
-                <a className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-semibold text-white transition hover:bg-brand-blue-dark" href="#contact">
-                  Talk to sales <ArrowRight size={18} />
-                </a>
-                <a className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] border border-white/35 px-5 text-sm font-semibold text-white transition hover:bg-white hover:text-ink-900" href="#manufacturing">
-                  View manufacturing
-                </a>
-              </div>
-            </div>
+            <h1 className="mb-5 font-display text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold uppercase leading-[1.05] tracking-[-0.025em] text-white">
+              Built on trust.
+              <br />
+              Proven by <span className="text-brand-red">steel.</span>
+            </h1>
+            <p className="mb-8 max-w-[440px] text-[15px] leading-[1.75] text-white/55">
+              Since 1992, ARS has built a legacy of quality steel manufacturing — not through marketing
+              claims, but through certifications, consistency, and structures that stand.
+            </p>
+            <a
+              href="#story"
+              className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
+            >
+              Our story <ArrowRight size={14} />
+            </a>
           </div>
         </div>
       </section>
 
-      <MotionSection className="bg-[#f8f9fb] py-24">
+      {/* ── Stats ── */}
+      <MotionSection className="border-b border-surface-100 bg-white py-16">
         <div className="ars-container">
-          <div className="mb-14 grid gap-8 lg:grid-cols-[0.7fr_0.3fr] lg:items-end">
-            <div>
-              <div className="mb-10 flex items-center gap-4">
-                <span className="h-[2px] w-12 bg-brand-blue" />
-                <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                  Track record
-                </p>
+          <p className="mb-10 text-center text-[12px] font-bold uppercase tracking-[0.12em] text-grey-600">
+            Confidence, <span className="text-brand-red">earned</span> over time.
+          </p>
+          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-ink-900/10">
+            {stats.map((s) => (
+              <div key={s.value} className="flex flex-col items-center px-6 text-center">
+                <span className="font-display text-[clamp(2rem,3vw,2.8rem)] font-extrabold leading-none tracking-[-0.03em] text-brand-blue">
+                  {s.value}
+                </span>
+                <span className="mb-1 mt-1.5 text-[13px] font-bold text-ink-900">{s.label}</span>
+                <span className="text-[12px] leading-normal text-grey-600">{s.sub}</span>
               </div>
-              <h2 className="max-w-full break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal text-ink-900">
-                Confidence,{" "}
-                <span className="mx-4 font-serif italic font-bold text-brand-red">earned</span>
-                {" "}
-                over time.
-              </h2>
-            </div>
-            <p className="max-w-xl text-lg leading-8 text-steel-700">
-              The About page works like a trust gateway: enough history, proof, and
-              capability to help serious visitors feel ready to enquire.
-            </p>
-          </div>
-
-          <div className="grid border-y border-ink-900/14 md:grid-cols-4">
-            {proofMetrics.map((metric) => (
-              <article
-                key={metric.kicker}
-                className="border-b border-ink-900/14 px-0 py-9 md:border-b-0 md:border-r md:px-8 first:md:pl-0 last:md:border-r-0"
-              >
-                <div className="mb-7 flex items-center gap-2">
-                  <span className="text-brand-blue">→</span>
-                  <p className="text-xs font-bold uppercase tracking-[0.28em] text-grey-600">
-                    {metric.kicker}
-                  </p>
-                </div>
-                <p className="font-display text-[clamp(3.2rem,5vw,6.2rem)] font-black leading-none text-ink-900">
-                  {metric.value}
-                </p>
-                <p className="mt-6 max-w-xs text-base leading-7 text-steel-700">{metric.label}</p>
-              </article>
             ))}
           </div>
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-white py-24">
+      {/* ── Brand story ── */}
+      <MotionSection className="bg-white py-24" id="story">
         <div className="ars-container">
-          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
-              <div className="mb-8 flex items-center gap-4">
-                <span className="h-[2px] w-12 bg-brand-blue" />
-                <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                  Company story
-                </p>
-              </div>
-              <h2 className="break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal">
+              <SectionKicker variant="brand">Our Story</SectionKicker>
+              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 A steel brand made for real structures.
               </h2>
-            </div>
-            <div className="grid gap-5">
-              <p className="text-xl leading-9 text-steel-700">
-                ARS Green Steel is positioned as a modern industrial steel brand with a clear promise:
-                give every buyer the proof, product clarity, and supply confidence they need before
-                they commit.
+              <p className="mb-6 mt-5 text-[15px] leading-[1.8] text-steel-700">
+                ARS was founded with a single conviction: every structure deserves steel that performs
+                exactly as promised. We built our plant, our processes, and our product range around that
+                belief — and three decades later, it still guides every decision we make.
               </p>
-              <div className="grid gap-5 md:grid-cols-3">
-                {trustCards.map((card) => {
-                  const Icon = card.icon;
-
-                  return (
-                    <article key={card.title} className="rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-6">
-                      <span className="mb-8 inline-flex size-12 items-center justify-center rounded-[8px] bg-white text-brand-blue ring-1 ring-ink-900/8">
-                        <Icon size={21} />
-                      </span>
-                      <h3 className="font-display text-2xl font-black tracking-normal text-ink-900">
-                        {card.title}
-                      </h3>
-                      <p className="mt-4 text-base leading-7 text-steel-700">{card.text}</p>
-                    </article>
-                  );
-                })}
+              <p className="mb-8 text-[15px] leading-[1.8] text-steel-700">
+                From residential homes to commercial complexes, our TMT bars carry the weight of real
+                construction — certified, tested, and delivered with full traceability.
+              </p>
+              <div className="flex flex-col gap-3">
+                {storyPoints.map((pt) => (
+                  <div key={pt} className="flex items-center gap-3">
+                    <CheckCircle2 size={16} className="shrink-0 text-brand-red" />
+                    <span className="text-[14px] font-medium text-steel-700">{pt}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative h-[460px] overflow-hidden rounded-2xl bg-ink-950">
+              <Image
+                src="/ars-assets/right-about-us.png-compress.webp"
+                alt="ARS steel structures and manufacturing"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+              <div
+                className="absolute inset-0"
+                style={{ background: "linear-gradient(to top, rgba(6,13,30,0.5) 0%, transparent 60%)" }}
+              />
+              <div className="absolute inset-x-6 bottom-6">
+                <div className="inline-flex items-center gap-3 rounded-xl border border-white/20 bg-white/[0.12] px-4 py-3 backdrop-blur">
+                  <ShieldCheck size={18} className="text-brand-red" />
+                  <span className="text-[13px] font-semibold text-white">BIS-certified TMT manufacturing</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-[#f8f9fb] py-24">
+      {/* ── Trust pillars ── */}
+      <MotionSection className="bg-brand-blue py-24">
         <div className="ars-container">
-          <div className="mb-14 grid gap-8 lg:grid-cols-[0.72fr_0.28fr] lg:items-end">
+          <div className="mb-16 grid items-start gap-12 lg:grid-cols-2">
             <div>
-              <div className="mb-8 flex items-center gap-4">
-                <span className="h-[2px] w-12 bg-brand-blue" />
-                <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                  Critical recovered proof
-                </p>
-              </div>
-              <h2 className="max-w-5xl break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal">
+              <SectionKicker variant="brand">Why It Matters</SectionKicker>
+              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
                 Trust content that cannot be lost.
               </h2>
             </div>
-            <p className="max-w-xl text-lg leading-8 text-steel-700">
-              The About page should make the business-critical proof visible without turning into
-              a document archive. Detailed pages can carry the full data.
+            <p className="text-[15px] leading-[1.8] text-white/70 lg:pt-14">
+              Any brand can print certifications on a brochure. ARS built a system where every proof point
+              is independently verifiable — at the lab, at the plant, and on site.
             </p>
           </div>
-
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {recoveredProof.map((item, index) => (
-              <article key={item.title} className="rounded-[8px] border border-ink-900/10 bg-white p-6">
-                <div className="mb-8 flex items-center justify-between">
-                  <span className="text-sm font-bold uppercase tracking-[0.24em] text-brand-blue">
-                    0{index + 1}
-                  </span>
-                  <ShieldCheck size={20} className="text-green-steel" />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {pillars.map((p, i) => (
+              <div
+                key={p.title}
+                className="flex flex-col gap-5 rounded-2xl border border-white/[0.07] bg-white/[0.04] p-6"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-brand-red/30 bg-brand-red/10 text-brand-red">
+                    {p.icon}
+                  </div>
+                  <span className="text-[12px] font-bold text-white/15">0{i + 1}</span>
                 </div>
-                <h3 className="font-display text-2xl font-black tracking-normal text-ink-900">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-base leading-7 text-steel-700">{item.text}</p>
-              </article>
+                <div>
+                  <h3 className="mb-2 font-display text-[15px] font-bold text-white">{p.title}</h3>
+                  <p className="text-[13px] leading-[1.65] text-white/65">{p.desc}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-[#fffdfa] py-24" id="manufacturing">
+      {/* ── Capability ── */}
+      <MotionSection className="bg-white py-24" id="manufacturing">
         <div className="ars-container">
-          <div className="mb-14 grid gap-8 lg:grid-cols-[0.7fr_0.3fr] lg:items-end">
-            <div>
-              <div className="mb-10 flex items-center gap-4">
-                <span className="h-[2px] w-12 bg-brand-blue" />
-                <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                  Manufacturing strength
-                </p>
-              </div>
-              <h2 className="max-w-full break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal">
+          <div className="grid items-center gap-14 lg:grid-cols-5">
+            <div className="lg:col-span-2">
+              <SectionKicker variant="brand">Scale &amp; Capability</SectionKicker>
+              <h2 className="font-display text-[clamp(1.9rem,3vw,3rem)] font-bold leading-[1.12] tracking-[-0.025em] text-ink-900">
                 Capability that supports trust at scale.
               </h2>
-            </div>
-            <p className="max-w-xl text-lg leading-8 text-steel-700">
-              Manufacturing should not be hidden behind generic company copy. It is one of the
-              strongest proof points for engineers, contractors, dealers, and procurement users.
-            </p>
-          </div>
-
-          <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="min-h-[440px] overflow-hidden rounded-[8px] bg-ink-950">
-              <video className="h-full w-full object-cover opacity-78" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
-                <source src="/videos/ars-intro.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <div className="grid gap-5">
-              {commitments.map((item, index) => (
-                <article key={item} className="rounded-[8px] border border-ink-900/10 bg-white p-6">
-                  <div className="mb-6 flex items-center justify-between">
-                    <span className="text-sm font-bold uppercase tracking-[0.24em] text-brand-blue">
-                      0{index + 1}
+              <p className="mb-8 mt-5 text-[15px] leading-[1.8] text-steel-700">
+                Our integrated facility — from raw material to finished bar — keeps every step of
+                production controlled, traceable, and built to deliver consistent output at volume.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {capabilityTiles.map((item) => (
+                  <div key={item.label} className="rounded-xl border border-surface-100 bg-surface-50 p-4">
+                    <span className="font-display text-[1.4rem] font-extrabold tracking-[-0.02em] text-brand-blue">
+                      {item.val}
                     </span>
-                    <BadgeCheck size={20} className="text-green-steel" />
+                    <p className="mt-0.5 text-[12px] font-medium text-grey-600">{item.label}</p>
                   </div>
-                  <p className="text-lg font-semibold leading-8 text-ink-900">{item}</p>
-                </article>
-              ))}
+                ))}
+              </div>
+            </div>
+            <div className="relative h-[440px] overflow-hidden rounded-2xl bg-ink-950 lg:col-span-3">
+              <Image
+                src="/ars-assets/our-quality-1.png"
+                alt="ARS manufacturing and quality capability"
+                fill
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className="object-cover"
+              />
+              <div
+                className="absolute inset-0"
+                style={{ background: "linear-gradient(135deg, rgba(13,43,110,0.3) 0%, transparent 60%)" }}
+              />
             </div>
           </div>
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-white py-24">
+      {/* ── Proof timeline ── */}
+      <MotionSection className="bg-surface-50 py-24">
         <div className="ars-container">
-          <div className="mb-14 max-w-4xl">
-            <div className="mb-8 flex items-center gap-4">
-              <span className="h-[2px] w-12 bg-brand-blue" />
-              <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                Operating philosophy
-              </p>
-            </div>
-            <h2 className="break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal">
+          <div className="mb-16 text-center">
+            <SectionKicker variant="brand" align="center" showEndLine>
+              Our Journey
+            </SectionKicker>
+            <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
               Proof before claims.
             </h2>
           </div>
-
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {timeline.map((item) => (
-              <article key={item.title} className="flex min-h-[290px] flex-col justify-between rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-7">
-                <div>
-                  <p className="font-display text-5xl font-black leading-none text-ink-900">
-                    {item.year}
-                  </p>
-                  <h3 className="mt-8 font-display text-2xl font-black tracking-normal">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 text-base leading-7 text-steel-700">{item.text}</p>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {milestones.map((m, i) => (
+              <div
+                key={m.year}
+                className="relative flex flex-col gap-4 rounded-2xl border-[1.5px] border-surface-100 bg-white p-6"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-display text-[1.5rem] font-black tracking-[-0.02em] text-brand-blue">
+                    {m.year}
+                  </span>
+                  {i < milestones.length - 1 ? (
+                    <ArrowRight
+                      size={16}
+                      className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 text-brand-blue/30 lg:block"
+                    />
+                  ) : null}
                 </div>
-                <span className="mt-8 h-[2px] w-12 bg-brand-blue" />
-              </article>
+                <div>
+                  <h3 className="mb-1.5 text-[14px] font-bold text-ink-900">{m.title}</h3>
+                  <p className="text-[13px] leading-[1.65] text-grey-600">{m.desc}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-[#f8f9fb] py-24">
+      {/* ── Built for buyers ── */}
+      <MotionSection className="bg-white py-24">
         <div className="ars-container">
-          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-stretch">
-            <div className="flex flex-col justify-between rounded-[8px] border border-ink-900/10 bg-white p-8">
-              <div>
-                <div className="mb-8 flex items-center gap-4">
-                  <span className="h-[2px] w-12 bg-brand-blue" />
-                  <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                    Dealer and green steel confidence
-                  </p>
-                </div>
-                <h2 className="break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal">
-                  Built for buyers who need clarity.
-                </h2>
-              </div>
-              <p className="mt-8 text-lg leading-8 text-steel-700">
-                ARS should connect its brand story to practical buyer confidence: local dealer
-                access, technical proof, and green steel readiness.
-              </p>
-            </div>
-            <div className="grid gap-5 md:grid-cols-3">
-              {[
-                { title: "Dealer network", icon: Handshake, text: "Supports local purchase confidence and faster enquiry-to-supply movement." },
-                { title: "Green readiness", icon: Leaf, text: "Positions ARS for projects where sustainability and documentation matter." },
-                { title: "Technical confidence", icon: ShieldCheck, text: "Helps engineers and procurement teams verify claims before the pitch." },
-              ].map((item) => {
-                const Icon = item.icon;
-
-                return (
-                  <article key={item.title} className="rounded-[8px] border border-ink-900/10 bg-white p-6">
-                    <Icon size={24} className="text-brand-blue" />
-                    <h3 className="mt-10 font-display text-2xl font-black tracking-normal">
-                      {item.title}
-                    </h3>
-                    <p className="mt-4 text-base leading-7 text-steel-700">{item.text}</p>
-                    <a className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-brand-blue" href="#contact">
-                      Start conversation <ArrowRight size={17} />
-                    </a>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </MotionSection>
-
-      <MotionSection className="bg-white py-24" id="contact-proof">
-        <div className="ars-container">
-          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
+          <div className="mb-14 grid items-end gap-12 lg:grid-cols-2">
             <div>
-              <div className="mb-8 flex items-center gap-4">
-                <span className="h-[2px] w-12 bg-brand-blue" />
-                <p className="text-xs font-bold uppercase tracking-[0.32em] text-brand-blue">
-                  Contact access
-                </p>
-              </div>
-              <h2 className="break-words font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal">
-                Trust should end with a real path to ARS.
+              <SectionKicker variant="brand">Who We Serve</SectionKicker>
+              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+                Built for buyers who need clarity.
               </h2>
-              <p className="mt-7 max-w-xl text-lg leading-8 text-steel-700">
-                Strong contact access matters for buyers who are ready to discuss product,
-                dealer, office, plant, or project requirements.
-              </p>
             </div>
-            <div className="grid gap-5 md:grid-cols-3">
-              {contactRecovery.map((item) => {
-                const Icon = item.icon;
-
-                return (
-                  <article key={item.title} className="rounded-[8px] border border-ink-900/10 bg-[#f8f9fb] p-6">
-                    <Icon size={22} className="text-brand-blue" />
-                    <h3 className="mt-8 font-display text-2xl font-black tracking-normal text-ink-900">
-                      {item.title}
-                    </h3>
-                    <p className="mt-4 text-lg font-semibold leading-7 text-ink-900">{item.value}</p>
-                    <p className="mt-3 text-sm leading-6 text-steel-700">{item.note}</p>
-                  </article>
-                );
-              })}
-            </div>
+            <p className="text-[15px] leading-[1.8] text-steel-700">
+              Whether you are building your first home or specifying steel for a large project, ARS has a
+              clear path for you — from product to proof to purchase.
+            </p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {audiences.map((a) => (
+              <a
+                key={a.title}
+                href={a.href}
+                className="focus-ring group flex flex-col gap-5 rounded-2xl border-[1.5px] border-surface-100 bg-white p-7 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/[0.06] text-brand-blue">
+                  {a.icon}
+                </div>
+                <div className="flex-1">
+                  <h3 className="mb-2 font-display text-[17px] font-bold text-ink-900">{a.title}</h3>
+                  <p className="text-[13px] leading-[1.7] text-grey-600">{a.desc}</p>
+                </div>
+                <span className="inline-flex items-center gap-1.5 text-[12px] font-bold text-brand-red transition-all duration-200 group-hover:gap-2.5">
+                  {a.cta} <ArrowRight size={12} />
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       </MotionSection>
 
-      <ContactCta
-        eyebrow="Talk to ARS"
-        headline="Ready to verify the right steel partner?"
-        body="Contact the ARS team for product guidance, technical support, dealer information, or project enquiry support."
-        primaryLabel="Talk to sales"
-        primaryHref="/contact"
-        secondaryLabel="Request quote"
-        secondaryHref="/request-quote"
-      />
+      {/* ── Contact CTA ── */}
+      <MotionSection className="bg-brand-blue py-24" id="contact">
+        <div className="ars-container">
+          <div className="mb-14 text-center">
+            <SectionKicker variant="light" align="center" showEndLine>
+              Start Here
+            </SectionKicker>
+            <h2 className="mb-4 font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
+              Trust should end with a real path to ARS.
+            </h2>
+            <p className="mx-auto max-w-[480px] text-[15px] leading-[1.75] text-white/70">
+              Every enquiry gets a direct response — no chatbots, no forms that disappear. A real team
+              ready to help.
+            </p>
+          </div>
+          <div className="mx-auto grid max-w-3xl gap-4 md:grid-cols-3">
+            {contacts.map((c) => (
+              <div
+                key={c.title}
+                className="flex flex-col items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.07] p-6 text-center"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-brand-red/40 bg-brand-red/25 text-brand-red">
+                  {c.icon}
+                </div>
+                <div>
+                  <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.1em] text-white/70">{c.title}</p>
+                  <p className="mb-0.5 text-[14px] font-bold text-white">{c.detail}</p>
+                  <p className="text-[12px] text-white/65">{c.sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 flex justify-center">
+            <a
+              href="/contact"
+              className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-7 py-3.5 text-[14px] font-bold text-white transition hover:opacity-90"
+            >
+              Get in touch <ArrowRight size={15} />
+            </a>
+          </div>
+        </div>
+      </MotionSection>
+
+      <SiteFooter />
     </main>
   );
 }
