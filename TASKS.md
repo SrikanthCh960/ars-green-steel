@@ -68,6 +68,9 @@ The execution order prioritizes:
 | Task | Priority | Status | Dependencies | Expected Outcome |
 |---|---|---|---|---|
 | Create `homepage-figma-refresh` branch from approved design-system branch | Critical | Done | `design-system-sync` | Homepage work is isolated for review and GitHub tracking. |
+| Commit and push shared homepage/design-system baseline for Claude/Codex collaboration | Critical | Done | Current reviewed homepage work | Both agents can start from the same GitHub checkpoint without overwriting local work. |
+| Create reusable component registry for multi-agent coordination | Critical | Done | `AGENTS.md`, `DESIGN_SYSTEM.md` | Codex and Claude can check `COMPONENT_INVENTORY.md` before creating or reusing shared components. |
+| Verify homepage responsive QA after shared kicker extraction | Critical | Done | `SectionKicker`, homepage sections | Desktop, tablet, and mobile checks confirm no horizontal scroll and consistent red/light kicker variants. |
 | Apply approved dark navy, royal blue, and crimson hierarchy to homepage hero | Critical | Done | `ARS-DESIGN-HANDOFF.md`, `HomeHero` | Hero now reflects the approved premium industrial theme while preserving existing content and animation. |
 | Refresh homepage section rhythm with dark navy feature bands and light blue-tinted surfaces | High | Done | Updated global tokens | Homepage reads closer to the approved Figma Make direction without rebuilding structure. |
 | Update audience, buying, product, trust, green steel, testimonials, and blog section surfaces | High | Done | Existing homepage components | Key sections feel more consistent with the approved design language. |

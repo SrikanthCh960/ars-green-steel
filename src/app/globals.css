@@ -211,7 +211,7 @@ html {
 }
 
 .section-kicker-line-red {
-  background: var(--brand-red);
+  background: var(--brand-red) !important;
 }
 
 .section-kicker-light {
@@ -219,7 +219,7 @@ html {
 }
 
 .section-kicker-line-light {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.7) !important;
 }
 
 .section-kicker-green {
@@ -227,7 +227,7 @@ html {
 }
 
 .section-kicker-line-green {
-  background: #6ee7b7;
+  background: #6ee7b7 !important;
 }
 
 .section-title {
