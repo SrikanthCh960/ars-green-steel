@@ -30,7 +30,7 @@ const stats = [
   { value: "1992", label: "Founded", sub: "Over three decades of steel manufacturing trust." },
   { value: "2.5L MT", label: "Annual Capacity", sub: "Certified steel output supporting regional demand." },
   { value: "550D", label: "Flagship Grade", sub: "Fe-550D high-strength TMT for structural integrity." },
-  { value: "SGS+", label: "Certifications", sub: "Third-party verified quality across the product range." },
+  { value: "SGS", label: "Certifications", sub: "Third-party certification and testing proof across the range." },
 ];
 
 const storyPoints = [
@@ -67,7 +67,7 @@ const capabilityTiles = [
   { val: "2.5L MT", label: "Annual output" },
   { val: "100%", label: "In-house QC" },
   { val: "Fe-550D", label: "Primary grade" },
-  { val: "Pan India", label: "Dealer network" },
+  { val: "South India", label: "Dealer network" },
 ];
 
 const milestones = [
@@ -128,13 +128,13 @@ const contacts = [
     icon: <Mail size={18} />,
     title: "Project enquiry",
     detail: "Enquiry form",
-    sub: "Response within 24 hours",
+    sub: "We aim to respond within a day",
   },
   {
     icon: <MapPin size={18} />,
     title: "Office & plant",
     detail: "Chennai, Tamil Nadu",
-    sub: "Visit by appointment",
+    sub: "By prior appointment",
   },
 ];
 
@@ -223,7 +223,7 @@ export default function AboutPage() {
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Our Story</SectionKicker>
-              <h2 className="font-display text-[clamp(1.8rem,3vw,2.6rem)] font-bold leading-[1.15] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 A steel brand made for real structures.
               </h2>
               <p className="mb-6 mt-5 text-[15px] leading-[1.8] text-steel-700">
@@ -273,11 +273,11 @@ export default function AboutPage() {
           <div className="mb-16 grid items-start gap-12 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Why It Matters</SectionKicker>
-              <h2 className="font-display text-[clamp(1.8rem,3vw,2.6rem)] font-bold leading-[1.15] tracking-[-0.025em] text-white">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
                 Trust content that cannot be lost.
               </h2>
             </div>
-            <p className="text-[15px] leading-[1.8] text-white/45 lg:pt-14">
+            <p className="text-[15px] leading-[1.8] text-white/70 lg:pt-14">
               Any brand can print certifications on a brochure. ARS built a system where every proof point
               is independently verifiable — at the lab, at the plant, and on site.
             </p>
@@ -296,7 +296,7 @@ export default function AboutPage() {
                 </div>
                 <div>
                   <h3 className="mb-2 font-display text-[15px] font-bold text-white">{p.title}</h3>
-                  <p className="text-[13px] leading-[1.65] text-white/45">{p.desc}</p>
+                  <p className="text-[13px] leading-[1.65] text-white/65">{p.desc}</p>
                 </div>
               </div>
             ))}
@@ -310,7 +310,7 @@ export default function AboutPage() {
           <div className="grid items-center gap-14 lg:grid-cols-5">
             <div className="lg:col-span-2">
               <SectionKicker variant="brand">Scale &amp; Capability</SectionKicker>
-              <h2 className="font-display text-[clamp(1.8rem,3vw,2.4rem)] font-bold leading-[1.15] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(1.9rem,3vw,3rem)] font-bold leading-[1.12] tracking-[-0.025em] text-ink-900">
                 Capability that supports trust at scale.
               </h2>
               <p className="mb-8 mt-5 text-[15px] leading-[1.8] text-steel-700">
@@ -352,7 +352,7 @@ export default function AboutPage() {
             <SectionKicker variant="brand" align="center" showEndLine>
               Our Journey
             </SectionKicker>
-            <h2 className="font-display text-[clamp(1.8rem,3vw,2.6rem)] font-bold leading-[1.15] tracking-[-0.025em] text-ink-900">
+            <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
               Proof before claims.
             </h2>
           </div>
@@ -389,7 +389,7 @@ export default function AboutPage() {
           <div className="mb-14 grid items-end gap-12 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Who We Serve</SectionKicker>
-              <h2 className="font-display text-[clamp(1.8rem,3vw,2.6rem)] font-bold leading-[1.15] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Built for buyers who need clarity.
               </h2>
             </div>
@@ -425,11 +425,13 @@ export default function AboutPage() {
       <MotionSection className="bg-brand-blue py-24" id="contact">
         <div className="ars-container">
           <div className="mb-14 text-center">
-            <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.14em] text-white/40">Start Here</p>
-            <h2 className="mb-4 font-display text-[clamp(1.8rem,3vw,2.6rem)] font-bold leading-[1.15] tracking-[-0.025em] text-white">
+            <SectionKicker variant="light" align="center" showEndLine>
+              Start Here
+            </SectionKicker>
+            <h2 className="mb-4 font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
               Trust should end with a real path to ARS.
             </h2>
-            <p className="mx-auto max-w-[480px] text-[15px] leading-[1.75] text-white/50">
+            <p className="mx-auto max-w-[480px] text-[15px] leading-[1.75] text-white/70">
               Every enquiry gets a direct response — no chatbots, no forms that disappear. A real team
               ready to help.
             </p>
@@ -444,9 +446,9 @@ export default function AboutPage() {
                   {c.icon}
                 </div>
                 <div>
-                  <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.1em] text-white/50">{c.title}</p>
+                  <p className="mb-1 text-[11px] font-bold uppercase tracking-[0.1em] text-white/70">{c.title}</p>
                   <p className="mb-0.5 text-[14px] font-bold text-white">{c.detail}</p>
-                  <p className="text-[12px] text-white/40">{c.sub}</p>
+                  <p className="text-[12px] text-white/65">{c.sub}</p>
                 </div>
               </div>
             ))}
