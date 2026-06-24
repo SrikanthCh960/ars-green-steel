@@ -157,7 +157,7 @@ export default function Ars550DPage() {
 
             <div className="hidden lg:block">
               <div className="rounded-2xl border border-white/[0.12] bg-white/[0.07] p-6 backdrop-blur">
-                <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.1em] text-white/50">
+                <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.1em] text-white/70">
                   About this grade
                 </p>
                 <p className="text-[14px] leading-[1.75] text-white/80">
@@ -166,8 +166,8 @@ export default function Ars550DPage() {
                 </p>
                 <div className="mt-4 flex items-center gap-2 border-t border-white/10 pt-4">
                   <CheckCircle2 size={14} className="text-brand-red" />
-                  <span className="text-[12px] font-medium text-white/55">
-                    IS 1786:2008 certified · Fe-550D grade
+                  <span className="text-[12px] font-medium text-white/70">
+                    IS 1786:2008 · Fe-550D grade
                   </span>
                 </div>
               </div>
@@ -201,7 +201,7 @@ export default function Ars550DPage() {
           <div className="grid items-start gap-16 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Spec / Technical Clarity</SectionKicker>
-              <h2 className="font-display text-[clamp(1.8rem,3vw,2.6rem)] font-bold leading-[1.15] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Specification first,
                 <br />
                 enquiry second.
@@ -214,7 +214,7 @@ export default function Ars550DPage() {
 
             <div className="overflow-hidden rounded-2xl border-[1.5px] border-surface-100">
               <div className="bg-brand-blue px-6 py-3">
-                <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/60">
+                <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/70">
                   ARS 550D — Technical overview
                 </span>
               </div>
@@ -242,11 +242,11 @@ export default function Ars550DPage() {
           <div className="mb-14 grid items-start gap-12 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Why ARS 550D</SectionKicker>
-              <h2 className="font-display text-[clamp(1.8rem,3vw,2.6rem)] font-bold leading-[1.15] tracking-[-0.025em] text-white">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
                 Made for safer everyday structures.
               </h2>
             </div>
-            <p className="text-[15px] leading-[1.8] text-white/45 lg:pt-14">
+            <p className="text-[15px] leading-[1.8] text-white/70 lg:pt-14">
               Fe-550D is more than a grade number — it is a commitment to structures that absorb stress,
               hold form under load, and give engineers the predictability they need to design with
               confidence.
@@ -266,7 +266,7 @@ export default function Ars550DPage() {
                 </div>
                 <div>
                   <h3 className="mb-2 font-display text-[15px] font-bold text-white">{c.title}</h3>
-                  <p className="text-[13px] leading-[1.65] text-white/45">{c.desc}</p>
+                  <p className="text-[13px] leading-[1.65] text-white/65">{c.desc}</p>
                 </div>
               </div>
             ))}
@@ -298,12 +298,12 @@ export default function Ars550DPage() {
             </div>
             <div className="lg:col-span-2">
               <SectionKicker variant="brand">Key Properties</SectionKicker>
-              <h2 className="font-display text-[clamp(1.6rem,2.5vw,2.2rem)] font-bold leading-[1.2] tracking-[-0.02em] text-ink-900">
+              <h2 className="font-display text-[clamp(1.7rem,2.6vw,2.6rem)] font-bold leading-[1.15] tracking-[-0.02em] text-ink-900">
                 Numbers behind the grade.
               </h2>
               <p className="mb-8 mt-4 text-[14px] leading-[1.75] text-steel-700">
-                Every ARS 550D bar is tested against these thresholds — not sampled, not estimated. Full
-                batch compliance.
+                These are the Fe-550D thresholds specified under IS 1786:2008 — the benchmark ARS 550D is
+                manufactured to meet.
               </p>
               <div className="grid grid-cols-2 gap-3">
                 {properties.map((p) => (
@@ -328,7 +328,7 @@ export default function Ars550DPage() {
           <div className="mb-14 grid items-end gap-10 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Selling Action</SectionKicker>
-              <h2 className="font-display text-[clamp(1.8rem,3vw,2.6rem)] font-bold leading-[1.15] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Move from product interest to supply.
               </h2>
             </div>
@@ -369,15 +369,13 @@ export default function Ars550DPage() {
         <div className="ars-container relative z-10">
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div>
-              <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.14em] text-white/40">
-                Ready to specify
-              </p>
-              <h2 className="mb-3 font-display text-[clamp(1.6rem,3vw,2.4rem)] font-bold leading-[1.15] tracking-[-0.02em] text-white">
+              <SectionKicker variant="light">Ready to specify</SectionKicker>
+              <h2 className="mb-3 font-display text-[clamp(1.8rem,3vw,3rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
                 Start with the grade.
                 <br />
                 We will handle the rest.
               </h2>
-              <p className="max-w-[420px] text-[14px] leading-[1.7] text-white/50">
+              <p className="max-w-[420px] text-[14px] leading-[1.7] text-white/70">
                 Request the spec, run the calculator, or speak to a dealer — all three paths start here.
               </p>
             </div>
