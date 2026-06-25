@@ -85,78 +85,77 @@ export default function CertificationsPage() {
     <main className="min-h-screen overflow-x-clip bg-background text-ink-900">
       <SiteHeader />
 
-      <section className="relative overflow-hidden bg-surface-50">
-        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#eaf1ff] to-transparent" />
-        <div className="ars-container relative grid min-h-[calc(100vh-80px)] items-center gap-12 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
-          <div className="max-w-4xl">
-            <SectionKicker>Verification</SectionKicker>
-            <h1 className="mt-7 font-display text-[clamp(3rem,6.2vw,6.7rem)] font-bold leading-[0.96] tracking-normal text-ink-900">
-              Proof before <span className="text-brand-red">purchase</span>.
+      {/* ── Hero ── */}
+      <section
+        className="relative flex items-end overflow-hidden bg-ink-950"
+        style={{ height: "62vh", minHeight: "480px", maxHeight: "680px" }}
+      >
+        <div className="soft-noise absolute inset-0" />
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to top, rgba(6,13,30,0.92) 0%, rgba(6,13,30,0.3) 55%, transparent 100%)" }}
+        />
+
+        <div className="ars-container relative z-10 w-full pb-16">
+          <div className="max-w-2xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
+              <ShieldCheck size={12} className="text-white/60" />
+              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS Certifications</span>
+            </div>
+            <h1 className="font-display text-[clamp(2.4rem,5.5vw,4.2rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
+              Proof before
+              <br />
+              <span className="italic text-brand-red">purchase.</span>
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-steel-700 lg:text-xl lg:leading-9">
-              Certifications turn ARS claims into usable trust for engineers, contractors,
-              institutions, dealers, and project buyers.
+            <p className="mt-5 max-w-[460px] text-[15px] leading-[1.75] text-white/70">
+              Certifications turn ARS claims into usable trust for engineers, contractors, institutions,
+              dealers, and project buyers.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link
-                className="focus-ring inline-flex h-13 items-center justify-center gap-3 rounded-full bg-brand-red px-7 text-base font-bold text-white shadow-[0_18px_44px_rgba(222,18,26,0.24)] transition hover:-translate-y-0.5 hover:bg-brand-red-dark"
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
                 href="/contact"
+                className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
               >
-                Request certificate <ArrowRight size={18} />
-              </Link>
-              <Link
-                className="focus-ring inline-flex h-13 items-center justify-center gap-3 rounded-full border border-brand-blue/20 bg-white px-7 text-base font-bold text-brand-blue shadow-[0_12px_34px_rgba(13,43,110,0.08)] transition hover:border-brand-blue hover:bg-[#edf5ff]"
+                Request certificate <ArrowRight size={14} />
+              </a>
+              <a
                 href="/products"
+                className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/80 transition hover:bg-white/[0.12]"
               >
                 View products
-              </Link>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="absolute -inset-5 rounded-[32px] bg-brand-blue/8 blur-3xl" />
-            <div className="relative overflow-hidden rounded-[24px] border border-brand-blue/12 bg-white shadow-[0_26px_90px_rgba(13,43,110,0.13)]">
-              <div className="relative h-[360px] bg-brand-blue">
-                <Image
-                  src="/ars-assets/awards-certificates-img3.png"
-                  alt="ARS certification and award proof"
-                  fill
-                  sizes="(min-width: 1024px) 45vw, 100vw"
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060D1E]/86 via-[#060D1E]/24 to-transparent" />
-                <div className="absolute bottom-7 left-7 right-7">
-                  <p className="font-technical text-xs font-black uppercase tracking-[0.22em] text-white/70">
-                    Verification library
-                  </p>
-                  <p className="mt-3 max-w-xl font-display text-4xl font-bold leading-tight text-white">
-                    Quality, system, green, approval, and testing proof in one place.
-                  </p>
-                </div>
-              </div>
-              <div className="grid gap-0 border-t border-brand-blue/10 md:grid-cols-4">
-                {[
-                  ["SGS", "Quality proof"],
-                  ["ISO", "Systems"],
-                  ["EPD", "Green proof"],
-                  ["PWD", "Approval references"],
-                ].map(([value, label]) => (
-                  <article key={label} className="border-b border-brand-blue/10 p-5 md:border-b-0 md:border-r last:border-r-0">
-                    <p className="font-display text-3xl font-bold text-brand-blue">{value}</p>
-                    <p className="mt-2 text-sm font-semibold text-steel-600">{label}</p>
-                  </article>
-                ))}
-              </div>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ── Stats ── */}
+      <MotionSection className="border-b border-surface-100 bg-white py-14">
+        <div className="ars-container">
+          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-ink-900/10">
+            {[
+              ["SGS", "Quality proof"],
+              ["ISO", "Systems"],
+              ["EPD", "Green proof"],
+              ["PWD", "Approval references"],
+            ].map(([value, label]) => (
+              <div key={label} className="flex flex-col px-0 lg:items-center lg:px-8 lg:text-center">
+                <span className="font-display text-[clamp(1.8rem,2.5vw,2.4rem)] font-extrabold leading-none tracking-[-0.03em] text-brand-blue">
+                  {value}
+                </span>
+                <span className="mb-1 mt-1.5 text-[12px] font-bold uppercase tracking-[0.06em] text-ink-900">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </MotionSection>
+
       <MotionSection className="bg-white py-20 lg:py-24" id="certification-library">
         <div className="ars-container">
           <div className="mb-12 max-w-4xl">
-            <SectionKicker>Certification library</SectionKicker>
+            <SectionKicker variant="brand">Certification library</SectionKicker>
             <h2 className="section-title">Keep proof easy to scan.</h2>
             <p className="section-copy">
               Buyers should not hunt for credibility. Group proof by the job it does:
@@ -215,7 +214,7 @@ export default function CertificationsPage() {
         <div className="ars-container">
           <div className="mb-12 grid items-end gap-8 lg:grid-cols-[0.88fr_1fr]">
             <div>
-              <SectionKicker>Testing proof</SectionKicker>
+              <SectionKicker variant="brand">Testing proof</SectionKicker>
               <h2 className="section-title max-w-4xl">Make quality process visible.</h2>
             </div>
             <p className="section-copy section-copy-flush max-w-2xl lg:justify-self-end">
@@ -265,7 +264,7 @@ export default function CertificationsPage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(255,255,255,0.12),transparent_28%),linear-gradient(135deg,rgba(13,43,110,1),rgba(10,48,125,0.96))]" />
         <div className="ars-container relative z-10 grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div>
-            <SectionKicker>Downloads</SectionKicker>
+            <SectionKicker variant="light">Downloads</SectionKicker>
             <h2 className="section-title section-title-light">Need a document for review?</h2>
             <p className="section-copy section-copy-light">
               Final certificate PDFs and brochures should be connected here once ARS supplies

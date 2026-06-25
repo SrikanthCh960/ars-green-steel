@@ -83,73 +83,87 @@ export default function ManufacturingPage() {
     <main className="min-h-screen overflow-x-clip bg-background text-ink-900">
       <SiteHeader />
 
-      <section className="relative overflow-hidden bg-surface-50">
-        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#eaf1ff] to-transparent" />
-        <div className="ars-container relative grid min-h-[calc(100vh-80px)] items-center gap-12 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
-          <div className="max-w-4xl">
-            <SectionKicker>Manufacturing strength</SectionKicker>
-            <h1 className="mt-7 font-display text-[clamp(3rem,6.2vw,6.7rem)] font-bold leading-[0.96] tracking-normal text-ink-900">
-              Built with <span className="text-brand-red">process</span>.
+      {/* ── Hero ── */}
+      <section
+        className="relative flex items-end overflow-hidden bg-ink-950"
+        style={{ height: "62vh", minHeight: "480px", maxHeight: "680px" }}
+      >
+        <div className="absolute inset-0">
+          <Image
+            src="/ars-assets/right-about-us.png-compress.webp"
+            alt="ARS manufacturing plant aerial view"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition: "center 45%" }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(to right, rgba(6,13,30,0.95) 0%, rgba(6,13,30,0.65) 50%, rgba(6,13,30,0.2) 100%)" }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(to top, rgba(6,13,30,0.9) 0%, transparent 55%)" }}
+          />
+        </div>
+
+        <div className="ars-container relative z-10 w-full pb-16">
+          <div className="max-w-2xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
+              <Factory size={12} className="text-white/60" />
+              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS Manufacturing</span>
+            </div>
+            <h1 className="font-display text-[clamp(2.4rem,5.5vw,4.2rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
+              Built with
+              <br />
+              <span className="italic text-brand-red">process.</span>
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-steel-700 lg:text-xl lg:leading-9">
-              Manufacturing proof helps serious buyers trust ARS before the sales conversation:
-              process, capacity, testing, and product traceability all matter.
+            <p className="mt-5 max-w-[460px] text-[15px] leading-[1.75] text-white/70">
+              Manufacturing proof helps serious buyers trust ARS before the sales conversation — process,
+              capacity, testing, and product traceability all matter.
             </p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link
-                className="focus-ring inline-flex h-13 items-center justify-center gap-3 rounded-full bg-brand-red px-7 text-base font-bold text-white shadow-[0_18px_44px_rgba(222,18,26,0.24)] transition hover:-translate-y-0.5 hover:bg-brand-red-dark"
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
                 href="/contact"
+                className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
               >
-                Request plant proof <ArrowRight size={18} />
-              </Link>
-              <Link
-                className="focus-ring inline-flex h-13 items-center justify-center gap-3 rounded-full border border-brand-blue/20 bg-white px-7 text-base font-bold text-brand-blue shadow-[0_12px_34px_rgba(13,43,110,0.08)] transition hover:border-brand-blue hover:bg-[#edf5ff]"
+                Request plant proof <ArrowRight size={14} />
+              </a>
+              <a
                 href="/certifications"
+                className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/80 transition hover:bg-white/[0.12]"
               >
                 View certifications
-              </Link>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="absolute -inset-5 rounded-[32px] bg-brand-blue/8 blur-3xl" />
-            <div className="relative overflow-hidden rounded-[24px] border border-brand-blue/12 bg-white shadow-[0_26px_90px_rgba(13,43,110,0.13)]">
-              <div className="relative h-[360px] bg-brand-blue">
-                <Image
-                  src="/ars-assets/ARSHOME2.jpg"
-                  alt="ARS manufacturing plant and process"
-                  fill
-                  sizes="(min-width: 1024px) 45vw, 100vw"
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060D1E]/86 via-[#060D1E]/24 to-transparent" />
-                <div className="absolute bottom-7 left-7 right-7">
-                  <p className="font-technical text-xs font-black uppercase tracking-[0.22em] text-white/70">
-                    Process story
-                  </p>
-                  <p className="mt-3 max-w-xl font-display text-4xl font-bold leading-tight text-white">
-                    Scale, control, testing, and product confidence in one manufacturing flow.
-                  </p>
-                </div>
-              </div>
-              <div className="grid gap-0 border-t border-brand-blue/10 md:grid-cols-4">
-                {proofStats.map((item) => (
-                  <article key={item.label} className="border-b border-brand-blue/10 p-5 md:border-b-0 md:border-r last:border-r-0">
-                    <p className="font-display text-3xl font-bold text-brand-blue">{item.value}</p>
-                    <p className="mt-2 text-sm font-semibold text-steel-600">{item.label}</p>
-                  </article>
-                ))}
-              </div>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
+      {/* ── Stats ── */}
+      <MotionSection className="border-b border-surface-100 bg-white py-14">
+        <div className="ars-container">
+          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-ink-900/10">
+            {proofStats.map((item) => (
+              <div key={item.label} className="flex flex-col px-0 lg:items-center lg:px-8 lg:text-center">
+                <span className="font-display text-[clamp(1.8rem,2.5vw,2.4rem)] font-extrabold leading-none tracking-[-0.03em] text-brand-blue">
+                  {item.value}
+                </span>
+                <span className="mb-1 mt-1.5 text-[12px] font-bold uppercase tracking-[0.06em] text-ink-900">
+                  {item.label}
+                </span>
+                <span className="max-w-[200px] text-[12px] leading-normal text-grey-600">{item.detail}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </MotionSection>
+
       <MotionSection className="bg-white py-20 lg:py-24" id="process-flow">
         <div className="ars-container">
           <div className="mb-12 max-w-4xl">
-            <SectionKicker>Process flow</SectionKicker>
+            <SectionKicker variant="brand">Process flow</SectionKicker>
             <h2 className="section-title">Show how steel becomes trust.</h2>
             <p className="section-copy">
               The manufacturing page should read like a premium industrial story, not a raw process list.
@@ -196,7 +210,7 @@ export default function ManufacturingPage() {
         <div className="ars-container">
           <div className="mb-12 grid items-end gap-8 lg:grid-cols-[0.88fr_1fr]">
             <div>
-              <SectionKicker>Testing and QA</SectionKicker>
+              <SectionKicker variant="brand">Testing and QA</SectionKicker>
               <h2 className="section-title max-w-4xl">Testing should be part of the manufacturing story.</h2>
             </div>
             <p className="section-copy section-copy-flush max-w-2xl lg:justify-self-end">
@@ -246,7 +260,7 @@ export default function ManufacturingPage() {
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(255,255,255,0.12),transparent_28%),linear-gradient(135deg,rgba(13,43,110,1),rgba(10,48,125,0.96))]" />
         <div className="ars-container relative z-10 grid gap-12 lg:grid-cols-[0.82fr_1.28fr] lg:items-center">
           <div className="max-w-xl">
-            <SectionKicker>Buyer confidence</SectionKicker>
+            <SectionKicker variant="light">Buyer confidence</SectionKicker>
             <h2 className="section-title section-title-light">Manufacturing proof should support sales.</h2>
             <p className="section-copy section-copy-light">
               Once buyers understand the process, the next steps should feel obvious: review product proof,
