@@ -1,57 +1,304 @@
 import type { Metadata } from "next";
-import { Factory, FlaskConical, Gauge, ShieldCheck, Workflow, Wrench } from "lucide-react";
-import { ContentBand, PageShell, ProofMetrics } from "@/components/page-sections";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowRight,
+  BadgeCheck,
+  Factory,
+  FlaskConical,
+  Gauge,
+  ShieldCheck,
+  Workflow,
+  Wrench,
+} from "lucide-react";
+import { MotionSection } from "@/components/motion-section";
+import { SectionKicker } from "@/components/section-kicker";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "Manufacturing | ARS Green Steel",
-  description: "ARS Green Steel manufacturing strength, steel process, quality testing, and plant proof.",
+  description:
+    "ARS Green Steel manufacturing strength, process flow, testing, quality assurance, and plant proof.",
 };
+
+const processCards = [
+  {
+    title: "Melting and refining",
+    text: "Induction furnace and melt preparation explain how production begins with process control.",
+    image: "/ars-assets/ARSHOME1.jpg",
+    icon: Factory,
+  },
+  {
+    title: "Ladle and casting",
+    text: "Ladle handling and casting steps support process credibility for technical and project teams.",
+    image: "/ars-assets/ARSHOME2.jpg",
+    icon: Workflow,
+  },
+  {
+    title: "Rolling and sizing",
+    text: "Rolling mill steps connect billets to final TMT bars, rod sizes, and grade confidence.",
+    image: "/ars-assets/TMT-Bars.png",
+    icon: Gauge,
+  },
+];
+
+const trustRoutes = [
+  {
+    title: "Product traceability",
+    text: "Help buyers connect manufacturing proof to grade, size, and product performance.",
+    href: "/products",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Testing and quality",
+    text: "Show bend, rebend, tensile, lab, and chemical proof for serious review.",
+    href: "/certifications",
+    icon: FlaskConical,
+  },
+  {
+    title: "Project readiness",
+    text: "Support contractors and institutions with process proof before large enquiries.",
+    href: "/projects",
+    icon: Wrench,
+  },
+];
+
+const proofStats = [
+  { value: "2.5L MT", label: "Manufacturing scale", detail: "Capacity signals supply confidence for larger requirements." },
+  { value: "TN", label: "Plant context", detail: "Gummidipoondi plant proof stays part of the trust story." },
+  { value: "550D", label: "Grade connection", detail: "Manufacturing explanation should support product performance claims." },
+  { value: "Lab", label: "Testing route", detail: "Quality checks stay close to product and certification review." },
+];
+
+const testingRows = [
+  ["Bend and rebend", "Supports ductility review for engineers and site teams."],
+  ["Tensile testing", "Supports strength and elongation confidence before product selection."],
+  ["Spectrometer checks", "Supports consistency and composition review through lab process context."],
+  ["Batch records", "Keeps quality proof connected to technical and procurement confidence."],
+];
 
 export default function ManufacturingPage() {
   return (
-    <PageShell
-      hero={{
-        eyebrow: "Manufacturing strength",
-        title: "Built with",
-        accent: "process.",
-        body: "Manufacturing proof helps serious buyers trust ARS before the sales pitch: process, capacity, testing, and product traceability.",
-        primaryLabel: "Request plant proof",
-        primaryHref: "/contact",
-        secondaryLabel: "View certifications",
-        secondaryHref: "/certifications",
-      }}
-    >
-      <ProofMetrics
-        metrics={[
-          { kicker: "capacity", value: "2.5L MT", label: "Manufacturing scale supports supply confidence." },
-          { kicker: "plant", value: "TN", label: "Gummidipoondi plant context supports manufacturing confidence." },
-          { kicker: "grade", value: "550D", label: "Process proof connects directly to product performance." },
-          { kicker: "testing", value: "Lab", label: "Testing process supports product and specification confidence." },
-        ]}
-      />
+    <main className="min-h-screen overflow-x-clip bg-background text-ink-900">
+      <SiteHeader />
 
-      <ContentBand
-        eyebrow="Process flow"
-        title="Show how steel becomes trust."
-        body="The process is organized as a simple, premium manufacturing story for buyers and technical teams."
-        cards={[
-          { title: "Melting and refining", text: "Induction furnace and melting-discharge steps explain the start of production.", icon: Factory, imageSrc: "/ars-assets/ARSHOME1.jpg", imageAlt: "ARS melting and refining" },
-          { title: "Ladle and casting", text: "Ladle teeming and continuous casting content supports process credibility.", icon: Workflow, imageSrc: "/ars-assets/ARSHOME2.jpg", imageAlt: "ARS ladle and casting" },
-          { title: "Rolling mills", text: "Rolling process content connects billets to TMT bars and final sizes.", icon: Gauge, imageSrc: "/ars-assets/TMT-Bars.png", imageAlt: "ARS rolling mill and TMT bars" },
-          { title: "Testing and QA", text: "Bend, rebend, tensile, spectrometer, and lab proof support quality confidence.", icon: FlaskConical, imageSrc: "/ars-assets/our-quality-1.png", imageAlt: "ARS testing and QA" },
-        ]}
-        tone="white"
-      />
+      <section className="relative overflow-hidden bg-surface-50">
+        <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-[#eaf1ff] to-transparent" />
+        <div className="ars-container relative grid min-h-[calc(100vh-80px)] items-center gap-12 py-20 lg:grid-cols-[0.9fr_1.1fr] lg:py-24">
+          <div className="max-w-4xl">
+            <SectionKicker>Manufacturing strength</SectionKicker>
+            <h1 className="mt-7 font-display text-[clamp(3rem,6.2vw,6.7rem)] font-bold leading-[0.96] tracking-normal text-ink-900">
+              Built with <span className="text-brand-red">process</span>.
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-steel-700 lg:text-xl lg:leading-9">
+              Manufacturing proof helps serious buyers trust ARS before the sales conversation:
+              process, capacity, testing, and product traceability all matter.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Link
+                className="focus-ring inline-flex h-13 items-center justify-center gap-3 rounded-full bg-brand-red px-7 text-base font-bold text-white shadow-[0_18px_44px_rgba(222,18,26,0.24)] transition hover:-translate-y-0.5 hover:bg-brand-red-dark"
+                href="/contact"
+              >
+                Request plant proof <ArrowRight size={18} />
+              </Link>
+              <Link
+                className="focus-ring inline-flex h-13 items-center justify-center gap-3 rounded-full border border-brand-blue/20 bg-white px-7 text-base font-bold text-brand-blue shadow-[0_12px_34px_rgba(13,43,110,0.08)] transition hover:border-brand-blue hover:bg-[#edf5ff]"
+                href="/certifications"
+              >
+                View certifications
+              </Link>
+            </div>
+          </div>
 
-      <ContentBand
-        eyebrow="Buyer confidence"
-        title="Manufacturing proof should support sales."
-        cards={[
-          { title: "Product traceability", text: "Help buyers understand grade, size, and quality confidence.", href: "/products", icon: ShieldCheck, imageSrc: "/ars-assets/products-all.png", imageAlt: "ARS product traceability" },
-          { title: "Project readiness", text: "Support contractors and institutions with proof before large enquiries.", href: "/projects", icon: Wrench, imageSrc: "/ars-assets/ARSHOME4.jpg", imageAlt: "ARS project readiness" },
-          { title: "Certification route", text: "Let technical teams validate certificates, approvals, and renewals.", href: "/certifications", icon: ShieldCheck, imageSrc: "/ars-assets/awards-certificates-img2.png", imageAlt: "ARS certification route" },
-        ]}
-      />
-    </PageShell>
+          <div className="relative">
+            <div className="absolute -inset-5 rounded-[32px] bg-brand-blue/8 blur-3xl" />
+            <div className="relative overflow-hidden rounded-[24px] border border-brand-blue/12 bg-white shadow-[0_26px_90px_rgba(13,43,110,0.13)]">
+              <div className="relative h-[360px] bg-brand-blue">
+                <Image
+                  src="/ars-assets/ARSHOME2.jpg"
+                  alt="ARS manufacturing plant and process"
+                  fill
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060D1E]/86 via-[#060D1E]/24 to-transparent" />
+                <div className="absolute bottom-7 left-7 right-7">
+                  <p className="font-technical text-xs font-black uppercase tracking-[0.22em] text-white/70">
+                    Process story
+                  </p>
+                  <p className="mt-3 max-w-xl font-display text-4xl font-bold leading-tight text-white">
+                    Scale, control, testing, and product confidence in one manufacturing flow.
+                  </p>
+                </div>
+              </div>
+              <div className="grid gap-0 border-t border-brand-blue/10 md:grid-cols-4">
+                {proofStats.map((item) => (
+                  <article key={item.label} className="border-b border-brand-blue/10 p-5 md:border-b-0 md:border-r last:border-r-0">
+                    <p className="font-display text-3xl font-bold text-brand-blue">{item.value}</p>
+                    <p className="mt-2 text-sm font-semibold text-steel-600">{item.label}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <MotionSection className="bg-white py-20 lg:py-24" id="process-flow">
+        <div className="ars-container">
+          <div className="mb-12 max-w-4xl">
+            <SectionKicker>Process flow</SectionKicker>
+            <h2 className="section-title">Show how steel becomes trust.</h2>
+            <p className="section-copy">
+              The manufacturing page should read like a premium industrial story, not a raw process list.
+              Each stage should support buyer confidence and technical understanding.
+            </p>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-3">
+            {processCards.map((card) => {
+              const Icon = card.icon;
+
+              return (
+                <article
+                  key={card.title}
+                  className="group overflow-hidden rounded-[18px] border border-brand-blue/10 bg-white shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:border-brand-blue/35 hover:shadow-[0_22px_70px_rgba(13,43,110,0.12)]"
+                >
+                  <div className="relative h-56 overflow-hidden bg-surface-100">
+                    <Image
+                      src={card.image}
+                      alt={`${card.title} ARS process`}
+                      fill
+                      sizes="(min-width: 1024px) 31vw, 100vw"
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#060D1E]/62 to-transparent" />
+                    <span className="absolute left-5 top-5 inline-flex size-12 items-center justify-center rounded-[14px] bg-white text-brand-blue shadow-[0_12px_30px_rgba(0,0,0,0.12)]">
+                      <Icon size={21} />
+                    </span>
+                  </div>
+                  <div className="p-7">
+                    <h3 className="font-display text-3xl font-bold tracking-normal text-ink-900">
+                      {card.title}
+                    </h3>
+                    <p className="mt-4 text-base leading-7 text-steel-700">{card.text}</p>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-surface-50 py-20 lg:py-24" id="testing">
+        <div className="ars-container">
+          <div className="mb-12 grid items-end gap-8 lg:grid-cols-[0.88fr_1fr]">
+            <div>
+              <SectionKicker>Testing and QA</SectionKicker>
+              <h2 className="section-title max-w-4xl">Testing should be part of the manufacturing story.</h2>
+            </div>
+            <p className="section-copy section-copy-flush max-w-2xl lg:justify-self-end">
+              Quality assurance is not a side note. It should sit close to the process narrative
+              and connect naturally to certifications and product proof.
+            </p>
+          </div>
+
+          <div className="grid overflow-hidden rounded-[18px] border border-brand-blue/12 bg-white shadow-[var(--shadow-soft)] lg:grid-cols-[0.72fr_1fr]">
+            <div className="relative min-h-[360px] bg-brand-blue">
+              <Image
+                src="/ars-assets/our-quality-1.png"
+                alt="ARS testing and quality assurance"
+                fill
+                sizes="(min-width: 1024px) 42vw, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#060D1E]/72 to-transparent" />
+              <div className="absolute bottom-7 left-7 right-7">
+                <span className="inline-flex size-13 items-center justify-center rounded-[14px] bg-white text-brand-blue">
+                  <FlaskConical size={22} />
+                </span>
+                <h3 className="mt-5 font-display text-4xl font-bold leading-tight text-white">
+                  Lab and testing support every product claim.
+                </h3>
+              </div>
+            </div>
+
+            <div className="grid divide-y divide-brand-blue/10">
+              {testingRows.map(([title, text], index) => (
+                <article key={title} className="grid gap-4 p-6 sm:grid-cols-[44px_minmax(0,1fr)] lg:p-7">
+                  <span className="font-technical text-sm font-black tracking-[0.16em] text-brand-red">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span>
+                    <h3 className="font-display text-2xl font-bold text-ink-900">{title}</h3>
+                    <p className="mt-2 text-base leading-7 text-steel-700">{text}</p>
+                  </span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="relative overflow-hidden bg-brand-blue py-20 text-white lg:py-28" id="confidence-routes">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(255,255,255,0.12),transparent_28%),linear-gradient(135deg,rgba(13,43,110,1),rgba(10,48,125,0.96))]" />
+        <div className="ars-container relative z-10 grid gap-12 lg:grid-cols-[0.82fr_1.28fr] lg:items-center">
+          <div className="max-w-xl">
+            <SectionKicker>Buyer confidence</SectionKicker>
+            <h2 className="section-title section-title-light">Manufacturing proof should support sales.</h2>
+            <p className="section-copy section-copy-light">
+              Once buyers understand the process, the next steps should feel obvious: review product proof,
+              validate testing, or move into a project enquiry.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-3">
+            {trustRoutes.map((card) => {
+              const Icon = card.icon;
+
+              return (
+                <Link
+                  key={card.title}
+                  href={card.href}
+                  className="focus-ring group rounded-[18px] border border-white/16 bg-white/[0.1] p-6 transition duration-300 hover:-translate-y-1 hover:bg-white/[0.14]"
+                >
+                  <span className="inline-flex size-13 items-center justify-center rounded-[14px] bg-white/14 text-white ring-1 ring-white/12">
+                    <Icon size={22} />
+                  </span>
+                  <h3 className="mt-7 font-display text-2xl font-bold text-white">{card.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-white/66">{card.text}</p>
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white">
+                    Open route <ArrowRight size={17} className="transition group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </MotionSection>
+
+      <section className="bg-white py-14">
+        <div className="ars-container grid gap-5 rounded-[20px] border border-brand-blue/10 bg-surface-50 p-6 shadow-[var(--shadow-soft)] lg:grid-cols-[1fr_auto] lg:items-center lg:p-8">
+          <div>
+            <h2 className="font-display text-[clamp(1.8rem,3vw,3rem)] font-bold leading-tight text-ink-900">
+              Need manufacturing or plant proof for your review?
+            </h2>
+            <p className="mt-3 max-w-2xl text-base leading-7 text-steel-700">
+              Reach ARS for process context, testing references, certifications, and project support.
+            </p>
+          </div>
+          <Link
+            className="focus-ring inline-flex h-13 items-center justify-center gap-3 rounded-full bg-brand-red px-7 text-base font-bold text-white shadow-[0_18px_44px_rgba(222,18,26,0.22)] transition hover:-translate-y-0.5 hover:bg-brand-red-dark"
+            href="/contact"
+          >
+            Contact ARS <ArrowRight size={18} />
+          </Link>
+        </div>
+      </section>
+
+      <SiteFooter />
+    </main>
   );
 }
