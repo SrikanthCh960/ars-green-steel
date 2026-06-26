@@ -223,7 +223,7 @@ export default function AboutPage() {
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Our Story</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 A steel brand made for real structures.
               </h2>
               <p className="mb-6 mt-5 text-[15px] leading-[1.8] text-steel-700">
@@ -273,7 +273,7 @@ export default function AboutPage() {
           <div className="mb-16 grid items-start gap-12 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Why It Matters</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
                 Trust content that cannot be lost.
               </h2>
             </div>
@@ -310,7 +310,7 @@ export default function AboutPage() {
           <div className="grid items-center gap-14 lg:grid-cols-5">
             <div className="lg:col-span-2">
               <SectionKicker variant="brand">Scale &amp; Capability</SectionKicker>
-              <h2 className="font-display text-[clamp(1.9rem,3vw,3rem)] font-bold leading-[1.12] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.025em] text-ink-900">
                 Capability that supports trust at scale.
               </h2>
               <p className="mb-8 mt-5 text-[15px] leading-[1.8] text-steel-700">
@@ -352,7 +352,7 @@ export default function AboutPage() {
             <SectionKicker variant="brand" align="center" showEndLine>
               Our Journey
             </SectionKicker>
-            <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
               Proof before claims.
             </h2>
           </div>
@@ -389,7 +389,7 @@ export default function AboutPage() {
           <div className="mb-14 grid items-end gap-12 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Who We Serve</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Built for buyers who need clarity.
               </h2>
             </div>
@@ -428,7 +428,7 @@ export default function AboutPage() {
             <SectionKicker variant="light" align="center" showEndLine>
               Start Here
             </SectionKicker>
-            <h2 className="mb-4 font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
+            <h2 className="mb-4 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
               Trust should end with a real path to ARS.
             </h2>
             <p className="mx-auto max-w-[480px] text-[15px] leading-[1.75] text-white/70">

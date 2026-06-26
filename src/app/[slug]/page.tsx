@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { HomeownersGuidePage } from "@/components/homeowners-guide-page";
+import { AudienceGuidePage } from "@/components/homeowners-guide-page";
 import { LegacyPageRenderer } from "@/components/legacy-page-renderer";
 import { getLegacyPage, getLegacyTopLevelPages } from "@/lib/legacy-content";
+
+const audienceGuideSlugs = [
+  "tmt-steel-bar-guide-homeowners",
+  "tmt-steel-bar-guide-engineers-architects",
+  "tmt-steel-bar-guide-civil-contractors",
+  "steel-distributors-dealers",
+] as const;
+
+type AudienceGuideSlug = (typeof audienceGuideSlugs)[number];
+
+function isAudienceGuideSlug(slug: string): slug is AudienceGuideSlug {
+  return audienceGuideSlugs.includes(slug as AudienceGuideSlug);
+}
 
 export function generateStaticParams() {
   return getLegacyTopLevelPages()
@@ -41,8 +54,8 @@ export default async function LegacyPage({ params }: { params: Promise<{ slug: s
     notFound();
   }
 
-  if (slug === "tmt-steel-bar-guide-homeowners") {
-    return <HomeownersGuidePage />;
+  if (isAudienceGuideSlug(slug)) {
+    return <AudienceGuidePage slug={slug} />;
   }
 
   return <LegacyPageRenderer page={page} />;

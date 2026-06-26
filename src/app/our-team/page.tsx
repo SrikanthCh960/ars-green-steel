@@ -150,7 +150,7 @@ export default function OurTeamPage() {
           <div className="mb-14 grid items-end gap-12 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Board of Directors</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Leadership rooted in steel.
               </h2>
             </div>
@@ -182,7 +182,7 @@ export default function OurTeamPage() {
           <div className="mb-14 grid items-end gap-12 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Leadership Team</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 The team that runs the business.
               </h2>
             </div>
@@ -218,7 +218,7 @@ export default function OurTeamPage() {
         <div className="ars-container">
           <div className="mb-12">
             <SectionKicker variant="brand">Senior Management</SectionKicker>
-            <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
               Close to projects and the field.
             </h2>
           </div>
@@ -248,7 +248,7 @@ export default function OurTeamPage() {
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div>
               <SectionKicker variant="light">Work with ARS</SectionKicker>
-              <h2 className="mb-3 font-display text-[clamp(1.8rem,3vw,3rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
+              <h2 className="mb-3 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
                 Talk to the people behind ARS.
               </h2>
               <p className="max-w-[420px] text-[14px] leading-[1.7] text-white/70">

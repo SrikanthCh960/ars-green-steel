@@ -32,7 +32,7 @@ export function ContactCta(props: ContactCtaProps) {
             <p className="font-technical text-xs font-black uppercase tracking-[0.22em] text-white/42">
               {eyebrow}
             </p>
-            <h2 className="mt-6 max-w-xl font-display text-[clamp(2.3rem,4.2vw,4.5rem)] font-bold leading-[1.04] tracking-normal text-white">
+            <h2 className="mt-6 max-w-xl font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.04] tracking-normal text-white">
               {props.headline ? (
                 headline
               ) : (

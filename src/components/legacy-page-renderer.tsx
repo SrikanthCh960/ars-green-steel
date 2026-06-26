@@ -119,7 +119,7 @@ export function LegacyPageRenderer({ page }: { page: LegacyPage }) {
               {articleSections.map((section, index) => (
                 <section key={section.title} id={section.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")} className={index === 0 ? "" : "mt-12 border-t border-ink-900/10 pt-10"}>
                   <p className="mb-4 text-xs font-bold uppercase tracking-[0.24em] text-brand-blue">Section {index + 1}</p>
-                  <h2 className="font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal text-ink-900">{sentenceCaseTitle(section.title)}</h2>
+                  <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.04] tracking-normal text-ink-900">{sentenceCaseTitle(section.title)}</h2>
                   <p className="mt-6 text-lg leading-9 text-steel-700">{publicBodyCopy(section.body)}</p>
                 </section>
               ))}

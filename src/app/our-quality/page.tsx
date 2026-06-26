@@ -160,7 +160,7 @@ export default function OurQualityPage() {
           <div className="grid items-start gap-16 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Why ARS Quality</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 A clear quality promise.
               </h2>
               <p className="mb-8 mt-5 text-[15px] leading-[1.8] text-steel-700">
@@ -211,7 +211,7 @@ export default function OurQualityPage() {
           <div className="mb-14 grid items-start gap-12 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Testing Process</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
                 Every bar earns its grade.
               </h2>
             </div>
@@ -252,7 +252,7 @@ export default function OurQualityPage() {
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div>
               <SectionKicker variant="light">Verify the quality</SectionKicker>
-              <h2 className="mb-3 font-display text-[clamp(1.8rem,3vw,3rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
+              <h2 className="mb-3 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
                 Ask ARS for the proof your project needs.
               </h2>
               <p className="max-w-[420px] text-[14px] leading-[1.7] text-white/70">

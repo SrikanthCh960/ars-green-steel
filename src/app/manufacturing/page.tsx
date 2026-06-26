@@ -296,7 +296,7 @@ export default function ManufacturingPage() {
       <section className="bg-white py-14">
         <div className="ars-container grid gap-5 rounded-[20px] border border-brand-blue/10 bg-surface-50 p-6 shadow-[var(--shadow-soft)] lg:grid-cols-[1fr_auto] lg:items-center lg:p-8">
           <div>
-            <h2 className="font-display text-[clamp(1.8rem,3vw,3rem)] font-bold leading-tight text-ink-900">
+            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-tight text-ink-900">
               Need manufacturing or plant proof for your review?
             </h2>
             <p className="mt-3 max-w-2xl text-base leading-7 text-steel-700">

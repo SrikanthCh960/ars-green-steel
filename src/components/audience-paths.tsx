@@ -70,7 +70,7 @@ export function AudiencePaths() {
       <div className="ars-container">
         <div className="mb-14 max-w-4xl">
           <SectionKicker>Audience paths</SectionKicker>
-          <h2 className="mt-4 font-display text-4xl font-bold tracking-normal sm:text-5xl">
+          <h2 className="mt-4 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold tracking-normal">
             One website, four clear journeys.
           </h2>
           <p className="mt-5 text-lg leading-8 text-steel-700">

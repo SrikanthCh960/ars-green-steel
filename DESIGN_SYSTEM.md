@@ -203,6 +203,21 @@ Rules:
 - Do not use oversized typography inside small cards.
 - Keep copy short and direct.
 
+### Section H2
+
+Pattern:
+
+- `font-display`
+- `font-weight: 700`
+- `font-size: clamp(2rem, 3.4vw, 2.25rem)`
+- Tight line-height for compact industrial hierarchy
+
+Rules:
+
+- Use this as the default size for section-level H2 headings across all pages.
+- Keep hero H1 and main display statements larger than this scale.
+- Do not reuse this scale for small card titles, stats, or utility labels.
+
 ### Italic Accent
 
 Current usage:

@@ -125,7 +125,7 @@ export default function TmtCalculatorPage() {
           <div className="grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr]">
             <div>
               <SectionKicker variant="brand">Calculator Model</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Share project details for a better estimate.
               </h2>
               <p className="mt-5 text-[15px] leading-[1.8] text-steel-700">
@@ -175,7 +175,7 @@ export default function TmtCalculatorPage() {
           <div className="mb-14 grid items-end gap-10 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Calculator Support</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Make estimate outputs useful.
               </h2>
             </div>
@@ -233,7 +233,7 @@ export default function TmtCalculatorPage() {
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div>
               <SectionKicker variant="light">From estimate to quote</SectionKicker>
-              <h2 className="mb-3 font-display text-[clamp(1.8rem,3vw,3rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
+              <h2 className="mb-3 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
                 Let ARS sales firm up your numbers.
               </h2>
               <p className="max-w-[420px] text-[14px] leading-[1.7] text-white/70">

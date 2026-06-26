@@ -201,7 +201,7 @@ export default function Ars550DPage() {
           <div className="grid items-start gap-16 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Spec / Technical Clarity</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Specification first,
                 <br />
                 enquiry second.
@@ -242,7 +242,7 @@ export default function Ars550DPage() {
           <div className="mb-14 grid items-start gap-12 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Why ARS 550D</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
                 Made for safer everyday structures.
               </h2>
             </div>
@@ -298,7 +298,7 @@ export default function Ars550DPage() {
             </div>
             <div className="lg:col-span-2">
               <SectionKicker variant="brand">Key Properties</SectionKicker>
-              <h2 className="font-display text-[clamp(1.7rem,2.6vw,2.6rem)] font-bold leading-[1.15] tracking-[-0.02em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.15] tracking-[-0.02em] text-ink-900">
                 Numbers behind the grade.
               </h2>
               <p className="mb-8 mt-4 text-[14px] leading-[1.75] text-steel-700">
@@ -328,7 +328,7 @@ export default function Ars550DPage() {
           <div className="mb-14 grid items-end gap-10 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Selling Action</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Move from product interest to supply.
               </h2>
             </div>
@@ -370,7 +370,7 @@ export default function Ars550DPage() {
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div>
               <SectionKicker variant="light">Ready to specify</SectionKicker>
-              <h2 className="mb-3 font-display text-[clamp(1.8rem,3vw,3rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
+              <h2 className="mb-3 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
                 Start with the grade.
                 <br />
                 We will handle the rest.

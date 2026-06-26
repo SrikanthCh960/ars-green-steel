@@ -222,6 +222,7 @@ The execution order prioritizes:
 | Restore blog and article routes | High | Done | Original Blog content map | `/blog-html` and article URLs resolve as modern resource pages instead of disappearing. |
 | Restore video/media route | Medium | Done | Original Video Gallery content | `/video` preserves future media-gallery structure. |
 | Restore segment routes | Critical | Done | Original Homeowner, Engineers, Contractors, Dealer pages | Buyer journeys now exist for home owners, engineers/architects, civil contractors, and dealers/distributors. |
+| Redesign audience guide pages with approved Figma system | Critical | Done | Homeowners page pattern, legacy audience content, approved design tokens | Homeowners, engineers/architects, civil contractors, and dealers now use one reusable modern audience template instead of raw legacy page blocks. |
 | Restore application routes | Critical | Done | Original Institutions, Bridges, Road Projects pages | Application-specific project pages now resolve with modern layouts. |
 | Restore rod-size routes | Critical | Done | Original 8mm to 32mm pages | Individual 8mm, 10mm, 12mm, 16mm, 20mm, 25mm, and 32mm routes preserve SEO and buyer intent. |
 | Add original-site navigation coverage | High | Done | Site header and footer | Header/footer now expose Products, Segments, Applications, Green Steel, Buy, About, Media, and Contact. |

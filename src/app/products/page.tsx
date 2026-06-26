@@ -163,7 +163,7 @@ export default function ProductsPage() {
           <div className="mb-14 grid items-end gap-12 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Core Products</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Two grades, one proof standard.
               </h2>
             </div>
@@ -223,7 +223,7 @@ export default function ProductsPage() {
           <div className="mb-12 grid items-start gap-12 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Product Comparison</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
                 550D or CRS 550D?
               </h2>
             </div>
@@ -277,7 +277,7 @@ export default function ProductsPage() {
           <div className="mb-14 grid items-end gap-10 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Bar Sizes</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Rod sizes buyers already search for.
               </h2>
             </div>
@@ -308,7 +308,7 @@ export default function ProductsPage() {
           <div className="mb-14 grid items-end gap-10 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Technical &amp; Downloads</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Specifications and brochure.
               </h2>
             </div>
@@ -366,7 +366,7 @@ export default function ProductsPage() {
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div>
               <SectionKicker variant="light">Ready to choose</SectionKicker>
-              <h2 className="mb-3 font-display text-[clamp(1.8rem,3vw,3rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
+              <h2 className="mb-3 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
                 Find the right ARS grade for your build.
               </h2>
               <p className="max-w-[420px] text-[14px] leading-[1.7] text-white/70">

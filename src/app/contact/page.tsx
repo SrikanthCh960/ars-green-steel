@@ -102,7 +102,7 @@ function ContactFormPanel() {
     <div className="rounded-[18px] border border-ink-900/10 bg-white p-5 shadow-[0_24px_80px_rgba(13,43,110,0.08)] md:p-7">
       <div className="mb-7">
         <SectionKicker>Sales enquiry</SectionKicker>
-        <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+        <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
           Share your requirement.
         </h2>
         <p className="mt-4 max-w-xl text-[15px] leading-7 text-steel-700">
@@ -273,7 +273,7 @@ export default function ContactPage() {
           <div className="mb-12 grid gap-8 lg:grid-cols-[0.62fr_0.38fr] lg:items-end">
             <div>
               <SectionKicker>Choose your route</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Move from enquiry to the right ARS team.
               </h2>
             </div>
@@ -315,7 +315,7 @@ export default function ContactPage() {
         <div className="ars-container grid gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-start">
           <div>
             <SectionKicker>Before you submit</SectionKicker>
-            <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
               Send the details sales teams actually need.
             </h2>
             <p className="mt-5 text-[15px] leading-7 text-steel-700">
@@ -340,7 +340,7 @@ export default function ContactPage() {
           <div className="mb-12 grid gap-8 lg:grid-cols-[0.52fr_0.48fr] lg:items-end">
             <div>
               <SectionKicker variant="light">Office and plant</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
                 Verified contact locations.
               </h2>
             </div>

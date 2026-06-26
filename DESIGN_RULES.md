@@ -238,6 +238,7 @@ Use for:
 
 Guidelines:
 
+- Standard responsive scale: `clamp(2rem, 3.4vw, 2.25rem)`.
 - H2s can use editorial emphasis.
 - Use one italic accent word when it strengthens meaning.
 - Keep line breaks intentional.

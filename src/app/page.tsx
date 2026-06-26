@@ -676,7 +676,7 @@ function SectionIntro({ eyebrow, title, body }: { eyebrow: string; title: string
     <div className="mb-12 max-w-4xl">
       <div>
         <SectionKicker className="mb-6">{eyebrow}</SectionKicker>
-        <h2 className="max-w-4xl font-display text-[clamp(2.15rem,3.6vw,3.5rem)] font-bold leading-[1.04] tracking-normal text-ink-900">
+        <h2 className="max-w-4xl font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.04] tracking-normal text-ink-900">
           {title}
         </h2>
       </div>

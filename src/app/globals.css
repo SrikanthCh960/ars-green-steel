@@ -199,7 +199,7 @@ html {
 .section-kicker {
   font-family: var(--font-technical);
   font-size: 0.6875rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -234,7 +234,7 @@ html {
   max-width: 64rem;
   overflow-wrap: anywhere;
   font-family: var(--font-display);
-  font-size: clamp(2.15rem, 3.6vw, 3.5rem);
+  font-size: clamp(2rem, 3.4vw, 2.25rem);
   font-weight: 700;
   line-height: 1.04;
   letter-spacing: 0;

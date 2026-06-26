@@ -58,7 +58,7 @@ export function AudienceJourneySection() {
       <div className="ars-container">
         <div className="mb-12 max-w-4xl">
           <SectionKicker className="mb-5">Audience paths</SectionKicker>
-          <h2 className="font-display text-[clamp(2.25rem,3.1vw,3.5rem)] font-bold leading-[1.06] tracking-normal text-ink-900">
+          <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.06] tracking-normal text-ink-900">
             Choose Your ARS Journey
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-8 text-steel-700 lg:text-lg">

@@ -146,7 +146,7 @@ export default function SteelPriceTodayPage() {
           <div className="mb-12 grid items-end gap-10 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Price Table</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Find your size, then get today&apos;s rate.
               </h2>
             </div>
@@ -187,7 +187,7 @@ export default function SteelPriceTodayPage() {
           <div className="mb-14 grid items-end gap-10 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Next Steps</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Do more than check a number.
               </h2>
             </div>
@@ -229,7 +229,7 @@ export default function SteelPriceTodayPage() {
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div>
               <SectionKicker variant="light">Get today&apos;s rate</SectionKicker>
-              <h2 className="mb-3 font-display text-[clamp(1.8rem,3vw,3rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
+              <h2 className="mb-3 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
                 Ready for a current ARS quote?
               </h2>
               <p className="max-w-[420px] text-[14px] leading-[1.7] text-white/70">

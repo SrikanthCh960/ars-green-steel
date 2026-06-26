@@ -371,7 +371,7 @@ export default function ServicesPage() {
             <p className="font-technical text-xs font-black uppercase tracking-[0.24em] text-white/50">
               Get started today
             </p>
-            <h2 className="mt-6 font-display text-[clamp(2.2rem,4vw,4.2rem)] font-bold leading-[1.02] text-white">
+            <h2 className="mt-6 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.02] text-white">
               Ready to source quality <span className="text-brand-red">green steel?</span>
             </h2>
             <p className="mt-5 max-w-xl text-base leading-7 text-white/64 lg:text-lg lg:leading-8">

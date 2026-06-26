@@ -134,7 +134,7 @@ export default function GreenSteelPage() {
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">What Is Green Steel</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Lower-carbon steel, same structural strength.
               </h2>
               <p className="mb-6 mt-5 text-[15px] leading-[1.8] text-steel-700">
@@ -178,7 +178,7 @@ export default function GreenSteelPage() {
           <div className="mb-14 grid items-start gap-12 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Why It Matters</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,3.4rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
                 Sustainability buyers can verify.
               </h2>
             </div>
@@ -219,7 +219,7 @@ export default function GreenSteelPage() {
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div>
               <SectionKicker variant="light">Build responsibly</SectionKicker>
-              <h2 className="mb-3 font-display text-[clamp(1.8rem,3vw,3rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
+              <h2 className="mb-3 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
                 Specify green steel for your next project.
               </h2>
               <p className="max-w-[420px] text-[14px] leading-[1.7] text-white/70">
