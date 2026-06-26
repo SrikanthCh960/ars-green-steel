@@ -320,7 +320,8 @@ Use an 8px-based spacing rhythm.
 - Small section: 64px vertical padding
 - Standard section: 96px vertical padding
 - Major editorial section: 112-128px vertical padding
-- Hero: minimum 100vh
+- Homepage hero: immersive full-viewport treatment is allowed when video-led.
+- Inner page hero: target 60% viewport height (`min-height: 60vh`) unless mobile content requires natural expansion.
 
 Rules:
 

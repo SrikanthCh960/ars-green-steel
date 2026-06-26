@@ -324,7 +324,8 @@ Reusable component candidate:
 
 Pattern:
 
-- Full viewport height
+- Homepage hero can use a full-viewport immersive treatment.
+- Non-home page heroes should target 60% viewport height (`min-height: 60vh`) so visitors reach page content sooner.
 - Header offset handled with top padding
 - Content aligned toward bottom
 - Two-column editorial layout on desktop
