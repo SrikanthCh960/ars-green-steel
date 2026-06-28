@@ -9,13 +9,41 @@ This is the deployment source of truth for the ARS Green Steel redesign.
 - Vercel project: `ars-green-steel`
 - Vercel team/account: `baburaos-projects-1c568830`
 - Main branch: `main`
-- Deployment method: GitHub push to Vercel
+- Active working branch for current redesign work: `homepage-figma-refresh`
+- Deployment method: GitHub push plus Vercel production deploy when a reviewed branch needs to go live immediately.
+
+## Latest Production Deployment
+
+Latest confirmed live update:
+
+- Date: 2026-06-26
+- Commit: `d9b871c` - `Build dealer locator from ARS dealer data`
+- Production URL: https://ars-green-steel.vercel.app/
+- Dealer locator URL: https://ars-green-steel.vercel.app/dealer-locator
+- Vercel deployment: `dpl_BuLCLbpBEAvGJV1NB8PJ8G9Zkgvt`
+- Status: `READY`
+
+What went live:
+
+- Dealer locator rebuilt using the supplied ARS dealer CSV.
+- Search by location, pincode, dealer code, dealer name, phone, city, and state.
+- Dealer cards include call and map direction actions.
+- Dealer intro cards were removed per client feedback.
 
 ## Current Recommended Deployment Flow
 
-Use GitHub push deployment as the normal process.
+Use GitHub push deployment as the normal process when working from `main`.
 
-Do not run `vercel deploy --prod` for normal updates unless GitHub auto-deploy is unavailable.
+For the active redesign branch, use this flow:
+
+1. Commit reviewed changes on `homepage-figma-refresh`.
+2. Push `homepage-figma-refresh`.
+3. Run a production deploy only after the user approves the reviewed work.
+
+Current caution:
+
+- The native `/blog` archive work may be local-only until committed and pushed.
+- Do not include accidental package-manager files such as `pnpm-lock.yaml` or `pnpm-workspace.yaml` unless the package-manager strategy is intentionally changing.
 
 ### 1. Run Local Site
 
@@ -220,6 +248,6 @@ These do not block preview deployment:
 - WhatsApp number
 - Live steel price data
 - Calculator formulas
-- Approved dealer database
+- Final ARS verification of dealer active status and phone numbers
 - Remaining original legacy assets
 - PDFs, brochures, certificates, downloadable documents, and videos

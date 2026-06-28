@@ -59,19 +59,19 @@ The website must not feel like:
 
 Primary Brand Color:
 
-- `#004B9B`
+- `#0D2B6E`
 - Used for primary CTAs, links, navigation highlights, trust-oriented sections, and key interaction states.
 
 Accent Color:
 
-- `#F76369`
+- `#DE121A`
 - Used sparingly for editorial emphasis, important highlights, secondary CTAs, metrics, and selected interactive moments.
 
 Supporting colors:
 
-- Dark Navy: `#0F172A`
+- Dark Navy: `#060D1E`
 - Steel Grey: `#64748B`
-- Light Surface: `#F8FAFC`
+- Light Surface: `#F4F7FF`
 - White: `#FFFFFF`
 
 Brand hierarchy:
@@ -260,7 +260,7 @@ Brand success:
 
 - The site feels premium, modern, industrial, and credible.
 - The visual language clearly belongs to ARS Green Steel.
-- The brand hierarchy uses `#004B9B` as the primary color and `#F76369` only as an accent.
+- The brand hierarchy uses `#0D2B6E` as the primary blue and `#DE121A` as the controlled secondary red.
 - The site does not feel like a SaaS, startup, dashboard, or generic template.
 
 UX success:

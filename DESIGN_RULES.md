@@ -420,7 +420,7 @@ Rules:
 
 Use:
 
-- Brand Blue `#004B9B`
+- Brand Blue `#0D2B6E`
 - White text
 - Solid fill
 
@@ -435,7 +435,8 @@ Use for:
 Rules:
 
 - Only one primary CTA should dominate a section.
-- Primary CTAs should not use accent red by default.
+- Primary CTAs can use the approved red `#DE121A` only where the Figma-approved conversion pattern uses red, especially quote and hero actions.
+- Blue remains the default trust/action color for navigation, links, focused states, and product/tool actions.
 
 ### Secondary CTA
 

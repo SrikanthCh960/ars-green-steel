@@ -452,7 +452,7 @@ export default function Home() {
             </div>
 
             <Link
-              href="/blog-html"
+              href="/blog"
               className="focus-ring inline-flex items-center gap-2 justify-self-start text-sm font-bold text-brand-blue transition hover:text-brand-red lg:justify-self-end"
             >
               View all articles <ArrowRight size={17} />

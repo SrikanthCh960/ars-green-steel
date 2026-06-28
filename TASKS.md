@@ -35,6 +35,43 @@ The execution order prioritizes:
 
 ---
 
+## Latest Implementation Status - 2026-06-28
+
+Current branch:
+
+- `homepage-figma-refresh`
+
+Latest live deployment:
+
+- https://ars-green-steel.vercel.app/
+
+Recent completed work:
+
+- Native Next.js blog archive has been started.
+- `/blog` now has a bespoke archive experience with hero, featured articles, topic filters, search, progressive loading, and links to all 88 preserved blog article URLs.
+- `/blog.html` now permanently redirects to `/blog` through `next.config.ts`.
+- Header/footer blog links now point to `/blog`.
+- `src/lib/blog-content.ts` normalizes legacy blog article data for archive discovery.
+- `src/components/blog-archive.tsx` provides reusable client-side filtering and article cards.
+- `/dealer-locator` now uses the supplied ARS dealer CSV data.
+- Dealer search supports city, pincode, dealer code, dealer name, phone, city filter, state filter, popular city shortcuts, load-more results, phone CTA, and map directions.
+- The dealer locator intro cards were removed per feedback, so the page moves directly from hero into dealer discovery.
+- `/ars-green-steel` was redesigned from a document-style page into a modern section-led page using the approved ARS visual system.
+- `/green-steel` was aligned section-by-section with the approved Green Steel reference, including the 60vh inner-page hero, concept section, process/proof sections, environmental impact cards, certification table, impact block, and compact blue CTA band.
+- Inner-page heroes should remain around `60vh`; the homepage remains the exception with a taller cinematic hero.
+- Section-level H2 headings should use `clamp(2rem, 3.4vw, 2.25rem)`.
+- The reusable `SectionKicker` should remain the standard section label component, with `font-weight: 500`.
+
+Current caveats:
+
+- Blog archive work is currently local unless it has been explicitly committed and pushed after this note.
+- The 88 individual blog article pages still use the migrated article renderer and need the next redesign pass.
+- `pnpm-lock.yaml` and `pnpm-workspace.yaml` may appear as untracked local files. Do not commit them unless the package manager strategy is intentionally changed.
+- Final steel prices, calculator formulas, WhatsApp number, and any missing PDFs/brochures/certificates still require ARS/client confirmation.
+- Dealer data is now implemented from the supplied CSV, but ARS should still confirm phone numbers, city naming, and active dealer status before final domain launch.
+
+---
+
 ## Phase 1 - Design Foundation
 
 ### Approved Design System Sync - 2026-06-23
@@ -49,7 +86,7 @@ The execution order prioritizes:
 
 | Task | Priority | Status | Dependencies | Expected Outcome |
 |---|---|---|---|---|
-| Add primary brand blue `#004B9B` into the active design token system | Critical | Done | `DESIGN_RULES.md` | Blue becomes the clear primary brand color across the site. |
+| Add primary brand blue `#0D2B6E` into the active design token system | Critical | Done | `DESIGN_RULES.md` | Blue becomes the clear primary brand color across the site. |
 | Replace legacy primary red usage where red behaves like the main brand color | Critical | Done | Color audit of current UI | Red stops dominating buttons, links, highlights, and section identity. |
 | Replace legacy coral red with single secondary red `#DE121A` | High | Done | Brand hierarchy update | Red supports conversion and editorial emphasis through one consistent approved token. |
 | Define final CTA color rules for primary, secondary, ghost, and text links | Critical | Done | Color system | All calls to action feel consistent, premium, and conversion-focused. |
@@ -109,7 +146,7 @@ The execution order prioritizes:
 | Create desktop mega menu structure for products, tools, applications, and resources | High | Done | Navigation labels | Important pages are discoverable without cluttering the header. |
 | Design mobile navigation pattern | High | Done | Desktop navigation structure | Mobile users can access products, tools, contact, and dealer paths easily. |
 | Add priority navigation CTAs: Get Quote, Steel Price, Dealer Locator | Critical | Done | Conversion page routes | High-intent actions stay visible from every page. |
-| Use `#004B9B` for active, hover, and focus states | High | Done | Phase 1 design tokens | Navigation follows the updated brand hierarchy. |
+| Use `#0D2B6E` for active, hover, and focus states | High | Done | Phase 1 design tokens | Navigation follows the updated brand hierarchy. |
 | Add accessible keyboard and focus behavior | High | Done | Navigation component | Navigation uses visible focus states and keyboard-reachable links. |
 
 ---
@@ -137,8 +174,8 @@ The execution order prioritizes:
 | Define pricing display model and update process | Critical | Partially done | Client/business input | Price rows and confirmation requirements are centralized; final rates, update frequency, region logic, and disclaimer still need ARS input. |
 | Create `/tmt-calculator` page | Critical | Done | Calculator logic | Users can see the calculator flow; final formula remains blocked by client input. |
 | Define TMT calculator formula and assumptions | Critical | Partially done | Engineering/business input | Calculator input fields and formula requirements are centralized; final formula, units, output format, assumptions, and disclaimer still need ARS input. |
-| Create `/dealer-locator` page | Critical | Done | Dealer data | Users can access the dealer-locator shell; final dealer list remains blocked by client input. |
-| Define dealer data format and source | Critical | Partially done | Client dealer list | Dealer data fields are documented; approved dealer records still need to be supplied by ARS. |
+| Create `/dealer-locator` page | Critical | Done | Supplied ARS dealer CSV | Users can search ARS dealers by location, pincode, dealer name, dealer code, city, and state. |
+| Define dealer data format and source | Critical | Done | `Dealer locator (website).xlsx - Sheet2.csv` | Dealer data is normalized into `src/data/dealers.ts`; ARS should verify active dealer status before final launch. |
 | Create service/tool cards for homepage and navigation reuse | High | Done | Services page routes | Price, calculator, and dealer tools feel connected across the site. |
 | Add result-to-lead actions inside each service tool | High | Done | Contact and quote flow | Tool usage naturally leads to quote, call, or dealer enquiry. |
 
@@ -219,7 +256,7 @@ The execution order prioritizes:
 | Restore core team route | High | Done | Original Our Team content and asset audit rules | `/our-team` preserves leadership structure without inventing people photos. |
 | Restore CSR route | Medium | Done | Original CSR content | `/csr` preserves health, infrastructure, and sports responsibility areas. |
 | Restore careers route | Medium | Done | Original Careers content | `/careers` preserves why-work-with-ARS, benefits, culture, and apply flow. |
-| Restore blog and article routes | High | Done | Original Blog content map | `/blog-html` and article URLs resolve as modern resource pages instead of disappearing. |
+| Restore blog and article routes | High | Done | Original Blog content map | `/blog` and all preserved article URLs resolve without disappearing. |
 | Restore video/media route | Medium | Done | Original Video Gallery content | `/video` preserves future media-gallery structure. |
 | Restore segment routes | Critical | Done | Original Homeowner, Engineers, Contractors, Dealer pages | Buyer journeys now exist for home owners, engineers/architects, civil contractors, and dealers/distributors. |
 | Redesign audience guide pages with approved Figma system | Critical | Done | Homeowners page pattern, legacy audience content, approved design tokens | Homeowners, engineers/architects, civil contractors, and dealers now use one reusable modern audience template instead of raw legacy page blocks. |
@@ -238,7 +275,7 @@ The execution order prioritizes:
 | Restore available original ARS leadership/team photos | High | Done | Local team photo assets | `/our-team` uses only available ARS team photos and avoids invented people imagery. |
 | Restore available original ARS awards/certificate imagery | High | Done | Local award/certificate source assets | Homepage trust section and `/certifications` now surface available award/certificate visuals. |
 | Restore available original ARS contact/network image | High | Done | Local `Contact_banner.png` | `/contact` and `/our-network` now use the existing ARS contact/network source asset. |
-| Preserve old-site blog/topic coverage on homepage | Medium | Done | Existing content audit | Homepage now includes a compact restored blog/topic preview linked to the legacy blog route. |
+| Preserve old-site blog/topic coverage on homepage | Medium | Done | Existing content audit | Homepage includes a compact blog/topic preview linked to the modern archive. |
 | Validate implementation after parity updates | Critical | Done | Lint and production build | ESLint passes and production build generates all 56 routes successfully. |
 | Add missing original PDFs, brochures, certificates, client logos, and remaining team photos | Critical | Blocked | Source files not available locally | These assets must be added only when authentic client/source files are provided. |
 
@@ -270,6 +307,8 @@ The execution order prioritizes:
 | Clean migrated legacy copy | Critical | Done | Legacy content dataset | Repeated calculator text, form dropdown dumps, breadcrumb fragments, old footer copy, and article metadata noise are removed from restored pages. |
 | Rewrite legacy intros and section text for readability | High | Done | Cleaned source copy | Restored pages now use clearer intros and cleaner section summaries while preserving original business meaning. |
 | Improve restored blog article layout | High | Done | Blog route and cleaned article sections | Blog pages now render as readable article pages with a section index instead of raw migration cards. |
+| Build native Next.js blog archive | High | Done | Preserved article dataset and approved design system | `/blog` now provides featured content, topic filters, search, progressive loading, and links to all 88 preserved posts without a third-party CMS. |
+| Replace the migrated article renderer with a reusable editorial template | High | Pending | Native blog archive | Every article uses a polished shared hero, body, contents, related-content, and conversion pattern while retaining its existing URL. Recommended first test article: `/blog/corrosion-resistance-steel.html`. |
 | Improve restored legacy page layout | High | Done | Legacy renderer | Non-blog legacy pages now use cleaner two-column restored section layouts and supporting copy blocks. |
 | Prevent broken remote image display | High | Done | Legacy asset manifest | Original image references are shown as mapped source assets until local downloads are available, avoiding broken image blocks. |
 | Replace available source asset references with local project files | High | Done | Local asset reconciliation | Legacy pages now render local ARS images where available and link downloads to local files when present. |
@@ -283,9 +322,8 @@ The execution order prioritizes:
 
 ## Immediate Next Actions
 
-1. Finalize the blue-primary design token update.
-2. Correct red usage across current homepage UI.
-3. Refine homepage proof, product, and audience sections for consistency.
-4. Add the Buying Assistant section.
-5. Define navigation and mega menu structure.
-6. Start the highest-impact conversion pages: quote, steel price, calculator, and dealer locator.
+1. Commit and push the native `/blog` archive work after review, excluding unintentional package-manager files.
+2. Build the reusable blog article template and start with `/blog/corrosion-resistance-steel.html`.
+3. Continue migrating the remaining 88 blog articles into the polished editorial template.
+4. Review `/ars-green-steel`, `/green-steel`, and `/dealer-locator` with the client for content accuracy.
+5. Confirm live dealer data, phone numbers, active locations, pricing data, calculator formulas, WhatsApp number, PDFs, brochures, and certificate downloads with ARS before final domain launch.

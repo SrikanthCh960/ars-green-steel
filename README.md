@@ -1,63 +1,122 @@
-# ARS Group Website Redesign
+# ARS Green Steel Website Redesign
 
-Modern website prototype for ARS Group, built as a conversion-led industrial product experience.
+Modern, conversion-led redesign of the ARS Green Steel website.
+
+Live preview:
+
+- https://ars-green-steel.vercel.app/
+
+Primary local project path:
+
+- `/Users/baburao/Documents/Codex/2026-05-30/hey-act-as-an-experienced-ui/ars-redesign`
+
+Current active redesign branch:
+
+- `homepage-figma-refresh`
 
 ## Stack
 
-- Next.js
+- Next.js 16
+- React 19
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS v4
 - Framer Motion
-- React Three Fiber / Three.js
 - Lucide icons
+- Vercel deployment
+
+## Approved Design Direction
+
+The project follows the client-approved Figma Make direction and `ARS-DESIGN-HANDOFF.md`.
+
+Core rules:
+
+- Primary blue: `#0D2B6E`
+- Secondary red: `#DE121A`
+- Dark navy: `#060D1E`
+- Font: IBM Plex Sans
+- Section H2: `clamp(2rem, 3.4vw, 2.25rem)`
+- Section labels use the shared `SectionKicker` component.
+- Non-home page heroes should target roughly `60vh`.
+- Do not invent founder, team, or people photos.
+- Use authentic ARS assets when available; placeholder industrial/product images can be replaced later.
 
 ## Local Preview
 
 ```bash
 npm install
-npm run dev
+npm run dev -- --hostname 127.0.0.1 --port 3034
 ```
 
 Open:
 
 ```text
-http://localhost:3000
+http://127.0.0.1:3034/
 ```
 
-If the local file watcher is unstable, use a production preview:
+If the port is already busy, stop the old Next.js process or choose a new port.
 
-```bash
-npm run build
-npm run start -- --port 3001
-```
+## Current Completed Areas
 
-Open:
+- Homepage Figma refresh
+- Shared header and mega menu
+- Shared footer
+- About page
+- Products listing
+- ARS 550D product page
+- ARS CRS 550D product page
+- Green Steel page
+- ARS Green Steel page
+- Manufacturing page
+- Certifications page
+- Buying tools:
+  - Steel price
+  - TMT calculator
+  - Dealer locator
+- Audience guide pages:
+  - Home owners
+  - Engineers and architects
+  - Civil contractors
+  - Dealers and distributors
+- Contact and quote flows
+- Restored legacy routes and blog/article coverage
 
-```text
-http://localhost:3001
-```
+## Latest Live Update
 
-## Current Prototype
+Date:
 
-The first screen includes:
+- 2026-06-26
 
-- Branded ARS navigation
-- Cinematic dark hero
-- Lightweight animated 3D steel/rebar visual
-- Trust metrics
-- Price / calculator / dealer action cards
-- Product range section
-- Audience pathway section
-- Sales/contact CTA
+Latest deployed work:
 
-## Deployment Workflow
+- Dealer locator rebuilt from the supplied ARS dealer CSV.
+- Search supports location, pincode, city, state, dealer name, dealer code, and phone.
+- Dealer cards include call and map direction actions.
+- Dealer intro cards were removed per client feedback.
 
-Recommended flow:
+Live dealer locator:
 
-1. Push this project to GitHub.
-2. Connect the GitHub repository to Vercel.
-3. Use the Vercel preview URL for client approval.
-4. After approval, connect the real ARS domain or a staging subdomain.
+- https://ars-green-steel.vercel.app/dealer-locator
 
-This keeps future changes smooth: update code, push to GitHub, and Vercel deploys automatically.
+## Important Pending Client Inputs
+
+These should be confirmed before final domain launch:
+
+- Final steel prices
+- TMT calculator formula and assumptions
+- WhatsApp number
+- Final dealer active status and phone number verification
+- PDFs, brochures, certificates, and downloadable technical documents
+- Any unverifiable business claims or certification wording
+
+## Documentation
+
+Read these before making larger changes:
+
+- `AGENTS.md`
+- `PROJECT_BRIEF.md`
+- `DESIGN_RULES.md`
+- `DESIGN_SYSTEM.md`
+- `TASKS.md`
+- `DEPLOYMENT.md`
+- `CLIENT_VERIFICATION_CHECKLIST.md`
 

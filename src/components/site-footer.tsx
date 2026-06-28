@@ -26,8 +26,8 @@ const footerColumns = [
     title: "Resources",
     links: [
       { label: "Steel Price Today", href: "/steel-price-today" },
-      { label: "Blog", href: "/blog.html" },
-      { label: "Guides & Articles", href: "/blog.html" },
+      { label: "Blog", href: "/blog" },
+      { label: "Guides & Articles", href: "/blog" },
       { label: "TMT Bar Calculator", href: "/tmt-calculator" },
       { label: "Construction Cost Estimator", href: "/tmt-calculator" },
       { label: "FAQs", href: "/faq" },
