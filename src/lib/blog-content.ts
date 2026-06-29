@@ -97,7 +97,7 @@ function titleFromSlug(slug: string) {
     .join(" ");
 }
 
-function cleanTitle(page: LegacyPage) {
+export function cleanBlogTitle(page: LegacyPage) {
   const title = page.title.trim();
   const shouldUseSlug =
     title.length < 18 ||
@@ -115,7 +115,7 @@ function cleanText(value: string) {
     .trim();
 }
 
-function getExcerpt(page: LegacyPage, title: string) {
+export function getBlogExcerpt(page: LegacyPage, title: string) {
   const candidates = [page.intro, page.description, page.paragraphs?.[0], page.sections?.[0]?.body]
     .filter(Boolean)
     .map((value) => cleanText(value as string))
@@ -188,14 +188,14 @@ export function getBlogArchiveArticles(): BlogArchiveArticle[] {
   return getLegacyBlogPages()
     .map((page) => {
       const category = getCategory(page);
-      const title = cleanTitle(page);
+      const title = cleanBlogTitle(page);
       const date = getDate(page);
 
       return {
         slug: page.slug.replace(/^blog\//, ""),
         href: page.path,
         title,
-        excerpt: getExcerpt(page, title),
+        excerpt: getBlogExcerpt(page, title),
         category,
         ...date,
         readTime: getReadTime(page),
@@ -204,4 +204,8 @@ export function getBlogArchiveArticles(): BlogArchiveArticle[] {
       };
     })
     .sort((a, b) => b.dateValue - a.dateValue || a.title.localeCompare(b.title));
+}
+
+export function getBlogArchiveArticle(slug: string) {
+  return getBlogArchiveArticles().find((article) => article.slug === slug);
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { LegacyPageRenderer } from "@/components/legacy-page-renderer";
+import { BlogArticleTemplate } from "@/components/blog-article-template";
+import { getBlogArchiveArticle, getBlogExcerpt, cleanBlogTitle } from "@/lib/blog-content";
 import { getLegacyBlogPages, getLegacyPage } from "@/lib/legacy-content";
 
 export function generateStaticParams() {
@@ -15,17 +16,23 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return {};
   }
 
+  const article = getBlogArchiveArticle(slug);
+  const title = article?.title ?? cleanBlogTitle(page);
+  const description = article?.excerpt ?? getBlogExcerpt(page, title);
+  const image = article?.image;
+
   return {
-    title: `${page.title} | ARS Green Steel`,
-    description: page.description,
+    title: `${title} | ARS Green Steel`,
+    description,
     alternates: {
       canonical: page.path,
     },
     openGraph: {
-      title: `${page.title} | ARS Green Steel`,
-      description: page.description,
+      title: `${title} | ARS Green Steel`,
+      description,
       url: page.path,
       type: "article",
+      images: image ? [{ url: image, alt: article?.imageAlt ?? title }] : undefined,
     },
   };
 }
@@ -38,5 +45,11 @@ export default async function LegacyBlogPage({ params }: { params: Promise<{ slu
     notFound();
   }
 
-  return <LegacyPageRenderer page={page} />;
+  const article = getBlogArchiveArticle(slug);
+
+  if (!article) {
+    notFound();
+  }
+
+  return <BlogArticleTemplate page={page} article={article} />;
 }
