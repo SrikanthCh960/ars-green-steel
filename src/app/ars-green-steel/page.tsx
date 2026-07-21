@@ -28,16 +28,16 @@ export const metadata: Metadata = {
 };
 
 const heroStats = [
-  { value: "EPD", label: "Green steel documentation" },
-  { value: "550D", label: "Strength grade confidence" },
-  { value: "Recycled", label: "Input route direction" },
+  { value: "5-Star", label: "Green Steel Taxonomy Rating" },
+  { value: "592 kg", label: "CO₂e per tonne — EPD verified" },
+  { value: "98%", label: "Recycled steel route" },
 ];
 
 const conceptPoints = [
-  "Lower-carbon production route for responsible construction",
-  "Recycled-route manufacturing aligned to national policy direction",
-  "Fe-550D strength and IS 1786:2008 testing context",
-  "Certification support for projects, engineers, and institutions",
+  "Electric Arc Furnace production, not blast furnace",
+  "Up to 98% recycled steel as a primary input",
+  "Fe-550D strength and IS 1786:2008 testing—no performance trade-off",
+  "EPD, GreenPro, SGBC, GRIHA, BIS, ISO, and SGS proof",
 ];
 
 const benefits = [
@@ -66,8 +66,8 @@ const benefits = [
 const proofItems = [
   {
     icon: BadgeCheck,
-    title: "EPD ready",
-    desc: "Environmental Product Declaration documentation available for sustainability-led projects and audits.",
+    title: "EPD verified",
+    desc: "Third-party verified environmental data records 592 kg CO₂e per tonne of finished steel.",
     tag: "Sustainability",
   },
   {
@@ -78,8 +78,8 @@ const proofItems = [
   },
   {
     icon: Leaf,
-    title: "Green taxonomy context",
-    desc: "India's green steel taxonomy is expected to classify steel by emission intensity for clearer buyer comparison.",
+    title: "5-Star Green Steel",
+    desc: "Recognised under the Ministry of Steel Green Steel Taxonomy for plant-level emission intensity.",
     tag: "Policy",
   },
   {
@@ -144,11 +144,11 @@ export default function ArsGreenSteelPage() {
             </div>
             <h1 className="font-display text-[clamp(3rem,6vw,5.7rem)] font-extrabold uppercase leading-[0.96] tracking-[-0.045em] text-white">
               Green steel,
-              <span className="block text-brand-red">made practical.</span>
+              <span className="block text-brand-red">proven—not promised.</span>
             </h1>
             <p className="mt-7 max-w-[560px] text-[16px] leading-[1.8] text-white/72">
-              ARS Green Steel brings recycled-route manufacturing, certification support, and dependable
-              TMT strength into one responsible construction choice.
+              ARS Green Steel brings recycled-route manufacturing, verified certification, and dependable
+              550D strength into one responsible construction choice.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link

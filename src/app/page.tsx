@@ -53,22 +53,22 @@ const buyingActions = [
 
 const products = [
   {
-    name: "ARS 550D",
-    eyebrow: "Core TMT range",
-    detail: "High-strength ductile TMT bars for residential, commercial, and everyday structural work.",
-    href: "/products/ars-550d",
-    brochureHref: "/legacy-assets/downloads/ARS-550D-CRS-Leaflets.pdf",
-    image: "/ars-assets/TMT-Bars.png",
-    points: ["550D strength grade", "Reliable bendability", "Engineer-ready product proof"],
-  },
-  {
     name: "ARS CRS 550D",
-    eyebrow: "Corrosion resistant",
-    detail: "CRS steel for coastal, humid, exposed, and durability-focused construction conditions.",
+    eyebrow: "Corrosion resistant TMT bars",
+    detail: "Engineered for high-salinity, high-humidity, and corrosion-prone environments where long-term durability matters.",
     href: "/products/ars-crs-550d",
     brochureHref: "/legacy-assets/downloads/ARS-550D-CRS-Leaflets.pdf",
     image: "/ars-assets/CRS.png",
-    points: ["Corrosion resistance", "Longer service confidence", "Ideal for exposed zones"],
+    points: ["Corrosion resistance", "High-salinity protection", "Longer structural life"],
+  },
+  {
+    name: "ARS 550D",
+    eyebrow: "High-strength TMT bars",
+    detail: "High-ductility TMT bars designed for residential, commercial, and earthquake-resistant construction.",
+    href: "/products/ars-550d",
+    brochureHref: "/legacy-assets/downloads/ARS-550D-CRS-Leaflets.pdf",
+    image: "/ars-assets/TMT-Bars.png",
+    points: ["Earthquake-resistant performance", "Superior bendability & ductility", "High-strength TMT bars"],
   },
 ];
 
@@ -110,34 +110,58 @@ const certificateCards = [
 ];
 
 const partnerCards = [
-  "Akshaya",
-  "Baashyaam",
-  "Foxconn",
-  "VGN",
-  "RCCL",
-  "Noah",
-  "Rohaan",
-  "Sathyamoorthy",
-  "Steelax",
-  "Dealer network",
-  "Made in India",
-  "Builder partners",
+  {
+    name: "Akshaya",
+    logo: "/ars-assets/partners/akshaya.png.webp",
+  },
+  {
+    name: "Baashyaam",
+    logo: "/ars-assets/partners/baashyaam.png.webp",
+  },
+  {
+    name: "Foxconn",
+    logo: "/ars-assets/partners/foxconn.png.webp",
+  },
+  {
+    name: "VGN",
+    logo: "/ars-assets/partners/vgn.png.webp",
+  },
+  {
+    name: "RCCL",
+    logo: "/ars-assets/partners/rccl.png.webp",
+  },
+  {
+    name: "Noah",
+    logo: "/ars-assets/partners/noah.png.webp",
+  },
+  {
+    name: "Rohaan",
+    logo: "/ars-assets/partners/rohaan.png.webp",
+  },
+  {
+    name: "Sathyamoorthy",
+    logo: "/ars-assets/partners/sathyamoorthy.png.webp",
+  },
+  {
+    name: "Casa",
+    logo: "/ars-assets/partners/CASA-2-1.png.webp",
+  },
 ];
 
 const greenSteelFeatures = [
   {
     title: "Lower Carbon Footprint",
-    text: "Our process emits 40% less CO2 than traditional blast furnace steelmaking.",
+    text: "EPD-verified at 592 kg CO₂e per tonne—documented lower-emission production.",
     icon: Atom,
   },
   {
     title: "Recycled Scrap-Based Production",
-    text: "100% of our input comes from high-quality recycled scrap, preserving natural iron ore.",
+    text: "Up to 98% recycled steel supports circular manufacturing and reduces demand for virgin raw materials.",
     icon: RefreshCw,
   },
   {
     title: "Energy Efficient Processes",
-    text: "Advanced electric arc furnaces consume significantly less energy per tonne of steel produced.",
+    text: "Electric Arc Furnace production and growing renewable energy use improve energy efficiency.",
     icon: Zap,
   },
 ];
@@ -221,11 +245,11 @@ export default function Home() {
           <div className="mb-8 max-w-4xl lg:mb-10">
             <SectionKicker>Product range</SectionKicker>
             <h2 className="section-title">
-              Two product paths for stronger structures.
+              Choose the right TMT steel for your project.
             </h2>
             <p className="section-copy">
-              Keep product choice simple: standard high-strength TMT for everyday structures, or
-              corrosion-resistant steel for exposed conditions.
+              From corrosion-resistant TMT bars for high-salinity environments to high-strength TMT bars
+              for earthquake-resistant construction, ARS offers the right solution for every project.
             </p>
           </div>
 
@@ -286,7 +310,7 @@ export default function Home() {
           </div>
 
           <div className="mt-5 grid gap-4 rounded-[16px] border border-brand-blue/10 bg-white/78 p-5 shadow-[var(--shadow-soft)] lg:grid-cols-3">
-            {["Grade clarity", "Application fit", "Proof-led selection"].map((item) => (
+            {["High strength & ductility", "Corrosion resistant", "Earthquake resistant"].map((item) => (
               <div key={item} className="flex items-center gap-3 text-sm font-bold text-steel-700">
                 <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-[#edf5ff] text-brand-blue">
                   <BadgeCheck size={17} />
@@ -303,9 +327,9 @@ export default function Home() {
       <MotionSection className="bg-white py-24" id="trusted-by">
         <div className="ars-container">
           <SectionIntro
-            eyebrow="Trusted network"
-            title="Trusted by builders, partners, and institutions."
-            body="A single proof section keeps certification, partner, and brand signals together without splitting the story into competing logo blocks."
+            eyebrow="Industry recognition"
+            title="Certified. Tested. Trusted."
+            body="Every ARS TMT bar is backed by nationally recognised certifications, rigorous testing, and partnerships trusted across the construction industry."
           />
 
           <div className="grid gap-7">
@@ -352,13 +376,17 @@ export default function Home() {
                 <div className="marquee-track marquee-right">
                   {[...partnerCards, ...partnerCards].map((partner, index) => (
                     <article
-                      key={`${partner}-${index}`}
-                      className="marquee-card flex min-h-[132px] min-w-[260px] items-center justify-center border border-ink-900/10 bg-white text-center shadow-[0_12px_36px_rgba(15,23,42,0.04)]"
+                      key={`${partner.name}-${index}`}
+                      className="marquee-card flex min-h-[132px] min-w-[260px] items-center justify-center border border-ink-900/10 bg-white px-8 text-center shadow-[0_12px_36px_rgba(15,23,42,0.04)]"
                       aria-hidden={index >= partnerCards.length}
                     >
-                      <h3 className="font-technical text-base font-black uppercase tracking-[0.12em] text-ink-900">
-                        {partner}
-                      </h3>
+                      <Image
+                        src={partner.logo}
+                        alt={`${partner.name} partner logo`}
+                        width={180}
+                        height={72}
+                        className="max-h-16 w-auto object-contain"
+                      />
                     </article>
                   ))}
                 </div>

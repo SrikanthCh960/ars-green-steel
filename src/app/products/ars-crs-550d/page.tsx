@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 const stats = [
   { value: "CRS", label: "Grade", sub: "Corrosion-resistant Fe-550D for long-life structures." },
-  { value: "550D", label: "Strength", sub: "High-strength ductile grade with durability positioning." },
+  { value: "560 MPa", label: "Yield strength", sub: "Minimum yield strength with corrosion-resistant chemistry." },
   { value: "Coastal", label: "Best fit", sub: "Built for humid, exposed, and coastal construction zones." },
   { value: "IS 1786", label: "Standard", sub: "Manufactured to the IS 1786:2008 TMT benchmark." },
 ];
@@ -34,37 +34,37 @@ const specRows = [
   { label: "Grade", value: "Fe-550D corrosion-resistant TMT bars per IS 1786" },
   { label: "Primary promise", value: "Improved corrosion resistance for exposed and durability-focused structures" },
   { label: "Best fit", value: "Coastal projects, humid zones, water-exposed structures, long-life concrete work" },
-  { label: "Proof available", value: "CRS performance, chemical data, corrosion-resistance testing, and certification references" },
+  { label: "Alloy chemistry", value: "Copper, Chromium, Nickel, and Molybdenum support enhanced corrosion resistance" },
   { label: "Next best step", value: "Confirm site condition, rod size, quantity, dealer availability, and quote" },
 ];
 
 const whyCards = [
   {
     icon: <Waves size={20} />,
-    title: "Coastal projects",
-    desc: "A fit when structures face salt air, humidity, and long-term durability concerns.",
+    title: "Corrosion-resistant steel",
+    desc: "CRS technology and controlled alloy chemistry help protect reinforcement in aggressive environments.",
   },
   {
     icon: <Building2 size={20} />,
-    title: "Infrastructure",
-    desc: "Useful for bridge, road, drainage, and exposed concrete requirements.",
+    title: "Longer structural life",
+    desc: "Helps minimise corrosion-related deterioration in humid, coastal, and high-salinity conditions.",
   },
   {
     icon: <ShieldCheck size={20} />,
-    title: "Corrosion resistance",
-    desc: "An added layer of protection where exposure and service life are central to the brief.",
+    title: "High strength & ductility",
+    desc: "Fe550D mechanical performance supports dependable structural reinforcement under dynamic loads.",
   },
   {
     icon: <ClipboardList size={20} />,
-    title: "Technical proof",
-    desc: "CRS performance is supported by lab, quality, and certification context for technical review.",
+    title: "Aggressive environments",
+    desc: "Recommended for coastal regions, ports, bridges, industrial zones, and water-retaining structures.",
   },
 ];
 
 const properties = [
-  { label: "Yield Strength", value: "≥ 550 MPa" },
-  { label: "UTS", value: "≥ 600 MPa" },
-  { label: "Elongation", value: "≥ 14.5%" },
+  { label: "Yield Strength", value: "≥ 560 MPa" },
+  { label: "UTS", value: "≥ 620 MPa" },
+  { label: "Elongation", value: "≥ 16%" },
   { label: "UTS / YS Ratio", value: "≥ 1.08" },
   { label: "Bar Sizes", value: "8mm – 32mm" },
   { label: "Standard", value: "IS 1786:2008" },
@@ -130,13 +130,13 @@ export default function ArsCrs550DPage() {
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
                 <ShieldCheck size={12} className="text-white/60" />
                 <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">
-                  ARS CRS 550D — Corrosion-Resistant Range
+                  ARS CRS 550D TMT Bars · Corrosion-Resistant Fe550D Steel
                 </span>
               </div>
               <h1 className="font-display text-[clamp(2.4rem,5.5vw,4.2rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
-                Corrosion resistant,
+                Corrosion-resistant Fe550D TMT bars for
                 <br />
-                <span className="italic text-brand-red">built to last.</span>
+                <span className="italic text-brand-red">long-lasting structures.</span>
               </h1>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
@@ -160,8 +160,8 @@ export default function ArsCrs550DPage() {
                   About this grade
                 </p>
                 <p className="text-[14px] leading-[1.75] text-white/80">
-                  ARS CRS 550D adds corrosion resistance to the proven Fe-550D grade — guiding engineers
-                  and contractors specifying for exposed or coastal sites from durability review to quote.
+                  ARS CRS 550D combines high strength and ductility with corrosion resistance for coastal,
+                  humid, industrial, and high-salinity reinforced concrete construction.
                 </p>
                 <div className="mt-4 flex items-center gap-2 border-t border-white/10 pt-4">
                   <CheckCircle2 size={14} className="text-brand-red" />
@@ -201,11 +201,12 @@ export default function ArsCrs550DPage() {
             <div>
               <SectionKicker variant="brand">CRS Specification</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                For sites where durability matters.
+                What are ARS CRS 550D TMT Bars?
               </h2>
               <p className="mt-5 text-[15px] leading-[1.8] text-steel-700">
-                Review the grade, environment fit, proof path, and next steps before moving into sales or
-                quote support.
+                Corrosion is a leading cause of structural deterioration. ARS CRS 550D uses advanced CRS
+                technology to provide corrosion resistance alongside the strength and ductility required for
+                long service life.
               </p>
             </div>
 
@@ -240,7 +241,7 @@ export default function ArsCrs550DPage() {
             <div>
               <SectionKicker variant="brand">Where It Fits</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
-                Choose CRS when exposure is part of the brief.
+                Engineered for corrosion resistance. Built for generations.
               </h2>
             </div>
             <p className="text-[15px] leading-[1.8] text-white/70 lg:pt-14">

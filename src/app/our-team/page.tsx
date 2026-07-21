@@ -99,13 +99,13 @@ export default function OurTeamPage() {
               <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS Leadership</span>
             </div>
             <h1 className="font-display text-[clamp(2.4rem,5.5vw,4.2rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
-              The people behind
+              The people behind the real
               <br />
-              <span className="italic text-brand-red">the steel.</span>
+              <span className="italic text-brand-red">strength.</span>
             </h1>
             <p className="mt-5 max-w-[460px] text-[15px] leading-[1.75] text-white/70">
-              ARS is led by a board and management team with decades of experience across manufacturing,
-              technical, finance, supply chain, and sales.
+              Behind ARS Green Steel is a team of experienced leaders driving innovation, manufacturing
+              excellence, quality, sustainability, and customer trust.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -247,13 +247,13 @@ export default function OurTeamPage() {
         <div className="ars-container relative z-10">
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div>
-              <SectionKicker variant="light">Work with ARS</SectionKicker>
+              <SectionKicker variant="light">Join our team</SectionKicker>
               <h2 className="mb-3 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
-                Talk to the people behind ARS.
+                Build your future with ARS Green Steel.
               </h2>
               <p className="max-w-[420px] text-[14px] leading-[1.7] text-white/70">
-                Reach the ARS team for product guidance, technical support, dealer information, or project
-                enquiries.
+                Join a team driven by innovation, integrity, and manufacturing excellence while building a
+                rewarding career with purpose.
               </p>
             </div>
             <div className="flex flex-shrink-0 flex-wrap gap-3">

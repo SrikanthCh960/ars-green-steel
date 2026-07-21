@@ -21,16 +21,16 @@ export const metadata: Metadata = {
 };
 
 const heroImpact = [
-  { value: "40%", label: "Less CO2 vs. conventional steel" },
-  { value: "90%", label: "Recycled scrap-based input" },
+  { value: "592 kg", label: "CO₂e per tonne — EPD verified" },
+  { value: "98%", label: "Recycled steel as primary input" },
   { value: "EAF", label: "Electric Arc Furnace process" },
 ];
 
 const conceptPoints = [
-  "No coal-fired blast furnace in our process",
-  "Scrap-fed Electric Arc Furnace technology",
-  "Lower carbon footprint per tonne of steel",
-  "Full traceability of recycled inputs",
+  "Electric Arc Furnace production, not blast furnace",
+  "Up to 98% recycled steel as primary input",
+  "Independently verified emissions data through an EPD",
+  "Fe-550D strength and IS 1786:2008 testing—no trade-off on performance",
 ];
 
 const processSteps = [
@@ -64,17 +64,17 @@ const processSteps = [
 const impactCards = [
   {
     icon: <Leaf size={22} />,
-    value: "40%",
-    meta: "less CO2",
+    value: "592 kg",
+    meta: "CO₂e / tonne",
     title: "Lower Carbon Footprint",
-    desc: "Our EAF process emits 40% less CO2 per tonne than conventional blast furnace routes.",
+    desc: "Environmental Product Declaration data independently documents ARS emissions per tonne of finished steel.",
   },
   {
     icon: <Recycle size={22} />,
-    value: "90%",
+    value: "98%",
     meta: "recycled input",
     title: "Recycled Scrap-Based Production",
-    desc: "90% of our steel input comes from high-quality recycled scrap, preserving virgin ore reserves and reducing mining impact.",
+    desc: "Up to 98% recycled steel supports circular manufacturing and reduces demand for virgin raw materials.",
   },
   {
     icon: <Zap size={22} />,
@@ -116,21 +116,21 @@ const certificationRows = [
 const verificationCards = [
   {
     icon: <FileCheck size={20} />,
-    value: "40%",
-    title: "CO2 reduction",
-    desc: "Per tonne vs. blast furnace production",
+    value: "592 kg",
+    title: "EPD verified",
+    desc: "CO₂e per tonne of finished steel",
   },
   {
     icon: <Recycle size={20} />,
-    value: "90%",
+    value: "98%",
     title: "Recycled input",
     desc: "Scrap replaces virgin ore as primary material",
   },
   {
     icon: <Zap size={20} />,
-    value: "35%",
-    title: "Energy saving",
-    desc: "Lower energy consumption per tonne via EAF",
+    value: "5-Star",
+    title: "Green Steel Rating",
+    desc: "Ministry of Steel Green Steel Taxonomy recognition",
   },
   {
     icon: <ShieldCheck size={20} />,

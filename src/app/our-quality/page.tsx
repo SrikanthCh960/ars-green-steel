@@ -109,13 +109,13 @@ export default function OurQualityPage() {
               <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS Quality</span>
             </div>
             <h1 className="font-display text-[clamp(2.4rem,5.5vw,4.2rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
-              Quality you can
+              Quality that stands behind
               <br />
-              <span className="italic text-brand-red">verify.</span>
+              <span className="italic text-brand-red">every structure.</span>
             </h1>
             <p className="mt-5 max-w-[460px] text-[15px] leading-[1.75] text-white/70">
-              ARS quality runs on proof, not promises — SGS certification, in-house spectrometry, and a
-              full testing process behind every ARS 550D bar.
+              From production to final inspection, every ARS TMT bar is carefully tested to meet the
+              standards your project deserves.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -161,11 +161,11 @@ export default function OurQualityPage() {
             <div>
               <SectionKicker variant="brand">Why ARS Quality</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                A clear quality promise.
+                Every stage of manufacturing has one purpose: better quality steel.
               </h2>
               <p className="mb-8 mt-5 text-[15px] leading-[1.8] text-steel-700">
-                ARS keeps quality practical and verifiable — certified, tested, and consistent across every
-                size and despatch.
+                The quality of steel depends on decisions made throughout manufacturing. Every batch is
+                tested to ensure consistent strength, ductility, and reliability before it reaches your site.
               </p>
               <div className="flex flex-col gap-3">
                 {usp.map((pt) => (

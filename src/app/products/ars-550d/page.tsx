@@ -26,16 +26,16 @@ export const metadata: Metadata = {
 
 const stats = [
   { value: "550D", label: "Grade", sub: "High-strength ductile TMT steel for construction confidence." },
-  { value: "8–32", label: "Bar sizes (mm)", sub: "Common sizes supported through calculator and grade selection." },
-  { value: "SGS", label: "Certified", sub: "Certification and testing proof supports every product decision." },
-  { value: "Quote", label: "Next step", sub: "Product interest connects directly to sales and dealer conversations." },
+  { value: "8–32", label: "Bar sizes (mm)", sub: "Available across standard reinforcement sizes." },
+  { value: "BIS", label: "Certified", sub: "Manufactured to IS 1786 and supported by SGS and SERC testing." },
+  { value: "550 MPa", label: "Yield strength", sub: "Minimum yield strength for dependable structural performance." },
 ];
 
 const specRows = [
   { label: "Grade", value: "Fe-550D TMT bars per IS 1786" },
   { label: "Primary promise", value: "High strength with improved ductility for safer structures" },
   { label: "Use cases", value: "Homes, apartments, commercial structures, infrastructure members" },
-  { label: "Proof available", value: "Physical properties, chemical properties, bend & rebend, and tensile test data" },
+  { label: "Key properties", value: "High strength, ductility, bendability, weldability, and strong concrete bonding" },
   { label: "Next best step", value: "Calculate requirement, check dealer availability, or request a quote" },
 ];
 
@@ -43,30 +43,30 @@ const whyCards = [
   {
     icon: <Zap size={20} />,
     title: "Ductility",
-    desc: "Supports safer bending, detailing, and structural performance when specified correctly — important in seismic zones.",
+    desc: "Low sulphur and phosphorus content supports deformation under load and dependable seismic performance.",
   },
   {
     icon: <Building2 size={20} />,
-    title: "Project fit",
-    desc: "A real choice for residential, commercial, and common infrastructure construction across India.",
+    title: "Bendability",
+    desc: "Maintains bendability for easier fabrication and site detailing while preserving mechanical performance.",
   },
   {
     icon: <ShoppingCart size={20} />,
-    title: "Buying flow",
-    desc: "Connects naturally to the steel buying journey: calculator, dealer locator, and quote request.",
+    title: "Concrete bonding",
+    desc: "The ribbed surface profile develops a strong bond with concrete for reliable load transfer.",
   },
   {
     icon: <FileText size={20} />,
-    title: "Proof path",
-    desc: "Physical properties, chemical properties, and data sheets help technical supply teams review the grade.",
+    title: "Certified quality",
+    desc: "BIS certified and supported by SGS testing, SERC certification, and stringent in-house quality control.",
   },
 ];
 
 const properties = [
   { label: "Yield Strength", value: "≥ 550 MPa" },
   { label: "UTS", value: "≥ 600 MPa" },
-  { label: "Elongation", value: "≥ 14.5%" },
-  { label: "UTS / YS Ratio", value: "≥ 1.08" },
+  { label: "Elongation", value: "≥ 16%" },
+  { label: "TS / YS Ratio", value: "≥ 1.10" },
   { label: "Bar Sizes", value: "8mm – 32mm" },
   { label: "Standard", value: "IS 1786:2008" },
 ];
@@ -131,13 +131,13 @@ export default function Ars550DPage() {
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
                 <Layers size={12} className="text-white/50" />
                 <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">
-                  ARS 550D — Core TMT Range
+                  ARS 550D TMT Bars · Fe550D Grade Reinforcement Steel
                 </span>
               </div>
               <h1 className="font-display text-[clamp(2.4rem,5.5vw,4.2rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
-                High strength,
+                High-strength Fe550D TMT bars for
                 <br />
-                <span className="italic text-brand-red">ductile steel.</span>
+                <span className="italic text-brand-red">strong, durable construction.</span>
               </h1>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
@@ -161,8 +161,8 @@ export default function Ars550DPage() {
                   About this grade
                 </p>
                 <p className="text-[14px] leading-[1.75] text-white/80">
-                  ARS 550D directs engineers, contractors, and home builders through product
-                  specifications to a confident first step — from grade review to quote.
+                  ARS 550D is engineered for high strength, superior ductility, and dependable performance
+                  across modern reinforced concrete construction.
                 </p>
                 <div className="mt-4 flex items-center gap-2 border-t border-white/10 pt-4">
                   <CheckCircle2 size={14} className="text-brand-red" />
@@ -202,13 +202,12 @@ export default function Ars550DPage() {
             <div>
               <SectionKicker variant="brand">Spec / Technical Clarity</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                Specification first,
-                <br />
-                enquiry second.
+                What are ARS 550D TMT Bars?
               </h2>
               <p className="mt-5 text-[15px] leading-[1.8] text-steel-700">
-                Review the grade, use cases, proof path, and next steps before moving into sales or
-                quote support.
+                Choosing reinforcement steel is a structural decision. ARS 550D is manufactured to IS 1786
+                standards for residential, commercial, industrial, and infrastructure projects where
+                long-term performance matters.
               </p>
             </div>
 
@@ -243,13 +242,12 @@ export default function Ars550DPage() {
             <div>
               <SectionKicker variant="brand">Why ARS 550D</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
-                Made for safer everyday structures.
+                Engineered to perform. Built to last.
               </h2>
             </div>
             <p className="text-[15px] leading-[1.8] text-white/70 lg:pt-14">
-              Fe-550D is more than a grade number — it is a commitment to structures that absorb stress,
-              hold form under load, and give engineers the predictability they need to design with
-              confidence.
+              Every ARS 550D TMT bar is manufactured to deliver the strength, flexibility, and consistency
+              required for modern reinforced concrete construction.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -30,14 +30,14 @@ const stats = [
   { value: "1992", label: "Founded", sub: "Over three decades of steel manufacturing trust." },
   { value: "2.5L MT", label: "Annual Capacity", sub: "Certified steel output supporting regional demand." },
   { value: "550D", label: "Flagship Grade", sub: "Fe-550D high-strength TMT for structural integrity." },
-  { value: "SGS", label: "Certifications", sub: "Third-party certification and testing proof across the range." },
+  { value: "SGS", label: "Tested & verified", sub: "Every batch and consignment is supported by quality assurance." },
 ];
 
 const storyPoints = [
-  "BIS-certified manufacturing facility",
-  "Full traceability from melt to dispatch",
-  "In-house and third-party quality labs",
-  "Dedicated technical support team",
+  "Integrated steel manufacturing plant — Gummidipoondi, Tamil Nadu",
+  "ISO 9001 and ISO 14001 certified manufacturing facility",
+  "BIS-certified Fe550D and CRS 550D TMT bars",
+  "Trusted across residential, commercial, and infrastructure projects",
 ];
 
 const pillars = [
@@ -72,24 +72,24 @@ const capabilityTiles = [
 
 const milestones = [
   {
+    year: "1990",
+    title: "The beginning",
+    desc: "Established as ARS Metals Private Limited with a vision to manufacture high-quality steel through disciplined processes and uncompromising quality standards.",
+  },
+  {
     year: "1992",
-    title: "Foundation of trust",
-    desc: "ARS Steel established to manufacture certifiable, traceable, and reliable TMT bars for Indian construction.",
+    title: "Commercial production begins",
+    desc: "Commercial production of MS billets begins, laying the foundation for integrated steel manufacturing.",
   },
   {
-    year: "550D",
-    title: "Product clarity",
-    desc: "The Fe-550D TMT range delivers superior yield strength and ductility for demanding structural applications.",
+    year: "2005",
+    title: "Entering TMT manufacturing",
+    desc: "ARS commissions its rolling mill division and becomes a fully integrated steel manufacturer.",
   },
   {
-    year: "SGS",
-    title: "Quality testing",
-    desc: "Third-party SGS certification validates our processes against recognised quality benchmarks.",
-  },
-  {
-    year: "Next",
-    title: "What is building",
-    desc: "Expanding the dealer network, strengthening sustainability practices, and advancing green steel readiness.",
+    year: "2024",
+    title: "Leading the Green Steel movement",
+    desc: "ARS introduces 3-in-1 Green Steel TMT rebars, combining ductility, corrosion resistance, and lower-emission manufacturing.",
   },
 ];
 
@@ -179,13 +179,13 @@ export default function AboutPage() {
               <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS Group</span>
             </div>
             <h1 className="mb-5 font-display text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold uppercase leading-[1.05] tracking-[-0.025em] text-white">
-              Built on trust.
+              Building stronger foundations with
               <br />
-              Proven by <span className="text-brand-red">steel.</span>
+              trusted steel <span className="text-brand-red">since 1992.</span>
             </h1>
             <p className="mb-8 max-w-[440px] text-[15px] leading-[1.75] text-white/55">
-              Since 1992, ARS has built a legacy of quality steel manufacturing — not through marketing
-              claims, but through certifications, consistency, and structures that stand.
+              ARS Group is one of India&apos;s leading manufacturers of BIS-certified Fe550D and CRS 550D TMT
+              bars for residential, commercial, industrial, and infrastructure projects.
             </p>
             <a
               href="#story"
@@ -224,16 +224,16 @@ export default function AboutPage() {
             <div>
               <SectionKicker variant="brand">Our Story</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                A steel brand made for real structures.
+                More than steel. Built on trust.
               </h2>
               <p className="mb-6 mt-5 text-[15px] leading-[1.8] text-steel-700">
-                ARS was founded with a single conviction: every structure deserves steel that performs
-                exactly as promised. We built our plant, our processes, and our product range around that
-                belief — and three decades later, it still guides every decision we make.
+                ARS Green Steel is an integrated steel manufacturer with a state-of-the-art facility at
+                Gummidipoondi, Tamil Nadu. Since 1992, we have combined advanced manufacturing, rigorous
+                quality standards, and responsible Green Steel practices to build stronger, safer structures.
               </p>
               <p className="mb-8 text-[15px] leading-[1.8] text-steel-700">
-                From residential homes to commercial complexes, our TMT bars carry the weight of real
-                construction — certified, tested, and delivered with full traceability.
+                From homes to commercial developments and infrastructure, ARS delivers certified steel
+                solutions engineered for strength, durability, and dependable performance.
               </p>
               <div className="flex flex-col gap-3">
                 {storyPoints.map((pt) => (
@@ -274,12 +274,12 @@ export default function AboutPage() {
             <div>
               <SectionKicker variant="brand">Why It Matters</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
-                Trust content that cannot be lost.
+                Built on proven quality. Backed by verified standards.
               </h2>
             </div>
             <p className="text-[15px] leading-[1.8] text-white/70 lg:pt-14">
-              Any brand can print certifications on a brochure. ARS built a system where every proof point
-              is independently verifiable — at the lab, at the plant, and on site.
+              Manufactured in an integrated steel plant and backed by BIS, ISO, and SGS certifications,
+              every ARS TMT bar is engineered for quality, strength, and long-lasting performance.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -300,6 +300,42 @@ export default function AboutPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-surface-50 py-24" id="vision">
+        <div className="ars-container">
+          <div className="mb-12 max-w-3xl">
+            <SectionKicker variant="brand">Our Vision · Mission · Values</SectionKicker>
+            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              Driven by purpose. Built for the future.
+            </h2>
+            <p className="mt-5 text-[15px] leading-[1.8] text-steel-700">
+              Every ARS Green Steel product reflects our commitment to manufacturing excellence, sustainable
+              innovation, uncompromising quality, and long-term customer trust.
+            </p>
+          </div>
+          <div className="grid gap-5 lg:grid-cols-2">
+            <article className="rounded-2xl border border-brand-blue/10 bg-white p-7 shadow-[var(--shadow-soft)]">
+              <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-red">Our vision</p>
+              <h3 className="mt-3 font-display text-[1.6rem] font-bold leading-tight text-ink-900">
+                Shaping a stronger, greener India through sustainable steel.
+              </h3>
+              <p className="mt-4 text-[14px] leading-[1.75] text-steel-700">
+                To lead India&apos;s transition to sustainable steel manufacturing, building stronger
+                infrastructure, empowering communities, and creating a greener future for generations.
+              </p>
+            </article>
+            <article className="rounded-2xl bg-brand-blue p-7 text-white">
+              <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-red">Our mission</p>
+              <h3 className="mt-3 font-display text-[1.6rem] font-bold leading-tight">Building excellence through every bar of steel.</h3>
+              <p className="mt-4 text-[14px] leading-[1.75] text-white/72">
+                Deliver BIS-certified Fe550D and CRS 550D TMT bars with consistent quality, advance Green
+                Steel manufacturing, build lasting partnerships, and invest in the technology and people
+                that strengthen India&apos;s infrastructure.
+              </p>
+            </article>
           </div>
         </div>
       </MotionSection>

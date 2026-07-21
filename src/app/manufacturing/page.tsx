@@ -24,20 +24,20 @@ export const metadata: Metadata = {
 
 const processCards = [
   {
-    title: "Melting and refining",
-    text: "Induction furnace and melt preparation explain how production begins with process control.",
+    title: "Steel making & continuous casting",
+    text: "High-quality raw material is transformed through steel making, continuous casting, and controlled billet formation.",
     image: "/ars-assets/ARSHOME1.jpg",
     icon: Factory,
   },
   {
-    title: "Ladle and casting",
-    text: "Ladle handling and casting steps support process credibility for technical and project teams.",
+    title: "Rolling mill & TMT process",
+    text: "Billets are rolled and thermo-mechanically treated to achieve the balanced strength and ductility required for ARS TMT bars.",
     image: "/ars-assets/ARSHOME2.jpg",
     icon: Workflow,
   },
   {
-    title: "Rolling and sizing",
-    text: "Rolling mill steps connect billets to final TMT bars, rod sizes, and grade confidence.",
+    title: "Cooling, bundling & dispatch",
+    text: "Cooling beds, cutting, bundling, quality control, and dispatch maintain consistency through the final handover.",
     image: "/ars-assets/TMT-Bars.png",
     icon: Gauge,
   },
@@ -117,11 +117,11 @@ export default function ManufacturingPage() {
             <h1 className="font-display text-[clamp(2.4rem,5.5vw,4.2rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
               Built with
               <br />
-              <span className="italic text-brand-red">process.</span>
+              <span className="italic text-brand-red">precision.</span>
             </h1>
             <p className="mt-5 max-w-[460px] text-[15px] leading-[1.75] text-white/70">
-              Manufacturing proof helps serious buyers trust ARS before the sales conversation — process,
-              capacity, testing, and product traceability all matter.
+              Every ARS TMT bar is manufactured in our integrated facility, where advanced technology,
+              process discipline, and decades of expertise come together.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -164,10 +164,10 @@ export default function ManufacturingPage() {
         <div className="ars-container">
           <div className="mb-12 max-w-4xl">
             <SectionKicker variant="brand">Process flow</SectionKicker>
-            <h2 className="section-title">Show how steel becomes trust.</h2>
+            <h2 className="section-title">How ARS steel takes shape.</h2>
             <p className="section-copy">
-              The manufacturing page should read like a premium industrial story, not a raw process list.
-              Each stage should support buyer confidence and technical understanding.
+              Every ARS TMT bar follows a carefully planned manufacturing process that transforms
+              high-quality raw materials into steel designed for strength, durability, and dependable performance.
             </p>
           </div>
 
@@ -211,11 +211,11 @@ export default function ManufacturingPage() {
           <div className="mb-12 grid items-end gap-8 lg:grid-cols-[0.88fr_1fr]">
             <div>
               <SectionKicker variant="brand">Testing and QA</SectionKicker>
-              <h2 className="section-title max-w-4xl">Testing should be part of the manufacturing story.</h2>
+            <h2 className="section-title max-w-4xl">Manufactured to recognised industry standards.</h2>
             </div>
             <p className="section-copy section-copy-flush max-w-2xl lg:justify-self-end">
-              Quality assurance is not a side note. It should sit close to the process narrative
-              and connect naturally to certifications and product proof.
+              Every manufacturing stage follows established systems and recognised industry standards that
+              support consistency, responsible production, and continuous improvement.
             </p>
           </div>
 
