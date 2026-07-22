@@ -16,6 +16,7 @@ import { ContactCta } from "@/components/contact-cta";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { getBlogArchiveArticles, type BlogArchiveArticle } from "@/lib/blog-content";
+import { getBlogMigrationEntry } from "@/lib/blog-migration";
 import type { LegacyPage } from "@/lib/legacy-content";
 
 type ArticleSection = {
@@ -89,6 +90,7 @@ const topicCta = {
 }>;
 
 const acronymWords = ["ARS", "TMT", "CRS", "SGS", "EPD", "ISO", "SERC", "BIS", "NHAI", "PWD", "GRIHA", "RCC", "PCC", "TDS", "GST", "HYSD", "TOR"];
+const productionDomain = "https://arsgroup.in";
 
 function sentenceCaseTitle(title: string) {
   if (title.length <= 5 || acronymWords.includes(title)) return title;
@@ -173,26 +175,36 @@ export function BlogArticleTemplate({
   const relatedArticles = getRelatedArticles(article);
   const TopicIcon = topicIcon[article.category];
   const cta = topicCta[article.category];
+  const registryEntry = getBlogMigrationEntry(article.slug);
+  const articleTitle = registryEntry?.renderedH1 || registryEntry?.sourceH1 || registryEntry?.title || article.title;
+  const articleImage = registryEntry?.featuredImage?.url || article.image;
+  const articleImageAlt = registryEntry?.featuredImage?.alt || article.imageAlt;
   const fallbackSections = sections.length
     ? sections
     : [{ id: "overview", title: "Overview", body: article.excerpt }];
 
+  const articleUrl = `${productionDomain}/blog/${article.slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: article.title,
-    description: article.excerpt,
-    image: article.image,
+    headline: registryEntry?.yoastSeoTitle || article.title,
+    description: registryEntry?.yoastMetaDescription || article.excerpt,
+    image: articleImage.startsWith("http") ? articleImage : `${productionDomain}${articleImage}`,
     author: {
       "@type": "Organization",
-      name: "ARS Green Steel",
+      name: registryEntry?.author || "ARS Green Steel",
     },
     publisher: {
       "@type": "Organization",
       name: "ARS Green Steel",
     },
-    mainEntityOfPage: article.href,
-    datePublished: article.dateLabel ?? undefined,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": articleUrl,
+    },
+    url: articleUrl,
+    datePublished: registryEntry?.publishDate || article.dateLabel || undefined,
+    dateModified: registryEntry?.modifiedDate || registryEntry?.publishDate || article.dateLabel || undefined,
   };
 
   return (
@@ -205,8 +217,8 @@ export function BlogArticleTemplate({
 
       <section className="relative overflow-hidden bg-bg-dark text-white">
         <Image
-          src={article.image}
-          alt={article.imageAlt}
+          src={articleImage}
+          alt={articleImageAlt}
           fill
           priority
           loading="eager"
@@ -237,7 +249,7 @@ export function BlogArticleTemplate({
                 <ArticleMeta article={article} light />
               </div>
               <h1 className="mt-6 max-w-5xl font-display text-[clamp(2.25rem,4.2vw,4rem)] font-bold leading-[1.02] tracking-normal text-white">
-                {article.title}
+                {articleTitle}
               </h1>
               <p className="mt-6 max-w-3xl text-base leading-8 text-white/74 md:text-lg">
                 {article.excerpt}
@@ -307,7 +319,9 @@ export function BlogArticleTemplate({
               </div>
             </div>
 
-            {fallbackSections.map((section, index) => (
+            {registryEntry?.fullContentHtml ? (
+              <div className="blog-source-content" dangerouslySetInnerHTML={{ __html: registryEntry.fullContentHtml }} />
+            ) : fallbackSections.map((section, index) => (
               <section
                 key={section.id}
                 id={section.id}

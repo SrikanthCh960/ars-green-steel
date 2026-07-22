@@ -1,0 +1,215 @@
+{
+  "batch": 6,
+  "reviewedAt": "2026-07-22T06:03:29.016817+00:00",
+  "reviewer": "Codex XML parity review",
+  "articles": [
+    {
+      "url": "https://arsgroup.in/blog/latest-steel-regulations-tmt-bar-manufacturers.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "latest-steel-regulations-tmt-bar-manufacturers",
+        "sourceUrl": "https://arsgroup.in/blog/latest-steel-regulations-tmt-bar-manufacturers.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 4,
+        "renderedSafeLinkCount": 4,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/latest-steel-regulations-tmt-bar-manufacturers.jpeg",
+        "canonical": "https://arsgroup.in/blog/latest-steel-regulations-tmt-bar-manufacturers.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/manufacturing-process-of-tmt-bar.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "manufacturing-process-of-tmt-bar",
+        "sourceUrl": "https://arsgroup.in/blog/manufacturing-process-of-tmt-bar.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 4,
+        "renderedSafeLinkCount": 4,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/tmt-bars-manufacturing.jpeg",
+        "canonical": "https://arsgroup.in/blog/manufacturing-process-of-tmt-bar.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/rcc-column-footing-types-uses.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/rcc-column-footing-types-uses.html",
+        "sourceH1": "What is RCC Column Footing? Types, Uses, and Importance Explained",
+        "testingH1BeforeResolution": "RCC Column Footing: Types, Uses, and Importance in Construction",
+        "finalRenderedH1": "What is RCC Column Footing? Types, Uses, and Importance Explained",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/rcc-column-footing-types-uses.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/rcc-column-reinforcement-types.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/rcc-column-reinforcement-types.html",
+        "sourceH1": "Types of Reinforcements Used in RCC Columns",
+        "testingH1BeforeResolution": "RCC Column Reinforcement",
+        "finalRenderedH1": "Types of Reinforcements Used in RCC Columns",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/rcc-column-reinforcement-types.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/reinforced-cement-concrete.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/reinforced-cement-concrete.html",
+        "sourceH1": "A Complete Guide To Reinforced Cement Concrete",
+        "testingH1BeforeResolution": "Reinforced Cement Concrete",
+        "finalRenderedH1": "A Complete Guide To Reinforced Cement Concrete",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/reinforced-cement-concrete.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/repair-concrete-cracks.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/repair-concrete-cracks.html",
+        "sourceH1": "9 Effective Ways to Repair Concrete Cracks",
+        "testingH1BeforeResolution": "Repair concrete cracks",
+        "finalRenderedH1": "9 Effective Ways to Repair Concrete Cracks",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/repair-concrete-cracks.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/rising-steel-imports-india-ars-green-steel.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/rising-steel-imports-india-ars-green-steel.html",
+        "sourceH1": "Rising Steel Imports: Implications for India’s Industry and the Role of ARS Green Steel",
+        "testingH1BeforeResolution": "Rising Steel Imports in India",
+        "finalRenderedH1": "Rising Steel Imports: Implications for India’s Industry and the Role of ARS Green Steel",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/rising-steel-imports-india-ars-green-steel.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/steel-bar-sizes.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "a-comprehensive-guide-to-steel-bar-sizes-and-their-applications",
+        "sourceUrl": "https://arsgroup.in/blog/steel-bar-sizes.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/04/Steel-Bar-new-again.jpg",
+        "canonical": "https://arsgroup.in/blog/steel-bar-sizes.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/steel-required-for-beams-columns-slabs-and-foundation.html",
+      "contentParityStatus": "Approved editorial improvement",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "steel-required-for-beams-columns-slabs-and-foundation",
+        "sourceUrl": "https://arsgroup.in/blog/steel-required-for-beams-columns-slabs-and-foundation.html",
+        "registryFieldsMatched": true,
+        "sourceH1": "Steel Required for Beams, Columns, Slabs, and Foundation",
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 0,
+        "registryImageCount": 0,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-23-at-3.31.25-PM.jpeg",
+        "canonical": "https://arsgroup.in/blog/steel-required-for-beams-columns-slabs-and-foundation.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/steel-round-bar.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/steel-round-bar.html",
+        "affectedAsset": {
+          "url": "https://arsgroup.in/wp-content/uploads/2024/08/steel-round-bar-300x157.jpeg",
+          "alt": ""
+        },
+        "testingValueBeforeResolution": "The informative in-content image was removed because invalid source markup nested it inside the source H1.",
+        "finalValue": {
+          "url": "https://arsgroup.in/wp-content/uploads/2024/08/steel-round-bar-300x157.jpeg",
+          "alt": ""
+        },
+        "changedFile": "scripts/generate-blog-migration-registry.py",
+        "changedRoute": "https://arsgroup.in/blog/steel-round-bar.html",
+        "resolutionDecision": "Preserve the source image outside the native H1 with intentional empty alt text.",
+        "reason": "The image URL is safe and the empty source alt marks it decorative. The native template supplies the H1 text while the sanitizer retains nested safe assets.",
+        "finalParityStatus": "Exact match"
+      }
+    }
+  ],
+  "resolvedAt": "2026-07-22T06:03:29.358512+00:00",
+  "resolver": "Codex XML parity resolution"
+}

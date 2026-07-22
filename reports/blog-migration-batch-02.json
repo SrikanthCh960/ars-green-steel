@@ -1,0 +1,224 @@
+{
+  "batch": 2,
+  "reviewedAt": "2026-07-22T06:03:28.591852+00:00",
+  "reviewer": "Codex XML parity review",
+  "articles": [
+    {
+      "url": "https://arsgroup.in/blog/check-tmt-bar-quality-on-site.html",
+      "contentParityStatus": "Approved editorial improvement",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "check-tmt-bar-quality-on-site",
+        "sourceUrl": "https://arsgroup.in/blog/check-tmt-bar-quality-on-site.html",
+        "registryFieldsMatched": true,
+        "sourceH1": "How to Check TMT Bar Quality On-Site: A Step-by-Step Guide",
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 0,
+        "registryImageCount": 0,
+        "sourceLinkCount": 4,
+        "renderedSafeLinkCount": 4,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2025/04/How-to-Check-TMT-Bar-Quality-On-Site-.jpeg",
+        "canonical": "https://arsgroup.in/blog/check-tmt-bar-quality-on-site.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/chennai-tmt-bars-make-an-impact-in-the-future.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "chennai-tmt-bars-to-make-an-impact-in-future",
+        "sourceUrl": "https://arsgroup.in/blog/chennai-tmt-bars-make-an-impact-in-the-future.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 2,
+        "renderedSafeLinkCount": 2,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/tmtbars.webp",
+        "canonical": "https://arsgroup.in/blog/chennai-tmt-bars-make-an-impact-in-the-future.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/choose-the-best-steel-bar-for-construction.html",
+      "contentParityStatus": "Approved editorial improvement",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "6-factors-of-choosing-the-best-steel-bar-for-construction",
+        "sourceUrl": "https://arsgroup.in/blog/choose-the-best-steel-bar-for-construction.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 2,
+        "renderedSafeLinkCount": 2,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/construction.jpeg",
+        "canonical": "https://arsgroup.in/blog/choose-the-best-steel-bar-for-construction.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/choosing-quality-tmt-bar-manufacturers.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "quality-assurance-choosing-reliable-tmt-bar-manufacturers",
+        "sourceUrl": "https://arsgroup.in/blog/choosing-quality-tmt-bar-manufacturers.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 4,
+        "renderedSafeLinkCount": 4,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/quality-tmt-bar-3.webp",
+        "canonical": "https://arsgroup.in/blog/choosing-quality-tmt-bar-manufacturers.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/column-reinforcement-in-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/column-reinforcement-in-construction.html",
+        "sourceH1": "What Is Column Reinforcement? A Beginner’s Guide",
+        "testingH1BeforeResolution": "What is Column Reinforcement",
+        "finalRenderedH1": "What Is Column Reinforcement? A Beginner’s Guide",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/column-reinforcement-in-construction.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/concrete-bleeding.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/concrete-bleeding.html",
+        "sourceH1": "Concrete Bleeding: Causes, Effects, and Prevention Techniques",
+        "testingH1BeforeResolution": "Concrete Bleeding:Causes, Effects, and Prevention Techniques",
+        "finalRenderedH1": "Concrete Bleeding: Causes, Effects, and Prevention Techniques",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/concrete-bleeding.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/concrete-mixing-ratio.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "different-types-of-concrete-mixing-ratio",
+        "sourceUrl": "https://arsgroup.in/blog/concrete-mixing-ratio.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 1,
+        "renderedSafeLinkCount": 1,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/08/concrete-mixing-ratio.jpeg",
+        "canonical": "https://arsgroup.in/blog/concrete-mixing-ratio.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/corrosion-resistance-steel.html",
+      "contentParityStatus": "Approved editorial improvement",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "everything-you-need-to-know-about-corrosion-resistance-steel",
+        "sourceUrl": "https://arsgroup.in/blog/corrosion-resistance-steel.html",
+        "registryFieldsMatched": true,
+        "sourceH1": "Everything you need to know about Corrosion Resistance Steel",
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 1,
+        "renderedSafeLinkCount": 1,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/06/corrosion-resistance-steel.jpeg",
+        "canonical": "https://arsgroup.in/blog/corrosion-resistance-steel.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/corrosion-resistant-tmt-bars.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/corrosion-resistant-tmt-bars.html",
+        "sourceH1": "Corrosion-Resistant TMT Bars for Coastal and Rainy Regions",
+        "testingH1BeforeResolution": "Corrosion Resistant TMT Bars",
+        "finalRenderedH1": "Corrosion-Resistant TMT Bars for Coastal and Rainy Regions",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/corrosion-resistant-tmt-bars.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/demystifying-manufacturing-process-of-tmt-bars.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "demystifying-manufacturing-process-of-tmt-bars",
+        "sourceUrl": "https://arsgroup.in/blog/demystifying-manufacturing-process-of-tmt-bars.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 2,
+        "renderedSafeLinkCount": 2,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/demystifying.webp",
+        "canonical": "https://arsgroup.in/blog/demystifying-manufacturing-process-of-tmt-bars.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    }
+  ],
+  "resolvedAt": "2026-07-22T06:03:29.358512+00:00",
+  "resolver": "Codex XML parity resolution"
+}

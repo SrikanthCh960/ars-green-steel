@@ -11,6 +11,36 @@ const nextConfig: NextConfig = {
         destination: "/blog",
         permanent: true,
       },
+      {
+        source: "/blog/the-secret-to-a-successful-construction.html",
+        destination: "/blog/things-to-keep-in-mind-before-buying-tmt-steel-bars.html",
+        permanent: true,
+      },
+      {
+        source: "/blog/leading-hub-for-tmt-steel-bar-manufacture-in-tamil-nadu.html",
+        destination: "/blog/check-out-why-ars-is-the-leading-steel-manufacturing-company-in-tamil-nadu.html",
+        permanent: true,
+      },
+      {
+        source: "/blog/why-are-tmt-bars-necessary-for-construction.html",
+        destination: "/blog/what-makes-tmt-steel-bars-important-for-a-long-lasting-building-construction.html",
+        permanent: true,
+      },
+      {
+        source: "/blog/how-to-identify-top-quality-tmt-steel-bars-for-construction.html",
+        destination: "/blog/how-to-identify-top-quality-tmt-steel-bars-for-building-construction.html",
+        permanent: true,
+      },
+      {
+        source: "/blog/difference-between-tmt-hysd-tor-steel-bars.html",
+        destination: "/blog/tmt-bars-vs-hysd-bars.html",
+        permanent: true,
+      },
+      {
+        source: "/blog/what-is-tmt-sariya.html",
+        destination: "/blog/what-is-tmt-bar-and-what-are-its-advantages.html",
+        permanent: true,
+      },
     ];
   },
 };

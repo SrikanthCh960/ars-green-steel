@@ -1,0 +1,10 @@
+{
+  "sourcePublishedPosts": 94,
+  "testingRoutes": 88,
+  "requiredRedirects": 6,
+  "metadataChangesRecorded": 187,
+  "titleChangesRecorded": 93,
+  "descriptionChangesRecorded": 94,
+  "htmlSanitizationPassed": 94,
+  "recordsWithSanitizationNotes": 44
+}

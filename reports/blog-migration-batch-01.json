@@ -1,0 +1,229 @@
+{
+  "batch": 1,
+  "reviewedAt": "2026-07-22T06:03:28.483871+00:00",
+  "reviewer": "Codex XML parity review",
+  "articles": [
+    {
+      "url": "https://arsgroup.in/blog/12mm-rod-weight-chart.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "12mm-rod-weight-everything-you-should-know",
+        "sourceUrl": "https://arsgroup.in/blog/12mm-rod-weight-chart.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 0,
+        "renderedSafeLinkCount": 0,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/steel-bars-used-in-construction-1.webp",
+        "canonical": "https://arsgroup.in/blog/12mm-rod-weight-chart.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/5-benefits-of-choosing-ars-steel-tmt-bar-in-building-your-dream-home.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/5-benefits-of-choosing-ars-steel-tmt-bar-in-building-your-dream-home.html",
+        "affectedLink": "tel:+9710411111",
+        "testingValueBeforeResolution": "The safe telephone CTA was removed because tel: was absent from the link allowlist.",
+        "finalValue": "tel:+9710411111 retained by the allowlist.",
+        "changedFile": "scripts/generate-blog-migration-registry.py",
+        "changedRoute": "https://arsgroup.in/blog/5-benefits-of-choosing-ars-steel-tmt-bar-in-building-your-dream-home.html",
+        "resolutionDecision": "Retain the safe telephone CTA.",
+        "reason": "tel: is a safe, user-actionable URL protocol. The source link is informative and must not be dropped; unsafe protocols remain blocked.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/5-things-to-know-about-tmt-steel-price-before-starting-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "tmt-steel-price-5-things-to-know-before-starting-construction",
+        "sourceUrl": "https://arsgroup.in/blog/5-things-to-know-about-tmt-steel-price-before-starting-construction.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2023/12/success-2.png",
+        "canonical": "https://arsgroup.in/blog/5-things-to-know-about-tmt-steel-price-before-starting-construction.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/8-mm-rod-weight.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "understanding-the-importance-of-8-mm-rod-weight-in-construction-projects",
+        "sourceUrl": "https://arsgroup.in/blog/8-mm-rod-weight.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 2,
+        "renderedSafeLinkCount": 2,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2023/12/success-2.png",
+        "canonical": "https://arsgroup.in/blog/8-mm-rod-weight.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/average-house-construction-cost-in-india-per-square-feet.html",
+      "contentParityStatus": "Approved editorial improvement",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "average-house-construction-cost-in-india-per-square-feet",
+        "sourceUrl": "https://arsgroup.in/blog/average-house-construction-cost-in-india-per-square-feet.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 0,
+        "registryImageCount": 0,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-02-at-12.34.42-PM.jpeg",
+        "canonical": "https://arsgroup.in/blog/average-house-construction-cost-in-india-per-square-feet.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/best-quality-tmt-bar-in-india.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "best-quality-tmt-bar-in-india",
+        "sourceUrl": "https://arsgroup.in/blog/best-quality-tmt-bar-in-india.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 2,
+        "renderedSafeLinkCount": 2,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/best-tmt.webp",
+        "canonical": "https://arsgroup.in/blog/best-quality-tmt-bar-in-india.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/best-tmt-bars-in-india-for-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "contractors-trusted-choices-of-tmt-steel-bars-in-india-for-construction",
+        "sourceUrl": "https://arsgroup.in/blog/best-tmt-bars-in-india-for-construction.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2023/12/success-2.png",
+        "canonical": "https://arsgroup.in/blog/best-tmt-bars-in-india-for-construction.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/building-materials-used-in-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/building-materials-used-in-construction.html",
+        "sourceH1": "10 Types of Building Materials Used in Construction",
+        "testingH1BeforeResolution": "Building Materials Used in Construction",
+        "finalRenderedH1": "10 Types of Building Materials Used in Construction",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/building-materials-used-in-construction.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/check-out-the-difference-between-tmt-bar-and-tor-steel-bar.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "check-out-the-difference-between-tmt-bar-and-tor-steel-bar",
+        "sourceUrl": "https://arsgroup.in/blog/check-out-the-difference-between-tmt-bar-and-tor-steel-bar.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/tmt-bar-vs-tor-steel-bar.webp",
+        "canonical": "https://arsgroup.in/blog/check-out-the-difference-between-tmt-bar-and-tor-steel-bar.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/check-out-why-ars-is-the-leading-steel-manufacturing-company-in-tamil-nadu.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "check-out-why-ars-is-the-leading-steel-manufacturing-company-in-tamil-nadu",
+        "sourceUrl": "https://arsgroup.in/blog/check-out-why-ars-is-the-leading-steel-manufacturing-company-in-tamil-nadu.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 5,
+        "renderedSafeLinkCount": 5,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/ars-steel.webp",
+        "canonical": "https://arsgroup.in/blog/check-out-why-ars-is-the-leading-steel-manufacturing-company-in-tamil-nadu.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    }
+  ],
+  "resolvedAt": "2026-07-22T06:03:29.358512+00:00",
+  "resolver": "Codex XML parity resolution"
+}

@@ -1,0 +1,188 @@
+{
+  "batch": 9,
+  "reviewedAt": "2026-07-22T06:03:29.319015+00:00",
+  "reviewer": "Codex XML parity review",
+  "articles": [
+    {
+      "url": "https://arsgroup.in/blog/what-makes-steel-bars-last-long-in-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "what-makes-steel-bars-last-long-in-construction-exploring-their-strength-durability",
+        "sourceUrl": "https://arsgroup.in/blog/what-makes-steel-bars-last-long-in-construction.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 2,
+        "renderedSafeLinkCount": 2,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/high-strength-and-ductility-1.webp",
+        "canonical": "https://arsgroup.in/blog/what-makes-steel-bars-last-long-in-construction.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/what-makes-tmt-steel-bars-important-for-a-long-lasting-building-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "why-tmt-steel-bars-are-important-for-long-lasting-building-construction",
+        "sourceUrl": "https://arsgroup.in/blog/what-makes-tmt-steel-bars-important-for-a-long-lasting-building-construction.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2023/04/importance-of-tmt-bars-new.png",
+        "canonical": "https://arsgroup.in/blog/what-makes-tmt-steel-bars-important-for-a-long-lasting-building-construction.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/what-makes-tmt-steel-bars-so-highly-flexible-among-all-steel-bars.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "what-makes-tmt-steel-bars-so-highly-flexible-among-all-steel-bars",
+        "sourceUrl": "https://arsgroup.in/blog/what-makes-tmt-steel-bars-so-highly-flexible-among-all-steel-bars.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 2,
+        "renderedSafeLinkCount": 2,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/high-strength-and-ductility.webp",
+        "canonical": "https://arsgroup.in/blog/what-makes-tmt-steel-bars-so-highly-flexible-among-all-steel-bars.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/where-to-get-good-quality-tmt-bars-at-best-price-in-tamil-nadu.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "where-to-get-good-quality-tmt-bars-at-best-price-in-tamil-nadu",
+        "sourceUrl": "https://arsgroup.in/blog/where-to-get-good-quality-tmt-bars-at-best-price-in-tamil-nadu.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 2,
+        "renderedSafeLinkCount": 2,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/quality-tmt-bar-2.webp",
+        "canonical": "https://arsgroup.in/blog/where-to-get-good-quality-tmt-bars-at-best-price-in-tamil-nadu.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/which-tmt-bars-are-best-for-house-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "which-tmt-bars-are-best-for-house-construction",
+        "sourceUrl": "https://arsgroup.in/blog/which-tmt-bars-are-best-for-house-construction.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/tmt-bars-for-construction.webp",
+        "canonical": "https://arsgroup.in/blog/which-tmt-bars-are-best-for-house-construction.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/why-fe-550-and-fe-550d-are-the-most-preferred-tmt-bars.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "why-are-fe550-and-fe550d-the-most-preferred-tmt-bars",
+        "sourceUrl": "https://arsgroup.in/blog/why-fe-550-and-fe-550d-are-the-most-preferred-tmt-bars.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 2,
+        "renderedSafeLinkCount": 2,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/fe550-and-fe550d-tmt-bars.jpeg",
+        "canonical": "https://arsgroup.in/blog/why-fe-550-and-fe-550d-are-the-most-preferred-tmt-bars.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/why-tmt-bars-are-most-preferred-over-tor-steel.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "why-tmt-bars-are-most-preferred-over-tor-steel",
+        "sourceUrl": "https://arsgroup.in/blog/why-tmt-bars-are-most-preferred-over-tor-steel.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 2,
+        "renderedSafeLinkCount": 2,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/tmt.webp",
+        "canonical": "https://arsgroup.in/blog/why-tmt-bars-are-most-preferred-over-tor-steel.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/why-tmt-bars-are-the-backbone-of-modern-structural-engineering.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/why-tmt-bars-are-the-backbone-of-modern-structural-engineering.html",
+        "sourceH1": "Why TMT Bars are the Backbone of Modern Structural Engineering",
+        "testingH1BeforeResolution": "Why TMT Bars Are the Backbone of Modern Structural Engineering",
+        "finalRenderedH1": "Why TMT Bars are the Backbone of Modern Structural Engineering",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/why-tmt-bars-are-the-backbone-of-modern-structural-engineering.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    }
+  ],
+  "resolvedAt": "2026-07-22T06:03:29.358512+00:00",
+  "resolver": "Codex XML parity resolution"
+}

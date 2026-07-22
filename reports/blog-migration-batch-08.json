@@ -1,0 +1,214 @@
+{
+  "batch": 8,
+  "reviewedAt": "2026-07-22T06:03:29.218318+00:00",
+  "reviewer": "Codex XML parity review",
+  "articles": [
+    {
+      "url": "https://arsgroup.in/blog/types-of-piling-foundations-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/types-of-piling-foundations-construction.html",
+        "sourceH1": "Types of Piling Foundations for Construction Work",
+        "testingH1BeforeResolution": "Types of piling foundations construction",
+        "finalRenderedH1": "Types of Piling Foundations for Construction Work",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/types-of-piling-foundations-construction.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/what-are-the-different-grades-of-tmt-steel-bars-used-in-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "what-are-the-different-grades-of-tmt-steel-bars-used-in-construction",
+        "sourceUrl": "https://arsgroup.in/blog/what-are-the-different-grades-of-tmt-steel-bars-used-in-construction.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 2,
+        "renderedSafeLinkCount": 2,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/differnt-grades.webp",
+        "canonical": "https://arsgroup.in/blog/what-are-the-different-grades-of-tmt-steel-bars-used-in-construction.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/what-are-the-different-types-of-tmt-steel-bars-used-in-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "what-are-the-different-types-of-tmt-steel-bars-used-in-construction",
+        "sourceUrl": "https://arsgroup.in/blog/what-are-the-different-types-of-tmt-steel-bars-used-in-construction.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/types-of-tmt-bars.webp",
+        "canonical": "https://arsgroup.in/blog/what-are-the-different-types-of-tmt-steel-bars-used-in-construction.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/what-are-the-different-types-of-tmt-steel-bars.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "what-is-tmt-bar-what-are-the-different-types-of-tmt-steel-bars",
+        "sourceUrl": "https://arsgroup.in/blog/what-are-the-different-types-of-tmt-steel-bars.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/grades.webp",
+        "canonical": "https://arsgroup.in/blog/what-are-the-different-types-of-tmt-steel-bars.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/what-is-bar-bending-schedule.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/what-is-bar-bending-schedule.html",
+        "sourceH1": "What is a Bar Bending Schedule and Why it is Important in Construction",
+        "testingH1BeforeResolution": "Bar Bending Schedule",
+        "finalRenderedH1": "What is a Bar Bending Schedule and Why it is Important in Construction",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/what-is-bar-bending-schedule.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/what-is-centering-in-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/what-is-centering-in-construction.html",
+        "sourceH1": "What is Centering Work in Construction: A Simple Guide",
+        "testingH1BeforeResolution": "What is Centering in Construction",
+        "finalRenderedH1": "What is Centering Work in Construction: A Simple Guide",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/what-is-centering-in-construction.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/what-is-crs-steel-grades-standards-quality.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/what-is-crs-steel-grades-standards-quality.html",
+        "sourceH1": "What is CRS Steel? Understanding Grades and Quality Standards",
+        "testingH1BeforeResolution": "What is CRS Steel",
+        "finalRenderedH1": "What is CRS Steel? Understanding Grades and Quality Standards",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/what-is-crs-steel-grades-standards-quality.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/what-is-green-steel.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/what-is-green-steel.html",
+        "sourceH1": "What is Green Steel? A Simple Guide for Beginners",
+        "testingH1BeforeResolution": "What is Green Steel",
+        "finalRenderedH1": "What is Green Steel? A Simple Guide for Beginners",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/what-is-green-steel.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/what-is-tmt-bar-and-what-are-its-advantages.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "what-is-tmt-bar-and-what-are-its-advantages",
+        "sourceUrl": "https://arsgroup.in/blog/what-is-tmt-bar-and-what-are-its-advantages.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 5,
+        "renderedSafeLinkCount": 5,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/tmt-bar.webp",
+        "canonical": "https://arsgroup.in/blog/what-is-tmt-bar-and-what-are-its-advantages.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/what-is-tmt-rebar-difference-between-tmt-bar-and-rebar.html",
+      "contentParityStatus": "Approved editorial improvement",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "what-is-tmt-rebar-and-what-is-difference-between-tmt-bar-and-rebar",
+        "sourceUrl": "https://arsgroup.in/blog/what-is-tmt-rebar-difference-between-tmt-bar-and-rebar.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 2,
+        "renderedSafeLinkCount": 2,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/difference-between-tmt-bar-rebar.webp",
+        "canonical": "https://arsgroup.in/blog/what-is-tmt-rebar-difference-between-tmt-bar-and-rebar.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    }
+  ],
+  "resolvedAt": "2026-07-22T06:03:29.358512+00:00",
+  "resolver": "Codex XML parity resolution"
+}

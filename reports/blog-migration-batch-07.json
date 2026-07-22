@@ -1,0 +1,229 @@
+{
+  "batch": 7,
+  "reviewedAt": "2026-07-22T06:03:29.117513+00:00",
+  "reviewer": "Codex XML parity review",
+  "articles": [
+    {
+      "url": "https://arsgroup.in/blog/the-best-tmt-bars-for-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "the-best-tmt-bars-for-construction",
+        "sourceUrl": "https://arsgroup.in/blog/the-best-tmt-bars-for-construction.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/tmtrod-1.webp",
+        "canonical": "https://arsgroup.in/blog/the-best-tmt-bars-for-construction.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/things-to-keep-in-mind-before-buying-tmt-steel-bars.html",
+      "contentParityStatus": "Approved editorial improvement",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "things-to-keep-in-mind-before-buying-tmt-steel-bars",
+        "sourceUrl": "https://arsgroup.in/blog/things-to-keep-in-mind-before-buying-tmt-steel-bars.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 4,
+        "renderedSafeLinkCount": 4,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/buytmt-1.webp",
+        "canonical": "https://arsgroup.in/blog/things-to-keep-in-mind-before-buying-tmt-steel-bars.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/tips-to-store-and-handle-tmt-steel-bars.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "10-tmt-bar-storage-tips-for-construction-sites",
+        "sourceUrl": "https://arsgroup.in/blog/tips-to-store-and-handle-tmt-steel-bars.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 0,
+        "renderedSafeLinkCount": 0,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/steel-storage-tips.jpeg",
+        "canonical": "https://arsgroup.in/blog/tips-to-store-and-handle-tmt-steel-bars.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/tmt-bar-buying-guide.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/tmt-bar-buying-guide.html",
+        "sourceH1": "Grades, Sizes, Prices, and Brands",
+        "testingH1BeforeResolution": "TMT BAR BUYING GUIDE",
+        "finalRenderedH1": "Grades, Sizes, Prices, and Brands",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/tmt-bar-buying-guide.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/tmt-bars-vs-hysd-bars.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/tmt-bars-vs-hysd-bars.html",
+        "sourceH1": "TMT Bars vs HYSD Bars: Which Is Better for Your Project?",
+        "testingH1BeforeResolution": "TMT Bars vs HYSD Bars",
+        "finalRenderedH1": "TMT Bars vs HYSD Bars: Which Is Better for Your Project?",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/tmt-bars-vs-hysd-bars.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/tmt-full-form.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "tmt-full-form-what-does-it-stand-for-and-why-it-matters",
+        "sourceUrl": "https://arsgroup.in/blog/tmt-full-form.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 0,
+        "registryImageCount": 0,
+        "sourceLinkCount": 4,
+        "renderedSafeLinkCount": 4,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/tmt-bar.webp",
+        "canonical": "https://arsgroup.in/blog/tmt-full-form.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/tmt-steel-bar-weight.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "tmt-steel-bar-weight-8mm-10mm-12-mm-16mm-steel-bars",
+        "sourceUrl": "https://arsgroup.in/blog/tmt-steel-bar-weight.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 4,
+        "renderedSafeLinkCount": 4,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/steel.webp",
+        "canonical": "https://arsgroup.in/blog/tmt-steel-bar-weight.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/top-key-factors-that-affect-tmt-steel-bar-price-in-india.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "what-are-the-factors-that-affect-the-price-of-tmt-bars-in-india",
+        "sourceUrl": "https://arsgroup.in/blog/top-key-factors-that-affect-tmt-steel-bar-price-in-india.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/difference-between-tmt-bar-rebar.webp",
+        "canonical": "https://arsgroup.in/blog/top-key-factors-that-affect-tmt-steel-bar-price-in-india.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/types-of-curing-methods-in-concrete-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "different-types-of-curing-methods-in-concrete-construction",
+        "sourceUrl": "https://arsgroup.in/blog/types-of-curing-methods-in-concrete-construction.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 0,
+        "registryImageCount": 0,
+        "sourceLinkCount": 2,
+        "renderedSafeLinkCount": 2,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/quality-tmt-bar-2.webp",
+        "canonical": "https://arsgroup.in/blog/types-of-curing-methods-in-concrete-construction.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/types-of-foundations-in-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "different-types-of-foundations-in-building-constructions",
+        "sourceUrl": "https://arsgroup.in/blog/types-of-foundations-in-construction.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 0,
+        "renderedSafeLinkCount": 0,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/type-of-foundations.jpeg",
+        "canonical": "https://arsgroup.in/blog/types-of-foundations-in-construction.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    }
+  ],
+  "resolvedAt": "2026-07-22T06:03:29.358512+00:00",
+  "resolver": "Codex XML parity resolution"
+}

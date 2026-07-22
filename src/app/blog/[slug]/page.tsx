@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlogArticleTemplate } from "@/components/blog-article-template";
 import { getBlogArchiveArticle, getBlogExcerpt, cleanBlogTitle } from "@/lib/blog-content";
+import { getBlogMigrationEntry } from "@/lib/blog-migration";
 import { getLegacyBlogPages, getLegacyPage } from "@/lib/legacy-content";
+
+const productionDomain = "https://arsgroup.in";
+const isProductionDomain = process.env.NEXT_PUBLIC_SITE_URL === productionDomain;
 
 export function generateStaticParams() {
   return getLegacyBlogPages().map((page) => ({ slug: page.slug.replace(/^blog\//, "") }));
@@ -17,22 +21,36 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   const article = getBlogArchiveArticle(slug);
-  const title = article?.title ?? cleanBlogTitle(page);
-  const description = article?.excerpt ?? getBlogExcerpt(page, title);
-  const image = article?.image;
+  const registryEntry = getBlogMigrationEntry(slug);
+  const title = registryEntry?.yoastSeoTitle || article?.title || cleanBlogTitle(page);
+  const description = registryEntry?.yoastMetaDescription || article?.excerpt || getBlogExcerpt(page, title);
+  const image = registryEntry?.featuredImage?.url || article?.image;
+  const imageAlt = registryEntry?.featuredImage?.alt || article?.imageAlt || title;
+
+  const finalUrl = `${productionDomain}/blog/${slug}`;
 
   return {
-    title: `${title} | ARS Green Steel`,
+    title,
     description,
+    robots: {
+      index: isProductionDomain,
+      follow: isProductionDomain,
+    },
     alternates: {
-      canonical: page.path,
+      canonical: finalUrl,
     },
     openGraph: {
-      title: `${title} | ARS Green Steel`,
+      title,
       description,
-      url: page.path,
+      url: finalUrl,
       type: "article",
-      images: image ? [{ url: image, alt: article?.imageAlt ?? title }] : undefined,
+      images: image ? [{ url: image, alt: imageAlt }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: image ? [image] : undefined,
     },
   };
 }

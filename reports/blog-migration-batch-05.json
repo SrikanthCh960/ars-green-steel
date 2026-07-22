@@ -1,0 +1,219 @@
+{
+  "batch": 5,
+  "reviewedAt": "2026-07-22T06:03:28.907348+00:00",
+  "reviewer": "Codex XML parity review",
+  "articles": [
+    {
+      "url": "https://arsgroup.in/blog/green-steel-sustainability-future.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/green-steel-sustainability-future.html",
+        "sourceH1": "Why Green Steel Matters for a Sustainable Future",
+        "testingH1BeforeResolution": "Why Green Steel Matters",
+        "finalRenderedH1": "Why Green Steel Matters for a Sustainable Future",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/green-steel-sustainability-future.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/green-steel-vs-traditional-steel.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/green-steel-vs-traditional-steel.html",
+        "sourceH1": "Green Steel vs Traditional Steel: Environmental Impact Compared",
+        "testingH1BeforeResolution": "Green Steel vs Traditional Steel",
+        "finalRenderedH1": "Green Steel vs Traditional Steel: Environmental Impact Compared",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/green-steel-vs-traditional-steel.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/greenpro-certified-steel.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/greenpro-certified-steel.html",
+        "sourceH1": "The Future of Sustainable Construction",
+        "testingH1BeforeResolution": "GreenPro Certified Steel",
+        "finalRenderedH1": "The Future of Sustainable Construction",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/greenpro-certified-steel.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/house-construction-process-in-india.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/house-construction-process-in-india.html",
+        "sourceH1": "Step-by-Step House Construction Process in India",
+        "testingH1BeforeResolution": "House Construction Process in India",
+        "finalRenderedH1": "Step-by-Step House Construction Process in India",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/house-construction-process-in-india.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/how-are-tmt-bars-changing-the-view-of-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "how-are-tmt-bars-changing-the-view-of-construction",
+        "sourceUrl": "https://arsgroup.in/blog/how-are-tmt-bars-changing-the-view-of-construction.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 2,
+        "renderedSafeLinkCount": 2,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/construction_view.webp",
+        "canonical": "https://arsgroup.in/blog/how-are-tmt-bars-changing-the-view-of-construction.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/how-tmt-bars-are-transforming-rural-infrastructure-development.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "how-tmt-bars-are-transforming-rural-infrastructure-development",
+        "sourceUrl": "https://arsgroup.in/blog/how-tmt-bars-are-transforming-rural-infrastructure-development.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 4,
+        "renderedSafeLinkCount": 4,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/Infrastructure.jpeg",
+        "canonical": "https://arsgroup.in/blog/how-tmt-bars-are-transforming-rural-infrastructure-development.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/how-to-choose-tmt-bars.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "how-to-choose-tmt-bars",
+        "sourceUrl": "https://arsgroup.in/blog/how-to-choose-tmt-bars.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 4,
+        "renderedSafeLinkCount": 4,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2023/12/success-2.png",
+        "canonical": "https://arsgroup.in/blog/how-to-choose-tmt-bars.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/how-to-identify-top-quality-tmt-steel-bars-for-building-construction.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "how-to-identify-top-quality-tmt-steel-bars-for-building-construction",
+        "sourceUrl": "https://arsgroup.in/blog/how-to-identify-top-quality-tmt-steel-bars-for-building-construction.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/choose-top-tmt-bar.webp",
+        "canonical": "https://arsgroup.in/blog/how-to-identify-top-quality-tmt-steel-bars-for-building-construction.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/importance-of-tds-in-steel-manufacturing",
+      "contentParityStatus": "Approved editorial improvement",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "importance-of-tds-in-steel-manufacturing",
+        "sourceUrl": "https://arsgroup.in/blog/importance-of-tds-in-steel-manufacturing",
+        "registryFieldsMatched": true,
+        "sourceH1": "TDS and Its Significance in Steel Production",
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 0,
+        "registryImageCount": 0,
+        "sourceLinkCount": 5,
+        "renderedSafeLinkCount": 5,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2025/02/TDS-and-its-significance.jpeg",
+        "canonical": "https://arsgroup.in/blog/importance-of-tds-in-steel-manufacturing",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/know-the-tmt-steel-price-today.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "how-to-know-exactly-the-tmt-steel-price-for-today",
+        "sourceUrl": "https://arsgroup.in/blog/know-the-tmt-steel-price-today.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/quality-tmt-bar-1.webp",
+        "canonical": "https://arsgroup.in/blog/know-the-tmt-steel-price-today.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    }
+  ],
+  "resolvedAt": "2026-07-22T06:03:29.358512+00:00",
+  "resolver": "Codex XML parity resolution"
+}

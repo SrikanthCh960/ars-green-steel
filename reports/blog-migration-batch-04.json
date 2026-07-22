@@ -1,0 +1,209 @@
+{
+  "batch": 4,
+  "reviewedAt": "2026-07-22T06:03:28.802312+00:00",
+  "reviewer": "Codex XML parity review",
+  "articles": [
+    {
+      "url": "https://arsgroup.in/blog/earthquake-resistant-tmt-bars.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/earthquake-resistant-tmt-bars.html",
+        "sourceH1": "How Earthquake-Resistant TMT Bars Can Save Lives",
+        "testingH1BeforeResolution": "Earthquake-Resistant TMT Bars: Strength and Safety for Structures",
+        "finalRenderedH1": "How Earthquake-Resistant TMT Bars Can Save Lives",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/earthquake-resistant-tmt-bars.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/effects-of-gst-on-the-steel-industries-in-india.html",
+      "contentParityStatus": "Approved editorial improvement",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "effects-of-gst-on-the-steel-industries-in-india",
+        "sourceUrl": "https://arsgroup.in/blog/effects-of-gst-on-the-steel-industries-in-india.html",
+        "registryFieldsMatched": true,
+        "sourceH1": "Effects of GST on the Steel Industries in India",
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 1,
+        "renderedSafeLinkCount": 1,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/steel.webp",
+        "canonical": "https://arsgroup.in/blog/effects-of-gst-on-the-steel-industries-in-india.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/everything-about-hysd-bars.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "all-you-need-to-know-about-hysd-bars",
+        "sourceUrl": "https://arsgroup.in/blog/everything-about-hysd-bars.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/quality-tmt-bar-3.webp",
+        "canonical": "https://arsgroup.in/blog/everything-about-hysd-bars.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/everything-you-need-to-know-about-550d-tmt-bars.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "everything-you-need-to-know-about-550d-tmt-bars",
+        "sourceUrl": "https://arsgroup.in/blog/everything-you-need-to-know-about-550d-tmt-bars.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 4,
+        "renderedSafeLinkCount": 4,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/know-about-550d-tmt-bars.webp",
+        "canonical": "https://arsgroup.in/blog/everything-you-need-to-know-about-550d-tmt-bars.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/exploring-rebar-types-uses-importance-building-stability.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourcePostSlug": "exploring-rebar-types-uses-and-importance-in-building-stability",
+        "sourceUrl": "https://arsgroup.in/blog/exploring-rebar-types-uses-importance-building-stability.html",
+        "registryFieldsMatched": true,
+        "sourceH1": null,
+        "sourceBodyHasSubstantiveContent": true,
+        "sourceImageCount": 1,
+        "registryImageCount": 1,
+        "sourceLinkCount": 3,
+        "renderedSafeLinkCount": 3,
+        "featuredImageUrl": "https://arsgroup.in/wp-content/uploads/2024/09/success-2.webp",
+        "canonical": "https://arsgroup.in/blog/exploring-rebar-types-uses-importance-building-stability.html",
+        "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
+        "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
+        "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/exploring-the-different-types-of-tmt-steel-bars.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/exploring-the-different-types-of-tmt-steel-bars.html",
+        "sourceH1": "Exploring the 8mm, 10mm, 12mm, and 16mm TMT Steel Bars",
+        "testingH1BeforeResolution": "Unveiling the Strength: Exploring the 8mm, 10mm, 12mm, and 16mm TMT Steel Bars",
+        "finalRenderedH1": "Exploring the 8mm, 10mm, 12mm, and 16mm TMT Steel Bars",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/exploring-the-different-types-of-tmt-steel-bars.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/future-of-tmt-steel-bar-construction-industry-india.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/future-of-tmt-steel-bar-construction-industry-india.html",
+        "sourceH1": "Future of TMT Steel Bars in India’s Construction Industry",
+        "testingH1BeforeResolution": "Future of TMT Steel Bars in India's Construction Industry",
+        "finalRenderedH1": "Future of TMT Steel Bars in India’s Construction Industry",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/future-of-tmt-steel-bar-construction-industry-india.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/good-tmt-bar-qualities.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/good-tmt-bar-qualities.html",
+        "sourceH1": "Top 10 Qualities of a Good TMT Bar: A Complete Guide for Builders & Homeowners",
+        "testingH1BeforeResolution": "Good TMT Bar Qualities",
+        "finalRenderedH1": "Top 10 Qualities of a Good TMT Bar: A Complete Guide for Builders & Homeowners",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/good-tmt-bar-qualities.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/green-steel-and-its-significance.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/green-steel-and-its-significance.html",
+        "sourceH1": "Green steel and its Significance",
+        "testingH1BeforeResolution": "GREEN STEEL AND ITS SIGNIFICANCE",
+        "finalRenderedH1": "Green steel and its Significance",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/green-steel-and-its-significance.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    },
+    {
+      "url": "https://arsgroup.in/blog/green-steel-manufacturing-using-clean-energy.html",
+      "contentParityStatus": "Exact match",
+      "seoParityStatus": "Exact match",
+      "issues": [],
+      "resolution": {
+        "source": "arssteel.WordPress.2026-07-21.xml",
+        "sourceUrl": "https://arsgroup.in/blog/green-steel-manufacturing-using-clean-energy.html",
+        "sourceH1": "How Green Steel is Produced Using Scrap Recycling and Clean Energy",
+        "testingH1BeforeResolution": "How Green Steel is Produced",
+        "finalRenderedH1": "How Green Steel is Produced Using Scrap Recycling and Clean Energy",
+        "changedFile": "src/components/blog-article-template.tsx",
+        "changedRoute": "https://arsgroup.in/blog/green-steel-manufacturing-using-clean-energy.html",
+        "resolutionDecision": "Restore the exact XML source H1 as the visible native article H1.",
+        "reason": "The source H1 can carry materially narrower topic, audience, scope, or search-intent wording than the WordPress post title. Restoring it preserves reader expectations without changing the approved Yoast metadata.",
+        "finalParityStatus": "Exact match"
+      }
+    }
+  ],
+  "resolvedAt": "2026-07-22T06:03:29.358512+00:00",
+  "resolver": "Codex XML parity resolution"
+}
