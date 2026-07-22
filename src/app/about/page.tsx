@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   Award,
@@ -465,11 +466,10 @@ export default function AboutPage() {
               Start Here
             </SectionKicker>
             <h2 className="mb-4 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
-              Trust should end with a real path to ARS.
+              See the process behind the steel.
             </h2>
             <p className="mx-auto max-w-[480px] text-[15px] leading-[1.75] text-white/70">
-              Every enquiry gets a direct response — no chatbots, no forms that disappear. A real team
-              ready to help.
+              Explore how ARS manufactures and verifies steel before choosing the right product for your project.
             </p>
           </div>
           <div className="mx-auto grid max-w-3xl gap-4 md:grid-cols-3">
@@ -490,12 +490,12 @@ export default function AboutPage() {
             ))}
           </div>
           <div className="mt-10 flex justify-center">
-            <a
-              href="/contact"
+            <Link
+              href="/manufacturing"
               className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-7 py-3.5 text-[14px] font-bold text-white transition hover:opacity-90"
             >
-              Get in touch <ArrowRight size={15} />
-            </a>
+              Explore manufacturing <ArrowRight size={15} />
+            </Link>
           </div>
         </div>
       </MotionSection>

@@ -197,7 +197,7 @@ export default function OurTeamPage() {
                 <div className="relative h-72 bg-ink-950">
                   <Image
                     src={m.photo}
-                    alt={m.name}
+                    alt={`${m.name}, ${m.role} at ARS Green Steel`}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover object-top"
@@ -261,7 +261,7 @@ export default function OurTeamPage() {
                 href="/contact"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white transition hover:opacity-90"
               >
-                Contact ARS <ArrowRight size={15} />
+                Talk to our technical team <ArrowRight size={15} />
               </a>
               <a
                 href="/become-a-dealer"

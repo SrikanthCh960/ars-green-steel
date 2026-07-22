@@ -74,8 +74,8 @@ const properties = [
 const actions = [
   {
     icon: <IndianRupee size={20} />,
-    title: "Check price",
-    desc: "Review the current price context before requesting a final quote. No commitment required.",
+    title: "Get price for ARS 550D",
+    desc: "Review the current ARS 550D price context before requesting a final quote.",
     cta: "View price",
     href: "/steel-price-today",
   },

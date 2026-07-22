@@ -10,9 +10,7 @@ import {
   Layers,
   Leaf,
   MapPin,
-  Quote,
   RefreshCw,
-  Star,
   Zap,
 } from "lucide-react";
 import Image from "next/image";
@@ -166,34 +164,6 @@ const greenSteelFeatures = [
   },
 ];
 
-const testimonials = [
-  {
-    name: "Murthy",
-    role: "ARS Customer, Hyderabad",
-    quote: "Strong steel decisions need trust, availability, and the right technical proof in one place.",
-  },
-  {
-    name: "Pradeep",
-    role: "Contractor, Bangalore",
-    quote: "A good supplier makes complex specification simple. ARS helped us reach decisions faster.",
-  },
-  {
-    name: "Sundar",
-    role: "Structural Engineer, Vizag",
-    quote: "We needed corrosion-resistant steel for a coastal project. ARS CRS 550D was the right call with no second-guessing.",
-  },
-  {
-    name: "Karthik",
-    role: "Builder, Madurai",
-    quote: "The dealer network meant we could source locally without compromising on certified quality.",
-  },
-  {
-    name: "Raja",
-    role: "Homeowner, Chennai",
-    quote: "Clear product guidance and practical support helped us move faster from planning to purchase.",
-  },
-];
-
 const blogs = [
   {
     title: "What is CRS Steel?",
@@ -332,18 +302,16 @@ export default function Home() {
             body="Every ARS TMT bar is backed by nationally recognised certifications, rigorous testing, and partnerships trusted across the construction industry."
           />
 
-          <div className="grid gap-7">
+          <div className="grid gap-8">
             <div>
               <p className="mb-4 font-technical text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">
                 Certificates
               </p>
-              <div className="marquee-frame">
-                <div className="marquee-track marquee-left">
-                  {[...certificateCards, ...certificateCards].map((item, index) => (
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {certificateCards.slice(0, 6).map((item) => (
                     <article
-                      key={`${item.label}-${index}`}
-                      className="marquee-card min-w-[280px] border border-brand-blue/10 bg-surface-50"
-                      aria-hidden={index >= certificateCards.length}
+                      key={item.label}
+                      className="rounded-2xl border border-brand-blue/10 bg-surface-50 p-6"
                     >
                       {item.image ? (
                         <Image
@@ -364,7 +332,6 @@ export default function Home() {
                       <p className="mt-2 text-sm leading-6 text-steel-700">{item.detail}</p>
                     </article>
                   ))}
-                </div>
               </div>
             </div>
 
@@ -372,13 +339,11 @@ export default function Home() {
               <p className="mb-4 font-technical text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">
                 Partners
               </p>
-              <div className="marquee-frame">
-                <div className="marquee-track marquee-right">
-                  {[...partnerCards, ...partnerCards].map((partner, index) => (
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+                  {partnerCards.map((partner) => (
                     <article
-                      key={`${partner.name}-${index}`}
-                      className="marquee-card flex min-h-[132px] min-w-[260px] items-center justify-center border border-ink-900/10 bg-white px-8 text-center shadow-[0_12px_36px_rgba(15,23,42,0.04)]"
-                      aria-hidden={index >= partnerCards.length}
+                      key={partner.name}
+                      className="flex min-h-[116px] items-center justify-center rounded-2xl border border-ink-900/10 bg-white px-6 text-center shadow-[0_12px_36px_rgba(15,23,42,0.04)]"
                     >
                       <Image
                         src={partner.logo}
@@ -389,78 +354,8 @@ export default function Home() {
                       />
                     </article>
                   ))}
-                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </MotionSection>
-
-      <MotionSection className="overflow-hidden bg-[#f4f7ff] py-24 lg:py-28" id="testimonials">
-        <div className="ars-container">
-          <div className="mb-14 grid items-end gap-8 lg:grid-cols-[1fr_0.72fr]">
-            <div>
-              <SectionKicker>Happy clients</SectionKicker>
-              <h2 className="section-title max-w-3xl">
-                Customer confidence, shaped into a cleaner story.
-              </h2>
-            </div>
-
-            <div className="max-w-xl lg:justify-self-end lg:text-right">
-              <p className="text-lg leading-8 text-steel-700">
-                Real voices from homeowners, engineers, and builders who chose ARS for their
-                most important projects.
-              </p>
-              <div className="mt-6 flex items-center gap-4 lg:justify-end">
-                <div className="flex items-center gap-1 text-brand-red" aria-label="4.9 out of 5 rating">
-                  {[0, 1, 2, 3, 4].map((star) => (
-                    <Star key={star} size={17} fill="currentColor" strokeWidth={0} />
-                  ))}
-                </div>
-                <p className="text-sm font-bold text-ink-900">
-                  4.9 <span className="ml-2 font-semibold text-steel-500">from 200+ verified buyers</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="testimonial-marquee-frame relative left-1/2 w-screen -translate-x-1/2 overflow-hidden pb-2">
-          <div
-            className="testimonial-marquee-track flex w-max gap-6"
-            style={{ paddingInline: "max(1.5rem, calc((100vw - 1180px) / 2))" }}
-          >
-            {[...testimonials, ...testimonials].map((item, index) => {
-              const originalIndex = index % testimonials.length;
-              const isHighlighted = originalIndex === 2;
-              const avatarTone = originalIndex % 2 === 0 ? "bg-brand-blue" : "bg-brand-red";
-
-              return (
-                <article
-                  key={`${item.name}-${index}`}
-                  aria-hidden={index >= testimonials.length}
-                  className={`min-h-[300px] w-[330px] snap-start rounded-[16px] border border-brand-blue/10 border-t-[4px] border-t-brand-blue bg-white p-7 shadow-[var(--shadow-soft)] md:w-[430px] ${
-                    isHighlighted ? "shadow-[0_22px_60px_rgba(13,43,110,0.16)]" : ""
-                  }`}
-                >
-                  <Quote size={38} className="text-slate-200" />
-                  <p className="mt-12 min-h-[108px] text-lg font-semibold leading-8 text-ink-900">
-                    {item.quote}
-                  </p>
-                  <div className="mt-10 flex items-center gap-4 border-t border-ink-900/8 pt-6">
-                    <span className={`inline-flex size-11 items-center justify-center rounded-full ${avatarTone} text-sm font-black text-white`}>
-                      {item.name.charAt(0)}
-                    </span>
-                    <div>
-                      <p className="font-display text-lg font-bold text-ink-900">{item.name}</p>
-                      <p className="font-technical text-xs font-bold uppercase tracking-[0.16em] text-steel-400">
-                        {item.role}
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
           </div>
         </div>
       </MotionSection>

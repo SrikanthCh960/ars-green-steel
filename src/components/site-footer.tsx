@@ -9,7 +9,7 @@ const footerColumns = [
       { label: "ARS CRS 550D", href: "/products/ars-crs-550d" },
       { label: "Product Comparison", href: "/products" },
       { label: "Technical Specifications", href: "/certifications" },
-      { label: "Download Brochure", href: "/request-quote" },
+      { label: "Request product information", href: "/request-quote" },
     ],
   },
   {
@@ -64,8 +64,6 @@ const popularTopics = [
 ];
 
 const locations = ["Chennai", "Coimbatore", "Madurai", "Nellore", "Tirupati", "Kochi", "Trivandrum", "Salem"];
-
-const socialLabels = ["f", "ig", "in", "yt"];
 
 const footerGroups = [
   ...footerColumns,
@@ -124,7 +122,7 @@ export function SiteFooter() {
               <ul className="mt-5 grid gap-3">
                 {column.links.map((link) => (
                   <li key={link.label}>
-                    <Link className="text-sm leading-6 text-slate-400 transition hover:text-white" href={link.href}>
+                    <Link className="focus-ring text-sm leading-6 text-slate-300 transition hover:text-white" href={link.href}>
                       {link.label}
                     </Link>
                   </li>
@@ -139,32 +137,22 @@ export function SiteFooter() {
         <div className="ars-container flex flex-col gap-6 py-7 text-xs text-slate-400 lg:flex-row lg:items-center lg:justify-between">
           <p>© 2026 ARS Steels & Alloy International Pvt. Ltd. All rights reserved.</p>
           <nav className="flex flex-wrap gap-x-4 gap-y-2" aria-label="Legal links">
-            <Link className="transition hover:text-slate-200" href="/privacy-policy">
+            <Link className="focus-ring transition hover:text-white" href="/privacy-policy">
               Privacy Policy
             </Link>
             <span className="text-white/10">|</span>
-            <Link className="transition hover:text-slate-200" href="/terms-of-use">
+            <Link className="focus-ring transition hover:text-white" href="/terms-of-use">
               Terms of Use
             </Link>
             <span className="text-white/10">|</span>
-            <Link className="transition hover:text-slate-200" href="/privacy-policy">
+            <Link className="focus-ring transition hover:text-white" href="/privacy-policy">
               Cookie Policy
             </Link>
             <span className="text-white/10">|</span>
-            <Link className="transition hover:text-slate-200" href="/sitemap.xml">
+            <Link className="focus-ring transition hover:text-white" href="/sitemap.xml">
               Sitemap
             </Link>
           </nav>
-          <div className="flex gap-2" aria-label="Social links pending official URLs">
-            {socialLabels.map((label) => (
-              <span
-                key={label}
-                className="inline-flex size-8 items-center justify-center rounded-[4px] border border-white/12 bg-white/[0.02] text-[11px] font-semibold uppercase text-slate-400 transition hover:border-white/22 hover:text-white"
-              >
-                {label}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
     </footer>

@@ -36,6 +36,7 @@ const products = [
     desc: "High-strength ductile TMT bars for residential, commercial, and infrastructure construction.",
     points: ["High ductility", "Strong bendability", "Fe-550D · IS 1786:2008"],
     href: "/products/ars-550d",
+    brochure: "/legacy-assets/downloads/ARS-550D-CRS-Leaflets.pdf",
     image: "/ars-assets/TMT-Bars.png",
     icon: <ShieldCheck size={20} />,
   },
@@ -45,6 +46,7 @@ const products = [
     desc: "Corrosion-resistant TMT bars for coastal, humid, exposed, and long-life structures.",
     points: ["Corrosion resistance", "Durability focus", "Fe-550D CRS · IS 1786:2008"],
     href: "/products/ars-crs-550d",
+    brochure: "/legacy-assets/downloads/ARS-550D-CRS-Leaflets.pdf",
     image: "/ars-assets/ARSHOME2.jpg",
     icon: <Waves size={20} />,
   },
@@ -233,26 +235,26 @@ export default function ProductsPage() {
             </p>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-white/[0.1]">
-            <div className="grid grid-cols-3 bg-white/[0.06]">
-              <span className="px-5 py-4 text-[11px] font-bold uppercase tracking-[0.1em] text-white/60">Attribute</span>
-              <span className="px-5 py-4 text-[12px] font-bold text-white">ARS 550D</span>
-              <span className="px-5 py-4 text-[12px] font-bold text-white">ARS CRS 550D</span>
-            </div>
-            {comparison.map((row, i) => (
-              <div
-                key={row.attr}
-                className={`grid grid-cols-3 ${i < comparison.length - 1 ? "border-b border-white/[0.08]" : ""} ${
-                  i % 2 === 0 ? "bg-white/[0.02]" : "bg-transparent"
-                }`}
-              >
-                <span className="px-5 py-4 text-[12px] font-semibold uppercase tracking-[0.04em] text-white/55">
-                  {row.attr}
-                </span>
-                <span className="px-5 py-4 text-[13px] leading-[1.5] text-white/85">{row.a}</span>
-                <span className="px-5 py-4 text-[13px] leading-[1.5] text-white/85">{row.b}</span>
-              </div>
-            ))}
+          <div className="overflow-x-auto rounded-2xl border border-white/[0.18]">
+            <table className="w-full min-w-[680px] border-collapse text-left">
+              <caption className="sr-only">Comparison of ARS 550D and ARS CRS 550D TMT bars.</caption>
+              <thead className="bg-white/[0.08]">
+                <tr>
+                  <th scope="col" className="px-5 py-4 text-[11px] font-bold uppercase tracking-[0.1em] text-white">Attribute</th>
+                  <th scope="col" className="px-5 py-4 text-[12px] font-bold text-white">ARS 550D</th>
+                  <th scope="col" className="px-5 py-4 text-[12px] font-bold text-white">ARS CRS 550D</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparison.map((row, i) => (
+                  <tr key={row.attr} className={i % 2 === 0 ? "bg-white/[0.03]" : ""}>
+                    <th scope="row" className="px-5 py-4 text-[12px] font-semibold uppercase tracking-[0.04em] text-white">{row.attr}</th>
+                    <td className="px-5 py-4 text-[13px] leading-[1.5] text-white">{row.a}</td>
+                    <td className="px-5 py-4 text-[13px] leading-[1.5] text-white">{row.b}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -266,6 +268,13 @@ export default function ProductsPage() {
               className="focus-ring inline-flex items-center gap-2 rounded-full border-[1.5px] border-white/30 px-5 py-2.5 text-[13px] font-semibold text-white transition hover:bg-white/[0.12]"
             >
               View ARS CRS 550D <ArrowRight size={13} />
+            </a>
+            <a
+              href="/legacy-assets/downloads/ARS-550D-CRS-Leaflets.pdf"
+              download
+              className="focus-ring inline-flex items-center gap-2 rounded-full border-[1.5px] border-white/30 px-5 py-2.5 text-[13px] font-semibold text-white transition hover:bg-white/[0.12]"
+            >
+              Download product leaflets (PDF) <Download size={13} />
             </a>
           </div>
         </div>

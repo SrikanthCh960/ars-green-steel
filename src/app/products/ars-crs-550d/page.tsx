@@ -73,8 +73,8 @@ const properties = [
 const actions = [
   {
     icon: <GitCompare size={20} />,
-    title: "Compare ARS 550D",
-    desc: "Use core 550D for general residential, commercial, and infrastructure work.",
+    title: "When to choose CRS",
+    desc: "Choose CRS 550D for coastal, high-humidity, high-salinity, or corrosion-prone project conditions.",
     cta: "Compare grade",
     href: "/products/ars-550d",
   },

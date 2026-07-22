@@ -26,7 +26,9 @@
   --foundation-blue: #0d2b6e;
   --rebar-bronze: #9a5a22;
   --text-on-dark: #ffffff;
-  --text-muted-dark: #aab4cc;
+  --text-muted-dark: #d7dfef;
+  --text-accent-dark: #fecaca;
+  --focus-ring: #fef08a;
   --text-body-light: #374151;
   --glass-border: rgba(255, 255, 255, 0.12);
   --glass-fill: rgba(255, 255, 255, 0.07);
@@ -174,7 +176,24 @@ html {
 }
 
 .focus-ring:focus-visible {
-  outline-color: var(--brand-blue);
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px rgba(6, 13, 30, 0.82);
+}
+
+:where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 4px;
+}
+
+/* The ARS red is a CTA color, not accessible body text on dark surfaces. */
+:is(.bg-brand-blue, .bg-brand-blue-dark, .bg-ink-950, .bg-bg-dark, .bg-\[\#071126\], .bg-\[\#060D1E\]) .text-brand-red,
+:is(.bg-brand-blue, .bg-brand-blue-dark, .bg-ink-950, .bg-bg-dark, .bg-\[\#071126\], .bg-\[\#060D1E\]) .section-kicker-red {
+  color: var(--text-accent-dark);
+}
+
+:is(.bg-brand-blue, .bg-brand-blue-dark, .bg-ink-950, .bg-bg-dark, .bg-\[\#071126\], .bg-\[\#060D1E\]) .text-ink-900 {
+  color: var(--text-on-dark);
 }
 
 .section-intro {
@@ -215,7 +234,7 @@ html {
 }
 
 .section-kicker-light {
-  color: rgba(255, 255, 255, 0.72);
+  color: #d7dfef;
 }
 
 .section-kicker-line-light {
@@ -254,7 +273,7 @@ html {
 }
 
 .section-copy-light {
-  color: rgba(226, 232, 240, 0.78);
+  color: #d7dfef;
 }
 
 .section-copy-flush {
