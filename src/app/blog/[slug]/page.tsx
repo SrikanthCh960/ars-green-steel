@@ -8,6 +8,10 @@ import { getLegacyBlogPages, getLegacyPage } from "@/lib/legacy-content";
 const productionDomain = "https://arsgroup.in";
 const isProductionDomain = process.env.NEXT_PUBLIC_SITE_URL === productionDomain;
 
+function toProductionAssetUrl(value: string) {
+  return value.startsWith("/") ? `${productionDomain}${value}` : value;
+}
+
 export function generateStaticParams() {
   return getLegacyBlogPages().map((page) => ({ slug: page.slug.replace(/^blog\//, "") }));
 }
@@ -26,6 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const description = registryEntry?.yoastMetaDescription || article?.excerpt || getBlogExcerpt(page, title);
   const image = registryEntry?.featuredImage?.url || article?.image;
   const imageAlt = registryEntry?.featuredImage?.alt || article?.imageAlt || title;
+  const metadataImage = image ? toProductionAssetUrl(image) : undefined;
 
   const finalUrl = `${productionDomain}/blog/${slug}`;
 
@@ -44,13 +49,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       url: finalUrl,
       type: "article",
-      images: image ? [{ url: image, alt: imageAlt }] : undefined,
+      images: metadataImage ? [{ url: metadataImage, alt: imageAlt }] : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: image ? [image] : undefined,
+      images: metadataImage ? [metadataImage] : undefined,
     },
   };
 }

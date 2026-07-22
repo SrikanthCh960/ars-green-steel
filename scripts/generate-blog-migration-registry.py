@@ -22,6 +22,7 @@ REDIRECTS = {
     "what-is-the-difference-between-tmt-hysd-and-tor-steel-bars": "tmt-bars-vs-hysd-bars.html",
     "what-is-tmt-sariya-features-benefits-uses": "what-is-tmt-bar-and-what-are-its-advantages.html",
 }
+BANNER_ROOT = Path(__file__).resolve().parents[1] / "public/ars-assets/blog-banners"
 
 ALLOWED_TAGS = {
     "p", "br", "strong", "em", "b", "i", "h2", "h3", "h4", "h5", "ul", "ol", "li",
@@ -172,6 +173,22 @@ def images(html):
     return found
 
 
+def local_featured_image(slug, image):
+    if not image:
+        return None
+    source_url = image["url"]
+    file_name = Path(urlparse(source_url).path).name
+    local_path = BANNER_ROOT / slug / file_name
+    if not local_path.is_file():
+        raise FileNotFoundError(f"Missing local banner for {slug}: {local_path}")
+    return {
+        "url": f"/ars-assets/blog-banners/{slug}/{file_name}",
+        "alt": image["alt"],
+        "sourceUrl": source_url,
+        "fileName": file_name,
+    }
+
+
 def source_h1(html):
     match = re.search(r"<h1\b[^>]*>(.*?)</h1\s*>", html, flags=re.I | re.S)
     if not match:
@@ -226,7 +243,7 @@ def build_registry(xml_path, legacy_path):
             "fullContentHtml": source_html,
             "excerptHtml": text(item, f"{EXCERPT}encoded"),
             "images": images(source_html),
-            "featuredImage": attachments.get(seo.get("_thumbnail_id", "")),
+            "featuredImage": local_featured_image(slug, attachments.get(seo.get("_thumbnail_id", ""))),
             "yoastSeoTitle": seo.get("_yoast_wpseo_title", ""),
             "yoastMetaDescription": seo.get("_yoast_wpseo_metadesc", ""),
             "focusKeyword": seo.get("_yoast_wpseo_focuskw", ""),

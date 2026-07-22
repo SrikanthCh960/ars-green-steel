@@ -17,7 +17,7 @@ export type BlogMigrationEntry = {
   tags: string[];
   fullContentHtml: string;
   images: { url: string; alt: string }[];
-  featuredImage: { url: string; alt: string } | null;
+  featuredImage: { url: string; alt: string; sourceUrl?: string; fileName?: string } | null;
   migrationStatus: string;
   contentParityStatus: string;
   seoParityStatus: string;

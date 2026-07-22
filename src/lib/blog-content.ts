@@ -1,5 +1,6 @@
 import type { LegacyPage } from "@/lib/legacy-content";
 import { getLegacyBlogPages } from "@/lib/legacy-content";
+import { getBlogMigrationEntry } from "@/lib/blog-migration";
 
 export const blogCategories = [
   "All topics",
@@ -190,6 +191,8 @@ export function getBlogArchiveArticles(): BlogArchiveArticle[] {
       const category = getCategory(page);
       const title = cleanBlogTitle(page);
       const date = getDate(page);
+      const migrationEntry = getBlogMigrationEntry(page.slug);
+      const featuredImage = migrationEntry?.featuredImage;
 
       return {
         slug: page.slug.replace(/^blog\//, ""),
@@ -199,8 +202,8 @@ export function getBlogArchiveArticles(): BlogArchiveArticle[] {
         category,
         ...date,
         readTime: getReadTime(page),
-        image: categoryImages[category],
-        imageAlt: `${category} guide from ARS Green Steel`,
+        image: featuredImage?.url || categoryImages[category],
+        imageAlt: featuredImage?.alt ?? `${category} guide from ARS Green Steel`,
       };
     })
     .sort((a, b) => b.dateValue - a.dateValue || a.title.localeCompare(b.title));
