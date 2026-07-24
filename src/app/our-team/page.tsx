@@ -1,5 +1,6 @@
 import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight, Users } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
@@ -9,39 +10,33 @@ import { SiteHeader } from "@/components/site-header";
 export const metadata = createPageMetadata({
   title: "Leadership & Core Team | ARS Green Steel",
   description:
-    "The board of directors and leadership team behind ARS Green Steel — decades of experience across steel manufacturing, technical, finance, supply chain, and sales.",
+    "Meet the Managing Director, Executive Director, board of directors, and core team of ARS Green Steel.",
   path: "/our-team",
 });
 
-const stats = [
-  { value: "1978", label: "Founded", sub: "The ARS journey began trading MS scrap in New Delhi." },
-  { value: "39+", label: "Years", sub: "Leadership experience across steel and trade." },
-  { value: "Group", label: "ARS Group", sub: "A group of companies built around steel." },
-  { value: "TN", label: "Headquartered", sub: "Chennai, Tamil Nadu base and plant." },
-];
-
-const board = [
+const executiveLeadership = [
   {
     name: "Shri. Ashwani Kumar Bhatia",
     role: "Managing Director",
-    bio: "Founder and Managing Director of the ARS Group. An Economics Honours graduate with 39 years in the steel and trade industry, he began in 1978 trading MS scrap in New Delhi and went on to build ARS Steels.",
+    bio: "Shri Ashwani Kumar Bhatia, an Economics Honors Graduate, is the founder and managing director of ARS Group of Companies. Ltd. He has 39 years of experience in the steel and trade industry. Mr. Ashwani started his career in 1978, with the trading of MS scrap in New Delhi. He started ARS Steels Pvt. Ltd. in 1990, with the vision of manufacturing MS Ingots.",
   },
   {
     name: "Shri. Rajesh Bhatia",
     role: "Executive Director",
-    bio: "A BBA graduate from BVIMR, New Delhi, with a stock-analysis background. He joined ARS Steels as a part-time trainee in his final year and now helps lead the business into new avenues.",
+    bio: "Shri Rajesh Bhatia joined ARS Steels in his last year of Bachelor’s as a part-time trainee and is now completely involved in leading the business towards new avenues. Mr. Rajesh did his Bachelors in Business Administration at BVIMR, New Delhi, and has a Stock Analysis and Portfolio Management diploma at BLB Institute of Financial Management.",
   },
+] as const;
+
+const board = [
   {
     name: "Shri. C.V. Sathyanarayana Murthy",
     role: "Technical Director",
-    bio: "",
   },
   {
     name: "Shri. N. Prabhu",
     role: "Dy. Director — Finance & Accounts",
-    bio: "",
   },
-];
+] as const;
 
 const leadership = [
   {
@@ -100,65 +95,61 @@ export default function OurTeamPage() {
               <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS Leadership</span>
             </div>
             <h1 className="font-display text-[clamp(2.4rem,5.5vw,4.2rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
-              The people behind the real
+              Leadership &amp;
               <br />
-              <span className="italic text-brand-red">strength.</span>
+              <span className="italic text-brand-red">core team.</span>
             </h1>
             <p className="mt-5 max-w-[460px] text-[15px] leading-[1.75] text-white/70">
-              Behind ARS Green Steel is a team of experienced leaders driving innovation, manufacturing
-              excellence, quality, sustainability, and customer trust.
+              Meet the leadership and core team of ARS Group.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="/contact"
-                className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
-              >
-                Talk to sales <ArrowRight size={14} />
-              </a>
-              <a
-                href="/about"
-                className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/80 transition hover:bg-white/[0.12]"
-              >
-                About ARS
-              </a>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Stats ── */}
-      <MotionSection className="border-b border-surface-100 bg-white py-14">
+      {/* ── Executive leadership ── */}
+      <MotionSection className="bg-white py-24">
         <div className="ars-container">
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-ink-900/10">
-            {stats.map((s) => (
-              <div key={s.label} className="flex flex-col px-0 lg:items-center lg:px-8 lg:text-center">
-                <span className="font-display text-[clamp(1.8rem,2.5vw,2.4rem)] font-extrabold leading-none tracking-[-0.03em] text-brand-blue">
-                  {s.value}
-                </span>
-                <span className="mb-1 mt-1.5 text-[12px] font-bold uppercase tracking-[0.06em] text-ink-900">
-                  {s.label}
-                </span>
-                <span className="max-w-[200px] text-[12px] leading-normal text-grey-600">{s.sub}</span>
-              </div>
+          <div className="mb-14 grid items-end gap-12 lg:grid-cols-2">
+            <div>
+              <SectionKicker variant="brand">Executive Leadership</SectionKicker>
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+                Managing Director and Executive Director.
+              </h2>
+            </div>
+            <p className="text-[15px] leading-[1.8] text-steel-700">
+              ARS Group&apos;s executive leadership is presented first, followed by the board and core team.
+            </p>
+          </div>
+          <div className="grid gap-6">
+            {executiveLeadership.map((m) => (
+              <article key={m.name} className="grid overflow-hidden rounded-2xl border-[1.5px] border-surface-100 bg-surface-50 md:grid-cols-[180px_minmax(0,1fr)]">
+                <div className="flex min-h-44 items-center justify-center bg-brand-blue/[0.06] p-8">
+                  <div className="flex h-24 w-24 items-center justify-center rounded-2xl bg-white font-display text-[28px] font-extrabold text-brand-blue ring-1 ring-brand-blue/10">
+                    {initials(m.name)}
+                  </div>
+                </div>
+                <div className="p-7 md:p-9">
+                  <p className="text-[12px] font-bold uppercase tracking-[0.08em] text-brand-red">{m.role}</p>
+                  <h3 className="mt-2 font-display text-[clamp(1.45rem,2.5vw,1.9rem)] font-bold text-ink-900">{m.name}</h3>
+                  <p className="mt-4 max-w-3xl text-[14px] leading-[1.8] text-steel-700">{m.bio}</p>
+                  <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.08em] text-grey-600">
+                    Approved portrait pending
+                  </p>
+                </div>
+              </article>
             ))}
           </div>
         </div>
       </MotionSection>
 
       {/* ── Board of directors ── */}
-      <MotionSection className="bg-white py-24">
+      <MotionSection className="bg-surface-50 py-24">
         <div className="ars-container">
-          <div className="mb-14 grid items-end gap-12 lg:grid-cols-2">
-            <div>
-              <SectionKicker variant="brand">Board of Directors</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                Leadership rooted in steel.
-              </h2>
-            </div>
-            <p className="text-[15px] leading-[1.8] text-steel-700">
-              The board pairs founder experience with technical, financial, and operational depth — the
-              foundation behind every ARS product decision.
-            </p>
+          <div className="mb-12">
+            <SectionKicker variant="brand">Board of Directors</SectionKicker>
+            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              Board leadership.
+            </h2>
           </div>
           <div className="grid gap-5 md:grid-cols-2">
             {board.map((m) => (
@@ -169,7 +160,6 @@ export default function OurTeamPage() {
                 <div>
                   <h3 className="font-display text-[18px] font-bold text-ink-900">{m.name}</h3>
                   <p className="mt-0.5 text-[12px] font-bold uppercase tracking-[0.06em] text-brand-red">{m.role}</p>
-                  {m.bio ? <p className="mt-3 text-[13px] leading-[1.7] text-steel-700">{m.bio}</p> : null}
                 </div>
               </div>
             ))}
@@ -178,18 +168,17 @@ export default function OurTeamPage() {
       </MotionSection>
 
       {/* ── Leadership team (with photos) ── */}
-      <MotionSection className="bg-surface-50 py-24">
+      <MotionSection className="bg-white py-24">
         <div className="ars-container">
           <div className="mb-14 grid items-end gap-12 lg:grid-cols-2">
             <div>
-              <SectionKicker variant="brand">Leadership Team</SectionKicker>
+              <SectionKicker variant="brand">Core Team</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                The team that runs the business.
+                Core functions across the business.
               </h2>
             </div>
             <p className="text-[15px] leading-[1.8] text-steel-700">
-              Senior leaders across global business, supply chain, and sales keep ARS supply, service, and
-              market presence consistent.
+              The approved core team covers global business, supply chain, and sales and marketing.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
@@ -248,28 +237,21 @@ export default function OurTeamPage() {
         <div className="ars-container relative z-10">
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div>
-              <SectionKicker variant="light">Join our team</SectionKicker>
+              <SectionKicker variant="light">Work with ARS</SectionKicker>
               <h2 className="mb-3 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
-                Build your future with ARS Green Steel.
+                Explore careers at ARS Green Steel.
               </h2>
               <p className="max-w-[420px] text-[14px] leading-[1.7] text-white/70">
-                Join a team driven by innovation, integrity, and manufacturing excellence while building a
-                rewarding career with purpose.
+                Learn more about current career opportunities with ARS Group.
               </p>
             </div>
             <div className="flex flex-shrink-0 flex-wrap gap-3">
-              <a
-                href="/contact"
+              <Link
+                href="/careers"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white transition hover:opacity-90"
               >
-                Talk to our technical team <ArrowRight size={15} />
-              </a>
-              <a
-                href="/become-a-dealer"
-                className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.15]"
-              >
-                Become a dealer
-              </a>
+                Explore careers <ArrowRight size={15} />
+              </Link>
             </div>
           </div>
         </div>
