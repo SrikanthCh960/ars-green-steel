@@ -108,11 +108,11 @@ const homeownerSectionCopy = "mt-5 max-w-2xl text-base leading-8 text-steel-700"
 const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
   "tmt-steel-bar-guide-homeowners": {
     eyebrow: "Homeowner guide",
-    heroBadge: "Trusted since 1987",
+    heroBadge: "Homeowner guide",
     heroTitle: "Your dream home deserves steel",
     heroAccent: "you can trust.",
     heroBody:
-      "ARS Green Steel helps homeowners choose TMT bars with confidence - from steel grade and durability to dealer access and cost planning.",
+      "Thermo-Mechanically Treated steel bars help homeowners understand product choice, quality, dealer access, and construction planning.",
     heroImage: "/ars-assets/home-owner-banner-1.png",
     heroImageAlt: "Homeowners standing outside a completed home",
     primaryCta: { label: "Explore products", href: "/products" },
@@ -163,7 +163,7 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
       {
         title: "Cost savings",
         body:
-          "High corrosion resistance and dependable strength can reduce long-term repair needs and support smarter material use.",
+          "Use the construction calculator to plan requirements before discussing product selection with a dealer or contractor.",
         icon: IndianRupee,
         image: "/ars-assets/ARSHOME4.jpg",
       },
@@ -275,12 +275,12 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
     },
   },
   "tmt-steel-bar-guide-engineers-architects": {
-    eyebrow: "Engineer guide",
+    eyebrow: "Engineers & architects",
     heroBadge: "Technical proof first",
     heroTitle: "A true partner in your pursuit",
     heroAccent: "of excellence.",
     heroBody:
-      "ARS TMT bars support engineers and architects with dependable product proof, chemical discipline, testing transparency, and certification-led confidence.",
+      "ARS TMT bars support engineers and architects with product, manufacturing, and quality information for design-stage discussions.",
     heroImage: "/ars-assets/our-quality-1.png",
     heroImageAlt: "ARS steel quality testing and technical review",
     primaryCta: { label: "View specifications", href: "/products/ars-550d#specifications" },
@@ -443,12 +443,12 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
     },
   },
   "tmt-steel-bar-guide-civil-contractors": {
-    eyebrow: "Contractor guide",
+    eyebrow: "Civil Circle / Contractors",
     heroBadge: "Site-ready support",
     heroTitle: "Superior quality for superior",
     heroAccent: "infrastructure.",
     heroBody:
-      "ARS supports civil contractors with dependable TMT bars, site testing confidence, calculation assistance, and a clearer route from product choice to supply.",
+      "ARS supports civil contractors with product guidance, quantity-planning tools, dealer access, and a clear project-enquiry route.",
     heroImage: "/ars-assets/ARSHOME1.jpg",
     heroImageAlt: "Construction site requiring dependable TMT steel",
     primaryCta: { label: "Request project quote", href: "/request-quote" },
@@ -989,11 +989,11 @@ function HomeownerProductRange() {
       title: "ARS 550D",
       subtitle: "High Strength TMT Bar",
       grade: "Fe 550D",
-      badge: "Most popular",
-      badgeColor: "bg-brand-red",
+      badge: "Core TMT grade",
+      badgeColor: "bg-brand-blue",
       image: "/ars-assets/products-all.png",
       href: "/products/ars-550d",
-      tags: ["Earthquake Resistant", "High Ductility"],
+      tags: ["High strength", "Ductility"],
     },
     {
       title: "ARS CRS 550D",
@@ -1001,17 +1001,7 @@ function HomeownerProductRange() {
       grade: "CRS 550D",
       image: "/ars-assets/CRS.png",
       href: "/products/ars-crs-550d",
-      tags: ["Coastal Ready", "Long Life"],
-    },
-    {
-      title: "ARS Green Steel",
-      subtitle: "Responsible Construction Steel",
-      grade: "Green",
-      badge: "Eco choice",
-      badgeColor: "bg-emerald-700",
-      image: "/ars-assets/ARS-green-bg.png",
-      href: "/green-steel",
-      tags: ["Green Steel", "Sustainable"],
+      tags: ["Corrosion resistance", "Exposed conditions"],
     },
   ];
 
@@ -1023,8 +1013,8 @@ function HomeownerProductRange() {
             <SectionKicker>Product range</SectionKicker>
             <h2 className={homeownerSectionTitle}>Useful ARS resources</h2>
             <p className={homeownerSectionCopy}>
-              Explore ARS steel choices for home construction. Each option is positioned for
-              specific site conditions, performance needs, and long-term confidence.
+              Compare the two available ARS TMT product paths before discussing the project with a
+              contractor or dealer.
             </p>
           </div>
           <Link
@@ -1090,7 +1080,7 @@ function HomeownerProductRange() {
                     href="/request-quote"
                     className="focus-ring inline-flex h-11 w-full items-center justify-center gap-2 rounded-[5px] bg-surface-50 px-4 text-sm font-bold text-brand-blue transition hover:bg-brand-blue hover:text-white"
                   >
-                    Download Brochure
+                    Request product information
                   </Link>
                 </div>
               </div>
@@ -1516,8 +1506,8 @@ function HomeownerFigmaContent({ config }: { config: AudienceGuideConfig }) {
                   <p className="font-technical text-xs font-black uppercase tracking-[0.22em] text-white/62">
                     Since
                   </p>
-                  <p className="font-display text-5xl font-bold">1987</p>
-                  <p className="text-sm font-semibold leading-6 text-white/70">Building trust through steel choices.</p>
+                  <p className="font-display text-3xl font-bold">ARS</p>
+                  <p className="text-sm font-semibold leading-6 text-white/70">Guidance for steel choices at home.</p>
                 </div>
               </div>
             </div>

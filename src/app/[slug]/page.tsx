@@ -18,6 +18,21 @@ const roadProjectSlug = "road-projects-tmt-steel-bars";
 const bridgesFlyoversProjectSlug = "bridges-projects-tmt-steel-bars";
 const institutionalProjectSlug = "institutions-projects-tmt-steel-bars";
 
+const audienceMetadata = {
+  "tmt-steel-bar-guide-homeowners": {
+    title: "TMT Steel Guide for Home Owners | ARS Green Steel",
+    description: "A practical guide for home owners choosing ARS TMT steel, comparing product options, and finding dealer support.",
+  },
+  "tmt-steel-bar-guide-engineers-architects": {
+    title: "TMT Steel Guide for Engineers & Architects | ARS Green Steel",
+    description: "Product, manufacturing, quality, and specification guidance for engineers and architects evaluating ARS TMT steel.",
+  },
+  "tmt-steel-bar-guide-civil-contractors": {
+    title: "TMT Steel Guide for Civil Contractors | ARS Green Steel",
+    description: "Product guidance, quantity-planning tools, dealer access, and project-enquiry support for civil contractors.",
+  },
+} as const;
+
 function isAudienceGuideSlug(slug: string): slug is AudienceGuideSlug {
   return audienceGuideSlugs.includes(slug as AudienceGuideSlug);
 }
@@ -61,6 +76,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       path: page.path,
       image: "/legacy-assets/images/TMT-Bars.png",
     });
+  }
+
+  if (slug in audienceMetadata) {
+    const audiencePage = audienceMetadata[slug as keyof typeof audienceMetadata];
+    return createPageMetadata({ title: audiencePage.title, description: audiencePage.description, path: page.path });
   }
 
   return {
