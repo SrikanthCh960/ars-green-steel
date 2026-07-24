@@ -113,18 +113,18 @@ export default function CertificationsPage() {
               dealers, and project buyers.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
+              <Link
                 href="/contact"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
               >
                 Request certificate <ArrowRight size={14} />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/products"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/80 transition hover:bg-white/[0.12]"
               >
                 View products
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -208,6 +208,19 @@ export default function CertificationsPage() {
               );
             })}
           </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection id="sgbc-recognition" className="bg-surface-50 py-16 lg:py-20">
+        <div className="ars-container max-w-4xl">
+          <SectionKicker variant="brand">Sustainability documentation</SectionKicker>
+          <h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.08] text-ink-900">SGBC certificate</h2>
+          <Link
+            href="/contact"
+            className="focus-ring mt-7 inline-flex h-11 items-center gap-2 rounded-[6px] border border-ink-900/15 px-5 text-sm font-bold text-brand-blue transition hover:border-brand-blue hover:bg-white"
+          >
+            Contact ARS for certificate information <ArrowRight size={15} />
+          </Link>
         </div>
       </MotionSection>
 
