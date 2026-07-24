@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { DealerDistributorPage } from "@/components/dealer-distributor-page";
 import { AudienceGuidePage } from "@/components/homeowners-guide-page";
 import { LegacyPageRenderer } from "@/components/legacy-page-renderer";
 import { bridgesFlyoversProjectPage, institutionalProjectPage, ProjectTypePage, roadProjectPage } from "@/components/project-type-page";
@@ -10,13 +11,13 @@ const audienceGuideSlugs = [
   "tmt-steel-bar-guide-homeowners",
   "tmt-steel-bar-guide-engineers-architects",
   "tmt-steel-bar-guide-civil-contractors",
-  "steel-distributors-dealers",
 ] as const;
 
 type AudienceGuideSlug = (typeof audienceGuideSlugs)[number];
 const roadProjectSlug = "road-projects-tmt-steel-bars";
 const bridgesFlyoversProjectSlug = "bridges-projects-tmt-steel-bars";
 const institutionalProjectSlug = "institutions-projects-tmt-steel-bars";
+const dealerDistributorSlug = "steel-distributors-dealers";
 
 const audienceMetadata = {
   "tmt-steel-bar-guide-homeowners": {
@@ -32,6 +33,11 @@ const audienceMetadata = {
     description: "Product guidance, quantity-planning tools, dealer access, and project-enquiry support for civil contractors.",
   },
 } as const;
+
+const dealerDistributorMetadata = {
+  title: "Dealer & Distributor Enquiries | ARS Green Steel",
+  description: "Contact ARS to discuss Dealer or Distributor interest, review product information, and begin a commercial enquiry.",
+};
 
 function isAudienceGuideSlug(slug: string): slug is AudienceGuideSlug {
   return audienceGuideSlugs.includes(slug as AudienceGuideSlug);
@@ -78,6 +84,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     });
   }
 
+  if (slug === dealerDistributorSlug) {
+    return createPageMetadata({
+      title: dealerDistributorMetadata.title,
+      description: dealerDistributorMetadata.description,
+      path: page.path,
+      image: "/ars-assets/Contact_banner.png",
+    });
+  }
+
   if (slug in audienceMetadata) {
     const audiencePage = audienceMetadata[slug as keyof typeof audienceMetadata];
     return createPageMetadata({ title: audiencePage.title, description: audiencePage.description, path: page.path });
@@ -112,6 +127,10 @@ export default async function LegacyPage({ params }: { params: Promise<{ slug: s
 
   if (isAudienceGuideSlug(slug)) {
     return <AudienceGuidePage slug={slug} />;
+  }
+
+  if (slug === dealerDistributorSlug) {
+    return <DealerDistributorPage />;
   }
 
   if (slug === roadProjectSlug) {

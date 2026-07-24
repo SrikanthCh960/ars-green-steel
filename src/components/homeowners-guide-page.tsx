@@ -11,12 +11,10 @@ import {
   Handshake,
   Home,
   IndianRupee,
-  MapPin,
   Phone,
   Ruler,
   ShieldCheck,
   Sparkles,
-  Store,
   TestTube2,
   Truck,
   Waves,
@@ -30,8 +28,7 @@ import { SiteHeader } from "@/components/site-header";
 type AudienceGuideSlug =
   | "tmt-steel-bar-guide-homeowners"
   | "tmt-steel-bar-guide-engineers-architects"
-  | "tmt-steel-bar-guide-civil-contractors"
-  | "steel-distributors-dealers";
+  | "tmt-steel-bar-guide-civil-contractors";
 
 type AudienceCard = {
   title: string;
@@ -609,180 +606,6 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
       primaryLabel: "Request quote",
       primaryHref: "/request-quote",
       secondaryLabel: "Call ARS",
-      secondaryHref: "/contact",
-    },
-  },
-  "steel-distributors-dealers": {
-    eyebrow: "Dealer guide",
-    heroBadge: "Dealer growth path",
-    heroTitle: "Construction excellence,",
-    heroAccent: "safely delivered.",
-    heroBody:
-      "ARS helps dealers and distributors build local demand with dependable product quality, proof-backed supply, and a clearer enquiry path.",
-    heroImage: "/ars-assets/Contact_banner.png",
-    heroImageAlt: "ARS dealer and support communication",
-    primaryCta: { label: "Become a dealer", href: "/become-a-dealer" },
-    secondaryCta: { label: "Find dealer support", href: "/contact" },
-    stats: [
-      { value: "ARS", label: "Trusted product" },
-      { value: "550D", label: "Core demand" },
-      { value: "CRS", label: "Premium option" },
-      { value: "B2B", label: "Dealer support" },
-    ],
-    intro: {
-      eyebrow: "Dealer confidence",
-      title: "Build local demand with product proof and ARS support.",
-      body:
-        "Dealers need more than product availability. They need quality confidence, clear product stories, technical proof, and a dependable route for enquiries.",
-    },
-    featurePanels: [
-      {
-        title: "Let us build excellence together.",
-        body:
-          "A strong dealer relationship depends on consistent quality, clear communication, and products that customers can trust.",
-        icon: Handshake,
-        image: "/ars-assets/products-all.png",
-      },
-      {
-        title: "High-quality TMT bars support safer construction.",
-        body:
-          "High-quality TMT bars provide strength, durability, and flexibility that help dealers recommend ARS with confidence.",
-        icon: Store,
-        image: "/ars-assets/TMT-Bars.png",
-      },
-    ],
-    carousel: [
-      {
-        title: "Product confidence",
-        body:
-          "ARS 550D and CRS 550D product stories help dealers answer customer questions with clearer proof.",
-        icon: ShieldCheck,
-        image: "/ars-assets/TMT-Bars.png",
-        href: "/products",
-        cta: "View products",
-      },
-      {
-        title: "Quality and certification proof",
-        body:
-          "SGS and certification-led content supports dealer conversations with builders, contractors, and homeowners.",
-        icon: BadgeCheck,
-        image: "/ars-assets/awards-certificates-img2.png",
-        href: "/certifications",
-        cta: "View proof",
-      },
-      {
-        title: "Local demand routing",
-        body:
-          "Dealer locator and enquiry paths help connect product interest to local buying support.",
-        icon: MapPin,
-        image: "/ars-assets/Contact_banner.png",
-        href: "/dealer-locator",
-        cta: "Dealer locator",
-      },
-      {
-        title: "Dealer partnership",
-        body:
-          "The dealer route creates a dedicated path for business interest, product supply, and local sales support.",
-        icon: Store,
-        image: "/ars-assets/ARSHOME4.jpg",
-        href: "/become-a-dealer",
-        cta: "Apply now",
-      },
-      {
-        title: "Steel price support",
-        body:
-          "Prepared price guidance helps dealers and buyers move toward an informed sales conversation.",
-        icon: IndianRupee,
-        image: "/ars-assets/products-all.png",
-        href: "/steel-price-today",
-        cta: "Check price",
-      },
-      {
-        title: "Contractor confidence",
-        body:
-          "High-quality TMT bars support safer, more resilient projects for dealer customers.",
-        icon: Wrench,
-        image: "/ars-assets/ARSHOME1.jpg",
-      },
-    ],
-    proof: {
-      eyebrow: "Dealer network",
-      title: "A clearer route from local demand to ARS product confidence.",
-      body:
-        "The dealer page should help prospective partners understand the product story, trust proof, and next step without forcing them through generic contact copy.",
-      image: "/ars-assets/products-all.png",
-      imageAlt: "ARS TMT bars for dealer distribution",
-      badge: "Product proof, demand support, and dealer enquiry in one flow.",
-      items: [
-        {
-          title: "Product range clarity",
-          body: "ARS 550D and CRS 550D help dealers serve different site conditions.",
-          icon: Store,
-        },
-        {
-          title: "Trust-led selling",
-          body: "Certification and testing pages give sales teams better proof points.",
-          icon: BadgeCheck,
-        },
-        {
-          title: "Business enquiry path",
-          body: "Dedicated dealer CTAs separate partnership interest from buyer enquiries.",
-          icon: Handshake,
-        },
-      ],
-    },
-    resources: [
-      {
-        title: "Become a dealer",
-        body: "Use the dedicated dealer enquiry path for partnership interest.",
-        href: "/become-a-dealer",
-        icon: Store,
-        image: "/ars-assets/Contact_banner.png",
-      },
-      {
-        title: "Dealer locator",
-        body: "See how local buying routes connect product interest to dealer discovery.",
-        href: "/dealer-locator",
-        icon: MapPin,
-        image: "/ars-assets/ARSHOME4.jpg",
-      },
-      {
-        title: "Product range",
-        body: "Review ARS 550D and CRS 550D before a dealer conversation.",
-        href: "/products",
-        icon: ShieldCheck,
-        image: "/ars-assets/products-all.png",
-      },
-    ],
-    resourceSection: {
-      eyebrow: "Useful resources",
-      title: "Dealer tools that support local demand and product confidence.",
-      body:
-        "Bring partnership information, product proof, dealer discovery, and price support into one cleaner business path.",
-      ctaLabel: "Become a dealer",
-      ctaHref: "/become-a-dealer",
-    },
-    support: {
-      eyebrow: "Dealer support",
-      title: "Get support from the ARS dealer team.",
-      body:
-        "Talk to ARS about partnership onboarding, product confidence, price guidance, and routing local buyer interest to the right next step.",
-      phoneLabel: "Dealer desk",
-      phone: "+91 97104 11111",
-      phoneHref: "tel:+919710411111",
-      phoneNote: "For dealership, product, and business enquiries",
-      tags: ["Product support", "Price guidance", "Territory enquiry", "Partner onboarding"],
-      image: "/ars-assets/Contact_banner.png",
-      imageAlt: "ARS dealer communication and support",
-    },
-    finalCta: {
-      eyebrow: "Dealer programme",
-      headline: "Ready to grow with ARS Green Steel?",
-      body:
-        "Start the dealer enquiry path and let the ARS team guide partnership, product, and territory conversations.",
-      primaryLabel: "Become a dealer",
-      primaryHref: "/become-a-dealer",
-      secondaryLabel: "Talk to sales",
       secondaryHref: "/contact",
     },
   },
