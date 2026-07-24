@@ -119,6 +119,19 @@ const audiences = [
   },
 ];
 
+const visionMission = [
+  {
+    label: "Vision",
+    body: "ARS to become the most Trusted and reliable Brand, committed to sustainability, carbon neutrality and enduring stakeholders’ delight.",
+    tone: "light",
+  },
+  {
+    label: "Mission",
+    body: "To develop and execute new business models. To pursue latest technology for excellence. To source, develop and retain best talents. To perform for our customers the highest level of quality services at competitive price.",
+    tone: "dark",
+  },
+] as const;
+
 const contacts = [
   {
     icon: <Phone size={18} />,
@@ -308,36 +321,50 @@ export default function AboutPage() {
 
       <MotionSection className="bg-surface-50 py-24" id="vision">
         <div className="ars-container">
-          <div className="mb-12 max-w-3xl">
-            <SectionKicker variant="brand">Our Vision · Mission · Values</SectionKicker>
+          <div className="mb-12 max-w-2xl">
+            <SectionKicker variant="brand">Our Direction</SectionKicker>
             <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-              Driven by purpose. Built for the future.
+              Vision &amp; Mission
             </h2>
-            <p className="mt-5 text-[15px] leading-[1.8] text-steel-700">
-              Every ARS Green Steel product reflects our commitment to manufacturing excellence, sustainable
-              innovation, uncompromising quality, and long-term customer trust.
-            </p>
           </div>
           <div className="grid gap-5 lg:grid-cols-2">
-            <article className="rounded-2xl border border-brand-blue/10 bg-white p-7 shadow-[var(--shadow-soft)]">
-              <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-red">Our vision</p>
-              <h3 className="mt-3 font-display text-[1.6rem] font-bold leading-tight text-ink-900">
-                Shaping a stronger, greener India through sustainable steel.
-              </h3>
-              <p className="mt-4 text-[14px] leading-[1.75] text-steel-700">
-                To lead India&apos;s transition to sustainable steel manufacturing, building stronger
-                infrastructure, empowering communities, and creating a greener future for generations.
-              </p>
-            </article>
-            <article className="rounded-2xl bg-brand-blue p-7 text-white">
-              <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-brand-red">Our mission</p>
-              <h3 className="mt-3 font-display text-[1.6rem] font-bold leading-tight">Building excellence through every bar of steel.</h3>
-              <p className="mt-4 text-[14px] leading-[1.75] text-white/72">
-                Deliver BIS-certified Fe550D and CRS 550D TMT bars with consistent quality, advance Green
-                Steel manufacturing, build lasting partnerships, and invest in the technology and people
-                that strengthen India&apos;s infrastructure.
-              </p>
-            </article>
+            {visionMission.map((item) => (
+              <article
+                key={item.label}
+                className={
+                  item.tone === "dark"
+                    ? "rounded-2xl bg-brand-blue p-7 text-white"
+                    : "rounded-2xl border border-brand-blue/10 bg-white p-7 shadow-[var(--shadow-soft)]"
+                }
+              >
+                <h3
+                  className={
+                    item.tone === "dark"
+                      ? "font-display text-[1.6rem] font-bold leading-tight text-white"
+                      : "font-display text-[1.6rem] font-bold leading-tight text-ink-900"
+                  }
+                >
+                  {item.label}
+                </h3>
+                <p
+                  className={
+                    item.tone === "dark"
+                      ? "mt-4 text-[15px] leading-[1.8] text-white/80"
+                      : "mt-4 text-[15px] leading-[1.8] text-steel-700"
+                  }
+                >
+                  {item.body}
+                </p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8">
+            <Link
+              href="/manufacturing"
+              className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-blue px-6 text-sm font-bold text-white transition hover:bg-brand-blue-dark"
+            >
+              Explore manufacturing <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
       </MotionSection>
