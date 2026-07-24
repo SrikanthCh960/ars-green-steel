@@ -1,5 +1,6 @@
 import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   Award,
@@ -26,7 +27,7 @@ export const metadata = createPageMetadata({
 
 const stats = [
   { value: "CRS", label: "Grade", sub: "Corrosion-resistant Fe-550D for long-life structures." },
-  { value: "560 MPa", label: "Yield strength", sub: "Minimum yield strength with corrosion-resistant chemistry." },
+  { value: "Fe-550D", label: "Grade", sub: "Corrosion-resistant TMT steel for exposed conditions." },
   { value: "Coastal", label: "Best fit", sub: "Built for humid, exposed, and coastal construction zones." },
   { value: "IS 1786", label: "Standard", sub: "Manufactured to the IS 1786:2008 TMT benchmark." },
 ];
@@ -35,7 +36,7 @@ const specRows = [
   { label: "Grade", value: "Fe-550D corrosion-resistant TMT bars per IS 1786" },
   { label: "Primary promise", value: "Improved corrosion resistance for exposed and durability-focused structures" },
   { label: "Best fit", value: "Coastal projects, humid zones, water-exposed structures, long-life concrete work" },
-  { label: "Alloy chemistry", value: "Copper, Chromium, Nickel, and Molybdenum support enhanced corrosion resistance" },
+  { label: "Alloy chemistry", value: "Copper, Chromium, Nickel, and Molybdenum are included in the approved source content" },
   { label: "Next best step", value: "Confirm site condition, rod size, quantity, dealer availability, and quote" },
 ];
 
@@ -47,13 +48,13 @@ const whyCards = [
   },
   {
     icon: <Building2 size={20} />,
-    title: "Longer structural life",
-    desc: "Helps minimise corrosion-related deterioration in humid, coastal, and high-salinity conditions.",
+    title: "Durability-focused option",
+    desc: "Designed for humid, coastal, high-salinity, and other corrosion-prone project conditions.",
   },
   {
     icon: <ShieldCheck size={20} />,
     title: "High strength & ductility",
-    desc: "Fe550D mechanical performance supports dependable structural reinforcement under dynamic loads.",
+    desc: "The grade combines high strength and ductility with corrosion resistance.",
   },
   {
     icon: <ClipboardList size={20} />,
@@ -63,11 +64,9 @@ const whyCards = [
 ];
 
 const properties = [
-  { label: "Yield Strength", value: "≥ 560 MPa" },
-  { label: "UTS", value: "≥ 620 MPa" },
-  { label: "Elongation", value: "≥ 16%" },
-  { label: "UTS / YS Ratio", value: "≥ 1.08" },
-  { label: "Bar Sizes", value: "8mm – 32mm" },
+  { label: "Yield Strength", value: "550 N/mm² minimum" },
+  { label: "Tensile Strength", value: "600 N/mm² minimum" },
+  { label: "Micro-alloys", value: "Copper, chromium, nickel, and molybdenum" },
   { label: "Standard", value: "IS 1786:2008" },
 ];
 
@@ -140,18 +139,18 @@ export default function ArsCrs550DPage() {
                 <span className="italic text-brand-red">long-lasting structures.</span>
               </h1>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a
+                <Link
                   href="/request-quote"
                   className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
                 >
                   <FileText size={14} /> Request CRS quote
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/dealer-locator"
                   className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/80 transition hover:bg-white/[0.12]"
                 >
                   <MapPin size={14} /> Find a dealer
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -333,7 +332,7 @@ export default function ArsCrs550DPage() {
           </div>
           <div className="grid gap-5 md:grid-cols-3">
             {actions.map((a) => (
-              <a
+              <Link
                 key={a.title}
                 href={a.href}
                 className="focus-ring group flex flex-col gap-5 rounded-2xl border-[1.5px] border-surface-100 bg-white p-7 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg"
@@ -348,7 +347,7 @@ export default function ArsCrs550DPage() {
                 <span className="inline-flex items-center gap-1.5 text-[12px] font-bold text-brand-red transition-all duration-200 group-hover:gap-2.5">
                   {a.cta} <ArrowRight size={12} />
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -373,18 +372,18 @@ export default function ArsCrs550DPage() {
               </p>
             </div>
             <div className="flex flex-shrink-0 flex-wrap gap-3">
-              <a
+              <Link
                 href="/request-quote"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white transition hover:opacity-90"
               >
                 <FileText size={15} /> Request CRS quote
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/products/ars-550d"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.15]"
               >
                 <GitCompare size={15} /> Compare with 550D
-              </a>
+              </Link>
             </div>
           </div>
         </div>

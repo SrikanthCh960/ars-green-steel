@@ -15,6 +15,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { createPageMetadata } from "@/lib/site-metadata";
+import { productCatalog } from "@/lib/product-catalog";
 import { AudienceJourneySection } from "@/components/audience-journey-section";
 import { ContactCta } from "@/components/contact-cta";
 import { HomeHero } from "@/components/home-hero";
@@ -50,30 +51,13 @@ const buyingActions = [
 ];
 
 export const metadata = createPageMetadata({
-  title: "ARS Group | Certified TMT Steel",
+  title: "ARS Group | TMT Steel for Construction",
   description:
-    "Modern website prototype for ARS Group, focused on certified TMT steel, dealer discovery, pricing, and construction confidence.",
+    "Explore ARS TMT steel products, quality and manufacturing information, dealer support, price guidance, and project planning tools.",
   path: "/",
 });
 
-const products = [
-  {
-    name: "ARS CRS 550D",
-    eyebrow: "Corrosion resistant TMT bars",
-    detail: "Engineered for high-salinity, high-humidity, and corrosion-prone environments where long-term durability matters.",
-    href: "/products/ars-crs-550d",
-    image: "/ars-assets/CRS.png",
-    points: ["Corrosion resistance", "High-salinity protection", "Longer structural life"],
-  },
-  {
-    name: "ARS 550D",
-    eyebrow: "High-strength TMT bars",
-    detail: "High-ductility TMT bars designed for residential, commercial, and earthquake-resistant construction.",
-    href: "/products/ars-550d",
-    image: "/ars-assets/TMT-Bars.png",
-    points: ["Earthquake-resistant performance", "Superior bendability & ductility", "High-strength TMT bars"],
-  },
-];
+const products = [...productCatalog].reverse();
 
 const certificateCards = [
   {
@@ -246,16 +230,16 @@ export default function Home() {
 
                 <div className="flex min-w-0 flex-col justify-center p-6 lg:p-8">
                   <p className="font-technical text-xs font-bold uppercase tracking-[0.24em] text-brand-blue">
-                    {product.eyebrow}
+                    {product.homeEyebrow}
                   </p>
                   <h3 className="mt-3 font-display text-[clamp(2rem,3vw,3.15rem)] font-bold leading-[1.04] tracking-normal text-ink-900">
                     {product.name}
                   </h3>
                   <p className="mt-4 max-w-3xl text-base leading-7 text-steel-700 lg:text-lg lg:leading-8">
-                    {product.detail}
+                    {product.description}
                   </p>
                   <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                    {product.points.map((point) => (
+                    {product.homePoints.map((point) => (
                       <div key={point} className="flex items-start gap-2 text-sm font-semibold leading-5 text-steel-700">
                         <BadgeCheck size={16} className="mt-0.5 shrink-0 text-green-steel" />
                         <span>{point}</span>
@@ -267,7 +251,7 @@ export default function Home() {
                 <div className="flex flex-col justify-center gap-3 border-t border-ink-900/10 p-6 lg:border-l lg:border-t-0 lg:p-8">
                   <Link
                     className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-bold text-white transition hover:bg-brand-blue-dark"
-                    href={product.href}
+                    href={product.route}
                   >
                     View product <ArrowRight size={17} />
                   </Link>

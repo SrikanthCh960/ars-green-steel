@@ -1,5 +1,7 @@
 import { createPageMetadata } from "@/lib/site-metadata";
+import { missingProductLeafletMessage, productCatalog, productComparisonRows } from "@/lib/product-catalog";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   Calculator,
@@ -18,8 +20,7 @@ import { SiteHeader } from "@/components/site-header";
 
 export const metadata = createPageMetadata({
   title: "Products | ARS Green Steel",
-  description:
-    "Explore the ARS range — ARS 550D and ARS CRS 550D Fe-550D TMT bars, sizes 8–32mm, technical specifications, comparison, and brochure.",
+  description: "Compare ARS 550D and ARS CRS 550D TMT bars, review technical information, and choose the grade that fits your site conditions.",
   path: "/products",
 });
 
@@ -30,35 +31,10 @@ const stats = [
   { value: "IS 1786", label: "Standard", sub: "Both grades manufactured to the IS 1786:2008 benchmark." },
 ];
 
-const products = [
-  {
-    title: "ARS 550D",
-    tag: "Core TMT grade",
-    desc: "High-strength ductile TMT bars for residential, commercial, and infrastructure construction.",
-    points: ["High ductility", "Strong bendability", "Fe-550D · IS 1786:2008"],
-    href: "/products/ars-550d",
-    image: "/ars-assets/TMT-Bars.png",
-    icon: <ShieldCheck size={20} />,
-  },
-  {
-    title: "ARS CRS 550D",
-    tag: "Corrosion-resistant grade",
-    desc: "Corrosion-resistant TMT bars for coastal, humid, exposed, and long-life structures.",
-    points: ["Corrosion resistance", "Durability focus", "Fe-550D CRS · IS 1786:2008"],
-    href: "/products/ars-crs-550d",
-    image: "/ars-assets/ARSHOME2.jpg",
-    icon: <Waves size={20} />,
-  },
-];
-
-const comparison = [
-  { attr: "Best for", a: "General construction", b: "Exposed & coastal sites" },
-  { attr: "Environment", a: "Standard conditions", b: "Salt, humidity, water exposure" },
-  { attr: "Corrosion resistance", a: "Standard TMT", b: "Enhanced (CRS)" },
-  { attr: "Grade & standard", a: "Fe-550D · IS 1786:2008", b: "Fe-550D CRS · IS 1786:2008" },
-  { attr: "Bar sizes", a: "8mm – 32mm", b: "8mm – 32mm" },
-  { attr: "Typical use", a: "Homes, commercial, infrastructure", b: "Coastal, bridges, drainage, long-life concrete" },
-];
+const products = productCatalog.map((product) => ({
+  ...product,
+  icon: product.slug === "ars-550d" ? <ShieldCheck size={20} /> : <Waves size={20} />,
+}));
 
 const sizes = [
   { size: "8mm", use: "Light residential members, rings, and smaller reinforcement." },
@@ -122,18 +98,18 @@ export default function ProductsPage() {
               through the ARS range.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
+              <Link
                 href="/tmt-calculator"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
               >
                 <Calculator size={14} /> Calculate steel
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/request-quote"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/80 transition hover:bg-white/[0.12]"
               >
                 <FileText size={14} /> Request quote
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -175,22 +151,22 @@ export default function ProductsPage() {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {products.map((p) => (
-              <a
-                key={p.title}
-                href={p.href}
+              <Link
+                key={p.name}
+                href={p.route}
                 className="focus-ring group overflow-hidden rounded-2xl border-[1.5px] border-surface-100 bg-white transition duration-200 hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <div className="relative h-56 overflow-hidden bg-ink-950">
                   <Image
                     src={p.image}
-                    alt={`${p.title} TMT bars`}
+                    alt={`${p.name} TMT bars`}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition duration-500 group-hover:scale-105"
                   />
                   <div className="absolute left-5 top-5">
                     <span className="rounded-full bg-brand-blue px-3 py-1.5 text-[11px] font-bold tracking-[0.08em] text-white">
-                      {p.tag}
+                      {p.overviewTag}
                     </span>
                   </div>
                 </div>
@@ -198,10 +174,10 @@ export default function ProductsPage() {
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/[0.06] text-brand-blue">
                     {p.icon}
                   </div>
-                  <h3 className="font-display text-[22px] font-bold text-ink-900">{p.title}</h3>
-                  <p className="mt-3 text-[14px] leading-[1.7] text-steel-700">{p.desc}</p>
+                  <h3 className="font-display text-[22px] font-bold text-ink-900">{p.name}</h3>
+                  <p className="mt-3 text-[14px] leading-[1.7] text-steel-700">{p.description}</p>
                   <div className="mt-5 flex flex-col gap-2">
-                    {p.points.map((pt) => (
+                    {p.overviewPoints.map((pt) => (
                       <div key={pt} className="flex items-center gap-2.5">
                         <CheckCircle2 size={15} className="shrink-0 text-brand-red" />
                         <span className="text-[13px] font-medium text-steel-700">{pt}</span>
@@ -209,10 +185,10 @@ export default function ProductsPage() {
                     ))}
                   </div>
                   <span className="mt-6 inline-flex items-center gap-1.5 text-[13px] font-bold text-brand-red transition-all duration-200 group-hover:gap-2.5">
-                    View {p.title} <ArrowRight size={14} />
+                    View {p.name} <ArrowRight size={14} />
                   </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -245,33 +221,33 @@ export default function ProductsPage() {
                 </tr>
               </thead>
               <tbody>
-                {comparison.map((row, i) => (
+                {productComparisonRows.map((row, i) => (
                   <tr key={row.attr} className={i % 2 === 0 ? "bg-white/[0.03]" : ""}>
                     <th scope="row" className="px-5 py-4 text-[12px] font-semibold uppercase tracking-[0.04em] text-white">{row.attr}</th>
-                    <td className="px-5 py-4 text-[13px] leading-[1.5] text-white">{row.a}</td>
-                    <td className="px-5 py-4 text-[13px] leading-[1.5] text-white">{row.b}</td>
+                    <td className="px-5 py-4 text-[13px] leading-[1.5] text-white">{row.standard}</td>
+                    <td className="px-5 py-4 text-[13px] leading-[1.5] text-white">{row.crs}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
+            <Link
               href="/products/ars-550d"
               className="focus-ring inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[13px] font-bold text-brand-blue transition hover:opacity-90"
             >
               View ARS 550D <ArrowRight size={13} />
-            </a>
-            <a
+            </Link>
+            <Link
               href="/products/ars-crs-550d"
               className="focus-ring inline-flex items-center gap-2 rounded-full border-[1.5px] border-white/30 px-5 py-2.5 text-[13px] font-semibold text-white transition hover:bg-white/[0.12]"
             >
               View ARS CRS 550D <ArrowRight size={13} />
-            </a>
+            </Link>
             <span
               aria-disabled="true"
               className="inline-flex cursor-not-allowed items-center gap-2 rounded-full border-[1.5px] border-white/20 px-5 py-2.5 text-[13px] font-semibold text-white/55"
-              title="The approved product leaflet is not yet available for download."
+              title={missingProductLeafletMessage}
             >
               Product leaflets pending <Download size={13} />
             </span>
@@ -317,18 +293,18 @@ export default function ProductsPage() {
             <div>
               <SectionKicker variant="brand">Technical &amp; Downloads</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                Specifications and brochure.
+                Specifications and product information.
               </h2>
             </div>
             <p className="text-[15px] leading-[1.8] text-steel-700">
-              Jump straight to the technical detail for each grade, or request the product brochure for
-              your records.
+              Jump straight to the technical detail for each grade, or request product information from
+              the ARS team.
             </p>
           </div>
           <div className="grid gap-5 lg:grid-cols-[1.4fr_1fr]">
             <div className="grid gap-4 sm:grid-cols-3">
               {techLinks.map((t) => (
-                <a
+                <Link
                   key={t.title}
                   href={t.href}
                   className="focus-ring group flex flex-col rounded-2xl border-[1.5px] border-surface-100 bg-white p-6 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg"
@@ -339,7 +315,7 @@ export default function ProductsPage() {
                   <span className="mt-5 inline-flex items-center gap-1.5 text-[12px] font-bold text-brand-red transition-all duration-200 group-hover:gap-2.5">
                     Open <ArrowRight size={12} />
                   </span>
-                </a>
+                </Link>
               ))}
             </div>
             <div className="flex flex-col justify-between rounded-2xl bg-brand-blue p-8">
@@ -347,18 +323,15 @@ export default function ProductsPage() {
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-brand-red/40 bg-brand-red/25 text-brand-red">
                   <Download size={20} />
                 </div>
-                <h3 className="mt-6 font-display text-[20px] font-bold text-white">Product brochure</h3>
-                <p className="mt-3 text-[14px] leading-[1.7] text-white/70">
-                  The full ARS product brochure is being prepared. Request a copy and the sales team will
-                  share it directly.
-                </p>
+                <h3 className="mt-6 font-display text-[20px] font-bold text-white">Product leaflet</h3>
+                <p className="mt-3 text-[14px] leading-[1.7] text-white/70">{missingProductLeafletMessage}</p>
               </div>
-              <a
+              <Link
                 href="/request-quote"
                 className="focus-ring mt-7 inline-flex w-fit items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
               >
-                Request brochure <ArrowRight size={14} />
-              </a>
+                Request product information <ArrowRight size={14} />
+              </Link>
             </div>
           </div>
         </div>
@@ -382,18 +355,18 @@ export default function ProductsPage() {
               </p>
             </div>
             <div className="flex flex-shrink-0 flex-wrap gap-3">
-              <a
+              <Link
                 href="/request-quote"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white transition hover:opacity-90"
               >
                 <FileText size={15} /> Request quote
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/tmt-calculator"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.15]"
               >
                 <Calculator size={15} /> Calculate steel
-              </a>
+              </Link>
             </div>
           </div>
         </div>

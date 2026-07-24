@@ -1,5 +1,6 @@
 import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   Building2,
@@ -26,9 +27,9 @@ export const metadata = createPageMetadata({
 });
 
 const stats = [
-  { value: "550D", label: "Grade", sub: "High-strength ductile TMT steel for construction confidence." },
-  { value: "8–32", label: "Bar sizes (mm)", sub: "Available across standard reinforcement sizes." },
-  { value: "BIS", label: "Certified", sub: "Manufactured to IS 1786 and supported by SGS and SERC testing." },
+  { value: "550D", label: "Core grade", sub: "High-strength ductile TMT steel for construction confidence." },
+  { value: "Fe-550D", label: "TMT grade", sub: "Ductile TMT steel for construction." },
+  { value: "IS 1786", label: "Standard", sub: "Manufactured to the IS 1786:2008 benchmark." },
   { value: "550 MPa", label: "Yield strength", sub: "Minimum yield strength for dependable structural performance." },
 ];
 
@@ -36,7 +37,7 @@ const specRows = [
   { label: "Grade", value: "Fe-550D TMT bars per IS 1786" },
   { label: "Primary promise", value: "High strength with improved ductility for safer structures" },
   { label: "Use cases", value: "Homes, apartments, commercial structures, infrastructure members" },
-  { label: "Key properties", value: "High strength, ductility, bendability, weldability, and strong concrete bonding" },
+  { label: "Key properties", value: "High strength, ductility, bendability, and concrete bonding" },
   { label: "Next best step", value: "Calculate requirement, check dealer availability, or request a quote" },
 ];
 
@@ -44,7 +45,7 @@ const whyCards = [
   {
     icon: <Zap size={20} />,
     title: "Ductility",
-    desc: "Low sulphur and phosphorus content supports deformation under load and dependable seismic performance.",
+    desc: "Ductility supports the deformation capacity needed for reinforced concrete construction.",
   },
   {
     icon: <Building2 size={20} />,
@@ -58,17 +59,14 @@ const whyCards = [
   },
   {
     icon: <FileText size={20} />,
-    title: "Certified quality",
-    desc: "BIS certified and supported by SGS testing, SERC certification, and stringent in-house quality control.",
+    title: "Quality and manufacturing",
+    desc: "Review ARS quality and manufacturing information when developing your project specification.",
   },
 ];
 
 const properties = [
   { label: "Yield Strength", value: "≥ 550 MPa" },
   { label: "UTS", value: "≥ 600 MPa" },
-  { label: "Elongation", value: "≥ 16%" },
-  { label: "TS / YS Ratio", value: "≥ 1.10" },
-  { label: "Bar Sizes", value: "8mm – 32mm" },
   { label: "Standard", value: "IS 1786:2008" },
 ];
 
@@ -141,18 +139,18 @@ export default function Ars550DPage() {
                 <span className="italic text-brand-red">strong, durable construction.</span>
               </h1>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a
+                <Link
                   href="/request-quote"
                   className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
                 >
                   <FileText size={14} /> Request 550D quote
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/tmt-calculator"
                   className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/80 transition hover:bg-white/[0.12]"
                 >
                   <Calculator size={14} /> Calculate steel
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -338,7 +336,7 @@ export default function Ars550DPage() {
           </div>
           <div className="grid gap-5 md:grid-cols-3">
             {actions.map((a) => (
-              <a
+              <Link
                 key={a.title}
                 href={a.href}
                 className="focus-ring group flex flex-col gap-5 rounded-2xl border-[1.5px] border-surface-100 bg-white p-7 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg"
@@ -353,7 +351,7 @@ export default function Ars550DPage() {
                 <span className="inline-flex items-center gap-1.5 text-[12px] font-bold text-brand-red transition-all duration-200 group-hover:gap-2.5">
                   {a.cta} <ArrowRight size={12} />
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -379,18 +377,18 @@ export default function Ars550DPage() {
               </p>
             </div>
             <div className="flex flex-shrink-0 flex-wrap gap-3">
-              <a
+              <Link
                 href="/request-quote"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white transition hover:opacity-90"
               >
-                <FileText size={15} /> Request spec sheet
-              </a>
-              <a
+                <FileText size={15} /> Request product information
+              </Link>
+              <Link
                 href="/tmt-calculator"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.15]"
               >
                 <Calculator size={15} /> Calculate requirement
-              </a>
+              </Link>
             </div>
           </div>
         </div>
