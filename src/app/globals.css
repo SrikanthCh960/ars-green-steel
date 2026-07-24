@@ -306,8 +306,6 @@ html {
     overflow: hidden;
   }
 
-  .site-nav-item:hover .site-mega-menu,
-  .site-nav-item:focus-within .site-mega-menu,
   .site-mega-menu.is-open {
     visibility: visible;
     pointer-events: auto;

@@ -2,16 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, Calculator, ChevronDown, Menu, Search, ShieldCheck } from "lucide-react";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { ArrowRight, BadgeCheck, Calculator, ChevronDown, Menu, Search, ShieldCheck, X } from "lucide-react";
 
 const routeLinks = [
-  { label: "Home", href: "/" },
   { label: "About", href: "/about", menu: "about" },
   { label: "Products", href: "/products", menu: "products" },
-  { label: "Sustainability", href: "/green-steel", menu: "sustainability" },
   { label: "Solutions", href: "/industries", menu: "solutions" },
+  { label: "Sustainability", href: "/green-steel", menu: "sustainability" },
   { label: "Resources", href: "/blog", menu: "resources" },
-  { label: "Press & Media", href: "/video", menu: "pressMedia" },
   { label: "Contact", href: "/contact", menu: "contact" },
 ];
 
@@ -26,9 +26,11 @@ const megaMenus = {
       { label: "Vision & Mission", href: "/about#vision" },
       { label: "Leadership", href: "/our-team" },
       { label: "Manufacturing", href: "/manufacturing" },
-      { label: "Quality Policy", href: "/our-quality" },
-      { label: "Certifications", href: "/certifications" },
-      { label: "Clients", href: "/#legacy-proof" },
+      { label: "Quality", href: "/our-quality" },
+      { label: "Steel Testing", href: "/steel-testing" },
+      { label: "Certifications & Awards", href: "/certifications" },
+      { label: "CSR", href: "/csr" },
+      { label: "Careers", href: "/careers" },
     ],
     proof: ["Since 1992", "Leadership proof", "Manufacturing strength"],
   },
@@ -38,15 +40,11 @@ const megaMenus = {
     visual: "Products",
     visualSrc: "/ars-assets/products-all.png",
     links: [
+      { label: "All Products", href: "/products" },
       { label: "ARS 550D TMT Bar", href: "/products/ars-550d" },
       { label: "ARS CRS 550D", href: "/products/ars-crs-550d" },
       { label: "Product Comparison", href: "/products#comparison" },
-      { label: "Product Applications", href: "/projects" },
-      { label: "Residential Construction", href: "/tmt-steel-bar-guide-homeowners" },
-      { label: "Commercial Buildings", href: "/projects" },
-      { label: "Infrastructure Projects", href: "/tmt-steel-bar-guide-civil-contractors" },
-      { label: "Technical Specifications", href: "/products/ars-550d#technical-specifications" },
-      { label: "Download Product Brochure", href: "/products#brochure" },
+      { label: "Technical Specifications", href: "/products/ars-550d" },
     ],
     proof: ["550D ductility", "CRS corrosion resistance", "Residential to infrastructure use"],
   },
@@ -70,6 +68,7 @@ const megaMenus = {
     visual: "Audience paths",
     visualSrc: "/ars-assets/home-owner-banner-1.png",
     links: [
+      { label: "Solutions Overview", href: "/industries" },
       { label: "For Home Owners", href: "/tmt-steel-bar-guide-homeowners" },
       { label: "For Engineers & Architects", href: "/tmt-steel-bar-guide-engineers-architects" },
       { label: "For Contractors", href: "/tmt-steel-bar-guide-civil-contractors" },
@@ -86,32 +85,13 @@ const megaMenus = {
     visual: "Knowledge center",
     visualSrc: "/ars-assets/awards-certificates-img3.png",
     links: [
+      { label: "Blog & Articles", href: "/blog" },
+      { label: "Videos", href: "/video" },
       { label: "Steel Price Today", href: "/steel-price-today" },
-      { label: "Price Calculator", href: "/tmt-calculator" },
-      { label: "Construction Estimation", href: "/tmt-calculator#construction-estimation" },
-      { label: "Blog / Knowledge Center", href: "/blog" },
-      { label: "Guides & Articles", href: "/blog" },
       { label: "TMT Bar Calculator", href: "/tmt-calculator" },
-      { label: "Construction Cost Estimator", href: "/blog/average-house-construction-cost-in-india-per-square-feet.html" },
-      { label: "Careers", href: "/careers" },
-      { label: "FAQs", href: "/blog" },
+      { label: "Dealer Locator", href: "/dealer-locator" },
     ],
     proof: ["Price clarity", "Calculator journey", "Construction education"],
-  },
-  pressMedia: {
-    eyebrow: "Press media",
-    title: "Keep commercials, news, events, gallery, videos, and success proof accessible.",
-    visual: "Media gallery",
-    visualSrc: "/ars-assets/awards-certificates-img2.png",
-    links: [
-      { label: "TV Commercials", href: "/video" },
-      { label: "News & Press Releases", href: "/blog" },
-      { label: "Events", href: "/blog" },
-      { label: "Gallery", href: "/video" },
-      { label: "Videos", href: "/video" },
-      { label: "Success Stories", href: "/projects#success-stories" },
-    ],
-    proof: ["Video gallery", "Knowledge articles", "Project proof"],
   },
   contact: {
     eyebrow: "Next step",
@@ -119,23 +99,98 @@ const megaMenus = {
     visual: "Sales support",
     visualSrc: "/ars-assets/Contact_banner.png",
     links: [
-      { label: "Contact Sales", href: "/contact" },
+      { label: "Contact ARS", href: "/contact" },
       { label: "Request Quote", href: "/request-quote" },
-      { label: "Dealer Locator", href: "/dealer-locator" },
       { label: "Become a Dealer", href: "/become-a-dealer" },
-      { label: "Talk to an Expert", href: "/contact" },
     ],
     proof: ["Customer helpline", "Project enquiry", "Office and plant"],
   },
 };
 
+const menuPaths: Record<keyof typeof megaMenus, string[]> = {
+  about: ["/about", "/our-team", "/manufacturing", "/our-quality", "/steel-testing", "/certifications", "/csr", "/careers"],
+  products: ["/products"],
+  solutions: [
+    "/industries",
+    "/projects",
+    "/tmt-steel-bar-guide-homeowners",
+    "/tmt-steel-bar-guide-engineers-architects",
+    "/tmt-steel-bar-guide-civil-contractors",
+    "/steel-distributors-dealers",
+    "/road-projects-tmt-steel-bars",
+    "/bridges-projects-tmt-steel-bars",
+    "/institutions-projects-tmt-steel-bars",
+  ],
+  sustainability: ["/green-steel", "/ars-green-steel"],
+  resources: ["/blog", "/video", "/steel-price-today", "/tmt-calculator", "/dealer-locator"],
+  contact: ["/contact", "/request-quote", "/become-a-dealer"],
+};
+
+function pathMatches(pathname: string, route: string) {
+  return pathname === route || pathname.startsWith(`${route}/`);
+}
+
 export function SiteHeader() {
+  const pathname = usePathname();
   const links = routeLinks;
   const mobileMenuId = "site-mobile-navigation";
+  const headerRef = useRef<HTMLElement>(null);
+  const triggerRefs = useRef<Partial<Record<keyof typeof megaMenus, HTMLButtonElement | null>>>({});
+  const [openMenu, setOpenMenu] = useState<keyof typeof megaMenus | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileSection, setMobileSection] = useState<keyof typeof megaMenus | null>(null);
+
+  useEffect(() => {
+    if (!mobileOpen) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    function closeOnOutsidePointer(event: PointerEvent) {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setOpenMenu(null);
+      }
+    }
+
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key !== "Escape") {
+        return;
+      }
+
+      if (mobileOpen) {
+        setMobileOpen(false);
+        return;
+      }
+
+      if (openMenu) {
+        const trigger = triggerRefs.current[openMenu];
+        setOpenMenu(null);
+        trigger?.focus();
+      }
+    }
+
+    document.addEventListener("pointerdown", closeOnOutsidePointer);
+    document.addEventListener("keydown", closeOnEscape);
+
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutsidePointer);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [mobileOpen, openMenu]);
 
   return (
     <header
+      ref={headerRef}
       className="site-header sticky inset-x-0 top-0 z-50 bg-white text-ink-900"
+      data-menu-open={openMenu ? "true" : "false"}
     >
       <div className="site-header-shell border-b border-ink-900/10 bg-white shadow-[0_8px_28px_rgba(13,43,110,0.08)]">
       <div className="ars-container flex h-20 items-center justify-between">
@@ -149,20 +204,42 @@ export function SiteHeader() {
           {links.map((link) => {
             const menuKey = link.menu as keyof typeof megaMenus | undefined;
             const menu = menuKey ? megaMenus[menuKey] : null;
+            const isActive = menuKey ? menuPaths[menuKey].some((route) => pathMatches(pathname, route)) : pathname === link.href;
+            const menuId = menuKey ? `desktop-${menuKey}-menu` : undefined;
 
             return (
-              <div key={link.label} className="site-nav-item group/menu">
-                <a
-                  href={link.href}
-                  className="inline-flex h-20 items-center gap-1.5 border-b-2 border-transparent transition hover:border-brand-blue hover:text-ink-900 focus-visible:border-brand-blue"
+              <div
+                key={link.label}
+                className="site-nav-item group/menu"
+                onPointerEnter={() => menuKey && setOpenMenu(menuKey)}
+                onPointerLeave={() => menuKey && setOpenMenu((current) => current === menuKey ? null : current)}
+              >
+                <button
+                  ref={(node) => {
+                    if (menuKey) {
+                      triggerRefs.current[menuKey] = node;
+                    }
+                  }}
+                  type="button"
+                  className={`inline-flex h-20 items-center gap-1.5 border-b-2 bg-transparent transition hover:border-brand-blue hover:text-ink-900 focus-visible:border-brand-blue ${
+                    isActive ? "border-brand-blue text-ink-900" : "border-transparent"
+                  }`}
                   aria-haspopup={menu ? "true" : undefined}
+                  aria-expanded={menuKey ? openMenu === menuKey : undefined}
+                  aria-controls={menuId}
+                  aria-current={isActive ? "page" : undefined}
+                  onClick={() => menuKey && setOpenMenu(menuKey)}
+                  onFocus={() => menuKey && setOpenMenu(menuKey)}
                 >
                   {link.label}
                   {menu ? <ChevronDown size={14} className="text-brand-blue transition group-hover/menu:rotate-180 group-focus-within/menu:rotate-180" /> : null}
-                </a>
+                </button>
                 {menu ? (
                   <div
-                    className="site-mega-menu absolute left-0 right-0 top-[calc(100%-1px)] border-b border-ink-900/10 bg-white shadow-[0_32px_80px_rgba(15,23,42,0.14)]"
+                    id={menuId}
+                    className={`site-mega-menu absolute left-0 right-0 top-[calc(100%-1px)] border-b border-ink-900/10 bg-white shadow-[0_32px_80px_rgba(15,23,42,0.14)] ${
+                      openMenu === menuKey ? "is-open" : ""
+                    }`}
                     role="region"
                     aria-label={`${menu.eyebrow} menu`}
                   >
@@ -184,15 +261,18 @@ export function SiteHeader() {
           <Link className="focus-ring inline-flex h-11 items-center gap-2 rounded-full bg-brand-red px-5 text-sm font-bold text-white shadow-[0_12px_30px_rgba(222,18,26,0.24)] transition hover:bg-brand-red-dark" href="/request-quote">
             Get quote <ArrowRight size={16} />
           </Link>
-          <details className="group/details xl:hidden">
-            <summary
-              className="focus-ring inline-flex size-11 cursor-pointer list-none items-center justify-center rounded-full border border-ink-900/12 bg-white/60 text-ink-900 [&::-webkit-details-marker]:hidden"
-              aria-label="Toggle navigation"
+          <div className="xl:hidden">
+            <button
+              type="button"
+              className="focus-ring inline-flex size-11 cursor-pointer items-center justify-center rounded-full border border-ink-900/12 bg-white/60 text-ink-900"
+              aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={mobileOpen}
               aria-controls={mobileMenuId}
+              onClick={() => setMobileOpen((current) => !current)}
             >
-              <Menu size={20} />
-            </summary>
-            <div id={mobileMenuId} className="absolute left-0 right-0 top-full max-h-[calc(100vh-80px)] overflow-y-auto border-t border-ink-900/10 bg-white shadow-[0_24px_60px_rgba(15,23,42,0.16)]">
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+            {mobileOpen ? <div id={mobileMenuId} className="absolute left-0 right-0 top-full max-h-[calc(100vh-80px)] overflow-y-auto border-t border-ink-900/10 bg-white shadow-[0_24px_60px_rgba(15,23,42,0.16)]">
               <div className="ars-container grid gap-5 py-5">
                 <div className="grid gap-3 sm:grid-cols-3">
                   {[
@@ -210,33 +290,44 @@ export function SiteHeader() {
                   })}
                 </div>
                 <nav className="grid gap-2">
-                  {routeLinks.map((link) => (
-                    link.menu ? (
-                      <details key={link.label} className="border-t border-ink-900/10 py-3">
-                        <summary className="flex cursor-pointer list-none items-center justify-between text-base font-bold text-ink-900 [&::-webkit-details-marker]:hidden">
+                  <Link className="flex items-center justify-between border-t border-ink-900/10 py-3 text-base font-bold text-ink-900" href="/" aria-current={pathname === "/" ? "page" : undefined} onClick={() => setMobileOpen(false)}>
+                    Home
+                    <ArrowRight size={16} className="text-brand-blue" />
+                  </Link>
+                  {routeLinks.map((link) => {
+                    const menuKey = link.menu as keyof typeof megaMenus;
+                    const isExpanded = mobileSection === menuKey;
+                    const isActive = menuPaths[menuKey].some((route) => pathMatches(pathname, route));
+
+                    return (
+                      <div key={link.label} className="border-t border-ink-900/10 py-3">
+                        <button
+                          type="button"
+                          className={`flex w-full cursor-pointer items-center justify-between text-left text-base font-bold ${
+                            isActive ? "text-brand-blue" : "text-ink-900"
+                          }`}
+                          aria-expanded={isExpanded}
+                          aria-controls={`mobile-${menuKey}-menu`}
+                          onClick={() => setMobileSection((current) => current === menuKey ? null : menuKey)}
+                        >
                           {link.label}
-                          <ChevronDown size={16} className="text-brand-blue" />
-                        </summary>
-                        <div className="mt-4 grid gap-3 pl-3">
-                          {megaMenus[link.menu as keyof typeof megaMenus].links.map((item) => (
-                            <a key={item.label} className="flex items-center justify-between text-sm font-semibold text-steel-700" href={item.href}>
+                          <ChevronDown size={16} className={`text-brand-blue transition ${isExpanded ? "rotate-180" : ""}`} />
+                        </button>
+                        {isExpanded ? <div id={`mobile-${menuKey}-menu`} className="mt-4 grid gap-3 pl-3">
+                          {megaMenus[menuKey].links.map((item) => (
+                            <Link key={item.label} className="flex min-h-11 items-center justify-between text-sm font-semibold text-steel-700" href={item.href} onClick={() => setMobileOpen(false)}>
                               {item.label}
                               <ArrowRight size={14} className="text-brand-blue" />
-                            </a>
+                            </Link>
                           ))}
-                        </div>
-                      </details>
-                    ) : (
-                      <a key={link.label} className="flex items-center justify-between border-t border-ink-900/10 py-3 text-base font-bold text-ink-900" href={link.href}>
-                        {link.label}
-                        <ArrowRight size={16} className="text-brand-blue" />
-                      </a>
-                    )
-                  ))}
+                        </div> : null}
+                      </div>
+                    );
+                  })}
                 </nav>
               </div>
-            </div>
-          </details>
+            </div> : null}
+          </div>
         </div>
       </div>
       </div>
