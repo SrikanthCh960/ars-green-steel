@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -14,11 +14,12 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { clientVerificationSummary, steelPriceRows } from "@/data/business-verification";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Steel Price Today | ARS Green Steel",
   description:
     "ARS Green Steel TMT bar price context by size, with calculator, dealer, and quote paths for current pricing.",
-};
+  path: "/steel-price-today",
+});
 
 const stats = [
   { value: "8–32", label: "Rod range", sub: "Price context prepared for common ARS TMT bar sizes." },

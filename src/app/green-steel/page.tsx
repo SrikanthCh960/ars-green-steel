@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import {
   ArrowRight,
   CheckCircle2,
@@ -14,11 +14,12 @@ import { SectionKicker } from "@/components/section-kicker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Green Steel | ARS Green Steel",
   description:
     "ARS Green Steel sustainability positioning — EPD-certified, recycled-route manufacturing, and green-building readiness for responsible construction.",
-};
+  path: "/green-steel",
+});
 
 const heroImpact = [
   { value: "592 kg", label: "CO₂e per tonne — EPD verified" },

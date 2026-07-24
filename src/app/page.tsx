@@ -5,7 +5,6 @@ import {
   BookOpen,
   Calculator,
   ClipboardList,
-  Download,
   IndianRupee,
   Layers,
   Leaf,
@@ -15,6 +14,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { createPageMetadata } from "@/lib/site-metadata";
 import { AudienceJourneySection } from "@/components/audience-journey-section";
 import { ContactCta } from "@/components/contact-cta";
 import { HomeHero } from "@/components/home-hero";
@@ -49,13 +49,19 @@ const buyingActions = [
   },
 ];
 
+export const metadata = createPageMetadata({
+  title: "ARS Group | Certified TMT Steel",
+  description:
+    "Modern website prototype for ARS Group, focused on certified TMT steel, dealer discovery, pricing, and construction confidence.",
+  path: "/",
+});
+
 const products = [
   {
     name: "ARS CRS 550D",
     eyebrow: "Corrosion resistant TMT bars",
     detail: "Engineered for high-salinity, high-humidity, and corrosion-prone environments where long-term durability matters.",
     href: "/products/ars-crs-550d",
-    brochureHref: "/legacy-assets/downloads/ARS-550D-CRS-Leaflets.pdf",
     image: "/ars-assets/CRS.png",
     points: ["Corrosion resistance", "High-salinity protection", "Longer structural life"],
   },
@@ -64,7 +70,6 @@ const products = [
     eyebrow: "High-strength TMT bars",
     detail: "High-ductility TMT bars designed for residential, commercial, and earthquake-resistant construction.",
     href: "/products/ars-550d",
-    brochureHref: "/legacy-assets/downloads/ARS-550D-CRS-Leaflets.pdf",
     image: "/ars-assets/TMT-Bars.png",
     points: ["Earthquake-resistant performance", "Superior bendability & ductility", "High-strength TMT bars"],
   },
@@ -266,14 +271,13 @@ export default function Home() {
                   >
                     View product <ArrowRight size={17} />
                   </Link>
-                  <Link
-                    className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] border border-brand-blue/30 bg-white px-5 text-sm font-bold text-brand-blue transition hover:border-brand-blue hover:bg-surface-50"
-                    href={product.brochureHref}
-                    download
+                  <span
+                    aria-disabled="true"
+                    className="inline-flex h-12 cursor-not-allowed items-center justify-center gap-2 rounded-[6px] border border-brand-blue/20 bg-surface-50 px-5 text-sm font-bold text-steel-500"
+                    title="The approved product leaflet is not yet available for download."
                   >
-                    <Download size={17} />
-                    Brochure
-                  </Link>
+                    Product leaflet pending
+                  </span>
                 </div>
               </article>
             ))}

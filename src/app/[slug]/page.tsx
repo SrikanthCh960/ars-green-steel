@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { AudienceGuidePage } from "@/components/homeowners-guide-page";
 import { LegacyPageRenderer } from "@/components/legacy-page-renderer";
 import { getLegacyPage, getLegacyTopLevelPages } from "@/lib/legacy-content";
+import { isProductionSite, toProductionUrl } from "@/lib/site-metadata";
 
 const audienceGuideSlugs = [
   "tmt-steel-bar-guide-homeowners",
@@ -34,14 +35,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${page.title} | ARS Green Steel`,
     description: page.description,
-    alternates: {
-      canonical: page.path,
-    },
+    robots: { index: isProductionSite, follow: isProductionSite },
+    alternates: { canonical: toProductionUrl(page.path) },
     openGraph: {
       title: `${page.title} | ARS Green Steel`,
       description: page.description,
-      url: page.path,
+      url: toProductionUrl(page.path),
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${page.title} | ARS Green Steel`,
+      description: page.description,
     },
   };
 }

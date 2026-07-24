@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import {
   ArrowRight,
   BadgeCheck,
@@ -21,11 +21,12 @@ import { SectionKicker } from "@/components/section-kicker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "ARS Green Steel | Sustainable TMT Steel",
   description:
     "ARS Green Steel supports responsible construction with recycled-route steelmaking, EPD-ready documentation, and Fe-550D strength.",
-};
+  path: "/ars-green-steel",
+});
 
 const heroStats = [
   { value: "5-Star", label: "Green Steel Taxonomy Rating" },

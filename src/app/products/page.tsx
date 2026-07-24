@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -16,11 +16,12 @@ import { SectionKicker } from "@/components/section-kicker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Products | ARS Green Steel",
   description:
     "Explore the ARS range — ARS 550D and ARS CRS 550D Fe-550D TMT bars, sizes 8–32mm, technical specifications, comparison, and brochure.",
-};
+  path: "/products",
+});
 
 const stats = [
   { value: "550D", label: "Core grade", sub: "High-strength ductile Fe-550D TMT for modern structures." },
@@ -36,7 +37,6 @@ const products = [
     desc: "High-strength ductile TMT bars for residential, commercial, and infrastructure construction.",
     points: ["High ductility", "Strong bendability", "Fe-550D · IS 1786:2008"],
     href: "/products/ars-550d",
-    brochure: "/legacy-assets/downloads/ARS-550D-CRS-Leaflets.pdf",
     image: "/ars-assets/TMT-Bars.png",
     icon: <ShieldCheck size={20} />,
   },
@@ -46,7 +46,6 @@ const products = [
     desc: "Corrosion-resistant TMT bars for coastal, humid, exposed, and long-life structures.",
     points: ["Corrosion resistance", "Durability focus", "Fe-550D CRS · IS 1786:2008"],
     href: "/products/ars-crs-550d",
-    brochure: "/legacy-assets/downloads/ARS-550D-CRS-Leaflets.pdf",
     image: "/ars-assets/ARSHOME2.jpg",
     icon: <Waves size={20} />,
   },
@@ -269,13 +268,13 @@ export default function ProductsPage() {
             >
               View ARS CRS 550D <ArrowRight size={13} />
             </a>
-            <a
-              href="/legacy-assets/downloads/ARS-550D-CRS-Leaflets.pdf"
-              download
-              className="focus-ring inline-flex items-center gap-2 rounded-full border-[1.5px] border-white/30 px-5 py-2.5 text-[13px] font-semibold text-white transition hover:bg-white/[0.12]"
+            <span
+              aria-disabled="true"
+              className="inline-flex cursor-not-allowed items-center gap-2 rounded-full border-[1.5px] border-white/20 px-5 py-2.5 text-[13px] font-semibold text-white/55"
+              title="The approved product leaflet is not yet available for download."
             >
-              Download product leaflets (PDF) <Download size={13} />
-            </a>
+              Product leaflets pending <Download size={13} />
+            </span>
           </div>
         </div>
       </MotionSection>

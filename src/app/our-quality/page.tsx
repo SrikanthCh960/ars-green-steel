@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
 import {
   Activity,
@@ -17,11 +17,12 @@ import { SectionKicker } from "@/components/section-kicker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Our Quality | ARS Green Steel",
   description:
     "ARS quality systems — SGS certification, in-house spectrometry and lab testing, bend/rebend, tensile, and spectro analysis behind ARS 550D TMT bars.",
-};
+  path: "/our-quality",
+});
 
 const stats = [
   { value: "SGS", label: "Certified", sub: "Quality certified by an external international agency." },

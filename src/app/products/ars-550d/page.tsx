@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -18,11 +18,12 @@ import { SectionKicker } from "@/components/section-kicker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "ARS 550D TMT Bars | ARS Green Steel",
   description:
     "ARS 550D high-strength ductile TMT bars (Fe-550D, IS 1786:2008) for safer residential, commercial, and infrastructure construction.",
-};
+  path: "/products/ars-550d",
+});
 
 const stats = [
   { value: "550D", label: "Grade", sub: "High-strength ductile TMT steel for construction confidence." },

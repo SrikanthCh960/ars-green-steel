@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { defaultSocialImage, isProductionSite, productionDomain, toProductionUrl } from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://arsgroup.in"),
-  title: "ARS Group | Certified TMT Steel",
+  metadataBase: new URL(productionDomain),
+  title: {
+    default: "ARS Group | Certified TMT Steel",
+    // Page titles in the migrated application already include the brand suffix.
+    template: "%s",
+  },
   description:
     "Modern website prototype for ARS Group, focused on certified TMT steel, dealer discovery, pricing, and construction confidence.",
   applicationName: "ARS Green Steel",
@@ -11,13 +16,18 @@ export const metadata: Metadata = {
     title: "ARS Group | Certified TMT Steel",
     description:
       "Certified TMT steel, dealer discovery, pricing, and construction confidence from ARS Green Steel.",
-    url: "https://arsgroup.in",
+    url: productionDomain,
     siteName: "ARS Green Steel",
     type: "website",
+    images: [{ url: toProductionUrl(defaultSocialImage) }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [toProductionUrl(defaultSocialImage)],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: isProductionSite,
+    follow: isProductionSite,
   },
 };
 

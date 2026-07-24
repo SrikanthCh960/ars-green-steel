@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
-import { getLegacyPages } from "@/lib/legacy-content";
-
-const baseUrl = "https://arsgroup.in";
+import { getBlogMigrationRegistry } from "@/lib/blog-migration";
+import { getLegacyTopLevelPages } from "@/lib/legacy-content";
+import { productionDomain } from "@/lib/site-metadata";
 
 const staticRoutes = [
   "",
@@ -13,6 +13,8 @@ const staticRoutes = [
   "/green-steel",
   "/industries",
   "/manufacturing",
+  "/our-quality",
+  "/our-team",
   "/privacy-policy",
   "/products",
   "/products/ars-550d",
@@ -22,13 +24,18 @@ const staticRoutes = [
   "/services",
   "/steel-price-today",
   "/tmt-calculator",
+  "/terms-of-use",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const today = new Date();
   const seen = new Set<string>();
 
-  return [...staticRoutes, ...getLegacyPages().map((page) => page.path)]
+  const approvedBlogRoutes = getBlogMigrationRegistry()
+    .filter((entry) => entry.migrationStatus === "Migrated — approved")
+    .map((entry) => new URL(entry.finalUrl).pathname);
+
+  return [...staticRoutes, ...getLegacyTopLevelPages().map((page) => page.path), ...approvedBlogRoutes]
     .filter((route) => {
       const normalized = route || "/";
       if (seen.has(normalized)) return false;
@@ -36,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       return true;
     })
     .map((route) => ({
-      url: `${baseUrl}${route === "/" ? "" : route}`,
+      url: `${productionDomain}${route === "/" ? "" : route}`,
       lastModified: today,
       changeFrequency: route.includes("/blog/") ? "monthly" : "weekly",
       priority: route === "/" ? 1 : route.includes("/blog/") ? 0.55 : 0.75,

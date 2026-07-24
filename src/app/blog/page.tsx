@@ -7,20 +7,30 @@ import { ContactCta } from "@/components/contact-cta";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { getBlogArchiveArticles, type BlogArchiveArticle } from "@/lib/blog-content";
+import { defaultSocialImage, isProductionSite, toProductionUrl } from "@/lib/site-metadata";
 
 export const metadata: Metadata = {
   title: "Steel and Construction Knowledge Center | ARS Green Steel",
   description:
     "Explore ARS guides on TMT steel, construction planning, product quality, green steel, manufacturing, and industry developments.",
+  robots: { index: isProductionSite, follow: isProductionSite },
   alternates: {
-    canonical: "/blog",
+    canonical: toProductionUrl("/blog"),
   },
   openGraph: {
     title: "Steel and Construction Knowledge Center | ARS Green Steel",
     description:
       "Practical guidance for better steel selection, safer construction, and more confident project decisions.",
-    url: "/blog",
+    url: toProductionUrl("/blog"),
     type: "website",
+    images: [{ url: toProductionUrl(defaultSocialImage) }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Steel and Construction Knowledge Center | ARS Green Steel",
+    description:
+      "Practical guidance for better steel selection, safer construction, and more confident project decisions.",
+    images: [toProductionUrl(defaultSocialImage)],
   },
 };
 

@@ -37,7 +37,7 @@ const heroSlides = [
     title: "Lower-impact steel choices.",
     copy: "ARS Green Steel supports modern construction with sustainability-led manufacturing confidence.",
     proof: "EPD, green-building and process readiness",
-    image: "/ars-assets/ARS-GREEN-STEEL-Logo.png",
+    image: "/legacy-assets/images/ARS-GREEN-STEEL-Logo.png",
     imageFit: "contain",
   },
 ];

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import {
   ArrowRight,
   Building2,
@@ -13,11 +13,12 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { calculatorInputFields, clientVerificationSummary } from "@/data/business-verification";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "TMT Calculator | ARS Green Steel",
   description:
     "Estimate ARS TMT steel requirement by project type, area, floor count, and rod size — then move into a sales enquiry.",
-};
+  path: "/tmt-calculator",
+});
 
 const stats = [
   { value: "4", label: "Inputs", sub: "Project type, category, floors, and area form the base." },

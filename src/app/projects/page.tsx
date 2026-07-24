@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -17,11 +17,12 @@ import { SectionKicker } from "@/components/section-kicker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Projects | ARS Green Steel",
   description:
     "Project confidence, manufacturing capability, certification proof, dealer support, and enquiry paths for ARS Green Steel.",
-};
+  path: "/projects",
+});
 
 const projectTypes = [
   {

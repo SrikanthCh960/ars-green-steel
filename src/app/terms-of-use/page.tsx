@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import Link from "next/link";
 import { ContactCta } from "@/components/contact-cta";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Terms of Use | ARS Green Steel",
   description: "Terms governing the use of the ARS Green Steel website, content, and enquiry channels.",
-};
+  path: "/terms-of-use",
+});
 
 const termsSections = [
   {

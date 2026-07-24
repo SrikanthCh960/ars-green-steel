@@ -4,12 +4,10 @@ import { BlogArticleTemplate } from "@/components/blog-article-template";
 import { getBlogArchiveArticle, getBlogExcerpt, cleanBlogTitle } from "@/lib/blog-content";
 import { getBlogMigrationEntry } from "@/lib/blog-migration";
 import { getLegacyBlogPages, getLegacyPage } from "@/lib/legacy-content";
-
-const productionDomain = "https://arsgroup.in";
-const isProductionDomain = process.env.NEXT_PUBLIC_SITE_URL === productionDomain;
+import { isProductionSite, productionDomain, toProductionUrl } from "@/lib/site-metadata";
 
 function toProductionAssetUrl(value: string) {
-  return value.startsWith("/") ? `${productionDomain}${value}` : value;
+  return toProductionUrl(value);
 }
 
 export function generateStaticParams() {
@@ -38,8 +36,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title,
     description,
     robots: {
-      index: isProductionDomain,
-      follow: isProductionDomain,
+      index: isProductionSite,
+      follow: isProductionSite,
     },
     alternates: {
       canonical: finalUrl,

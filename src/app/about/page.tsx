@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -21,11 +21,12 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { verifiedContactDetails } from "@/data/business-verification";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "About ARS Green Steel",
   description:
     "Since 1992, ARS Green Steel has built a legacy of certified TMT steel manufacturing — proven through certifications, testing, and structures that stand.",
-};
+  path: "/about",
+});
 
 const stats = [
   { value: "1992", label: "Founded", sub: "Over three decades of steel manufacturing trust." },

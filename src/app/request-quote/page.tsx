@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import { Calculator, MapPin, Ruler, ShieldCheck } from "lucide-react";
 import { ContentBand, PageHero, ProofMetrics } from "@/components/page-sections";
 import { LeadForm } from "@/components/lead-form";
@@ -6,10 +6,11 @@ import { MotionSection } from "@/components/motion-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Request Quote | ARS Green Steel",
   description: "Request ARS Green Steel pricing and sales support for TMT bar requirements.",
-};
+  path: "/request-quote",
+});
 
 export default function RequestQuotePage() {
   return (

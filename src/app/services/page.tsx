@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -21,11 +21,12 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { clientVerificationSummary, verifiedContactDetails } from "@/data/business-verification";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Services | ARS Green Steel",
   description:
     "Steel price, TMT calculator, dealer locator, quote request, and sales support for ARS Green Steel buyers.",
-};
+  path: "/services",
+});
 
 const primaryRoutes = [
   {

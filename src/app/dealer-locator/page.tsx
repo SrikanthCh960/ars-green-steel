@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, Phone } from "lucide-react";
@@ -9,10 +9,11 @@ import { SiteHeader } from "@/components/site-header";
 import { clientVerificationSummary, verifiedContactDetails } from "@/data/business-verification";
 import { dealers } from "@/data/dealers";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Dealer Locator | ARS Green Steel",
   description: "Search ARS Green Steel dealer records by city, district, pincode, or dealer name.",
-};
+  path: "/dealer-locator",
+});
 
 const dealerStats = [
   {

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -17,11 +17,12 @@ import { SectionKicker } from "@/components/section-kicker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "ARS CRS 550D TMT Bars | ARS Green Steel",
   description:
     "ARS CRS 550D corrosion-resistant TMT bars (Fe-550D, IS 1786:2008) for coastal, humid, and durability-focused construction.",
-};
+  path: "/products/ars-crs-550d",
+});
 
 const stats = [
   { value: "CRS", label: "Grade", sub: "Corrosion-resistant Fe-550D for long-life structures." },

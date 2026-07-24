@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/site-metadata";
 import { BadgeCheck, Building2, MapPin } from "lucide-react";
 import { ContentBand, PageHero, ProofMetrics } from "@/components/page-sections";
 import { LeadForm } from "@/components/lead-form";
@@ -6,10 +6,11 @@ import { MotionSection } from "@/components/motion-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Become a Dealer | ARS Green Steel",
   description: "Dealer and distributor enquiry path for ARS Green Steel.",
-};
+  path: "/become-a-dealer",
+});
 
 export default function BecomeDealerPage() {
   return (
