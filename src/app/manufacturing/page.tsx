@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  BadgeCheck,
   Factory,
   FlaskConical,
   Gauge,
@@ -66,10 +65,10 @@ const trustRoutes = [
 ];
 
 const proofStats = [
-  { value: "2.5L MT", label: "Manufacturing scale", detail: "Capacity signals supply confidence for larger requirements." },
-  { value: "TN", label: "Plant context", detail: "Gummidipoondi plant proof stays part of the trust story." },
-  { value: "550D", label: "Grade connection", detail: "Manufacturing explanation should support product performance claims." },
-  { value: "Lab", label: "Testing route", detail: "Quality checks stay close to product and certification review." },
+  { value: "Integrated", label: "Steel facility", detail: "Steel making through dispatch is managed with precision." },
+  { value: "TN", label: "Plant context", detail: "ARS operates its integrated facility at Gummidipoondi, Tamil Nadu." },
+  { value: "550D", label: "Product connection", detail: "Manufacturing discipline supports dependable product performance." },
+  { value: "Lab", label: "Testing route", detail: "Quality checks remain closely connected to production." },
 ];
 
 const testingRows = [
@@ -125,18 +124,18 @@ export default function ManufacturingPage() {
               process discipline, and decades of expertise come together.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
+              <Link
                 href="/contact"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
               >
                 Request plant proof <ArrowRight size={14} />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/certifications"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/80 transition hover:bg-white/[0.12]"
               >
                 View certifications
-              </a>
+              </Link>
             </div>
           </div>
         </div>

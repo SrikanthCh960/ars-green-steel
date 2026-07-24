@@ -1,5 +1,6 @@
 import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Activity,
   ArrowRight,
@@ -25,51 +26,51 @@ export const metadata = createPageMetadata({
 });
 
 const stats = [
-  { value: "SGS", label: "Certified", sub: "Quality certified by an external international agency." },
-  { value: "“D”", label: "Quality", sub: "100% D-grade quality across all bar sizes." },
-  { value: "8–32", label: "All sizes (mm)", sub: "Consistent quality from 8mm through 32mm." },
-  { value: "In-house", label: "Lab & OES", sub: "Optical emission spectrometry and lab analysis on site." },
+  { value: "Every", label: "Batch tested", sub: "Every production batch is tested before dispatch." },
+  { value: "BIS", label: "Standards", sub: "Manufactured in accordance with applicable BIS standards." },
+  { value: "8–32", label: "All sizes (mm)", sub: "Consistent quality from 8 mm through 32 mm." },
+  { value: "In-house", label: "Quality control", sub: "Optical Emission Spectrometry and laboratory testing on site." },
 ];
 
 const usp = [
-  "SGS certification by an external international agency",
-  "Transparency in price and commercial terms",
-  "Truly corrosion-resistant and ductile steel",
-  "100% “D” quality across all sizes (8mm–32mm)",
-  "On-time despatch",
-  "SERC-certified savings (approx. ₹4,000 per tonne)*",
+  "Every batch tested before dispatch",
+  "In-house quality control at every stage",
+  "Advanced OES chemical analysis",
+  "SGS-certified quality assurance",
+  "Manufactured to BIS standards",
+  "Consistent quality from 8 mm to 32 mm",
 ];
 
 const tests = [
   {
     icon: <Activity size={20} />,
     title: "Bend & rebend test",
-    desc: "Checks for ruptures and cracks in the bar; results are plotted on a bend/rebend chart to confirm soundness.",
+    desc: "Confirms that the bar can bend and rebend without cracking, ensuring the ductility needed for safer structures.",
   },
   {
     icon: <CircleDot size={20} />,
     title: "Martensite (ring) test",
-    desc: "Examines the rings formed in the bar to assess hardness, ductility, and strength.",
+    desc: "Checks the hardened outer layer of the bar to verify the balance between strength and flexibility.",
   },
   {
     icon: <Gauge size={20} />,
     title: "Tensile test",
-    desc: "Measures tensile and compressive strength on a Universal Testing Machine (UTM).",
+    desc: "Measures tensile strength, yield strength, and elongation to ensure every bar meets BIS quality requirements.",
   },
   {
     icon: <Droplets size={20} />,
     title: "Quenching process",
-    desc: "Rapid cooling of heated steel to achieve the required hardness and material properties.",
+    desc: "A carefully controlled cooling process that develops the strength and ductility expected from high-quality TMT bars.",
   },
   {
     icon: <Atom size={20} />,
     title: "Spectro analysis",
-    desc: "Identification, sorting, and composition analysis during incoming inspection, production, and before delivery.",
+    desc: "Verifies the chemical composition of every heat to maintain consistency and comply with manufacturing specifications.",
   },
   {
     icon: <BadgeCheck size={20} />,
     title: "SGS certificate",
-    desc: "Independent inspection, verification, and testing approval that the product meets required standards.",
+    desc: "Independent testing and certification provide an additional layer of assurance that ARS quality meets recognised industry standards.",
   },
 ];
 
@@ -119,18 +120,18 @@ export default function OurQualityPage() {
               standards your project deserves.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
+              <Link
                 href="/contact"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
               >
                 Request test report <ArrowRight size={14} />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/certifications"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/80 transition hover:bg-white/[0.12]"
               >
                 View certifications
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -165,8 +166,9 @@ export default function OurQualityPage() {
                 Every stage of manufacturing has one purpose: better quality steel.
               </h2>
               <p className="mb-8 mt-5 text-[15px] leading-[1.8] text-steel-700">
-                The quality of steel depends on decisions made throughout manufacturing. Every batch is
-                tested to ensure consistent strength, ductility, and reliability before it reaches your site.
+                The quality of steel depends on the decisions made throughout the manufacturing process. At
+                ARS, every stage is carefully monitored and every batch is tested to ensure consistent strength,
+                ductility, and reliability before it reaches your construction site.
               </p>
               <div className="flex flex-col gap-3">
                 {usp.map((pt) => (
@@ -176,10 +178,6 @@ export default function OurQualityPage() {
                   </div>
                 ))}
               </div>
-              <p className="mt-5 text-[12px] leading-[1.6] text-grey-600">
-                *SGS, &quot;D&quot; quality, corrosion-resistance, and the SERC savings figure are carried from ARS
-                source content and should be confirmed before launch.
-              </p>
             </div>
 
             <div className="rounded-2xl border-[1.5px] border-surface-100 bg-surface-50 p-8">
@@ -188,8 +186,9 @@ export default function OurQualityPage() {
               </div>
               <h3 className="mt-6 font-display text-[20px] font-bold text-ink-900">In-house quality control.</h3>
               <p className="mt-3 text-[14px] leading-[1.8] text-steel-700">
-                ARS runs in-house facilities including OES (Optical Emission Spectrometry) and a laboratory
-                for macro analysis of the product — keeping quality checks close to production.
+                Our quality team checks every production batch using advanced testing equipment before it is
+                approved for dispatch. This helps us maintain consistent chemical composition, mechanical
+                properties, and manufacturing standards across every ARS TMT bar.
               </p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-xl border border-surface-100 bg-white p-4">
@@ -198,7 +197,7 @@ export default function OurQualityPage() {
                 </div>
                 <div className="rounded-xl border border-surface-100 bg-white p-4">
                   <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-grey-600">Analysis</p>
-                  <p className="mt-1 font-display text-[1.05rem] font-extrabold text-brand-blue">Macro lab</p>
+                  <p className="mt-1 font-display text-[1.05rem] font-extrabold text-brand-blue">Macro &amp; mechanical</p>
                 </div>
               </div>
             </div>
@@ -211,14 +210,14 @@ export default function OurQualityPage() {
         <div className="ars-container">
           <div className="mb-14 grid items-start gap-12 lg:grid-cols-2">
             <div>
-              <SectionKicker variant="brand">Testing Process</SectionKicker>
+              <SectionKicker variant="brand">Quality Assurance</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
-                Every bar earns its grade.
+                Every Batch Undergoes These Critical Quality Tests
               </h2>
             </div>
             <p className="text-[15px] leading-[1.8] text-white/70 lg:pt-14">
-              From billet to finished bar, ARS uses a defined set of tests so engineers and site teams can
-              trust the steel before it reaches the structure.
+              Each batch is tested against key mechanical and chemical parameters to ensure it meets BIS
+              standards and ARS&apos;s uncompromising quality benchmarks.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -261,18 +260,18 @@ export default function OurQualityPage() {
               </p>
             </div>
             <div className="flex flex-shrink-0 flex-wrap gap-3">
-              <a
+              <Link
                 href="/contact"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white transition hover:opacity-90"
               >
                 Request test report <ArrowRight size={15} />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/products/ars-550d"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.15]"
               >
                 View ARS 550D
-              </a>
+              </Link>
             </div>
           </div>
         </div>

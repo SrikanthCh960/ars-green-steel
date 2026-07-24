@@ -122,12 +122,12 @@ const audiences = [
 const visionMission = [
   {
     label: "Vision",
-    body: "ARS to become the most Trusted and reliable Brand, committed to sustainability, carbon neutrality and enduring stakeholders’ delight.",
+    body: "To lead India's transition to sustainable steel manufacturing, building stronger infrastructure, empowering communities, and creating a greener future for generations.",
     tone: "light",
   },
   {
     label: "Mission",
-    body: "To develop and execute new business models. To pursue latest technology for excellence. To source, develop and retain best talents. To perform for our customers the highest level of quality services at competitive price.",
+    body: "Building excellence through every bar of steel: delivering consistent quality, advancing responsible manufacturing, building customer trust, and investing in technology, people, and manufacturing capabilities for India's infrastructure.",
     tone: "dark",
   },
 ] as const;
@@ -322,9 +322,9 @@ export default function AboutPage() {
       <MotionSection className="bg-surface-50 py-24" id="vision">
         <div className="ars-container">
           <div className="mb-12 max-w-2xl">
-            <SectionKicker variant="brand">Our Direction</SectionKicker>
+            <SectionKicker variant="brand">Our Vision · Mission · Values</SectionKicker>
             <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-              Vision &amp; Mission
+              Driven by Purpose. Built for the Future.
             </h2>
           </div>
           <div className="grid gap-5 lg:grid-cols-2">

@@ -204,9 +204,11 @@ export default function Ars550DPage() {
                 What are ARS 550D TMT Bars?
               </h2>
               <p className="mt-5 text-[15px] leading-[1.8] text-steel-700">
-                Choosing reinforcement steel is a structural decision. ARS 550D is manufactured to IS 1786
-                standards for residential, commercial, industrial, and infrastructure projects where
-                long-term performance matters.
+                Built for Strength. Trusted for Modern Construction. Choosing the right reinforcement steel
+                is one of the most important decisions in any construction project. ARS 550D TMT Bars are
+                engineered to provide the strength, ductility, and consistency required for modern reinforced
+                concrete structures. Manufactured to IS 1786 standards, they are suitable for residential,
+                commercial, industrial, and infrastructure applications where long-term structural performance matters.
               </p>
             </div>
 

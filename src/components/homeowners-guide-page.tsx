@@ -105,11 +105,11 @@ const homeownerSectionCopy = "mt-5 max-w-2xl text-base leading-8 text-steel-700"
 const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
   "tmt-steel-bar-guide-homeowners": {
     eyebrow: "Homeowner guide",
-    heroBadge: "Homeowner guide",
-    heroTitle: "Your dream home deserves steel",
-    heroAccent: "you can trust.",
+    heroBadge: "For Homeowners",
+    heroTitle: "Your Dream Home Deserves Steel",
+    heroAccent: "You Can Trust.",
     heroBody:
-      "Thermo-Mechanically Treated steel bars help homeowners understand product choice, quality, dealer access, and construction planning.",
+      "ARS Green Steel helps homeowners choose TMT bars with confidence — from steel grade and durability to dealer access and cost planning.",
     heroImage: "/ars-assets/home-owner-banner-1.png",
     heroImageAlt: "Homeowners standing outside a completed home",
     primaryCta: { label: "Explore products", href: "/products" },
@@ -121,23 +121,23 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
       { value: "1", label: "Simple enquiry path" },
     ],
     intro: {
-      eyebrow: "Why ARS",
-      title: "Why ARS TMT steel bars are the right choice for your home.",
+      eyebrow: "Homeowner's Buying Guide",
+      title: "Choosing the Right Steel for Your Home Starts Here.",
       body:
-        "Choosing the right materials makes all the difference in quality, reliability, performance, and long-term structural confidence.",
+        "Selecting TMT bars is one of the most important decisions during home construction. The right choice depends on your project's location, environmental conditions, structural requirements, and the quality standards followed by the manufacturer. Here's what every homeowner should know before making a decision.",
     },
     featurePanels: [
       {
-        title: "Your dream home deserves quality you can trust.",
+        title: "Choose Steel Based on Where You're Building",
         body:
-          "Every family deserves a foundation of trust. ARS Steel helps protect structural integrity through tested, consistent TMT bars.",
+          "Not every construction site faces the same environmental conditions. Homes built in normal environments have different reinforcement requirements than those exposed to moisture, coastal weather, or high-salinity conditions. Choosing the right type of TMT bar based on your location helps improve structural durability and long-term protection.",
         icon: Home,
         image: "/ars-assets/home-owner-banner-1.png",
       },
       {
-        title: "A true partner in bringing your dream home to life.",
+        title: "Understand Standard and Corrosion-Resistant Steel",
         body:
-          "ARS supports homeowners with product clarity, dealer routes, quantity planning, and quality proof before purchase decisions.",
+          "For most residential construction, Fe550D TMT bars provide the strength and ductility required for modern homes. In coastal or high-salinity areas, Corrosion Resistant Steel TMT bars offer additional protection against rust.",
         icon: Handshake,
         image: "/ars-assets/ARSHOME1.jpg",
       },
@@ -262,22 +262,22 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
     },
     finalCta: {
       eyebrow: "Homeowner support",
-      headline: "Ready to choose the right steel for your home?",
+      headline: "Let's Build a Stronger Home Together",
       body:
-        "Talk to ARS for product selection, dealer discovery, quantity planning, and quote support.",
-      primaryLabel: "Request quote",
-      primaryHref: "/request-quote",
-      secondaryLabel: "Talk to sales",
+        "Whether you're planning your first home or your next construction project, our team is here to help you choose the right TMT bars, connect with an authorised dealer, and provide the information you need to build with confidence.",
+      primaryLabel: "Explore Products",
+      primaryHref: "/products",
+      secondaryLabel: "Talk to Our Experts",
       secondaryHref: "/contact",
     },
   },
   "tmt-steel-bar-guide-engineers-architects": {
     eyebrow: "Engineers & architects",
-    heroBadge: "Technical proof first",
-    heroTitle: "A true partner in your pursuit",
-    heroAccent: "of excellence.",
+    heroBadge: "Specification-Led Construction",
+    heroTitle: "The Right Steel.",
+    heroAccent: "The Right Specification.",
     heroBody:
-      "ARS TMT bars support engineers and architects with product, manufacturing, and quality information for design-stage discussions.",
+      "Every ARS TMT bar is backed by consistent manufacturing, rigorous testing, and transparent technical documentation to support specification-led construction.",
     heroImage: "/ars-assets/our-quality-1.png",
     heroImageAlt: "ARS steel quality testing and technical review",
     primaryCta: { label: "View specifications", href: "/products/ars-550d#specifications" },
@@ -289,23 +289,23 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
       { value: "CRS", label: "Corrosion option" },
     ],
     intro: {
-      eyebrow: "Technical clarity",
-      title: "Superior strength and true dependability for specification-led work.",
+      eyebrow: "Technical Foundation",
+      title: "Key Technical Parameters for Selecting TMT Bars",
       body:
-        "Structural integrity depends on steel that can prove its composition, manufacturing process, ductility, bonding, and traceability.",
+        "Selecting reinforcement steel goes beyond grade and price. Engineers evaluate mechanical performance, material consistency, manufacturing quality, and compliance with applicable standards to ensure every structure delivers the required strength, durability, and service life.",
     },
     featurePanels: [
       {
-        title: "Precision in chemical composition.",
+        title: "Chemical Composition",
         body:
-          "ARS TMT bars are produced with controlled chemistry to balance strength, ductility, and corrosion resistance for demanding projects.",
+          "The chemical composition of TMT bars directly influences strength, weldability, ductility, and long-term performance. Maintaining controlled levels of Carbon, Sulphur, Phosphorus, Manganese, and Carbon Equivalent helps achieve consistent mechanical properties while meeting the requirements of IS 1786.",
         icon: FlaskConical,
         image: "/ars-assets/our-quality-1.png",
       },
       {
-        title: "Advanced TMT process and quenching discipline.",
+        title: "Thermo-Mechanical Treatment",
         body:
-          "Controlled heating and cooling create a tough exterior and flexible core, improving resilience and safety in modern construction.",
+          "The Thermo-Mechanical Treatment process combines controlled quenching and self-tempering to create a tough outer layer with a ductile core. This improves strength, bendability, weldability, and earthquake-resistant performance without compromising structural reliability.",
         icon: Factory,
         image: "/ars-assets/products-all.png",
       },
@@ -430,9 +430,9 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
     },
     finalCta: {
       eyebrow: "Technical support",
-      headline: "Need specification support for a project?",
+      headline: "Partner with ARS for Specification-Led Construction",
       body:
-        "Share your requirement and let ARS help with grade selection, testing proof, and quote routing.",
+        "Whether you're preparing project specifications, reviewing technical documentation, or selecting the right reinforcement steel, our engineering team is ready to support your project from design to execution.",
       primaryLabel: "Request technical support",
       primaryHref: "/request-quote",
       secondaryLabel: "Talk to sales",
@@ -441,11 +441,11 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
   },
   "tmt-steel-bar-guide-civil-contractors": {
     eyebrow: "Civil Circle / Contractors",
-    heroBadge: "Site-ready support",
-    heroTitle: "Superior quality for superior",
-    heroAccent: "infrastructure.",
+    heroBadge: "For Contractors & Builders",
+    heroTitle: "Built for Every Site.",
+    heroAccent: "Trusted for Every Project.",
     heroBody:
-      "ARS supports civil contractors with product guidance, quantity-planning tools, dealer access, and a clear project-enquiry route.",
+      "From individual homes to large construction projects, every build depends on reliable reinforcement. ARS TMT Bars are engineered to deliver consistent quality, dependable strength, and the confidence contractors need to build without compromise.",
     heroImage: "/ars-assets/ARSHOME1.jpg",
     heroImageAlt: "Construction site requiring dependable TMT steel",
     primaryCta: { label: "Request project quote", href: "/request-quote" },
@@ -457,23 +457,23 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
       { value: "Site", label: "Testing support" },
     ],
     intro: {
-      eyebrow: "Project support",
-      title: "Unmatched strength, delivered with extra support.",
+      eyebrow: "Buyer's Guide",
+      title: "Choose Steel That Performs on Site",
       body:
-        "Contractors need steel that is dependable in quality and practical in supply. ARS brings product proof, testing support, and quantity guidance into the buying journey.",
+        "The right TMT bar does more than strengthen a structure—it helps reduce rework, improves construction efficiency, and gives your clients lasting confidence. Before making a purchase, every contractor should consider consistent quality, workability, strength, availability, genuine products, and long-term value.",
     },
     featurePanels: [
       {
-        title: "Partnering for excellence in civil construction.",
+        title: "Consistent Quality",
         body:
-          "Safe, durable, and efficient projects rely on material choices that match technical requirements and site execution realities.",
+          "Every bundle should deliver the same strength and performance. Consistent quality helps avoid unexpected issues during construction.",
         icon: Handshake,
         image: "/ars-assets/ARSHOME1.jpg",
       },
       {
-        title: "Spectrometer analysis for steel confidence.",
+        title: "Easy to Bend & Work With",
         body:
-          "Testing support helps verify chemical composition and consistency so contractors can move with more confidence.",
+          "Good TMT bars should be easy to bend, cut, and place without affecting their strength, helping save valuable time on site.",
         icon: FlaskConical,
         image: "/ars-assets/our-quality-1.png",
       },

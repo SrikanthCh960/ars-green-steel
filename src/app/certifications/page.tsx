@@ -81,6 +81,27 @@ const testingRows = [
   ["Batch documentation", "Keeps technical proof closer to enquiry and procurement decisions."],
 ];
 
+const sgbcBenefits = [
+  ["Independent Assessment", "Products are evaluated using transparent environmental criteria rather than marketing claims."],
+  ["Trusted by the Building Industry", "Recognised by architects, consultants, developers and green building professionals across Asia."],
+  ["Supports Sustainable Construction", "Encourages responsible material selection for lower-carbon buildings and infrastructure."],
+  ["Global Credibility", "Provides confidence that environmental performance has been independently reviewed."],
+];
+
+const sgbcProof = [
+  ["Environmental Product Declaration (EPD)", "Verified product-specific environmental data, including carbon emission intensity."],
+  ["Lower Carbon Steel Manufacturing", "Manufactured through the Electric Arc Furnace route using recycled steel and increasing renewable energy integration."],
+  ["Recognised Sustainability Standards", "Supported by GreenPro, BIS, ISO, SGS testing and India's Green Steel Taxonomy."],
+];
+
+const sgbcFaqs = [
+  ["What is SGBC Certification?", "SGBC Certification is awarded by the Singapore Green Building Council to building products that meet recognised environmental performance standards. It helps architects, developers and project teams identify products that contribute to more sustainable construction."],
+  ["What does the SGBC 4-Ticks Leader Rating mean?", "The 4-Ticks Leader Rating is the highest level of recognition awarded under the SGBC Green Building Product Certification scheme. It signifies outstanding environmental performance based on SGBC's evaluation criteria."],
+  ["How is SGBC Certification different from LEED?", "SGBC certifies building products, while LEED is a green building rating system used to assess the sustainability of entire buildings. SGBC-certified products can support projects pursuing green building certifications by providing recognised environmental credentials."],
+  ["How does SGBC Certification support sustainable construction?", "SGBC certification helps project teams select building materials that have been independently assessed for their environmental performance. It encourages more responsible material selection and contributes to lower-carbon construction practices."],
+  ["Why did ARS Green Steel receive SGBC Certification?", "ARS Green Steel received the SGBC Green Certificate with a 4-Ticks Leader Rating for its demonstrated environmental performance, supported by responsible manufacturing practices, lower carbon emissions, and independently verified environmental documentation."],
+];
+
 export default function CertificationsPage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-background text-ink-900">
@@ -211,16 +232,76 @@ export default function CertificationsPage() {
         </div>
       </MotionSection>
 
-      <MotionSection id="sgbc-recognition" className="bg-surface-50 py-16 lg:py-20">
-        <div className="ars-container max-w-4xl">
-          <SectionKicker variant="brand">Sustainability documentation</SectionKicker>
-          <h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.08] text-ink-900">SGBC certificate</h2>
-          <Link
-            href="/contact"
-            className="focus-ring mt-7 inline-flex h-11 items-center gap-2 rounded-[6px] border border-ink-900/15 px-5 text-sm font-bold text-brand-blue transition hover:border-brand-blue hover:bg-white"
-          >
-            Contact ARS for certificate information <ArrowRight size={15} />
-          </Link>
+      <MotionSection id="sgbc-recognition" className="bg-surface-50 py-20 lg:py-24">
+        <div className="ars-container">
+          <SectionKicker variant="brand">Singapore Green Building Council</SectionKicker>
+          <h2 className="section-title max-w-4xl">Recognized Beyond Borders.</h2>
+          <p className="section-copy max-w-4xl">Awarded the SGBC 4-Ticks Leader Rating for independently verified environmental performance and responsible manufacturing.</p>
+          <div className="mt-8 border-l-4 border-brand-red bg-white p-6 shadow-[var(--shadow-soft)]">
+            <strong className="font-display text-2xl text-ink-900">Only Indian TMT manufacturer to receive the SGBC 4-Ticks Leader Rating</strong>
+          </div>
+
+          <div className="mt-14 grid gap-10 lg:grid-cols-2">
+            <article>
+              <SectionKicker variant="brand">Understanding SGBC</SectionKicker>
+              <h3 className="mt-5 font-display text-3xl font-bold text-ink-900">What Is the Singapore Green Building Council?</h3>
+              <p className="mt-5 text-base leading-8 text-steel-700">The Singapore Green Building Council is one of Asia&apos;s leading organisations promoting sustainable buildings and environmentally responsible construction materials. Established in 2009, SGBC develops recognised certification programmes that evaluate building products based on environmental performance, helping architects, developers and project teams make informed material choices.</p>
+              <p className="mt-4 text-base leading-8 text-steel-700">Today, SGBC certification is trusted across commercial, residential and infrastructure projects seeking higher standards of sustainability.</p>
+            </article>
+            <article>
+              <SectionKicker variant="brand">Our achievement</SectionKicker>
+              <h3 className="mt-5 font-display text-3xl font-bold text-ink-900">ARS Green Steel Earned the Highest SGBC Leader Rating</h3>
+              <p className="mt-5 text-base leading-8 text-steel-700">ARS Green Steel has been awarded the SGBC Green Certificate with a 4-Ticks Leader Rating, the highest level of recognition granted by the Singapore Green Building Council.</p>
+              <p className="mt-4 text-base leading-8 text-steel-700">This recognition reflects ARS&apos;s continued investment in responsible manufacturing, lower-carbon steel production, and transparent environmental reporting.</p>
+            </article>
+          </div>
+
+          <div className="mt-14">
+            <SectionKicker variant="brand">Why it matters</SectionKicker>
+            <h3 className="mt-5 font-display text-3xl font-bold text-ink-900">Why SGBC Certification Matters</h3>
+            <p className="mt-5 max-w-4xl text-base leading-8 text-steel-700">Choosing certified building materials goes beyond environmental claims. SGBC certification provides independent validation that a product has been assessed against recognised sustainability benchmarks.</p>
+            <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+              {sgbcBenefits.map(([title, text]) => (
+                <article key={title} className="border-t-2 border-brand-blue bg-white p-6">
+                  <h4 className="font-display text-xl font-bold text-ink-900">{title}</h4>
+                  <p className="mt-3 text-sm leading-7 text-steel-700">{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-14 grid gap-5 md:grid-cols-3">
+            {sgbcProof.map(([title, text]) => (
+              <article key={title} className="rounded-[18px] border border-brand-blue/12 bg-white p-6">
+                <BadgeCheck size={21} className="text-green-steel" />
+                <h4 className="mt-5 font-display text-xl font-bold text-ink-900">{title}</h4>
+                <p className="mt-3 text-sm leading-7 text-steel-700">{text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-14 max-w-4xl">
+            <SectionKicker variant="brand">The ARS advantage</SectionKicker>
+            <h3 className="mt-5 font-display text-3xl font-bold text-ink-900">Why This Matters for Your Project</h3>
+            <p className="mt-5 text-base leading-8 text-steel-700">Choosing SGBC-certified steel means selecting a product whose environmental performance has been independently assessed—not simply claimed. Combined with ARS&apos;s Environmental Product Declaration, Green Steel manufacturing process, and internationally recognised certifications, it gives project teams greater confidence when specifying materials for sustainable construction.</p>
+          </div>
+
+          <div className="mt-14 max-w-4xl">
+            <SectionKicker variant="brand">FAQs</SectionKicker>
+            <div className="mt-6 divide-y divide-ink-900/10 border-y border-ink-900/10">
+              {sgbcFaqs.map(([question, answer]) => (
+                <details key={question} className="py-6">
+                  <summary className="focus-ring cursor-pointer font-display text-lg font-bold text-ink-900">{question}</summary>
+                  <p className="mt-4 text-sm leading-7 text-steel-700">{answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <Link href="/products" className="focus-ring inline-flex h-12 items-center gap-2 rounded-full bg-brand-red px-6 text-sm font-bold text-white">Choose Your Green Steel <ArrowRight size={15} /></Link>
+            <span className="inline-flex h-12 items-center rounded-full border border-ink-900/15 px-6 text-sm font-semibold text-steel-500" aria-disabled="true">SGBC certificate file coming soon</span>
+          </div>
         </div>
       </MotionSection>
 

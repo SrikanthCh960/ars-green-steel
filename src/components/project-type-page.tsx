@@ -172,28 +172,28 @@ export function ProjectTypePage({
 }
 
 export const roadProjectPage = {
-  eyebrow: "Solutions · Project types",
-  title: "TMT bars for road projects",
-  description: "ARS 550D CRS Steel TMT Bars for road infrastructure designed to withstand traffic, environmental stresses, and long-term use.",
+  eyebrow: "Road Projects",
+  title: "Because Every Journey Deserves a Strong Beginning.",
+  description: "Designed for highways, expressways, and urban road projects, ARS Fe550D CRS TMT Bars combine strength, durability, and engineering excellence for infrastructure that lasts.",
   primaryCta: { label: "Request project quote", href: "/request-quote" },
   secondaryCta: { label: "View CRS 550D", href: "/products/ars-crs-550d" },
   rationale: {
-    title: "Durability and safety begin with the right reinforcement decision.",
-    body: "Road construction calls for materials that can endure heavy traffic, environmental stresses, and long-term wear. TMT steel bars provide strength, flexibility, and resistance to degradation for reinforced road components where durability and safety matter.",
+    title: "Every Road Is Only as Strong as What Lies Beneath.",
+    body: "Roads are more than asphalt. Beneath every highway, expressway, and urban road network lies a system of reinforced concrete structures that carry traffic, withstand environmental conditions, and support decades of continuous use. Choosing high-quality TMT bars is essential to building road infrastructure that delivers lasting strength, durability, and safety.",
   },
   applicationsSection: {
     eyebrow: "Road applications",
     title: "Reinforcement considerations across the road network.",
   },
   applications: [
-    { title: "Bridges and culverts", body: "Road networks rely on reinforced structures that can accommodate loads and vibration from continual traffic." },
-    { title: "Retaining walls", body: "Reinforcement supports retaining walls that help manage lateral soil pressure in uneven landscapes near roadways." },
-    { title: "Highways and expressways", body: "High-use road infrastructure requires material selection that accounts for long-term wear and demanding operating conditions." },
+    { title: "Built to Carry Heavy Traffic", body: "Road infrastructure is subjected to constant traffic loads every day. High-strength reinforcement helps maintain structural stability under continuous use." },
+    { title: "Engineered for Long-Term Durability", body: "Roads are built to last for decades. Quality TMT bars help improve the service life of reinforced concrete structures while reducing maintenance over time." },
+    { title: "Designed for Challenging Environments", body: "From heavy rainfall and moisture to high salinity conditions, durable reinforcement helps road infrastructure perform reliably across diverse environments." },
   ],
   considerations: [
-    { title: "Seismic resistance", body: "Ductility and tensile strength help road structures absorb and dissipate seismic forces where those conditions are relevant.", icon: CircleGauge },
-    { title: "Corrosion resistance", body: "Road projects in high-rainfall, saline, or marine conditions need reinforcement considered for corrosion exposure.", icon: Waves },
-    { title: "Quality review", body: "Confirm the product grade and applicable project specifications with the ARS team before final selection.", icon: ShieldCheck },
+    { title: "Supports Safer Infrastructure", body: "Reliable reinforcement contributes to stronger retaining walls, culverts, bridges, drains, and other critical structures that support every road network.", icon: CircleGauge },
+    { title: "Built for Sustainable Development", body: "Long-lasting infrastructure reduces repair cycles, conserves resources, and supports more sustainable road construction for the future.", icon: Waves },
+    { title: "Consistency That Strengthens Every Kilometre", body: "Uniform mechanical properties help deliver reliable performance across large-scale road infrastructure projects.", icon: ShieldCheck },
   ],
   considerationsSection: {
     eyebrow: "Project conditions",
@@ -215,39 +215,39 @@ export const roadProjectPage = {
     title: "Road-project questions, answered.",
   },
   faq: [
-    { question: "Why are ARS TMT steel bars used for road construction projects?", answer: "The original ARS road-project content identifies strength, durability, and corrosion resistance as relevant qualities for roads, highways, and expressways, especially in demanding environments." },
-    { question: "How can TMT bars support seismic resistance in road structures?", answer: "The source material explains that ductility and tensile strength can help structures such as bridges and culverts absorb and dissipate seismic forces, reducing the risk of structural damage." },
-    { question: "What should be considered for marine and harsh environments?", answer: "For road work near marine areas or in high-humidity conditions, corrosion exposure should be part of the reinforcement review. Discuss the project conditions and product requirements with ARS before specifying." },
+    { question: "Which TMT bar is suitable for road construction?", answer: "Road projects generally require high-strength, high-ductility TMT bars capable of reinforcing bridges, culverts, retaining walls, and other reinforced concrete structures. ARS Fe550D and CRS 550D TMT Bars are designed for such demanding applications." },
+    { question: "Why is ductility important in road infrastructure?", answer: "Ductility enables reinforced concrete structures to absorb stresses and distribute loads more effectively, helping improve structural resilience under dynamic traffic conditions." },
+    { question: "Is corrosion resistance important in road projects?", answer: "Yes. Infrastructure exposed to water, humidity, coastal air, or de-icing environments benefits from corrosion-resistant reinforcement that helps improve long-term durability." },
   ],
 } satisfies ProjectTypePageProps;
 
 export const bridgesFlyoversProjectPage = {
-  eyebrow: "Solutions · Project types",
-  title: "TMT bars for bridges and flyovers",
-  description: "ARS TMT Bars for bridge and flyover construction where load, environmental conditions, and long-term structural performance must be considered.",
+  eyebrow: "Bridge & Flyover Construction",
+  title: "Building Infrastructure That Connects Generations",
+  description: "ARS TMT Bars are engineered for bridge construction and flyover projects, delivering reliable strength, corrosion resistance, seismic performance, and lasting durability for critical infrastructure.",
   primaryCta: { label: "Request project quote", href: "/request-quote" },
   secondaryCta: { label: "View CRS 550D", href: "/products/ars-crs-550d" },
   rationale: {
-    title: "Plan reinforcement around load, span, and environmental conditions.",
-    body: "Bridge and flyover design calls for precise engineering and planning. The original ARS content identifies load-bearing capability, resistance to environmental stressors, tensile strength, and resilience as key considerations for road and railway bridges, as well as high-traffic flyovers.",
+    title: "What Makes Steel Critical in Bridge & Flyover Construction",
+    body: "Bridge and flyover construction demands reinforcement that can withstand heavy loads, continuous traffic, changing weather conditions, and decades of service. Choosing the right TMT bars plays a vital role in achieving structural integrity, long-term durability, and reliable performance throughout the life of the structure.",
   },
   applicationsSection: {
     eyebrow: "Bridge and flyover applications",
     title: "Reinforcement for structures with distinct functional demands.",
   },
   applications: [
-    { title: "Road and railway bridges", body: "Bridge construction can require a review of span, load, structural integrity, and exposure to environmental stressors." },
-    { title: "Bridge structures", body: "Beam bridges and suspension bridges serve different geographical and functional needs, with reinforcement selected to support their structural requirements." },
-    { title: "Flyovers and interchanges", body: "Flyovers, overpasses, and interchanges support urban mobility and must account for continual traffic volumes and environmental wear." },
+    { title: "High Load-Bearing Strength", body: "Bridges and flyovers are designed to support constant dynamic loads. High-strength TMT bars provide the structural reinforcement needed to help maintain stability and long-term performance." },
+    { title: "Superior Ductility", body: "Good ductility allows reinforced concrete structures to absorb stress and distribute loads more effectively, helping improve structural resilience under demanding conditions." },
+    { title: "Enhanced Corrosion Resistance", body: "Bridges and flyovers exposed to moisture, humidity, and high salinity environments require reinforcement that helps improve durability and reduce long-term maintenance." },
   ],
   considerationsSection: {
     eyebrow: "Project conditions",
     title: "Address the forces and exposure that shape bridge and flyover performance.",
   },
   considerations: [
-    { title: "Load and ductility", body: "High tensile strength and ductility are identified in the source material as considerations for resilience against heavy loads.", icon: CircleGauge },
-    { title: "Corrosion exposure", body: "For humid climates and varied terrain, corrosion resistance and bonding strength should be reviewed against the project conditions.", icon: Waves },
-    { title: "Long-life planning", body: "Align the material review with span, traffic, environmental pressures, and the intended long-term use of the structure.", icon: ShieldCheck },
+    { title: "Earthquake Performance", body: "High-ductility TMT bars help reinforced concrete structures respond better to seismic forces, making them suitable for infrastructure projects in earthquake-prone regions.", icon: CircleGauge },
+    { title: "Long-Term Durability", body: "Quality reinforcement helps extend the service life of bridges and flyovers while supporting long-term structural performance.", icon: Waves },
+    { title: "Manufactured to Recognised Standards", body: "Consistent manufacturing, stringent quality control, and recognised certifications help ensure dependable performance across critical infrastructure projects.", icon: ShieldCheck },
   ],
   relatedSection: {
     eyebrow: "Product, quality, and manufacturing review",
@@ -266,30 +266,30 @@ export const bridgesFlyoversProjectPage = {
     title: "Bridge and flyover questions, answered.",
   },
   faq: [
-    { question: "Why are TMT bars relevant to bridge and flyover construction?", answer: "The existing ARS source identifies tensile strength and ductility as relevant to resilience against heavy loads and environmental stresses in bridge and flyover construction." },
-    { question: "What should be reviewed for bridge and flyover projects?", answer: "The original content highlights project-specific requirements such as load capacity, span length, and environmental conditions. Discuss these requirements with ARS before selecting a grade." },
-    { question: "Why does environmental exposure matter?", answer: "The source material identifies humid climates and varied terrain as conditions where corrosion resistance and bonding strength are relevant to the project review." },
+    { question: "Which TMT bar is suitable for bridge and infrastructure construction?", answer: "The choice depends on the project's structural design, load requirements, and environmental conditions. ARS offers Fe550D and CRS 550D TMT Bars for a wide range of bridge and infrastructure applications." },
+    { question: "Why is ductility important in bridge construction?", answer: "Ductile TMT bars help reinforced concrete structures absorb stress and distribute loads more effectively, contributing to improved structural performance under dynamic loading and seismic conditions." },
+    { question: "When should CRS TMT bars be used?", answer: "CRS 550D TMT Bars are recommended for bridges and infrastructure exposed to high moisture and high salinity environments where enhanced corrosion resistance is required." },
   ],
 } satisfies ProjectTypePageProps;
 
 export const institutionalProjectPage = {
-  eyebrow: "Solutions · Project types",
-  title: "TMT bars for institutional projects",
-  description: "ARS TMT Bars for institutional construction where schools, hospitals, universities, and government buildings require a considered project-material review.",
+  eyebrow: "Institutional Construction",
+  title: "Reliable TMT Bars for Institutional Projects",
+  description: "ARS TMT Bars deliver the strength, quality, and durability required for schools, hospitals, universities, government buildings, and other institutional construction projects.",
   primaryCta: { label: "Request project quote", href: "/request-quote" },
   secondaryCta: { label: "View product specifications", href: "/products/ars-550d#specifications" },
   rationale: {
-    title: "Support the safety and durability requirements of essential facilities.",
-    body: "Institutional construction—including schools, hospitals, universities, and government buildings—requires material selection to be considered alongside safety, durability, and structural-integrity requirements. The project context and intended use should guide the final specification review.",
+    title: "Building Better Institutions Starts with Better Steel",
+    body: "Institutional buildings serve communities for decades. Schools, hospitals, universities, and government facilities require reinforcement that supports safety, structural reliability, and long-term durability. Choosing high-quality TMT bars helps ensure these essential structures are built to perform reliably throughout their service life.",
   },
   applicationsSection: {
     eyebrow: "Institutional applications",
     title: "Construction contexts with long-term public use in mind.",
   },
   applications: [
-    { title: "Schools and universities", body: "Education facilities need a project review that accounts for safety, durability, environmental conditions, and long-term use." },
-    { title: "Hospitals", body: "Hospital projects can involve large, complex structures and require material selection to be reviewed against the facility’s requirements." },
-    { title: "Government buildings", body: "Government facilities, colleges, and other institutions may need to withstand heavy use and environmental challenges over time." },
+    { title: "Built for Long-Term Public Use", body: "Institutional buildings experience continuous use and must perform reliably for generations." },
+    { title: "Strength for Complex Structures", body: "Hospitals, universities, and government buildings often involve large and complex structural designs that demand dependable reinforcement." },
+    { title: "Safety at the Core", body: "Reliable reinforcement helps support the safety and structural integrity of buildings used by students, patients, staff, and the public." },
   ],
   considerationsSection: {
     eyebrow: "Project conditions",

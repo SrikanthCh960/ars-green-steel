@@ -204,9 +204,12 @@ export default function ArsCrs550DPage() {
                 What are ARS CRS 550D TMT Bars?
               </h2>
               <p className="mt-5 text-[15px] leading-[1.8] text-steel-700">
-                Corrosion is a leading cause of structural deterioration. ARS CRS 550D uses advanced CRS
-                technology to provide corrosion resistance alongside the strength and ductility required for
-                long service life.
+                Built for Durability. Trusted Where Corrosion Matters. Corrosion is one of the leading causes
+                of structural deterioration. ARS CRS 550D TMT Bars are specially engineered to resist corrosion
+                while delivering the strength and ductility required for reinforced concrete construction.
+                Manufactured to IS 1786 standards with advanced Corrosion Resistant Steel technology, they are
+                suited to coastal, humid, high-salinity, industrial, and infrastructure projects where long
+                service life is essential.
               </p>
             </div>
 

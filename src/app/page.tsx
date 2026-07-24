@@ -138,12 +138,12 @@ const partnerCards = [
 const greenSteelFeatures = [
   {
     title: "Lower Carbon Footprint",
-    text: "EPD-verified at 592 kg CO₂e per tonne—documented lower-emission production.",
+    text: "Lower-emission production helps reduce the environmental impact of steel manufacturing.",
     icon: Atom,
   },
   {
     title: "Recycled Scrap-Based Production",
-    text: "Up to 98% recycled steel supports circular manufacturing and reduces demand for virgin raw materials.",
+    text: "Recycled materials support circular manufacturing and reduce demand for virgin raw materials.",
     icon: RefreshCw,
   },
   {
@@ -354,11 +354,11 @@ export default function Home() {
             <div>
               <SectionKicker>Knowledge center</SectionKicker>
               <h2 className="section-title max-w-3xl">
-                Guides for better steel decisions.
+                Expert Guides for Smarter Steel Decisions
               </h2>
               <p className="section-copy max-w-2xl">
-                Educational content helping buyers understand products, pricing, durability, and
-                construction planning before they speak to sales.
+                Explore expert insights on TMT steel, construction best practices, pricing, corrosion
+                resistance, green steel, and project planning to build with confidence.
               </p>
             </div>
 

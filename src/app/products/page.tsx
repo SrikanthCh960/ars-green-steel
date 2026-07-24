@@ -37,13 +37,13 @@ const products = productCatalog.map((product) => ({
 }));
 
 const sizes = [
-  { size: "8mm", use: "Light residential members, rings, and smaller reinforcement." },
-  { size: "10mm", use: "Slabs and residential reinforcement; approx. 0.617 kg/m." },
-  { size: "12mm", use: "Beams, slabs, and general construction; approx. 0.890 kg/m." },
-  { size: "16mm", use: "Columns, beams, and medium-load reinforcement; approx. 1.580 kg/m." },
-  { size: "20mm", use: "Heavy columns and commercial members; approx. 2.470 kg/m." },
-  { size: "25mm", use: "Large structures and heavy-load reinforcement; approx. 3.850 kg/m." },
-  { size: "32mm", use: "Mega structures, bridges, and heavy infrastructure." },
+  { size: "8 mm", use: "Ideal for stirrups, rings and light reinforcement." },
+  { size: "10 mm", use: "Suitable for slabs and small structural members." },
+  { size: "12 mm", use: "Recommended for slabs, beams and residential construction." },
+  { size: "16 mm", use: "Used in beams, columns and structural framing." },
+  { size: "20 mm", use: "Suitable for foundations and heavy RCC members." },
+  { size: "25 mm", use: "Preferred for industrial and infrastructure projects." },
+  { size: "32 mm", use: "Designed for heavy structural and infrastructure applications." },
 ];
 
 const techLinks = [
@@ -86,16 +86,16 @@ export default function ProductsPage() {
           <div className="max-w-2xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
               <Layers size={12} className="text-white/60" />
-              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS Product Range</span>
+              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS 550D vs ARS CRS 550D</span>
             </div>
             <h1 className="font-display text-[clamp(2.4rem,5.5vw,4.2rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
-              Steel by grade,
+              Choose the Right TMT Bar
               <br />
-              <span className="italic text-brand-red">size, and site.</span>
+              <span className="italic text-brand-red">for Your Project</span>
             </h1>
             <p className="mt-5 max-w-[460px] text-[15px] leading-[1.75] text-white/70">
-              From grade selection to rod size, technical proof, calculator, and quote — one clear route
-              through the ARS range.
+              Compare ARS 550D and ARS CRS 550D, explore available sizes, review technical specifications,
+              and find the right reinforcement steel for your construction project.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -141,12 +141,13 @@ export default function ProductsPage() {
             <div>
               <SectionKicker variant="brand">Core Products</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                Two grades, one proof standard.
+                Compare ARS 550D &amp; ARS CRS 550D
               </h2>
             </div>
             <p className="text-[15px] leading-[1.8] text-steel-700">
-              Choose by structural need and environment — both grades share the same Fe-550D strength and
-              IS 1786:2008 testing discipline.
+              Choose the reinforcement steel that matches your project environment. Both grades comply with
+              IS 1786 and deliver dependable structural performance, while ARS CRS 550D offers enhanced
+              corrosion resistance for demanding conditions.
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">

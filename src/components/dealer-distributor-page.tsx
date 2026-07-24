@@ -8,13 +8,13 @@ import { SiteHeader } from "@/components/site-header";
 const products = [
   {
     title: "ARS 550D",
-    body: "Review the ARS 550D product page before discussing suitability with ARS.",
+    body: "Ideal for general residential, commercial, and infrastructure construction where high strength, excellent ductility, and reliable performance are essential.",
     href: "/products/ars-550d",
     image: "/ars-assets/TMT-Bars.png",
   },
   {
     title: "ARS CRS 550D",
-    body: "Review the ARS CRS 550D product page before discussing suitability with ARS.",
+    body: "Designed for projects exposed to high moisture, high salinity, and corrosive environments where enhanced corrosion resistance helps improve structural durability.",
     href: "/products/ars-crs-550d",
     image: "/ars-assets/CRS.png",
   },
@@ -42,21 +42,23 @@ export function DealerDistributorPage() {
         <div className="ars-container relative flex min-h-[500px] items-end pb-10 pt-28 md:min-h-[560px] lg:pb-12">
           <div className="max-w-3xl">
             <p className="inline-flex items-center gap-3 rounded-full border border-white/18 bg-white/10 px-4 py-2 font-technical text-xs font-black uppercase tracking-[0.18em] text-white/78 backdrop-blur">
-              <span className="size-2 rounded-full bg-brand-red" /> Dealer &amp; distributor enquiries
+              <span className="size-2 rounded-full bg-brand-red" /> For Dealers &amp; Distributors
             </p>
             <h1 className="mt-5 font-display text-[clamp(2.25rem,4.1vw,4.25rem)] font-bold uppercase leading-[1.03] tracking-normal">
-              Construction excellence,
-              <span className="block text-brand-red">safely delivered.</span>
+              Grow Your Business with a
+              <span className="block text-brand-red">Trusted TMT Steel Brand</span>
             </h1>
             <p className="mt-5 max-w-xl text-sm font-semibold leading-7 text-white/76 md:text-base">
-              ARS Steels is your dependable partner for TMT steel bars that support successful construction projects.
+              Whether you operate a steel retail outlet, distribution network, or building materials business,
+              partnering with the right TMT steel manufacturer can help you serve customers better, strengthen
+              your reputation, and grow your business with confidence.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
                 href="/contact"
                 className="focus-ring inline-flex h-12 items-center justify-center gap-3 rounded-full bg-brand-red px-6 text-sm font-bold text-white shadow-[0_18px_44px_rgba(222,18,26,0.24)] transition hover:-translate-y-0.5 hover:bg-[#c90f16] md:text-base"
               >
-                Contact ARS about partnership <ArrowRight size={18} />
+                Become a Dealer <ArrowRight size={18} />
               </Link>
               <Link
                 href="/products"
@@ -72,13 +74,16 @@ export function DealerDistributorPage() {
       <section className="bg-white py-20 lg:py-24">
         <div className="ars-container grid gap-10 lg:grid-cols-[0.78fr_1fr] lg:items-end">
           <div>
-            <SectionKicker>Partnership enquiry</SectionKicker>
+            <SectionKicker>Dealer Insights</SectionKicker>
             <h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.08] text-ink-900">
-              Let&apos;s build excellence together.
+              What Dealers Should Look for in a TMT Steel Brand
             </h2>
           </div>
           <p className="max-w-2xl text-base leading-8 text-steel-700 lg:text-lg">
-            This is a commercial enquiry page for prospective Dealers and Distributors. The approved source does not define separate responsibilities, eligibility, territories, or commercial terms, so ARS treats both audiences through one contact path.
+            The success of a dealership depends not only on competitive pricing, but also on consistent product
+            quality, reliable supply, customer trust, and long-term business support. Choosing the right
+            manufacturing partner helps you build lasting relationships with builders, contractors, engineers,
+            and homeowners.
           </p>
         </div>
       </section>
@@ -86,12 +91,13 @@ export function DealerDistributorPage() {
       <section className="bg-[#F4F7FF] py-20 lg:py-24">
         <div className="ars-container">
           <div className="max-w-3xl">
-            <SectionKicker>Product portfolio</SectionKicker>
+            <SectionKicker>ARS Products</SectionKicker>
             <h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.08] text-ink-900">
-              Start with the available ARS product paths.
+              Products Your Customers Can Trust
             </h2>
             <p className="mt-5 text-base leading-8 text-steel-700">
-              Product information is available before a commercial conversation. ARS can then direct an enquiry to the appropriate next step.
+              Offer customers a range of reinforcement solutions backed by consistent manufacturing quality and
+              recognised certifications.
             </p>
           </div>
 
@@ -154,9 +160,9 @@ export function DealerDistributorPage() {
 
       <ContactCta
         eyebrow="Partner enquiry"
-        headline="Ready to start a commercial conversation with ARS?"
-        body="Contact ARS to discuss Dealer or Distributor interest. Commercial terms and onboarding requirements will be confirmed by the ARS team."
-        primaryLabel="Contact ARS about partnership"
+        headline="Let's Build Better Business Together"
+        body="Whether you're expanding your dealership or looking for a trusted TMT steel manufacturer, contact ARS to discuss product supply and the next steps for a commercial partnership."
+        primaryLabel="Become a Dealer"
         primaryHref="/contact"
         secondaryLabel="View product range"
         secondaryHref="/products"
