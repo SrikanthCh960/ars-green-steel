@@ -474,6 +474,23 @@ html {
 .blog-source-content th { background: var(--surface-50); color: var(--ink-900); }
 .blog-source-content a { color: var(--brand-blue); font-weight: 700; text-decoration: underline; text-underline-offset: 0.16em; }
 
+@keyframes audience-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.audience-progress {
+  animation: audience-progress 6s linear forwards;
+}
+
+.audience-progress-paused {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-word-item {
     animation: none !important;

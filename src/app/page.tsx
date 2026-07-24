@@ -161,6 +161,7 @@ const blogs = [
     detail: "Understand how corrosion-resistant steel differs from standard TMT and when it is the right choice for your project.",
     readTime: "4 min read",
     icon: Layers,
+    image: "/ars-assets/blog-banners/everything-you-need-to-know-about-corrosion-resistance-steel/corrosion-resistance-steel.jpeg",
   },
   {
     title: "How Green Steel is Produced",
@@ -169,6 +170,7 @@ const blogs = [
     detail: "A look inside the electric arc furnace process that makes ARS steel cleaner, greener, and future-ready.",
     readTime: "5 min read",
     icon: Leaf,
+    image: "/ars-assets/original-green-steel/what-is-green-steel.png",
   },
   {
     title: "TMT Bars vs HYSD Bars",
@@ -177,6 +179,7 @@ const blogs = [
     detail: "Side-by-side comparison of the two most common steel bar types and what they mean for strength, cost, and safety.",
     readTime: "6 min read",
     icon: BookOpen,
+    image: "/ars-assets/blog-banners/all-you-need-to-know-about-hysd-bars/quality-tmt-bar-3.webp",
   },
   {
     title: "House Construction Cost in India",
@@ -185,6 +188,7 @@ const blogs = [
     detail: "A practical guide to estimating steel requirements and total construction cost before breaking ground.",
     readTime: "7 min read",
     icon: Calculator,
+    image: "/ars-assets/blog-banners/average-house-construction-cost-in-india-per-square-feet/WhatsApp-Image-2024-12-02-at-12.34.42-PM.jpeg",
   },
 ];
 
@@ -196,6 +200,8 @@ export default function Home() {
       <HomeHero />
 
       <AudienceJourneySection />
+
+      <ManufacturingStorySection />
 
       <GreenSteelSection />
 
@@ -282,71 +288,84 @@ export default function Home() {
 
       <BuyingAssistantSection />
 
-      <MotionSection className="bg-white py-24" id="trusted-by">
+      <MotionSection className="bg-surface-50 py-24" id="trusted-by">
         <div className="ars-container">
-          <SectionIntro
-            eyebrow="Industry recognition"
-            title="Certified. Tested. Trusted."
-            body="Every ARS TMT bar is backed by nationally recognised certifications, rigorous testing, and partnerships trusted across the construction industry."
-          />
+          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+            <SectionIntro
+              eyebrow="Industry recognition"
+              title="Proof that stands behind every project."
+              body="ARS brings independent testing, recognised standards, and green-building documentation together in one quality-led manufacturing journey."
+            />
 
-          <div className="grid gap-8">
-            <div>
-              <p className="mb-4 font-technical text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">
-                Certificates
-              </p>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {certificateCards.slice(0, 6).map((item) => (
-                    <article
-                      key={item.label}
-                      className="rounded-2xl border border-brand-blue/10 bg-surface-50 p-6"
-                    >
-                      {item.image ? (
-                        <Image
-                          src={item.image}
-                          alt={`${item.label} ARS proof`}
-                          width={260}
-                          height={150}
-                          className="mb-5 h-24 w-full rounded-[6px] object-cover"
-                        />
-                      ) : (
-                        <span className="mb-5 inline-flex size-12 items-center justify-center rounded-[8px] bg-white text-brand-blue ring-1 ring-ink-900/8">
-                          <BadgeCheck size={22} />
-                        </span>
-                      )}
-                      <h3 className="font-display text-xl font-bold tracking-normal text-ink-900">
-                        {item.label}
-                      </h3>
-                      <p className="mt-2 text-sm leading-6 text-steel-700">{item.detail}</p>
-                    </article>
-                  ))}
-              </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {certificateCards.slice(0, 2).map((item) => (
+                <article
+                  key={item.label}
+                  className="group grid min-h-[290px] overflow-hidden rounded-[18px] border border-brand-blue/10 bg-white shadow-[var(--shadow-soft)] sm:grid-rows-[170px_1fr]"
+                >
+                  <div className="overflow-hidden bg-white p-5">
+                    <Image
+                      src={item.image!}
+                      alt={`${item.label} ARS certification`}
+                      width={368}
+                      height={523}
+                      className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <div className="border-t border-brand-blue/8 bg-brand-blue p-5 text-white">
+                    <h3 className="font-display text-xl font-bold">{item.label}</h3>
+                    <p className="mt-2 text-sm leading-6 text-white/70">{item.detail}</p>
+                  </div>
+                </article>
+              ))}
             </div>
+          </div>
 
-            <div>
-              <p className="mb-4 font-technical text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">
-                Partners
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {certificateCards.slice(2, 6).map((item) => (
+              <article
+                key={item.label}
+                className="rounded-[16px] border border-brand-blue/10 bg-white p-6 shadow-[0_14px_42px_rgba(13,43,110,0.05)]"
+              >
+                <span className="inline-flex size-11 items-center justify-center rounded-[10px] bg-[#edf5ff] text-brand-blue ring-1 ring-brand-blue/10">
+                  <BadgeCheck size={21} />
+                </span>
+                <h3 className="mt-7 font-display text-xl font-bold text-ink-900">{item.label}</h3>
+                <p className="mt-2 text-sm leading-6 text-steel-700">{item.detail}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-12 border-t border-brand-blue/10 pt-8">
+            <div className="mb-5 flex items-center justify-between gap-6">
+              <p className="font-technical text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">
+                Trusted by project teams
               </p>
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-                  {partnerCards.map((partner) => (
-                    <article
-                      key={partner.name}
-                      className="flex min-h-[116px] items-center justify-center rounded-2xl border border-ink-900/10 bg-white px-6 text-center shadow-[0_12px_36px_rgba(15,23,42,0.04)]"
-                    >
-                      <Image
-                        src={partner.logo}
-                        alt={`${partner.name} partner logo`}
-                        width={180}
-                        height={72}
-                        className="max-h-16 w-auto object-contain"
-                      />
-                    </article>
-                  ))}
-              </div>
+              <Link className="focus-ring text-sm font-bold text-brand-blue hover:text-brand-red" href="/projects">
+                View project experience
+              </Link>
+            </div>
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-9">
+              {partnerCards.map((partner) => (
+                <article
+                  key={partner.name}
+                  className="flex min-h-[92px] items-center justify-center rounded-[12px] border border-ink-900/8 bg-white px-4 text-center"
+                >
+                  <Image
+                    src={partner.logo}
+                    alt={`${partner.name} partner logo`}
+                    width={160}
+                    height={64}
+                    className="max-h-12 w-auto object-contain"
+                  />
+                </article>
+              ))}
             </div>
           </div>
         </div>
       </MotionSection>
+
+      <RahulDravidSection />
 
       <MotionSection className="bg-white py-24" id="blogs">
         <div className="ars-container">
@@ -374,8 +393,8 @@ export default function Home() {
             <FeaturedBlogCard blog={blogs[0]} />
 
             <div className="grid gap-5">
-              {blogs.slice(1).map((blog, index) => (
-                <BlogListCard key={blog.title} blog={blog} tone={index} />
+              {blogs.slice(1).map((blog) => (
+                <BlogListCard key={blog.title} blog={blog} />
               ))}
             </div>
           </div>
@@ -393,9 +412,19 @@ function FeaturedBlogCard({ blog }: { blog: (typeof blogs)[number] }) {
   return (
     <Link
       href={blog.href}
-      className="focus-ring group flex min-h-[430px] flex-col justify-between rounded-[16px] bg-brand-blue p-7 text-white shadow-[0_24px_70px_rgba(13,43,110,0.18)] transition duration-300 hover:-translate-y-1 hover:bg-brand-blue-dark lg:p-8"
+      className="focus-ring group relative flex min-h-[500px] flex-col justify-between overflow-hidden rounded-[18px] bg-bg-dark p-7 text-white shadow-[0_24px_70px_rgba(13,43,110,0.18)] transition duration-300 hover:-translate-y-1 lg:p-8"
     >
-      <div>
+      <Image
+        src={blog.image}
+        alt=""
+        fill
+        sizes="(min-width: 1024px) 40vw, 100vw"
+        className="object-cover transition duration-700 group-hover:scale-105"
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-bg-dark via-bg-dark/76 to-bg-dark/10" />
+
+      <div className="relative">
         <span className="inline-flex items-center gap-2 rounded-full bg-white/14 px-4 py-2 font-technical text-xs font-black uppercase tracking-[0.16em] text-white/74 ring-1 ring-white/14">
           <Icon size={16} />
           {blog.category}
@@ -408,7 +437,7 @@ function FeaturedBlogCard({ blog }: { blog: (typeof blogs)[number] }) {
         </p>
       </div>
 
-      <div className="mt-12 flex items-center justify-between border-t border-white/14 pt-7">
+      <div className="relative mt-12 flex items-center justify-between border-t border-white/14 pt-7">
         <span className="text-sm font-bold text-white/50">{blog.readTime}</span>
         <span className="inline-flex items-center gap-2 text-sm font-bold text-white">
           Read article <ArrowRight size={17} className="transition group-hover:translate-x-1" />
@@ -418,23 +447,24 @@ function FeaturedBlogCard({ blog }: { blog: (typeof blogs)[number] }) {
   );
 }
 
-function BlogListCard({ blog, tone }: { blog: (typeof blogs)[number]; tone: number }) {
-  const Icon = blog.icon;
-  const iconTone =
-    tone === 1
-      ? "bg-red-50 text-brand-red ring-brand-red/12"
-      : "bg-[#edf5ff] text-brand-blue ring-brand-blue/12";
-
+function BlogListCard({ blog }: { blog: (typeof blogs)[number] }) {
   return (
     <Link
       href={blog.href}
-      className="focus-ring group grid gap-5 rounded-[16px] border border-brand-blue/10 bg-surface-50 p-6 shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-0.5 hover:border-brand-blue/28 hover:bg-white sm:grid-cols-[64px_minmax(0,1fr)_28px]"
+      className="focus-ring group grid overflow-hidden rounded-[16px] border border-brand-blue/10 bg-surface-50 shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-0.5 hover:border-brand-blue/28 hover:bg-white sm:grid-cols-[180px_minmax(0,1fr)_48px]"
     >
-      <span className={`inline-flex size-12 items-center justify-center rounded-[12px] ring-1 ${iconTone}`}>
-        <Icon size={20} />
+      <span className="relative min-h-[170px] overflow-hidden bg-surface-100 sm:min-h-full">
+        <Image
+          src={blog.image}
+          alt=""
+          fill
+          sizes="(min-width: 640px) 180px, 100vw"
+          className="object-cover transition duration-500 group-hover:scale-105"
+          aria-hidden="true"
+        />
       </span>
 
-      <span className="min-w-0">
+      <span className="min-w-0 p-6">
         <span className="font-technical text-xs font-black uppercase tracking-[0.18em] text-brand-blue">
           {blog.category}
           <span className="mx-2 text-steel-300">-</span>
@@ -450,9 +480,51 @@ function BlogListCard({ blog, tone }: { blog: (typeof blogs)[number]; tone: numb
 
       <ArrowRight
         size={20}
-        className="self-end text-brand-blue transition duration-300 group-hover:translate-x-1 group-hover:text-brand-red sm:self-center"
+        className="mb-6 mr-6 self-end justify-self-end text-brand-blue transition duration-300 group-hover:translate-x-1 group-hover:text-brand-red sm:mb-0 sm:mr-5 sm:self-center"
       />
     </Link>
+  );
+}
+
+function RahulDravidSection() {
+  return (
+    <MotionSection className="relative overflow-hidden bg-bg-dark text-white" id="brand-ambassador">
+      <div className="ars-container py-20 lg:py-24">
+        <div className="grid overflow-hidden rounded-[22px] border border-white/12 bg-[#07142f] shadow-[0_30px_90px_rgba(6,13,30,0.28)] lg:grid-cols-[0.86fr_1.14fr]">
+          <div className="relative z-10 flex flex-col justify-center p-8 sm:p-10 lg:p-14">
+            <SectionKicker variant="light">Brand ambassador</SectionKicker>
+            <p className="font-technical text-xs font-bold uppercase tracking-[0.22em] text-white/48">
+              Rahul Dravid × ARS Steel
+            </p>
+            <h2 className="mt-5 max-w-xl font-display text-[clamp(2.4rem,4.5vw,4.6rem)] font-extrabold uppercase leading-[0.94] text-white">
+              Rahul Dravid.
+              <span className="block text-brand-red">The ambassador of truth.</span>
+            </h2>
+            <p className="mt-6 max-w-lg text-base leading-8 text-white/72 lg:text-lg">
+              Known for discipline, integrity, and resilience, Rahul Dravid reflects the values
+              ARS brings to every bar of CRS 550D.
+            </p>
+            <Link
+              className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] bg-brand-red px-5 text-sm font-bold text-white transition hover:bg-brand-red-dark"
+              href="/products/ars-crs-550d"
+            >
+              Discover ARS CRS 550D <ArrowRight size={17} />
+            </Link>
+          </div>
+
+          <div className="relative min-h-[390px] overflow-hidden bg-[#f5a916] lg:min-h-[560px]">
+            <Image
+              src="/ars-assets/ARSHOME2.jpg"
+              alt="Rahul Dravid representing ARS CRS 550D TMT steel"
+              fill
+              sizes="(min-width: 1024px) 58vw, 100vw"
+              className="object-cover object-right"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#07142f]/55 via-transparent to-transparent lg:from-[#07142f]/24" />
+          </div>
+        </div>
+      </div>
+    </MotionSection>
   );
 }
 
@@ -513,6 +585,82 @@ function GreenSteelSection() {
               </article>
             );
           })}
+        </div>
+      </div>
+    </MotionSection>
+  );
+}
+
+function ManufacturingStorySection() {
+  const manufacturingProof = [
+    { value: "1992", label: "Steelmaking heritage" },
+    { value: "Tamil Nadu", label: "Gummidipoondi manufacturing base" },
+    { value: "Integrated", label: "Billet-to-TMT production journey" },
+  ];
+
+  return (
+    <MotionSection className="overflow-hidden bg-white py-20 lg:py-28" id="manufacturing-story">
+      <div className="ars-container">
+        <div className="grid items-center gap-12 lg:grid-cols-[0.94fr_1.06fr] lg:gap-16">
+          <div className="relative min-h-[420px] sm:min-h-[540px]">
+            <div className="absolute inset-x-0 top-0 h-[78%] overflow-hidden rounded-[20px] bg-surface-100 shadow-[var(--shadow-soft)]">
+              <Image
+                src="/ars-assets/right-about-us.png-compress.webp"
+                alt="Aerial view of the ARS steel manufacturing facility in Gummidipoondi"
+                fill
+                sizes="(min-width: 1024px) 46vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+
+            <div className="absolute bottom-0 right-0 h-[45%] w-[58%] overflow-hidden rounded-[16px] border-[6px] border-white bg-bg-dark shadow-[0_24px_70px_rgba(6,13,30,0.2)] sm:border-[8px]">
+              <Image
+                src="/ars-assets/homepage-manufacturing-detail.jpg"
+                alt="TMT bars moving through a steel manufacturing line"
+                fill
+                sizes="(min-width: 1024px) 28vw, 58vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="max-w-2xl">
+            <SectionKicker>Manufacturing heritage</SectionKicker>
+            <h2 className="section-title max-w-xl">
+              Made in Tamil Nadu. Built for demanding projects.
+            </h2>
+            <p className="section-copy max-w-xl">
+              Since 1992, ARS has grown from its Gummidipoondi base into an integrated steel
+              manufacturer, connecting disciplined production, testing, and TMT bar delivery in
+              one accountable journey.
+            </p>
+
+            <dl className="mt-9 grid gap-px overflow-hidden rounded-[16px] border border-brand-blue/10 bg-brand-blue/10 sm:grid-cols-3">
+              {manufacturingProof.map((item) => (
+                <div key={item.value} className="bg-surface-50 p-5">
+                  <dt className="text-sm leading-6 text-steel-600">{item.label}</dt>
+                  <dd className="mt-2 font-display text-xl font-bold leading-tight text-ink-900">
+                    {item.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Link
+                className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-bold text-white transition hover:bg-brand-blue-dark"
+                href="/manufacturing"
+              >
+                Explore manufacturing <ArrowRight size={17} />
+              </Link>
+              <Link
+                className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] border border-brand-blue/18 bg-white px-5 text-sm font-bold text-brand-blue transition hover:border-brand-blue/40 hover:bg-surface-50"
+                href="/about"
+              >
+                Our journey <ArrowRight size={17} />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </MotionSection>
