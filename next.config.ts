@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/our-certification",
+        destination: "/certifications",
+        permanent: true,
+      },
+      {
         source: "/blog/the-secret-to-a-successful-construction.html",
         destination: "/blog/things-to-keep-in-mind-before-buying-tmt-steel-bars.html",
         permanent: true,

@@ -37,6 +37,7 @@ After creating or materially changing a reusable component, update this file in 
 | `DealerLocatorExperience` | `src/components/dealer-locator-experience.tsx` | Searchable dealer discovery experience powered by supplied ARS dealer data | City, state, pincode, dealer name, dealer code, and phone search; popular city shortcuts; load-more results; call and map actions | `/dealer-locator` |
 | `BlogArchive` | `src/components/blog-archive.tsx` | Native blog discovery experience with search, topic filters, article cards, and progressive loading | Client-side filtering over static repository content; no CMS dependency | `/blog` |
 | `CoreTeamCarousel` | `src/components/core-team-carousel.tsx` | Accessible, wraparound leadership carousel with responsive one- or two-profile presentation | Manual previous/next navigation, direct position indicators, reduced-motion support | `/our-team` |
+| `CertificationDocumentPreview` | `src/components/certification-document-preview.tsx` | Accessible image enlargement for available certificate and approval scans | Native dialog, Escape/close handling, scroll-safe preview, and focus restoration; accepts `title` and `image` props | `/certifications` |
 
 ## Shared Data Sources
 

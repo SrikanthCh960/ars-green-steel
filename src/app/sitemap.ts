@@ -35,7 +35,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((entry) => entry.migrationStatus === "Migrated — approved")
     .map((entry) => new URL(entry.finalUrl).pathname);
 
-  return [...staticRoutes, ...getLegacyTopLevelPages().map((page) => page.path), ...approvedBlogRoutes]
+  return [
+    ...staticRoutes,
+    ...getLegacyTopLevelPages()
+      .filter((page) => page.path !== "/our-certification")
+      .map((page) => page.path),
+    ...approvedBlogRoutes,
+  ]
     .filter((route) => {
       const normalized = route || "/";
       if (seen.has(normalized)) return false;
