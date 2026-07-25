@@ -89,6 +89,32 @@ html {
   min-width: 0;
 }
 
+/*
+ * Shared interior-page hero baseline.
+ * HomeHero intentionally keeps its full-viewport treatment.
+ */
+.ars-page-hero {
+  min-height: 560px;
+}
+
+.ars-page-hero-content {
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .ars-page-hero {
+    min-height: 600px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ars-page-hero {
+    height: 680px;
+    min-height: 680px;
+    max-height: 680px;
+  }
+}
+
 .steel-grid {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),

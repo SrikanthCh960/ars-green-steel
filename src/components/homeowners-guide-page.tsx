@@ -1353,7 +1353,7 @@ export function AudienceGuidePage({ slug }: { slug: AudienceGuideSlug }) {
     <main className="min-h-screen overflow-hidden bg-white text-ink-900">
       <SiteHeader />
 
-      <section className="relative overflow-hidden bg-[#060D1E] text-white">
+      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-[#060D1E] text-white">
         <div className="absolute inset-0">
           <Image
             src={config.heroImage}
@@ -1367,13 +1367,13 @@ export function AudienceGuidePage({ slug }: { slug: AudienceGuideSlug }) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#060D1E]/92 via-transparent to-[#060D1E]/8" />
         </div>
 
-        <div className={`${homeownerRail} relative flex h-[56vh] min-h-[500px] max-h-[620px] items-end pb-9 pt-24 md:pt-28 lg:pb-11`}>
+        <div className={`${homeownerRail} ars-page-hero-content h-full relative flex items-end pb-9 pt-24 md:pt-28 lg:pb-11`}>
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-3 rounded-full border border-white/18 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white/78 backdrop-blur">
               <span className="size-2 rounded-full bg-brand-red" />
               {config.heroBadge}
             </div>
-            <h1 className="mt-5 font-display text-[clamp(2.25rem,4.1vw,4.25rem)] font-bold uppercase leading-[1.03] tracking-normal [overflow-wrap:normal]">
+            <h1 className="mt-5 font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold uppercase leading-[1.03] tracking-normal [overflow-wrap:normal]">
               {config.heroTitle}
               <span className="sr-only"> </span>
               <span className="block text-brand-red">{config.heroAccent}</span>

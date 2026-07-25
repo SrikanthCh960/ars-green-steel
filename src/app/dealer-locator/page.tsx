@@ -39,7 +39,7 @@ export default function DealerLocatorPage() {
     <main className="min-h-screen overflow-x-clip bg-background text-ink-900">
       <SiteHeader />
 
-      <section className="relative overflow-hidden bg-[#071226] text-white">
+      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-[#071226] text-white">
         <Image
           src="/ars-assets/Contact_banner.png"
           alt="ARS dealer locator support"
@@ -51,13 +51,13 @@ export default function DealerLocatorPage() {
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.92)_0%,rgba(6,13,30,0.72)_42%,rgba(6,13,30,0.34)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,rgba(222,18,26,0.22),transparent_28%),linear-gradient(180deg,rgba(6,13,30,0.1),rgba(6,13,30,0.5))]" />
 
-        <div className="ars-container relative z-10 grid min-h-[60vh] items-center gap-10 py-16 lg:grid-cols-[0.9fr_0.75fr] lg:py-20">
+        <div className="ars-page-hero-content h-full ars-container relative z-10 grid items-center gap-10 py-16 lg:grid-cols-[0.9fr_0.75fr] lg:py-20">
           <div className="max-w-4xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/16 bg-white/10 px-4 py-2 text-sm font-bold text-white/82 backdrop-blur">
               <MapPin size={16} className="text-brand-red" />
               Dealer locator
             </div>
-            <h1 className="mt-7 font-display text-[clamp(3rem,6.1vw,6.5rem)] font-bold leading-[0.95] tracking-normal text-white">
+            <h1 className="mt-7 font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold leading-[0.95] tracking-normal text-white">
               Find ARS steel <span className="text-brand-red">near you.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-white/72 lg:text-xl lg:leading-9">

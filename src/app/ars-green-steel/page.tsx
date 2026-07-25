@@ -157,13 +157,13 @@ export default function ArsGreenSteelPage() {
     <main className="min-h-screen overflow-x-clip bg-white text-ink-900">
       <SiteHeader />
 
-      <section className="relative overflow-hidden bg-ink-950">
+      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-ink-950">
         <Image src="/ars-assets/original-green-steel/hero-banner.jpg" alt="ARS CRS 550D Green Steel encircling the earth" fill priority className="object-cover object-center" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.58)_48%,rgba(6,13,30,0.92)_100%)]" />
-        <div className="ars-container relative z-10 grid min-h-[620px] gap-10 py-20 lg:grid-cols-[1fr_360px] lg:items-center">
+        <div className="ars-page-hero-content h-full ars-container relative z-10 grid gap-10 py-20 lg:grid-cols-[1fr_360px] lg:items-center">
           <div className="max-w-3xl text-white">
             <SectionKicker variant="light">India&apos;s No.1 Certified Green Steel</SectionKicker>
-            <h1 className="mt-6 font-display text-[clamp(3rem,6vw,5.7rem)] font-extrabold uppercase leading-[0.96] tracking-[-0.045em]">Green Steel,<span className="block text-brand-red">proven — not promised.</span></h1>
+            <h1 className="mt-6 font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[0.96] tracking-[-0.045em]">Green Steel,<span className="block text-brand-red">proven — not promised.</span></h1>
             <p className="mt-7 max-w-2xl text-base leading-8 text-white/75 md:text-lg">ARS Green Steel brings recycled-route manufacturing, verified certification, and dependable 550D strength into one responsible construction choice.</p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link href="/request-quote" className="focus-ring inline-flex h-12 items-center gap-2 rounded-full bg-brand-red px-6 text-sm font-bold text-white transition hover:opacity-90">Request Quote <ArrowRight size={16} /></Link>

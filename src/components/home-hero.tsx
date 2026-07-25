@@ -89,7 +89,7 @@ export function HomeHero() {
               <span className="size-2 rounded-full bg-brand-blue" />
               Since 1992 · Certified TMT steel
             </div>
-            <h1 className="max-w-[760px] font-display text-[clamp(2.4rem,9vw,3rem)] font-extrabold uppercase leading-[0.95] tracking-normal text-white sm:text-[clamp(3rem,5vw,4rem)]">
+            <h1 className="max-w-[760px] font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[0.95] tracking-normal text-white">
               <span className="sr-only" aria-live="polite">
                 We Build {active.word} Structures.
               </span>

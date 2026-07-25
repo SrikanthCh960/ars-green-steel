@@ -152,6 +152,14 @@ Green:
 
 ## 2. Typography Patterns
 
+### Interior Hero Height
+
+- All public interior-page heroes use the shared `ars-page-hero` baseline.
+- Minimum height is 560px on mobile and 600px on tablet; content may extend those layouts when necessary.
+- Desktop heroes use a fixed 680px height.
+- `ars-page-hero-content` fills the outer hero without introducing a second minimum-height calculation.
+- The homepage `HomeHero` is intentionally excluded and retains its full-viewport presentation.
+
 ### Font Stack
 
 Current implementation:
@@ -184,6 +192,7 @@ Pattern:
 - `font-display`
 - IBM Plex Sans
 - Heavy weight only for the main hero
+- Page-level `h1`: `font-size: clamp(2.65rem, 6vw, 4.5rem)`
 - Title case or sentence case after the hero
 - Controlled line height around `1.0-1.08`
 - Responsive `clamp()` sizing
@@ -198,7 +207,7 @@ Use for:
 
 Rules:
 
-- Use the largest display scale for the homepage hero only.
+- Use the shared page-level `h1` scale across homepage, interior pages, articles, and legal pages.
 - Keep post-hero section headings more restrained for scanability.
 - Do not use oversized typography inside small cards.
 - Keep copy short and direct.

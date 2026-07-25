@@ -7,8 +7,8 @@ import {
   BookOpen,
   Building2,
   CheckCircle2,
-  MapPin,
   Mail,
+  MapPin,
   Package,
   Phone,
   ShieldCheck,
@@ -160,8 +160,8 @@ export default function AboutPage() {
 
       {/* ── Hero ── */}
       <section
-        className="relative flex items-end overflow-hidden bg-ink-950"
-        style={{ height: "68vh", minHeight: "500px", maxHeight: "720px" }}
+        className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative flex items-end overflow-hidden bg-ink-950"
+        aria-labelledby="about-hero-title"
       >
         <div className="absolute inset-0">
           <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
@@ -187,53 +187,61 @@ export default function AboutPage() {
           />
         </div>
 
-        <div className="ars-container relative z-10 w-full pb-16">
-          <div className="max-w-2xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
-              <Building2 size={12} className="text-white/50" />
-              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS Group</span>
+        <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
+          <div className="max-w-3xl">
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
+              <span className="h-px w-10 bg-brand-red" aria-hidden="true" />
+              ARS Group
             </div>
-            <h1 className="mb-5 font-display text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold uppercase leading-[1.05] tracking-[-0.025em] text-white">
+            <h1
+              id="about-hero-title"
+              className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[0.98] tracking-[-0.04em] text-white"
+            >
               Building stronger foundations with
               <br />
               trusted steel <span className="text-brand-red">since 1992.</span>
             </h1>
-            <p className="mb-8 max-w-[440px] text-[15px] leading-[1.75] text-white/55">
+            <p className="mt-7 max-w-xl text-base leading-7 text-white/72 md:text-lg md:leading-8">
               ARS Group is one of India&apos;s leading manufacturers of BIS-certified Fe550D and CRS 550D TMT
               bars for residential, commercial, industrial, and infrastructure projects.
             </p>
-            <a
-              href="#story"
-              className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
-            >
-              Our story <ArrowRight size={14} />
-            </a>
+            <div className="mt-9 flex">
+              <a
+                href="#story"
+                className="focus-ring inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full bg-brand-red px-6 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#c90f16]"
+              >
+                Our story <ArrowRight size={15} />
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── Stats ── */}
-      <MotionSection className="border-b border-surface-100 bg-white py-16">
+      <MotionSection className="border-b border-surface-100 bg-white py-14 md:py-16">
         <div className="ars-container">
-          <p className="mb-10 text-center text-[12px] font-bold uppercase tracking-[0.12em] text-grey-600">
+          <p className="mb-10 text-[11px] font-bold uppercase tracking-[0.18em] text-grey-600">
             Confidence, <span className="text-brand-red">earned</span> over time.
           </p>
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-ink-900/10">
+          <dl className="grid grid-cols-1 border-y border-ink-900/10 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((s) => (
-              <div key={s.value} className="flex flex-col items-center px-6 text-center">
-                <span className="font-display text-[clamp(2rem,3vw,2.8rem)] font-extrabold leading-none tracking-[-0.03em] text-brand-blue">
+              <div
+                key={s.value}
+                className="border-b border-ink-900/10 py-7 sm:px-6 sm:[&:nth-child(odd)]:border-r lg:border-b-0 lg:border-r lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0"
+              >
+                <dd className="font-display text-[clamp(2rem,3vw,2.8rem)] font-extrabold leading-none tracking-[-0.03em] text-brand-blue">
                   {s.value}
-                </span>
-                <span className="mb-1 mt-1.5 text-[13px] font-bold text-ink-900">{s.label}</span>
-                <span className="text-[12px] leading-normal text-grey-600">{s.sub}</span>
+                </dd>
+                <dt className="mb-1 mt-2 text-[13px] font-bold text-ink-900">{s.label}</dt>
+                <dd className="max-w-[230px] text-[12px] leading-5 text-grey-600">{s.sub}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
       </MotionSection>
 
       {/* ── Brand story ── */}
-      <MotionSection className="bg-white py-24" id="story">
+      <MotionSection className="scroll-mt-24 bg-white py-20 md:py-28" id="story">
         <div className="ars-container">
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <div>
@@ -259,35 +267,35 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
-            <div className="relative h-[460px] overflow-hidden rounded-2xl bg-ink-950">
+            <figure className="relative min-h-[420px] overflow-hidden bg-ink-950 md:min-h-[540px]">
               <Image
-                src="/ars-assets/right-about-us.png-compress.webp"
-                alt="ARS steel structures and manufacturing"
+                src="/ars-assets/about/ars-group-story.webp"
+                alt="Aerial view of the ARS Green Steel manufacturing facility"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
+                className="object-cover object-center"
               />
               <div
                 className="absolute inset-0"
                 style={{ background: "linear-gradient(to top, rgba(6,13,30,0.5) 0%, transparent 60%)" }}
               />
-              <div className="absolute inset-x-6 bottom-6">
-                <div className="inline-flex items-center gap-3 rounded-xl border border-white/20 bg-white/[0.12] px-4 py-3 backdrop-blur">
+              <figcaption className="absolute inset-x-5 bottom-5 md:inset-x-8 md:bottom-8">
+                <div className="inline-flex items-center gap-3 border border-white/20 bg-ink-950/72 px-4 py-3 backdrop-blur">
                   <ShieldCheck size={18} className="text-brand-red" />
                   <span className="text-[13px] font-semibold text-white">BIS-certified TMT manufacturing</span>
                 </div>
-              </div>
-            </div>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </MotionSection>
 
       {/* ── Trust pillars ── */}
-      <MotionSection className="bg-brand-blue py-24">
+      <MotionSection className="bg-brand-blue py-20 md:py-28">
         <div className="ars-container">
           <div className="mb-16 grid items-start gap-12 lg:grid-cols-2">
             <div>
-              <SectionKicker variant="brand">Why It Matters</SectionKicker>
+              <SectionKicker variant="light">Why It Matters</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
                 Built on proven quality. Backed by verified standards.
               </h2>
@@ -301,13 +309,13 @@ export default function AboutPage() {
             {pillars.map((p, i) => (
               <div
                 key={p.title}
-                className="flex flex-col gap-5 rounded-2xl border border-white/[0.07] bg-white/[0.04] p-6"
+                className="flex flex-col gap-5 border-t border-white/20 py-6"
               >
                 <div className="flex items-center justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-brand-red/30 bg-brand-red/10 text-brand-red">
+                  <div className="flex h-10 w-10 items-center justify-center border border-white/15 bg-white/[0.06] text-brand-red">
                     {p.icon}
                   </div>
-                  <span className="text-[12px] font-bold text-white/15">0{i + 1}</span>
+                  <span className="text-[12px] font-bold text-white/30">0{i + 1}</span>
                 </div>
                 <div>
                   <h3 className="mb-2 font-display text-[15px] font-bold text-white">{p.title}</h3>
@@ -319,7 +327,7 @@ export default function AboutPage() {
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-surface-50 py-24" id="vision">
+      <MotionSection className="bg-surface-50 py-20 md:py-28" id="vision">
         <div className="ars-container">
           <div className="mb-12 max-w-2xl">
             <SectionKicker variant="brand">Our Vision · Mission · Values</SectionKicker>
@@ -333,8 +341,8 @@ export default function AboutPage() {
                 key={item.label}
                 className={
                   item.tone === "dark"
-                    ? "rounded-2xl bg-brand-blue p-7 text-white"
-                    : "rounded-2xl border border-brand-blue/10 bg-white p-7 shadow-[var(--shadow-soft)]"
+                    ? "bg-brand-blue p-8 text-white md:p-10"
+                    : "border border-brand-blue/10 bg-white p-8 shadow-[var(--shadow-soft)] md:p-10"
                 }
               >
                 <h3
@@ -370,7 +378,7 @@ export default function AboutPage() {
       </MotionSection>
 
       {/* ── Capability ── */}
-      <MotionSection className="bg-white py-24" id="manufacturing">
+      <MotionSection className="bg-white py-20 md:py-28" id="manufacturing">
         <div className="ars-container">
           <div className="grid items-center gap-14 lg:grid-cols-5">
             <div className="lg:col-span-2">
@@ -384,7 +392,7 @@ export default function AboutPage() {
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {capabilityTiles.map((item) => (
-                  <div key={item.label} className="rounded-xl border border-surface-100 bg-surface-50 p-4">
+                  <div key={item.label} className="border-l-2 border-brand-red bg-surface-50 p-4">
                     <span className="font-display text-[1.4rem] font-extrabold tracking-[-0.02em] text-brand-blue">
                       {item.val}
                     </span>
@@ -393,13 +401,13 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
-            <div className="relative h-[440px] overflow-hidden rounded-2xl bg-ink-950 lg:col-span-3">
+            <div className="relative min-h-[420px] overflow-hidden bg-ink-950 lg:col-span-3 lg:min-h-[520px]">
               <Image
-                src="/ars-assets/our-quality-1.png"
-                alt="ARS manufacturing and quality capability"
+                src="/ars-assets/about/scale-capability.webp"
+                alt="Hot TMT bars moving through the rolling mill"
                 fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover"
+                className="object-cover object-center"
               />
               <div
                 className="absolute inset-0"
@@ -411,7 +419,7 @@ export default function AboutPage() {
       </MotionSection>
 
       {/* ── Proof timeline ── */}
-      <MotionSection className="bg-surface-50 py-24">
+      <MotionSection className="bg-surface-50 py-20 md:py-28">
         <div className="ars-container">
           <div className="mb-16 text-center">
             <SectionKicker variant="brand" align="center" showEndLine>
@@ -421,11 +429,11 @@ export default function AboutPage() {
               Proof before claims.
             </h2>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="relative grid gap-0 border-t border-brand-blue/15 sm:grid-cols-2 lg:grid-cols-4">
             {milestones.map((m, i) => (
-              <div
+              <li
                 key={m.year}
-                className="relative flex flex-col gap-4 rounded-2xl border-[1.5px] border-surface-100 bg-white p-6"
+                className="relative flex flex-col gap-4 border-b border-brand-blue/15 py-7 sm:px-6 sm:[&:nth-child(odd)]:border-r lg:border-r lg:last:border-r-0"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-display text-[1.5rem] font-black tracking-[-0.02em] text-brand-blue">
@@ -442,14 +450,14 @@ export default function AboutPage() {
                   <h3 className="mb-1.5 text-[14px] font-bold text-ink-900">{m.title}</h3>
                   <p className="text-[13px] leading-[1.65] text-grey-600">{m.desc}</p>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </MotionSection>
 
       {/* ── Built for buyers ── */}
-      <MotionSection className="bg-white py-24">
+      <MotionSection className="bg-white py-20 md:py-28">
         <div className="ars-container">
           <div className="mb-14 grid items-end gap-12 lg:grid-cols-2">
             <div>
@@ -465,10 +473,10 @@ export default function AboutPage() {
           </div>
           <div className="grid gap-5 md:grid-cols-3">
             {audiences.map((a) => (
-              <a
+              <Link
                 key={a.title}
                 href={a.href}
-                className="focus-ring group flex flex-col gap-5 rounded-2xl border-[1.5px] border-surface-100 bg-white p-7 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+                className="focus-ring group flex min-h-[300px] flex-col gap-5 border border-surface-100 bg-surface-50 p-7 transition duration-200 hover:-translate-y-0.5 hover:border-brand-blue/20 hover:bg-white hover:shadow-lg"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/[0.06] text-brand-blue">
                   {a.icon}
@@ -480,14 +488,13 @@ export default function AboutPage() {
                 <span className="inline-flex items-center gap-1.5 text-[12px] font-bold text-brand-red transition-all duration-200 group-hover:gap-2.5">
                   {a.cta} <ArrowRight size={12} />
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
       </MotionSection>
 
-      {/* ── Contact CTA ── */}
-      <MotionSection className="bg-brand-blue py-24" id="contact">
+      <MotionSection className="bg-brand-blue py-20 md:py-28" id="contact">
         <div className="ars-container">
           <div className="mb-14 text-center">
             <SectionKicker variant="light" align="center" showEndLine>
@@ -504,9 +511,9 @@ export default function AboutPage() {
             {contacts.map((c) => (
               <div
                 key={c.title}
-                className="flex flex-col items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.07] p-6 text-center"
+                className="flex flex-col items-center gap-4 border border-white/10 bg-white/[0.07] p-6 text-center"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-brand-red/40 bg-brand-red/25 text-brand-red">
+                <div className="flex h-11 w-11 items-center justify-center border border-brand-red/40 bg-brand-red/25 text-brand-red">
                   {c.icon}
                 </div>
                 <div>
@@ -520,7 +527,7 @@ export default function AboutPage() {
           <div className="mt-10 flex justify-center">
             <Link
               href="/manufacturing"
-              className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-7 py-3.5 text-[14px] font-bold text-white transition hover:opacity-90"
+              className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-7 text-[14px] font-bold text-white transition hover:opacity-90"
             >
               Explore manufacturing <ArrowRight size={15} />
             </Link>

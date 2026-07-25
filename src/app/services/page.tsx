@@ -121,12 +121,12 @@ export default function ServicesPage() {
     <main className="min-h-screen overflow-x-clip bg-background text-ink-900">
       <SiteHeader />
 
-      <section className="relative overflow-hidden bg-surface-50">
+      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-surface-50">
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#eaf1ff] to-transparent" />
-        <div className="ars-container relative grid min-h-[calc(100vh-80px)] items-center gap-12 py-20 lg:grid-cols-[0.92fr_1.08fr] lg:py-24">
+        <div className="ars-page-hero-content h-full ars-container relative grid items-center gap-12 py-20 lg:grid-cols-[0.92fr_1.08fr] lg:py-24">
           <div className="max-w-4xl">
             <SectionKicker>Buying assistance</SectionKicker>
-            <h1 className="mt-7 font-display text-[clamp(3rem,6.4vw,6.8rem)] font-bold leading-[0.96] tracking-normal text-ink-900">
+            <h1 className="mt-7 font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold leading-[0.96] tracking-normal text-ink-900">
               From enquiry to <span className="text-brand-red">steel</span> in fewer steps.
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-steel-700 lg:text-xl lg:leading-9">

@@ -29,13 +29,14 @@ After creating or materially changing a reusable component, update this file in 
 | `ContactCta` | `src/components/contact-cta.tsx` | Reusable lead-generation CTA band rendered immediately before the global footer | Supports custom eyebrow, headline, body, primary CTA, and secondary CTA | Page shells and homepage ending |
 | `LeadForm` | `src/components/lead-form.tsx` | Reusable enquiry form UI | Final submission destination pending client input | Contact and quote flows |
 | `PageShell` | `src/components/page-sections.tsx` | Shared page wrapper with header, hero, content, and CTA | For structured interior pages | Multiple pages |
-| `PageHero` | `src/components/page-sections.tsx` | Video-led interior page hero | Uses shared brand hierarchy | Multiple pages |
+| `PageHero` | `src/components/page-sections.tsx` | Video-led interior page hero | Uses shared brand hierarchy and the global `ars-page-hero` responsive height baseline | Multiple pages |
 | `SectionIntro` | `src/components/page-sections.tsx` | Standard kicker, H2, body intro block | Uses `SectionKicker` internally | Multiple pages |
 | `CardGrid` | `src/components/page-sections.tsx` | Reusable card grid for proof, product, service, and content cards | 2, 3, or 4 column modes | Multiple pages |
 | `ContentBand` | `src/components/page-sections.tsx` | Image/text editorial content band | Use for page proof sections | Multiple pages |
 | `ProofMetrics` | `src/components/page-sections.tsx` | Reusable metrics/proof row | Use for trust and capability proof | Multiple pages |
 | `DealerLocatorExperience` | `src/components/dealer-locator-experience.tsx` | Searchable dealer discovery experience powered by supplied ARS dealer data | City, state, pincode, dealer name, dealer code, and phone search; popular city shortcuts; load-more results; call and map actions | `/dealer-locator` |
 | `BlogArchive` | `src/components/blog-archive.tsx` | Native blog discovery experience with search, topic filters, article cards, and progressive loading | Client-side filtering over static repository content; no CMS dependency | `/blog` |
+| `CoreTeamCarousel` | `src/components/core-team-carousel.tsx` | Accessible, wraparound leadership carousel with responsive one- or two-profile presentation | Manual previous/next navigation, direct position indicators, reduced-motion support | `/our-team` |
 
 ## Shared Data Sources
 

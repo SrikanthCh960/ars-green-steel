@@ -84,10 +84,7 @@ export default function ManufacturingPage() {
       <SiteHeader />
 
       {/* ── Hero ── */}
-      <section
-        className="relative flex items-end overflow-hidden bg-ink-950"
-        style={{ height: "62vh", minHeight: "480px", maxHeight: "680px" }}
-      >
+      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative flex items-end overflow-hidden bg-ink-950">
         <div className="absolute inset-0">
           <Image
             src="/ars-assets/right-about-us.png-compress.webp"
@@ -114,7 +111,7 @@ export default function ManufacturingPage() {
               <Factory size={12} className="text-white/60" />
               <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS Manufacturing</span>
             </div>
-            <h1 className="font-display text-[clamp(2.4rem,5.5vw,4.2rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
+            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
               Built with
               <br />
               <span className="italic text-brand-red">precision.</span>

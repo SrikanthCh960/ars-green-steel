@@ -42,7 +42,7 @@ export default function TermsOfUsePage() {
         <div className="ars-container">
           <div className="max-w-4xl">
             <SectionKicker>Legal</SectionKicker>
-            <h1 className="section-title">Terms of Use</h1>
+            <h1 className="section-title text-[clamp(2.65rem,6vw,4.5rem)]">Terms of Use</h1>
             <p className="section-copy max-w-3xl">
               These terms explain how the ARS Green Steel website, content, and enquiry channels should be used.
             </p>

@@ -47,7 +47,7 @@ export function ProjectTypePage({
     <main className="min-h-screen bg-surface-50 text-ink-900">
       <SiteHeader />
 
-      <section className="relative isolate overflow-hidden bg-ink-950 py-20 text-white md:py-28">
+      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative isolate flex items-center overflow-hidden bg-ink-950 py-20 text-white md:py-28">
         <div className="steel-grid absolute inset-0 opacity-35" aria-hidden="true" />
         <div className="absolute inset-y-0 right-0 w-[64%] bg-[radial-gradient(circle_at_center,rgba(13,43,110,0.76),transparent_64%)]" aria-hidden="true" />
         <div className="ars-container relative">
@@ -64,7 +64,7 @@ export function ProjectTypePage({
           <div className="mt-16 grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(18rem,0.25fr)] lg:items-end">
             <div>
               <SectionKicker variant="light">{eyebrow}</SectionKicker>
-              <h1 className="max-w-5xl font-display text-[clamp(3rem,6.5vw,6.4rem)] font-black uppercase leading-[0.94] tracking-normal">
+              <h1 className="max-w-5xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-black uppercase leading-[0.94] tracking-normal">
                 {title}
               </h1>
             </div>

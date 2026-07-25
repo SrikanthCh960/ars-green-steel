@@ -50,7 +50,7 @@ export default function BlogPage() {
     <main id="main-content" className="min-h-screen overflow-x-clip bg-white text-ink-900">
       <SiteHeader />
 
-      <section className="relative flex min-h-[520px] items-end overflow-hidden bg-bg-dark text-white lg:h-[58vh] lg:min-h-[540px] lg:max-h-[680px]">
+      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative flex items-end overflow-hidden bg-bg-dark text-white">
         <Image
           src="/ars-assets/ARS-green-bg.png"
           alt="Steel production and sustainability knowledge from ARS"
@@ -65,7 +65,7 @@ export default function BlogPage() {
         <div className="ars-container relative z-10 grid gap-10 pb-14 pt-28 lg:grid-cols-[minmax(0,0.82fr)_minmax(300px,0.42fr)] lg:items-end lg:pb-16">
           <div className="max-w-4xl">
             <SectionKicker variant="light">ARS knowledge center</SectionKicker>
-            <h1 className="mt-6 max-w-4xl font-display text-[clamp(2.7rem,5.3vw,5.25rem)] font-bold leading-[0.98] tracking-normal text-white">
+            <h1 className="mt-6 max-w-4xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold leading-[0.98] tracking-normal text-white">
               Knowledge for stronger building decisions.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/72 md:text-lg">

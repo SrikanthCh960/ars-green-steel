@@ -63,11 +63,11 @@ export default function GreenSteelPage() {
     <main className="min-h-screen overflow-x-clip bg-white text-ink-900">
       <SiteHeader />
 
-      <section id="what-is-green-steel" className="bg-[#060D1E] text-white">
-        <div className="ars-container grid gap-10 py-24 md:py-32 lg:grid-cols-[1fr_auto] lg:items-end">
+      <section id="what-is-green-steel" className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] bg-[#060D1E] text-white">
+        <div className="ars-page-hero-content h-full ars-container grid gap-10 py-24 md:py-32 lg:grid-cols-[1fr_auto] lg:items-center">
           <div className="max-w-3xl">
             <SectionKicker variant="light">Sustainability</SectionKicker>
-            <h1 className="mt-6 font-display text-[clamp(2.6rem,5.2vw,5rem)] font-extrabold leading-[0.98] tracking-[-0.035em]">
+            <h1 className="mt-6 font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[0.98] tracking-[-0.035em]">
               What is <span className="text-brand-red">Green Steel?</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 md:text-lg">

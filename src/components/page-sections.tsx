@@ -40,7 +40,7 @@ export function PageHero({
   secondaryHref = "/contact",
 }: HeroProps) {
   return (
-    <section className="relative flex min-h-[68vh] items-end overflow-hidden text-white">
+    <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative flex items-end overflow-hidden text-white">
       <div className="absolute inset-0 bg-ink-950">
         <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
         <video className="absolute inset-0 h-full w-full object-cover opacity-58" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
@@ -57,7 +57,7 @@ export function PageHero({
               <span className="size-2 rounded-full bg-brand-blue" />
               {eyebrow}
             </div>
-            <h1 className="max-w-6xl break-words font-display text-[clamp(2.6rem,6.4vw,6.25rem)] font-black uppercase leading-[0.92] tracking-normal text-white">
+            <h1 className="max-w-6xl break-words font-display text-[clamp(2.65rem,6vw,4.5rem)] font-black uppercase leading-[0.92] tracking-normal text-white">
               {title}
               {accent ? (
                 <span className="block font-serif italic text-brand-red">{accent}</span>

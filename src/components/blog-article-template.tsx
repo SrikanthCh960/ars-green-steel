@@ -215,7 +215,7 @@ export function BlogArticleTemplate({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="relative overflow-hidden bg-bg-dark text-white">
+      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-bg-dark text-white">
         <Image
           src={articleImage}
           alt={articleImageAlt}
@@ -228,7 +228,7 @@ export function BlogArticleTemplate({
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.96)_0%,rgba(6,13,30,0.82)_48%,rgba(6,13,30,0.48)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(6,13,30,0.72),transparent_58%)]" />
 
-        <div className="ars-container relative z-10 flex min-h-[560px] items-end pb-12 pt-32 lg:h-[60vh] lg:max-h-[720px] lg:pb-16">
+        <div className="ars-page-hero-content h-full ars-container relative z-10 flex items-end pb-12 pt-32 lg:pb-16">
           <div className="grid w-full gap-10 lg:grid-cols-[minmax(0,0.82fr)_minmax(280px,0.32fr)] lg:items-end">
             <div className="max-w-5xl">
               <nav className="mb-7 flex flex-wrap items-center gap-2 text-sm font-medium text-white/64" aria-label="Breadcrumb">
@@ -248,7 +248,7 @@ export function BlogArticleTemplate({
                 </span>
                 <ArticleMeta article={article} light />
               </div>
-              <h1 className="mt-6 max-w-5xl font-display text-[clamp(2.25rem,4.2vw,4rem)] font-bold leading-[1.02] tracking-normal text-white">
+              <h1 className="mt-6 max-w-5xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold leading-[1.02] tracking-normal text-white">
                 {articleTitle}
               </h1>
               <p className="mt-6 max-w-3xl text-base leading-8 text-white/74 md:text-lg">

@@ -190,11 +190,11 @@ export default function ContactPage() {
     <main className="min-h-screen bg-surface-50 text-ink-900">
       <SiteHeader />
 
-      <section className="relative overflow-hidden bg-white">
-        <div className="ars-container grid min-h-[calc(100vh-96px)] gap-12 py-16 md:py-20 lg:grid-cols-[0.94fr_1.06fr] lg:items-center">
+      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-white">
+        <div className="ars-page-hero-content h-full ars-container grid gap-12 py-16 md:py-20 lg:grid-cols-[0.94fr_1.06fr] lg:items-center lg:py-10">
           <div>
             <SectionKicker>Contact ARS</SectionKicker>
-            <h1 className="max-w-4xl font-display text-[clamp(2.75rem,6vw,6rem)] font-bold leading-[0.96] tracking-[-0.035em] text-ink-900">
+            <h1 className="max-w-4xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold leading-[0.96] tracking-[-0.035em] text-ink-900">
               Start the right steel conversation.
             </h1>
             <p className="mt-7 max-w-2xl text-[17px] leading-8 text-steel-700 md:text-lg">
@@ -218,8 +218,8 @@ export default function ContactPage() {
           </div>
 
           <div className="relative">
-            <div className="relative overflow-hidden rounded-[22px] bg-brand-blue p-4 text-white shadow-[0_28px_100px_rgba(13,43,110,0.22)]">
-              <div className="relative h-[240px] overflow-hidden rounded-[16px] bg-ink-950 md:h-[330px]">
+            <div className="relative overflow-hidden rounded-[22px] bg-brand-blue p-4 text-white shadow-[0_28px_100px_rgba(13,43,110,0.22)] lg:p-3">
+              <div className="relative h-[240px] overflow-hidden rounded-[16px] bg-ink-950 md:h-[330px] lg:h-[190px]">
                 <Image
                   src="/ars-assets/Contact_banner.png"
                   alt="ARS contact and support"
@@ -238,14 +238,14 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="grid gap-3 pt-4">
+              <div className="grid gap-3 pt-4 lg:gap-2 lg:pt-3">
                 {contactChannels.map((item) => {
                   const Icon = item.icon;
                   return (
                     <Link
                       key={item.label}
                       href={item.href}
-                      className="focus-ring group grid gap-4 rounded-[16px] border border-white/12 bg-white/[0.08] p-4 transition hover:bg-white/[0.12] sm:grid-cols-[44px_1fr_auto] sm:items-center"
+                      className="focus-ring group grid gap-4 rounded-[16px] border border-white/12 bg-white/[0.08] p-4 transition hover:bg-white/[0.12] sm:grid-cols-[44px_1fr_auto] sm:items-center lg:gap-3 lg:p-3"
                     >
                       <span className="inline-flex size-11 items-center justify-center rounded-[12px] bg-white/[0.12] text-white">
                         <Icon size={19} />

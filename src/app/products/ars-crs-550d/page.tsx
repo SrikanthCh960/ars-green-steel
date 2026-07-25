@@ -100,10 +100,7 @@ export default function ArsCrs550DPage() {
       <SiteHeader />
 
       {/* ── Hero ── */}
-      <section
-        className="relative flex items-end overflow-hidden bg-ink-950"
-        style={{ height: "68vh", minHeight: "520px", maxHeight: "740px" }}
-      >
+      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative flex items-end overflow-hidden bg-ink-950">
         <div className="absolute inset-0">
           <Image
             src="/ars-assets/products-all.png"
@@ -133,7 +130,7 @@ export default function ArsCrs550DPage() {
                   ARS CRS 550D TMT Bars · Corrosion-Resistant Fe550D Steel
                 </span>
               </div>
-              <h1 className="font-display text-[clamp(2.4rem,5.5vw,4.2rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
+              <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
                 Corrosion-resistant Fe550D TMT bars for
                 <br />
                 <span className="italic text-brand-red">long-lasting structures.</span>

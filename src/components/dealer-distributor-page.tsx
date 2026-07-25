@@ -25,7 +25,7 @@ export function DealerDistributorPage() {
     <main className="min-h-screen overflow-hidden bg-white text-ink-900">
       <SiteHeader />
 
-      <section className="relative overflow-hidden bg-[#060D1E] text-white">
+      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-[#060D1E] text-white">
         <div className="absolute inset-0">
           <Image
             src="/ars-assets/Contact_banner.png"
@@ -39,12 +39,12 @@ export function DealerDistributorPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#060D1E]/90 via-transparent to-[#060D1E]/12" />
         </div>
 
-        <div className="ars-container relative flex min-h-[500px] items-end pb-10 pt-28 md:min-h-[560px] lg:pb-12">
+        <div className="ars-page-hero-content h-full ars-container relative flex items-end pb-10 pt-28 lg:pb-12">
           <div className="max-w-3xl">
             <p className="inline-flex items-center gap-3 rounded-full border border-white/18 bg-white/10 px-4 py-2 font-technical text-xs font-black uppercase tracking-[0.18em] text-white/78 backdrop-blur">
               <span className="size-2 rounded-full bg-brand-red" /> For Dealers &amp; Distributors
             </p>
-            <h1 className="mt-5 font-display text-[clamp(2.25rem,4.1vw,4.25rem)] font-bold uppercase leading-[1.03] tracking-normal">
+            <h1 className="mt-5 font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold uppercase leading-[1.03] tracking-normal">
               Grow Your Business with a
               <span className="block text-brand-red">Trusted TMT Steel Brand</span>
             </h1>
