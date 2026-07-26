@@ -9,8 +9,11 @@ Read this file first when continuing the ARS content migration in a new chat.
 ```
 
 - Branch: `homepage-figma-refresh`
-- Current committed checkpoint: `c74f77dcf3413628e3acca737f98df83e15118d8`
+- Current committed checkpoint: `ec655698feaf0cf7dc09d52e378bc258e962da45`
 - Latest commits:
+  - `ec65569 Refresh Home Owners guide`
+  - `9c22607 Add Embodied Carbon page`
+  - `712f33b Add SGBC sustainability page`
   - `c74f77d feat: integrate vision and mission into about page`
   - `a80f4da feat: establish shared SEO and content migration foundation`
   - `e446c80 Use local banners for migrated blog articles`
@@ -78,6 +81,13 @@ Read this file first when continuing the ARS content migration in a new chat.
 - Metadata uses `createPageMetadata`; product structured data is not implemented. Preview remains index-safe, not production-approved.
 - Technical, safety, performance, savings, standards, and certification claims require ARS documentary approval. Local BIS renewal evidence expired on 2025-10-31, and current SGS/SERC product-specific evidence was not supplied.
 - See `docs/content-migration/ars-550d/implementation-qa-report.md`. Commit status: pending page-specific commit and push on `homepage-figma-refresh`.
+
+### Audience solution pages
+
+- Engineers & Architects, Civil Contractors, and Dealers & Distributors are implemented as source-led audience pages at `/tmt-steel-bar-guide-engineers-architects`, `/tmt-steel-bar-guide-civil-contractors`, and `/steel-distributors-dealers`.
+- Each page preserves its controlling document’s publishing copy and source order. Unavailable brochures, business-support destinations, and approval-dependent downloads are not implied or exposed.
+- Their shared audience shell maintains semantic tables and native FAQ disclosures; route metadata remains canonical/social complete and preview-safe.
+- Remaining release blockers are ARS evidence approval for claims/certifications, approved higher-resolution imagery and Binders assets, plus dedicated desktop/tablet/mobile and keyboard review. See the page QA reports under `docs/content-migration/engineers-architects/`, `docs/content-migration/civil-contractors/`, and `docs/content-migration/dealer-distributor/`.
 
 ### ARS Binders product page
 
@@ -150,7 +160,7 @@ Before any feature commit:
 
 - Documents audited: 22/22
 - Shared migration foundation: committed
-- Content items implemented: 14/22
+- Content items implemented: 18/22
 - Content items fully verified: 0/22
 - Ready for development: Road Projects, Bridges & Flyovers, Institutional Projects
 - Blocked items: 5

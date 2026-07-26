@@ -35,7 +35,7 @@ const audienceMetadata = {
   },
   "tmt-steel-bar-guide-civil-contractors": {
     title: "TMT Steel Guide for Civil Contractors | ARS Green Steel",
-    description: "Product guidance, quantity-planning tools, dealer access, and project-enquiry support for civil contractors.",
+    description: "ARS TMT Bars for contractors and builders: product selection, dealer access, quality assurance, tools, support, and project enquiries.",
   },
 } as const;
 

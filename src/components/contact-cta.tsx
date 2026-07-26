@@ -10,6 +10,7 @@ type ContactCtaProps = {
   primaryHref?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
+  primaryClassName?: string;
 };
 
 export function ContactCta(props: ContactCtaProps) {
@@ -22,6 +23,7 @@ export function ContactCta(props: ContactCtaProps) {
   const primaryHref = props.primaryHref ?? "/steel-price-today";
   const secondaryLabel = props.secondaryLabel ?? "Talk to sales";
   const secondaryHref = props.secondaryHref ?? "/contact";
+  const primaryClassName = props.primaryClassName ?? "bg-brand-red hover:-translate-y-0.5 hover:bg-[#c90f16]";
 
   return (
     <>
@@ -49,7 +51,7 @@ export function ContactCta(props: ContactCtaProps) {
           <div className="flex flex-col gap-4 sm:flex-row lg:justify-end">
             <Link
               href={primaryHref}
-              className="focus-ring inline-flex h-14 items-center justify-center gap-3 rounded-full bg-brand-red px-8 text-base font-bold text-white shadow-[0_18px_44px_rgba(222,18,26,0.24)] transition hover:-translate-y-0.5 hover:bg-[#c90f16]"
+              className={`focus-ring inline-flex h-14 items-center justify-center gap-3 rounded-full px-8 text-base font-bold text-white shadow-[0_18px_44px_rgba(222,18,26,0.24)] transition ${primaryClassName}`}
             >
               {primaryLabel} <ArrowRight size={19} />
             </Link>
