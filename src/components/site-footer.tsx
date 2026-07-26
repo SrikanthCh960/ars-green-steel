@@ -8,6 +8,7 @@ const footerGroups = [
     title: "About",
     links: [
       { label: "About ARS Group", href: "/about" },
+      { label: "Vision & Mission", href: "/vision-mission" },
       { label: "Leadership", href: "/our-team" },
       { label: "Manufacturing", href: "/manufacturing" },
       { label: "Quality", href: "/our-quality" },

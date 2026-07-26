@@ -48,11 +48,11 @@ Read this file first when continuing the ARS content migration in a new chat.
 
 ### Vision & Mission
 
-- Implemented at `/about#vision`; no new route was created.
-- About retains one H1; the section uses H2 with Vision/Mission H3 headings.
-- Added verified legacy-source Vision and Mission wording and an `Explore manufacturing` link to `/manufacturing`.
-- No Purpose or Values wording was added because the referenced source DOCX was unavailable. Do not invent it.
-- See `docs/content-migration/vision-mission/qa-report.md`.
+- Implemented as a standalone public page at `/vision-mission` from the supplied authoritative `ABout - Vision & Mission.docx`.
+- Header and footer About navigation now point to `/vision-mission`; `/about#vision` content was removed to prevent conflicting duplicate copy. Sitemap includes the new route.
+- All publishable source sections are implemented in source order: banner, purpose, vision, mission, values, ARS Promise, and closing CTA. Document author labels are not public copy.
+- Metadata uses `createPageMetadata`; no new imagery or schema was added. Shared interior hero video is retained.
+- Desktop/tablet/mobile, route checker, TypeScript, and build checks pass. Full lint remains blocked by pre-existing errors outside this work; manual keyboard traversal remains a final release check. See `docs/content-migration/vision-mission/implementation-qa-report.md`.
 
 ### ARS 550D product-page reconciliation
 

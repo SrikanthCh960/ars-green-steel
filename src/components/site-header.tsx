@@ -45,7 +45,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     visualSrc: "/ars-assets/right-about-us.png-compress.webp",
     links: [
       { label: "ARS Group", href: "/about" },
-      { label: "Vision & Mission", href: "/about#vision" },
+      { label: "Vision & Mission", href: "/vision-mission" },
       { label: "Leadership", href: "/our-team" },
       { label: "Manufacturing", href: "/manufacturing" },
       { label: "Quality Policy", href: "/our-quality" },
@@ -167,7 +167,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
 };
 
 const menuPaths: Record<MenuKey, string[]> = {
-  about: ["/about", "/our-team", "/manufacturing", "/our-quality", "/certifications"],
+  about: ["/about", "/vision-mission", "/our-team", "/manufacturing", "/our-quality", "/certifications"],
   products: ["/products"],
   solutions: [
     "/industries",

@@ -15,6 +15,7 @@ const staticRoutes = [
   "/manufacturing",
   "/our-quality",
   "/our-team",
+  "/vision-mission",
   "/privacy-policy",
   "/products",
   "/products/ars-550d",
