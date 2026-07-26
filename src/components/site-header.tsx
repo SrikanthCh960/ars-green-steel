@@ -4,18 +4,40 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, BadgeCheck, Calculator, ChevronDown, Menu, Search, ShieldCheck, X } from "lucide-react";
+import { ArrowRight, BadgeCheck, Calculator, ChevronDown, House, Menu, Search, ShieldCheck, X } from "lucide-react";
+
+type MenuLink = {
+  label: string;
+  href: string;
+};
+
+type MenuGroup = {
+  label: string;
+  links: MenuLink[];
+};
+
+type MegaMenuDefinition = {
+  eyebrow: string;
+  title: string;
+  visual: string;
+  visualSrc: string;
+  links: MenuLink[];
+  groups?: MenuGroup[];
+  proof: string[];
+};
+
+type MenuKey = "about" | "products" | "sustainability" | "solutions" | "resources" | "pressMedia" | "contact";
 
 const routeLinks = [
   { label: "About", href: "/about", menu: "about" },
   { label: "Products", href: "/products", menu: "products" },
-  { label: "Solutions", href: "/industries", menu: "solutions" },
   { label: "Sustainability", href: "/green-steel", menu: "sustainability" },
+  { label: "Solutions", href: "/industries", menu: "solutions" },
   { label: "Resources", href: "/blog", menu: "resources" },
-  { label: "Contact", href: "/contact", menu: "contact" },
+  { label: "Press Media", href: "/press-media", menu: "pressMedia" },
 ];
 
-const megaMenus = {
+const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
   about: {
     eyebrow: "Company trust",
     title: "Understand ARS Group, leadership, manufacturing, quality, and client proof.",
@@ -26,11 +48,9 @@ const megaMenus = {
       { label: "Vision & Mission", href: "/about#vision" },
       { label: "Leadership", href: "/our-team" },
       { label: "Manufacturing", href: "/manufacturing" },
-      { label: "Quality", href: "/our-quality" },
-      { label: "Steel Testing", href: "/steel-testing" },
-      { label: "Certifications & Awards", href: "/certifications" },
-      { label: "CSR", href: "/csr" },
-      { label: "Careers", href: "/careers" },
+      { label: "Quality Policy", href: "/our-quality" },
+      { label: "Certifications", href: "/certifications" },
+      { label: "Clients", href: "/clients" },
     ],
     proof: ["Since 1992", "Leadership proof", "Manufacturing strength"],
   },
@@ -40,11 +60,12 @@ const megaMenus = {
     visual: "Products",
     visualSrc: "/ars-assets/products-all.png",
     links: [
-      { label: "All Products", href: "/products" },
       { label: "ARS 550D TMT Bar", href: "/products/ars-550d" },
       { label: "ARS CRS 550D", href: "/products/ars-crs-550d" },
+      { label: "ARS Binders", href: "/products/ars-binders" },
       { label: "Product Comparison", href: "/products#comparison" },
       { label: "Technical Specifications", href: "/products/ars-550d" },
+      { label: "Download Product Brochure", href: "/download-product-brochure" },
     ],
     proof: ["550D ductility", "CRS corrosion resistance", "Residential to infrastructure use"],
   },
@@ -57,8 +78,9 @@ const megaMenus = {
       { label: "What is Green Steel", href: "/green-steel#what-is-green-steel" },
       { label: "ARS Green Steel", href: "/ars-green-steel" },
       { label: "Embodied Carbon", href: "/green-steel#embodied-carbon" },
+      { label: "SGPC", href: "/sgpc" },
       { label: "Certifications & Recognitions", href: "/certifications" },
-      { label: "Reports & Downloads", href: "/certifications#downloads" },
+      { label: "Reports & Downloads", href: "/reports-downloads" },
     ],
     proof: ["Green steel story", "EPD / GRIHA / LEED readiness", "Downloadable proof"],
   },
@@ -68,7 +90,6 @@ const megaMenus = {
     visual: "Audience paths",
     visualSrc: "/ars-assets/home-owner-banner-1.png",
     links: [
-      { label: "Solutions Overview", href: "/industries" },
       { label: "For Home Owners", href: "/tmt-steel-bar-guide-homeowners" },
       { label: "For Engineers & Architects", href: "/tmt-steel-bar-guide-engineers-architects" },
       { label: "For Contractors", href: "/tmt-steel-bar-guide-civil-contractors" },
@@ -76,6 +97,25 @@ const megaMenus = {
       { label: "Road Projects", href: "/road-projects-tmt-steel-bars" },
       { label: "Bridges & Flyovers", href: "/bridges-projects-tmt-steel-bars" },
       { label: "Institutional Projects", href: "/institutions-projects-tmt-steel-bars" },
+    ],
+    groups: [
+      {
+        label: "Audience",
+        links: [
+          { label: "For Home Owners", href: "/tmt-steel-bar-guide-homeowners" },
+          { label: "For Engineers & Architects", href: "/tmt-steel-bar-guide-engineers-architects" },
+          { label: "For Contractors", href: "/tmt-steel-bar-guide-civil-contractors" },
+          { label: "For Dealers", href: "/steel-distributors-dealers" },
+        ],
+      },
+      {
+        label: "Project Types",
+        links: [
+          { label: "Institutions", href: "/institutions-projects-tmt-steel-bars" },
+          { label: "Bridges & Flyovers", href: "/bridges-projects-tmt-steel-bars" },
+          { label: "Road Projects", href: "/road-projects-tmt-steel-bars" },
+        ],
+      },
     ],
     proof: ["Home builds", "Technical specification", "Dealer support"],
   },
@@ -85,13 +125,32 @@ const megaMenus = {
     visual: "Knowledge center",
     visualSrc: "/ars-assets/awards-certificates-img3.png",
     links: [
-      { label: "Blog & Articles", href: "/blog" },
-      { label: "Videos", href: "/video" },
       { label: "Steel Price Today", href: "/steel-price-today" },
+      { label: "Price Calculator", href: "/price-calculator" },
+      { label: "Construction Estimation", href: "/construction-estimation" },
+      { label: "Blog / Knowledge Center", href: "/blog" },
+      { label: "Guides & Articles", href: "/guides-articles" },
       { label: "TMT Bar Calculator", href: "/tmt-calculator" },
-      { label: "Dealer Locator", href: "/dealer-locator" },
+      { label: "Construction Cost Estimator", href: "/construction-cost-estimator" },
+      { label: "Career", href: "/careers" },
+      { label: "FAQs", href: "/faqs" },
     ],
     proof: ["Price clarity", "Calculator journey", "Construction education"],
+  },
+  pressMedia: {
+    eyebrow: "Press Media",
+    title: "Press Media",
+    visual: "Press Media",
+    visualSrc: "/ars-assets/ARSHOME4.jpg",
+    links: [
+      { label: "TV Commercials", href: "/tv-commercials" },
+      { label: "News & Press Releases", href: "/news-press-releases" },
+      { label: "Events", href: "/events" },
+      { label: "Gallery", href: "/gallery" },
+      { label: "Videos", href: "/video" },
+      { label: "Success Stories", href: "/success-stories" },
+    ],
+    proof: ["TV Commercials", "News & Press Releases", "Success Stories"],
   },
   contact: {
     eyebrow: "Next step",
@@ -107,8 +166,8 @@ const megaMenus = {
   },
 };
 
-const menuPaths: Record<keyof typeof megaMenus, string[]> = {
-  about: ["/about", "/our-team", "/manufacturing", "/our-quality", "/steel-testing", "/certifications", "/csr", "/careers"],
+const menuPaths: Record<MenuKey, string[]> = {
+  about: ["/about", "/our-team", "/manufacturing", "/our-quality", "/certifications"],
   products: ["/products"],
   solutions: [
     "/industries",
@@ -122,7 +181,18 @@ const menuPaths: Record<keyof typeof megaMenus, string[]> = {
     "/institutions-projects-tmt-steel-bars",
   ],
   sustainability: ["/green-steel", "/ars-green-steel"],
-  resources: ["/blog", "/video", "/steel-price-today", "/tmt-calculator", "/dealer-locator"],
+  resources: [
+    "/blog",
+    "/steel-price-today",
+    "/price-calculator",
+    "/construction-estimation",
+    "/guides-articles",
+    "/tmt-calculator",
+    "/construction-cost-estimator",
+    "/careers",
+    "/faqs",
+  ],
+  pressMedia: ["/press-media", "/tv-commercials", "/news-press-releases", "/events", "/gallery", "/video", "/success-stories"],
   contact: ["/contact", "/request-quote", "/become-a-dealer"],
 };
 
@@ -200,7 +270,19 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-5 text-[14px] font-semibold text-steel-700 xl:flex">
+        <nav className="hidden items-center gap-4 text-[14px] font-semibold text-steel-700 xl:flex">
+          <Link
+            href="/"
+            aria-label="Home"
+            aria-current={pathname === "/" ? "page" : undefined}
+            className={`focus-ring inline-flex size-10 items-center justify-center rounded-full border transition ${
+              pathname === "/"
+                ? "border-brand-blue bg-brand-blue text-white"
+                : "border-ink-900/12 bg-white text-brand-blue hover:border-brand-blue hover:bg-brand-blue hover:text-white"
+            }`}
+          >
+            <House size={17} />
+          </Link>
           {links.map((link) => {
             const menuKey = link.menu as keyof typeof megaMenus | undefined;
             const menu = menuKey ? megaMenus[menuKey] : null;
@@ -314,12 +396,28 @@ export function SiteHeader() {
                           <ChevronDown size={16} className={`text-brand-blue transition ${isExpanded ? "rotate-180" : ""}`} />
                         </button>
                         {isExpanded ? <div id={`mobile-${menuKey}-menu`} className="mt-4 grid gap-3 pl-3">
-                          {megaMenus[menuKey].links.map((item) => (
-                            <Link key={item.label} className="flex min-h-11 items-center justify-between text-sm font-semibold text-steel-700" href={item.href} onClick={() => setMobileOpen(false)}>
-                              {item.label}
-                              <ArrowRight size={14} className="text-brand-blue" />
-                            </Link>
-                          ))}
+                          {megaMenus[menuKey].groups
+                            ? megaMenus[menuKey].groups.map((group) => (
+                                <div key={group.label} className="border-l border-brand-blue/20 pl-4">
+                                  <p className="mb-2 text-[11px] font-black uppercase tracking-[0.14em] text-brand-red">
+                                    {group.label}
+                                  </p>
+                                  <div className="grid gap-2">
+                                    {group.links.map((item) => (
+                                      <Link key={item.label} className="flex min-h-11 items-center justify-between text-sm font-semibold text-steel-700" href={item.href} onClick={() => setMobileOpen(false)}>
+                                        {item.label}
+                                        <ArrowRight size={14} className="text-brand-blue" />
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))
+                            : megaMenus[menuKey].links.map((item) => (
+                                <Link key={item.label} className="flex min-h-11 items-center justify-between text-sm font-semibold text-steel-700" href={item.href} onClick={() => setMobileOpen(false)}>
+                                  {item.label}
+                                  <ArrowRight size={14} className="text-brand-blue" />
+                                </Link>
+                              ))}
                         </div> : null}
                       </div>
                     );
@@ -364,16 +462,38 @@ function MegaMenuContent({ menu }: { menu: MegaMenu }) {
         <p className="mt-4 max-w-2xl font-display text-4xl font-black uppercase leading-tight text-ink-900">
           {menu.title}
         </p>
-        <div className="mt-8 grid gap-x-12 gap-y-5 sm:grid-cols-2">
-          {menu.links.map((item) => (
-            <a key={item.label} className="focus-ring group flex items-center gap-4 text-lg font-semibold text-steel-700 transition hover:text-brand-blue" href={item.href}>
-              <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-white text-brand-blue ring-1 ring-ink-900/10 transition group-hover:bg-brand-blue group-hover:text-white">
-                <ArrowRight size={17} />
-              </span>
-              {item.label}
-            </a>
-          ))}
-        </div>
+        {menu.groups ? (
+          <div className="mt-8 grid gap-8 sm:grid-cols-2">
+            {menu.groups.map((group) => (
+              <div key={group.label} className="border-l border-brand-blue/20 pl-5">
+                <p className="mb-4 font-technical text-[11px] font-black uppercase tracking-[0.18em] text-brand-red">
+                  {group.label}
+                </p>
+                <div className="grid gap-4">
+                  {group.links.map((item) => (
+                    <a key={item.label} className="focus-ring group flex items-center gap-4 text-base font-semibold text-steel-700 transition hover:text-brand-blue" href={item.href}>
+                      <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-white text-brand-blue ring-1 ring-ink-900/10 transition group-hover:bg-brand-blue group-hover:text-white">
+                        <ArrowRight size={16} />
+                      </span>
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="mt-8 grid gap-x-12 gap-y-5 sm:grid-cols-2">
+            {menu.links.map((item) => (
+              <a key={item.label} className="focus-ring group flex items-center gap-4 text-lg font-semibold text-steel-700 transition hover:text-brand-blue" href={item.href}>
+                <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-white text-brand-blue ring-1 ring-ink-900/10 transition group-hover:bg-brand-blue group-hover:text-white">
+                  <ArrowRight size={17} />
+                </span>
+                {item.label}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="rounded-[22px] border border-ink-900/10 bg-white/62 p-6">
