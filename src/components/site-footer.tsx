@@ -23,6 +23,7 @@ const footerGroups = [
       { label: "All Products", href: "/products" },
       { label: "ARS 550D TMT Bar", href: "/products/ars-550d" },
       { label: "ARS CRS 550D", href: "/products/ars-crs-550d" },
+      { label: "ARS Binders", href: "/products/ars-binders" },
       { label: "Product Comparison", href: "/products#comparison" },
     ],
   },

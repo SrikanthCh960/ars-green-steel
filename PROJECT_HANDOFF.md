@@ -65,6 +65,15 @@ Read this file first when continuing the ARS content migration in a new chat.
 - Technical, safety, performance, savings, standards, and certification claims require ARS documentary approval. Local BIS renewal evidence expired on 2025-10-31, and current SGS/SERC product-specific evidence was not supplied.
 - See `docs/content-migration/ars-550d/implementation-qa-report.md`. Commit status: pending page-specific commit and push on `homepage-figma-refresh`.
 
+### ARS Binders product page
+
+- Implemented the supplied ARS Binders source at `/products/ars-binders`; the controlling visible-copy source is `/Users/baburao/Downloads/ARS Web content/Products/Products - Binders.docx`.
+- The route includes the approved hero, trust bar, overview/technical overview, eight reasons, applications, eight benefits, seven FAQs, selling actions, and final CTA. The source’s brochure actions remain visibly unavailable because no approved brochure file exists.
+- Binders is included in the Products footer and sitemap. Metadata uses `createPageMetadata`; Product structured data is not implemented.
+- At the user's explicit request, Applications and Key Benefits use temporary generated placeholders under `public/ars-assets/placeholders/`. Replace them with approved ARS product or manufacturing imagery before production release.
+- Final shared-server desktop/tablet/mobile and manual keyboard review, the approved brochure, approved imagery, and source-owner claim approval remain outstanding.
+- See `docs/content-migration/binders/implementation-qa-report.md`.
+
 ## Current worktree — preserve and do not stage by default
 
 The following are currently untracked research/handoff materials or package-manager files:

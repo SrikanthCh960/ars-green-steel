@@ -18,6 +18,7 @@ const staticRoutes = [
   "/privacy-policy",
   "/products",
   "/products/ars-550d",
+  "/products/ars-binders",
   "/products/ars-crs-550d",
   "/projects",
   "/request-quote",
