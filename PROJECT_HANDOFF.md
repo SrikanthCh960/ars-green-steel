@@ -1,124 +1,125 @@
 # ARS Green Steel Project Handoff
 
-Use this file as the first read in a new Codex chat.
+Read this file first when continuing the ARS content migration in a new chat.
 
-## Project Location
+## Project location and current checkpoint
 
 ```txt
 /Users/baburao/Documents/Codex/2026-05-30/hey-act-as-an-experienced-ui/ars-redesign
 ```
 
-## Live And Local URLs
+- Branch: `homepage-figma-refresh`
+- Current committed checkpoint: `c74f77dcf3413628e3acca737f98df83e15118d8`
+- Latest commits:
+  - `c74f77d feat: integrate vision and mission into about page`
+  - `a80f4da feat: establish shared SEO and content migration foundation`
+  - `e446c80 Use local banners for migrated blog articles`
+  - `a7f8375 Complete approved blog migration`
 
-- Live site: https://ars-green-steel.vercel.app/
-- Usual local preview: http://127.0.0.1:3034/
-- GitHub repository: https://github.com/baburao/ars-green-steel-redesign
-- Vercel project: `ars-green-steel`
+## Deployment and SEO safety
 
-## Current Working Context
+- Testing alias: https://ars-green-steel.vercel.app/
+- Production domain: `https://arsgroup.in` — **not assigned or launch-approved**.
+- Do not deploy, push, switch domains, or declare production-ready without explicit user approval.
+- Preview/testing must remain `noindex, nofollow`.
+- Production indexing is enabled only when `NEXT_PUBLIC_SITE_URL=https://arsgroup.in` is available at build time in the Vercel Production environment.
+- Testing canonicals intentionally use the planned production domain while testing pages remain noindex.
 
-- Active design branch: `homepage-figma-refresh`
-- Approved design source: client-approved Figma Make direction and ARS design handoff docs.
-- Current focus before this handoff: native blog pages.
-- `/blog` archive has been built locally as a native Next.js page.
-- Individual blog articles still need the next redesign pass.
+## Completed work
 
-## Design Rules To Preserve
+### Blog preservation migration
 
-- Primary blue: `#0D2B6E`
-- Secondary red: `#DE121A`
-- Dark navy: `#060D1E`
-- Font: IBM Plex Sans
-- Section H2 scale: `font-size: clamp(2rem, 3.4vw, 2.25rem);`
-- Section kicker weight: `500`
-- Standard section rhythm: `SectionKicker`, H2, paragraph, content.
-- Homepage hero can be taller and cinematic.
-- Non-home page heroes should stay around `60vh`.
-- Do not invent founder, team, certificate, or testimonial photos.
-- Placeholder imagery is acceptable only where the user explicitly approves it.
+- 94 WordPress source records are registered.
+- 88 migrated blog routes are approved with local featured banner assets.
+- Six retired routes remain approved one-hop redirects; do not create pages for them.
+- Audit baseline: 94 source posts, 88 routes, six redirects, zero unresolved content or SEO parity issues.
+- The `/blog` archive and article template use registry-backed local banner images for visible images, Open Graph/Twitter, and Article schema.
+- Do not change XML-backed blog titles, descriptions, canonicals, or approval status without a documented parity review.
 
-## Completed Core Pages
+### Shared migration foundation
 
-- Home
-- About
-- Products listing
-- ARS 550D product page
-- ARS CRS 550D product page
-- Manufacturing
-- Certifications
-- Green Steel
-- ARS Green Steel
-- Our Team
-- Our Quality
-- Steel Price Today
-- TMT Calculator
-- Dealer Locator
-- Contact
-- Request Quote
-- Become a Dealer
-- Homeowners guide
-- Engineers and architects guide
-- Civil contractors guide
-- Steel distributors and dealers guide
+- Reusable metadata helper: `src/lib/site-metadata.ts`.
+- Site-wide production canonical, Open Graph, Twitter, default social image, and preview-safe robots handling are in place.
+- `src/app/robots.ts` blocks crawling outside the configured production domain.
+- `src/app/sitemap.ts` uses production URLs, includes 88 approved blog records, and excludes the six redirects.
+- The home Green Steel logo points to its available local asset.
+- Missing ARS leaflet actions are disabled rather than linking to a missing PDF.
+- Internal route/local-asset validation: `scripts/check-internal-routes.mjs`.
 
-## Current Blog Status
+### Vision & Mission
 
-Completed locally:
+- Implemented at `/about#vision`; no new route was created.
+- About retains one H1; the section uses H2 with Vision/Mission H3 headings.
+- Added verified legacy-source Vision and Mission wording and an `Explore manufacturing` link to `/manufacturing`.
+- No Purpose or Values wording was added because the referenced source DOCX was unavailable. Do not invent it.
+- See `docs/content-migration/vision-mission/qa-report.md`.
 
-- `/blog` native archive page.
-- `/blog.html` redirect to `/blog`.
-- Search, topic filters, featured articles, progressive loading, and cards for all preserved article URLs.
-- Blog links in header/footer now point to `/blog`.
-- `BLOG_IMPLEMENTATION_PLAN.md` lists all 88 preserved blog URLs and the recommended migration order.
+### ARS 550D product-page reconciliation
 
-Pending:
+- Implemented the supplied ARS 550D source at `/products/ars-550d`; the controlling visible-copy source is `/Users/baburao/Downloads/ARS Web content/Products/Product - ARS 550D.docx`.
+- The source-led route includes the banner, trust bar, overview, eight benefits, mechanical and chemical property tables, certification/download actions, CRS panel, seven FAQs, selling actions, and final CTA. Source-document instructions are not public copy.
+- All supplied publishing copy is present. The unavailable brochure remains visibly unavailable; no brochure, current test report, certificate package, approval document, or size/availability document was created.
+- Retained assets: `/ars-assets/TMT-Bars.png` and `/ars-assets/CRS.png`. Both are relevant legacy visuals but low-resolution; final crop/usage approval and higher-resolution product, bar-detail, manufacturing, and application imagery remain required.
+- Validation completed: targeted ESLint, TypeScript no-emit, production build, `git diff --check`, and a 1280 px built-page browser check with no horizontal overflow. Final post-change tablet/mobile visual QA and manual keyboard interaction checks remain outstanding.
+- Metadata uses `createPageMetadata`; product structured data is not implemented. Preview remains index-safe, not production-approved.
+- Technical, safety, performance, savings, standards, and certification claims require ARS documentary approval. Local BIS renewal evidence expired on 2025-10-31, and current SGS/SERC product-specific evidence was not supplied.
+- See `docs/content-migration/ars-550d/implementation-qa-report.md`. Commit status: pending page-specific commit and push on `homepage-figma-refresh`.
 
-- Commit and push the blog archive if not already done.
-- Redesign the shared article template.
-- Start with `/blog/corrosion-resistance-steel.html`.
-- Then migrate priority blog articles in batches.
+## Current worktree — preserve and do not stage by default
 
-Important files for blog work:
+The following are currently untracked research/handoff materials or package-manager files:
 
-- `src/app/blog/page.tsx`
-- `src/app/blog/[slug]/page.tsx`
-- `src/components/blog-archive.tsx`
-- `src/lib/blog-content.ts`
-- `BLOG_IMPLEMENTATION_PLAN.md`
+- `docs/content-migration/README.md`
+- `docs/content-migration/road-projects/`
+- `docs/content-migration/bridges-flyovers/`
+- `docs/content-migration/institutional-projects/`
+- `pnpm-lock.yaml`
+- `pnpm-workspace.yaml`
 
-## Files To Read First In New Chat
+Do not use `git add .`. Do not commit either pnpm file. Never overwrite or delete unrelated working-tree changes.
+
+## Next task: Road Projects reference template
+
+First inspect all three approved handoffs:
+
+1. `docs/content-migration/road-projects/implementation-handoff.md`
+2. `docs/content-migration/bridges-flyovers/implementation-handoff.md`
+3. `docs/content-migration/institutional-projects/implementation-handoff.md`
+
+Then implement **Road Projects** at its existing public route as the reference shared project-page template. Do not implement Bridges & Flyovers or Institutional Projects in the same task unless explicitly requested.
+
+Keep their existing routes, do not introduce blocked Binders, Leadership Messages, SGBC, Embodied Carbon, or Green Steel-consolidation work, and do not invent technical claims, assets, project proof, or certifications.
+
+## Required reading before page work
 
 1. `PROJECT_HANDOFF.md`
-2. `TASKS.md`
-3. `DESIGN_RULES.md`
-4. `DESIGN_SYSTEM.md`
-5. `COMPONENT_INVENTORY.md`
-6. `BLOG_IMPLEMENTATION_PLAN.md`
-7. `DEPLOYMENT.md`
+2. `docs/content-migration/README.md`
+3. `docs/content-migration/implemented-pages-audit.md`
+4. `docs/content-migration/master-migration-matrix.md`
+5. `docs/content-migration/revised-implementation-sequence.md`
+6. The applicable page handoff(s)
+7. `docs/content-migration/shared-foundation/qa-report.md`
+8. `DESIGN_RULES.md` and `DESIGN_SYSTEM.md`
 
-## Current Git Notes
+## Verification standard
 
-- Before committing, run `git status --short`.
-- `pnpm-lock.yaml` and `pnpm-workspace.yaml` may appear as untracked files. Do not commit them unless the user intentionally changes package manager strategy.
-- Do not revert unrelated local changes.
-- Commit only the reviewed files for the current feature.
+Before any feature commit:
 
-## Deployment Flow
+- Start with `git status --short`, branch, and HEAD verification.
+- Explicitly stage only reviewed files.
+- Run targeted lint for changed files; document existing unrelated lint failures without cleaning them up opportunistically.
+- Run `pnpm --ignore-workspace qa:routes`.
+- Run `pnpm --ignore-workspace exec tsc --noEmit` and `pnpm --ignore-workspace build`.
+- For blog changes, also run `pnpm --ignore-workspace audit:blog-migration`.
+- Use the relevant migration QA report template and document responsive/browser limitations.
+- Do not commit, push, or deploy unless the user explicitly authorises each action.
 
-1. Build locally.
-2. Commit reviewed files.
-3. Push to GitHub.
-4. Vercel deploys the live site.
-5. Confirm live at https://ars-green-steel.vercel.app/
+## ARS content progress
 
-See `DEPLOYMENT.md` for the detailed process and previous Vercel/GitHub issue notes.
-
-## Recommended Next Step
-
-Continue the blog phase:
-
-1. Review and commit the `/blog` archive work.
-2. Build the reusable article template.
-3. Apply it first to `/blog/corrosion-resistance-steel.html`.
-4. Validate desktop, tablet, mobile, build, and preserved URL behavior.
-
+- Documents audited: 22/22
+- Shared migration foundation: committed
+- Content items implemented: 14/22
+- Content items fully verified: 0/22
+- Ready for development: Road Projects, Bridges & Flyovers, Institutional Projects
+- Blocked items: 5
+- Estimated content completion: 40–45%

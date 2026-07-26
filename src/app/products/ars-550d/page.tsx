@@ -3,14 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
+  BadgeCheck,
   Building2,
   Calculator,
-  CheckCircle2,
+  Download,
   FileText,
   GitCompare,
   IndianRupee,
   Layers,
   MapPin,
+  ShieldCheck,
   ShoppingCart,
   Zap,
 } from "lucide-react";
@@ -26,372 +28,240 @@ export const metadata = createPageMetadata({
   path: "/products/ars-550d",
 });
 
-const stats = [
-  { value: "550D", label: "Core grade", sub: "High-strength ductile TMT steel for construction confidence." },
-  { value: "Fe-550D", label: "TMT grade", sub: "Ductile TMT steel for construction." },
-  { value: "IS 1786", label: "Standard", sub: "Manufactured to the IS 1786:2008 benchmark." },
-  { value: "550 MPa", label: "Yield strength", sub: "Minimum yield strength for dependable structural performance." },
+const trustItems = [
+  { value: "Fe550D", label: "Grade" },
+  { value: "IS 1786", label: "Standard" },
+  { value: "550 Min.", label: "Yield Strength" },
+  { value: "16 Min.", label: "Elongation" },
 ];
 
-const specRows = [
-  { label: "Grade", value: "Fe-550D TMT bars per IS 1786" },
-  { label: "Primary promise", value: "High strength with improved ductility for safer structures" },
-  { label: "Use cases", value: "Homes, apartments, commercial structures, infrastructure members" },
-  { label: "Key properties", value: "High strength, ductility, bendability, and concrete bonding" },
-  { label: "Next best step", value: "Calculate requirement, check dealer availability, or request a quote" },
+const technicalOverview = [
+  { label: "Grade", value: "Fe550D TMT Reinforcement Bars • IS 1786 Compliant" },
+  { label: "Applications", value: "Residential • Commercial • Industrial • Infrastructure • RCC Construction" },
+  { label: "Key Properties", value: "High Strength • High Ductility • Superior Bendability • Strong Concrete Bonding" },
+  { label: "Manufacturing", value: "Thermo-Mechanically Treated (TMT) • Low Sulphur • Low Phosphorus • Controlled Manufacturing Process" },
+  { label: "Certifications", value: "BIS Certified • SGS Tested • SERC Certified • Quality Assured" },
 ];
 
-const whyCards = [
+const benefits = [
   {
     icon: <Zap size={20} />,
-    title: "Ductility",
-    desc: "Ductility supports the deformation capacity needed for reinforced concrete construction.",
+    title: "High Strength",
+    desc: "Manufactured to Fe550D grade, ARS 550D TMT Bars provide the strength required for residential, commercial, industrial, and infrastructure construction without compromising structural reliability.",
   },
   {
     icon: <Building2 size={20} />,
-    title: "Bendability",
-    desc: "Maintains bendability for easier fabrication and site detailing while preserving mechanical performance.",
+    title: "High Ductility",
+    desc: "Designed with low sulphur and low phosphorus content, ARS 550D offers excellent ductility, allowing reinforced concrete structures to perform better under dynamic loads and seismic conditions.",
   },
   {
     icon: <ShoppingCart size={20} />,
-    title: "Concrete bonding",
-    desc: "The ribbed surface profile develops a strong bond with concrete for reliable load transfer.",
+    title: "Superior Bendability",
+    desc: "Maintains excellent bendability for easier fabrication and detailing on site while preserving the mechanical properties required for reinforced concrete construction.",
+  },
+  {
+    icon: <ShieldCheck size={20} />,
+    title: "Better Concrete Bonding",
+    desc: "The ribbed surface profile creates a strong bond with concrete, helping improve load transfer and overall structural stability throughout the life of the structure.",
+  },
+  {
+    icon: <Layers size={20} />,
+    title: "Engineered for Structural Performance",
+    desc: "Manufactured through a controlled Thermo-Mechanical Treatment (TMT) process to achieve a balanced combination of strength, toughness, and durability across every batch.",
+  },
+  {
+    icon: <BadgeCheck size={20} />,
+    title: "Certified Quality",
+    desc: "Manufactured in accordance with IS 1786 standards and backed by BIS certification, SGS testing, SERC certification, and stringent in-house quality control processes.",
   },
   {
     icon: <FileText size={20} />,
-    title: "Quality and manufacturing",
-    desc: "Review ARS quality and manufacturing information when developing your project specification.",
+    title: "Better Weldability",
+    desc: "The controlled chemical composition supports improved weldability, making ARS 550D suitable for a wide range of reinforced concrete construction requirements.",
+  },
+  {
+    icon: <IndianRupee size={20} />,
+    title: "Optimised Steel Consumption",
+    desc: "The higher yield strength of Fe550D helps engineers optimise steel usage in structural design, contributing to efficient construction without compromising safety.",
   },
 ];
 
-const properties = [
-  { label: "Yield Strength", value: "≥ 550 MPa" },
-  { label: "UTS", value: "≥ 600 MPa" },
-  { label: "Standard", value: "IS 1786:2008" },
+const mechanicalProperties = [
+  ["Yield Strength", "N/mm²", "550 Min."],
+  ["Tensile Strength", "N/mm²", "600 Min."],
+  ["TS/YS Ratio", "Ratio", "1.10 Min."],
+  ["Elongation", "%", "16 Min."],
 ];
 
-const actions = [
+const chemicalProperties = [
+  ["Carbon (C)", "%", "0.25 Max."],
+  ["Sulphur (S)", "%", "0.04 Max."],
+  ["Phosphorus (P)", "%", "0.04 Max."],
+  ["Sulphur + Phosphorus (S+P)", "%", "0.075 Max."],
+  ["Carbon Equivalent (CE)", "%", "0.42 Max."],
+];
+
+const certificationBadges = ["BIS Certified", "SGS Tested", "SERC Certified", "Quality Assured"];
+
+const faqs = [
+  [
+    "What is ARS 550D TMT Bar?",
+    "ARS 550D is a high-strength Fe550D grade TMT reinforcement bar manufactured in accordance with IS 1786 standards. It is engineered to provide superior strength, ductility, and durability for residential, commercial, industrial, and infrastructure construction.",
+  ],
+  [
+    "What is the difference between Fe500D and Fe550D TMT Bars?",
+    "The primary difference is yield strength. Fe550D offers a minimum yield strength of 550 MPa, while Fe500D provides 500 MPa. With higher strength and excellent ductility, Fe550D is preferred for projects that require enhanced structural performance and efficient steel utilisation.",
+  ],
+  [
+    "Where can ARS 550D TMT Bars be used?",
+    "ARS 550D TMT Bars are suitable for reinforced concrete construction, including residential homes, apartments, commercial buildings, industrial structures, bridges, public infrastructure, foundations, columns, beams, and slabs.",
+  ],
+  [
+    "Why is ductility important in Fe550D TMT Bars?",
+    "Ductility allows reinforcement steel to deform under heavy loads without sudden failure. This helps reinforced concrete structures absorb stress more effectively, making them safer during earthquakes, dynamic loading, and other demanding service conditions.",
+  ],
+  [
+    "What standards and certifications does ARS 550D comply with?",
+    "ARS 550D TMT Bars are manufactured in compliance with IS 1786 and are backed by BIS Certification, SGS Testing, SERC Certification, and stringent in-house quality control to ensure consistent product quality and performance.",
+  ],
+  [
+    "Is ARS 550D suitable for earthquake-resistant construction?",
+    "Yes. ARS 550D combines high strength with excellent ductility, helping reinforced concrete structures withstand seismic forces more effectively. Its mechanical properties make it a dependable choice for earthquake-resistant construction when used as part of a properly engineered structural design.",
+  ],
+  [
+    "What is the difference between ARS 550D and ARS CRS 550D?",
+    "ARS 550D is designed for general reinforced concrete construction, offering high strength and ductility. ARS CRS 550D provides these benefits along with enhanced corrosion resistance, making it suitable for structures exposed to moisture, coastal environments, and high-salinity conditions.",
+  ],
+];
+
+const sellingActions = [
   {
     icon: <IndianRupee size={20} />,
-    title: "Get price for ARS 550D",
-    desc: "Review the current ARS 550D price context before requesting a final quote.",
-    cta: "View price",
+    title: "Check Price",
+    desc: "View the latest ARS 550D TMT Bar price before planning your project.",
+    cta: "View Price →",
     href: "/steel-price-today",
   },
   {
     icon: <MapPin size={20} />,
-    title: "Find dealer",
-    desc: "Locate nearby dealers and connect with local supply support in your area.",
-    cta: "Find a dealer",
+    title: "Find a Dealer",
+    desc: "Locate an authorised ARS dealer near you for product availability and assistance.",
+    cta: "Find a Dealer →",
     href: "/dealer-locator",
   },
   {
     icon: <GitCompare size={20} />,
-    title: "Compare CRS",
-    desc: "Use ARS CRS 550D for coastal, humid, and durability-heavy conditions instead.",
-    cta: "Compare grade",
+    title: "Compare ARS CRS 550D",
+    desc: "Compare ARS 550D and ARS CRS 550D to choose the right TMT bar for your construction requirements.",
+    cta: "Compare Grades →",
     href: "/products/ars-crs-550d",
   },
 ];
 
+function PropertyTable({
+  caption,
+  rows,
+}: {
+  caption: string;
+  rows: string[][];
+}) {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-surface-100 bg-white">
+      <table className="w-full border-collapse text-left">
+        <caption className="sr-only">{caption}</caption>
+        <thead className="bg-brand-blue">
+          <tr>
+            <th scope="col" className="px-4 py-3 text-[10px] font-bold uppercase tracking-[0.1em] text-white/80">Property</th>
+            <th scope="col" className="px-4 py-3 text-[10px] font-bold uppercase tracking-[0.1em] text-white/80">Unit</th>
+            <th scope="col" className="px-4 py-3 text-[10px] font-bold uppercase tracking-[0.1em] text-white/80">ARS 550D</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map(([property, unit, value], index) => (
+            <tr key={property} className={index % 2 === 0 ? "bg-surface-50" : "bg-white"}>
+              <th scope="row" className="px-4 py-3 text-[13px] font-semibold text-ink-900">{property}</th>
+              <td className="px-4 py-3 text-[13px] text-steel-700">{unit}</td>
+              <td className="px-4 py-3 text-[13px] font-bold text-brand-blue">{value}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 export default function Ars550DPage() {
   return (
-    <main className="min-h-screen bg-surface-50 text-ink-900">
+    <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
       <SiteHeader />
 
-      {/* ── Hero ── */}
-      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative flex items-end overflow-hidden bg-ink-950">
+      <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px]">
         <div className="absolute inset-0">
-          <Image
-            src="/ars-assets/TMT-Bars.png"
-            alt="ARS 550D TMT steel bars"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-            style={{ objectPosition: "center 50%" }}
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(to right, rgba(6,13,30,0.95) 0%, rgba(6,13,30,0.65) 50%, rgba(6,13,30,0.2) 100%)" }}
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(to top, rgba(6,13,30,0.9) 0%, transparent 55%)" }}
-          />
+          <Image src="/ars-assets/TMT-Bars.png" alt="ARS 550D TMT steel bars" fill priority sizes="100vw" className="object-cover" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,13,30,0.96),rgba(6,13,30,0.72)_52%,rgba(6,13,30,0.28))]" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.9),transparent_55%)]" />
         </div>
-
-        <div className="ars-container relative z-10 w-full pb-16">
-          <div className="grid items-end gap-12 lg:grid-cols-2">
-            <div>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
-                <Layers size={12} className="text-white/50" />
-                <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">
-                  ARS 550D TMT Bars · Fe550D Grade Reinforcement Steel
-                </span>
-              </div>
-              <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
-                High-strength Fe550D TMT bars for
-                <br />
-                <span className="italic text-brand-red">strong, durable construction.</span>
-              </h1>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/request-quote"
-                  className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
-                >
-                  <FileText size={14} /> Request 550D quote
-                </Link>
-                <Link
-                  href="/tmt-calculator"
-                  className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/80 transition hover:bg-white/[0.12]"
-                >
-                  <Calculator size={14} /> Calculate steel
-                </Link>
-              </div>
+        <div className="ars-container relative z-10 w-full pb-14 md:pb-16">
+          <div className="max-w-3xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
+              <Layers size={12} className="text-white/60" />
+              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS 550D TMT Bars | Fe550D Grade Reinforcement Steel</span>
             </div>
-
-            <div className="hidden lg:block">
-              <div className="rounded-2xl border border-white/[0.12] bg-white/[0.07] p-6 backdrop-blur">
-                <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.1em] text-white/70">
-                  About this grade
-                </p>
-                <p className="text-[14px] leading-[1.75] text-white/80">
-                  ARS 550D is engineered for high strength, superior ductility, and dependable performance
-                  across modern reinforced concrete construction.
-                </p>
-                <div className="mt-4 flex items-center gap-2 border-t border-white/10 pt-4">
-                  <CheckCircle2 size={14} className="text-brand-red" />
-                  <span className="text-[12px] font-medium text-white/70">
-                    IS 1786:2008 · Fe-550D grade
-                  </span>
-                </div>
-              </div>
+            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">High-Strength Fe550D TMT Bars for Strong, Durable Construction</h1>
+            <p className="mt-5 max-w-2xl text-[15px] leading-[1.75] text-white/75">Engineered for high strength, superior ductility, and dependable performance, ARS 550D TMT Bars are built for modern construction.</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"><FileText size={14} /> Request a Quote</Link>
+              <Link href="/products#sizes" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.12]"><Calculator size={14} /> Find the Right Size</Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Stats ── */}
-      <MotionSection className="border-b border-surface-100 bg-white py-14">
+      <MotionSection className="border-b border-surface-100 bg-white py-10">
+        <div className="ars-container grid grid-cols-2 gap-y-7 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-ink-900/10">
+          {trustItems.map((item) => <div key={item.label} className="px-0 text-left lg:px-8 lg:text-center"><p className="font-display text-[1.65rem] font-extrabold tracking-[-0.03em] text-brand-blue">{item.value}</p><p className="mt-1 text-[11px] font-bold uppercase tracking-[0.08em] text-ink-900">{item.label}</p></div>)}
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-white py-20 md:py-24" id="specifications">
+        <div className="ars-container grid items-start gap-14 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <SectionKicker variant="brand">PRODUCT OVERVIEW</SectionKicker>
+            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">What Are ARS 550D TMT Bars?</h2>
+            <p className="mt-5 text-[15px] leading-[1.8] text-steel-700"><strong>Built for Strength. Trusted for Modern Construction.</strong><br />Choosing the right reinforcement steel is one of the most important decisions in any construction project. ARS 550D TMT Bars are engineered to provide the strength, ductility, and consistency required for modern reinforced concrete structures. Manufactured to IS 1786 standards, they are suitable for residential, commercial, industrial, and infrastructure applications where long-term structural performance matters.</p>
+          </div>
+          <div className="overflow-hidden rounded-2xl border-[1.5px] border-surface-100">
+            <div className="bg-brand-blue px-6 py-3"><p className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/80">ARS 550D Technical Overview</p></div>
+            {technicalOverview.map((row, index) => <div key={row.label} className={`grid grid-cols-5 px-5 py-4 ${index % 2 === 0 ? "bg-white" : "bg-surface-50"}`}><p className="col-span-2 text-[10px] font-bold uppercase tracking-[0.08em] text-brand-blue">{row.label}</p><p className="col-span-3 text-[13px] leading-[1.6] text-steel-700">{row.value}</p></div>)}
+            <div className="border-t border-surface-100 bg-white p-5"><span aria-disabled="true" className="inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-brand-blue/20 px-4 py-2 text-[13px] font-bold text-brand-blue"><Download size={14} /> Download brochure</span></div>
+          </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-brand-blue py-20 md:py-24">
         <div className="ars-container">
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-ink-900/10">
-            {stats.map((s) => (
-              <div key={s.value} className="flex flex-col px-0 lg:items-center lg:px-8 lg:text-center">
-                <span className="font-display text-[clamp(1.8rem,2.5vw,2.4rem)] font-extrabold leading-none tracking-[-0.03em] text-brand-blue">
-                  {s.value}
-                </span>
-                <span className="mb-1 mt-1.5 text-[12px] font-bold uppercase tracking-[0.06em] text-ink-900">
-                  {s.label}
-                </span>
-                <span className="max-w-[200px] text-[12px] leading-normal text-grey-600">{s.sub}</span>
-              </div>
-            ))}
-          </div>
+          <div className="mb-12 grid items-start gap-8 lg:grid-cols-2"><div><SectionKicker variant="light">WHY CHOOSE ARS 550D</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">Engineered to Perform. Built to Last.</h2></div><p className="text-[15px] leading-[1.8] text-white/75 lg:pt-12">Every ARS 550D TMT Bar is manufactured to deliver the strength, flexibility, and consistency required for modern reinforced concrete construction.</p></div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{benefits.map((benefit, index) => <article key={benefit.title} className="flex min-h-[235px] flex-col rounded-2xl border border-white/[0.1] bg-white/[0.05] p-6"><div className="flex items-center justify-between"><span className="flex h-10 w-10 items-center justify-center rounded-xl border border-brand-red/30 bg-brand-red/10 text-brand-red">{benefit.icon}</span><span className="text-[12px] font-bold text-white/20">{String(index + 1).padStart(2, "0")}</span></div><h3 className="mt-6 font-display text-[16px] font-bold text-white">{benefit.title}</h3><p className="mt-2 text-[13px] leading-[1.65] text-white/70">{benefit.desc}</p></article>)}</div>
         </div>
       </MotionSection>
 
-      {/* ── Spec table ── */}
-      <MotionSection className="bg-white py-24" id="specifications">
-        <div className="ars-container">
-          <div className="grid items-start gap-16 lg:grid-cols-2">
-            <div>
-              <SectionKicker variant="brand">Spec / Technical Clarity</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                What are ARS 550D TMT Bars?
-              </h2>
-              <p className="mt-5 text-[15px] leading-[1.8] text-steel-700">
-                Built for Strength. Trusted for Modern Construction. Choosing the right reinforcement steel
-                is one of the most important decisions in any construction project. ARS 550D TMT Bars are
-                engineered to provide the strength, ductility, and consistency required for modern reinforced
-                concrete structures. Manufactured to IS 1786 standards, they are suitable for residential,
-                commercial, industrial, and infrastructure applications where long-term structural performance matters.
-              </p>
-            </div>
-
-            <div className="overflow-hidden rounded-2xl border-[1.5px] border-surface-100">
-              <div className="bg-brand-blue px-6 py-3">
-                <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/70">
-                  ARS 550D — Technical overview
-                </span>
-              </div>
-              {specRows.map((row, i) => (
-                <div
-                  key={row.label}
-                  className={`grid grid-cols-5 items-start px-6 py-4 ${
-                    i < specRows.length - 1 ? "border-b border-grey-100" : ""
-                  } ${i % 2 === 0 ? "bg-white" : "bg-surface-50"}`}
-                >
-                  <span className="col-span-2 pt-0.5 text-[11px] font-bold uppercase tracking-[0.06em] text-brand-blue">
-                    {row.label}
-                  </span>
-                  <span className="col-span-3 text-[13px] leading-[1.6] text-steel-700">{row.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      <MotionSection className="bg-white py-20 md:py-24">
+        <div className="ars-container"><SectionKicker variant="brand">Key Properties</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Mechanical &amp; Chemical Properties</h2><p className="mt-5 max-w-3xl text-[15px] leading-[1.8] text-steel-700">Manufactured to IS 1786 standards, ARS 550D TMT Bars are engineered to deliver consistent mechanical performance and controlled chemical composition for reliable reinforced concrete construction.</p><div className="mt-10 grid gap-5 lg:grid-cols-2"><PropertyTable caption="Mechanical properties of ARS 550D" rows={mechanicalProperties} /><PropertyTable caption="Chemical properties of ARS 550D" rows={chemicalProperties} /></div></div>
       </MotionSection>
 
-      {/* ── Why ARS 550D ── */}
-      <MotionSection className="bg-brand-blue py-24">
-        <div className="ars-container">
-          <div className="mb-14 grid items-start gap-12 lg:grid-cols-2">
-            <div>
-              <SectionKicker variant="brand">Why ARS 550D</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
-                Engineered to perform. Built to last.
-              </h2>
-            </div>
-            <p className="text-[15px] leading-[1.8] text-white/70 lg:pt-14">
-              Every ARS 550D TMT bar is manufactured to deliver the strength, flexibility, and consistency
-              required for modern reinforced concrete construction.
-            </p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {whyCards.map((c, i) => (
-              <div
-                key={c.title}
-                className="flex flex-col gap-5 rounded-2xl border border-white/[0.07] bg-white/[0.04] p-6"
-              >
-                <div className="flex items-center justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-brand-red/30 bg-brand-red/10 text-brand-red">
-                    {c.icon}
-                  </div>
-                  <span className="text-[12px] font-bold text-white/15">0{i + 1}</span>
-                </div>
-                <div>
-                  <h3 className="mb-2 font-display text-[15px] font-bold text-white">{c.title}</h3>
-                  <p className="text-[13px] leading-[1.65] text-white/65">{c.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      <MotionSection className="bg-surface-50 py-20 md:py-24">
+        <div className="ars-container grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]"><div><SectionKicker variant="brand">Trust</SectionKicker><div className="mt-7 grid grid-cols-2 gap-3">{certificationBadges.map((badge) => <div key={badge} className="flex min-h-16 items-center gap-3 rounded-xl border border-surface-100 bg-white px-4 text-[13px] font-bold text-brand-blue"><BadgeCheck size={18} className="shrink-0 text-brand-red" />{badge}</div>)}</div><div className="mt-7 flex flex-wrap gap-3"><span aria-disabled="true" className="inline-flex min-h-11 cursor-not-allowed items-center gap-2 rounded-full border border-brand-blue/20 px-5 py-2.5 text-[13px] font-bold text-brand-blue"><Download size={14} /> Download brochure</span><Link href="/certifications#product-statutory-approvals" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-blue px-5 py-2.5 text-[13px] font-bold text-white"><Download size={14} /> Download certifications</Link></div></div><div className="relative min-h-[320px] overflow-hidden rounded-2xl bg-ink-950"><Image src="/ars-assets/CRS.png" alt="ARS CRS 550D" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /><div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.92),rgba(6,13,30,0.12))]" /><div className="absolute inset-x-6 bottom-6"><p className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/70">Corrosion resistant steel</p><Link href="/products/ars-crs-550d" className="focus-ring mt-3 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[13px] font-bold text-brand-blue">Explore ARS CRS 550D <ArrowRight size={14} /></Link></div></div></div>
       </MotionSection>
 
-      {/* ── Product detail + key properties ── */}
-      <MotionSection className="bg-white py-24">
-        <div className="ars-container">
-          <div className="grid items-center gap-14 lg:grid-cols-5">
-            <div className="relative h-[420px] overflow-hidden rounded-2xl bg-ink-950 lg:col-span-3">
-              <Image
-                src="/ars-assets/products-all.png"
-                alt="ARS 550D TMT bars"
-                fill
-                sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover"
-              />
-              <div
-                className="absolute inset-0"
-                style={{ background: "linear-gradient(135deg, rgba(13,43,110,0.25) 0%, transparent 60%)" }}
-              />
-              <div className="absolute left-5 top-5">
-                <span className="rounded-full bg-brand-blue px-3 py-1.5 text-[11px] font-bold tracking-[0.08em] text-white">
-                  Fe-550D Grade
-                </span>
-              </div>
-            </div>
-            <div className="lg:col-span-2">
-              <SectionKicker variant="brand">Key Properties</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.15] tracking-[-0.02em] text-ink-900">
-                Numbers behind the grade.
-              </h2>
-              <p className="mb-8 mt-4 text-[14px] leading-[1.75] text-steel-700">
-                These are the Fe-550D thresholds specified under IS 1786:2008 — the benchmark ARS 550D is
-                manufactured to meet.
-              </p>
-              <div className="grid grid-cols-2 gap-3">
-                {properties.map((p) => (
-                  <div key={p.label} className="rounded-xl border border-surface-100 bg-surface-50 p-4">
-                    <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.1em] text-grey-600">
-                      {p.label}
-                    </p>
-                    <p className="font-display text-[1.1rem] font-extrabold tracking-[-0.01em] text-brand-blue">
-                      {p.value}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+      <MotionSection className="bg-white py-20 md:py-24">
+        <div className="ars-container max-w-5xl"><h2 className="text-center font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">FAQs</h2><div className="mt-10 divide-y divide-surface-100 rounded-2xl border border-surface-100 bg-white">{faqs.map(([question, answer]) => <details key={question} className="group"><summary className="focus-ring flex cursor-pointer list-none items-center justify-between gap-5 px-6 py-5 font-display text-[16px] font-bold text-ink-900"><span>{question}</span><ArrowRight size={18} className="shrink-0 text-brand-red transition group-open:rotate-90" /></summary><p className="px-6 pb-6 text-[14px] leading-[1.8] text-steel-700">{answer}</p></details>)}</div></div>
       </MotionSection>
 
-      {/* ── Selling actions ── */}
-      <MotionSection className="bg-surface-50 py-24">
-        <div className="ars-container">
-          <div className="mb-14 grid items-end gap-10 lg:grid-cols-2">
-            <div>
-              <SectionKicker variant="brand">Selling Action</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                Move from product interest to supply.
-              </h2>
-            </div>
-            <p className="text-[15px] leading-[1.8] text-steel-700">
-              Three direct paths for buyers who are ready to act — check price, find a dealer, or
-              understand which grade fits your project conditions.
-            </p>
-          </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            {actions.map((a) => (
-              <Link
-                key={a.title}
-                href={a.href}
-                className="focus-ring group flex flex-col gap-5 rounded-2xl border-[1.5px] border-surface-100 bg-white p-7 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-              >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/[0.06] text-brand-blue">
-                  {a.icon}
-                </div>
-                <div className="flex-1">
-                  <h3 className="mb-2 font-display text-[17px] font-bold text-ink-900">{a.title}</h3>
-                  <p className="text-[13px] leading-[1.7] text-grey-600">{a.desc}</p>
-                </div>
-                <span className="inline-flex items-center gap-1.5 text-[12px] font-bold text-brand-red transition-all duration-200 group-hover:gap-2.5">
-                  {a.cta} <ArrowRight size={12} />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
+      <MotionSection className="bg-surface-50 py-20 md:py-24">
+        <div className="ars-container"><div className="mb-12 grid items-end gap-8 lg:grid-cols-2"><div><SectionKicker variant="brand">NEXT STEP</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Ready to Build with ARS 550D?</h2></div><p className="text-[15px] leading-[1.8] text-steel-700">Choose your next step—check the latest TMT bar price, locate an authorised ARS dealer, or compare ARS 550D with ARS CRS 550D to select the right reinforcement steel for your project.</p></div><div className="grid gap-5 md:grid-cols-3">{sellingActions.map((action) => <Link key={action.title} href={action.href} className="focus-ring group flex min-h-[270px] flex-col rounded-2xl border-[1.5px] border-surface-100 bg-white p-7 transition hover:-translate-y-0.5 hover:shadow-lg"><span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/[0.06] text-brand-blue">{action.icon}</span><h3 className="mt-6 font-display text-[18px] font-bold text-ink-900">{action.title}</h3><p className="mt-3 flex-1 text-[14px] leading-[1.7] text-grey-600">{action.desc}</p><span className="mt-6 text-[13px] font-bold text-brand-red">{action.cta}</span></Link>)}</div></div>
       </MotionSection>
 
-      {/* ── CTA banner ── */}
-      <MotionSection className="relative overflow-hidden bg-brand-blue py-20">
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(222,18,26,0.7) 0%, transparent 55%)" }}
-        />
-        <div className="ars-container relative z-10">
-          <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
-            <div>
-              <SectionKicker variant="light">Ready to specify</SectionKicker>
-              <h2 className="mb-3 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
-                Start with the grade.
-                <br />
-                We will handle the rest.
-              </h2>
-              <p className="max-w-[420px] text-[14px] leading-[1.7] text-white/70">
-                Request the spec, run the calculator, or speak to a dealer — all three paths start here.
-              </p>
-            </div>
-            <div className="flex flex-shrink-0 flex-wrap gap-3">
-              <Link
-                href="/request-quote"
-                className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white transition hover:opacity-90"
-              >
-                <FileText size={15} /> Request product information
-              </Link>
-              <Link
-                href="/tmt-calculator"
-                className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.15]"
-              >
-                <Calculator size={15} /> Calculate requirement
-              </Link>
-            </div>
-          </div>
-        </div>
-      </MotionSection>
+      <MotionSection className="relative overflow-hidden bg-brand-blue py-20"><div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(222,18,26,0.7) 0%, transparent 55%)" }} /><div className="ars-container relative z-10 flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center"><div><SectionKicker variant="light">READY TO BUILD</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">Choose ARS 550D for Your Next Project</h2><p className="mt-3 max-w-[540px] text-[14px] leading-[1.7] text-white/75">Get the product specifications, estimate your steel requirement, or connect with an authorised ARS dealer to move your project forward.</p></div><div className="flex flex-wrap gap-3"><Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white"><FileText size={15} /> Talk to Sales</Link><Link href="/tmt-calculator" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white"><Calculator size={15} /> Calculate Steel Requirement</Link></div></div></MotionSection>
 
       <SiteFooter />
     </main>
