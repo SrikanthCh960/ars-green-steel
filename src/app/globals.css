@@ -373,6 +373,14 @@ html {
   background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
 }
 
+.homeowner-proof-marquee .marquee-frame::before {
+  background: linear-gradient(90deg, #060d1e 0%, rgba(6, 13, 30, 0) 100%);
+}
+
+.homeowner-proof-marquee .marquee-frame::after {
+  background: linear-gradient(270deg, #060d1e 0%, rgba(6, 13, 30, 0) 100%);
+}
+
 .marquee-track {
   display: flex;
   width: max-content;
