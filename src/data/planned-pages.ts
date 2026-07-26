@@ -1,7 +1,7 @@
 export const plannedPages = [
   { slug: "clients", title: "Clients" },
   { slug: "download-product-brochure", title: "Download Product Brochure" },
-  { slug: "sgpc", title: "SGPC" },
+  { slug: "sgbc", title: "SGBC" },
   { slug: "reports-downloads", title: "Reports & Downloads" },
   { slug: "price-calculator", title: "Price Calculator" },
   { slug: "construction-estimation", title: "Construction Estimation" },

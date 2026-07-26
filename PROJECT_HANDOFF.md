@@ -94,6 +94,15 @@ The following are currently untracked research/handoff materials or package-mana
 
 Do not use `git add .`. Do not commit either pnpm file. Never overwrite or delete unrelated working-tree changes.
 
+## SGBC standalone page — implemented, verification pending
+
+- Route: `/sgbc`; controlling source: `/Users/baburao/Downloads/ARS Web content/Sustainability /Sustainability - SGBC.docx`.
+- The Sustainability mega-menu link uses the exact `SGBC` label and points to `/sgbc`; the sitemap now includes `/sgbc`.
+- All nine source publishing sections are implemented in order. Authoring instructions are excluded from visible copy.
+- Evidence used: the badge embedded in the supplied DOCX (`public/ars-assets/sgbc/sgbc-4-ticks-leader-badge.png`) and the existing local SGBC certificate preview/PDF under `public/ars-assets/certifications/`.
+- Remaining blockers: ARS confirmation of rating currency, certificate scope/date, citations, and third-party badge/logo permissions; no approved logos exist for the three evidence cards. Build, TypeScript, route, focused lint, and source-render checks pass; desktop/tablet/mobile browser, keyboard, focus, and reduced-motion review remains pending because the workspace Playwright browser executable is unavailable.
+- See `docs/content-migration/sgbc/implementation-qa-report.md` for the content-parity matrix and QA status.
+
 ## Next task: Road Projects reference template
 
 First inspect all three approved handoffs:

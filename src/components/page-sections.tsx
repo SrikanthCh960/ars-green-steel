@@ -16,6 +16,8 @@ type HeroProps = {
   primaryHref?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
+  showActions?: boolean;
+  preserveTitleCase?: boolean;
 };
 
 type Card = {
@@ -38,6 +40,8 @@ export function PageHero({
   primaryHref = "/request-quote",
   secondaryLabel = "Talk to sales",
   secondaryHref = "/contact",
+  showActions = true,
+  preserveTitleCase = false,
 }: HeroProps) {
   return (
     <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative flex items-end overflow-hidden text-white">
@@ -57,7 +61,7 @@ export function PageHero({
               <span className="size-2 rounded-full bg-brand-blue" />
               {eyebrow}
             </div>
-            <h1 className="max-w-6xl break-words font-display text-[clamp(2.65rem,6vw,4.5rem)] font-black uppercase leading-[0.92] tracking-normal text-white">
+            <h1 className={`max-w-6xl break-words font-display text-[clamp(2.65rem,6vw,4.5rem)] font-black ${preserveTitleCase ? "" : "uppercase"} leading-[0.92] tracking-normal text-white`}>
               {title}
               {accent ? (
                 <span className="block font-serif italic text-brand-red">{accent}</span>
@@ -66,14 +70,16 @@ export function PageHero({
           </div>
           <div className="max-w-md lg:justify-self-end">
             <p className="text-base leading-8 text-grey-300">{body}</p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:flex-col">
-              <a className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-semibold text-white transition hover:bg-brand-blue-dark" href={primaryHref}>
-                {primaryLabel} <ArrowRight size={18} />
-              </a>
-              <a className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] border border-white/35 px-5 text-sm font-semibold text-white transition hover:bg-white hover:text-ink-900" href={secondaryHref}>
-                {secondaryLabel}
-              </a>
-            </div>
+            {showActions ? (
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:flex-col">
+                <a className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-semibold text-white transition hover:bg-brand-blue-dark" href={primaryHref}>
+                  {primaryLabel} <ArrowRight size={18} />
+                </a>
+                <a className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] border border-white/35 px-5 text-sm font-semibold text-white transition hover:bg-white hover:text-ink-900" href={secondaryHref}>
+                  {secondaryLabel}
+                </a>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

@@ -23,6 +23,7 @@ const staticRoutes = [
   "/products/ars-crs-550d",
   "/projects",
   "/request-quote",
+  "/sgbc",
   "/services",
   "/steel-price-today",
   "/tmt-calculator",
