@@ -27,6 +27,13 @@ Read this file first when continuing the ARS content migration in a new chat.
 
 ## Completed work
 
+### What Is Green Steel
+
+- Implemented and approved for publishing at `/green-steel` from the controlling `Sustainability - What is Green Steel.docx` source.
+- The source-led Banner, Green Steel Explained, Process, Why It Matters, Certifications, FAQs, and Final CTA are present in order. The page uses the shared interior-hero system, restrained ARS imagery, industrial iconography, and reduced-motion-safe transitions without altering locked copy.
+- Page metadata, canonical, Open Graph/Twitter, preview-safe robots, sitemap inclusion, Sustainability navigation, internal links, responsive layouts, focus states, keyboard FAQ interaction, and overflow were reviewed.
+- Follow-up evidence remains needed for source sustainability claims and the document-referenced Certifications table; these do not block the approved page publication. See `docs/content-migration/what-is-green-steel/qa-report.md`.
+
 ### Blog preservation migration
 
 - 94 WordPress source records are registered.
