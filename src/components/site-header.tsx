@@ -263,10 +263,10 @@ export function SiteHeader() {
       data-menu-open={openMenu ? "true" : "false"}
     >
       <div className="site-header-shell border-b border-ink-900/10 bg-white shadow-[0_8px_28px_rgba(13,43,110,0.08)]">
-      <div className="ars-container flex h-20 items-center justify-between">
+      <div className="ars-container flex h-[76px] items-center justify-between">
         <Link href="/" className="focus-ring flex items-center gap-3">
-          <span className="flex h-14 w-[132px] items-center justify-center">
-            <Image src="/ars-green-steel.svg" alt="ARS Green Steel" width={132} height={62} priority />
+          <span className="flex h-[55px] w-[117px] items-center justify-center">
+            <Image src="/ars-green-steel.svg" alt="ARS Green Steel" width={117} height={55} priority />
           </span>
         </Link>
 
@@ -275,10 +275,10 @@ export function SiteHeader() {
             href="/"
             aria-label="Home"
             aria-current={pathname === "/" ? "page" : undefined}
-            className={`focus-ring inline-flex size-10 items-center justify-center rounded-full border transition ${
+            className={`focus-ring relative inline-flex h-[76px] w-10 items-center justify-center bg-transparent text-brand-blue transition hover:text-ink-900 before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-full before:origin-left before:bg-brand-red before:transition-transform before:duration-300 focus-visible:text-ink-900 focus-visible:before:scale-x-100 ${
               pathname === "/"
-                ? "border-brand-blue bg-brand-blue text-white"
-                : "border-ink-900/12 bg-white text-brand-blue hover:border-brand-blue hover:bg-brand-blue hover:text-white"
+                ? "text-ink-900 before:scale-x-100"
+                : "before:scale-x-0 hover:before:scale-x-100"
             }`}
           >
             <House size={17} />
@@ -303,8 +303,8 @@ export function SiteHeader() {
                     }
                   }}
                   type="button"
-                  className={`inline-flex h-20 items-center gap-1.5 border-b-2 bg-transparent transition hover:border-brand-blue hover:text-ink-900 focus-visible:border-brand-blue ${
-                    isActive ? "border-brand-blue text-ink-900" : "border-transparent"
+                  className={`relative inline-flex h-[76px] items-center gap-1.5 bg-transparent transition hover:text-ink-900 before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-full before:origin-left before:bg-brand-red before:transition-transform before:duration-300 focus-visible:text-ink-900 focus-visible:before:scale-x-100 ${
+                    isActive ? "text-ink-900 before:scale-x-100" : "before:scale-x-0 hover:before:scale-x-100"
                   }`}
                   aria-haspopup={menu ? "true" : undefined}
                   aria-expanded={menuKey ? openMenu === menuKey : undefined}
@@ -354,7 +354,7 @@ export function SiteHeader() {
             >
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
-            {mobileOpen ? <div id={mobileMenuId} className="absolute left-0 right-0 top-full max-h-[calc(100vh-80px)] overflow-y-auto border-t border-ink-900/10 bg-white shadow-[0_24px_60px_rgba(15,23,42,0.16)]">
+            {mobileOpen ? <div id={mobileMenuId} className="absolute left-0 right-0 top-full max-h-[calc(100vh-76px)] overflow-y-auto border-t border-ink-900/10 bg-white shadow-[0_24px_60px_rgba(15,23,42,0.16)]">
               <div className="ars-container grid gap-5 py-5">
                 <div className="grid gap-3 sm:grid-cols-3">
                   {[

@@ -2,16 +2,15 @@ import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Users } from "lucide-react";
-import { CoreTeamCarousel } from "@/components/core-team-carousel";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata = createPageMetadata({
-  title: "Leadership & Core Team | ARS Green Steel",
+  title: "Leadership & Our Team | ARS Green Steel",
   description:
-    "Meet the Managing Director, Executive Director, board of directors, and core team of ARS Green Steel.",
+    "Meet the Managing Director, Executive Director, and wider team of ARS Green Steel.",
   path: "/our-team",
 });
 
@@ -27,19 +26,6 @@ const executiveLeadership = [
     role: "Executive Director",
     bio: "Shri Rajesh Bhatia joined ARS Steels in his last year of Bachelor’s as a part-time trainee and is now completely involved in leading the business towards new avenues. Mr. Rajesh did his Bachelors in Business Administration at BVIMR, New Delhi, and has a Stock Analysis and Portfolio Management diploma at BLB Institute of Financial Management.",
     photo: "/ars-assets/leadership/rajesh-bhatia.png",
-  },
-] as const;
-
-const board = [
-  {
-    name: "Shri. C.V. Sathyanarayana Murthy",
-    role: "Technical Director",
-    photo: "/ars-assets/leadership/cv-sathyanarayana-murthy.png",
-  },
-  {
-    name: "Shri. N. Prabhu",
-    role: "Dy. Director — Finance & Accounts",
-    photo: "/ars-assets/leadership/n-prabhu.png",
   },
 ] as const;
 
@@ -104,6 +90,35 @@ const seniorManagement = [
   },
 ];
 
+const teamMembers = [...leadership, ...seniorManagement] as const;
+
+type TeamMember = {
+  name: string;
+  role: string;
+  photo: string;
+};
+
+function TeamProfileCard({ member }: { member: TeamMember }) {
+  return (
+    <article className="relative pb-16">
+      <div className="relative aspect-[270/293] w-full overflow-hidden bg-surface-50">
+        <Image
+          src={member.photo}
+          alt={`${member.name}, ${member.role} at ARS Green Steel`}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          className="object-cover"
+        />
+      </div>
+      <div className="absolute bottom-0 left-4 right-0 min-h-32 border border-ink-900/8 bg-white p-5 shadow-[0_18px_44px_rgba(13,43,110,0.08)]">
+        <span className="mb-4 block h-0.5 w-12 bg-brand-red" aria-hidden="true" />
+        <h3 className="font-display text-lg font-bold leading-tight text-ink-900">{member.name}</h3>
+        <p className="mt-2 text-sm leading-5 text-steel-700">{member.role}</p>
+      </div>
+    </article>
+  );
+}
+
 export default function OurTeamPage() {
   return (
     <main className="min-h-screen bg-surface-50 text-ink-900">
@@ -154,7 +169,7 @@ export default function OurTeamPage() {
               </h2>
             </div>
             <p className="text-[15px] leading-[1.8] text-steel-700">
-              ARS Group&apos;s executive leadership is presented first, followed by the board and core team.
+              ARS Group&apos;s executive leadership is presented first, followed by the wider team.
             </p>
           </div>
           <div className="grid gap-10 lg:gap-14">
@@ -192,90 +207,20 @@ export default function OurTeamPage() {
         </div>
       </MotionSection>
 
-      {/* ── Board of directors ── */}
-      <MotionSection className="bg-surface-50 py-24">
-        <div className="ars-container">
-          <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:items-center lg:gap-16">
-            <div className="max-w-md">
-              <SectionKicker variant="brand">Board of Directors</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                Board leadership.
-              </h2>
-              <p className="mt-5 max-w-sm text-[15px] leading-7 text-steel-700">
-                Meet the directors responsible for technical leadership, finance, and accounts across ARS Group.
-              </p>
-            </div>
-
-            <div className="grid gap-6 sm:grid-cols-2 lg:w-4/5 lg:justify-self-end">
-              {board.map((member) => (
-                <article key={member.name} className="overflow-hidden border border-ink-900/10 bg-white">
-                  <div className="relative aspect-[270/293] w-full overflow-hidden">
-                    <Image
-                      src={member.photo}
-                      alt={`${member.name}, ${member.role} at ARS Green Steel`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 18vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="min-h-32 p-6">
-                    <h3 className="font-display text-xl font-bold leading-tight text-ink-900">{member.name}</h3>
-                    <p className="mt-3 text-xs font-bold uppercase leading-5 tracking-[0.08em] text-brand-red">
-                      {member.role}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-      </MotionSection>
-
-      {/* ── Leadership team (with photos) ── */}
+      {/* ── Our team ── */}
       <MotionSection className="bg-white py-24">
         <div className="ars-container">
           <div className="mx-auto mb-16 max-w-3xl text-center">
             <div className="flex flex-col items-center">
-              <SectionKicker variant="brand">Core Team</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                Core functions across the business.
+                Our team.
               </h2>
             </div>
-            <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-[1.8] text-steel-700">
-              The approved core team covers global business, supply chain, and sales and marketing.
-            </p>
           </div>
-          <CoreTeamCarousel members={leadership} />
-
-          <div className="mt-24 border-t border-ink-900/10 pt-20">
-            <div className="mb-12">
-              <div>
-                <SectionKicker variant="brand">Senior Management</SectionKicker>
-                <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                  Close to projects and the field.
-                </h2>
-              </div>
-            </div>
-            <div className="grid gap-x-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-              {seniorManagement.map((member) => (
-                <article key={member.name} className="relative pb-16">
-                  <div className="relative aspect-[270/293] w-full overflow-hidden bg-surface-50">
-                    <Image
-                      src={member.photo}
-                      alt={`${member.name}, ${member.role} at ARS Green Steel`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="absolute bottom-0 left-4 right-0 min-h-32 border border-ink-900/8 bg-white p-5 shadow-[0_18px_44px_rgba(13,43,110,0.08)]">
-                    <span className="mb-4 block h-0.5 w-12 bg-brand-red" aria-hidden="true" />
-                    <h3 className="font-display text-lg font-bold leading-tight text-ink-900">{member.name}</h3>
-                    <p className="mt-2 text-sm leading-5 text-steel-700">{member.role}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
+          <div className="grid gap-x-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+            {teamMembers.map((member) => (
+              <TeamProfileCard key={member.name} member={member} />
+            ))}
           </div>
         </div>
       </MotionSection>

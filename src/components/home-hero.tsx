@@ -63,7 +63,7 @@ export function HomeHero() {
     <section
       aria-label="ARS Green Steel hero"
       data-active-word={active.word}
-      className="relative flex min-h-[calc(100svh-80px)] w-full items-center overflow-hidden bg-bg-dark text-white"
+      className="relative flex min-h-[calc(100svh-76px)] w-full items-center overflow-hidden bg-bg-dark text-white"
     >
       <div className="absolute inset-0 h-full w-full bg-bg-dark">
         <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
@@ -76,13 +76,13 @@ export function HomeHero() {
           preload="metadata"
           aria-hidden="true"
         >
-          <source src="/videos/ars-intro.mp4" type="video/mp4" />
+          <source src="/videos/ARS_Hero_video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-bg-dark/72 via-bg-dark/46 to-bg-dark/10" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,30,0.02),rgba(6,13,30,0.68))]" />
       </div>
 
-      <div className="ars-container relative z-10 flex min-h-[calc(100svh-80px)] flex-col justify-center py-20 sm:py-24 lg:justify-end lg:pb-14 lg:pt-24">
+      <div className="ars-container relative z-10 flex min-h-[calc(100svh-76px)] flex-col justify-center py-20 sm:py-24 lg:justify-end lg:pb-14 lg:pt-24">
         <div className="grid min-w-0 gap-7 sm:gap-8 lg:grid-cols-[minmax(0,0.46fr)_minmax(420px,0.54fr)] lg:items-end lg:gap-14 xl:gap-20">
           <div className="min-w-0">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-2 text-sm text-grey-300 backdrop-blur sm:mb-7">

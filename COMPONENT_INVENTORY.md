@@ -19,12 +19,12 @@ After creating or materially changing a reusable component, update this file in 
 
 | Component | File | Purpose | Variants / Notes | Current Usage |
 |---|---|---|---|---|
-| `SiteHeader` | `src/components/site-header.tsx` | Global header, navigation, mega menu, and primary enquiry actions | Shared across public pages; Codex-owned | Homepage and pages |
+| `SiteHeader` | `src/components/site-header.tsx` | Global header, navigation, mega menu, and primary enquiry actions | Shared across public pages; 76 px navigation row with a 55 px logo and animated brand-red active/hover underline, including the home icon | Homepage and pages |
 | `SiteFooter` | `src/components/site-footer.tsx` | Global footer with ARS trust, links, and contact pathways | Shared across public pages; Codex-owned | Homepage and pages |
 | `SectionKicker` | `src/components/section-kicker.tsx` | Standard section label with horizontal rule | `brand`, `light`, `green`; optional center/end-line mode | Homepage and page sections |
 | `MotionSection` | `src/components/motion-section.tsx` | Scroll reveal wrapper for editorial sections | Use only when motion supports comprehension | Homepage sections |
 | `HomeHero` | `src/components/home-hero.tsx` | Homepage hero with video, animated word, CTAs, and proof copy | Codex-owned; do not reuse blindly for inner pages | Homepage |
-| `AudienceJourneySection` | `src/components/audience-journey-section.tsx` | Figma-aligned audience cards for homepage journey routing | Default active card is Dealers; hover expands desktop cards | Homepage Section 2 |
+| `AudienceJourneySection` | `src/components/audience-journey-section.tsx` | Four image-led audience cards for homepage journey routing | Square image-overlay cards with red/blue hover line, lift, and shadow treatment | Homepage Section 2 |
 | `AnimatedHeroWord` | `src/components/animated-hero-word.tsx` | Legacy rotating hero word helper | Uses brand red token | Available where needed |
 | `ContactCta` | `src/components/contact-cta.tsx` | Reusable lead-generation CTA band rendered immediately before the global footer | Supports custom eyebrow, headline, body, primary CTA, and secondary CTA | Page shells and homepage ending |
 | `LeadForm` | `src/components/lead-form.tsx` | Reusable enquiry form UI | Final submission destination pending client input | Contact and quote flows |
@@ -36,7 +36,6 @@ After creating or materially changing a reusable component, update this file in 
 | `ProofMetrics` | `src/components/page-sections.tsx` | Reusable metrics/proof row | Use for trust and capability proof | Multiple pages |
 | `DealerLocatorExperience` | `src/components/dealer-locator-experience.tsx` | Searchable dealer discovery experience powered by supplied ARS dealer data | City, state, pincode, dealer name, dealer code, and phone search; popular city shortcuts; load-more results; call and map actions | `/dealer-locator` |
 | `BlogArchive` | `src/components/blog-archive.tsx` | Native blog discovery experience with search, topic filters, article cards, and progressive loading | Client-side filtering over static repository content; no CMS dependency | `/blog` |
-| `CoreTeamCarousel` | `src/components/core-team-carousel.tsx` | Accessible, wraparound leadership carousel with responsive one- or two-profile presentation | Manual previous/next navigation, direct position indicators, reduced-motion support | `/our-team` |
 | `CertificationDocumentPreview` | `src/components/certification-document-preview.tsx` | Accessible image enlargement for available certificate and approval scans | Native dialog, Escape/close handling, scroll-safe preview, and focus restoration; accepts `title` and `image` props | `/certifications` |
 
 ## Shared Data Sources

@@ -1,13 +1,7 @@
-"use client";
-
-import { useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { type FocusEvent, type KeyboardEvent, useEffect, useState } from "react";
 import { SectionKicker } from "@/components/section-kicker";
-
-const cycleDuration = 6000;
 
 const audiencePaths = [
   {
@@ -49,49 +43,6 @@ const audiencePaths = [
 ];
 
 export function AudienceJourneySection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [cycleVersion, setCycleVersion] = useState(0);
-  const reduceMotion = useReducedMotion();
-  const activePath = audiencePaths[activeIndex];
-
-  useEffect(() => {
-    if (reduceMotion || isPaused) return undefined;
-
-    const timer = window.setTimeout(() => {
-      setActiveIndex((current) => (current + 1) % audiencePaths.length);
-    }, cycleDuration);
-
-    return () => window.clearTimeout(timer);
-  }, [activeIndex, cycleVersion, isPaused, reduceMotion]);
-
-  function handleTabKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
-    let nextIndex: number | undefined;
-
-    if (event.key === "ArrowDown" || event.key === "ArrowRight") {
-      nextIndex = (index + 1) % audiencePaths.length;
-    } else if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
-      nextIndex = (index - 1 + audiencePaths.length) % audiencePaths.length;
-    } else if (event.key === "Home") {
-      nextIndex = 0;
-    } else if (event.key === "End") {
-      nextIndex = audiencePaths.length - 1;
-    }
-
-    if (nextIndex === undefined) return;
-
-    event.preventDefault();
-    setActiveIndex(nextIndex);
-    document.getElementById(`audience-tab-${nextIndex}`)?.focus();
-  }
-
-  function handleSectionBlur(event: FocusEvent<HTMLDivElement>) {
-    if (!event.currentTarget.contains(event.relatedTarget)) {
-      setIsPaused(false);
-      setCycleVersion((current) => current + 1);
-    }
-  }
-
   return (
     <section className="bg-surface-50 py-20 lg:py-28" id="audiences">
       <div className="ars-container">
@@ -100,110 +51,41 @@ export function AudienceJourneySection() {
           <h2 className="max-w-3xl font-display text-[clamp(2.25rem,4vw,4.2rem)] font-bold leading-[0.98] tracking-normal text-ink-900">
             Built for every construction decision.
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-steel-700 lg:text-lg">
-            Explore ARS products, technical resources, planning tools, and project support based on
-            your role.
-          </p>
         </div>
 
-        <div
-          className="grid overflow-hidden rounded-[22px] border border-brand-blue/10 bg-brand-blue shadow-[0_28px_90px_rgba(13,43,110,0.2)] lg:min-h-[590px] lg:grid-cols-[0.42fr_0.58fr]"
-          onBlurCapture={handleSectionBlur}
-          onFocusCapture={() => setIsPaused(true)}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => {
-            setIsPaused(false);
-            setCycleVersion((current) => current + 1);
-          }}
-        >
-          <div
-            aria-label="Choose your role"
-            className="flex flex-col p-5 sm:p-7 lg:justify-center lg:p-10"
-            role="tablist"
-          >
-            {audiencePaths.map((path, index) => {
-              const isActive = activeIndex === index;
-              const number = String(index + 1).padStart(2, "0");
-
-              return (
-                <button
-                  key={path.title}
-                  aria-controls="audience-panel"
-                  aria-selected={isActive}
-                  className={`focus-ring group relative grid min-h-[92px] w-full grid-cols-[44px_minmax(0,1fr)_28px] items-center gap-3 overflow-hidden border-b border-white/10 px-2 py-5 text-left transition first:border-t ${
-                    isActive ? "text-white" : "text-white/52 hover:text-white"
-                  }`}
-                  id={`audience-tab-${index}`}
-                  onClick={() => setActiveIndex(index)}
-                  onKeyDown={(event) => handleTabKeyDown(event, index)}
-                  role="tab"
-                  tabIndex={isActive ? 0 : -1}
-                  type="button"
-                >
-                  <span className={`font-technical text-xs font-bold tracking-[0.16em] ${isActive ? "text-brand-red" : "text-white/32"}`}>
-                    {number}
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          {audiencePaths.map((path) => (
+            <Link
+              key={path.title}
+              href={path.href}
+              className="focus-ring group relative aspect-square overflow-hidden bg-ink-950 shadow-[0_14px_34px_rgba(13,43,110,0.12)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_54px_rgba(13,43,110,0.24)] focus-visible:-translate-y-1 focus-visible:shadow-[0_24px_54px_rgba(13,43,110,0.24)]"
+            >
+              <Image
+                src={path.image}
+                alt={path.imageAlt}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                className="object-cover transition duration-500 group-hover:scale-[1.03] group-focus-visible:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,30,0.26)_0%,rgba(6,13,30,0.42)_42%,rgba(6,13,30,0.9)_100%)]" />
+              <div className="relative flex h-full flex-col justify-between p-6 text-white sm:p-7">
+                <p className="font-technical text-[11px] font-bold uppercase tracking-[0.16em] text-white/78">
+                  {path.label}
+                </p>
+                <div>
+                  <h3 className="font-display text-[clamp(1.55rem,2vw,2rem)] font-bold leading-[1.02]">{path.title}</h3>
+                  <p className="mt-3 text-sm leading-5 text-white/78">{path.body}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-white">
+                    {path.cta} <ArrowRight size={16} aria-hidden="true" />
                   </span>
-                  <span>
-                    <span className="block font-display text-lg font-bold leading-tight sm:text-xl">
-                      {path.title}
-                    </span>
-                    <span className={`mt-1 block text-xs leading-5 ${isActive ? "text-white/58" : "text-white/32"}`}>
-                      {path.label}
-                    </span>
-                  </span>
-                  <ArrowRight
-                    aria-hidden="true"
-                    className={`transition ${isActive ? "translate-x-0 text-brand-red" : "-translate-x-1 text-white/20 group-hover:translate-x-0 group-hover:text-white"}`}
-                    size={19}
-                  />
-                  {isActive ? (
-                    <span
-                      aria-hidden="true"
-                      className={`audience-progress absolute inset-x-0 bottom-0 h-0.5 origin-left bg-brand-red ${
-                        isPaused ? "audience-progress-paused" : ""
-                      }`}
-                      key={`${activeIndex}-${cycleVersion}`}
-                    />
-                  ) : null}
-                </button>
-              );
-            })}
-          </div>
-
-          <div
-            aria-labelledby={`audience-tab-${activeIndex}`}
-            className="relative min-h-[480px] overflow-hidden lg:min-h-full"
-            id="audience-panel"
-            role="tabpanel"
-            tabIndex={0}
-          >
-            <Image
-              key={activePath.title}
-              src={activePath.image}
-              alt={activePath.imageAlt}
-              fill
-              sizes="(min-width: 1024px) 58vw, 100vw"
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,30,0.08)_0%,rgba(6,13,30,0.24)_40%,rgba(6,13,30,0.94)_100%)]" />
-            <div className="absolute inset-x-0 bottom-0 p-7 sm:p-10 lg:p-12">
-              <p className="font-technical text-xs font-bold uppercase tracking-[0.2em] text-white/54">
-                {activePath.label}
-              </p>
-              <h3 className="mt-4 max-w-xl font-display text-[clamp(2rem,3.4vw,3.6rem)] font-bold leading-[0.98] text-white">
-                {activePath.title}
-              </h3>
-              <p className="mt-5 max-w-xl text-base leading-7 text-white/72 sm:text-lg sm:leading-8">
-                {activePath.body}
-              </p>
-              <Link
-                className="focus-ring mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-red px-5 text-sm font-bold text-white transition hover:bg-brand-red-dark"
-                href={activePath.href}
-              >
-                {activePath.cta} <ArrowRight size={17} />
-              </Link>
-            </div>
-          </div>
+                </div>
+              </div>
+              <span aria-hidden="true" className="absolute inset-x-0 bottom-0 flex h-0.5">
+                <span className="w-1/2 origin-left scale-x-0 bg-brand-red transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transform-none" />
+                <span className="w-1/2 origin-left scale-x-0 bg-brand-blue transition-transform duration-300 delay-150 group-hover:scale-x-100 group-focus-visible:scale-x-100 motion-reduce:transform-none" />
+              </span>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
