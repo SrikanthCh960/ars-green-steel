@@ -11,6 +11,7 @@ type ContactCtaProps = {
   secondaryLabel?: string;
   secondaryHref?: string;
   primaryClassName?: string;
+  tone?: "default" | "solid";
 };
 
 export function ContactCta(props: ContactCtaProps) {
@@ -24,11 +25,12 @@ export function ContactCta(props: ContactCtaProps) {
   const secondaryLabel = props.secondaryLabel ?? "Talk to sales";
   const secondaryHref = props.secondaryHref ?? "/contact";
   const primaryClassName = props.primaryClassName ?? "bg-brand-red hover:-translate-y-0.5 hover:bg-[#c90f16]";
+  const isSolid = props.tone === "solid";
 
   return (
     <>
       <section className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden bg-brand-blue text-white">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_24%_16%,rgba(255,255,255,0.08),transparent_28%),linear-gradient(135deg,rgba(13,43,110,1),rgba(16,53,132,0.96))]" />
+        {!isSolid && <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_24%_16%,rgba(255,255,255,0.08),transparent_28%),linear-gradient(135deg,rgba(13,43,110,1),rgba(16,53,132,0.96))]" />}
         <div className="ars-container relative z-10 grid gap-10 py-16 md:py-20 lg:grid-cols-[1fr_auto] lg:items-center">
           <div className="max-w-2xl">
             <p className="font-technical text-xs font-black uppercase tracking-[0.22em] text-white/42">
