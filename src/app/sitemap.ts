@@ -10,6 +10,7 @@ const staticRoutes = [
   "/certifications",
   "/contact",
   "/dealer-locator",
+  "/embodied-carbon",
   "/green-steel",
   "/industries",
   "/manufacturing",

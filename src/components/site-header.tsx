@@ -77,7 +77,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     links: [
       { label: "What is Green Steel", href: "/green-steel#what-is-green-steel" },
       { label: "ARS Green Steel", href: "/ars-green-steel" },
-      { label: "Embodied Carbon", href: "/green-steel#embodied-carbon" },
+      { label: "Embodied Carbon", href: "/embodied-carbon" },
       { label: "SGBC", href: "/sgbc" },
       { label: "Certifications & Recognitions", href: "/certifications" },
       { label: "Reports & Downloads", href: "/reports-downloads" },

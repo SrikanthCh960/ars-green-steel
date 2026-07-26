@@ -34,6 +34,13 @@ Read this file first when continuing the ARS content migration in a new chat.
 - Page metadata, canonical, Open Graph/Twitter, preview-safe robots, sitemap inclusion, Sustainability navigation, internal links, responsive layouts, focus states, keyboard FAQ interaction, and overflow were reviewed.
 - Follow-up evidence remains needed for source sustainability claims and the document-referenced Certifications table; these do not block the approved page publication. See `docs/content-migration/what-is-green-steel/qa-report.md`.
 
+### Embodied Carbon
+
+- Implemented the supplied authoritative `Sustainability  - Embodied Carbon.docx` as a new standalone public page at `/embodied-carbon`.
+- Sustainability header/footer links now point to `/embodied-carbon`; the prior Green Steel embodied-carbon section and anchor were removed. `/ars-green-steel` was not changed. Sitemap includes the new route.
+- The page preserves source order and publishable copy, including the emissions table, engineering comparison, calculation note, FAQs, and CTA labels. The comparison is semantic and readable without colour or motion.
+- Missing citation, EPD, assessment-boundary, date, and underlying calculation evidence are explicitly recorded; no new evidence, asset, certificate, or download was created. See `docs/content-migration/embodied-carbon/implementation-qa-report.md`.
+
 ### Blog preservation migration
 
 - 94 WordPress source records are registered.

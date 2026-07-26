@@ -30,3 +30,9 @@
 2. Missing files: `/ars-assets/ARS-GREEN-STEEL-Logo.png` and `/legacy-assets/downloads/ARS-550D-CRS-Leaflets.pdf`.
 3. The source-site route checker had already identified the leaflet and generated sitemap as false/unsupported route cases; it must distinguish public files and generated metadata before it can serve as final internal-link evidence.
 4. Header targets include planned anchors/pages (Vision, Embodied Carbon) that must be reconciled with the pending-document decisions below.
+
+## Embodied Carbon
+
+- Standalone route: `/embodied-carbon`, sourced from the supplied `Sustainability  - Embodied Carbon.docx`.
+- Header/footer Sustainability navigation now point to `/embodied-carbon`; the former `/green-steel#embodied-carbon` section and anchor were removed without changing other Green Steel content. Sitemap includes the new route.
+- Source copy, table values, calculation note, FAQs, and CTA labels are implemented in document order. Source authoring labels were not published. See `embodied-carbon/implementation-qa-report.md` for the full parity matrix and evidence gaps.
