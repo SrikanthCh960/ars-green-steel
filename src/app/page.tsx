@@ -602,26 +602,14 @@ function ManufacturingStorySection() {
     <MotionSection className="overflow-hidden bg-white py-20 lg:py-28" id="manufacturing-story">
       <div className="ars-container">
         <div className="grid items-center gap-12 lg:grid-cols-[0.94fr_1.06fr] lg:gap-16">
-          <div className="relative min-h-[420px] sm:min-h-[540px]">
-            <div className="absolute inset-x-0 top-0 h-[78%] overflow-hidden rounded-[20px] bg-surface-100 shadow-[var(--shadow-soft)]">
-              <Image
-                src="/ars-assets/home/ars_home.jpg"
-                alt="Aerial view of the ARS steel manufacturing facility in Gummidipoondi"
-                fill
-                sizes="(min-width: 1024px) 46vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-
-            <div className="absolute bottom-0 right-0 h-[45%] w-[58%] overflow-hidden rounded-[16px] border-[6px] border-white bg-bg-dark shadow-[0_24px_70px_rgba(6,13,30,0.2)] sm:border-[8px]">
-              <Image
-                src="/ars-assets/homepage-manufacturing-detail.jpg"
-                alt="TMT bars moving through a steel manufacturing line"
-                fill
-                sizes="(min-width: 1024px) 28vw, 58vw"
-                className="object-cover"
-              />
-            </div>
+          <div className="relative min-h-[420px] overflow-hidden rounded-[20px] bg-surface-100 shadow-[var(--shadow-soft)] sm:min-h-[540px]">
+            <Image
+              src="/ars-assets/home/ars_home.jpg"
+              alt="Aerial view of the ARS steel manufacturing facility in Gummidipoondi"
+              fill
+              sizes="(min-width: 1024px) 46vw, 100vw"
+              className="object-cover"
+            />
           </div>
 
           <div className="max-w-2xl">

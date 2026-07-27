@@ -1,4 +1,5 @@
-import { ArrowRight, Factory } from "lucide-react";
+import { ArrowRight, BadgeCheck, Box, Factory, Flame, Leaf, Recycle, Scissors, Settings2, Truck, Waves, Wind, Zap } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { SectionKicker } from "@/components/section-kicker";
@@ -41,45 +42,49 @@ const facilityCapabilities = [
 ];
 
 const processStages = [
-  "Raw Material",
-  "Steel Making",
-  "Continuous Casting",
-  "Billet Formation",
-  "Rolling Mill",
-  "Thermo Mechanical Treatment",
-  "Cooling Bed",
-  "Cutting & Bundling",
-  "Dispatch",
+  { title: "Raw Material", icon: Recycle },
+  { title: "Steel Making", icon: Flame },
+  { title: "Continuous Casting", icon: Waves },
+  { title: "Billet Formation", icon: Box },
+  { title: "Rolling Mill", icon: Settings2 },
+  { title: "Thermo Mechanical Treatment", icon: Zap },
+  { title: "Cooling Bed", icon: Wind },
+  { title: "Cutting & Bundling", icon: Scissors },
+  { title: "Dispatch", icon: Truck },
 ];
 
 const responsibleManufacturing = [
   {
+    icon: Leaf,
     title: "Lower Carbon Production",
     text: "Our manufacturing process is designed to reduce carbon emissions by adopting cleaner steelmaking practices and improving energy efficiency across production.",
   },
   {
+    icon: Recycle,
     title: "Responsible Use of Resources",
     text: "Recycled steel and efficient resource management help reduce the demand for virgin raw materials while supporting more sustainable manufacturing.",
   },
   {
+    icon: Zap,
     title: "Energy-Efficient Operations",
     text: "Every improvement in energy efficiency contributes to lowering the environmental impact of steel manufacturing without affecting production performance.",
   },
   {
+    icon: BadgeCheck,
     title: "Certified Green Steel",
     text: "Our environmental performance is supported by internationally recognised certifications, including EPD, GreenPro, and SGBC Leader-rated Green Product certification.",
   },
 ];
 
 const certifications = [
-  "BIS Certification",
-  "ISO 9001:2015",
-  "ISO 14001:2015",
-  "EPD",
-  "GreenPro",
-  "SGBC Leader Rated Green Product (4-Ticks)",
-  "GRIHA Listed",
-  "NISST Green Steel Taxonomy Certificate",
+  { title: "BIS Certification", image: "/ars-assets/certifications/previews/tmt-renewal.png" },
+  { title: "ISO 9001:2015", image: "/ars-assets/certifications/previews/iso-9001.png" },
+  { title: "ISO 14001:2015", image: "/ars-assets/certifications/previews/iso-14001.png" },
+  { title: "EPD", image: "/ars-assets/certifications/previews/epd-certificate.png" },
+  { title: "GreenPro", icon: Leaf },
+  { title: "SGBC Leader Rated Green Product (4-Ticks)", image: "/ars-assets/certifications/previews/sgbc-certificate.png" },
+  { title: "GRIHA Listed", image: "/ars-assets/certifications/previews/griha-certificate.png" },
+  { title: "NISST Green Steel Taxonomy Certificate", image: "/ars-assets/certifications/previews/nisst-green-steel-certificate.png" },
 ];
 
 export default function ManufacturingPage() {
@@ -199,23 +204,22 @@ export default function ManufacturingPage() {
             </figure>
           </div>
 
-          <ol className="relative mt-4 grid list-none gap-px overflow-hidden rounded-[20px] border border-brand-blue/12 bg-brand-blue/12 sm:grid-cols-2 lg:grid-cols-3">
-            {processStages.map((stage, index) => (
-              <li
-                key={stage}
-                className="relative flex min-h-36 items-start gap-5 overflow-hidden bg-white p-6 md:min-h-40 md:p-8"
-              >
-                <span
-                  aria-hidden="true"
-                  className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-brand-blue font-technical text-xs font-black tracking-[0.12em] text-white"
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="min-w-0 pt-1.5 font-display text-xl font-bold leading-tight text-ink-900 md:text-2xl">
-                  {stage}
-                </h3>
-              </li>
-            ))}
+          <ol className="relative mt-8 flex snap-x snap-mandatory gap-0 overflow-x-auto pb-4 pt-2 [scrollbar-width:thin] lg:overflow-visible lg:pb-0">
+            {processStages.map((stage, index) => {
+              const Icon: LucideIcon = stage.icon;
+              return (
+                <li key={stage.title} className="relative flex w-52 shrink-0 snap-start flex-col pr-5 last:pr-0 lg:w-[11.111%] lg:min-w-0 lg:pr-0">
+                  <div className="relative z-10 flex items-center">
+                    <span className="inline-flex size-12 items-center justify-center rounded-full border-4 border-surface-50 bg-brand-blue text-white shadow-[var(--shadow-soft)]"><Icon size={20} aria-hidden="true" /></span>
+                    {index < processStages.length - 1 && <span className="h-px flex-1 bg-brand-blue/25" aria-hidden="true" />}
+                  </div>
+                  <div className="mt-5 pr-5 lg:pr-4">
+                    <span className="font-technical text-[11px] font-black tracking-[0.16em] text-brand-red">{String(index + 1).padStart(2, "0")}</span>
+                    <h3 className="mt-2 font-display text-lg font-bold leading-tight text-ink-900">{stage.title}</h3>
+                  </div>
+                </li>
+              );
+            })}
           </ol>
         </div>
       </section>
@@ -239,20 +243,21 @@ export default function ManufacturingPage() {
           </div>
 
           <div className="mt-14 grid gap-px overflow-hidden rounded-[20px] border border-white/15 bg-white/15 md:grid-cols-2">
-            {responsibleManufacturing.map((item, index) => (
+            {responsibleManufacturing.map((item) => {
+              const Icon: LucideIcon = item.icon;
+              return (
               <article key={item.title} className="bg-brand-blue/90 p-6 md:p-8 lg:p-10">
-                <span className="font-technical text-xs font-black tracking-[0.18em] text-white/48">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+                <div className="flex size-12 items-center justify-center border border-white/20 bg-white/[0.08] text-brand-red"><Icon size={22} aria-hidden="true" /></div>
                 <h3 className="mt-6 font-display text-2xl font-bold leading-tight text-white">{item.title}</h3>
                 <p className="mt-4 text-base leading-8 text-white/70">{item.text}</p>
               </article>
-            ))}
+              );
+            })}
           </div>
 
           <Link
             href="/green-steel"
-            className="focus-ring mt-10 flex min-h-16 items-center justify-between gap-6 border-y border-white/18 py-5 text-lg font-bold text-white transition hover:border-white/32 md:text-xl"
+            className="focus-ring mt-10 inline-flex min-h-12 items-center gap-3 rounded-full bg-brand-red px-6 text-base font-bold text-white transition hover:bg-brand-red-dark"
           >
             <span>Because stronger buildings deserve steel that&apos;s made responsibly.</span>
             <ArrowRight aria-hidden="true" className="shrink-0" size={20} />
@@ -282,21 +287,18 @@ export default function ManufacturingPage() {
             >
               <ArrowRight aria-hidden="true" size={18} />
             </Link>
-            <ul className="grid sm:grid-cols-2 lg:grid-cols-4">
-              {certifications.map((certification, index) => (
-                <li
-                  key={certification}
-                  className="flex min-h-32 items-start gap-4 border-b border-brand-blue/12 p-6 sm:border-r lg:min-h-36 lg:p-7"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="mt-1 font-technical text-xs font-black tracking-[0.16em] text-brand-red"
-                  >
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="font-display text-xl font-bold leading-snug text-ink-900">{certification}</span>
-                </li>
-              ))}
+            <ul className="flex gap-px overflow-x-auto bg-brand-blue/12 p-0 [scrollbar-width:thin] lg:grid lg:grid-cols-4 lg:overflow-visible">
+              {certifications.map((certification) => {
+                const Icon = certification.icon ?? BadgeCheck;
+                return (
+                  <li key={certification.title} className="flex min-h-44 w-52 shrink-0 flex-col items-center justify-center bg-white p-5 text-center lg:w-auto">
+                    <div className="relative flex h-16 w-full max-w-28 items-center justify-center overflow-hidden">
+                      {certification.image ? <Image src={certification.image} alt="" fill sizes="112px" className="object-contain" /> : <Icon size={34} className="text-[#2f8f5b]" aria-hidden="true" />}
+                    </div>
+                    <span className="mt-4 font-display text-sm font-bold leading-snug text-ink-900">{certification.title}</span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

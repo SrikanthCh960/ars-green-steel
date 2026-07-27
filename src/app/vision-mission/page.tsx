@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Factory, Handshake, Leaf, Settings2 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -190,8 +191,7 @@ export default function VisionMissionPage() {
           <ol className="mt-12 grid gap-x-12 border-t border-ink-900/15 md:grid-cols-2">
             {values.map((value) => (
               <li key={value.number} className="border-b border-ink-900/15 py-8">
-                <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-red">{value.number}</p>
-                <h3 className="mt-3 font-display text-xl font-bold leading-tight text-ink-900">{value.title}</h3>
+                <h3 className="font-display text-xl font-bold leading-tight text-ink-900">{value.title}</h3>
                 <p className="mt-3 text-base leading-7 text-steel-700">{value.text}</p>
               </li>
             ))}
@@ -206,13 +206,18 @@ export default function VisionMissionPage() {
             <h2 id="promise-title" className="section-title">Our Promise Is Built Into Every Bar.</h2>
             <p className="section-copy max-w-4xl">Every ARS Green Steel product is manufactured with a commitment to consistent quality, engineering excellence, and responsible manufacturing. From BIS-certified Fe550D and CRS 550D TMT bars to sustainable production practices, we help builders, engineers, contractors, and homeowners create stronger structures while contributing to a stronger, greener India.</p>
           </div>
-          <div className="mt-12 grid border border-ink-900/15 md:grid-cols-2">
-            {promisePoints.map((point) => (
-              <article key={point.title} className="border-b border-ink-900/15 p-7 last:border-b-0 md:border-b md:odd:border-r md:[&:nth-last-child(-n+2)]:border-b-0 md:p-8">
-                <h3 className="font-display text-xl font-bold leading-tight text-ink-900">{point.title}</h3>
-                <p className="mt-4 text-base leading-7 text-steel-700">{point.text}</p>
-              </article>
-            ))}
+          <div className="mt-12 grid border border-ink-900/15 lg:grid-cols-[0.82fr_1.18fr]">
+            <figure className="relative min-h-[360px] overflow-hidden bg-ink-950 lg:min-h-full">
+              <Image src="/ars-assets/home/rahul_.jpg" alt="Rahul Dravid making a hand-on-heart gesture for ARS Green Steel" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover object-center" />
+            </figure>
+            <div className="grid md:grid-cols-2">
+              {promisePoints.map((point) => (
+                <article key={point.title} className="border-b border-ink-900/15 p-7 last:border-b-0 md:border-b md:odd:border-r md:[&:nth-last-child(-n+2)]:border-b-0 md:p-8">
+                  <h3 className="font-display text-xl font-bold leading-tight text-ink-900">{point.title}</h3>
+                  <p className="mt-4 text-base leading-7 text-steel-700">{point.text}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </MotionSection>

@@ -71,6 +71,15 @@ const greenSteelBenefits: Array<[LucideIcon, string, string]> = [
   ],
 ];
 
+const certificationProof = [
+  { title: "BIS", image: "/ars-assets/certifications/previews/tmt-renewal.png" },
+  { title: "Green Steel Certified", image: "/ars-assets/certifications/previews/nisst-green-steel-certificate.png" },
+  { title: "TN PWD approved", image: "/ars-assets/certifications/previews/pwd-approval.png" },
+  { title: "SGBP Leader (4star)", image: "/ars-assets/certifications/previews/sgbc-certificate.png" },
+  { title: "GRIHA", image: "/ars-assets/certifications/previews/griha-certificate.png" },
+  { title: "EPD Verified", image: "/ars-assets/certifications/previews/epd-certificate.png" },
+];
+
 const greenSteelFaqs = [
   [
     "What is Green Steel?",
@@ -248,6 +257,16 @@ export default function GreenSteelPage() {
           <p className="mt-5 text-base leading-8 text-steel-700">
             Green steel is increasingly supported by environmental declarations and green building frameworks that help measure and recognise responsible manufacturing practices.
           </p>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {certificationProof.map((proof) => (
+              <article key={proof.title} className="group overflow-hidden border border-brand-blue/10 bg-white shadow-[0_12px_30px_rgba(6,13,30,0.05)]">
+                <div className="relative aspect-[1.55/1] overflow-hidden bg-surface-50">
+                  <Image src={proof.image} alt={`${proof.title} certificate`} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover object-top transition duration-500 group-hover:scale-[1.03]" />
+                </div>
+                <h3 className="border-t-2 border-brand-red px-5 py-4 font-display text-lg font-bold text-ink-900">{proof.title}</h3>
+              </article>
+            ))}
+          </div>
         </div>
       </MotionSection>
 
