@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Building2, CheckCircle2, Factory, ShieldCheck, Users } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
+import { AboutJourneyTimeline } from "@/components/about-journey-timeline";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -93,6 +94,12 @@ const milestones = [
     title: "Leading the Green Steel Movement",
     description:
       "Achieved another industry milestone by introducing 3-in-1 Green Steel TMT Rebars with Ductility, Corrosion Resistance, and Green Steel advantages while expanding manufacturing capacity to support future growth.",
+  },
+  {
+    year: "Looking Ahead",
+    title: "Building the Future",
+    description:
+      "With a vision to reach 0.5 million tonnes of TMT rebars by 2027 and 1 million tonnes of Green Steel rebars by 2030, ARS continues to invest in innovation, sustainability, and manufacturing excellence to help build a stronger and greener India.",
   },
 ] as const;
 
@@ -235,7 +242,7 @@ export default function AboutPage() {
 
       <MotionSection className="bg-surface-50 py-20 md:py-28">
         <div className="ars-container">
-          <div className="mb-16 max-w-3xl">
+          <div className="mb-8 max-w-3xl">
             <SectionKicker variant="brand">OUR JOURNEY</SectionKicker>
             <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
               Three Decades of Building Strength, Trust & Innovation
@@ -244,23 +251,8 @@ export default function AboutPage() {
               From our beginnings in 1990 to becoming a trusted Green Steel manufacturer, every milestone reflects our commitment to quality, innovation, and sustainable growth.
             </p>
           </div>
-          <ol className="grid gap-x-0 border-t border-brand-blue/15 md:grid-cols-2 xl:grid-cols-4">
-            {milestones.map((milestone) => (
-              <li key={milestone.year} className="border-b border-brand-blue/15 py-8 md:px-7 md:[&:nth-child(odd)]:border-r xl:border-r xl:[&:nth-child(4n)]:border-r-0 xl:[&:nth-last-child(-n+3)]:border-b-0">
-                <p className="font-display text-[1.65rem] font-black leading-none tracking-[-0.02em] text-brand-blue">{milestone.year}</p>
-                <h3 className="mt-4 text-[15px] font-bold text-ink-900">{milestone.title}</h3>
-                <p className="mt-2 text-[13px] leading-[1.7] text-grey-600">{milestone.description}</p>
-              </li>
-            ))}
-            <li className="border-b border-brand-blue/15 py-8 md:col-span-2 md:px-7 xl:col-span-1 xl:border-b-0 xl:border-r-0">
-              <p className="font-display text-[1.65rem] font-black leading-none tracking-[-0.02em] text-brand-blue">Looking Ahead</p>
-              <h3 className="mt-4 text-[15px] font-bold text-ink-900">Building the Future</h3>
-              <p className="mt-2 text-[13px] leading-[1.7] text-grey-600">
-                With a vision to reach 0.5 million tonnes of TMT rebars by 2027 and 1 million tonnes of Green Steel rebars by 2030, ARS continues to invest in innovation, sustainability, and manufacturing excellence to help build a stronger and greener India.
-              </p>
-            </li>
-          </ol>
         </div>
+        <AboutJourneyTimeline milestones={milestones} />
       </MotionSection>
 
       <MotionSection className="bg-white py-20 md:py-28">
