@@ -213,11 +213,14 @@ export default function OurTeamPage() {
           <div className="mx-auto mb-16 max-w-3xl text-center">
             <div className="flex flex-col items-center">
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                Our team.
+                Core Team
               </h2>
+              <p className="mt-5 text-[15px] leading-[1.8] text-steel-700">
+                Behind ARS&apos;s continued success is a team of experienced professionals whose expertise, dedication, and collaborative spirit drive excellence across manufacturing, operations, quality, and customer service. Together, they uphold the values that define ARS and contribute to its sustained growth.
+              </p>
             </div>
           </div>
-          <div className="grid gap-x-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-x-7 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {teamMembers.map((member) => (
               <TeamProfileCard key={member.name} member={member} />
             ))}
@@ -234,12 +237,12 @@ export default function OurTeamPage() {
         <div className="ars-container relative z-10">
           <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div>
-              <SectionKicker variant="light">Work with ARS</SectionKicker>
+              <SectionKicker variant="light">JOIN OUR TEAM</SectionKicker>
               <h2 className="mb-3 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">
-                Explore careers at ARS Green Steel.
+                Build Your Future with ARS Green Steel
               </h2>
               <p className="max-w-[420px] text-[14px] leading-[1.7] text-white/70">
-                Learn more about current career opportunities with ARS Group.
+                Join a team driven by innovation, integrity, and manufacturing excellence. At ARS Green Steel, you&apos;ll have the opportunity to contribute to India&apos;s growing steel industry while building a rewarding career with purpose.
               </p>
             </div>
             <div className="flex flex-shrink-0 flex-wrap gap-3">
