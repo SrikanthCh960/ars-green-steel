@@ -25,6 +25,7 @@ const staticRoutes = [
   "/products/ars-binders",
   "/products/ars-crs-550d",
   "/projects",
+  "/price-calculator",
   "/request-quote",
   "/sgbc",
   "/services",
