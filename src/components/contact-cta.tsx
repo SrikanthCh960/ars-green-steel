@@ -15,14 +15,14 @@ type ContactCtaProps = {
 };
 
 export function ContactCta(props: ContactCtaProps) {
-  const eyebrow = props.eyebrow ?? "Get started today";
-  const headline = props.headline ?? "Ready to source quality green steel?";
+  const eyebrow = props.eyebrow ?? "Get Started";
+  const headline = props.headline ?? "Ready to Build with India's No.1 Certified Green Steel?";
   const body =
     props.body ??
-    "Talk to our team, check today's price, or find your nearest certified ARS dealer, all in one step.";
-  const primaryLabel = props.primaryLabel ?? "Check today's price";
-  const primaryHref = props.primaryHref ?? "/steel-price-today";
-  const secondaryLabel = props.secondaryLabel ?? "Talk to sales";
+    "Connect with an authorised ARS dealer near you, or speak with our experts to find the right steel solution for your project.";
+  const primaryLabel = props.primaryLabel ?? "Find Nearest Dealer";
+  const primaryHref = props.primaryHref ?? "/dealer-locator";
+  const secondaryLabel = props.secondaryLabel ?? "Talk to Experts";
   const secondaryHref = props.secondaryHref ?? "/contact";
   const primaryClassName = props.primaryClassName ?? "bg-brand-red hover:-translate-y-0.5 hover:bg-[#c90f16]";
   const isSolid = props.tone === "solid";
@@ -37,13 +37,7 @@ export function ContactCta(props: ContactCtaProps) {
               {eyebrow}
             </p>
             <h2 className="mt-6 max-w-xl font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.04] tracking-normal text-white">
-              {props.headline ? (
-                headline
-              ) : (
-                <>
-                  Ready to source quality <span className="text-brand-red">green steel?</span>
-                </>
-              )}
+              {headline}
             </h2>
             <p className="mt-6 max-w-lg text-base font-semibold leading-8 text-white/58 md:text-lg">
               {body}

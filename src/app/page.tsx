@@ -25,26 +25,32 @@ import { SiteHeader } from "@/components/site-header";
 
 const buyingActions = [
   {
-    title: "Check price",
-    detail: "View the prepared TMT steel price journey before speaking with sales.",
+    title: "Check Price",
+    detail: "View the latest ARS TMT steel prices by grade and location.",
     href: "/steel-price-today",
     icon: IndianRupee,
   },
   {
-    title: "Calculate steel",
-    detail: "Estimate requirement by project type, built-up area, floors, and bar size.",
+    title: "Calculate Steel",
+    detail: "Estimate your TMT steel requirement based on project type, built-up area, floors, and bar size.",
     href: "/tmt-calculator",
     icon: Calculator,
   },
   {
-    title: "Find dealer",
-    detail: "Move from product interest to nearby ARS dealer discovery.",
+    title: "Find Dealer",
+    detail: "Locate your nearest authorised ARS Green Steel dealer or distributor.",
     href: "/dealer-locator",
     icon: MapPin,
   },
   {
-    title: "Request quote",
-    detail: "Share project needs and let the ARS team guide the next step.",
+    title: "Download Technical Datasheets",
+    detail: "Access product specifications, test certificates, and technical resources.",
+    href: "/certifications#downloads",
+    icon: ClipboardList,
+  },
+  {
+    title: "Request Quote",
+    detail: "Get a customised quotation for residential, commercial, or infrastructure projects.",
     href: "/request-quote",
     icon: ClipboardList,
   },
@@ -61,38 +67,46 @@ const products = [...productCatalog].reverse();
 
 const certificateCards = [
   {
-    label: "SGS certified",
-    detail: "Third-party quality proof",
+    label: "5-Star Green Steel",
+    detail: "Certified by the Ministry of Steel, Government of India (NISST)",
     image: "/ars-assets/awards-certificates-img3.png",
   },
   {
-    label: "ISO quality systems",
-    detail: "Process-led manufacturing confidence",
+    label: "EPD Verified",
+    detail: "Internationally verified environmental impact declaration for sustainable construction.",
     image: "/ars-assets/awards-certificates-img2.png",
   },
   {
-    label: "EPD ready",
-    detail: "Documentation for green projects",
+    label: "SGBP Leader",
+    detail: "Internationally certified for sustainable building materials.",
   },
   {
-    label: "GRIHA / LEED ready",
-    detail: "Built for sustainable construction",
+    label: "GRIHA Certified",
+    detail: "Recognised for sustainable construction under the GRIHA Green Building Rating System.",
   },
   {
-    label: "BIS certified",
-    detail: "Standards-led product assurance",
+    label: "Government Approved",
+    detail: "Officially approved by Tamil Nadu PWD for quality, strength, and compliance.",
   },
   {
-    label: "IS 1786:2008",
-    detail: "TMT steel specification proof",
+    label: "BIS Certified",
+    detail: "Certified under IS 1786:2008, ensuring compliance with India's quality standards for TMT steel bars.",
   },
   {
-    label: "550D TMT steel",
-    detail: "High-strength ductile grade",
+    label: "IGBC Founding Member",
+    detail: "Committed to advancing sustainable and green building practices in India.",
   },
   {
-    label: "CRS product range",
-    detail: "Corrosion-resistant steel proof",
+    label: "Green Product Excellence Award",
+    detail: "Awarded for excellence in green product innovation at ABP Infrastructure Conclave 2024.",
+  },
+  {
+    label: "Green Initiative Leadership",
+    detail: "Recipient of the Ispat Udyog Ratan Award for sustainable manufacturing excellence.",
+  },
+  {
+    label: "NHAI Project Approved",
+    detail: "Recognised for use in major highway infrastructure projects through independent engineering approval.",
   },
 ];
 
@@ -137,18 +151,18 @@ const partnerCards = [
 
 const greenSteelFeatures = [
   {
-    title: "Lower Carbon Footprint",
-    text: "Lower-emission production helps reduce the environmental impact of steel manufacturing.",
+    title: "5-Star Green Steel Rating",
+    text: "Awarded the highest 5-Star Green Steel Rating under the Government of India's Green Steel Taxonomy, recognising industry-leading low carbon emissions.",
     icon: Atom,
   },
   {
-    title: "Recycled Scrap-Based Production",
-    text: "Recycled materials support circular manufacturing and reduce demand for virgin raw materials.",
+    title: "4× Lower Carbon Emissions",
+    text: "Produces 592 kg CO₂e per tonne—4× lower than the Indian average and 3× lower than the global average, independently verified through an Environmental Product Declaration (EPD).",
     icon: RefreshCw,
   },
   {
-    title: "Energy Efficient Processes",
-    text: "Electric Arc Furnace production and growing renewable energy use improve energy efficiency.",
+    title: "73.5% Greenness Score",
+    text: "Achieved an industry-leading 73.5% Greenness Score, independently assessed under the Government of India's Green Steel Taxonomy.",
     icon: Zap,
   },
 ];
@@ -199,9 +213,9 @@ export default function Home() {
 
       <HomeHero />
 
-      <AudienceJourneySection />
-
       <ManufacturingStorySection />
+
+      <AudienceJourneySection />
 
       <GreenSteelSection />
 
@@ -210,7 +224,7 @@ export default function Home() {
           <div className="mb-8 max-w-4xl lg:mb-10">
             <SectionKicker>Product range</SectionKicker>
             <h2 className="section-title">
-              Choose the right TMT steel for your project.
+              Choose the Right TMT Steel for Your Project
             </h2>
             <p className="section-copy">
               From corrosion-resistant TMT bars for high-salinity environments to high-strength TMT bars
@@ -273,8 +287,8 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-5 grid gap-4 rounded-[16px] border border-brand-blue/10 bg-white/78 p-5 shadow-[var(--shadow-soft)] lg:grid-cols-3">
-            {["High strength & ductility", "Corrosion resistant", "Earthquake resistant"].map((item) => (
+          <div className="mt-5 grid gap-4 rounded-[16px] border border-brand-blue/10 bg-white/78 p-5 shadow-[var(--shadow-soft)] lg:grid-cols-4">
+            {["High Strength & Ductility", "Corrosion Resistant", "Earthquake Resistant", "BIS Certified Green Steel"].map((item) => (
               <div key={item} className="flex items-center gap-3 text-sm font-bold text-steel-700">
                 <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-[#edf5ff] text-brand-blue">
                   <BadgeCheck size={17} />
@@ -292,9 +306,9 @@ export default function Home() {
         <div className="ars-container">
           <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <SectionIntro
-              eyebrow="Industry recognition"
-              title="Proof that stands behind every project."
-              body="ARS brings independent testing, recognised standards, and green-building documentation together in one quality-led manufacturing journey."
+              eyebrow="Industry Recognition"
+              title="Certified. Tested. Trusted."
+              body="Every ARS TMT bar is backed by nationally recognised certifications, rigorous testing, and partnerships trusted across the construction industry."
             />
 
             <div className="grid gap-4 sm:grid-cols-2">
@@ -322,7 +336,7 @@ export default function Home() {
           </div>
 
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {certificateCards.slice(2, 6).map((item) => (
+            {certificateCards.slice(2).map((item) => (
               <article
                 key={item.label}
                 className="rounded-[16px] border border-brand-blue/10 bg-white p-6 shadow-[0_14px_42px_rgba(13,43,110,0.05)]"
@@ -339,7 +353,7 @@ export default function Home() {
           <div className="mt-12 border-t border-brand-blue/10 pt-8">
             <div className="mb-5 flex items-center justify-between gap-6">
               <p className="font-technical text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">
-                Trusted by project teams
+                Clients
               </p>
               <Link className="focus-ring text-sm font-bold text-brand-blue hover:text-brand-red" href="/projects">
                 View project experience
@@ -547,20 +561,20 @@ function GreenSteelSection() {
       <div className="ars-container relative z-10">
         <div className="mx-auto max-w-5xl text-center">
           <SectionKicker variant="green" align="center" showEndLine>
-            ARS Green Steel
+            The Green Steel Advantage
           </SectionKicker>
           <h2 className="section-title section-title-light mx-auto">
-            What Makes ARS Green Steel Different?
+            ARS Green Steel
           </h2>
           <p className="section-copy section-copy-light mx-auto mt-6 max-w-3xl">
-            Pioneering sustainable steel manufacturing for a greener India through lower-emission practices,
-            recycled inputs, and energy-efficient process thinking.
+            As India&apos;s No.1 Certified Green Steel Manufacturer, ARS is setting new benchmarks in sustainable steel
+            manufacturing through lower-emission production, recycled materials, and energy-efficient manufacturing practices.
           </p>
           <Link
             className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] border border-emerald-300/30 px-5 text-sm font-bold text-emerald-200 transition hover:border-white/45 hover:bg-white hover:text-[#07351f]"
             href="/ars-green-steel"
           >
-            Learn more about Green Steel <ArrowRight size={17} />
+            Learn More About Green Steel <ArrowRight size={17} />
           </Link>
         </div>
 
@@ -586,6 +600,11 @@ function GreenSteelSection() {
             );
           })}
         </div>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 border-y border-white/12 py-5 font-technical text-xs font-bold uppercase tracking-[0.14em] text-emerald-100 sm:gap-x-8">
+          {["GreenPro Certified", "GRIHA Listed", "EPD Documented", "SGS Tested"].map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
       </div>
     </MotionSection>
   );
@@ -602,26 +621,14 @@ function ManufacturingStorySection() {
     <MotionSection className="overflow-hidden bg-white py-20 lg:py-28" id="manufacturing-story">
       <div className="ars-container">
         <div className="grid items-center gap-12 lg:grid-cols-[0.94fr_1.06fr] lg:gap-16">
-          <div className="relative min-h-[420px] sm:min-h-[540px]">
-            <div className="absolute inset-x-0 top-0 h-[78%] overflow-hidden rounded-[20px] bg-surface-100 shadow-[var(--shadow-soft)]">
-              <Image
-                src="/ars-assets/home/ars_home.jpg"
-                alt="Aerial view of the ARS steel manufacturing facility in Gummidipoondi"
-                fill
-                sizes="(min-width: 1024px) 46vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-
-            <div className="absolute bottom-0 right-0 h-[45%] w-[58%] overflow-hidden rounded-[16px] border-[6px] border-white bg-bg-dark shadow-[0_24px_70px_rgba(6,13,30,0.2)] sm:border-[8px]">
-              <Image
-                src="/ars-assets/homepage-manufacturing-detail.jpg"
-                alt="TMT bars moving through a steel manufacturing line"
-                fill
-                sizes="(min-width: 1024px) 28vw, 58vw"
-                className="object-cover"
-              />
-            </div>
+          <div className="relative min-h-[420px] overflow-hidden rounded-[20px] bg-surface-100 shadow-[var(--shadow-soft)] sm:min-h-[540px]">
+            <Image
+              src="/ars-assets/home/ars_home.jpg"
+              alt="Aerial view of the ARS steel manufacturing facility in Gummidipoondi"
+              fill
+              sizes="(min-width: 1024px) 46vw, 100vw"
+              className="object-cover"
+            />
           </div>
 
           <div className="max-w-2xl">
@@ -674,20 +681,19 @@ function BuyingAssistantSection() {
       <div className="ars-container relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-[0.82fr_1.28fr] lg:gap-16">
           <div className="max-w-xl">
-            <SectionKicker>Fastest route</SectionKicker>
+            <SectionKicker>Plan Your Project</SectionKicker>
             <h2 className="section-title section-title-light">
-              From enquiry to steel in fewer steps.
+              Plan, Calculate & Buy the Right TMT Steel
             </h2>
             <p className="section-copy section-copy-light">
-              Give every buyer a practical next action: check price, calculate requirement,
-              find a dealer, or request a quote.
+              Check TMT steel prices, calculate steel requirements, locate an authorised dealer, or request a customised quotation—all in one place.
             </p>
             <div className="mt-10 h-px w-full bg-white/12" />
             <Link
               className="focus-ring mt-10 inline-flex h-14 items-center justify-center gap-3 rounded-full bg-brand-red px-8 text-base font-bold text-white shadow-[0_18px_44px_rgba(222,18,26,0.25)] transition hover:-translate-y-0.5 hover:bg-[#c90f16]"
               href="/request-quote"
             >
-              Get your quote now <ArrowRight size={19} />
+              Request Quote <ArrowRight size={19} />
             </Link>
           </div>
 

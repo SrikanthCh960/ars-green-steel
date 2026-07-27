@@ -5,7 +5,7 @@ import { verifiedContactDetails } from "@/data/business-verification";
 
 const footerGroups = [
   {
-    title: "About",
+    title: "Company & Connect",
     links: [
       { label: "About ARS Group", href: "/about" },
       { label: "Vision & Mission", href: "/vision-mission" },
@@ -41,7 +41,7 @@ const footerGroups = [
     ],
   },
   {
-    title: "Sustainability",
+    title: "Learn & Explore",
     links: [
       { label: "Green Steel Explained", href: "/green-steel" },
       { label: "ARS Green Steel", href: "/ars-green-steel" },
@@ -127,14 +127,14 @@ export function SiteFooter() {
               />
             </Link>
             <p className="mt-7 max-w-md text-sm leading-7 text-slate-300">
-              Integrated TMT steel manufacturing from Tamil Nadu, supporting stronger structures with
-              verified quality, engineering discipline, and responsible production.
+              ARS Green Steel is India&apos;s leading manufacturer of BIS-certified TMT bars, delivering high-strength,
+              corrosion-resistant, and sustainable steel solutions for residential, commercial, and infrastructure projects.
             </p>
             <Link
               className="focus-ring mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-white transition hover:text-slate-200"
               href="/certifications"
             >
-              View certifications and awards <ArrowRight size={15} />
+              Certifications <ArrowRight size={15} />
             </Link>
           </div>
 

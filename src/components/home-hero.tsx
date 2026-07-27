@@ -86,7 +86,7 @@ export function HomeHero() {
           <div className="min-w-0">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-2 text-sm text-grey-300 backdrop-blur sm:mb-7">
               <span className="size-2 rounded-full bg-brand-blue" />
-              Since 1992 · Certified TMT steel
+              Since 1992 · Trusted TMT Steel Manufacturer
             </div>
             <h1 className="max-w-[760px] font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[0.95] tracking-normal text-white">
               <span className="sr-only" aria-live="polite">
@@ -115,8 +115,8 @@ export function HomeHero() {
               {active.copy}
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row">
-              <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] bg-brand-red px-5 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(222,18,26,0.26)] transition hover:bg-brand-red-dark" href="/steel-price-today">
-                Check today&apos;s price <ArrowRight size={18} />
+              <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] bg-brand-red px-5 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(222,18,26,0.26)] transition hover:bg-brand-red-dark" href="/tmt-calculator">
+                Calculate Steel <ArrowRight size={18} />
               </Link>
               <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] border border-white/28 bg-white/8 px-5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white hover:text-ink-900" href="#products">
                 Explore products <ArrowRight size={18} />

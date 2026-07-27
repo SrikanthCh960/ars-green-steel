@@ -7,16 +7,16 @@ const audiencePaths = [
   {
     title: "Homeowners",
     label: "Building a home",
-    body: "Plan a safer home with certified TMT steel, practical construction guidance, and quantity tools.",
+    body: "Build smarter with durable, corrosion-resistant TMT steel for your dream home.",
     href: "/tmt-steel-bar-guide-homeowners",
-    cta: "Plan your home",
+    cta: "Explore Home Building",
     image: "/ars-assets/home/home-owners.jpg",
     imageAlt: "Residential construction supported by ARS steel",
   },
   {
     title: "Engineers & Architects",
     label: "Specifying a project",
-    body: "Review product specifications, testing information, and certification routes for confident design decisions.",
+    body: "Technical specifications, certifications, and structural performance resources in one place.",
     href: "/tmt-steel-bar-guide-engineers-architects",
     cta: "View technical resources",
     image: "/ars-assets/home/engineers-architects.jpg",
@@ -25,18 +25,18 @@ const audiencePaths = [
   {
     title: "Contractors",
     label: "Delivering on site",
-    body: "Move from quantity planning and pricing to dependable product selection and project support.",
+    body: "Reliable TMT steel solutions for residential, commercial, and infrastructure projects.",
     href: "/tmt-steel-bar-guide-civil-contractors",
-    cta: "Explore project support",
+    cta: "Explore Project Solutions",
     image: "/ars-assets/home/Contractors.jpg",
     imageAlt: "ARS TMT steel for construction projects",
   },
   {
-    title: "Dealers & Distributors",
+    title: "Dealers",
     label: "Growing the network",
-    body: "Explore the ARS product range, dealer support, and opportunities to serve demand in your market.",
+    body: "Explore products, dealer benefits, pricing support, and business opportunities.",
     href: "/steel-distributors-dealers",
-    cta: "Join the dealer network",
+    cta: "Become a Dealer",
     image: "/ars-assets/home/Distributors.jpg",
     imageAlt: "ARS TMT steel product range",
   },
@@ -47,10 +47,13 @@ export function AudienceJourneySection() {
     <section className="bg-surface-50 py-20 lg:py-28" id="audiences">
       <div className="ars-container">
         <div className="mb-12 max-w-4xl">
-          <SectionKicker className="mb-5">Who we support</SectionKicker>
+          <SectionKicker className="mb-5">Audience Paths</SectionKicker>
           <h2 className="max-w-3xl font-display text-[clamp(2.25rem,4vw,4.2rem)] font-bold leading-[0.98] tracking-normal text-ink-900">
-            Built for every construction decision.
+            Choose Your ARS Journey
           </h2>
+          <p className="section-copy mt-6 max-w-3xl">
+            Explore steel solutions, technical resources, and product recommendations tailored to your role in construction.
+          </p>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
