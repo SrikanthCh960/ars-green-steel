@@ -10,7 +10,7 @@ const audiencePaths = [
     body: "Plan a safer home with certified TMT steel, practical construction guidance, and quantity tools.",
     href: "/tmt-steel-bar-guide-homeowners",
     cta: "Plan your home",
-    image: "/ars-assets/home-owner-banner-1.png",
+    image: "/ars-assets/home/home-owners.jpg",
     imageAlt: "Residential construction supported by ARS steel",
   },
   {
@@ -19,7 +19,7 @@ const audiencePaths = [
     body: "Review product specifications, testing information, and certification routes for confident design decisions.",
     href: "/tmt-steel-bar-guide-engineers-architects",
     cta: "View technical resources",
-    image: "/ars-assets/our-quality-1.png",
+    image: "/ars-assets/home/engineers-architects.jpg",
     imageAlt: "ARS quality and testing documentation",
   },
   {
@@ -28,7 +28,7 @@ const audiencePaths = [
     body: "Move from quantity planning and pricing to dependable product selection and project support.",
     href: "/tmt-steel-bar-guide-civil-contractors",
     cta: "Explore project support",
-    image: "/ars-assets/ARSHOME4.jpg",
+    image: "/ars-assets/home/Contractors.jpg",
     imageAlt: "ARS TMT steel for construction projects",
   },
   {
@@ -37,7 +37,7 @@ const audiencePaths = [
     body: "Explore the ARS product range, dealer support, and opportunities to serve demand in your market.",
     href: "/steel-distributors-dealers",
     cta: "Join the dealer network",
-    image: "/ars-assets/products-all.png",
+    image: "/ars-assets/home/Distributors.jpg",
     imageAlt: "ARS TMT steel product range",
   },
 ];

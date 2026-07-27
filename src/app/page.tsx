@@ -349,14 +349,14 @@ export default function Home() {
               {partnerCards.map((partner) => (
                 <article
                   key={partner.name}
-                  className="flex min-h-[92px] items-center justify-center rounded-[12px] border border-ink-900/8 bg-white px-4 text-center"
+                  className="flex min-h-[76px] items-center justify-center rounded-[12px] border border-ink-900/8 bg-white p-2 text-center"
                 >
                   <Image
                     src={partner.logo}
                     alt={`${partner.name} partner logo`}
-                    width={160}
-                    height={64}
-                    className="max-h-12 w-auto object-contain"
+                    width={190}
+                    height={76}
+                    className="max-h-16 w-full object-contain"
                   />
                 </article>
               ))}
@@ -514,7 +514,7 @@ function RahulDravidSection() {
 
           <div className="relative min-h-[390px] overflow-hidden bg-[#f5a916] lg:min-h-[560px]">
             <Image
-              src="/ars-assets/ARSHOME2.jpg"
+              src="/ars-assets/home/rahul_.jpg"
               alt="Rahul Dravid representing ARS CRS 550D TMT steel"
               fill
               sizes="(min-width: 1024px) 58vw, 100vw"
@@ -605,7 +605,7 @@ function ManufacturingStorySection() {
           <div className="relative min-h-[420px] sm:min-h-[540px]">
             <div className="absolute inset-x-0 top-0 h-[78%] overflow-hidden rounded-[20px] bg-surface-100 shadow-[var(--shadow-soft)]">
               <Image
-                src="/ars-assets/right-about-us.png-compress.webp"
+                src="/ars-assets/home/ars_home.jpg"
                 alt="Aerial view of the ARS steel manufacturing facility in Gummidipoondi"
                 fill
                 sizes="(min-width: 1024px) 46vw, 100vw"

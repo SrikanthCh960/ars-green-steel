@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -76,14 +75,14 @@ export function HomeHero() {
           preload="metadata"
           aria-hidden="true"
         >
-          <source src="/videos/ARS_Hero_video.mp4" type="video/mp4" />
+          <source src="/ars-assets/home/ARS_Hero_video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-bg-dark/72 via-bg-dark/46 to-bg-dark/10" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,30,0.02),rgba(6,13,30,0.68))]" />
       </div>
 
       <div className="ars-container relative z-10 flex min-h-[calc(100svh-76px)] flex-col justify-center py-20 sm:py-24 lg:justify-end lg:pb-14 lg:pt-24">
-        <div className="grid min-w-0 gap-7 sm:gap-8 lg:grid-cols-[minmax(0,0.46fr)_minmax(420px,0.54fr)] lg:items-end lg:gap-14 xl:gap-20">
+        <div className="min-w-0">
           <div className="min-w-0">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-2 text-sm text-grey-300 backdrop-blur sm:mb-7">
               <span className="size-2 rounded-full bg-brand-blue" />
@@ -123,43 +122,6 @@ export function HomeHero() {
                 Explore products <ArrowRight size={18} />
               </Link>
             </div>
-          </div>
-
-          <div className="w-full justify-self-start lg:max-w-[520px] lg:self-end lg:justify-self-end">
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.article
-                key={active.word}
-                data-card-title={active.title}
-                className="relative aspect-[1.45/1] min-h-[210px] overflow-hidden rounded-[20px] border border-white/15 bg-white/[0.07] shadow-[var(--shadow-strong)] backdrop-blur sm:aspect-[1.48/1] sm:min-h-[320px] lg:min-h-[280px]"
-                initial={reduceMotion ? false : { opacity: 0, scale: 0.98, y: 18 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.985, y: -12 }}
-                transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <Image
-                  src={active.image}
-                  alt={`${active.word.toLowerCase()} proof for ARS Green Steel`}
-                  fill
-                  sizes="(min-width: 1024px) 760px, 100vw"
-                  className={active.imageFit === "contain" ? "object-contain p-12 opacity-95" : "object-cover opacity-92"}
-                  priority={activeIndex === 0}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-bg-dark/94 via-bg-dark/34 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-bg-dark/34 via-transparent to-transparent" />
-
-                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
-                  <p className="font-display text-2xl font-black uppercase leading-none tracking-normal text-white sm:text-[2rem]">
-                    {active.eyebrow}
-                  </p>
-                  <p className="mt-2 max-w-[520px] text-base leading-6 text-white/88 sm:mt-3 sm:text-lg sm:leading-7">
-                    {active.title}
-                  </p>
-                  <p className="mt-3 inline-flex rounded-full border border-white/16 bg-white/10 px-3 py-2 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-white/84 backdrop-blur sm:text-xs sm:tracking-[0.16em]">
-                    {active.proof}
-                  </p>
-                </div>
-              </motion.article>
-            </AnimatePresence>
           </div>
         </div>
       </div>
