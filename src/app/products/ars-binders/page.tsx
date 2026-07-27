@@ -84,14 +84,14 @@ const reasons = [
 ];
 
 const applications = [
-  { label: "Residential Construction", icon: Building2, image: "/ars-assets/home/44.jpg" },
-  { label: "Commercial Buildings", icon: Building2, image: "/ars-assets/ARSHOME4.jpg" },
-  { label: "Industrial Structures", icon: Factory, image: "/ars-assets/homepage-manufacturing-detail.jpg" },
-  { label: "Infrastructure Projects", icon: MapPin, image: "/ars-assets/blog-banners/how-tmt-bars-are-transforming-rural-infrastructure-development/Infrastructure.jpeg" },
-  { label: "Columns", icon: Ruler, image: "/ars-assets/blog-banners/rcc-column-reinforcement-types/New-Project.jpg" },
-  { label: "Beams", icon: Ruler, image: "/ars-assets/blog-banners/a-comprehensive-guide-to-steel-bar-sizes-and-their-applications/Steel-Bar-new-again.jpg" },
-  { label: "Footings", icon: ShieldCheck, image: "/ars-assets/blog-banners/understanding-the-importance-of-8-mm-rod-weight-in-construction-projects/success-2.png" },
-  { label: "RCC Reinforcement", icon: Gauge, image: "/ars-assets/placeholders/binders-rcc-construction-placeholder.png" },
+  { label: "Residential Construction", icon: Building2 },
+  { label: "Commercial Buildings", icon: Building2 },
+  { label: "Industrial Structures", icon: Factory },
+  { label: "Infrastructure Projects", icon: MapPin },
+  { label: "Columns", icon: Ruler },
+  { label: "Beams", icon: Ruler },
+  { label: "Footings", icon: ShieldCheck },
+  { label: "RCC Reinforcement", icon: Gauge },
 ];
 
 const benefits = [
@@ -168,7 +168,7 @@ export default function ArsBindersPage() {
           <div className="max-w-4xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
               <span className="size-1.5 rounded-full bg-brand-red" aria-hidden="true" />
-              <span className="text-[11px] font-semibold tracking-[0.08em] text-white/75">ARS Construction Binders</span>
+              <span className="text-[11px] font-semibold tracking-[0.08em] text-white/75">NEW PRODUCT</span>
             </div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1.04] tracking-[-0.025em] text-white">
               Factory-Made TMT Binders for Faster, Smarter Construction
@@ -203,11 +203,6 @@ export default function ArsBindersPage() {
             <SectionKicker variant="brand">PRODUCT OVERVIEW</SectionKicker>
             <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">What Are ARS Binders?</h2>
             <p className="mt-5 max-w-2xl text-[16px] leading-[1.8] text-steel-700">ARS Binders are factory-manufactured TMT stirrups made from premium ARS CRS 550D TMT Bars. Designed for consistent quality and precision, they eliminate on-site bending, reduce steel wastage, improve construction speed, and deliver reliable reinforcement for reinforced concrete structures.</p>
-            <div className="relative mt-8 min-h-56 overflow-hidden rounded-[8px] bg-brand-blue sm:min-h-64">
-              <Image src="/ars-assets/home/rahul_.jpg" alt="Rahul Dravid representing ARS Construction Binders" fill sizes="(max-width: 1024px) 100vw, 46vw" className="object-cover object-center" />
-              <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,13,30,0.54),transparent_72%)]" />
-              <span className="absolute bottom-5 left-5 rounded-full border border-white/25 bg-ink-950/45 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.1em] text-white">ARS Construction Binders</span>
-            </div>
           </div>
           <div className="overflow-hidden rounded-[8px] border-[1.5px] border-surface-100 bg-white">
             <div className="bg-brand-blue px-6 py-4"><h2 className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/85">Technical Overview</h2></div>
@@ -264,15 +259,13 @@ export default function ArsBindersPage() {
             </div>
           </div>
           <ul className="grid gap-3 sm:grid-cols-2 lg:content-center">
-            {applications.map(({ label, icon: Icon, image }, index) => (
-              <li key={label} className="group relative flex min-h-36 flex-col justify-between overflow-hidden rounded-[8px] border border-ink-900/10 bg-white transition hover:-translate-y-0.5 hover:border-brand-blue/30 hover:shadow-[0_14px_35px_rgba(13,43,110,0.08)]">
-                <div className="relative h-20 overflow-hidden">
-                  <Image src={image} alt="" fill sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw" className="object-cover transition duration-500 group-hover:scale-105" aria-hidden="true" />
-                  <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.34),transparent)]" />
-                  <span className="absolute left-4 top-4 flex size-9 items-center justify-center rounded-[6px] bg-white/90 text-brand-blue"><Icon size={17} aria-hidden="true" /></span>
-                  <span className="absolute right-4 top-4 font-display text-[13px] font-extrabold tracking-[-0.02em] text-white">{String(index + 1).padStart(2, "0")}</span>
+            {applications.map(({ label, icon: Icon }, index) => (
+              <li key={label} className="group relative flex min-h-36 flex-col justify-between overflow-hidden rounded-[8px] border border-ink-900/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-brand-blue/30 hover:shadow-[0_14px_35px_rgba(13,43,110,0.08)]">
+                <div className="flex items-start justify-between gap-4">
+                  <span className="flex size-10 items-center justify-center rounded-[6px] bg-brand-blue/[0.06] text-brand-blue"><Icon size={19} aria-hidden="true" /></span>
+                  <span className="font-display text-[13px] font-extrabold tracking-[-0.02em] text-brand-red">{String(index + 1).padStart(2, "0")}</span>
                 </div>
-                <span className="px-5 pb-5 pt-4 text-[16px] font-bold leading-[1.3] text-ink-900">{label}</span>
+                <span className="mt-8 max-w-[12rem] text-[16px] font-bold leading-[1.3] text-ink-900">{label}</span>
               </li>
             ))}
           </ul>

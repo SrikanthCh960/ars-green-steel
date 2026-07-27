@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   ArrowRight,
   Building2,
+  Check,
   ClipboardCheck,
   GraduationCap,
   HeartPulse,
@@ -34,10 +35,10 @@ const qualityMatters = [
 ] as const;
 
 const applications = [
-  [GraduationCap, "Educational institutions", "Reliable reinforcement for schools, colleges, universities, and research campuses designed to serve generations.", "/ars-assets/blog-banners/house-construction-process-in-india/Construction-in-India.jpeg"],
-  [HeartPulse, "Healthcare facilities", "Built to support hospitals, medical centres, and healthcare infrastructure where structural reliability is essential.", "/ars-assets/blog-banners/quality-assurance-choosing-reliable-tmt-bar-manufacturers/quality-tmt-bar-3.webp"],
-  [Landmark, "Government buildings", "Trusted for administrative offices, civic infrastructure, and public buildings requiring long-term performance.", "/ars-assets/blog-banners/check-out-why-ars-is-the-leading-steel-manufacturing-company-in-tamil-nadu/ars-steel.webp"],
-  [Building2, "Public infrastructure", "Suitable for a wide range of institutional projects that demand strength, consistency, and lasting durability.", "/ars-assets/blog-banners/how-tmt-bars-are-transforming-rural-infrastructure-development/Infrastructure.jpeg"],
+  [GraduationCap, "Educational institutions", "Reliable reinforcement for schools, colleges, universities, and research campuses designed to serve generations."],
+  [HeartPulse, "Healthcare facilities", "Built to support hospitals, medical centres, and healthcare infrastructure where structural reliability is essential."],
+  [Landmark, "Government buildings", "Trusted for administrative offices, civic infrastructure, and public buildings requiring long-term performance."],
+  [Building2, "Public infrastructure", "Suitable for a wide range of institutional projects that demand strength, consistency, and lasting durability."],
 ] as const;
 
 const arsStrengths = [
@@ -55,14 +56,14 @@ const products = [
 ] as const;
 
 const certifications = [
-  ["BIS Certified", "/ars-assets/certifications/previews/tmt-renewal.png"],
-  ["ISO 9001 Certified", "/ars-assets/certifications/previews/iso-9001.png"],
-  ["ISO 14001 Certified", "/ars-assets/certifications/previews/iso-14001.png"],
-  ["SGS Tested", "/ars-assets/awards-certificates-img3.png"],
-  ["GreenPro Certified", "/ars-assets/blog-banners/greenpro-certified-steel-the-future-of-sustainable-construction/GreenPro-Certified-Steel-The-Future-of-Sustainable-Construction.jpeg"],
-  ["Environmental Product Declaration (EPD)", "/ars-assets/certifications/previews/epd-certificate.png"],
-  ["SGBC 4-Ticks Leader Rating", "/ars-assets/certifications/previews/sgbc-certificate.png"],
-  ["Government of Tamil Nadu PWD Approved", "/ars-assets/certifications/previews/pwd-approval.png"],
+  "BIS Certified",
+  "ISO 9001 Certified",
+  "ISO 14001 Certified",
+  "SGS Tested",
+  "GreenPro Certified",
+  "Environmental Product Declaration (EPD)",
+  "SGBC 4-Ticks Leader Rating",
+  "Government of Tamil Nadu PWD Approved",
 ] as const;
 
 const faqs = [
@@ -114,7 +115,7 @@ export default function InstitutionsProjectsPage() {
       </MotionSection>
 
       <MotionSection className="bg-surface-100 py-20 md:py-28">
-        <div className="ars-container"><SectionKicker>Institutional projects</SectionKicker><div className="grid gap-8 lg:grid-cols-[0.46fr_0.54fr] lg:items-end"><h2 className="section-title">Trusted Across Institutional Construction</h2><p className="text-[15px] leading-7 text-steel-700">From educational campuses to healthcare facilities and public infrastructure, institutional projects demand materials that deliver consistent quality, dependable performance, and long-term durability.</p></div><div className="mt-12 grid gap-px overflow-hidden border border-ink-900/10 bg-ink-900/10 md:grid-cols-2">{applications.map(([Icon, title, body, image]) => <article key={title} className="group overflow-hidden bg-[#f8fafc]"><div className="relative aspect-[16/7] overflow-hidden"><Image src={image} alt="" fill sizes="(min-width: 768px) 48vw, 100vw" className="object-cover transition duration-500 group-hover:scale-105" /></div><div className="p-7 md:p-8"><Icon aria-hidden="true" size={27} className="text-brand-blue"/><h3 className="mt-8 font-display text-2xl font-bold text-ink-900">{title}</h3><p className="mt-4 max-w-md text-[15px] leading-7 text-steel-700">{body}</p></div></article>)}</div></div>
+        <div className="ars-container"><SectionKicker>Institutional projects</SectionKicker><div className="grid gap-8 lg:grid-cols-[0.46fr_0.54fr] lg:items-end"><h2 className="section-title">Trusted Across Institutional Construction</h2><p className="text-[15px] leading-7 text-steel-700">From educational campuses to healthcare facilities and public infrastructure, institutional projects demand materials that deliver consistent quality, dependable performance, and long-term durability.</p></div><div className="mt-12 grid gap-px overflow-hidden border border-ink-900/10 bg-ink-900/10 md:grid-cols-2">{applications.map(([Icon, title, body]) => <article key={title} className="bg-[#f8fafc] p-7 md:p-8"><Icon aria-hidden="true" size={27} className="text-brand-blue"/><h3 className="mt-12 font-display text-2xl font-bold text-ink-900">{title}</h3><p className="mt-4 max-w-md text-[15px] leading-7 text-steel-700">{body}</p></article>)}</div></div>
       </MotionSection>
 
       <MotionSection className="bg-white py-20 md:py-28">
@@ -130,7 +131,7 @@ export default function InstitutionsProjectsPage() {
       </MotionSection>
 
       <MotionSection className="bg-surface-100 py-20 md:py-28">
-        <div className="ars-container"><SectionKicker>Certifications & recognition</SectionKicker><div className="grid gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-end"><h2 className="section-title">Backed by Recognised Industry Standards</h2><p className="text-[15px] leading-7 text-steel-700">ARS TMT Bars are manufactured under stringent quality systems and supported by nationally and internationally recognised certifications, giving greater confidence in quality, safety, and sustainable manufacturing.</p></div><ul className="mt-12 grid gap-px overflow-hidden border border-ink-900/10 bg-ink-900/10 sm:grid-cols-2 lg:grid-cols-4">{certifications.map(([title, image]) => <li key={title} className="flex min-h-44 flex-col items-center justify-center bg-white p-5 text-center"><span className="relative h-16 w-28 overflow-hidden"><Image src={image} alt="" fill sizes="112px" className="object-contain" /></span><span className="mt-4 text-sm font-bold leading-5 text-ink-900">{title}</span></li>)}</ul><Link href="/certifications" className="focus-ring mt-8 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-brand-blue hover:text-brand-blue-dark">Review quality and certification documents <ArrowRight aria-hidden="true" size={16} /></Link></div>
+        <div className="ars-container"><SectionKicker>Certifications & recognition</SectionKicker><div className="grid gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-end"><h2 className="section-title">Backed by Recognised Industry Standards</h2><p className="text-[15px] leading-7 text-steel-700">ARS TMT Bars are manufactured under stringent quality systems and supported by nationally and internationally recognised certifications, giving greater confidence in quality, safety, and sustainable manufacturing.</p></div><ul className="mt-12 grid gap-px overflow-hidden border border-ink-900/10 bg-ink-900/10 sm:grid-cols-2 lg:grid-cols-4">{certifications.map((item) => <li key={item} className="flex min-h-28 items-center gap-3 bg-white p-5 text-sm font-bold leading-5 text-ink-900"><Check aria-hidden="true" size={18} className="shrink-0 text-brand-red" />{item}</li>)}</ul><Link href="/certifications" className="focus-ring mt-8 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-brand-blue hover:text-brand-blue-dark">Review quality and certification documents <ArrowRight aria-hidden="true" size={16} /></Link></div>
       </MotionSection>
 
       <MotionSection className="bg-white py-20 md:py-28">

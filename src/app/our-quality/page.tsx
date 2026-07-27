@@ -101,37 +101,31 @@ const tests = [
     icon: Activity,
     title: "Bend & Rebend Test",
     desc: "Confirms that the bar can bend and rebend without cracking, ensuring the ductility needed for safer structures.",
-    image: "/ars-assets/blog-banners/check-tmt-bar-quality-on-site/How-to-Check-TMT-Bar-Quality-On-Site-.jpeg",
   },
   {
     icon: CircleDot,
     title: "Martensite Ring Test",
     desc: "Checks the hardened outer layer of the bar to verify the balance between strength and flexibility.",
-    image: "/ars-assets/blog-banners/what-is-crs-steel-grades-standards-quality/CRS-GRADES.jpeg",
   },
   {
     icon: Gauge,
     title: "Tensile Test",
     desc: "Measures tensile strength, yield strength, and elongation to ensure every bar meets BIS quality requirements.",
-    image: "/ars-assets/blog-banners/quality-assurance-choosing-reliable-tmt-bar-manufacturers/quality-tmt-bar-3.webp",
   },
   {
     icon: Droplets,
     title: "Quenching Process",
     desc: "A carefully controlled cooling process that develops the strength and ductility expected from high-quality TMT bars.",
-    image: "/ars-assets/blog-banners/manufacturing-process-of-tmt-bar/tmt-bars-manufacturing.jpeg",
   },
   {
     icon: Atom,
     title: "Spectro Analysis",
     desc: "Verifies the chemical composition of every heat to maintain consistency and comply with manufacturing specifications.",
-    image: "/ars-assets/blog-banners/importance-of-tds-in-steel-manufacturing/TDS-and-its-significance.jpeg",
   },
   {
     icon: BadgeCheck,
     title: "SGS Certification",
     desc: "Independent testing and certification provide an additional layer of assurance that ARS quality meets recognised industry standards.",
-    image: "/ars-assets/blog-banners/where-to-get-good-quality-tmt-bars-at-best-price-in-tamil-nadu/quality-tmt-bar-2.webp",
   },
 ];
 
@@ -280,11 +274,7 @@ export default function OurQualityPage() {
               </div>
             </div>
 
-            <aside className="overflow-hidden border border-brand-blue/10 bg-white shadow-[var(--shadow-soft)]">
-              <div className="relative min-h-52">
-                <Image src="/ars-assets/our-quality-1.png" alt="ARS quality testing and manufacturing controls" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
-              </div>
-              <div className="p-7 sm:p-9">
+            <aside className="border border-brand-blue/10 bg-white p-7 shadow-[var(--shadow-soft)] sm:p-9">
               <div className="flex h-12 w-12 items-center justify-center bg-brand-blue/[0.07] text-brand-blue">
                 <FlaskConical size={24} />
               </div>
@@ -312,7 +302,6 @@ export default function OurQualityPage() {
                   </dd>
                 </div>
               </dl>
-              </div>
             </aside>
           </div>
         </div>
@@ -371,13 +360,10 @@ export default function OurQualityPage() {
               const Icon = test.icon;
               return (
                 <article key={test.title} className="flex min-h-[260px] flex-col bg-brand-blue p-7">
-                  <div className="relative -mx-7 -mt-7 mb-7 h-28 overflow-hidden">
-                    <Image src={test.image} alt="" fill sizes="(min-width: 1024px) 28vw, (min-width: 640px) 46vw, 100vw" className="object-cover opacity-70" />
-                    <span className="absolute bottom-4 left-5 flex size-11 items-center justify-center border border-brand-red/35 bg-brand-blue/90 text-brand-red">
+                  <div className="flex items-center justify-between">
+                    <span className="flex size-11 items-center justify-center border border-brand-red/35 bg-brand-red/10 text-brand-red">
                       <Icon size={20} />
                     </span>
-                  </div>
-                  <div className="flex items-center justify-end">
                     <span className="text-[12px] font-bold text-white/25">
                       {String(index + 1).padStart(2, "0")}
                     </span>
