@@ -165,12 +165,12 @@ export default function OurQualityPage() {
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
         <div className="absolute inset-0">
           <Image
-            src="/ars-assets/quality-policy-banner.jpg"
-            alt="ARS CRS 550D TMT bars at the manufacturing facility"
+            src="/ars-assets/about/Qualitypolicy_hero-banner.jpg"
+            alt="ARS quality inspector measuring TMT bars at the manufacturing facility"
             fill
             priority
             sizes="100vw"
-            className="object-cover"
+            className="object-cover object-[60%_center]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,13,30,0.97)_0%,rgba(6,13,30,0.72)_45%,rgba(6,13,30,0.12)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.9)_0%,transparent_58%)]" />

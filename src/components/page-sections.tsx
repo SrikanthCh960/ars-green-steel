@@ -18,6 +18,9 @@ type HeroProps = {
   secondaryHref?: string;
   showActions?: boolean;
   preserveTitleCase?: boolean;
+  backgroundImageSrc?: string;
+  backgroundImageAlt?: string;
+  backgroundImagePosition?: string;
 };
 
 type Card = {
@@ -42,14 +45,31 @@ export function PageHero({
   secondaryHref = "/contact",
   showActions = true,
   preserveTitleCase = false,
+  backgroundImageSrc,
+  backgroundImageAlt = "",
+  backgroundImagePosition = "center",
 }: HeroProps) {
   return (
     <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative flex items-end overflow-hidden text-white">
       <div className="absolute inset-0 bg-ink-950">
-        <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
-        <video className="absolute inset-0 h-full w-full object-cover opacity-58" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
-          <source src="/videos/ars-intro.mp4" type="video/mp4" />
-        </video>
+        {backgroundImageSrc ? (
+          <Image
+            src={backgroundImageSrc}
+            alt={backgroundImageAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition: backgroundImagePosition }}
+          />
+        ) : (
+          <>
+            <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
+            <video className="absolute inset-0 h-full w-full object-cover opacity-58" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+              <source src="/videos/ars-intro.mp4" type="video/mp4" />
+            </video>
+          </>
+        )}
         <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/78 to-ink-950/28" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,13,14,0.1),rgba(11,13,14,0.88))]" />
       </div>

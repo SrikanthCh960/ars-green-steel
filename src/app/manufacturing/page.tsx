@@ -89,10 +89,15 @@ export default function ManufacturingPage() {
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:max-h-[680px] lg:min-h-[680px]">
         <div className="pointer-events-none absolute inset-0">
-          <div className="absolute inset-0 bg-[linear-gradient(125deg,#060D1E_0%,#0D2B6E_68%,#123B8B_100%)]" />
-          <div className="absolute -right-[12%] top-[8%] h-[78%] w-[62%] -skew-x-12 border-l border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.09),transparent_64%)]" />
-          <div className="absolute -bottom-[32%] right-[4%] size-[clamp(22rem,54vw,48rem)] rounded-full border border-white/10" />
-          <div className="absolute -bottom-[20%] right-[14%] size-[clamp(15rem,38vw,34rem)] rounded-full border border-white/8" />
+          <Image
+            src="/ars-assets/about/ARS-Manufacturing-banner.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[60%_center]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,13,30,0.92)_0%,rgba(6,13,30,0.68)_50%,rgba(6,13,30,0.2)_100%)]" />
           <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#060D1E]/80 to-transparent" />
         </div>
 
@@ -130,15 +135,13 @@ export default function ManufacturingPage() {
               </p>
             </div>
 
-            <figure className="relative mx-auto w-full max-w-[588px] overflow-hidden rounded-[20px] border border-brand-blue/10 bg-surface-50 shadow-[var(--shadow-soft)]">
+            <figure className="relative mx-auto aspect-square w-full max-w-[588px] overflow-hidden rounded-[20px] border border-brand-blue/10 bg-surface-50 shadow-[var(--shadow-soft)]">
               <Image
-                src="/ars-assets/right-about-us.png-compress.webp"
-                alt="Aerial view of the ARS plant with a steelmaking inset"
-                width={588}
-                height={539}
-                loading="eager"
+                src="/ars-assets/about/Manufacturing-our-facility.jpg"
+                alt="TMT bars moving through the ARS manufacturing cooling line"
+                fill
                 sizes="(min-width: 1024px) 48vw, (min-width: 640px) 70vw, calc(100vw - 40px)"
-                className="h-auto w-full"
+                className="object-cover"
               />
             </figure>
           </div>

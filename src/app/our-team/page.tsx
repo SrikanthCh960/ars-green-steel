@@ -127,16 +127,16 @@ export default function OurTeamPage() {
       {/* ── Hero ── */}
       <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative flex items-end overflow-hidden bg-ink-950">
         <Image
-          src="/ars-assets/about/ars-group-story.webp"
-          alt=""
+          src="/ars-assets/about/ARS-leadership-banner.jpg"
+          alt="ARS leadership team reviewing operations at a steel manufacturing facility"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-[58%_center]"
         />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(90deg, rgba(6,13,30,0.96) 0%, rgba(6,13,30,0.78) 46%, rgba(6,13,30,0.28) 100%)" }}
+          style={{ background: "linear-gradient(90deg, rgba(6,13,30,0.92) 0%, rgba(6,13,30,0.74) 46%, rgba(6,13,30,0.24) 100%)" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-transparent to-ink-950/20" />
 

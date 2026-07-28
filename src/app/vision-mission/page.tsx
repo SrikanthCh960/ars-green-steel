@@ -118,6 +118,9 @@ export default function VisionMissionPage() {
         primaryHref="/products"
         secondaryLabel="Contact Our Team"
         secondaryHref="/contact"
+        backgroundImageSrc="/ars-assets/about/ARS-Vision-Misson_hero.jpg"
+        backgroundImageAlt="ARS Green Steel manufacturing facility viewed by a plant worker"
+        backgroundImagePosition="60% center"
       />
 
       <MotionSection className="bg-white py-20 md:py-28" aria-labelledby="purpose-title">

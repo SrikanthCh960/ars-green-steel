@@ -140,20 +140,15 @@ export default function AboutPage() {
         aria-labelledby="about-hero-title"
       >
         <div className="absolute inset-0">
-          <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
-          <video
-            className="absolute inset-0 h-full w-full object-cover"
-            style={{ objectPosition: "center 40%" }}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-hidden="true"
-          >
-            <source src="/videos/ars-intro.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,13,30,0.92)_0%,rgba(6,13,30,0.6)_55%,rgba(6,13,30,0.25)_100%)]" />
+          <Image
+            src="/ars-assets/about/ARS-group-hero-banner.jpg"
+            alt="Aerial view of the ARS Green Steel manufacturing facility"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[58%_center]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,13,30,0.9)_0%,rgba(6,13,30,0.58)_55%,rgba(6,13,30,0.18)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.9)_0%,rgba(6,13,30,0.05)_60%,transparent_100%)]" />
         </div>
 
