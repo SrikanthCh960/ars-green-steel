@@ -114,7 +114,7 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
     heroAccent: "You Can Trust.",
     heroBody:
       "ARS Green Steel helps homeowners choose TMT bars with confidence — from steel grade and durability to dealer access and cost planning.",
-    heroImage: "/ars-assets/home-owner-banner-1.png",
+    heroImage: "/ars-assets/Solutions/HomeOwners/heroBanner.jpg",
     heroImageAlt: "Homeowners standing outside a completed home",
     primaryCta: { label: "Explore products", href: "/products" },
     secondaryCta: { label: "Find a dealer", href: "/dealer-locator" },
@@ -282,7 +282,7 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
     heroAccent: "The Right Specification.",
     heroBody:
       "Every ARS TMT bar is backed by consistent manufacturing, rigorous testing, and transparent technical documentation to support specification-led construction.",
-    heroImage: "/ars-assets/our-quality-1.png",
+    heroImage: "/ars-assets/Solutions/EngineersArchitects/forEngineersBanner.jpg",
     heroImageAlt: "ARS steel quality testing and technical review",
     primaryCta: { label: "View Technical Specifications", href: "#technical-performance" },
     secondaryCta: { label: "View Products", href: "#engineered-solutions" },
@@ -450,8 +450,8 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
     heroAccent: "Trusted for Every Project.",
     heroBody:
       "From individual homes to large construction projects, every build depends on reliable reinforcement. ARS TMT Bars are engineered to deliver consistent quality, dependable strength, and the confidence contractors need to build without compromise.",
-    heroImage: "/ars-assets/ARSHOME1.jpg",
-    heroImageAlt: "Construction site requiring dependable TMT steel",
+    heroImage: "/ars-assets/home/Contractors.jpg",
+    heroImageAlt: "Contractors working on an ARS-supported construction project",
     primaryCta: { label: "Explore Products", href: "/products" },
     secondaryCta: { label: "Find Nearest Dealer", href: "/dealer-locator" },
     stats: [
@@ -625,12 +625,12 @@ const contractorBuyingFactors = [
 ] as const;
 
 const contractorBuyingPanels = [
-  { image: "/ars-assets/ARSHOME1.jpg", icon: Handshake },
-  { image: "/ars-assets/our-quality-1.png", icon: FlaskConical },
-  { image: "/ars-assets/TMT-Bars.png", icon: ShieldCheck },
-  { image: "/ars-assets/ARSHOME4.jpg", icon: Truck },
-  { image: "/ars-assets/Contact_banner.png", icon: BadgeCheck },
-  { image: "/ars-assets/products-all.png", icon: IndianRupee },
+  { image: "/ars-assets/Solutions/Contractors/ConsistentQuality.jpg", alt: "ARS TMT bars representing consistent construction quality", icon: Handshake },
+  { image: "/ars-assets/Solutions/Contractors/EasytoBendWorkWith.jpg", alt: "ARS TMT bars designed for efficient bending and site work", icon: FlaskConical },
+  { image: "/ars-assets/blog-banners/what-makes-steel-bars-last-long-in-construction-exploring-their-strength-durability/high-strength-and-ductility-1.webp", alt: "High-strength TMT steel reinforcement for durable construction", icon: ShieldCheck },
+  { image: "/ars-assets/ARSHOME4.jpg", alt: "ARS steel supply supporting uninterrupted construction work", icon: Truck },
+  { image: "/ars-assets/blog-banners/check-tmt-bar-quality-on-site/How-to-Check-TMT-Bar-Quality-On-Site-.jpeg", alt: "On-site TMT bar quality verification before purchase", icon: BadgeCheck },
+  { image: "/ars-assets/products-all.png", alt: "ARS TMT bar range for long-term construction value", icon: IndianRupee },
 ] as const;
 
 const contractorProducts = [
@@ -1259,8 +1259,8 @@ const engineerTechnicalParameters = [
     title: "Chemical Composition",
     body: "The chemical composition of TMT bars directly influences strength, weldability, ductility, and long-term performance. Maintaining controlled levels of Carbon (C), Sulphur (S), Phosphorus (P), Manganese (Mn), and Carbon Equivalent (CE) helps achieve consistent mechanical properties while meeting the requirements of IS 1786.",
     icon: FlaskConical,
-    image: "/ars-assets/our-quality-1.png",
-    imageAlt: "ARS quality testing process",
+    image: "/ars-assets/Solutions/EngineersArchitects/engineer-image.jpg",
+    imageAlt: "Engineer reviewing ARS reinforcement for a construction project",
   },
   {
     title: "Mechanical Properties",
@@ -1280,8 +1280,8 @@ const engineerTechnicalParameters = [
     title: "Rib Design & Bond Strength",
     body: "Uniform rib geometry improves the bond between steel and concrete, enabling efficient load transfer and reducing the possibility of slippage. Consistent rib patterns also contribute to better structural stability throughout the service life of reinforced concrete.",
     icon: Handshake,
-    image: "/ars-assets/products-all.png",
-    imageAlt: "ARS TMT product range",
+    image: "/ars-assets/Solutions/EngineersArchitects/ribImage.jpg",
+    imageAlt: "ARS TMT bar rib detail for concrete bonding",
   },
   {
     title: "Product Identification & Traceability",
@@ -1444,9 +1444,9 @@ function HomeownerFigmaContent() {
     outro?: string;
     tone: "light" | "dark";
   }> = [
-    { title: "Choose Steel Based on Where You're Building", icon: MapPin, image: "/ars-assets/home-owner-banner-1.png", paragraphs: ["Not every construction site faces the same environmental conditions. Homes built in normal environments have different reinforcement requirements than those exposed to moisture, coastal weather, or high-salinity conditions.", "Choosing the right type of TMT bar based on your location helps improve structural durability and long-term protection."], tone: "light" },
-    { title: "Understand the Difference Between Standard and Corrosion-Resistant Steel", icon: ShieldCheck, image: "/ars-assets/products-all.png", paragraphs: ["For most residential construction, Fe550D TMT bars provide the strength and ductility required for modern homes.", "If your project is located near the coast or in areas with high humidity or salinity, Corrosion Resistant Steel (CRS) TMT bars offer additional protection against rust, helping extend the life of the structure."], tone: "dark" },
-    { title: "Don't Judge Steel by Grade Alone", icon: Building2, image: "/ars-assets/our-quality-1.png", paragraphs: ["A higher grade is only one part of the decision. Before choosing TMT bars, always look for:"], list: ["BIS certification", "High ductility for improved earthquake resistance", "Corrosion resistance where required", "Consistent manufacturing quality", "Reliable testing and quality assurance", "Purchase through authorised dealers"], outro: "These factors together contribute to safer, stronger, and more durable construction.", tone: "light" },
+    { title: "Choose Steel Based on Where You're Building", icon: MapPin, image: "/ars-assets/Solutions/HomeOwners/chooseSteel.jpg", paragraphs: ["Not every construction site faces the same environmental conditions. Homes built in normal environments have different reinforcement requirements than those exposed to moisture, coastal weather, or high-salinity conditions.", "Choosing the right type of TMT bar based on your location helps improve structural durability and long-term protection."], tone: "light" },
+    { title: "Understand the Difference Between Standard and Corrosion-Resistant Steel", icon: ShieldCheck, image: "/ars-assets/Solutions/HomeOwners/understandDifference.jpg", paragraphs: ["For most residential construction, Fe550D TMT bars provide the strength and ductility required for modern homes.", "If your project is located near the coast or in areas with high humidity or salinity, Corrosion Resistant Steel (CRS) TMT bars offer additional protection against rust, helping extend the life of the structure."], tone: "dark" },
+    { title: "Don't Judge Steel by Grade Alone", icon: Building2, image: "/ars-assets/Solutions/HomeOwners/dontJudge.jpg", paragraphs: ["A higher grade is only one part of the decision. Before choosing TMT bars, always look for:"], list: ["BIS certification", "High ductility for improved earthquake resistance", "Corrosion resistance where required", "Consistent manufacturing quality", "Reliable testing and quality assurance", "Purchase through authorised dealers"], outro: "These factors together contribute to safer, stronger, and more durable construction.", tone: "light" },
     { title: "Recognition Matters", icon: BadgeCheck, image: "/ars-assets/awards-certificates-img2.png", paragraphs: ["A strong reputation is built over years of consistent quality and performance. Before choosing TMT bars, consider whether the manufacturer is recognised by respected industry organisations, government initiatives, and independent institutions. Such recognition reflects a long-term commitment to quality, reliability, and responsible manufacturing—not just marketing claims."], tone: "dark" },
   ];
   const products = [
@@ -1527,7 +1527,7 @@ function ContractorGuideContent() {
               return (
                 <article key={title} className={`group grid overflow-hidden rounded-[8px] border border-brand-blue/15 bg-white transition duration-300 hover:border-brand-blue/35 lg:grid-cols-2 ${index % 2 === 1 ? "lg:[&>.contractor-guide-media]:order-2" : ""}`}>
                   <div className="contractor-guide-media relative min-h-64 overflow-hidden bg-surface-50 sm:min-h-80 lg:min-h-full">
-                    <Image src={panel.image} alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
+                    <Image src={panel.image} alt={panel.alt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-br from-[#0D2B6E]/10 via-transparent to-white/20" />
                   </div>
                   <div className="flex flex-col justify-center p-7 md:p-9 lg:p-11">
