@@ -158,10 +158,14 @@ export default function ArsBindersPage() {
       <SiteHeader />
 
       <section className="ars-page-hero relative flex items-end overflow-hidden bg-ink-950 text-white">
-        <div className="hero-video-placeholder absolute inset-0" aria-hidden="true" />
-        <video className="absolute inset-0 h-full w-full object-cover opacity-45" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
-          <source src="/videos/ars-intro.mp4" type="video/mp4" />
-        </video>
+        <Image
+          src="/ars-assets/products/ARSBinders_herobanner.jpg"
+          alt="ARS Binders with campaign spokesperson"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[60%_center]"
+        />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,13,30,0.96),rgba(6,13,30,0.78)_54%,rgba(6,13,30,0.36))]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.9),transparent_58%)]" />
         <div className="ars-container relative z-10 w-full pb-14 pt-32 md:pb-16">
@@ -198,11 +202,21 @@ export default function ArsBindersPage() {
       </MotionSection>
 
       <MotionSection className="bg-white py-20 md:py-24">
-        <div className="ars-container grid items-start gap-14 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <SectionKicker variant="brand">PRODUCT OVERVIEW</SectionKicker>
-            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">What Are ARS Binders?</h2>
-            <p className="mt-5 max-w-2xl text-[16px] leading-[1.8] text-steel-700">ARS Binders are factory-manufactured TMT stirrups made from premium ARS CRS 550D TMT Bars. Designed for consistent quality and precision, they eliminate on-site bending, reduce steel wastage, improve construction speed, and deliver reliable reinforcement for reinforced concrete structures.</p>
+        <div className="ars-container grid gap-14 lg:grid-cols-2 lg:items-stretch lg:gap-16">
+          <div className="relative flex min-h-[390px] overflow-hidden rounded-[8px] bg-ink-950 p-6 md:p-8 lg:min-h-0">
+            <Image
+              src="/ars-assets/products/WhatAreARSBinders.jpg"
+              alt="Factory-made ARS Binders ready for reinforced concrete construction"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.96)_0%,rgba(6,13,30,0.7)_46%,rgba(6,13,30,0.08)_100%)]" />
+            <div className="relative z-10 mt-auto max-w-xl">
+              <SectionKicker variant="light">PRODUCT OVERVIEW</SectionKicker>
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">What Are ARS Binders?</h2>
+              <p className="mt-5 max-w-2xl text-[16px] leading-[1.8] text-white/80">ARS Binders are factory-manufactured TMT stirrups made from premium ARS CRS 550D TMT Bars. Designed for consistent quality and precision, they eliminate on-site bending, reduce steel wastage, improve construction speed, and deliver reliable reinforcement for reinforced concrete structures.</p>
+            </div>
           </div>
           <div className="overflow-hidden rounded-[8px] border-[1.5px] border-surface-100 bg-white">
             <div className="bg-brand-blue px-6 py-4"><h2 className="text-[11px] font-bold uppercase tracking-[0.12em] text-white/85">Technical Overview</h2></div>

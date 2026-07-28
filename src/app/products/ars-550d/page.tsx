@@ -197,7 +197,7 @@ export default function Ars550DPage() {
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px]">
         <div className="absolute inset-0">
-          <Image src="/ars-assets/TMT-Bars.png" alt="ARS 550D TMT steel bars" fill priority sizes="100vw" className="object-cover" />
+          <Image src="/ars-assets/products/ARS-550D_hero-banner.jpg" alt="ARS TMT steel bars with campaign spokesperson" fill priority sizes="100vw" className="object-cover object-[58%_center]" />
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,13,30,0.96),rgba(6,13,30,0.72)_52%,rgba(6,13,30,0.28))]" />
           <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.9),transparent_55%)]" />
         </div>
@@ -224,11 +224,21 @@ export default function Ars550DPage() {
       </MotionSection>
 
       <MotionSection className="bg-white py-20 md:py-24" id="specifications">
-        <div className="ars-container grid items-start gap-14 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <SectionKicker variant="brand">PRODUCT OVERVIEW</SectionKicker>
-            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">What Are ARS 550D TMT Bars?</h2>
-            <p className="mt-5 text-[15px] leading-[1.8] text-steel-700"><strong>Built for Strength. Trusted for Modern Construction.</strong><br />Choosing the right reinforcement steel is one of the most important decisions in any construction project. ARS 550D TMT Bars are engineered to provide the strength, ductility, and consistency required for modern reinforced concrete structures. Manufactured to IS 1786 standards, they are suitable for residential, commercial, industrial, and infrastructure applications where long-term structural performance matters.</p>
+        <div className="ars-container grid gap-14 lg:grid-cols-2 lg:items-stretch lg:gap-16">
+          <div className="relative flex min-h-[390px] overflow-hidden rounded-2xl bg-ink-950 p-6 md:p-8 lg:min-h-0">
+            <Image
+              src="/ars-assets/products/WhatAre_ARS-CRS-550D_TMTBars.jpg"
+              alt="Bundled ARS TMT bars ready for construction use"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.96)_0%,rgba(6,13,30,0.68)_46%,rgba(6,13,30,0.08)_100%)]" />
+            <div className="relative z-10 mt-auto max-w-xl">
+              <SectionKicker variant="light">PRODUCT OVERVIEW</SectionKicker>
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">What Are ARS 550D TMT Bars?</h2>
+              <p className="mt-5 text-[15px] leading-[1.8] text-white/80"><strong>Built for Strength. Trusted for Modern Construction.</strong><br />Choosing the right reinforcement steel is one of the most important decisions in any construction project. ARS 550D TMT Bars are engineered to provide the strength, ductility, and consistency required for modern reinforced concrete structures. Manufactured to IS 1786 standards, they are suitable for residential, commercial, industrial, and infrastructure applications where long-term structural performance matters.</p>
+            </div>
           </div>
           <div className="overflow-hidden rounded-2xl border-[1.5px] border-surface-100">
             <div className="bg-brand-blue px-6 py-3"><p className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/80">ARS 550D Technical Overview</p></div>
@@ -250,7 +260,7 @@ export default function Ars550DPage() {
       </MotionSection>
 
       <MotionSection className="bg-surface-50 py-20 md:py-24">
-        <div className="ars-container grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]"><div><SectionKicker variant="brand">Trust</SectionKicker><div className="mt-7 grid grid-cols-2 gap-3">{certificationBadges.map((badge) => <div key={badge} className="flex min-h-16 items-center gap-3 rounded-xl border border-surface-100 bg-white px-4 text-[13px] font-bold text-brand-blue"><BadgeCheck size={18} className="shrink-0 text-brand-red" />{badge}</div>)}</div><div className="mt-7 flex flex-wrap gap-3"><span aria-disabled="true" className="inline-flex min-h-11 cursor-not-allowed items-center gap-2 rounded-full border border-brand-blue/20 px-5 py-2.5 text-[13px] font-bold text-brand-blue"><Download size={14} /> Download brochure</span><Link href="/certifications#product-statutory-approvals" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-blue px-5 py-2.5 text-[13px] font-bold text-white"><Download size={14} /> Download certifications</Link></div></div><div className="relative min-h-[320px] overflow-hidden rounded-2xl bg-ink-950"><Image src="/ars-assets/CRS.png" alt="ARS CRS 550D" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" /><div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.92),rgba(6,13,30,0.12))]" /><div className="absolute inset-x-6 bottom-6"><p className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/70">Corrosion resistant steel</p><Link href="/products/ars-crs-550d" className="focus-ring mt-3 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[13px] font-bold text-brand-blue">Explore ARS CRS 550D <ArrowRight size={14} /></Link></div></div></div>
+        <div className="ars-container grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]"><div><SectionKicker variant="brand">Trust</SectionKicker><div className="mt-7 grid grid-cols-2 gap-3">{certificationBadges.map((badge) => <div key={badge} className="flex min-h-16 items-center gap-3 rounded-xl border border-surface-100 bg-white px-4 text-[13px] font-bold text-brand-blue"><BadgeCheck size={18} className="shrink-0 text-brand-red" />{badge}</div>)}</div><div className="mt-7 flex flex-wrap gap-3"><span aria-disabled="true" className="inline-flex min-h-11 cursor-not-allowed items-center gap-2 rounded-full border border-brand-blue/20 px-5 py-2.5 text-[13px] font-bold text-brand-blue"><Download size={14} /> Download brochure</span><Link href="/certifications#product-statutory-approvals" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-blue px-5 py-2.5 text-[13px] font-bold text-white"><Download size={14} /> Download certifications</Link></div></div><div className="relative min-h-[480px] overflow-hidden rounded-2xl bg-ink-950"><video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source src="/ars-assets/products/TestedCertifiedTrusted..mp4" type="video/mp4" /></video><div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.86),rgba(6,13,30,0.08)_62%)]" /><div className="absolute inset-x-6 bottom-6"><p className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/70">Corrosion resistant steel</p><Link href="/products/ars-crs-550d" className="focus-ring mt-3 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[13px] font-bold text-brand-blue">Explore ARS CRS 550D <ArrowRight size={14} /></Link></div></div></div>
       </MotionSection>
 
       <MotionSection className="bg-white py-20 md:py-24">

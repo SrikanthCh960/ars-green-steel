@@ -90,7 +90,7 @@ export default function ProductsPage() {
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
         <div className="absolute inset-0">
-          <Image src="/ars-assets/products-all.png" alt="ARS TMT steel product range" fill priority sizes="100vw" className="object-cover" style={{ objectPosition: "center 50%" }} />
+          <Image src="/ars-assets/products/ProductComparission_HeroBanner.jpg" alt="ARS TMT bars with campaign spokesperson" fill priority sizes="100vw" className="object-cover object-[58%_center]" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(6,13,30,0.95) 0%, rgba(6,13,30,0.65) 50%, rgba(6,13,30,0.2) 100%)" }} />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(6,13,30,0.9) 0%, transparent 55%)" }} />
         </div>
