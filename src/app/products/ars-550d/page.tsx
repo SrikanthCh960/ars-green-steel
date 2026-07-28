@@ -29,14 +29,15 @@ export const metadata = createPageMetadata({
 });
 
 const trustItems = [
-  { value: "Fe550D", label: "Grade" },
+  { value: "Fe 550D", label: "Grade" },
   { value: "IS 1786", label: "Standard" },
   { value: "550 Min.", label: "Yield Strength" },
   { value: "16 Min.", label: "Elongation" },
 ];
 
 const technicalOverview = [
-  { label: "Grade", value: "Fe550D TMT Reinforcement Bars • IS 1786 Compliant" },
+  { label: "Grade", value: "Fe 550D TMT Reinforcement Bars • IS 1786 Compliant" },
+  { label: "Available Sizes", value: "8 mm • 10 mm • 12 mm • 16 mm • 20 mm • 25 mm • 32 mm" },
   { label: "Applications", value: "Residential • Commercial • Industrial • Infrastructure • RCC Construction" },
   { label: "Key Properties", value: "High Strength • High Ductility • Superior Bendability • Strong Concrete Bonding" },
   { label: "Manufacturing", value: "Thermo-Mechanically Treated (TMT) • Low Sulphur • Low Phosphorus • Controlled Manufacturing Process" },
@@ -101,7 +102,7 @@ const chemicalProperties = [
   ["Carbon Equivalent (CE)", "%", "0.42 Max."],
 ];
 
-const certificationBadges = ["BIS Certified", "SGS Tested", "SERC Certified", "Quality Assured"];
+const certificationBadges = ["BIS Certified", "Green Steel Certified", "TN PWD Approved", "SGBC Leader (4-Star)", "GRIHA", "EPD Verified"];
 
 const faqs = [
   [
@@ -205,9 +206,9 @@ export default function Ars550DPage() {
           <div className="max-w-3xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
               <Layers size={12} className="text-white/60" />
-              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS 550D TMT Bars | Fe550D Grade Reinforcement Steel</span>
+              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS 550D TMT Bars | Fe 550D Grade Reinforcement Steel</span>
             </div>
-            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">High-Strength Fe550D TMT Bars for Strong, Durable Construction</h1>
+            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">High-Strength Fe 550D TMT Bars for Strong, Durable Construction</h1>
             <p className="mt-5 max-w-2xl text-[15px] leading-[1.75] text-white/75">Engineered for high strength, superior ductility, and dependable performance, ARS 550D TMT Bars are built for modern construction.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"><FileText size={14} /> Request a Quote</Link>
@@ -260,7 +261,7 @@ export default function Ars550DPage() {
       </MotionSection>
 
       <MotionSection className="bg-surface-50 py-20 md:py-24">
-        <div className="ars-container grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]"><div><SectionKicker variant="brand">Trust</SectionKicker><div className="mt-7 grid grid-cols-2 gap-3">{certificationBadges.map((badge) => <div key={badge} className="flex min-h-16 items-center gap-3 rounded-xl border border-surface-100 bg-white px-4 text-[13px] font-bold text-brand-blue"><BadgeCheck size={18} className="shrink-0 text-brand-red" />{badge}</div>)}</div><div className="mt-7 flex flex-wrap gap-3"><span aria-disabled="true" className="inline-flex min-h-11 cursor-not-allowed items-center gap-2 rounded-full border border-brand-blue/20 px-5 py-2.5 text-[13px] font-bold text-brand-blue"><Download size={14} /> Download brochure</span><Link href="/certifications#product-statutory-approvals" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-blue px-5 py-2.5 text-[13px] font-bold text-white"><Download size={14} /> Download certifications</Link></div></div><div className="relative min-h-[480px] overflow-hidden rounded-2xl bg-ink-950"><video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source src="/ars-assets/products/TestedCertifiedTrusted..mp4" type="video/mp4" /></video><div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.86),rgba(6,13,30,0.08)_62%)]" /><div className="absolute inset-x-6 bottom-6"><p className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/70">Corrosion resistant steel</p><Link href="/products/ars-crs-550d" className="focus-ring mt-3 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[13px] font-bold text-brand-blue">Explore ARS CRS 550D <ArrowRight size={14} /></Link></div></div></div>
+        <div className="ars-container grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]"><div><SectionKicker variant="brand">Trust</SectionKicker><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Tested. Certified. Trusted.</h2><div className="mt-7 grid grid-cols-2 gap-3">{certificationBadges.map((badge) => <div key={badge} className="flex min-h-16 items-center gap-3 rounded-xl border border-surface-100 bg-white px-4 text-[13px] font-bold text-brand-blue"><BadgeCheck size={18} className="shrink-0 text-brand-red" />{badge}</div>)}</div><div className="mt-7 flex flex-wrap gap-3"><span aria-disabled="true" className="inline-flex min-h-11 cursor-not-allowed items-center gap-2 rounded-full border border-brand-blue/20 px-5 py-2.5 text-[13px] font-bold text-brand-blue"><Download size={14} /> Download brochure</span><Link href="/certifications#product-statutory-approvals" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-blue px-5 py-2.5 text-[13px] font-bold text-white"><Download size={14} /> Download certifications</Link></div></div><div className="relative min-h-[480px] overflow-hidden rounded-2xl bg-ink-950"><video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source src="/ars-assets/products/TestedCertifiedTrusted..mp4" type="video/mp4" /></video><div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.86),rgba(6,13,30,0.08)_62%)]" /><div className="absolute inset-x-6 bottom-6"><p className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/70">Corrosion resistant steel</p><Link href="/products/ars-crs-550d" className="focus-ring mt-3 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[13px] font-bold text-brand-blue">Explore ARS CRS 550D <ArrowRight size={14} /></Link></div></div></div>
       </MotionSection>
 
       <MotionSection className="bg-white py-20 md:py-24">

@@ -29,14 +29,15 @@ export const metadata = createPageMetadata({
 });
 
 const trustItems = [
-  { value: "Fe550D", label: "Grade" },
+  { value: "Fe 550D", label: "Grade" },
   { value: "IS 1786", label: "Standard" },
   { value: "560 Min.", label: "Yield Strength" },
   { value: "16 Min.", label: "Elongation" },
 ];
 
 const technicalOverview = [
-  { label: "Grade", value: "Fe550D CRS TMT Reinforcement Bars • IS 1786 Compliant" },
+  { label: "Grade", value: "Fe 550D CRS TMT Reinforcement Bars • IS 1786 Compliant" },
+  { label: "Available Sizes", value: "8 mm • 10 mm • 12 mm • 16 mm • 20 mm • 25 mm • 32 mm" },
   { label: "Applications", value: "Coastal • High Salinity • Industrial • Infrastructure • RCC Construction" },
   { label: "Key Properties", value: "Corrosion Resistance • High Strength • High Ductility • Superior Bendability" },
   { label: "Manufacturing", value: "Thermo-Mechanically Treated (TMT) • CRS Technology • Controlled Alloy Composition" },
@@ -69,7 +70,7 @@ const chemicalProperties = [
   ["CRE (Cr+Cu+P+Mo+Ni)", "%", "0.45 Min."],
 ];
 
-const certificationBadges = ["BIS Certified", "SGS Tested", "SERC Certified", "IS 1786 Compliant", "Quality Assured"];
+const certificationBadges = ["BIS Certified", "Green Steel Certified", "TN PWD Approved", "SGBC Leader (4-Star)", "GRIHA", "EPD Verified"];
 
 const faqs = [
   ["What is ARS CRS 550D TMT Bar?", "ARS CRS 550D is a corrosion resistant Fe550D grade TMT reinforcement bar manufactured in accordance with IS 1786 standards. It is designed to provide enhanced corrosion resistance, high strength, and superior ductility for reinforced concrete construction."],
@@ -126,8 +127,8 @@ export default function ArsCrs550DPage() {
         </div>
         <div className="ars-container relative z-10 w-full pb-14 md:pb-16">
           <div className="max-w-3xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5"><ShieldCheck size={12} className="text-white/60" /><span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS CRS 550D TMT Bars | Corrosion Resistant Fe550D Reinforcement Steel</span></div>
-            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">Corrosion Resistant Fe550D TMT Bars for Long-Lasting Structures</h1>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5"><ShieldCheck size={12} className="text-white/60" /><span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS CRS 550D TMT Bars | Corrosion Resistant Fe 550D Reinforcement Steel</span></div>
+            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">Corrosion Resistant Fe 550D TMT Bars for Long-Lasting Structures</h1>
             <p className="mt-5 max-w-2xl text-[15px] leading-[1.75] text-white/75">Engineered for high-salinity, humid, and demanding environments, ARS CRS 550D combines superior corrosion resistance with high strength and ductility for durable reinforced concrete construction.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"><FileText size={14} /> Request a Quote</Link>

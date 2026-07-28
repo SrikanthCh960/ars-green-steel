@@ -172,7 +172,7 @@ export default function ArsBindersPage() {
           <div className="max-w-4xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
               <span className="size-1.5 rounded-full bg-brand-red" aria-hidden="true" />
-              <span className="text-[11px] font-semibold tracking-[0.08em] text-white/75">NEW PRODUCT</span>
+              <span className="text-[11px] font-semibold tracking-[0.08em] text-white/75">ARS CONSTRUCTION BINDERS</span>
             </div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1.04] tracking-[-0.025em] text-white">
               Factory-Made TMT Binders for Faster, Smarter Construction
