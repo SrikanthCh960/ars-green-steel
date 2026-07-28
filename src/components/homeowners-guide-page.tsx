@@ -1694,7 +1694,7 @@ export function AudienceGuidePage({ slug }: { slug: AudienceGuideSlug }) {
   const isHomeownerGuide = slug === "tmt-steel-bar-guide-homeowners";
 
   return (
-    <main id="main-content" className="min-h-screen overflow-hidden bg-white text-ink-900">
+    <main id="main-content" className="min-h-screen overflow-x-clip bg-white text-ink-900">
       <SiteHeader />
 
       <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-[#060D1E] text-white">

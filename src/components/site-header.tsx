@@ -35,6 +35,7 @@ const routeLinks = [
   { label: "Solutions", href: "/industries", menu: "solutions" },
   { label: "Resources", href: "/blog", menu: "resources" },
   { label: "Press Media", href: "/press-media", menu: "pressMedia" },
+  { label: "Contact Us", href: "/contact", menu: "contact" },
 ];
 
 const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
