@@ -104,12 +104,12 @@ export default function GreenSteelPage() {
         className="ars-page-hero relative isolate min-h-[560px] overflow-hidden bg-[#060D1E] text-white md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]"
       >
         <Image
-          src="/ars-assets/original-green-steel/hero-banner.jpg"
+          src="/ars-assets/Sustainability/WhatisGreenSteel_Banner.jpg"
           alt=""
           fill
           priority
           sizes="100vw"
-          className="-z-20 object-cover object-center opacity-35 saturate-[0.45]"
+          className="-z-20 object-cover object-[58%_center]"
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(6,13,30,0.97)_0%,rgba(6,13,30,0.92)_43%,rgba(6,13,30,0.64)_100%)]" />
         <div className="steel-grid absolute inset-0 -z-10 opacity-40" />
