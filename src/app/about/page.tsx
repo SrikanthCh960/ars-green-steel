@@ -156,10 +156,10 @@ export default function AboutPage() {
           <div className="max-w-3xl">
             <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
               <span className="h-px w-10 bg-brand-red" aria-hidden="true" />
-              About ARS Group?
+              Since 1992
             </div>
             <h1 id="about-hero-title" className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[0.98] tracking-[-0.04em] text-white">
-              Building Stronger Foundations with Trusted Steel Since 1992
+              Building Stronger Foundations with <span className="text-brand-red">Trusted Steel</span>
             </h1>
             <p className="mt-7 max-w-xl text-base leading-7 text-white/72 md:text-lg md:leading-8">
               ARS group is one of India&apos;s leading manufacturers of BIS-certified Fe550D and CRS 550D TMT bars, delivering high-strength, corrosion-resistant, and sustainable steel solutions for residential, commercial, industrial, and infrastructure projects.

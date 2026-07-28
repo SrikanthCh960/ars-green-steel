@@ -147,12 +147,12 @@ export default function OurTeamPage() {
               <span className="text-xs font-semibold tracking-[0.06em] text-white/80">ARS Leadership</span>
             </div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
-              Leadership &amp;
+              The People Behind
               <br />
-              <span className="italic text-brand-red">core team.</span>
+              <span className="italic text-brand-red">the Real Strength.</span>
             </h1>
             <p className="mt-5 max-w-[460px] text-[15px] leading-[1.75] text-white/70">
-              Meet the leadership and core team of ARS Group.
+              Behind ARS Green Steel is a team of experienced leaders driving innovation, manufacturing excellence, quality, sustainability, and customer trust. Together, they are shaping the future of India&apos;s steel industry.
             </p>
           </div>
         </div>
@@ -164,12 +164,10 @@ export default function OurTeamPage() {
           <div className="mb-14 grid items-end gap-12 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Executive Leadership</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                Managing Director and Executive Director.
-              </h2>
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Leadership that shapes ARS.</h2>
             </div>
             <p className="text-[15px] leading-[1.8] text-steel-700">
-              ARS Group&apos;s executive leadership is presented first, followed by the wider team.
+              Experienced leadership guides the quality, innovation, and responsible manufacturing behind every ARS product.
             </p>
           </div>
           <div className="grid gap-10 lg:gap-14">

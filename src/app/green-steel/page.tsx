@@ -248,6 +248,13 @@ export default function GreenSteelPage() {
           <p className="mt-5 text-base leading-8 text-steel-700">
             Green steel is increasingly supported by environmental declarations and green building frameworks that help measure and recognise responsible manufacturing practices.
           </p>
+          <div className="mt-8 flex flex-wrap gap-3" aria-label="ARS Green Steel certifications">
+            {["BIS", "Green Steel Certified", "TN PWD Approved", "SGBC Leader (4-Star)", "GRIHA", "EPD Verified"].map((item) => (
+              <span key={item} className="inline-flex min-h-11 items-center border border-green-steel/25 bg-white px-4 text-sm font-bold text-ink-900">
+                <span aria-hidden="true" className="mr-2 text-green-steel">✓</span>{item}
+              </span>
+            ))}
+          </div>
         </div>
       </MotionSection>
 
