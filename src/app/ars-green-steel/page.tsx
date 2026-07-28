@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Fragment } from "react";
 import {
   ArrowRight,
   BadgeCheck,
@@ -34,6 +35,13 @@ const conceptPoints = [
   "98% recycled steel as primary input",
   "Independently verified emissions data (EPD)",
   "Fe-550D strength, IS 1786:2008 tested — no trade-off on performance",
+];
+
+const greenSteelFormula = [
+  { title: "Recycled Steel", body: "Circular material input", image: "/ars-assets/Sustainability/ARSGreenSteel/recycle.jpg" },
+  { title: "Renewable Energy", body: "Cleaner energy integration", image: "/ars-assets/Sustainability/ARSGreenSteel/renerwed.jpg" },
+  { title: "Lower-Emission Manufacturing", body: "Efficient steelmaking practices", image: "/ars-assets/Sustainability/ARSGreenSteel/foil.jpg" },
+  { title: "ARS Green Steel", body: "Strength with lower impact", image: "/ars-assets/Sustainability/ARSGreenSteel/greensteel.jpg" },
 ];
 
 const proofItems = [
@@ -194,14 +202,14 @@ export default function ArsGreenSteelPage() {
       </MotionSection>
 
       <MotionSection className="bg-white py-16 lg:py-20">
-        <div className="ars-container grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
-          <div className="mx-auto max-w-sm overflow-hidden bg-brand-blue">
-            <Image src="/ars-assets/Sustainability/ARSGreenSteel_leaves.jpg" alt="Industrial manufacturing viewed through a green landscape" width={1080} height={1080} sizes="(min-width: 1024px) 32vw, 100vw" className="aspect-square h-auto w-full object-cover" />
+        <div className="ars-container grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-stretch">
+          <div className="relative min-h-[360px] overflow-hidden bg-brand-blue lg:min-h-0">
+            <Image src="/ars-assets/Sustainability/ARSGreenSteel_leaves.jpg" alt="Industrial manufacturing viewed through a green landscape" fill sizes="(min-width: 1024px) 32vw, 100vw" className="object-cover" />
           </div>
           <div>
             <SectionKicker variant="brand">Green Steel taxonomy</SectionKicker>
             <h2 className="section-title max-w-2xl">A clear framework for lower-emission steel.</h2>
-            <Image src="/ars-assets/original-green-steel/green-steel-taxonomy.png" alt="Green Steel taxonomy rating framework" width={956} height={524} className="mt-8 h-auto w-full rounded-[20px] border border-brand-blue/10 bg-surface-50" />
+            <Image src="/ars-assets/Sustainability/ARSGreenSteel/Graph.jpg" alt="Green Steel emission-intensity rating framework" width={1920} height={1080} sizes="(min-width: 1024px) 65vw, 100vw" className="mt-8 h-auto w-full rounded-[20px] border border-brand-blue/10 bg-white" />
           </div>
         </div>
       </MotionSection>
@@ -211,7 +219,7 @@ export default function ArsGreenSteelPage() {
       </MotionSection>
 
       <MotionSection className="bg-white py-20 lg:py-24">
-        <div className="ars-container"><SectionKicker variant="brand">Environmental impact</SectionKicker><h2 className="section-title max-w-3xl">The Impact Behind Every Tonne</h2><p className="mt-5 max-w-4xl text-base leading-8 text-steel-700">Every tonne of ARS Green Steel contributes to measurable environmental impact. Backed by EPD-verified data, these numbers demonstrate how responsible manufacturing translates into meaningful carbon reduction at scale.</p><div className="mt-10 grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:items-center"><div className="grid gap-4 sm:grid-cols-2">{impactItems.map(([value, title, description]) => <article key={title} className="border border-green-steel/20 bg-surface-50 p-6"><strong className="font-display text-3xl text-green-steel">{value}</strong><h3 className="mt-4 font-display text-lg font-bold text-ink-900">{title}</h3><p className="mt-2 text-sm leading-6 text-steel-600">{description}</p></article>)}</div><Image src="/ars-assets/Sustainability/ARSGreenSteel_infography.jpg" alt="ARS Green Steel environmental impact metrics" width={1920} height={1080} sizes="(min-width: 1024px) 55vw, 100vw" className="h-auto w-full" /></div><div className="relative mt-10 overflow-hidden rounded-[24px] bg-ink-950"><Image src="/ars-assets/Sustainability/ARSGreenSteel_WhyitMatters.jpg" alt="ARS CRS 550D rebar connected to a greener future" width={1080} height={1080} sizes="100vw" className="h-[360px] w-full object-cover opacity-70" /><div className="absolute inset-0 bg-gradient-to-r from-ink-950/90 via-ink-950/40 to-transparent" /><div className="absolute bottom-8 left-8 max-w-md text-white"><SectionKicker variant="light">Our sustainability journey</SectionKicker><h3 className="mt-4 font-display text-3xl font-bold">Driving Continuous Carbon Reduction</h3></div></div></div>
+        <div className="ars-container"><SectionKicker variant="brand">Environmental impact</SectionKicker><h2 className="section-title max-w-3xl">The Impact Behind Every Tonne</h2><p className="mt-5 max-w-4xl text-base leading-8 text-steel-700">Every tonne of ARS Green Steel contributes to measurable environmental impact. Backed by EPD-verified data, these numbers demonstrate how responsible manufacturing translates into meaningful carbon reduction at scale.</p><div className="mt-10 grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:items-stretch"><div className="grid gap-4 sm:grid-cols-2">{impactItems.map(([value, title, description]) => <article key={title} className="border border-green-steel/20 bg-surface-50 p-6"><strong className="font-display text-3xl text-green-steel">{value}</strong><h3 className="mt-4 font-display text-lg font-bold text-ink-900">{title}</h3><p className="mt-2 text-sm leading-6 text-steel-600">{description}</p></article>)}</div><div className="relative min-h-[360px] overflow-hidden"><Image src="/ars-assets/Sustainability/ARSGreenSteel_infography.jpg" alt="ARS Green Steel environmental impact metrics" fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover" /></div></div><div className="relative mt-10 overflow-hidden rounded-[24px] bg-ink-950"><Image src="/ars-assets/Sustainability/ARSGreenSteel_WhyitMatters.jpg" alt="ARS CRS 550D rebar connected to a greener future" width={1080} height={1080} sizes="100vw" className="h-[360px] w-full object-cover opacity-70" /><div className="absolute inset-0 bg-gradient-to-r from-ink-950/90 via-ink-950/40 to-transparent" /><div className="absolute bottom-8 left-8 max-w-md text-white"><SectionKicker variant="light">Our sustainability journey</SectionKicker><h3 className="mt-4 font-display text-3xl font-bold">Driving Continuous Carbon Reduction</h3></div></div></div>
       </MotionSection>
 
       <MotionSection className="bg-brand-blue py-20 text-white lg:py-24">
@@ -220,7 +228,7 @@ export default function ArsGreenSteelPage() {
 
       <MotionSection className="bg-white py-14 lg:py-16">
         <div className="ars-container">
-          <Image src="/ars-assets/original-green-steel/greener-future-banner.png" alt="Choose ARS Steel for a greener future" width={1024} height={384} className="h-auto w-full rounded-[24px]" />
+          <SectionKicker variant="brand">The Green Steel formula</SectionKicker><h2 className="section-title max-w-3xl">Responsible inputs. Stronger outcomes.</h2><div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] xl:items-stretch">{greenSteelFormula.map((item,index)=><Fragment key={item.title}><article className={`group relative min-h-[300px] overflow-hidden bg-ink-950 ${index===3?"ring-2 ring-green-steel":""}`}><Image src={item.image} alt={item.title} fill sizes="(min-width:1280px) 25vw, (min-width:768px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105"/><div className="absolute inset-0 bg-gradient-to-t from-ink-950/95 via-ink-950/20 to-transparent"/><div className="absolute inset-x-6 bottom-6 text-white"><p className="text-xs font-bold uppercase tracking-[0.14em] text-green-steel">0{index+1}</p><h3 className="mt-2 font-display text-2xl font-bold">{item.title}</h3><p className="mt-2 text-sm text-white/75">{item.body}</p></div></article>{index<3?<span aria-hidden="true" className="hidden self-center font-display text-4xl font-bold text-green-steel xl:block">{index===2?"=":"+"}</span>:null}</Fragment>)}</div>
         </div>
       </MotionSection>
 
