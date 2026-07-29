@@ -29,6 +29,7 @@ const staticRoutes = [
   "/request-quote",
   "/sgbc",
   "/services",
+  "/steel-testing",
   "/steel-price-today",
   "/tmt-calculator",
   "/terms-of-use",

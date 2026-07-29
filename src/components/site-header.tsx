@@ -64,6 +64,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
       { label: "ARS 550D TMT Bar", href: "/products/ars-550d" },
       { label: "ARS CRS 550D", href: "/products/ars-crs-550d" },
       { label: "ARS Binders", href: "/products/ars-binders" },
+      { label: "Steel Testing", href: "/steel-testing" },
       { label: "Product Comparison", href: "/products#comparison" },
       { label: "Technical Specifications", href: "/products/ars-550d" },
       { label: "Download Product Brochure", href: "/download-product-brochure" },
@@ -169,7 +170,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
 
 const menuPaths: Record<MenuKey, string[]> = {
   about: ["/about", "/vision-mission", "/our-team", "/manufacturing", "/our-quality", "/certifications"],
-  products: ["/products"],
+  products: ["/products", "/steel-testing"],
   solutions: [
     "/industries",
     "/projects",
