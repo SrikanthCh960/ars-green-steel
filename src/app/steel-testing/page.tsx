@@ -104,7 +104,12 @@ export default function SteelTestingPage() {
       </MotionSection>
 
       <MotionSection className="bg-white py-20 md:py-24">
-        <div className="ars-container grid gap-12 lg:grid-cols-[0.94fr_1.06fr] lg:items-center lg:gap-16">
+        <div className="ars-container grid gap-12 lg:grid-cols-[0.4fr_0.94fr] lg:items-center lg:gap-16">
+          <div className="w-full max-w-[420px] justify-self-center overflow-hidden rounded-[8px] bg-ink-950 shadow-[0_20px_55px_rgba(15,23,42,0.16)] lg:justify-self-start">
+            <video className="aspect-square w-full object-cover" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+              <source src="/ars-assets/products/SteelTesting/Steeltesting-video.mp4" type="video/mp4" />
+            </video>
+          </div>
           <div>
             <SectionKicker variant="brand">SPECTROMETER TESTING VIDEOS</SectionKicker>
             <h2 className="font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">ARS 550D TMT Bars Certified by SGS</h2>
@@ -113,12 +118,6 @@ export default function SteelTestingPage() {
               <Link href="/products/ars-550d" className="focus-ring inline-flex min-h-11 items-center gap-2 text-[14px] font-bold text-brand-blue">Explore ARS 550D TMT Bars <ArrowRight aria-hidden="true" size={16} /></Link>
               <Link href="/certifications" className="focus-ring inline-flex min-h-11 items-center gap-2 text-[14px] font-bold text-brand-blue">View Certifications <ArrowRight aria-hidden="true" size={16} /></Link>
             </div>
-          </div>
-          <div className="overflow-hidden rounded-[8px] bg-ink-950 shadow-[0_20px_55px_rgba(15,23,42,0.16)]">
-            <video className="aspect-video w-full" controls preload="metadata" aria-label="ARS 550D TMT Bars certified by SGS video">
-              <source src="/ars-assets/products/SteelTesting/Steeltesting-video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
           </div>
         </div>
       </MotionSection>
