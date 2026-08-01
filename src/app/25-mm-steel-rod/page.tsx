@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BadgeCheck, Calculator, CircleGauge, ExternalLink, FileText, Ruler, ShieldCheck } from "lucide-react";
+import { BadgeCheck, Calculator, CircleGauge, FileText, Ruler, ShieldCheck } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
+import { SteelTestingProof } from "@/components/steel-testing-proof";
 import { createPageMetadata, productionDomain } from "@/lib/site-metadata";
 
-const heroImage = "/ars-assets/Sizes/25mm-banner.png";
+const heroImage = "/ars-assets/Sizes/25mm_Banner.jpg";
 const detailImage = "/ars-assets/Sizes/25mm-detail.png";
 
 const faqs = [
@@ -16,12 +17,6 @@ const faqs = [
   ["How does the 25mm steel bar enhance resilience of bridges and industrial facilities?", "The 25mm round bar weight improves the resilience of bridges and industrial facilities by providing exceptional resistance to dynamic loads, environmental factors, and potential seismic activity. Their high tensile strength ensures that these critical infrastructures can withstand harsh conditions and maintain their stability over time."],
   ["What unique features make 25mm steel bars suitable for foundational structures?", "Substantial diameter and the optimal 25mm steel bar weight provide unmatched load-bearing capacity, making them ideal for foundational structures such as heavy-duty columns and beams. Their superior ductility and strength ensure that the foundation can support the entire structure's weight and maintain stability under various stresses."],
   ["What are the key benefits of using ARS 25mm TMT bars in construction projects?", "ARS 25mm TMT bars offer several key benefits, including exceptional strength, high tensile capacity, and superior durability. They are designed to handle the most demanding construction challenges, ensuring that your projects are built to last with maximum support and stability. These bars provide a reliable foundation for large-scale constructions, enhancing safety and longevity."],
-] as const;
-
-const tests = [
-  ["Bend & Rebend Test", "The bend and rebend tests assess the flexibility and ductility of TMT bars by bending them to a specific angle and then straightening them, confirming their ability to withstand physical stress without cracking.", "https://www.youtube.com/watch?v=QWosJqMNhso"],
-  ["Martensite & Ring Test", "This test evaluates hardness and the microstructural composition of TMT bars, particularly the formation of martensite, which is crucial for determining the strength and wear resistance of the steel.", "https://www.youtube.com/watch?v=im0GZH82mEg"],
-  ["Tensile Test", "The tensile test measures the strength of TMT bars by applying tension until it breaks, determining the maximum load the material can handle and its elongation properties.", "https://www.youtube.com/watch?v=E325rYHCVl0"],
 ] as const;
 
 export const metadata = createPageMetadata({
@@ -72,7 +67,7 @@ export default function TwentyFiveMmSteelRodPage() {
 
     <MotionSection className="bg-surface-50 py-20 md:py-24"><div className="ars-container grid gap-12 lg:grid-cols-[1fr_.8fr]"><div><SectionKicker variant="brand">25 MM USE CASES</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.1] text-ink-900">Made for structures carrying significant loads.</h2><p className="mt-6 text-[15px] leading-[1.8] text-steel-700">ARS 25mm steel bars are engineered for large, high-load structures. They reinforce foundations and core elements in high-rise and commercial projects, support heavy columns and beams, and provide dependable strength for bridges, flyovers, industrial projects, retaining walls, and water-containment structures.</p></div><aside className="border-t-2 border-brand-blue bg-white p-7"><p className="font-technical text-[11px] font-bold uppercase tracking-[.14em] text-brand-blue">Common applications</p><ul className="mt-6 space-y-4">{["High-rise buildings and large commercial complexes", "Heavy-duty columns, beams, foundations, and core elements", "Bridges, flyovers, and industrial facilities", "Retaining walls and water-containment structures"].map(item => <li key={item} className="flex gap-3 text-[14px] leading-[1.6] text-steel-700"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-red" />{item}</li>)}</ul></aside></div></MotionSection>
 
-    <MotionSection className="bg-white py-20 md:py-24"><div className="ars-container"><SectionKicker variant="brand">TESTED FOR CONFIDENCE</SectionKicker><div className="mt-12 grid gap-px bg-surface-100 md:grid-cols-3">{tests.map(([title, body, href]) => <article key={title} className="bg-white p-7"><ShieldCheck size={21} className="text-brand-red" /><h3 className="mt-7 font-display text-[1.3rem] font-bold text-ink-900">{title}</h3><p className="mt-3 text-[13px] leading-[1.75] text-steel-700">{body}</p><a href={href} target="_blank" rel="noreferrer" className="focus-ring mt-6 inline-flex items-center gap-2 text-[13px] font-bold text-brand-blue">View test video <ExternalLink size={14} /></a></article>)}</div></div></MotionSection>
+    <SteelTestingProof />
 
     <MotionSection className="bg-surface-50 py-20 md:py-24"><div className="ars-container grid gap-10 lg:grid-cols-[.62fr_1.38fr]"><div><SectionKicker variant="brand">FAQS</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.1] text-ink-900">25mm steel bar questions, answered.</h2></div><div className="divide-y divide-ink-900/10 border-y border-ink-900/10">{faqs.map(([question, answer]) => <details key={question} className="group py-5"><summary className="focus-ring cursor-pointer list-none pr-8 text-[15px] font-bold text-ink-900">{question}<span className="float-right text-brand-red">+</span></summary><p className="pt-4 pr-8 text-[14px] leading-[1.75] text-steel-700">{answer}</p></details>)}</div></div></MotionSection>
 

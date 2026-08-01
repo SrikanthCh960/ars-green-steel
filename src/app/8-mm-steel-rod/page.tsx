@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, Calculator, CircleGauge, ExternalLink, FileText, Ruler, ShieldCheck } from "lucide-react";
+import { ArrowRight, BadgeCheck, Calculator, CircleGauge, FileText, Ruler, ShieldCheck } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
+import { SteelTestingProof } from "@/components/steel-testing-proof";
 import { createPageMetadata, productionDomain } from "@/lib/site-metadata";
 
 const pagePath = "/8-mm-steel-rod";
@@ -40,24 +41,6 @@ const benefits = [
   {
     title: "SGS Certified Assurance",
     body: "ARS Steels takes pride in the quality and reliability of our products, confirmed through our SGS certification. This globally recognised certification provides confidence that every rod supplied is rigorously tested for safety and excellence.",
-  },
-];
-
-const tests = [
-  {
-    title: "Bend & Rebend Test",
-    body: "The bend and rebend tests assess flexibility and ductility by bending the bar to a specified angle and then straightening it, confirming its ability to withstand physical stress without cracking.",
-    href: "https://www.youtube.com/watch?v=QWosJqMNhso",
-  },
-  {
-    title: "Martensite & Ring Test",
-    body: "This test evaluates hardness and microstructural composition, particularly the formation of martensite, which is important for assessing the strength and wear resistance of the steel.",
-    href: "https://www.youtube.com/watch?v=im0GZH82mEg",
-  },
-  {
-    title: "Tensile Test",
-    body: "The tensile test measures strength by applying tension until the bar breaks, determining maximum load capacity and elongation properties under tension.",
-    href: "https://www.youtube.com/watch?v=E325rYHCVl0",
   },
 ];
 
@@ -149,9 +132,7 @@ export default function EightMmSteelRodPage() {
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-white py-20 md:py-24">
-        <div className="ars-container"><SectionKicker variant="brand">TESTED FOR CONFIDENCE</SectionKicker><div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr]"><h2 className="font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">See the quality checks behind ARS steel.</h2><p className="text-[15px] leading-[1.8] text-steel-700">Review the tests that assess bendability, microstructure, strength, and elongation—key characteristics considered in reinforcement steel quality.</p></div><div className="mt-12 grid gap-px bg-surface-100 md:grid-cols-3">{tests.map((test) => <article key={test.title} className="bg-white p-7"><ShieldCheck size={21} className="text-brand-red" /><h3 className="mt-7 font-display text-[1.3rem] font-bold text-ink-900">{test.title}</h3><p className="mt-3 text-[13px] leading-[1.75] text-steel-700">{test.body}</p><a href={test.href} target="_blank" rel="noreferrer" className="focus-ring mt-6 inline-flex items-center gap-2 text-[13px] font-bold text-brand-blue">View test video <ExternalLink size={14} /></a></article>)}</div></div>
-      </MotionSection>
+      <SteelTestingProof />
 
       <MotionSection className="bg-surface-50 py-20 md:py-24" id="faqs">
         <div className="ars-container grid gap-10 lg:grid-cols-[0.62fr_1.38fr] lg:gap-16"><div><SectionKicker variant="brand">FAQS</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">8mm steel rod questions, answered.</h2></div><div className="divide-y divide-ink-900/10 border-y border-ink-900/10">{faqs.map(([question, answer]) => <details key={question} className="group py-5"><summary className="focus-ring cursor-pointer list-none pr-8 text-[15px] font-bold text-ink-900 marker:hidden">{question}<span aria-hidden="true" className="float-right text-brand-red transition group-open:rotate-45">+</span></summary><p className="pt-4 pr-8 text-[14px] leading-[1.75] text-steel-700">{answer}</p></details>)}</div></div>
