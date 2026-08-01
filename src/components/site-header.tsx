@@ -65,6 +65,12 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
       { label: "ARS CRS 550D", href: "/products/ars-crs-550d" },
       { label: "ARS Binders", href: "/products/ars-binders" },
       { label: "Steel Testing", href: "/steel-testing" },
+      { label: "8mm Steel Rod", href: "/8-mm-steel-rod" },
+      { label: "10mm Steel Rod", href: "/10-mm-steel-rod" },
+      { label: "12mm Steel Rod", href: "/12-mm-steel-rod" },
+      { label: "16mm Steel Rod", href: "/16-mm-steel-rod" },
+      { label: "20mm Steel Rod", href: "/20-mm-steel-rod" },
+      { label: "25mm Steel Rod", href: "/25-mm-steel-rod" },
       { label: "Product Comparison", href: "/products#comparison" },
       { label: "Technical Specifications", href: "/products/ars-550d" },
       { label: "Download Product Brochure", href: "/download-product-brochure" },
@@ -170,7 +176,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
 
 const menuPaths: Record<MenuKey, string[]> = {
   about: ["/about", "/vision-mission", "/our-team", "/manufacturing", "/our-quality", "/certifications"],
-  products: ["/products", "/steel-testing"],
+  products: ["/products", "/steel-testing", "/8-mm-steel-rod", "/10-mm-steel-rod", "/12-mm-steel-rod", "/16-mm-steel-rod", "/20-mm-steel-rod", "/25-mm-steel-rod"],
   solutions: [
     "/industries",
     "/projects",
