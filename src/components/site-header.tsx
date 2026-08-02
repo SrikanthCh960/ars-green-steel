@@ -261,7 +261,7 @@ export function SiteHeader() {
   return (
     <header
       ref={headerRef}
-      className="site-header sticky inset-x-0 top-0 z-50 bg-white text-ink-900"
+      className={`site-header inset-x-0 top-0 z-50 w-full bg-white text-ink-900 ${mobileOpen ? "fixed" : "sticky"}`}
       data-menu-open={openMenu ? "true" : "false"}
     >
       <div className="site-header-shell border-b border-ink-900/10 bg-white shadow-[0_8px_28px_rgba(13,43,110,0.08)]">
@@ -345,18 +345,21 @@ export function SiteHeader() {
           <Link className="focus-ring inline-flex h-11 items-center gap-2 rounded-full bg-brand-red px-5 text-sm font-bold text-white shadow-[0_12px_30px_rgba(222,18,26,0.24)] transition hover:bg-brand-red-dark" href="/request-quote">
             Get quote <ArrowRight size={16} />
           </Link>
-          <div className="xl:hidden">
+          <div className="relative z-[110] xl:hidden">
             <button
               type="button"
               className="focus-ring inline-flex size-11 cursor-pointer items-center justify-center rounded-full border border-ink-900/12 bg-white/60 text-ink-900"
               aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
               aria-expanded={mobileOpen}
               aria-controls={mobileMenuId}
-              onClick={() => setMobileOpen((current) => !current)}
+              onClick={() => {
+                setOpenMenu(null);
+                setMobileOpen((current) => !current);
+              }}
             >
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
-            {mobileOpen ? <div id={mobileMenuId} className="absolute left-0 right-0 top-full max-h-[calc(100vh-76px)] overflow-y-auto border-t border-ink-900/10 bg-white shadow-[0_24px_60px_rgba(15,23,42,0.16)]">
+            {mobileOpen ? <div id={mobileMenuId} className="fixed inset-x-0 top-[76px] z-[100] max-h-[calc(100dvh-76px)] overflow-y-auto border-t border-ink-900/10 bg-white shadow-[0_24px_60px_rgba(15,23,42,0.16)]">
               <div className="ars-container grid gap-5 py-5">
                 <div className="grid gap-3 sm:grid-cols-3">
                   {[
