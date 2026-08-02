@@ -37,17 +37,18 @@ After creating or materially changing a reusable component, update this file in 
 | `CardGrid` | `src/components/page-sections.tsx` | Reusable card grid for proof, product, service, and content cards | 2, 3, or 4 column modes | Multiple pages |
 | `ContentBand` | `src/components/page-sections.tsx` | Image/text editorial content band | Use for page proof sections | Multiple pages |
 | `ProofMetrics` | `src/components/page-sections.tsx` | Reusable metrics/proof row | Use for trust and capability proof | Multiple pages |
-| `DealerLocatorExperience` | `src/components/dealer-locator-experience.tsx` | Searchable dealer discovery experience powered by supplied ARS dealer data | City, state, pincode, dealer name, dealer code, and phone search; popular city shortcuts; load-more results; call and map actions | `/dealer-locator` |
+| `DealerLocatorExperience` | `src/components/dealer-locator-experience.tsx` | Searchable dealer discovery experience powered by supplied ARS dealer data | Search, state, city, and reset controls; popular city shortcuts; load-more results; call and map actions; dealer codes remain internal only | `/dealer-locator` |
 | `BlogArchive` | `src/components/blog-archive.tsx` | Native blog discovery experience with search, topic filters, article cards, and progressive loading | Client-side filtering over static repository content; no CMS dependency | `/blog` |
 | `CertificationDocumentPreview` | `src/components/certification-document-preview.tsx` | Accessible image enlargement for available certificate and approval scans | Native dialog, Escape/close handling, scroll-safe preview, and focus restoration; accepts `title` and `image` props | `/certifications` |
 | `EngineersArchitectsGuideContent` | `src/components/homeowners-guide-page.tsx` | Source-led technical guide content for the Engineers & Architects audience route | Page-specific composition with locked-copy cards, product comparison, semantic technical tables, certification cards, support pathway, and native FAQ disclosures | `/tmt-steel-bar-guide-engineers-architects` |
 | `DealerDistributorPage` | `src/components/dealer-distributor-page.tsx` | Source-led commercial partnership page for Dealers & Distributors | Nine locked-copy sections in source order, source-safe product links, native FAQ disclosures, and a shared contact CTA | `/steel-distributors-dealers` |
+| `LegalPage` | `src/components/legal-page.tsx` | Shared legal page shell for readable policy and terms content | Dark legal hero, sticky section index, long-form content column, support CTA, and related-policy link | `/privacy-policy`, `/terms-of-use` |
 
 ## Shared Data Sources
 
 | Data Source | File | Purpose | Current Usage | Verification Notes |
 |---|---|---|---|---|
-| `dealerRecords` | `src/data/dealers.ts` | Normalized ARS dealer list generated from the supplied dealer locator CSV | `/dealer-locator` | Dealer active status, phone numbers, and city/state spelling should be verified by ARS before final launch |
+| `dealerRecords` | `src/data/dealers.ts` | Normalized ARS dealer list generated from the updated region-wise dealer workbook | `/dealer-locator` | Dealer active status, phone numbers, and city/state spelling should be verified by ARS before final launch |
 | `getBlogArchiveArticles` | `src/lib/blog-content.ts` | Normalizes the 88 migrated ARS articles into typed archive records with category, excerpt, image, date, and read-time metadata | `/blog` | Dates and excerpts are derived from migrated source content and should receive editorial verification during article-template migration |
 
 ## New Component Checklist

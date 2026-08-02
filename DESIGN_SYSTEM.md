@@ -19,6 +19,14 @@ Primary principle:
 - ARS must feel premium, industrial, editorial, trustworthy, and conversion-focused.
 - The site must not feel like a SaaS dashboard, startup landing page, or generic template.
 
+## Current Responsive and Content Patterns
+
+- SiteHeader uses a sticky desktop header and a viewport-fixed mobile menu while open, with body scroll locking and 44px-plus touch targets.
+- DealerLocatorExperience uses Search, State, City, Reset controls; city options are derived from the selected state.
+- LegalPage is the shared pattern for policy pages: dark industrial hero, sticky section index, long-form content column, semantic headings, and related support actions.
+- Data-driven lists use unique stable keys, including when visible labels repeat.
+- Interior pages favor readable editorial widths, restrained surfaces, generous whitespace, and blue-primary actions with red as a controlled accent.
+
 ## Homepage Pattern Audit
 
 Homepage V1 establishes these reusable patterns:

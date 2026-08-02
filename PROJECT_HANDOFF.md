@@ -8,8 +8,10 @@ Read this file first when continuing the ARS content migration in a new chat.
 /Users/baburao/Documents/Codex/2026-05-30/hey-act-as-an-experienced-ui/ars-redesign
 ```
 
-- Branch: `homepage-figma-refresh`
-- Current committed checkpoint: `ec655698feaf0cf7dc09d52e378bc258e962da45`
+- Branch: `codex/metadata-seo`
+- Current committed checkpoint: `4d5c4fc`
+- Latest production deployment: `dpl_4AfuvJQX2BCCENKX5ds8HxHuEw5Q` — Ready
+- Production preview alias: https://ars-green-steel.vercel.app/
 - Latest commits:
   - `ec65569 Refresh Home Owners guide`
   - `9c22607 Add Embodied Carbon page`
@@ -27,6 +29,17 @@ Read this file first when continuing the ARS content migration in a new chat.
 - Preview/testing must remain `noindex, nofollow`.
 - Production indexing is enabled only when `NEXT_PUBLIC_SITE_URL=https://arsgroup.in` is available at build time in the Vercel Production environment.
 - Testing canonicals intentionally use the planned production domain while testing pages remain noindex.
+
+## Current Release Completion
+
+- Metadata registry and original URL parity structure are live.
+- Privacy Policy and Terms of Use use the shared LegalPage component and preserve approved legal copy.
+- Dealer locator uses the latest region-wise workbook with 1,566 unique records.
+- Public filter order is Search, States, Cities, Reset; city options depend on state selection.
+- Dealer codes remain internal identifiers and are not displayed in public cards.
+- Mobile navigation is viewport-anchored below the header while open.
+- Duplicate React keys were removed from repeated Green Steel impact content.
+- Release checks passed: TypeScript, npm run qa:routes, and npm run build.
 
 ## Completed work
 

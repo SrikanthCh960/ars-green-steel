@@ -10,25 +10,27 @@ This is the deployment source of truth for the ARS Green Steel redesign.
 - Vercel team/account: `baburaos-projects-1c568830`
 - Main branch: `main`
 - Active working branch for current redesign work: `homepage-figma-refresh`
+- Current release branch: `codex/metadata-seo`
 - Deployment method: GitHub push plus Vercel production deploy when a reviewed branch needs to go live immediately.
 
 ## Latest Production Deployment
 
 Latest confirmed live update:
 
-- Date: 2026-06-26
-- Commit: `d9b871c` - `Build dealer locator from ARS dealer data`
+- Date: 2026-08-02
+- Commit: `4d5c4fc` - `Refine legal pages and dealer locator`
 - Production URL: https://ars-green-steel.vercel.app/
-- Dealer locator URL: https://ars-green-steel.vercel.app/dealer-locator
-- Vercel deployment: `dpl_BuLCLbpBEAvGJV1NB8PJ8G9Zkgvt`
+- Dealer locator URL: https://ars-green-steel.vercel.app/our-network
+- Vercel deployment: `dpl_4AfuvJQX2BCCENKX5ds8HxHuEw5Q`
 - Status: `READY`
 
 What went live:
 
-- Dealer locator rebuilt using the supplied ARS dealer CSV.
-- Search by location, pincode, dealer code, dealer name, phone, city, and state.
+- Dealer locator updated from the supplied region-wise workbook with 1,566 unique records.
+- State selection filters the city options; dealer codes remain internal only.
 - Dealer cards include call and map direction actions.
-- Dealer intro cards were removed per client feedback.
+- Privacy Policy and Terms of Use use the shared legal-page system.
+- Mobile menu viewport positioning and duplicate React keys were fixed.
 
 ## Current Recommended Deployment Flow
 

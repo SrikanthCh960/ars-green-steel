@@ -108,6 +108,17 @@ These should be confirmed before final domain launch:
 - PDFs, brochures, certificates, and downloadable technical documents
 - Any unverifiable business claims or certification wording
 
+## Current Release Status — 2026-08-02
+
+- Release branch: codex/metadata-seo
+- Latest production commit: 4d5c4fc
+- Privacy Policy and Terms of Use now use the shared legal-page UI.
+- Dealer locator uses the updated region-wise workbook with 1,566 records.
+- State selection filters the available city options.
+- Dealer codes and the ARS dealer pill are not shown in public cards.
+- Mobile navigation remains visible below the header while the visitor is mid-page.
+- Repeated-content React key warnings were resolved.
+
 ## Documentation
 
 Read these before making larger changes:
@@ -119,4 +130,3 @@ Read these before making larger changes:
 - `TASKS.md`
 - `DEPLOYMENT.md`
 - `CLIENT_VERIFICATION_CHECKLIST.md`
-

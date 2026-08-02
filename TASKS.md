@@ -33,6 +33,17 @@ The execution order prioritizes:
 - `Medium`: Improves quality, scalability, or content depth
 - `Low`: Optional cleanup or future enhancement
 
+## Latest Release Status — 2026-08-02
+
+- Branch: codex/metadata-seo
+- Production commit: 4d5c4fc
+- Privacy Policy and Terms of Use redesigned with the shared legal-page experience.
+- Dealer locator updated from the region-wise workbook with 1,566 records.
+- State selection filters city options; dealer codes and the public dealer pill are removed.
+- Mobile menu remains visible below the viewport header while the visitor is mid-page.
+- Duplicate React keys in Green Steel impact cards were resolved.
+- TypeScript, route QA, and production build passed before release.
+
 ---
 
 ## Latest Implementation Status - 2026-06-28
