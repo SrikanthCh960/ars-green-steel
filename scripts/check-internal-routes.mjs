@@ -43,7 +43,7 @@ for (const page of legacy.pages) validRoutes.add(page.path);
 const hrefs = new Set();
 const assetReferences = new Set();
 const hrefRegex = /href=(?:\"([^\"]+)\"|'([^']+)'|\{\"([^\"]+)\"\})/g;
-const assetRegex = /["'`]((?:\/(?:ars-assets|legacy-assets|videos)\/)[^"'`\s)}]+)/g;
+const assetRegex = /["'`]((?:\/(?:ars-assets|legacy-assets|videos)\/)[^"'`)}]+)/g;
 
 for (const file of collectSourceFiles(path.join(root, "src"))) {
   const source = fs.readFileSync(file, "utf8");

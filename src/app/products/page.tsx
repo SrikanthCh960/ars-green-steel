@@ -65,13 +65,13 @@ const comparisonRows = [
 ] as const;
 
 const sizes = [
-  ["8 mm", "Ideal for stirrups, rings and light reinforcement."],
-  ["10 mm", "Suitable for slabs and small structural members."],
-  ["12 mm", "Recommended for slabs, beams and residential construction."],
-  ["16 mm", "Used in beams, columns and structural framing."],
-  ["20 mm", "Suitable for foundations and heavy RCC members."],
-  ["25 mm", "Preferred for industrial and infrastructure projects."],
-  ["32 mm", "Designed for heavy structural and infrastructure applications."],
+  ["8 mm", "Ideal for stirrups, rings and light reinforcement.", "/8-mm-steel-rod"],
+  ["10 mm", "Suitable for slabs and small structural members.", "/10-mm-steel-rod"],
+  ["12 mm", "Recommended for slabs, beams and residential construction.", "/12-mm-steel-rod"],
+  ["16 mm", "Used in beams, columns and structural framing.", "/16-mm-steel-rod"],
+  ["20 mm", "Suitable for foundations and heavy RCC members.", "/20-mm-steel-rod"],
+  ["25 mm", "Preferred for industrial and infrastructure projects.", "/25-mm-steel-rod"],
+  ["32 mm", "Designed for heavy structural and infrastructure applications.", "/32-mm-steel-rod"],
 ] as const;
 
 const faqs = [
@@ -130,7 +130,7 @@ export default function ProductsPage() {
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-white py-24" id="sizes"><div className="ars-container"><div className="mb-14 grid items-end gap-10 lg:grid-cols-2"><div><SectionKicker variant="brand">Bar sizes</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Available TMT Bar Sizes</h2></div><p className="text-[15px] leading-[1.8] text-steel-700">Choose the bar diameter that matches your structural design. ARS TMT Bars are available in multiple sizes for residential, commercial, industrial, and infrastructure construction.</p></div><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{sizes.map(([size, description]) => <div key={size} className="rounded-2xl border-[1.5px] border-surface-100 bg-surface-50 p-6"><div className="mb-6 flex h-11 w-11 items-center justify-center rounded-xl bg-white text-brand-blue ring-1 ring-ink-900/[0.06]"><Ruler aria-hidden="true" size={20} /></div><h3 className="font-display text-[2rem] font-extrabold tracking-[-0.02em] text-ink-900">{size}</h3><p className="mt-3 text-[13px] leading-[1.6] text-grey-600">{description}</p></div>)}</div></div></MotionSection>
+      <MotionSection className="bg-white py-24" id="sizes"><div className="ars-container"><div className="mb-14 grid items-end gap-10 lg:grid-cols-2"><div><SectionKicker variant="brand">Bar sizes</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Available TMT Bar Sizes</h2></div><p className="text-[15px] leading-[1.8] text-steel-700">Choose the bar diameter that matches your structural design. ARS TMT Bars are available in multiple sizes for residential, commercial, industrial, and infrastructure construction.</p></div><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{sizes.map(([size, description, href]) => <Link key={size} href={href} className="focus-ring group rounded-2xl border-[1.5px] border-surface-100 bg-surface-50 p-6 transition duration-200 hover:-translate-y-0.5 hover:border-brand-blue/30 hover:bg-white hover:shadow-lg"><div className="mb-6 flex h-11 w-11 items-center justify-center rounded-xl bg-white text-brand-blue ring-1 ring-ink-900/[0.06] transition group-hover:bg-brand-blue group-hover:text-white"><Ruler aria-hidden="true" size={20} /></div><h3 className="font-display text-[2rem] font-extrabold tracking-[-0.02em] text-ink-900">{size}</h3><p className="mt-3 text-[13px] leading-[1.6] text-grey-600">{description}</p><span className="mt-5 inline-flex items-center gap-2 text-[12px] font-bold uppercase tracking-[0.08em] text-brand-blue">View size details <ArrowRight aria-hidden="true" size={14} className="transition-transform group-hover:translate-x-1" /></span></Link>)}</div></div></MotionSection>
 
       <MotionSection className="bg-surface-50 py-24" id="faqs"><div className="ars-container max-w-4xl"><SectionKicker variant="brand">FAQs</SectionKicker><div className="mt-10 divide-y divide-ink-900/10 border-y border-ink-900/10">{faqs.map(([question, answer]) => <details key={question} className="group py-5"><summary className="focus-ring cursor-pointer list-none pr-12 font-display text-[18px] font-bold leading-[1.35] text-ink-900 marker:hidden">{question}<span aria-hidden="true" className="float-right -mr-12 text-brand-red transition group-open:rotate-45">+</span></summary><p className="mt-4 max-w-3xl text-[15px] leading-[1.8] text-steel-700">{answer}</p></details>)}</div></div></MotionSection>
 
