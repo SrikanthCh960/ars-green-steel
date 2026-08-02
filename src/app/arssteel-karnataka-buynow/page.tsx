@@ -54,7 +54,7 @@ const sections = [
       "Reduced corrosion of steel during and after construction increases the life of the structure.",
       "Increases the life of the structure by 3 times with optimal construction practices.",
     ],
-    image: "/ars-assets/CRS.png",
+    image: "/ars-assets/logos/ARSCRS550D.png",
     alt: "ARS corrosion-resistant steel product image",
   },
 ] as const;

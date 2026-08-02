@@ -38,7 +38,7 @@ const products = [
   {
     name: "ARS CRS 550D",
     href: "/products/ars-crs-550d",
-    image: "/ars-assets/CRS.png",
+    image: "/ars-assets/logos/ARSCRS550D.png",
     icon: Waves,
     description: "Corrosion Resistant Fe550D TMT Bars engineered for coastal, humid, industrial, and high-salinity environments.",
     points: [
@@ -118,7 +118,7 @@ export default function ProductsPage() {
         <div className="ars-container">
           <div className="mb-14 grid items-end gap-12 lg:grid-cols-2"><div><SectionKicker variant="brand">Core Products</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Compare ARS 550D &amp; ARS CRS 550D</h2></div><p className="text-[15px] leading-[1.8] text-steel-700">Choose the reinforcement steel that matches your project environment. Both grades comply with IS 1786 and deliver dependable structural performance, while ARS CRS 550D offers enhanced corrosion resistance for demanding conditions.</p></div>
           <div className="grid gap-6 md:grid-cols-2">
-            {products.map((product) => { const Icon = product.icon; return <Link key={product.name} href={product.href} className="focus-ring group overflow-hidden rounded-2xl border-[1.5px] border-surface-100 bg-white transition duration-200 hover:-translate-y-0.5 hover:shadow-lg"><div className="relative h-56 overflow-hidden bg-ink-950"><Image src={product.image} alt={`${product.name} TMT Bars`} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-105" /></div><div className="p-7"><div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/[0.06] text-brand-blue"><Icon aria-hidden="true" size={20} /></div><h3 className="font-display text-[22px] font-bold text-ink-900">{product.name}</h3><p className="mt-3 text-[14px] leading-[1.7] text-steel-700">{product.description}</p><ul className="mt-5 flex flex-col gap-2">{product.points.map((point) => <li key={point} className="flex items-start gap-2.5"><CheckCircle2 aria-hidden="true" size={15} className="mt-0.5 shrink-0 text-brand-red" /><span className="text-[13px] font-medium text-steel-700">{point}</span></li>)}</ul></div></Link> })}
+            {products.map((product) => { const Icon = product.icon; return <Link key={product.name} href={product.href} className="focus-ring group overflow-hidden rounded-2xl border-[1.5px] border-surface-100 bg-white transition duration-200 hover:-translate-y-0.5 hover:shadow-lg"><div className="relative h-56 overflow-hidden bg-surface-50 p-8"><Image src={product.image} alt={`${product.name} TMT Bars`} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain p-8 transition duration-500 group-hover:scale-105" /></div><div className="p-7"><div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/[0.06] text-brand-blue"><Icon aria-hidden="true" size={20} /></div><h3 className="font-display text-[22px] font-bold text-ink-900">{product.name}</h3><p className="mt-3 text-[14px] leading-[1.7] text-steel-700">{product.description}</p><ul className="mt-5 flex flex-col gap-2">{product.points.map((point) => <li key={point} className="flex items-start gap-2.5"><CheckCircle2 aria-hidden="true" size={15} className="mt-0.5 shrink-0 text-brand-red" /><span className="text-[13px] font-medium text-steel-700">{point}</span></li>)}</ul></div></Link> })}
           </div>
         </div>
       </MotionSection>

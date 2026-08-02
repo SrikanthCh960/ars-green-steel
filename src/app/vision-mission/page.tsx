@@ -55,32 +55,32 @@ const missionPillars = [
 
 const values = [
   {
-    number: "Value 01",
+    number: "01",
     title: "Quality Without Compromise",
     text: "Every ARS TMT bar is manufactured to meet rigorous quality standards, ensuring consistent strength, durability, and performance for every project.",
   },
   {
-    number: "Value 02",
+    number: "02",
     title: "Built Responsibly",
     text: "We embrace sustainable manufacturing practices that reduce environmental impact while contributing to a stronger and greener India.",
   },
   {
-    number: "Value 03",
+    number: "03",
     title: "Engineering Excellence",
     text: "We continuously improve our technology, processes, and expertise to deliver innovative steel solutions that meet the evolving needs of modern construction.",
   },
   {
-    number: "Value 04",
+    number: "04",
     title: "Trust in Every Partnership",
     text: "We build lasting relationships with customers, builders, engineers, contractors, and dealers through transparency, reliability, and dependable service.",
   },
   {
-    number: "Value 05",
+    number: "05",
     title: "Safety Comes First",
     text: "We believe strong infrastructure begins with safe manufacturing, responsible operations, and products that perform when it matters most.",
   },
   {
-    number: "Value 06",
+    number: "06",
     title: "Driven by Progress",
     text: "We invest in people, innovation, and continuous improvement to create long-term value for our customers, communities, and the future of India's infrastructure",
   },

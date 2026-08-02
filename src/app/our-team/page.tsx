@@ -18,13 +18,13 @@ const executiveLeadership = [
   {
     name: "Shri. Ashwani Kumar Bhatia",
     role: "Managing Director",
-    bio: "Shri Ashwani Kumar Bhatia, an Economics Honors Graduate, is the founder and managing director of ARS Group of Companies. Ltd. He has 39 years of experience in the steel and trade industry. Mr. Ashwani started his career in 1978, with the trading of MS scrap in New Delhi. He started ARS Steels Pvt. Ltd. in 1990, with the vision of manufacturing MS Ingots.",
+    bio: "Shri Ashwani Kumar Bhatia, an Economics Honours graduate, is the Founder and Managing Director of ARS Group of Companies and the visionary behind ARS Steels Pvt. Ltd. With over 39 years of distinguished experience in the steel and trade industry, he began his entrepreneurial journey in 1978 through the trading of MS scrap in New Delhi before establishing ARS Steels in 1990 with a vision to manufacture high-quality MS Ingots. As the principal promoter and strategic leader of the company, he continues to steer its growth with an unwavering commitment to manufacturing excellence, innovation, operational integrity, and customer trust, laying the foundation for ARS to become one of South India's leading manufacturers of premium TMT steel bars.",
     photo: "/ars-assets/leadership/ashwani-kumar-bhatia.png",
   },
   {
     name: "Shri. Rajesh Bhatia",
     role: "Executive Director",
-    bio: "Shri Rajesh Bhatia joined ARS Steels in his last year of Bachelor’s as a part-time trainee and is now completely involved in leading the business towards new avenues. Mr. Rajesh did his Bachelors in Business Administration at BVIMR, New Delhi, and has a Stock Analysis and Portfolio Management diploma at BLB Institute of Financial Management.",
+    bio: "Shri Rajesh Bhatia, Executive Director of ARS Steels & Alloy International Pvt. Ltd., began his journey with the company as a part-time trainee during the final year of his Bachelor's in Business Administration from BVIMR, New Delhi. Complementing his academic foundation with a Diploma in Stock Analysis and Portfolio Management from the BLB Institute of Financial Management, he has played an instrumental role in driving the company's strategic growth and expanding its presence into new business avenues. Combining a progressive outlook with a strong understanding of the steel manufacturing industry, he continues to lead initiatives focused on innovation, operational excellence, sustainable growth, and delivering long-term value to customers and stakeholders.",
     photo: "/ars-assets/leadership/rajesh-bhatia.png",
   },
 ] as const;
@@ -149,7 +149,7 @@ export default function OurTeamPage() {
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
               The People Behind
               <br />
-              <span className="italic text-brand-red">the Real Strength.</span>
+              <span className="italic text-brand-red">the Real Strength</span>
             </h1>
             <p className="mt-5 max-w-[460px] text-[15px] leading-[1.75] text-white/70">
               Behind ARS Green Steel is a team of experienced leaders driving innovation, manufacturing excellence, quality, sustainability, and customer trust. Together, they are shaping the future of India&apos;s steel industry.
@@ -164,10 +164,10 @@ export default function OurTeamPage() {
           <div className="mb-14 grid items-end gap-12 lg:grid-cols-2">
             <div>
               <SectionKicker variant="brand">Executive Leadership</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Leadership that shapes ARS.</h2>
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Leadership with purpose, integrity, and a relentless pursuit of excellence.</h2>
             </div>
             <p className="text-[15px] leading-[1.8] text-steel-700">
-              Experienced leadership guides the quality, innovation, and responsible manufacturing behind every ARS product.
+              At the heart of ARS is a leadership team driven by purpose, integrity, and a relentless pursuit of excellence. The Managing Director and Executive Director provide the strategic direction that continues to strengthen ARS&apos;s legacy of manufacturing high-quality steel while embracing innovation and sustainable growth.
             </p>
           </div>
           <div className="grid gap-10 lg:gap-14">

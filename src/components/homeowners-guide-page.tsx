@@ -401,7 +401,7 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
         body: "Use CRS for coastal, humid, exposed, and long-life construction conditions.",
         href: "/products/ars-crs-550d",
         icon: Waves,
-        image: "/ars-assets/CRS.png",
+        image: "/ars-assets/logos/ARSCRS550D.png",
       },
       {
         title: "Quality certifications",
@@ -635,7 +635,7 @@ const contractorBuyingPanels = [
 
 const contractorProducts = [
   ["ARS Fe550D TMT Bars", "Ideal for general residential, commercial, and infrastructure construction where high strength, excellent ductility, and reliable performance are essential. A trusted choice for everyday construction projects.", "Explore ARS 550D", "/products/ars-550d", "/ars-assets/TMT-Bars.png"],
-  ["ARS CRS 550D TMT Bars", "Designed for projects exposed to high moisture, high salinity, and corrosive environments. Its enhanced corrosion resistance helps improve the durability and service life of structures, making it suitable for demanding conditions.", "Explore ARS CRS 550D", "/products/ars-crs-550d", "/ars-assets/CRS.png"],
+  ["ARS CRS 550D TMT Bars", "Designed for projects exposed to high moisture, high salinity, and corrosive environments. Its enhanced corrosion resistance helps improve the durability and service life of structures, making it suitable for demanding conditions.", "Explore ARS CRS 550D", "/products/ars-crs-550d", "/ars-assets/logos/ARSCRS550D.png"],
   ["ARS Binders", "Factory-made steel binders designed for consistent dimensions, accurate bends, and faster reinforcement work on site. Manufactured with precision to help improve productivity, reduce manual bending time, and deliver uniform quality across construction projects.", "Explore ARS Binders", "/products/ars-binders", "/ars-assets/placeholders/binders-factory-placeholder.png"],
 ] as const;
 
@@ -810,7 +810,7 @@ function ProductPathStrip() {
       title: "ARS CRS 550D",
       label: "Corrosion resistant",
       body: "CRS steel for coastal, humid, exposed, and durability-focused construction conditions.",
-      image: "/ars-assets/CRS.png",
+      image: "/ars-assets/logos/ARSCRS550D.png",
       href: "/products/ars-crs-550d",
     },
   ];
@@ -881,7 +881,7 @@ function HomeownerProductRange() {
       title: "ARS CRS 550D",
       subtitle: "Corrosion Resistant TMT Bar",
       grade: "CRS 550D",
-      image: "/ars-assets/CRS.png",
+      image: "/ars-assets/logos/ARSCRS550D.png",
       href: "/products/ars-crs-550d",
       tags: ["Corrosion resistance", "Exposed conditions"],
     },
@@ -1451,7 +1451,7 @@ function HomeownerFigmaContent() {
   ];
   const products = [
     { title: "ARS 550D", heading: "ARS 550D TMT Bars", body: "Ideal for residential buildings constructed under normal environmental conditions.", recommended: ["Independent homes", "Villas", "Apartments", "Residential extensions", "General RCC construction"], highlights: ["High strength", "Excellent ductility", "Earthquake-resistant performance", "BIS-certified quality"], href: "/products/ars-550d", cta: "Explore ARS 550D", image: "/ars-assets/TMT-Bars.png" },
-    { title: "ARS CRS 550D", heading: "ARS CRS 550D TMT Bars", body: "Designed for structures exposed to higher moisture, coastal weather, and high-salinity environments where corrosion resistance becomes critical.", recommended: ["Coastal homes", "High-humidity regions", "Water-facing properties", "Long-life residential structures"], highlights: ["Superior corrosion resistance", "High ductility", "Reliable structural performance", "BIS-certified manufacturing"], href: "/products/ars-crs-550d", cta: "Explore ARS CRS 550D", image: "/ars-assets/CRS.png" },
+    { title: "ARS CRS 550D", heading: "ARS CRS 550D TMT Bars", body: "Designed for structures exposed to higher moisture, coastal weather, and high-salinity environments where corrosion resistance becomes critical.", recommended: ["Coastal homes", "High-humidity regions", "Water-facing properties", "Long-life residential structures"], highlights: ["Superior corrosion resistance", "High ductility", "Reliable structural performance", "BIS-certified manufacturing"], href: "/products/ars-crs-550d", cta: "Explore ARS CRS 550D", image: "/ars-assets/logos/ARSCRS550D.png" },
   ] as const;
   const trustCards = [
     { title: "35+ Years of Manufacturing Excellence", icon: Factory, body: "For more than three decades, ARS has been manufacturing high-quality TMT bars trusted across residential, commercial, and infrastructure projects, delivering consistent quality with every bar produced." },

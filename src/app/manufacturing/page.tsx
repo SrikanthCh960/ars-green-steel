@@ -1,4 +1,4 @@
-import { ArrowRight, Factory } from "lucide-react";
+import { ArrowRight, BadgeCheck, Factory, Leaf, Recycle, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { SectionKicker } from "@/components/section-kicker";
@@ -54,33 +54,63 @@ const processStages = [
 
 const responsibleManufacturing = [
   {
+    icon: Leaf,
     title: "Lower Carbon Production",
     text: "Our manufacturing process is designed to reduce carbon emissions by adopting cleaner steelmaking practices and improving energy efficiency across production.",
   },
   {
+    icon: Recycle,
     title: "Responsible Use of Resources",
     text: "Recycled steel and efficient resource management help reduce the demand for virgin raw materials while supporting more sustainable manufacturing.",
   },
   {
+    icon: Zap,
     title: "Energy-Efficient Operations",
     text: "Every improvement in energy efficiency contributes to lowering the environmental impact of steel manufacturing without affecting production performance.",
   },
   {
+    icon: BadgeCheck,
     title: "Certified Green Steel",
     text: "Our environmental performance is supported by internationally recognised certifications, including EPD, GreenPro, and SGBC Leader-rated Green Product certification.",
   },
 ];
 
-const certifications = [
-  "BIS Certification",
-  "ISO 9001:2015",
-  "ISO 14001:2015",
-  "EPD",
-  "GreenPro",
-  "SGBC Leader Rated Green Product (4-Ticks)",
-  "GRIHA Listed",
-  "NISST Green Steel Taxonomy Certificate",
-];
+const certificationCards = [
+  {
+    label: "BIS Certification",
+    detail: "Manufactured to the Indian quality standard for TMT steel bars.",
+    image: "/ars-assets/awards-certificates-img3.png",
+  },
+  {
+    label: "EPD Verified",
+    detail: "Environmental performance documented through an independently verified declaration.",
+    image: "/ars-assets/awards-certificates-img2.png",
+  },
+  {
+    label: "ISO 9001:2015",
+    detail: "Quality management systems that support consistent manufacturing and continuous improvement.",
+  },
+  {
+    label: "ISO 14001:2015",
+    detail: "Environmental management practices integrated into responsible production.",
+  },
+  {
+    label: "GreenPro",
+    detail: "Recognised green product certification for sustainable construction materials.",
+  },
+  {
+    label: "SGBC Leader Rated Green Product",
+    detail: "Four-tick recognition for responsible and sustainable steel manufacturing.",
+  },
+  {
+    label: "GRIHA Listed",
+    detail: "Listed for use in sustainable building and green construction projects.",
+  },
+  {
+    label: "NISST Green Steel Taxonomy Certificate",
+    detail: "Recognised under India's Green Steel Taxonomy framework.",
+  },
+] as const;
 
 export default function ManufacturingPage() {
   return (
@@ -242,22 +272,29 @@ export default function ManufacturingPage() {
           </div>
 
           <div className="mt-14 grid gap-px overflow-hidden rounded-[20px] border border-white/15 bg-white/15 md:grid-cols-2">
-            {responsibleManufacturing.map((item, index) => (
+            {responsibleManufacturing.map((item) => {
+              const Icon = item.icon;
+
+              return (
               <article key={item.title} className="bg-brand-blue/90 p-6 md:p-8 lg:p-10">
-                <span className="font-technical text-xs font-black tracking-[0.18em] text-white/48">
-                  {String(index + 1).padStart(2, "0")}
+                <span className="inline-flex size-12 items-center justify-center rounded-full border border-white/20 bg-white/[0.08] text-brand-red" aria-hidden="true">
+                  <Icon size={22} strokeWidth={1.8} />
                 </span>
                 <h3 className="mt-6 font-display text-2xl font-bold leading-tight text-white">{item.title}</h3>
                 <p className="mt-4 text-base leading-8 text-white/70">{item.text}</p>
               </article>
-            ))}
+              );
+            })}
           </div>
 
+          <p className="mt-10 max-w-2xl text-lg font-bold leading-8 text-white md:text-xl">
+            Because stronger buildings deserve steel that&apos;s made responsibly.
+          </p>
           <Link
             href="/green-steel"
-            className="focus-ring mt-10 flex min-h-16 items-center justify-between gap-6 border-y border-white/18 py-5 text-lg font-bold text-white transition hover:border-white/32 md:text-xl"
+            className="focus-ring mt-6 inline-flex min-h-12 items-center gap-3 rounded-full bg-brand-red px-6 py-3.5 text-sm font-bold text-white transition hover:bg-brand-red-dark"
           >
-            <span>Because stronger buildings deserve steel that&apos;s made responsibly.</span>
+            <span>Explore responsible Green Steel</span>
             <ArrowRight aria-hidden="true" className="shrink-0" size={20} />
           </Link>
         </div>
@@ -277,30 +314,38 @@ export default function ManufacturingPage() {
             </p>
           </div>
 
-          <div className="relative mt-14 overflow-hidden rounded-[20px] border border-brand-blue/12 bg-surface-50">
-            <Link
-              href="/certifications"
-              aria-label="View certifications and awards"
-              className="focus-ring absolute right-5 top-5 z-10 inline-flex size-11 items-center justify-center rounded-full bg-brand-blue text-white shadow-[var(--shadow-soft)] transition hover:translate-x-1"
-            >
-              <ArrowRight aria-hidden="true" size={18} />
-            </Link>
-            <ul className="grid sm:grid-cols-2 lg:grid-cols-4">
-              {certifications.map((certification, index) => (
-                <li
-                  key={certification}
-                  className="flex min-h-32 items-start gap-4 border-b border-brand-blue/12 p-6 sm:border-r lg:min-h-36 lg:p-7"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="mt-1 font-technical text-xs font-black tracking-[0.16em] text-brand-red"
-                  >
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="font-display text-xl font-bold leading-snug text-ink-900">{certification}</span>
-                </li>
+          <div className="mt-14 grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {certificationCards.slice(0, 2).map((item) => (
+                <article key={item.label} className="group grid min-h-[290px] overflow-hidden rounded-[18px] border border-brand-blue/10 bg-white shadow-[var(--shadow-soft)] sm:grid-rows-[170px_1fr]">
+                  <div className="overflow-hidden bg-white p-5">
+                    {"image" in item ? <Image src={item.image} alt={`${item.label} ARS certification`} width={368} height={523} className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.03]" /> : null}
+                  </div>
+                  <div className="border-t border-brand-blue/8 bg-brand-blue p-5 text-white">
+                    <h3 className="font-display text-xl font-bold">{item.label}</h3>
+                    <p className="mt-2 text-sm leading-6 text-white/70">{item.detail}</p>
+                  </div>
+                </article>
               ))}
-            </ul>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {certificationCards.slice(2).map((item) => (
+                <article key={item.label} className="rounded-[16px] border border-brand-blue/10 bg-white p-6 shadow-[0_14px_42px_rgba(13,43,110,0.05)]">
+                  <span className="inline-flex size-11 items-center justify-center rounded-[10px] bg-[#edf5ff] text-brand-blue ring-1 ring-brand-blue/10">
+                    <BadgeCheck size={21} />
+                  </span>
+                  <h3 className="mt-7 font-display text-xl font-bold text-ink-900">{item.label}</h3>
+                  <p className="mt-2 text-sm leading-6 text-steel-700">{item.detail}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-10 flex justify-end">
+            <Link href="/certifications" className="focus-ring inline-flex min-h-12 items-center gap-3 rounded-full bg-brand-blue px-6 py-3.5 text-sm font-bold text-white transition hover:bg-brand-blue-dark">
+              View certifications and awards <ArrowRight aria-hidden="true" size={18} />
+            </Link>
           </div>
         </div>
       </section>

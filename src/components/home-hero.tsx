@@ -8,36 +8,28 @@ import { useEffect, useState } from "react";
 const heroSlides = [
   {
     word: "STRENGTH",
-    eyebrow: "550D TMT steel",
-    title: "Stronger bars. Safer structures.",
-    copy: "High-strength ductile TMT bars for residential, commercial, and infrastructure projects.",
-    proof: "550D grade · 8mm to 32mm range",
-    image: "/ars-assets/products-all.png",
+    titlePrefix: "Engineered for",
+    copy: "High-grade TMT steel designed to deliver superior load-bearing capacity and dependable structural performance.",
   },
   {
     word: "SAFETY",
-    eyebrow: "Tested quality",
-    title: "Quality checks before site decisions.",
-    copy: "Ductility, bendability, and testing support better decisions for engineers and site teams.",
-    proof: "Bend, rebend, tensile and quality checks",
-    image: "/ars-assets/our-quality-1.png",
+    titlePrefix: "Engineered for",
+    copy: "High ductility, excellent bendability, and superior weldability work together to help structures perform better under stress.",
   },
   {
-    word: "TRUST",
-    eyebrow: "Since 1992",
-    title: "Proof buyers can act on.",
-    copy: "Product proof, certification routes, dealer support, and quote guidance in one ARS journey.",
-    proof: "Certification, capacity and dealer support",
-    image: "/ars-assets/awards-certificates-img3.png",
+    word: "DURABILITY",
+    titlePrefix: "Engineered for",
+    copy: "Advanced corrosion resistance and precise metallurgy help ensure long-lasting performance, even in high-salinity environments.",
   },
   {
-    word: "GREEN STEEL",
-    eyebrow: "Responsible construction",
-    title: "Lower-impact steel choices.",
-    copy: "ARS Green Steel supports modern construction with sustainability-led manufacturing confidence.",
-    proof: "EPD, green-building and process readiness",
-    image: "/legacy-assets/images/ARS-GREEN-STEEL-Logo.png",
-    imageFit: "contain",
+    word: "SUSTAINABILITY",
+    titlePrefix: "Engineered for",
+    copy: "Manufactured through responsible Green Steel practices that reduce environmental impact without compromising performance.",
+  },
+  {
+    word: "CERTIFIED QUALITY",
+    titlePrefix: "Engineered for",
+    copy: "Rigorously tested and certified to BIS, ISO, and stringent industry standards for consistent, reliable quality.",
   },
 ];
 
@@ -90,10 +82,10 @@ export function HomeHero() {
             </div>
             <h1 className="max-w-[760px] font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[0.95] tracking-normal text-white">
               <span className="sr-only" aria-live="polite">
-                We Build {active.word} Structures.
+                {active.titlePrefix} {active.word}. {active.copy}
               </span>
               <span aria-hidden="true">
-                We Build
+                {active.titlePrefix}
                 <span className="relative block min-h-[0.98em] overflow-hidden text-brand-red">
                   <AnimatePresence mode="popLayout" initial={false}>
                     <motion.span
@@ -119,7 +111,7 @@ export function HomeHero() {
                 Calculate Steel <ArrowRight size={18} />
               </Link>
               <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] border border-white/28 bg-white/8 px-5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white hover:text-ink-900" href="#products">
-                Explore products <ArrowRight size={18} />
+                Explore Products <ArrowRight size={18} />
               </Link>
             </div>
           </div>

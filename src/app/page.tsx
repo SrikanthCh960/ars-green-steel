@@ -507,22 +507,19 @@ function RahulDravidSection() {
         <div className="grid overflow-hidden rounded-[22px] border border-white/12 bg-[#07142f] shadow-[0_30px_90px_rgba(6,13,30,0.28)] lg:grid-cols-[0.86fr_1.14fr]">
           <div className="relative z-10 flex flex-col justify-center p-8 sm:p-10 lg:p-14">
             <SectionKicker variant="light">Brand ambassador</SectionKicker>
-            <p className="font-technical text-xs font-bold uppercase tracking-[0.22em] text-white/48">
-              Rahul Dravid × ARS Steel
-            </p>
-            <h2 className="mt-5 max-w-xl font-display text-[clamp(2.4rem,4.5vw,4.6rem)] font-extrabold uppercase leading-[0.94] text-white">
-              Rahul Dravid.
-              <span className="block text-brand-red">The ambassador of truth.</span>
+            <h2 className="mt-5 max-w-xl font-display text-[clamp(2.4rem,4.5vw,4.6rem)] font-extrabold leading-[0.94] text-white">
+              A Partnership Built on Trust.
             </h2>
             <p className="mt-6 max-w-lg text-base leading-8 text-white/72 lg:text-lg">
-              Known for discipline, integrity, and resilience, Rahul Dravid reflects the values
-              ARS brings to every bar of CRS 550D.
+              Rahul Dravid represents the values that define ARS—discipline, integrity, consistency,
+              and trust. His association reflects our commitment to delivering TMT bars engineered to
+              perform with confidence, project after project.
             </p>
             <Link
               className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] bg-brand-red px-5 text-sm font-bold text-white transition hover:bg-brand-red-dark"
               href="/products/ars-crs-550d"
             >
-              Discover ARS CRS 550D <ArrowRight size={17} />
+              Explore ARS CRS 550D <ArrowRight size={17} />
             </Link>
           </div>
 
@@ -612,9 +609,9 @@ function GreenSteelSection() {
 
 function ManufacturingStorySection() {
   const manufacturingProof = [
-    { value: "1992", label: "Steelmaking heritage" },
-    { value: "Tamil Nadu", label: "Gummidipoondi manufacturing base" },
-    { value: "Integrated", label: "Billet-to-TMT production journey" },
+    { value: "Since 1992", label: "Manufacturing legacy" },
+    { value: "Billet to TMT", label: "Integrated production" },
+    { value: "Gummidipoondi", label: "Manufacturing base · Tamil Nadu" },
   ];
 
   return (
@@ -634,12 +631,14 @@ function ManufacturingStorySection() {
           <div className="max-w-2xl">
             <SectionKicker>Manufacturing heritage</SectionKicker>
             <h2 className="section-title max-w-xl">
-              Made in Tamil Nadu. Built for demanding projects.
+              Made in India. Built for Generations.
             </h2>
             <p className="section-copy max-w-xl">
-              Since 1992, ARS has grown from its Gummidipoondi base into an integrated steel
-              manufacturer, connecting disciplined production, testing, and TMT bar delivery in
-              one accountable journey.
+              Since 1992, ARS has grown into an integrated steel manufacturer with its manufacturing
+              facility in Gummidipoondi, Tamil Nadu. From billet production and TMT bar manufacturing
+              to rigorous quality testing and dispatch, every stage is managed under one roof to ensure
+              consistent quality, complete traceability, and dependable supply for construction projects
+              across South India.
             </p>
 
             <dl className="mt-9 grid gap-px overflow-hidden rounded-[16px] border border-brand-blue/10 bg-brand-blue/10 sm:grid-cols-3">

@@ -27,7 +27,7 @@ const partnerReasons = [
 
 const products = [
   { title: "ARS Fe550D TMT Bars", body: "Ideal for general residential, commercial, and infrastructure construction where high strength, excellent ductility, and reliable performance are essential. A trusted choice for everyday construction projects.", cta: "Explore ARS 550D", href: "/products/ars-550d", image: "/ars-assets/TMT-Bars.png" },
-  { title: "ARS CRS 550D TMT Bars", body: "Designed for projects exposed to high moisture, high salinity, and corrosive environments. Its enhanced corrosion resistance helps improve the durability and service life of structures, making it suitable for demanding conditions.", cta: "Explore ARS CRS 550D", href: "/products/ars-crs-550d", image: "/ars-assets/CRS.png" },
+  { title: "ARS CRS 550D TMT Bars", body: "Designed for projects exposed to high moisture, high salinity, and corrosive environments. Its enhanced corrosion resistance helps improve the durability and service life of structures, making it suitable for demanding conditions.", cta: "Explore ARS CRS 550D", href: "/products/ars-crs-550d", image: "/ars-assets/logos/ARSCRS550D.png" },
   { title: "ARS Binders", body: "Factory-made steel binders designed for consistent dimensions, accurate bends, and faster reinforcement work on site. Manufactured with precision to help improve productivity, reduce manual bending time, and deliver uniform quality across construction projects.", cta: "Explore ARS Binders", href: "/products/ars-binders", image: "/ars-assets/placeholders/binders-factory-placeholder.png" },
 ] as const;
 
