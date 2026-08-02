@@ -12,8 +12,48 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/our-certification",
-        destination: "/certifications",
+        source: "/products/ars-550d",
+        destination: "/product-550d",
+        permanent: true,
+      },
+      {
+        source: "/products/ars-crs-550d",
+        destination: "/product-crs-550d",
+        permanent: true,
+      },
+      {
+        source: "/products/ars-binders",
+        destination: "/ars-binders",
+        permanent: true,
+      },
+      {
+        source: "/about",
+        destination: "/about-us",
+        permanent: true,
+      },
+      {
+        source: "/certifications",
+        destination: "/our-certification",
+        permanent: true,
+      },
+      {
+        source: "/dealer-locator",
+        destination: "/our-network",
+        permanent: true,
+      },
+      {
+        source: "/become-a-dealer",
+        destination: "/steel-distributors-dealers",
+        permanent: true,
+      },
+      {
+        source: "/tmt-calculator",
+        destination: "/tmt-steel-calculator",
+        permanent: true,
+      },
+      {
+        source: "/steel-price-today",
+        destination: "/tmt-steel-price-today",
         permanent: true,
       },
       {

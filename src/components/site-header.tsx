@@ -45,12 +45,12 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     visual: "ARS Group",
     visualSrc: "/ars-assets/right-about-us.png-compress.webp",
     links: [
-      { label: "ARS Group", href: "/about" },
+      { label: "ARS Group", href: "/about-us" },
       { label: "Vision & Mission", href: "/vision-mission" },
       { label: "Leadership", href: "/our-team" },
       { label: "Manufacturing", href: "/manufacturing" },
       { label: "Quality Policy", href: "/our-quality" },
-      { label: "Certifications", href: "/certifications" },
+      { label: "Certifications", href: "/our-certification" },
       { label: "Clients", href: "/clients" },
     ],
     proof: ["Since 1992", "Leadership proof", "Manufacturing strength"],
@@ -61,9 +61,9 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     visual: "Products",
     visualSrc: "/ars-assets/products-all.png",
     links: [
-      { label: "ARS 550D TMT Bar", href: "/products/ars-550d" },
-      { label: "ARS CRS 550D", href: "/products/ars-crs-550d" },
-      { label: "ARS Binders", href: "/products/ars-binders" },
+      { label: "ARS 550D TMT Bar", href: "/product-550d" },
+      { label: "ARS CRS 550D", href: "/product-crs-550d" },
+      { label: "ARS Binders", href: "/ars-binders" },
       { label: "Steel Testing", href: "/steel-testing" },
       { label: "Product Comparison", href: "/products#comparison" },
       { label: "Technical Specifications", href: "/products/ars-550d" },
@@ -81,7 +81,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
       { label: "ARS Green Steel", href: "/ars-green-steel" },
       { label: "Embodied Carbon", href: "/embodied-carbon" },
       { label: "SGBC", href: "/sgbc" },
-      { label: "Certifications & Recognitions", href: "/certifications" },
+      { label: "Certifications & Recognitions", href: "/our-certification" },
       { label: "Reports & Downloads", href: "/reports-downloads" },
     ],
     proof: ["Green steel story", "EPD / GRIHA / LEED readiness", "Downloadable proof"],
@@ -127,12 +127,12 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     visual: "Knowledge center",
     visualSrc: "/ars-assets/awards-certificates-img3.png",
     links: [
-      { label: "Steel Price Today", href: "/steel-price-today" },
+      { label: "Steel Price Today", href: "/tmt-steel-price-today" },
       { label: "Price Calculator", href: "/price-calculator" },
       { label: "Construction Estimation", href: "/construction-estimation" },
       { label: "Blog / Knowledge Center", href: "/blog" },
       { label: "Guides & Articles", href: "/guides-articles" },
-      { label: "TMT Bar Calculator", href: "/tmt-calculator" },
+      { label: "TMT Bar Calculator", href: "/tmt-steel-calculator" },
       { label: "Construction Cost Estimator", href: "/construction-cost-estimator" },
       { label: "Career", href: "/careers" },
       { label: "FAQs", href: "/faqs" },
@@ -162,7 +162,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     links: [
       { label: "Contact ARS", href: "/contact" },
       { label: "Request Quote", href: "/request-quote" },
-      { label: "Become a Dealer", href: "/become-a-dealer" },
+      { label: "Become a Dealer", href: "/steel-distributors-dealers" },
     ],
     proof: ["Customer helpline", "Project enquiry", "Office and plant"],
   },
@@ -360,9 +360,9 @@ export function SiteHeader() {
               <div className="ars-container grid gap-5 py-5">
                 <div className="grid gap-3 sm:grid-cols-3">
                   {[
-                    { label: "Steel Price", href: "/steel-price-today", icon: Search },
-                    { label: "Calculator", href: "/tmt-calculator", icon: Calculator },
-                    { label: "Dealer Locator", href: "/dealer-locator", icon: ShieldCheck },
+                    { label: "Steel Price", href: "/tmt-steel-price-today", icon: Search },
+                    { label: "Calculator", href: "/tmt-steel-calculator", icon: Calculator },
+                    { label: "Dealer Locator", href: "/our-network", icon: ShieldCheck },
                   ].map((item) => {
                     const Icon = item.icon;
                     return (
