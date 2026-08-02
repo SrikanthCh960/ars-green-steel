@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Cog, Factory, Recycle, ShieldCheck, type LucideIcon, Zap } from "lucide-react";
+import { ArrowRight, BadgeCheck, Cog, Factory, Recycle, ShieldCheck, type LucideIcon, Zap } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteFooter } from "@/components/site-footer";
@@ -93,6 +93,23 @@ const greenSteelFaqs = [
     "Green steel is used across residential, commercial, industrial, and infrastructure projects. It is increasingly specified for developments that prioritise sustainability, long-term durability, and reduced embodied carbon.",
   ],
 ];
+
+const certificationCards = [
+  {
+    label: "BIS Certified",
+    detail: "Manufactured to recognised Indian quality standards for dependable structural performance.",
+    image: "/ars-assets/awards-certificates-img3.png",
+  },
+  {
+    label: "EPD Verified",
+    detail: "Environmental performance documented through an independently verified declaration.",
+    image: "/ars-assets/awards-certificates-img2.png",
+  },
+  { label: "Green Steel Certified", detail: "Recognised for responsible, lower-impact steel manufacturing." },
+  { label: "TN PWD Approved", detail: "Approved for quality, strength, and compliance in Tamil Nadu public works." },
+  { label: "SGBC Leader (4-Star)", detail: "Recognised as a sustainable green product for responsible construction." },
+  { label: "GRIHA Listed", detail: "Listed within a recognised framework for sustainable building projects." },
+] as const;
 
 export default function GreenSteelPage() {
   return (
@@ -240,19 +257,42 @@ export default function GreenSteelPage() {
       </MotionSection>
 
       <MotionSection className="bg-surface-50 py-20 lg:py-24">
-        <div className="ars-container max-w-4xl">
-          <SectionKicker variant="brand">Certifications</SectionKicker>
-          <h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.08] text-ink-900">
-            Standards That Support Sustainable Construction
-          </h2>
-          <p className="mt-5 text-base leading-8 text-steel-700">
-            Green steel is increasingly supported by environmental declarations and green building frameworks that help measure and recognise responsible manufacturing practices.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3" aria-label="ARS Green Steel certifications">
-            {["BIS", "Green Steel Certified", "TN PWD Approved", "SGBC Leader (4-Star)", "GRIHA", "EPD Verified"].map((item) => (
-              <span key={item} className="inline-flex min-h-11 items-center border border-green-steel/25 bg-white px-4 text-sm font-bold text-ink-900">
-                <span aria-hidden="true" className="mr-2 text-green-steel">✓</span>{item}
-              </span>
+        <div className="ars-container">
+          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+            <div>
+              <SectionKicker variant="brand">Certifications</SectionKicker>
+              <h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.08] text-ink-900">
+                Standards That Support Sustainable Construction
+              </h2>
+              <p className="mt-5 text-base leading-8 text-steel-700">
+                Green steel is increasingly supported by environmental declarations and green building frameworks that help measure and recognise responsible manufacturing practices.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {certificationCards.slice(0, 2).map((item) => (
+                <article key={item.label} className="group grid min-h-[290px] overflow-hidden rounded-[18px] border border-brand-blue/10 bg-white shadow-[var(--shadow-soft)] sm:grid-rows-[170px_1fr]">
+                  <div className="overflow-hidden bg-white p-5">
+                    {"image" in item ? <Image src={item.image} alt={`${item.label} ARS certification`} width={368} height={523} className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.03]" /> : null}
+                  </div>
+                  <div className="border-t border-brand-blue/8 bg-brand-blue p-5 text-white">
+                    <h3 className="font-display text-xl font-bold">{item.label}</h3>
+                    <p className="mt-2 text-sm leading-6 text-white/70">{item.detail}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {certificationCards.slice(2).map((item) => (
+              <article key={item.label} className="rounded-[16px] border border-brand-blue/10 bg-white p-6 shadow-[0_14px_42px_rgba(13,43,110,0.05)]">
+                <span className="inline-flex size-11 items-center justify-center rounded-[10px] bg-[#edf5ff] text-brand-blue ring-1 ring-brand-blue/10">
+                  <BadgeCheck size={21} />
+                </span>
+                <h3 className="mt-7 font-display text-xl font-bold text-ink-900">{item.label}</h3>
+                <p className="mt-2 text-sm leading-6 text-steel-700">{item.detail}</p>
+              </article>
             ))}
           </div>
         </div>
