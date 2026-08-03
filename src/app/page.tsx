@@ -63,7 +63,7 @@ export const metadata = createPageMetadata({
   path: "/",
 });
 
-const products = [...productCatalog].reverse();
+const products = [productCatalog[1], productCatalog[0], productCatalog[2]];
 
 const certificateCards = [
   {

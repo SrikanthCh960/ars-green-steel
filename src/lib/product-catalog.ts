@@ -8,7 +8,7 @@ export const productCatalog = [
     description: "High-ductility TMT bars designed for residential, commercial, and earthquake-resistant construction.",
     homePoints: ["Earthquake-resistant performance", "Superior bendability & ductility", "High-strength TMT bars"],
     overviewPoints: ["High ductility", "Strong bendability", "Fe-550D · IS 1786:2008"],
-    image: "/ars-assets/TMT-Bars.png",
+    image: "/ars-assets/logos/ARS550D.png",
   },
   {
     slug: "ars-crs-550d",
