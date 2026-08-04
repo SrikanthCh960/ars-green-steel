@@ -35,7 +35,6 @@ const staticRoutes = [
   "/25-mm-steel-rod",
   "/32-mm-steel-rod",
   "/projects",
-  "/price-calculator",
   "/request-quote",
   "/sgbc",
   "/services",

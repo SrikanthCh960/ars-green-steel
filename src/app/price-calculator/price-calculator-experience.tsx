@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState, type InputHTMLAttributes, type ReactNode } from "react";
-import { ArrowDown, ArrowRight, CheckCircle2, ClipboardList, MapPin, ShieldCheck } from "lucide-react";
+import { ArrowDown, ArrowRight, CheckCircle2, ClipboardList, IndianRupee, Info, MapPin, Package, ReceiptIndianRupee, Scale, ShieldCheck } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
@@ -29,6 +29,27 @@ const barSizes = [
   { size: "32mm", rodsPerBundle: 1, bundleWeight: 75.829 },
 ] as const;
 
+const priceByRegion: Record<string, Record<string, Record<string, number>>> = {
+  "Tamil Nadu": {
+    "ARS 550D": { "8mm": 67000.4, "10mm": 67000.4, "12mm": 66000.35, "16mm": 66000.35, "20mm": 66000.35, "25mm": 66000.35, "32mm": 67000.4 },
+    "ARS CRS 550D": { "8mm": 69999.96, "10mm": 69999.96, "12mm": 68999.91, "16mm": 68999.91, "20mm": 68999.91, "25mm": 68999.91, "32mm": 69999.96 },
+  },
+  "Andhra Pradesh": {
+    "ARS 550D": { "8mm": 65584.4, "10mm": 65584.4, "12mm": 64584.35, "16mm": 64584.35, "20mm": 64584.35, "25mm": 64584.35, "32mm": 65584.4 },
+    "ARS CRS 550D": { "8mm": 68583.96, "10mm": 68583.96, "12mm": 67583.91, "16mm": 67583.91, "20mm": 67583.91, "25mm": 67583.91, "32mm": 68583.96 },
+  },
+  Kerala: {
+    "ARS 550D": { "8mm": 64109.4, "10mm": 64109.4, "12mm": 63109.35, "16mm": 63109.35, "20mm": 63109.35, "25mm": 63109.35, "32mm": 64109.4 },
+    "ARS CRS 550D": { "8mm": 67108.96, "10mm": 67108.96, "12mm": 66108.91, "16mm": 66108.91, "20mm": 66108.91, "25mm": 66108.91, "32mm": 67108.96 },
+  },
+  Karnataka: {
+    "ARS 550D": { "8mm": 65525.4, "10mm": 65525.4, "12mm": 64525.35, "16mm": 64525.35, "20mm": 64525.35, "25mm": 64525.35, "32mm": 65525.4 },
+    "ARS CRS 550D": { "8mm": 68524.96, "10mm": 68524.96, "12mm": 67524.91, "16mm": 67524.91, "20mm": 67524.91, "25mm": 67524.91, "32mm": 68524.96 },
+  },
+};
+
+const currencyFormatter = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 2 });
+
 const benefits = [
   ["Transparency of Price", "Using a TMT calculator enhances transparency in pricing by providing detailed breakdowns of TMT steel bar requirements. This clarity helps users understand the cost implications of their projects and avoid unexpected expenses, promoting a more transparent procurement process."],
   ["Ease of Budgeting for Purchase", "The TMT calculator simplifies the budgeting process by accurately estimating the quantity of TMT bars needed for a project. This precision allows for more accurate budget forecasts and financial planning, helping project managers allocate funds more effectively and efficiently."],
@@ -51,30 +72,41 @@ const faqs = [
 type Quantities = Record<string, number>;
 
 export function PriceCalculatorExperience() {
+  const [product, setProduct] = useState("");
   const [state, setState] = useState("");
+  const [city, setCity] = useState("");
   const [bookingState, setBookingState] = useState("");
   const [bookingCity, setBookingCity] = useState("");
   const [quantities, setQuantities] = useState<Quantities>({});
   const [bookingVisible, setBookingVisible] = useState(false);
   const [bookingNotice, setBookingNotice] = useState("");
   const [enquiryNotice, setEnquiryNotice] = useState("");
+  const [showAllSizes, setShowAllSizes] = useState(false);
 
   const summary = useMemo(() => {
     return barSizes.reduce(
       (total, bar) => {
         const rods = quantities[bar.size] ?? 0;
-        return { rods: total.rods + rods, kilograms: total.kilograms + (rods / bar.rodsPerBundle) * bar.bundleWeight };
+        const kilograms = (rods / bar.rodsPerBundle) * bar.bundleWeight;
+        const rate = priceByRegion[state]?.[product]?.[bar.size] ?? 0;
+        return { rods: total.rods + rods, kilograms: total.kilograms + kilograms, amount: total.amount + (kilograms / 1000) * rate };
       },
-      { rods: 0, kilograms: 0 },
+      { rods: 0, kilograms: 0, amount: 0 },
     );
-  }, [quantities]);
+  }, [product, quantities, state]);
 
   function updateQuantity(size: string, value: string) {
     const parsed = Math.max(0, Math.round(Number(value) || 0));
+    setBookingNotice("");
     setQuantities((current) => ({ ...current, [size]: parsed }));
   }
 
   function showBooking() {
+    if (summary.rods === 0) {
+      setBookingNotice("Add at least one rod quantity before submitting an order enquiry.");
+      document.getElementById("diameter-calculator-title")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      return;
+    }
     setBookingVisible(true);
     requestAnimationFrame(() => document.getElementById("booking-details")?.scrollIntoView({ behavior: "smooth", block: "start" }));
   }
@@ -93,92 +125,119 @@ export function PriceCalculatorExperience() {
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 md:text-lg">
               When it comes to construction projects, understanding the factors of TMT steel price is necessary. As a builder, being well-informed about the fluctuations and factors affecting TMT bar price can help you make informed decisions.
             </p>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-white/58">
-              Some of the key influencers include the cost of raw materials, market demand, production capacity, transportation costs, and an IS 1786 – 2008 standard certification adds to its value. By keeping an eye on these factors, you can better anticipate steel price today per kg currently and plan your construction budget accordingly.
-            </p>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-white/58">
-              Some TMT bars are also optimized to withstand any weather condition and are also certified by international boards such as the SGS to support customer authentication. It is crucial to conduct thorough research and compare different brands and grades based on their specifications and reputation.
-            </p>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-white/58">
-              Steel price today in India are subject to market dynamics. By staying updated on pricing patterns, you can make better decisions regarding the timing of purchasing TMT steel, potentially saving costs in the long run.
-            </p>
             <a href="#price-check" className="focus-ring mt-8 inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-[#c90f16]">
               Check the steel price today <ArrowDown size={16} aria-hidden="true" />
             </a>
+            <ol className="mt-10 grid max-w-2xl gap-3 border-t border-white/15 pt-5 text-xs font-bold uppercase tracking-[0.12em] text-white/60 sm:grid-cols-3">
+              <li><span className="mr-2 text-brand-red">01</span> Choose location</li>
+              <li><span className="mr-2 text-brand-red">02</span> Plan quantities</li>
+              <li><span className="mr-2 text-brand-red">03</span> Request a rate</li>
+            </ol>
           </div>
           <aside className="border-l-2 border-brand-red bg-white/[0.06] p-6 backdrop-blur-[1px] md:p-7" aria-label="Price guidance">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/55">Price guidance</p>
             <p className="mt-4 text-lg font-semibold leading-7 text-white">Rates depend on product, location, quantity, and market movement.</p>
-            <p className="mt-4 text-sm leading-6 text-white/65">Select your requirements below to prepare an order enquiry. Current published rates are not available in this redesigned experience.</p>
+              <p className="mt-4 text-sm leading-6 text-white/65">Start with your product and delivery location. We will keep the calculation clear while ARS confirms the current rate.</p>
+              <div className="mt-6 border-t border-white/15 pt-5 text-xs leading-5 text-white/55"><span className="font-bold text-white/80">What you will receive:</span> a quantity and weight summary ready for the ARS sales team.</div>
           </aside>
         </div>
       </section>
 
-      <MotionSection id="price-check" className="scroll-mt-24 border-b border-ink-900/10 bg-white py-16 md:py-20">
-        <div className="ars-container">
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+      <MotionSection className="border-b border-ink-900/10 bg-surface-50 py-14 md:py-20" aria-labelledby="market-context-title">
+        <div className="ars-container grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+          <div>
+            <SectionKicker variant="brand">Market context</SectionKicker>
+            <h2 id="market-context-title" className="mt-5 max-w-md font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.08] tracking-[-0.025em]">Understand the rate before you buy.</h2>
+          </div>
+          <div className="grid gap-5 text-[15px] leading-7 text-steel-700">
+            <p>Some of the key influencers include the cost of raw materials, market demand, production capacity, transportation costs, and an IS 1786 – 2008 standard certification adds to its value. By keeping an eye on these factors, you can better anticipate steel price today per kg currently and plan your construction budget accordingly.</p>
+            <p>Some TMT bars are also optimized to withstand any weather condition and are also certified by international boards such as the SGS to support customer authentication. It is crucial to conduct thorough research and compare different brands and grades based on their specifications and reputation.</p>
+            <p>Steel price today in India are subject to market dynamics. By staying updated on pricing patterns, you can make better decisions regarding the timing of purchasing TMT steel, potentially saving costs in the long run.</p>
+          </div>
+        </div>
+      </MotionSection>
+
+      <div className="bg-surface-50">
+      <MotionSection id="price-check" className="scroll-mt-24 bg-white pb-6 pt-10 md:pb-8 md:pt-12">
+        <div className="ars-container lg:max-w-none">
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
               <SectionKicker variant="brand">Location and product</SectionKicker>
               <h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.08] tracking-[-0.025em]">Check the steel price today</h2>
-              <p className="mt-5 max-w-xl text-[15px] leading-7 text-steel-700">Some of the key influencers include the cost of raw materials, market demand, production capacity, transportation costs, and an IS 1786 – 2008 standard certification adds to its value.</p>
+              <p className="mt-5 max-w-xl text-[15px] leading-7 text-steel-700">Choose your product and delivery location first. The calculator will then load the workbook rate for your region.</p>
             </div>
             <div className="grid gap-4 rounded-xl border border-ink-900/10 bg-surface-50 p-5 sm:grid-cols-3 sm:p-6">
               <label className="grid gap-2 text-sm font-bold text-ink-900">Product*
-                <select className={fieldClass} required defaultValue="" name="product">
+                  <select className={fieldClass} required value={product} onChange={(event) => setProduct(event.target.value)} name="product">
                   <option value="" disabled>Select</option><option>ARS 550D</option><option>ARS CRS 550D</option>
                 </select>
               </label>
               <label className="grid gap-2 text-sm font-bold text-ink-900">State*
-                <select className={fieldClass} required value={state} onChange={(event) => setState(event.target.value)} name="state">
+              <select className={fieldClass} required value={state} onChange={(event) => { setState(event.target.value); setCity(""); }} name="state">
                   <option value="">Select</option>{Object.keys(citiesByState).map((item) => <option key={item}>{item}</option>)}
                 </select>
               </label>
               <label className="grid gap-2 text-sm font-bold text-ink-900">City*
-                <select className={fieldClass} required name="city" disabled={!state} defaultValue="">
+              <select className={fieldClass} required value={city} onChange={(event) => { setCity(event.target.value); requestAnimationFrame(() => document.getElementById("diameter-calculator")?.scrollIntoView({ behavior: "smooth", block: "start" })); }} name="city" disabled={!state}>
                   <option value="" disabled>{state ? "Select a city" : "Select state first"}</option>{(citiesByState[state] ?? []).map((city) => <option key={city}>{city}</option>)}
                 </select>
               </label>
-              <p className="sm:col-span-3 text-xs leading-5 text-steel-700"><span className="font-bold text-brand-blue">Current rate status:</span> Awaiting ARS pricing source. The order calculator preserves quantity and weight planning until a verified rate is available.</p>
+              <div className="sm:col-span-3 flex flex-wrap items-center justify-between gap-3 border-t border-ink-900/10 pt-4 text-xs leading-5 text-steel-700" aria-live="polite"><span><span className="font-bold text-brand-blue">Current rate status:</span> {product && state ? "Workbook rate loaded; inclusive of GST." : "Select product and region to load the rate."}</span><span className="font-bold text-ink-900">{product && state && city ? `${product} · ${city}, ${state}` : "Complete these details to personalise your enquiry"}</span></div>
             </div>
           </div>
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-surface-50 py-16 md:py-24" aria-labelledby="diameter-calculator-title">
-        <div className="ars-container">
-          <div className="flex flex-col justify-between gap-6 border-b border-ink-900/10 pb-9 md:flex-row md:items-end">
+      <MotionSection id="diameter-calculator" className="scroll-mt-24 bg-white pb-10 pt-6 md:pb-14 md:pt-8" aria-labelledby="diameter-calculator-title">
+        <div className="ars-container pt-8 lg:max-w-none md:pt-10">
+          <div className="flex flex-col justify-between gap-6 border-t border-ink-900/10 pb-9 pt-8 md:flex-row md:items-end">
             <div><SectionKicker variant="brand">Price by diameter</SectionKicker><h2 id="diameter-calculator-title" className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.08] tracking-[-0.025em]">Build your TMT requirement.</h2></div>
             <p className="max-w-lg text-[14px] leading-6 text-steel-700">Enter rod quantities for each diameter. Bundle and weight figures follow the original ARS calculator; the total amount remains unavailable until current rates are supplied.</p>
           </div>
-          <div className="mt-8 grid gap-4">
-            {barSizes.map((bar) => {
+          <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+            <div className="grid gap-4">
+            {barSizes.slice(0, showAllSizes ? barSizes.length : 3).map((bar) => {
               const rods = quantities[bar.size] ?? 0;
               const bundles = rods / bar.rodsPerBundle;
               const kilograms = bundles * bar.bundleWeight;
-              const totalLabel = bar.size === "25mm" ? "Total Amount inc. (₹)" : "Total Amount inc. (₹ + GST)";
-              return <section key={bar.size} className="rounded-xl border border-ink-900/10 bg-white p-5 shadow-[0_12px_30px_rgba(6,13,30,0.04)] md:p-6" aria-labelledby={`bar-${bar.size}`}>
-                <div className="mb-5 flex items-center justify-between gap-4"><h3 id={`bar-${bar.size}`} className="font-display text-xl font-bold text-brand-blue">{bar.size} rod price</h3><span className="rounded-full bg-surface-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-steel-700">Rate pending</span></div>
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-                  <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.08em] text-steel-700">Price (₹ Per Ton inc. GST)<input className={readOnlyClass} value="Awaiting current rate" readOnly aria-label={`${bar.size} price per ton including GST`} /></label>
-                  <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.08em] text-steel-700">In Bundles<input className={readOnlyClass} value={bundles ? bundles.toFixed(2) : "0"} readOnly aria-label={`${bar.size} bundles`} /></label>
-                  <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.08em] text-steel-700">No. Of Rods<input className={fieldClass} value={rods || ""} min="0" step="1" inputMode="numeric" type="number" onChange={(event) => updateQuantity(bar.size, event.target.value)} placeholder="0" aria-describedby={`bar-help-${bar.size}`} /></label>
-                  <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.08em] text-steel-700">Weight In Kgs<input className={readOnlyClass} value={kilograms ? kilograms.toFixed(3) : "0.000"} readOnly aria-label={`${bar.size} weight in kilograms`} /></label>
-                  <label className="grid gap-2 text-xs font-bold uppercase tracking-[0.08em] text-steel-700">{totalLabel}<input className={readOnlyClass} value="Current rate required" readOnly aria-label={`${bar.size} total amount awaiting current rate`} /></label>
+              const rate = priceByRegion[state]?.[product]?.[bar.size] ?? 0;
+              const amount = (kilograms / 1000) * rate;
+              return <section key={bar.size} className="rounded-2xl border border-ink-900/10 bg-white p-4 shadow-[0_14px_35px_rgba(6,13,30,0.06)] md:p-5" aria-labelledby={`bar-${bar.size}`}>
+                <div className="flex flex-wrap items-center justify-between gap-5 border-l-4 border-brand-blue pl-4">
+                  <h3 id={`bar-${bar.size}`} className="font-display text-2xl font-bold tracking-[-0.02em] text-brand-blue">{bar.size} rod price</h3>
+                  <label className="flex items-center gap-3 text-sm font-bold text-brand-blue">No. of Rods<input className="focus-ring h-12 w-40 rounded-lg border border-brand-blue/25 bg-white px-4 text-base font-semibold text-ink-900 shadow-sm" value={rods || ""} min="0" step="1" inputMode="numeric" type="number" onChange={(event) => updateQuantity(bar.size, event.target.value)} placeholder="0" aria-describedby={`bar-help-${bar.size}`} /></label>
                 </div>
-                <p id={`bar-help-${bar.size}`} className="mt-3 text-xs leading-5 text-steel-700">{bar.rodsPerBundle} rods per bundle for this calculator flow.</p>
+                <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                  <MetricOutput icon={<IndianRupee size={22} />} label="Price (₹ per ton inc. GST)" value={rate ? currencyFormatter.format(rate) : "Select product + region"} ariaLabel={`${bar.size} price per ton including GST`} />
+                  <MetricOutput icon={<Package size={22} />} label="In bundles" value={bundles ? bundles.toFixed(2) : "0"} ariaLabel={`${bar.size} bundles`} />
+                  <MetricOutput icon={<Scale size={22} />} label="Weight in kgs" value={kilograms ? kilograms.toFixed(3) : "0.000"} ariaLabel={`${bar.size} weight in kilograms`} />
+                  <MetricOutput icon={<ReceiptIndianRupee size={22} />} label="Total amount inc. GST" value={rate && amount ? currencyFormatter.format(amount) : "Add rod quantity"} ariaLabel={`${bar.size} total amount including GST`} />
+                </div>
+                <p id={`bar-help-${bar.size}`} className="mt-6 flex items-center gap-2 border-t border-ink-900/10 pt-5 text-sm leading-6 text-steel-700"><Info size={18} className="shrink-0 text-brand-blue" aria-hidden="true" />{bar.rodsPerBundle} rods per bundle for this calculator flow.</p>
               </section>;
             })}
+            </div>
+
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-4 lg:col-span-1">
+            <p className="text-sm text-steel-700">Showing {showAllSizes ? barSizes.length : 3} of {barSizes.length} standard diameters.</p>
+            <button type="button" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full border border-brand-blue/25 px-5 py-2.5 text-sm font-bold text-brand-blue transition hover:border-brand-blue hover:bg-brand-blue/[0.05]" onClick={() => setShowAllSizes((current) => !current)} aria-expanded={showAllSizes}>
+              {showAllSizes ? "Show common sizes" : "View all diameters"} <ArrowDown size={15} className={showAllSizes ? "rotate-180" : ""} aria-hidden="true" />
+            </button>
           </div>
 
-          <section className="mt-7 border-l-4 border-brand-red bg-ink-950 p-6 text-white md:p-8" aria-labelledby="order-summary-title">
+          <section className="sticky top-28 z-20 mt-7 border-l-4 border-brand-red bg-ink-950 p-5 text-white shadow-[0_18px_45px_rgba(6,13,30,0.22)] md:p-7 lg:col-start-2 lg:row-start-1 lg:mt-0" aria-labelledby="order-summary-title">
             <p className="text-sm text-white/65">Interested? Place your order now and our representative will get in touch soon</p>
-            <div className="mt-6 grid gap-6 lg:grid-cols-[0.9fr_2.1fr_auto] lg:items-end"><h2 id="order-summary-title" className="font-display text-3xl font-extrabold">TOTAL</h2>
-              <dl className="grid grid-cols-3 gap-4 border-y border-white/15 py-4 text-sm"><div><dt className="text-white/50">Total Quantity</dt><dd className="mt-1 text-xl font-bold">{summary.rods.toFixed(0)}</dd></div><div><dt className="text-white/50">In Kgs</dt><dd className="mt-1 text-xl font-bold">{summary.kilograms.toFixed(2)}</dd></div><div><dt className="text-white/50">Total</dt><dd className="mt-1 text-sm font-bold">Rate required</dd></div></dl>
-              <button type="button" onClick={showBooking} className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-[#c90f16]">ORDER NOW <ArrowRight size={16} /></button>
+            <div className="mt-6 grid gap-6 lg:grid-cols-1"><h2 id="order-summary-title" className="font-display text-3xl font-extrabold">TOTAL</h2>
+              <dl className="grid gap-3 border-y border-white/15 py-4 text-sm"><div className="flex items-center justify-between gap-4"><dt className="text-white/50">Quantity</dt><dd className="text-xl font-bold">{summary.rods.toFixed(0)}</dd></div><div className="flex items-center justify-between gap-4"><dt className="text-white/50">Kgs</dt><dd className="text-xl font-bold">{summary.kilograms.toFixed(2)}</dd></div><div className="flex items-center justify-between gap-4"><dt className="text-white/50">Estimated total</dt><dd className="text-sm font-bold">{summary.amount ? currencyFormatter.format(summary.amount) : "Add quantity"}</dd></div></dl>
+              <button type="button" onClick={showBooking} className="focus-ring inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-brand-red px-4 py-3 text-sm font-bold text-white transition hover:bg-[#c90f16]">REQUEST CURRENT RATE <ArrowRight size={16} /></button>
             </div>
+            {bookingNotice && !bookingVisible && <p role="status" className="mt-4 text-sm font-semibold text-white/80">{bookingNotice}</p>}
           </section>
+          </div>
         </div>
       </MotionSection>
+
+      </div>
 
       <MotionSection id="booking-details" className="scroll-mt-24 bg-white py-16 md:py-24">
         <div className="ars-container grid gap-10 lg:grid-cols-[0.72fr_1.28fr]">
@@ -187,7 +246,7 @@ export function PriceCalculatorExperience() {
             <div className="grid gap-4 md:grid-cols-3"><FormInput label="Contact Person*" name="person_name" placeholder="Your Full Name" autoComplete="name" required /><FormInput label="Your Email Id*" name="email" placeholder="Enter Your Email ID" type="email" autoComplete="email" required /><FormInput label="Mobile No*" name="mobile" placeholder="Mobile No" type="tel" inputMode="tel" autoComplete="tel" minLength={10} maxLength={10} required /></div>
             <label className="mt-4 grid gap-2 text-sm font-bold text-ink-900">Your Address<textarea className="focus-ring min-h-28 rounded-md border border-ink-900/15 bg-white px-3.5 py-3 text-sm shadow-sm" name="address" placeholder="Your Address" required /></label>
             <div className="mt-4 grid gap-4 md:grid-cols-3"><label className="grid gap-2 text-sm font-bold text-ink-900">State*<select name="booking_state" className={fieldClass} required value={bookingState} onChange={(event) => { setBookingState(event.target.value); setBookingCity(""); }}><option value="" disabled>Please choose an option</option>{Object.keys(citiesByState).map((item) => <option key={item}>{item}</option>)}</select></label><label className="grid gap-2 text-sm font-bold text-ink-900">City*<select name="booking_city" className={fieldClass} required disabled={!bookingState} value={bookingCity} onChange={(event) => setBookingCity(event.target.value)}><option value="" disabled>{bookingState ? "Select a city" : "Select state first"}</option>{(citiesByState[bookingState] ?? []).map((city) => <option key={city}>{city}</option>)}</select></label><FormInput label="Pincode*" name="pincode" placeholder="Enter Your Pincode" inputMode="numeric" required /></div>
-            <input type="hidden" name="hidden_total_quantity" value={summary.rods} /><input type="hidden" name="hidden_total_tons" value={summary.kilograms.toFixed(3)} /><input type="hidden" name="hidden_total_price" value="Current rate required" /><input type="hidden" name="hidden_order_details" value={barSizes.filter((bar) => quantities[bar.size]).map((bar) => `${bar.size} - ${quantities[bar.size]} qty`).join("\n")} />
+            <input type="hidden" name="hidden_total_quantity" value={summary.rods} /><input type="hidden" name="hidden_total_tons" value={summary.kilograms.toFixed(3)} /><input type="hidden" name="hidden_total_price" value={summary.amount.toFixed(2)} /><input type="hidden" name="hidden_order_details" value={barSizes.filter((bar) => quantities[bar.size]).map((bar) => `${bar.size} - ${quantities[bar.size]} qty`).join("\n")} />
             <div className="mt-6 flex flex-wrap items-center gap-4"><button className="focus-ring inline-flex min-h-12 items-center gap-2 rounded-full bg-brand-blue px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-blue-dark" type="submit">Submit <ArrowRight size={16} /></button>{bookingNotice && <p role="status" className="max-w-xl text-sm leading-6 text-steel-700">{bookingNotice}</p>}</div>
           </form>
         </div>
@@ -210,6 +269,16 @@ export function PriceCalculatorExperience() {
 
 function FormInput({ label, dark = false, ...props }: InputHTMLAttributes<HTMLInputElement> & { label: string; dark?: boolean }) {
   return <label className={`grid gap-2 text-sm font-bold ${dark ? "text-white" : "text-ink-900"}`}>{label}<input className={dark ? "focus-ring h-12 rounded-md border border-white/20 bg-white/[0.06] px-3.5 text-sm text-white placeholder:text-white/45" : fieldClass} {...props} /></label>;
+}
+
+function MetricOutput({ icon, label, value, ariaLabel }: { icon: ReactNode; label: string; value: string; ariaLabel: string }) {
+  return <div className="rounded-xl border border-brand-blue/10 bg-white p-3 shadow-[0_8px_24px_rgba(13,43,110,0.04)]">
+    <div className="flex items-start gap-3 border-b border-ink-900/10 pb-3">
+      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-blue/[0.07] text-brand-blue" aria-hidden="true">{icon}</span>
+      <span className="pt-1 text-xs font-bold uppercase leading-5 tracking-[0.08em] text-brand-blue">{label}</span>
+    </div>
+    <output className="mt-4 block text-2xl font-bold tracking-[-0.02em] text-brand-blue" aria-label={ariaLabel}>{value}</output>
+  </div>;
 }
 
 function RelatedLink({ href, icon, children }: { href: string; icon: ReactNode; children: ReactNode }) {

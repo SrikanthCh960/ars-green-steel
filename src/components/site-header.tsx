@@ -128,7 +128,6 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     visualSrc: "/ars-assets/awards-certificates-img3.png",
     links: [
       { label: "Steel Price Today", href: "/tmt-steel-price-today" },
-      { label: "Price Calculator", href: "/price-calculator" },
       { label: "Construction Estimation", href: "/construction-estimation" },
       { label: "Blog / Knowledge Center", href: "/blog" },
       { label: "Guides & Articles", href: "/guides-articles" },
@@ -186,7 +185,6 @@ const menuPaths: Record<MenuKey, string[]> = {
   resources: [
     "/blog",
     "/steel-price-today",
-    "/price-calculator",
     "/construction-estimation",
     "/guides-articles",
     "/tmt-calculator",
