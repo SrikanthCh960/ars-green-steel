@@ -38,6 +38,39 @@
   --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
+@media (min-width: 1024px) {
+  section#calculator > .ars-container > .grid > div:first-child .mt-7 {
+    display: none;
+  }
+
+  section#calculator > .ars-container > .grid > .mt-7 {
+    display: grid;
+    grid-column: 2;
+    align-self: center;
+  }
+
+  [aria-labelledby="calculator-title"] > .ars-container > .grid > div:first-child > .mt-7 {
+    display: none;
+  }
+
+  [aria-labelledby="diameter-title"] > .ars-container > .mb-10 {
+    position: relative;
+    z-index: 10;
+    margin-right: 362px;
+  }
+
+  [aria-labelledby="diameter-title"] aside[aria-labelledby="summary-title"] {
+    align-self: start;
+    position: sticky;
+    top: 6rem;
+    margin-top: -300px;
+  }
+
+  [aria-labelledby="diameter-title"] aside[aria-labelledby="summary-title"] > p.text-xs.font-bold.uppercase {
+    display: none;
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
