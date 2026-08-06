@@ -16,6 +16,7 @@ import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { ProductLeadCaptureForm } from "@/components/product-lead-capture-form";
 
 export const metadata = createPageMetadata({
   title: "ARS Binders | ARS Green Steel",
@@ -363,6 +364,7 @@ export default function ArsBindersPage() {
         </div>
       </MotionSection>
 
+      <ProductLeadCaptureForm product="ARS Binders" trustItems={["Factory-made precision", "CRS 550D steel", "IS 1786 compliant", "Consistent quality"]} />
       <SiteFooter />
     </main>
   );

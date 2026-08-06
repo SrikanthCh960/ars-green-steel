@@ -4,7 +4,7 @@ export type CalculatorRegion = (typeof calculatorRegions)[number];
 export const calculatorProducts = ["ARS 550D", "ARS CRS 550D"] as const;
 export type CalculatorProduct = (typeof calculatorProducts)[number];
 
-export const requirementModes = ["Rods", "Bundles", "Weight (Kgs)"] as const;
+export const requirementModes = ["Rods", "Weight (Kgs)"] as const;
 export type RequirementMode = (typeof requirementModes)[number];
 
 export const calculatorBars = [
@@ -41,9 +41,7 @@ export const pricePerTon: Record<CalculatorRegion, Record<CalculatorProduct, Rec
 
 export function calculateBar(bar: CalculatorBar, mode: RequirementMode, input: number) {
   const safeInput = Number.isFinite(input) && input > 0 ? input : 0;
-  const rods = mode === "Bundles"
-    ? safeInput * bar.piecesPerBundle
-    : mode === "Weight (Kgs)"
+  const rods = mode === "Weight (Kgs)"
       ? Math.round((safeInput / bar.meanBundleWeight) * bar.piecesPerBundle)
       : Math.round(safeInput);
   const bundles = Math.floor(rods / bar.piecesPerBundle);

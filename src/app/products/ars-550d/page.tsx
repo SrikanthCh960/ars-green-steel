@@ -12,6 +12,7 @@ import {
   IndianRupee,
   Layers,
   MapPin,
+  Phone,
   ShieldCheck,
   ShoppingCart,
   Zap,
@@ -20,6 +21,8 @@ import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { ProductLeadCaptureForm } from "@/components/product-lead-capture-form";
+import { verifiedContactDetails } from "@/data/business-verification";
 
 export const metadata = createPageMetadata({
   title: "ARS 550D TMT Bars | ARS Green Steel",
@@ -103,6 +106,16 @@ const chemicalProperties = [
 ];
 
 const certificationBadges = ["BIS Certified", "Green Steel Certified", "TN PWD Approved", "SGBC Leader (4-Star)", "GRIHA", "EPD Verified"];
+
+const diameterLinks = [
+  ["8mm", "/8-mm-steel-rod"],
+  ["10mm", "/10-mm-steel-rod"],
+  ["12mm", "/12-mm-steel-rod"],
+  ["16mm", "/16-mm-steel-rod"],
+  ["20mm", "/20-mm-steel-rod"],
+  ["25mm", "/25-mm-steel-rod"],
+  ["32mm", "/32-mm-steel-rod"],
+] as const;
 
 const faqs = [
   [
@@ -206,14 +219,16 @@ export default function Ars550DPage() {
           <div className="max-w-3xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
               <Layers size={12} className="text-white/60" />
-              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS 550D TMT Bars | Fe 550D Grade Reinforcement Steel</span>
+              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS 550D TMT Bars | Fe 550D Grade</span>
             </div>
-            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">High-Strength Fe 550D TMT Bars for Strong, Durable Construction</h1>
+            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">ARS 550D TMT Bars for Strong, Durable Construction</h1>
             <p className="mt-5 max-w-2xl text-[15px] leading-[1.75] text-white/75">Engineered for high strength, superior ductility, and dependable performance, ARS 550D TMT Bars are built for modern construction.</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"><FileText size={14} /> Request a Quote</Link>
-              <Link href="/products#sizes" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.12]"><Calculator size={14} /> Find the Right Size</Link>
+              <Link href="/request-quote?product=ars-550d" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"><FileText size={14} aria-hidden="true" /> Get a Quote</Link>
+              <Link href="/tmt-steel-price-today" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.12]"><IndianRupee size={14} aria-hidden="true" /> Today&apos;s Price</Link>
+              <a href={`tel:${verifiedContactDetails.mobile.replace(/\s/g, "")}`} className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.12]"><Phone size={14} aria-hidden="true" /> Call Sales</a>
             </div>
+            <p className="mt-4 text-xs font-semibold tracking-[0.08em] text-white/70 sm:text-sm">BIS-certified · SGS-tested · Fe 550D · yield 550 N/mm²</p>
           </div>
         </div>
       </section>
@@ -244,8 +259,21 @@ export default function Ars550DPage() {
           <div className="overflow-hidden rounded-2xl border-[1.5px] border-surface-100">
             <div className="bg-brand-blue px-6 py-3"><p className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/80">ARS 550D Technical Overview</p></div>
             {technicalOverview.map((row, index) => <div key={row.label} className={`grid grid-cols-5 px-5 py-4 ${index % 2 === 0 ? "bg-white" : "bg-surface-50"}`}><p className="col-span-2 text-[10px] font-bold uppercase tracking-[0.08em] text-brand-blue">{row.label}</p><p className="col-span-3 text-[13px] leading-[1.6] text-steel-700">{row.value}</p></div>)}
-            <div className="border-t border-surface-100 bg-white p-5"><span aria-disabled="true" className="inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-brand-blue/20 px-4 py-2 text-[13px] font-bold text-brand-blue"><Download size={14} /> Download brochure</span></div>
+            <div className="border-t border-surface-100 bg-white p-5"><span aria-disabled="true" title="The approved ARS 550D datasheet is not yet available in the local asset library." className="inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-brand-blue/20 px-4 py-2 text-[13px] font-bold text-brand-blue"><Download size={14} aria-hidden="true" /> Download Datasheet <span className="text-[11px] font-semibold text-steel-500">Coming soon</span></span></div>
           </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-surface-50 py-16 md:py-20" id="sizes">
+        <div className="ars-container grid items-center gap-8 lg:grid-cols-[1fr_auto]">
+          <div>
+            <SectionKicker variant="brand">SIZES &amp; DIAMETERS</SectionKicker>
+            <h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Choose the right bar diameter for your project.</h2>
+            <div className="mt-7 flex flex-wrap gap-2.5">
+              {diameterLinks.map(([label, href]) => <Link key={label} href={href} className="focus-ring inline-flex min-h-11 min-w-16 items-center justify-center rounded-full border border-brand-blue/20 bg-white px-4 text-sm font-bold text-brand-blue transition hover:border-brand-blue hover:bg-brand-blue hover:text-white">{label}</Link>)}
+            </div>
+          </div>
+          <Link href="/tmt-steel-calculator" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-brand-blue px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-blue-dark"><Calculator size={16} aria-hidden="true" /> Estimate Quantity <ArrowRight size={16} aria-hidden="true" /></Link>
         </div>
       </MotionSection>
 
@@ -261,7 +289,7 @@ export default function Ars550DPage() {
       </MotionSection>
 
       <MotionSection className="bg-surface-50 py-20 md:py-24">
-        <div className="ars-container grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]"><div><SectionKicker variant="brand">Trust</SectionKicker><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Tested. Certified. Trusted.</h2><div className="mt-7 grid grid-cols-2 gap-3">{certificationBadges.map((badge) => <div key={badge} className="flex min-h-16 items-center gap-3 rounded-xl border border-surface-100 bg-white px-4 text-[13px] font-bold text-brand-blue"><BadgeCheck size={18} className="shrink-0 text-brand-red" />{badge}</div>)}</div><div className="mt-7 flex flex-wrap gap-3"><span aria-disabled="true" className="inline-flex min-h-11 cursor-not-allowed items-center gap-2 rounded-full border border-brand-blue/20 px-5 py-2.5 text-[13px] font-bold text-brand-blue"><Download size={14} /> Download brochure</span><Link href="/certifications#product-statutory-approvals" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-blue px-5 py-2.5 text-[13px] font-bold text-white"><Download size={14} /> Download certifications</Link></div></div><div className="relative min-h-[480px] overflow-hidden rounded-2xl bg-ink-950"><video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source src="/ars-assets/products/TestedCertifiedTrusted..mp4" type="video/mp4" /></video><div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.86),rgba(6,13,30,0.08)_62%)]" /><div className="absolute inset-x-6 bottom-6"><p className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/70">Corrosion resistant steel</p><Link href="/product-crs-550d" className="focus-ring mt-3 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[13px] font-bold text-brand-blue">Explore ARS CRS 550D <ArrowRight size={14} /></Link></div></div></div>
+        <div className="ars-container grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]"><div><SectionKicker variant="brand">Trust</SectionKicker><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Tested. Certified. Trusted.</h2><div className="mt-7 grid grid-cols-2 gap-3">{certificationBadges.map((badge) => <div key={badge} className="flex min-h-16 items-center gap-3 rounded-xl border border-surface-100 bg-white px-4 text-[13px] font-bold text-brand-blue"><BadgeCheck size={18} className="shrink-0 text-brand-red" />{badge}</div>)}</div><div className="mt-7 flex flex-wrap gap-3"><Link href="/our-certification#downloads" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-blue px-5 py-2.5 text-[13px] font-bold text-white"><Download size={14} aria-hidden="true" /> Download Certificates</Link><Link href="/our-certification" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full border border-brand-blue/20 px-5 py-2.5 text-[13px] font-bold text-brand-blue"><ShieldCheck size={14} aria-hidden="true" /> View Certifications</Link></div></div><div className="relative min-h-[480px] overflow-hidden rounded-2xl bg-ink-950"><video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source src="/ars-assets/products/TestedCertifiedTrusted..mp4" type="video/mp4" /></video><div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.86),rgba(6,13,30,0.08)_62%)]" /><div className="absolute inset-x-6 bottom-6"><p className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/70">Corrosion resistant steel</p><Link href="/product-crs-550d" className="focus-ring mt-3 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[13px] font-bold text-brand-blue">Compare CRS 550D <ArrowRight size={14} aria-hidden="true" /></Link></div></div></div>
       </MotionSection>
 
       <MotionSection className="bg-white py-20 md:py-24">
@@ -272,8 +300,9 @@ export default function Ars550DPage() {
         <div className="ars-container"><div className="mb-12 grid items-end gap-8 lg:grid-cols-2"><div><SectionKicker variant="brand">NEXT STEP</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Ready to Build with ARS 550D?</h2></div><p className="text-[15px] leading-[1.8] text-steel-700">Choose your next step—check the latest TMT bar price, locate an authorised ARS dealer, or compare ARS 550D with ARS CRS 550D to select the right reinforcement steel for your project.</p></div><div className="grid gap-5 md:grid-cols-3">{sellingActions.map((action) => <Link key={action.title} href={action.href} className="focus-ring group flex min-h-[270px] flex-col rounded-2xl border-[1.5px] border-surface-100 bg-white p-7 transition hover:-translate-y-0.5 hover:shadow-lg"><span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/[0.06] text-brand-blue">{action.icon}</span><h3 className="mt-6 font-display text-[18px] font-bold text-ink-900">{action.title}</h3><p className="mt-3 flex-1 text-[14px] leading-[1.7] text-grey-600">{action.desc}</p><span className="mt-6 text-[13px] font-bold text-brand-red">{action.cta}</span></Link>)}</div></div>
       </MotionSection>
 
-      <MotionSection className="relative overflow-hidden bg-brand-blue py-20"><div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(222,18,26,0.7) 0%, transparent 55%)" }} /><div className="ars-container relative z-10 flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center"><div><SectionKicker variant="light">READY TO BUILD</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">Choose ARS 550D for Your Next Project</h2><p className="mt-3 max-w-[540px] text-[14px] leading-[1.7] text-white/75">Get the product specifications, estimate your steel requirement, or connect with an authorised ARS dealer to move your project forward.</p></div><div className="flex flex-wrap gap-3"><Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white"><FileText size={15} /> Talk to Sales</Link><Link href="/tmt-steel-calculator" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white"><Calculator size={15} /> Calculate Steel Requirement</Link></div></div></MotionSection>
+      <MotionSection className="relative overflow-hidden bg-brand-blue py-20"><div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(222,18,26,0.7) 0%, transparent 55%)" }} /><div className="ars-container relative z-10 flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center"><div><SectionKicker variant="light">READY TO BUILD</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">Choose ARS 550D for Your Next Project</h2><p className="mt-3 max-w-[540px] text-[14px] leading-[1.7] text-white/75">Get the product specifications, estimate your steel requirement, or connect with an authorised ARS dealer to move your project forward.</p></div><div className="flex flex-wrap gap-3"><Link href="/request-quote?product=ars-550d" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white"><FileText size={15} aria-hidden="true" /> Get a Quote</Link><Link href="/our-network" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white"><MapPin size={15} aria-hidden="true" /> Find a Dealer</Link><a href={`tel:${verifiedContactDetails.mobile.replace(/\s/g, "")}`} className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white"><Phone size={15} aria-hidden="true" /> Call</a></div></div></MotionSection>
 
+      <ProductLeadCaptureForm product="ARS 550D" trustItems={["BIS-certified", "SGS-tested", "Fe 550D", "30+ years"]} />
       <SiteFooter />
     </main>
   );

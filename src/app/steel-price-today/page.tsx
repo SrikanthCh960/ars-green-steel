@@ -12,7 +12,8 @@ import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { clientVerificationSummary, steelPriceRows } from "@/data/business-verification";
+import { SteelPriceLookup } from "@/components/steel-price-lookup";
+import { clientVerificationSummary } from "@/data/business-verification";
 
 export const metadata = createPageMetadata({
   title: "Steel Price Today | ARS Green Steel",
@@ -153,29 +154,7 @@ export default function SteelPriceTodayPage() {
             </p>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border-[1.5px] border-surface-100">
-            <div className="grid grid-cols-[0.7fr_1.3fr_1fr] bg-brand-blue px-6 py-3">
-              <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/70">Size</span>
-              <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/70">Typical use</span>
-              <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/70">Status</span>
-            </div>
-            {steelPriceRows.map(([size, use, status], i) => (
-              <div
-                key={size}
-                className={`grid grid-cols-[0.7fr_1.3fr_1fr] items-center px-6 py-4 ${
-                  i < steelPriceRows.length - 1 ? "border-b border-grey-100" : ""
-                } ${i % 2 === 0 ? "bg-white" : "bg-surface-50"}`}
-              >
-                <span className="font-display text-[15px] font-extrabold text-brand-blue">{size}</span>
-                <span className="text-[13px] leading-[1.5] text-steel-700">{use}</span>
-                <span className="text-[12px] font-semibold text-grey-600">{status}</span>
-              </div>
-            ))}
-          </div>
-          <p className="mt-4 text-[12px] leading-[1.6] text-grey-600">
-            Rates shown as &quot;contact for current rate&quot; until ARS confirms published pricing — request a
-            quote for today&apos;s figure.
-          </p>
+          <SteelPriceLookup />
         </div>
       </MotionSection>
 
