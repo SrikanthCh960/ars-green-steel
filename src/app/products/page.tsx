@@ -6,10 +6,11 @@ import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { productCatalog } from "@/lib/product-catalog";
 
 export const metadata = createPageMetadata({
   title: "Products | ARS Green Steel",
-  description: "Compare ARS 550D and ARS CRS 550D TMT bars, review technical information, and choose the grade that fits your site conditions.",
+  description: "Explore the ARS product range, including ARS 550D, ARS CRS 550D, and ARS Binders, then choose the right solution for your construction project.",
   path: "/products",
 });
 
@@ -20,36 +21,11 @@ const trustItems = [
   { value: "IS 1786", label: "Standard", description: "Both grades are manufactured to the IS 1786:2008 benchmark." },
 ];
 
-const products = [
-  {
-    name: "ARS 550D",
-    href: "/product-550d",
-    image: "/ars-assets/TMT-Bars.png",
-    icon: ShieldCheck,
-    description: "High-strength Fe550D TMT Bars designed for residential, commercial, industrial, and infrastructure construction.",
-    points: [
-      "High-Strength Fe550D TMT Bars",
-      "Designed for Earthquake-Resistant Construction",
-      "Superior Ductility & Bendability",
-      "Strong Concrete Bonding for Reliable RCC Structures",
-      "BIS Certified • IS 1786 Compliant",
-    ],
-  },
-  {
-    name: "ARS CRS 550D",
-    href: "/product-crs-550d",
-    image: "/ars-assets/logos/ARSCRS550D.png",
-    icon: Waves,
-    description: "Corrosion Resistant Fe550D TMT Bars engineered for coastal, humid, industrial, and high-salinity environments.",
-    points: [
-      "Corrosion Resistant Fe550D TMT Bars",
-      "Ideal for High-Salinity & Humid Environments",
-      "Enhanced Service Life & Structural Durability",
-      "High Strength with Superior Ductility",
-      "BIS Certified • IS 1786 Compliant",
-    ],
-  },
-];
+const products = productCatalog.map((product) => ({
+  ...product,
+  icon: product.name === "ARS 550D" ? ShieldCheck : product.name === "ARS CRS 550D" ? Waves : Layers,
+  points: product.homePoints,
+}));
 
 const comparisonRows = [
   ["Best For", "General reinforced concrete construction", "Reinforced concrete construction in high-salinity and humid environments"],
@@ -116,9 +92,9 @@ export default function ProductsPage() {
 
       <MotionSection className="bg-white py-24" id="grades">
         <div className="ars-container">
-          <div className="mb-14 grid items-end gap-12 lg:grid-cols-2"><div><SectionKicker variant="brand">Core Products</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Compare ARS 550D &amp; ARS CRS 550D</h2></div><p className="text-[15px] leading-[1.8] text-steel-700">Choose the reinforcement steel that matches your project environment. Both grades comply with IS 1786 and deliver dependable structural performance, while ARS CRS 550D offers enhanced corrosion resistance for demanding conditions.</p></div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {products.map((product) => { const Icon = product.icon; return <Link key={product.name} href={product.href} className="focus-ring group overflow-hidden rounded-2xl border-[1.5px] border-surface-100 bg-white transition duration-200 hover:-translate-y-0.5 hover:shadow-lg"><div className="relative h-56 overflow-hidden bg-surface-50 p-8"><Image src={product.image} alt={`${product.name} TMT Bars`} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain p-8 transition duration-500 group-hover:scale-105" /></div><div className="p-7"><div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/[0.06] text-brand-blue"><Icon aria-hidden="true" size={20} /></div><h3 className="font-display text-[22px] font-bold text-ink-900">{product.name}</h3><p className="mt-3 text-[14px] leading-[1.7] text-steel-700">{product.description}</p><ul className="mt-5 flex flex-col gap-2">{product.points.map((point) => <li key={point} className="flex items-start gap-2.5"><CheckCircle2 aria-hidden="true" size={15} className="mt-0.5 shrink-0 text-brand-red" /><span className="text-[13px] font-medium text-steel-700">{point}</span></li>)}</ul></div></Link> })}
+              <div className="mb-14 grid items-end gap-12 lg:grid-cols-2"><div><SectionKicker variant="brand">Product Range</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Explore the ARS Product Range</h2></div><p className="text-[15px] leading-[1.8] text-steel-700">Explore ARS reinforcement products for everyday construction, demanding environments, and faster on-site assembly. Select a product to review its dedicated information and enquiry pathway.</p></div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {products.map((product) => { const Icon = product.icon; return <Link key={product.name} href={product.route} className="focus-ring group overflow-hidden rounded-2xl border-[1.5px] border-surface-100 bg-white transition duration-200 hover:-translate-y-0.5 hover:shadow-lg"><div className="relative h-56 overflow-hidden bg-surface-50 p-8"><Image src={product.image} alt={`${product.name} product`} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-contain p-8 transition duration-500 group-hover:scale-105" /></div><div className="p-7"><div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/[0.06] text-brand-blue"><Icon aria-hidden="true" size={20} /></div><h3 className="font-display text-[22px] font-bold text-ink-900">{product.name}</h3><p className="mt-3 text-[14px] leading-[1.7] text-steel-700">{product.description}</p><ul className="mt-5 flex flex-col gap-2">{product.points.map((point) => <li key={point} className="flex items-start gap-2.5"><CheckCircle2 aria-hidden="true" size={15} className="mt-0.5 shrink-0 text-brand-red" /><span className="text-[13px] font-medium text-steel-700">{point}</span></li>)}</ul></div></Link> })}
           </div>
         </div>
       </MotionSection>

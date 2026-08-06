@@ -58,7 +58,7 @@ export const metadata = createPageMetadata({
   path: "/",
 });
 
-const products = [productCatalog[1], productCatalog[0], productCatalog[2]];
+const products = [productCatalog[0], productCatalog[1], productCatalog[2]];
 
 const certificateCards = [
   {
