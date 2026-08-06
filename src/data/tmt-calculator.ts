@@ -1,6 +1,13 @@
 export const calculatorRegions = ["Tamil Nadu", "Andhra Pradesh", "Kerala", "Karnataka"] as const;
 export type CalculatorRegion = (typeof calculatorRegions)[number];
 
+export const calculatorCities: Record<CalculatorRegion, readonly string[]> = {
+  "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Salem", "Tiruchirappalli", "Tirunelveli", "Erode", "Vellore"],
+  "Andhra Pradesh": ["Vijayawada", "Visakhapatnam", "Guntur", "Tirupati", "Nellore", "Kurnool", "Rajahmundry"],
+  Kerala: ["Kochi", "Thiruvananthapuram", "Kozhikode", "Thrissur", "Kollam", "Kannur", "Alappuzha"],
+  Karnataka: ["Bengaluru", "Mysuru", "Mangaluru", "Hubballi", "Belagavi", "Davanagere", "Ballari"],
+};
+
 export const calculatorProducts = ["ARS 550D", "ARS CRS 550D"] as const;
 export type CalculatorProduct = (typeof calculatorProducts)[number];
 
