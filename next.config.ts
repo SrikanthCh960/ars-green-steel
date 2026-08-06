@@ -4,6 +4,8 @@ const nextConfig: NextConfig = {
   images: {
     // Keep Next's optimized image responses viewable in a new tab instead of forcing downloads.
     contentDispositionType: "inline",
+    // Serve local public assets directly so cached optimizer responses cannot force downloads.
+    unoptimized: true,
   },
   turbopack: {
     root: __dirname,
