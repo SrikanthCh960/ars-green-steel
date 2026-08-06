@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    // Keep Next's optimized image responses viewable in a new tab instead of forcing downloads.
+    contentDispositionType: "inline",
+  },
   turbopack: {
     root: __dirname,
   },
