@@ -66,13 +66,13 @@ const enquiryRoutes = [
     icon: Store,
     title: "Find dealer support",
     text: "Move product interest toward local availability and supply guidance.",
-    href: "/dealer-locator",
+    href: "/our-network",
   },
   {
     icon: ShieldCheck,
     title: "Verify product proof",
     text: "Ask for specifications, testing context, and certification documents.",
-    href: "/certifications",
+    href: "/our-certification",
   },
 ];
 

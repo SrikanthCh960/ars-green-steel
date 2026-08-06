@@ -343,7 +343,7 @@ export default function ManufacturingPage() {
           </div>
 
           <div className="mt-10 flex justify-end">
-            <Link href="/certifications" className="focus-ring inline-flex min-h-12 items-center gap-3 rounded-full bg-brand-blue px-6 py-3.5 text-sm font-bold text-white transition hover:bg-brand-blue-dark">
+            <Link href="/our-certification" className="focus-ring inline-flex min-h-12 items-center gap-3 rounded-full bg-brand-blue px-6 py-3.5 text-sm font-bold text-white transition hover:bg-brand-blue-dark">
               View certifications and awards <ArrowRight aria-hidden="true" size={18} />
             </Link>
           </div>

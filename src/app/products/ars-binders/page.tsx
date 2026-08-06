@@ -21,7 +21,7 @@ export const metadata = createPageMetadata({
   title: "ARS Binders | ARS Green Steel",
   description:
     "Manufactured from premium ARS CRS 550D TMT Bars, ARS Binders are precision-made stirrups that reduce manual bending, minimise steel wastage, and help deliver faster, more consistent reinforcement on site.",
-  path: "/products/ars-binders",
+  path: "/ars-binders",
 });
 
 const trustItems = [
@@ -342,7 +342,7 @@ export default function ArsBindersPage() {
           </div>
           <div className="grid gap-5 md:grid-cols-3">
             <Link href="/request-quote" className="focus-ring group flex min-h-56 flex-col justify-between rounded-[8px] border-[1.5px] border-surface-100 bg-white p-7 transition hover:-translate-y-0.5 hover:shadow-lg"><FileText size={21} className="text-brand-blue" aria-hidden="true" /><h3 className="font-display text-[20px] font-bold text-ink-900">Request Quote</h3><ArrowRight size={16} className="text-brand-red" aria-hidden="true" /></Link>
-            <Link href="/dealer-locator" className="focus-ring group flex min-h-56 flex-col justify-between rounded-[8px] border-[1.5px] border-surface-100 bg-white p-7 transition hover:-translate-y-0.5 hover:shadow-lg"><MapPin size={21} className="text-brand-blue" aria-hidden="true" /><h3 className="font-display text-[20px] font-bold text-ink-900">Find Dealer</h3><ArrowRight size={16} className="text-brand-red" aria-hidden="true" /></Link>
+            <Link href="/our-network" className="focus-ring group flex min-h-56 flex-col justify-between rounded-[8px] border-[1.5px] border-surface-100 bg-white p-7 transition hover:-translate-y-0.5 hover:shadow-lg"><MapPin size={21} className="text-brand-blue" aria-hidden="true" /><h3 className="font-display text-[20px] font-bold text-ink-900">Find Dealer</h3><ArrowRight size={16} className="text-brand-red" aria-hidden="true" /></Link>
             <div className="flex min-h-56 flex-col justify-between rounded-[8px] border-[1.5px] border-surface-100 bg-surface-50 p-7"><FileText size={21} className="text-brand-blue/55" aria-hidden="true" /><h3 className="font-display text-[20px] font-bold text-ink-900">Download Brochure</h3><DisabledBrochureAction /></div>
           </div>
         </div>

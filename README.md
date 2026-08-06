@@ -12,7 +12,16 @@ Primary local project path:
 
 Current active redesign branch:
 
-- `homepage-figma-refresh`
+- `codex/metadata-seo`
+
+Latest internal-link release:
+
+- Date: 2026-08-05
+- Commit: `faa072f`
+- Canonical internal links now point directly to WordPress routes, avoiding internal 301 hops.
+- Blog page links previously ending in `.html` were corrected to valid application routes.
+- `/about` was removed from the sitemap; `/about-us` remains canonical.
+- Production deployment: `dpl_3By4xPLn7zLdTKC4J7BSuksAkRxW`
 
 ## Stack
 

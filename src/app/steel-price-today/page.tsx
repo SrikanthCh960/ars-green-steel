@@ -18,7 +18,7 @@ export const metadata = createPageMetadata({
   title: "Steel Price Today | ARS Green Steel",
   description:
     "ARS Green Steel TMT bar price context by size, with calculator, dealer, and quote paths for current pricing.",
-  path: "/steel-price-today",
+  path: "/tmt-steel-price-today",
 });
 
 const stats = [
@@ -34,14 +34,14 @@ const nextSteps = [
     title: "Calculate steel",
     desc: "Estimate requirement before asking sales for a final price.",
     cta: "Open calculator",
-    href: "/tmt-calculator",
+    href: "/tmt-steel-calculator",
   },
   {
     icon: <MapPin size={20} />,
     title: "Find dealer",
     desc: "Use your location to discover nearby ARS supply support.",
     cta: "Find a dealer",
-    href: "/dealer-locator",
+    href: "/our-network",
   },
   {
     icon: <ClipboardList size={20} />,
@@ -55,7 +55,7 @@ const nextSteps = [
     title: "Verify quality",
     desc: "Review product proof before making price the only factor.",
     cta: "View proof",
-    href: "/certifications",
+    href: "/our-certification",
   },
 ];
 
@@ -109,7 +109,7 @@ export default function SteelPriceTodayPage() {
                 Request current quote <ArrowRight size={14} />
               </a>
               <a
-                href="/tmt-calculator"
+                href="/tmt-steel-calculator"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/80 transition hover:bg-white/[0.12]"
               >
                 <Calculator size={14} /> Calculate need
@@ -243,7 +243,7 @@ export default function SteelPriceTodayPage() {
                 Request quote <ArrowRight size={15} />
               </a>
               <a
-                href="/dealer-locator"
+                href="/our-network"
                 className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.15]"
               >
                 <MapPin size={15} /> Find a dealer

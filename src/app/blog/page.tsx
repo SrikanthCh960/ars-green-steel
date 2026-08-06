@@ -129,7 +129,7 @@ export default function BlogPage() {
         primaryLabel="Talk to the ARS team"
         primaryHref="/request-quote"
         secondaryLabel="Find a dealer"
-        secondaryHref="/dealer-locator"
+        secondaryHref="/our-network"
       />
     </main>
   );

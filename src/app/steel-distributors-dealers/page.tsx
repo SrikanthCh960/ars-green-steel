@@ -1,3 +1,10 @@
-export { default } from "@/app/become-a-dealer/page";
 import { createPageMetadata } from "@/lib/site-metadata";
-export const metadata = createPageMetadata({ title: "Steel Distributors & Dealers | ARS Green Steel", description: "Partner with ARS Green Steel as a distributor or dealer.", path: "/steel-distributors-dealers" });
+import { DealerDistributorPage } from "@/components/dealer-distributor-page";
+
+export const metadata = createPageMetadata({
+  title: "Steel Distributors & Dealers in India | ARS Steel",
+  description: "Find reliable steel distributors and dealers for all your construction needs. Explore a wide range of quality steel products and get competitive pricing today!",
+  path: "/steel-distributors-dealers",
+});
+
+export default DealerDistributorPage;

@@ -29,7 +29,7 @@ type MegaMenuDefinition = {
 type MenuKey = "about" | "products" | "sustainability" | "solutions" | "resources" | "pressMedia" | "contact";
 
 const routeLinks = [
-  { label: "About", href: "/about", menu: "about" },
+  { label: "About", href: "/about-us", menu: "about" },
   { label: "Products", href: "/products", menu: "products" },
   { label: "Sustainability", href: "/green-steel", menu: "sustainability" },
   { label: "Solutions", href: "/industries", menu: "solutions" },
@@ -66,7 +66,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
       { label: "ARS Binders", href: "/ars-binders" },
       { label: "Steel Testing", href: "/steel-testing" },
       { label: "Product Comparison", href: "/products#comparison" },
-      { label: "Technical Specifications", href: "/products/ars-550d" },
+      { label: "Technical Specifications", href: "/product-550d" },
       { label: "Download Product Brochure", href: "/download-product-brochure" },
     ],
     proof: ["550D ductility", "CRS corrosion resistance", "Residential to infrastructure use"],
@@ -168,7 +168,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
 };
 
 const menuPaths: Record<MenuKey, string[]> = {
-  about: ["/about", "/vision-mission", "/our-team", "/manufacturing", "/our-quality", "/certifications"],
+  about: ["/about-us", "/vision-mission", "/our-team", "/manufacturing", "/our-quality", "/our-certification"],
   products: ["/products", "/steel-testing"],
   solutions: [
     "/industries",
@@ -184,16 +184,16 @@ const menuPaths: Record<MenuKey, string[]> = {
   sustainability: ["/green-steel", "/ars-green-steel"],
   resources: [
     "/blog",
-    "/steel-price-today",
+    "/tmt-steel-price-today",
     "/construction-estimation",
     "/guides-articles",
-    "/tmt-calculator",
+    "/tmt-steel-calculator",
     "/construction-cost-estimator",
     "/careers",
     "/faqs",
   ],
   pressMedia: ["/press-media", "/tv-commercials", "/news-press-releases", "/events", "/gallery", "/video", "/success-stories"],
-  contact: ["/contact", "/request-quote", "/become-a-dealer"],
+  contact: ["/contact", "/request-quote", "/steel-distributors-dealers"],
 };
 
 function pathMatches(pathname: string, route: string) {
@@ -336,7 +336,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-3">
           <Link
             className="focus-ring hidden h-11 items-center gap-2 rounded-full border border-ink-900/12 bg-white/60 px-5 text-sm font-bold text-ink-900 transition hover:border-brand-blue hover:text-brand-blue md:inline-flex"
-            href="/steel-price-today"
+            href="/tmt-steel-price-today"
           >
             <Search size={16} /> Steel price
           </Link>

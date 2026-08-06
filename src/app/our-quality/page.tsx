@@ -201,7 +201,7 @@ export default function OurQualityPage() {
                 Request test report <ArrowRight size={14} />
               </Link>
               <Link
-                href="/certifications"
+                href="/our-certification"
                 className="focus-ring inline-flex min-h-11 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.12]"
               >
                 View certifications
@@ -436,7 +436,7 @@ export default function OurQualityPage() {
                 Request Mill Test Certificate <ArrowRight size={15} />
               </Link>
               <Link
-                href="/certifications"
+                href="/our-certification"
                 className="focus-ring inline-flex min-h-11 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.15]"
               >
                 View certifications

@@ -20,7 +20,7 @@ export const metadata = createPageMetadata({
   title: "Certifications & Awards | ARS Green Steel",
   description:
     "Review ARS Green Steel certifications, approvals, sustainability documentation, management systems, and awards.",
-  path: "/certifications",
+  path: "/our-certification",
 });
 
 type CertificationDocument = {

@@ -107,7 +107,7 @@ export function HomeHero() {
               {active.copy}
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row">
-              <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] bg-brand-red px-5 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(222,18,26,0.26)] transition hover:bg-brand-red-dark" href="/tmt-calculator">
+              <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] bg-brand-red px-5 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(222,18,26,0.26)] transition hover:bg-brand-red-dark" href="/tmt-steel-calculator">
                 Calculate Steel <ArrowRight size={18} />
               </Link>
               <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] border border-white/28 bg-white/8 px-5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white hover:text-ink-900" href="#products">

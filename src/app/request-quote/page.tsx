@@ -24,7 +24,7 @@ export default function RequestQuotePage() {
         primaryLabel="Call sales"
         primaryHref="tel:+919710411111"
         secondaryLabel="Calculate first"
-        secondaryHref="/tmt-calculator"
+        secondaryHref="/tmt-steel-calculator"
       />
 
       <MotionSection className="bg-white py-24">
@@ -61,9 +61,9 @@ export default function RequestQuotePage() {
         eyebrow="Helpful before quote"
         title="Prepare a more accurate enquiry."
         cards={[
-          { title: "Calculate steel", text: "Estimate quantity before submitting your quote request.", href: "/tmt-calculator", icon: Calculator },
+          { title: "Calculate steel", text: "Estimate quantity before submitting your quote request.", href: "/tmt-steel-calculator", icon: Calculator },
           { title: "Check rod sizes", text: "Review common rod-size use cases and weight context.", href: "/products#sizes", icon: Ruler },
-          { title: "Find dealer", text: "For urgent local supply, move to dealer discovery.", href: "/dealer-locator", icon: MapPin },
+          { title: "Find dealer", text: "For urgent local supply, move to dealer discovery.", href: "/our-network", icon: MapPin },
         ]}
       />
 

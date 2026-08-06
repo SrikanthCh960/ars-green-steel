@@ -56,6 +56,7 @@ const footerGroups = [
       { label: "Steel Price Today", href: "/tmt-steel-price-today" },
       { label: "TMT Calculator", href: "/tmt-steel-calculator" },
       { label: "Dealer Locator", href: "/our-network" },
+      { label: "Become a Distributor", href: "/become-a-steel-distributor" },
       { label: "Blog & Articles", href: "/blog" },
       { label: "Videos", href: "/video" },
     ],
@@ -132,7 +133,7 @@ export function SiteFooter() {
             </p>
             <Link
               className="focus-ring mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-white transition hover:text-slate-200"
-              href="/certifications"
+              href="/our-certification"
             >
               Certifications <ArrowRight size={15} />
             </Link>
@@ -177,7 +178,7 @@ export function SiteFooter() {
               </Link>
               <Link
                 className="focus-ring inline-flex min-h-11 items-center rounded-full border border-white/20 px-5 text-sm font-bold text-white transition hover:border-white/40"
-                href="/become-a-dealer"
+                href="/steel-distributors-dealers"
               >
                 Become a dealer
               </Link>

@@ -44,6 +44,17 @@ The execution order prioritizes:
 - Duplicate React keys in Green Steel impact cards were resolved.
 - TypeScript, route QA, and production build passed before release.
 
+## Internal URL Mapping Release — 2026-08-05
+
+- Status: Done
+- Commit: `faa072f`
+- Production deployment: `dpl_3By4xPLn7zLdTKC4J7BSuksAkRxW`
+- Rewrote internal component, navigation, and CTA links to canonical WordPress routes.
+- Repaired 61 broken page links in `src/data/blog-migration-registry.json`.
+- Removed the redirected `/about` entry from the sitemap.
+- Preserved `next.config.ts` redirect sources for external legacy traffic.
+- Validation passed: TypeScript, route/asset QA, and production build.
+
 ---
 
 ## Latest Implementation Status - 2026-06-28

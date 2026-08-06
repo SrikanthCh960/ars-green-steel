@@ -5,7 +5,6 @@ import { productionDomain } from "@/lib/site-metadata";
 
 const staticRoutes = [
   "",
-  "/about",
   "/about-us",
   "/ars-binders",
   "/become-a-steel-distributor",

@@ -27,19 +27,19 @@ const buyingActions = [
   {
     title: "Check Price",
     detail: "View the latest ARS TMT steel prices by grade and location.",
-    href: "/steel-price-today",
+    href: "/tmt-steel-price-today",
     icon: IndianRupee,
   },
   {
     title: "Calculate Steel",
     detail: "Estimate your TMT steel requirement based on project type, built-up area, floors, and bar size.",
-    href: "/tmt-calculator",
+    href: "/tmt-steel-calculator",
     icon: Calculator,
   },
   {
     title: "Find Dealer",
     detail: "Locate your nearest authorised ARS Green Steel dealer or distributor.",
-    href: "/dealer-locator",
+    href: "/our-network",
     icon: MapPin,
   },
   {
@@ -517,7 +517,7 @@ function RahulDravidSection() {
             </p>
             <Link
               className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] bg-brand-red px-5 text-sm font-bold text-white transition hover:bg-brand-red-dark"
-              href="/products/ars-crs-550d"
+              href="/product-crs-550d"
             >
               Explore ARS CRS 550D <ArrowRight size={17} />
             </Link>
@@ -661,7 +661,7 @@ function ManufacturingStorySection() {
               </Link>
               <Link
                 className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] border border-brand-blue/18 bg-white px-5 text-sm font-bold text-brand-blue transition hover:border-brand-blue/40 hover:bg-surface-50"
-                href="/about"
+                href="/about-us"
               >
                 Our journey <ArrowRight size={17} />
               </Link>

@@ -21,7 +21,7 @@ export function ContactCta(props: ContactCtaProps) {
     props.body ??
     "Connect with an authorised ARS dealer near you, or speak with our experts to find the right steel solution for your project.";
   const primaryLabel = props.primaryLabel ?? "Find Nearest Dealer";
-  const primaryHref = props.primaryHref ?? "/dealer-locator";
+  const primaryHref = props.primaryHref ?? "/our-network";
   const secondaryLabel = props.secondaryLabel ?? "Talk to Experts";
   const secondaryHref = props.secondaryHref ?? "/contact";
   const primaryClassName = props.primaryClassName ?? "bg-brand-red hover:-translate-y-0.5 hover:bg-[#c90f16]";

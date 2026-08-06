@@ -13,6 +13,16 @@ This is the deployment source of truth for the ARS Green Steel redesign.
 - Current release branch: `codex/metadata-seo`
 - Deployment method: GitHub push plus Vercel production deploy when a reviewed branch needs to go live immediately.
 
+## Latest Internal-Link Release — 2026-08-05
+
+- Commit: `faa072f`
+- Production deployment: `dpl_3By4xPLn7zLdTKC4J7BSuksAkRxW`
+- Status: `READY`
+- Internal links now point directly to canonical WordPress routes, avoiding internal 301 hops.
+- 61 broken page links in `src/data/blog-migration-registry.json` were corrected.
+- `/about` was removed from the sitemap; redirect sources in `next.config.ts` remain unchanged.
+- TypeScript, internal route/asset QA, production build, calculator routes, sitemap, favicon, and logo checks passed.
+
 ## Latest Production Deployment
 
 Latest confirmed live update:

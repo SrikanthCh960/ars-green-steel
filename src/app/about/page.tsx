@@ -12,7 +12,7 @@ export const metadata = createPageMetadata({
   title: "About ARS Group",
   description:
     "ARS group is one of India's leading manufacturers of BIS-certified Fe550D and CRS 550D TMT bars, delivering high-strength, corrosion-resistant, and sustainable steel solutions for residential, commercial, industrial, and infrastructure projects.",
-  path: "/about",
+  path: "/about-us",
 });
 
 const storyPoints = [
@@ -126,7 +126,7 @@ const audiences = [
     description:
       "Depend on consistent supply, certified quality, an extensive dealer network, and reliable performance for projects of every scale.",
     cta: "Find an Authorised Dealer",
-    href: "/dealer-locator",
+    href: "/our-network",
   },
 ] as const;
 

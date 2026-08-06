@@ -1,10 +1,29 @@
 # Final QA Report
 
-Date: 2026-06-01
+Date: 2026-08-05
 
 This pass covers visual polish, SEO readiness, accessibility basics, performance readiness, and deployment checks for the current ARS Green Steel redesign.
 
 Client-confirmed business data and missing old-site media assets are intentionally excluded from this pass and can be added later.
+
+## Internal-Link QA — 2026-08-05
+
+- Repointed internal links from redirecting modern routes to canonical WordPress routes.
+- Corrected 61 broken page links in the migrated blog registry.
+- Removed the redirected `/about` entry from the sitemap.
+- Kept `next.config.ts` redirect sources unchanged for external legacy URLs.
+- Release commit: `faa072f`.
+- Production deployment: `dpl_3By4xPLn7zLdTKC4J7BSuksAkRxW` (`READY`).
+
+| Check | Result |
+|---|---|
+| TypeScript | Passed |
+| Internal route and asset QA | Passed; 154 routes checked |
+| Production build | Passed |
+| `/tmt-steel-calculator` | HTTP 200 |
+| `/tmt-calculator` | HTTP 200 |
+| `/sitemap.xml` | HTTP 200 |
+| Favicon and ARS550D logo | HTTP 200 |
 
 ## Visual Polish Completed
 

@@ -9,8 +9,8 @@ Read this file first when continuing the ARS content migration in a new chat.
 ```
 
 - Branch: `codex/metadata-seo`
-- Current committed checkpoint: `4d5c4fc`
-- Latest production deployment: `dpl_4AfuvJQX2BCCENKX5ds8HxHuEw5Q` — Ready
+- Current committed checkpoint: `faa072f`
+- Latest production deployment: `dpl_3By4xPLn7zLdTKC4J7BSuksAkRxW` — Ready
 - Production preview alias: https://ars-green-steel.vercel.app/
 - Latest commits:
   - `ec65569 Refresh Home Owners guide`
@@ -32,6 +32,8 @@ Read this file first when continuing the ARS content migration in a new chat.
 
 ## Current Release Completion
 
+- Internal URL mapping release is complete: component/nav/CTA links now use canonical WordPress routes, 61 broken blog page links were repaired, and the redirected `/about` sitemap entry was removed.
+- `next.config.ts` redirect sources remain unchanged for external legacy traffic.
 - Metadata registry and original URL parity structure are live.
 - Privacy Policy and Terms of Use use the shared LegalPage component and preserve approved legal copy.
 - Dealer locator uses the latest region-wise workbook with 1,566 unique records.

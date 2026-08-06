@@ -2,7 +2,7 @@ export const productCatalog = [
   {
     slug: "ars-550d",
     name: "ARS 550D",
-    route: "/products/ars-550d",
+    route: "/product-550d",
     homeEyebrow: "Earthquake Resistant Steel",
     overviewTag: "Core TMT grade",
     description: "High-ductility TMT bars designed for residential, commercial, and earthquake-resistant construction.",
@@ -13,7 +13,7 @@ export const productCatalog = [
   {
     slug: "ars-crs-550d",
     name: "ARS CRS 550D",
-    route: "/products/ars-crs-550d",
+    route: "/product-crs-550d",
     homeEyebrow: "Corrosion-resistant TMT bars",
     overviewTag: "Corrosion-resistant grade",
     description: "Engineered for high salinity, high humidity, and corrosion-prone environments where long-term durability matters.",
@@ -24,7 +24,7 @@ export const productCatalog = [
   {
     slug: "ars-binders",
     name: "ARS BINDERS",
-    route: "/products/ars-binders",
+    route: "/ars-binders",
     homeEyebrow: "Reinforcement accessories",
     overviewTag: "Factory-made reinforcement",
     description:

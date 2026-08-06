@@ -87,7 +87,7 @@ export default function EightMmSteelRodPage() {
             <h1 className="mt-5 font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">Precision Engineered for Maximum Efficiency: ARS 8MM Steel Rod</h1>
             <p className="mt-5 max-w-2xl text-[15px] leading-[1.75] text-white/78">Leverage the precise engineering of ARS 8MM steel TMT rods for your projects, where consistency in weight and structural reliability pave the way for optimal construction outcomes.</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/steel-price-today" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"><Calculator size={15} /> Check price</Link>
+              <Link href="/tmt-steel-price-today" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"><Calculator size={15} /> Check price</Link>
               <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border border-white/35 px-6 py-3 text-[14px] font-bold text-white transition hover:bg-white/10"><FileText size={15} /> Request a quote</Link>
             </div>
           </div>
@@ -138,7 +138,7 @@ export default function EightMmSteelRodPage() {
         <div className="ars-container grid gap-10 lg:grid-cols-[0.62fr_1.38fr] lg:gap-16"><div><SectionKicker variant="brand">FAQS</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">8mm steel rod questions, answered.</h2></div><div className="divide-y divide-ink-900/10 border-y border-ink-900/10">{faqs.map(([question, answer]) => <details key={question} className="group py-5"><summary className="focus-ring cursor-pointer list-none pr-8 text-[15px] font-bold text-ink-900 marker:hidden">{question}<span aria-hidden="true" className="float-right text-brand-red transition group-open:rotate-45">+</span></summary><p className="pt-4 pr-8 text-[14px] leading-[1.75] text-steel-700">{answer}</p></details>)}</div></div>
       </MotionSection>
 
-      <ContactCta eyebrow="Plan with precision" headline="Need 8mm steel for your project?" body="Check the latest ARS steel price, find an authorised dealer, or request support for your construction requirement." primaryLabel="Check price" primaryHref="/steel-price-today" secondaryLabel="Find a dealer" secondaryHref="/dealer-locator" />
+      <ContactCta eyebrow="Plan with precision" headline="Need 8mm steel for your project?" body="Check the latest ARS steel price, find an authorised dealer, or request support for your construction requirement." primaryLabel="Check price" primaryHref="/tmt-steel-price-today" secondaryLabel="Find a dealer" secondaryHref="/our-network" />
     </main>
   );
 }

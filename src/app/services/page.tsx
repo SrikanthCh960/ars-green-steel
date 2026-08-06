@@ -32,19 +32,19 @@ const primaryRoutes = [
   {
     title: "Check price",
     text: "Review the prepared TMT steel price journey before speaking with sales.",
-    href: "/steel-price-today",
+    href: "/tmt-steel-price-today",
     icon: IndianRupee,
   },
   {
     title: "Calculate steel",
     text: "Estimate requirement by project type, built-up area, floors, and bar size.",
-    href: "/tmt-calculator",
+    href: "/tmt-steel-calculator",
     icon: Calculator,
   },
   {
     title: "Find dealer",
     text: "Move from product interest to nearby ARS dealer discovery.",
-    href: "/dealer-locator",
+    href: "/our-network",
     icon: MapPin,
   },
   {
@@ -59,7 +59,7 @@ const serviceCards = [
   {
     title: "Price assistance",
     text: clientVerificationSummary.pricing,
-    href: "/steel-price-today",
+    href: "/tmt-steel-price-today",
     image: "/ars-assets/products-all.png",
     icon: Search,
     points: ["Size-led pricing context", "Current rate request path", "Quote-ready next step"],
@@ -67,7 +67,7 @@ const serviceCards = [
   {
     title: "Requirement planning",
     text: clientVerificationSummary.calculator,
-    href: "/tmt-calculator",
+    href: "/tmt-steel-calculator",
     image: "/ars-assets/TMT-Bars.png",
     icon: Ruler,
     points: ["Project-type inputs", "Bar-size guidance", "Sales conversation support"],
@@ -75,7 +75,7 @@ const serviceCards = [
   {
     title: "Dealer support",
     text: clientVerificationSummary.dealer,
-    href: "/dealer-locator",
+    href: "/our-network",
     image: "/ars-assets/Contact_banner.png",
     icon: Store,
     points: ["Location-led route", "Local availability support", "Dealer enquiry handoff"],
@@ -92,7 +92,7 @@ const supportCards = [
   {
     title: "Quality documents",
     text: "Use certification and testing pages to support technical review.",
-    href: "/certifications",
+    href: "/our-certification",
     icon: BadgeCheck,
   },
   {
@@ -142,7 +142,7 @@ export default function ServicesPage() {
               </Link>
               <Link
                 className="focus-ring inline-flex h-13 items-center justify-center gap-3 rounded-full border border-brand-blue/20 bg-white px-7 text-base font-bold text-brand-blue shadow-[0_12px_34px_rgba(13,43,110,0.08)] transition hover:border-brand-blue hover:bg-[#edf5ff]"
-                href="/steel-price-today"
+                href="/tmt-steel-price-today"
               >
                 Check steel price <Search size={18} />
               </Link>
@@ -383,7 +383,7 @@ export default function ServicesPage() {
           <div className="flex flex-col gap-3 sm:flex-row">
             <Link
               className="focus-ring inline-flex h-14 items-center justify-center gap-3 rounded-full bg-brand-red px-7 text-base font-bold text-white shadow-[0_18px_44px_rgba(222,18,26,0.25)] transition hover:-translate-y-0.5 hover:bg-brand-red-dark"
-              href="/steel-price-today"
+              href="/tmt-steel-price-today"
             >
               Check today&apos;s price <ArrowRight size={18} />
             </Link>

@@ -93,7 +93,7 @@ export default function ArsSteelAndhraBuyNowPage() {
               <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:opacity-90">
                 Request a quote <ArrowRight size={16} />
               </Link>
-              <Link href="/dealer-locator" className="focus-ring inline-flex min-h-12 items-center gap-2 rounded-full border border-white/35 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-ink-900">
+              <Link href="/our-network" className="focus-ring inline-flex min-h-12 items-center gap-2 rounded-full border border-white/35 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-ink-900">
                 Find a dealer <MapPin size={16} />
               </Link>
             </div>
@@ -153,7 +153,7 @@ export default function ArsSteelAndhraBuyNowPage() {
         </div>
       </MotionSection>
 
-      <ContactCta eyebrow="ANDHRA PRADESH ENQUIRIES" headline="Ready to source ARS steel?" body="Connect with ARS for product information, buying support, or a project enquiry." primaryLabel="Request a quote" primaryHref="/request-quote" secondaryLabel="Find a dealer" secondaryHref="/dealer-locator" />
+      <ContactCta eyebrow="ANDHRA PRADESH ENQUIRIES" headline="Ready to source ARS steel?" body="Connect with ARS for product information, buying support, or a project enquiry." primaryLabel="Request a quote" primaryHref="/request-quote" secondaryLabel="Find a dealer" secondaryHref="/our-network" />
     </main>
   );
 }

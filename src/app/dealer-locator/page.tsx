@@ -12,7 +12,7 @@ import { dealers } from "@/data/dealers";
 export const metadata = createPageMetadata({
   title: "Dealer Locator | ARS Green Steel",
   description: "Search ARS Green Steel dealer records by city, district, pincode, or dealer name.",
-  path: "/dealer-locator",
+  path: "/our-network",
 });
 
 const dealerStats = [

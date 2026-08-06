@@ -176,7 +176,7 @@ export const roadProjectPage = {
   title: "Because Every Journey Deserves a Strong Beginning.",
   description: "Designed for highways, expressways, and urban road projects, ARS Fe550D CRS TMT Bars combine strength, durability, and engineering excellence for infrastructure that lasts.",
   primaryCta: { label: "Request project quote", href: "/request-quote" },
-  secondaryCta: { label: "View CRS 550D", href: "/products/ars-crs-550d" },
+  secondaryCta: { label: "View CRS 550D", href: "/product-crs-550d" },
   rationale: {
     title: "Every Road Is Only as Strong as What Lies Beneath.",
     body: "Roads are more than asphalt. Beneath every highway, expressway, and urban road network lies a system of reinforced concrete structures that carry traffic, withstand environmental conditions, and support decades of continuous use. Choosing high-quality TMT bars is essential to building road infrastructure that delivers lasting strength, durability, and safety.",
@@ -205,8 +205,8 @@ export const roadProjectPage = {
     body: "Review ARS CRS 550D product information alongside the project’s design, environmental, and specification requirements.",
   },
   relatedLinks: [
-    { label: "View CRS 550D", href: "/products/ars-crs-550d" },
-    { label: "Explore quality information", href: "/certifications" },
+    { label: "View CRS 550D", href: "/product-crs-550d" },
+    { label: "Explore quality information", href: "/our-certification" },
     { label: "Explore bridges and flyovers", href: "/bridges-projects-tmt-steel-bars" },
     { label: "Explore institutional projects", href: "/institutions-projects-tmt-steel-bars" },
   ],
@@ -226,7 +226,7 @@ export const bridgesFlyoversProjectPage = {
   title: "Building Infrastructure That Connects Generations",
   description: "ARS TMT Bars are engineered for bridge construction and flyover projects, delivering reliable strength, corrosion resistance, seismic performance, and lasting durability for critical infrastructure.",
   primaryCta: { label: "Request project quote", href: "/request-quote" },
-  secondaryCta: { label: "View CRS 550D", href: "/products/ars-crs-550d" },
+  secondaryCta: { label: "View CRS 550D", href: "/product-crs-550d" },
   rationale: {
     title: "What Makes Steel Critical in Bridge & Flyover Construction",
     body: "Bridge and flyover construction demands reinforcement that can withstand heavy loads, continuous traffic, changing weather conditions, and decades of service. Choosing the right TMT bars plays a vital role in achieving structural integrity, long-term durability, and reliable performance throughout the life of the structure.",
@@ -255,8 +255,8 @@ export const bridgesFlyoversProjectPage = {
     body: "Use the product, quality, and manufacturing pages to support a project-specific discussion with the ARS team; final grade selection depends on the project requirements.",
   },
   relatedLinks: [
-    { label: "View CRS 550D", href: "/products/ars-crs-550d" },
-    { label: "Explore quality information", href: "/certifications" },
+    { label: "View CRS 550D", href: "/product-crs-550d" },
+    { label: "Explore quality information", href: "/our-certification" },
     { label: "Explore manufacturing", href: "/manufacturing" },
     { label: "Explore road projects", href: "/road-projects-tmt-steel-bars" },
     { label: "Explore institutional projects", href: "/institutions-projects-tmt-steel-bars" },
@@ -308,7 +308,7 @@ export const institutionalProjectPage = {
   relatedLinks: [
     { label: "View ARS 550D specifications", href: "/products/ars-550d#specifications" },
     { label: "Compare ARS products", href: "/products" },
-    { label: "Explore quality information", href: "/certifications" },
+    { label: "Explore quality information", href: "/our-certification" },
     { label: "Explore manufacturing", href: "/manufacturing" },
     { label: "Explore road projects", href: "/road-projects-tmt-steel-bars" },
     { label: "Explore bridges and flyovers", href: "/bridges-projects-tmt-steel-bars" },
