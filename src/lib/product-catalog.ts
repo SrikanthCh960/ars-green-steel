@@ -5,7 +5,7 @@ export const productCatalog = [
     route: "/product-crs-550d",
     homeEyebrow: "Corrosion-resistant TMT bars",
     overviewTag: "Corrosion-resistant grade",
-    description: "Engineered for high salinity, high humidity, and corrosion-prone environments where long-term durability matters.",
+    description: "Engineered for high salinity, high TDS, and corrosion-prone environments where long-term durability matters.",
     homePoints: ["Corrosion resistance", "High salinity protection", "Longer structural life"],
     overviewPoints: ["Corrosion resistance", "Durability focus", "Fe-550D · IS 1786:2008"],
     image: "/ars-assets/logos/ARSCRS550D.png",
