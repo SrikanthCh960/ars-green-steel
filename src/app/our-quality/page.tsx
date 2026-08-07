@@ -192,10 +192,10 @@ export default function OurQualityPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/contact"
+                href="/steel-testing"
                 className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-[6px] bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
               >
-                Request test report <ArrowRight size={14} />
+                Explore ARS Steel Testing <ArrowRight size={14} />
               </Link>
               <Link
                 href="/our-certification"
@@ -410,10 +410,10 @@ export default function OurQualityPage() {
             </div>
             <div className="flex shrink-0 flex-wrap gap-3">
               <Link
-                href="/contact"
+                href="/steel-testing"
                 className="focus-ring inline-flex min-h-11 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white transition hover:opacity-90"
               >
-                Request Mill Test Certificate <ArrowRight size={15} />
+                Explore ARS Steel Testing <ArrowRight size={15} />
               </Link>
               <Link
                 href="/our-certification"
