@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { ProductLeadCaptureForm } from "@/components/product-lead-capture-form";
 
@@ -155,7 +154,6 @@ export default function ArsCrs550DPage() {
 
       <ProductLeadCaptureForm product="ARS CRS 550D" trustItems={["BIS-certified", "SGS-tested", "CRS 550D", "30+ years"]} />
       <MotionSection className="relative overflow-hidden bg-brand-blue py-20"><div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(222,18,26,0.7) 0%, transparent 55%)" }} /><div className="ars-container relative z-10 flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center"><div><SectionKicker variant="light">READY TO BUILD</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">Choose ARS CRS 550D for Long-Term Structural Protection</h2><p className="mt-3 max-w-[540px] text-[14px] leading-[1.7] text-white/75">Download the product specifications, calculate your steel requirement, or connect with an authorised ARS dealer to build with corrosion-resistant reinforcement steel.</p></div><div className="flex flex-wrap gap-3"><Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white"><FileText size={15} /> Talk to Sales</Link><Link href="/tmt-steel-calculator" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white"><Calculator size={15} /> Calculate Steel Requirement</Link></div></div></MotionSection>
-      <SiteFooter />
     </main>
   );
 }

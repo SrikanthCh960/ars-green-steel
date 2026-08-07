@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { defaultSocialImage, isProductionSite, productionDomain, toProductionUrl } from "@/lib/site-metadata";
+import { SiteFooter } from "@/components/site-footer";
 
 export const metadata: Metadata = {
   metadataBase: new URL(productionDomain),
@@ -41,6 +42,7 @@ export default function RootLayout({
       <body className="min-h-full">
         <a className="skip-link" href="#main-content">Skip to content</a>
         <div id="main-content">{children}</div>
+        <SiteFooter />
       </body>
     </html>
   );

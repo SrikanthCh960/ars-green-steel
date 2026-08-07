@@ -16,7 +16,6 @@ import {
 import { MotionSection } from "@/components/motion-section";
 import { QualityDocumentGallery } from "@/components/quality-document-gallery";
 import { SectionKicker } from "@/components/section-kicker";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata = createPageMetadata({
@@ -446,7 +445,6 @@ export default function OurQualityPage() {
         </div>
       </MotionSection>
 
-      <SiteFooter />
     </main>
   );
 }

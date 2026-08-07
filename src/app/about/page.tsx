@@ -5,7 +5,6 @@ import { ArrowRight, Building2, CheckCircle2, Factory, ShieldCheck, Users } from
 import { MotionSection } from "@/components/motion-section";
 import { AboutJourneyTimeline } from "@/components/about-journey-timeline";
 import { SectionKicker } from "@/components/section-kicker";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata = createPageMetadata({
@@ -305,7 +304,6 @@ export default function AboutPage() {
         </div>
       </MotionSection>
 
-      <SiteFooter />
     </main>
   );
 }

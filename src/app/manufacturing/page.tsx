@@ -2,7 +2,6 @@ import { ArrowRight, BadgeCheck, Factory, Leaf, Recycle, Zap } from "lucide-reac
 import Image from "next/image";
 import Link from "next/link";
 import { SectionKicker } from "@/components/section-kicker";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/site-metadata";
 
@@ -381,7 +380,6 @@ export default function ManufacturingPage() {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

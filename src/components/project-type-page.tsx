@@ -3,7 +3,6 @@ import { ArrowRight, ChevronRight, CircleGauge, ShieldCheck, Waves } from "lucid
 import type { LucideIcon } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
 import { SectionKicker } from "@/components/section-kicker";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 type ProjectTypePageProps = {
@@ -166,7 +165,6 @@ export function ProjectTypePage({
       </section>
 
       <ContactCta />
-      <SiteFooter />
     </main>
   );
 }

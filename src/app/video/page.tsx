@@ -2,7 +2,6 @@ import { ArrowRight, Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { createPageMetadata } from "@/lib/site-metadata";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 const videos = [
@@ -91,7 +90,6 @@ export default function VideoGalleryPage() {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

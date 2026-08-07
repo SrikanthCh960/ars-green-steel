@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight, BadgeCheck, Cog, Factory, Recycle, ShieldCheck, type LucideIcon, Zap } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/site-metadata";
 
@@ -330,7 +329,6 @@ export default function GreenSteelPage() {
         </div>
       </MotionSection>
 
-      <SiteFooter />
     </main>
   );
 }

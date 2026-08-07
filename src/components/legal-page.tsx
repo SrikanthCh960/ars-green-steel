@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, FileText, ShieldCheck } from "lucide-react";
 import { SectionKicker } from "@/components/section-kicker";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export type LegalSection = {
@@ -91,7 +90,6 @@ export function LegalPage({ label, title, intro, sections, note, relatedHref, re
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

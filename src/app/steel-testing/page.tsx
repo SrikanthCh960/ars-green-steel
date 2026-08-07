@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ArrowRight, Atom, CheckCircle2, FlaskConical, Phone, ShieldCheck } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/site-metadata";
 
@@ -136,7 +135,6 @@ export default function SteelTestingPage() {
         </div>
       </MotionSection>
 
-      <SiteFooter />
     </main>
   );
 }

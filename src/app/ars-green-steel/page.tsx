@@ -13,7 +13,6 @@ import {
 } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/site-metadata";
 
@@ -248,7 +247,6 @@ export default function ArsGreenSteelPage() {
         <div className="ars-container flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between"><div className="max-w-2xl"><SectionKicker variant="light">Build Greener</SectionKicker><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,3.25rem)] font-bold leading-[1.08]">Ready to Build Smarter with ARS Green Steel?</h2><p className="mt-5 text-base leading-8 text-white/75">Talk to our team about choosing the right certified green steel solution for your next project. Get product guidance, technical support, and certification documentation.</p></div><div className="flex flex-wrap gap-3"><Link href="/request-quote" className="focus-ring inline-flex h-12 items-center gap-2 rounded-full bg-brand-red px-6 text-sm font-bold text-white transition hover:opacity-90">Request Quote <ArrowRight size={16} /></Link><span className="inline-flex h-12 items-center rounded-full border border-white/30 px-6 text-sm font-semibold text-white/60" aria-disabled="true">Brochure download coming soon</span></div></div>
       </MotionSection>
 
-      <SiteFooter />
     </main>
   );
 }

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ArrowRight, Atom, CheckCircle2, FlaskConical, Phone, ShieldCheck } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/site-metadata";
 
@@ -46,7 +45,6 @@ export default function CrsSpectrometerTestingPage() {
 
       <MotionSection className="relative overflow-hidden bg-brand-blue py-20"><div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(222,18,26,0.7) 0%, transparent 55%)" }} /><div className="ars-container relative z-10 flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center"><div className="max-w-3xl"><SectionKicker variant="light">REQUEST AN ON-SITE SPECTROMETRY TESTING</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">Request an on-site test for your project.</h2><p className="mt-4 text-[15px] leading-[1.8] text-white/75">Please complete the ARS testing enquiry with basic information about the testing or analysis you need.</p></div><Link href="/request-quote" className="focus-ring inline-flex min-h-12 shrink-0 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90">Request testing <ArrowRight aria-hidden="true" size={15} /></Link></div></MotionSection>
 
-      <SiteFooter />
     </main>
   );
 }

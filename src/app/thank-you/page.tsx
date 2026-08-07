@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/site-metadata";
 
@@ -27,7 +26,6 @@ export default function ThankYouPage() {
           <Link href="/" className="focus-ring mt-10 inline-flex min-h-12 items-center gap-3 rounded-full bg-brand-blue px-6 py-3.5 text-sm font-bold text-white transition hover:bg-brand-blue-dark">Return to homepage <ArrowRight size={17} /></Link>
         </div>
       </section>
-      <SiteFooter />
     </main>
   );
 }

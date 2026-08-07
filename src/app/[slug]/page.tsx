@@ -6,7 +6,6 @@ import { DealerDistributorPage } from "@/components/dealer-distributor-page";
 import { AudienceGuidePage } from "@/components/homeowners-guide-page";
 import { LegacyPageRenderer } from "@/components/legacy-page-renderer";
 import { bridgesFlyoversProjectPage, institutionalProjectPage, ProjectTypePage, roadProjectPage } from "@/components/project-type-page";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getPlannedPage, plannedPages } from "@/data/planned-pages";
 import { getLegacyPage, getLegacyTopLevelPages } from "@/lib/legacy-content";
@@ -160,7 +159,6 @@ export default async function LegacyPage({ params }: { params: Promise<{ slug: s
             </div>
           </div>
         </section>
-        <SiteFooter />
       </main>
     );
   }

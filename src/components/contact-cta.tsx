@@ -1,6 +1,5 @@
 import { ArrowRight, Phone } from "lucide-react";
 import Link from "next/link";
-import { SiteFooter } from "@/components/site-footer";
 
 type ContactCtaProps = {
   eyebrow?: string;
@@ -61,7 +60,6 @@ export function ContactCta(props: ContactCtaProps) {
         </div>
       </section>
 
-      <SiteFooter />
     </>
   );
 }

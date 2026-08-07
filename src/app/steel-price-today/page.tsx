@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SteelPriceLookup } from "@/components/steel-price-lookup";
 import { clientVerificationSummary } from "@/data/business-verification";
@@ -232,7 +231,6 @@ export default function SteelPriceTodayPage() {
         </div>
       </MotionSection>
 
-      <SiteFooter />
     </main>
   );
 }

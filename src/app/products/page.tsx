@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2, Layers, Ruler, ShieldCheck, Waves } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { productCatalog } from "@/lib/product-catalog";
 
@@ -112,7 +111,6 @@ export default function ProductsPage() {
 
       <MotionSection className="relative overflow-hidden bg-brand-blue py-20"><div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(222,18,26,0.7) 0%, transparent 55%)" }} /><div className="ars-container relative z-10"><div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center"><div className="max-w-3xl"><SectionKicker variant="light">READY TO BUILD</SectionKicker><h2 className="mb-3 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">Choose the Right TMT Bar with Confidence</h2><p className="text-[14px] leading-[1.7] text-white/70">Whether you&apos;re building a home, a commercial project, or infrastructure, selecting the right reinforcement steel makes all the difference. Compare ARS 550D and ARS CRS 550D, speak with our experts, and choose the TMT Bar that best matches your project&apos;s structural and environmental requirements.</p></div><div className="flex flex-wrap gap-3"><Link href="/request-quote" className="focus-ring inline-flex min-h-11 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white transition hover:opacity-90">Talk to Sales <ArrowRight aria-hidden="true" size={15} /></Link><Link href="/our-network" className="focus-ring inline-flex min-h-11 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.15]">Find a Dealer <ArrowRight aria-hidden="true" size={15} /></Link></div></div></div></MotionSection>
 
-      <SiteFooter />
     </main>
   );
 }

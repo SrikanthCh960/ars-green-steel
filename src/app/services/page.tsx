@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { clientVerificationSummary, verifiedContactDetails } from "@/data/business-verification";
 
@@ -398,7 +397,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <SiteFooter />
     </main>
   );
 }

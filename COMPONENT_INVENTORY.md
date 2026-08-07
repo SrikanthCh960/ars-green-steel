@@ -20,7 +20,7 @@ After creating or materially changing a reusable component, update this file in 
 | Component | File | Purpose | Variants / Notes | Current Usage |
 |---|---|---|---|---|
 | `SiteHeader` | `src/components/site-header.tsx` | Global header, navigation, mega menu, and primary enquiry actions | Shared across public pages; 76 px navigation row with a 55 px logo and animated brand-red active/hover underline, including the home icon | Homepage and pages |
-| `SiteFooter` | `src/components/site-footer.tsx` | Global footer with ARS trust, links, and contact pathways | Shared across public pages; Codex-owned | Homepage and pages |
+| `SiteFooter` | `src/components/site-footer.tsx` | Global footer with ARS trust, links, and contact pathways | Rendered once by `src/app/layout.tsx`; page components and `ContactCta` must not render it | All routes |
 | `SectionKicker` | `src/components/section-kicker.tsx` | Standard section label with horizontal rule | `brand`, `light`, `green`; optional center/end-line mode | Homepage and page sections |
 | `MotionSection` | `src/components/motion-section.tsx` | Scroll reveal wrapper for editorial sections | Uses no reveal transition when the visitor prefers reduced motion; use only when motion supports comprehension | Homepage and interior sections |
 | `HomeHero` | `src/components/home-hero.tsx` | Homepage hero with full-bleed video, animated word, and primary CTAs | Simplified single-column composition; Codex-owned, do not reuse blindly for inner pages | Homepage |

@@ -128,11 +128,9 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     visualSrc: "/ars-assets/awards-certificates-img3.png",
     links: [
       { label: "Steel Price Today", href: "/tmt-steel-price-today" },
-      { label: "Construction Estimation", href: "/construction-estimation" },
       { label: "Blog / Knowledge Center", href: "/blog" },
       { label: "Guides & Articles", href: "/guides-articles" },
       { label: "TMT Bar Calculator", href: "/tmt-steel-calculator" },
-      { label: "Construction Cost Estimator", href: "/construction-cost-estimator" },
       { label: "Career", href: "/careers" },
       { label: "FAQs", href: "/faqs" },
     ],
@@ -185,10 +183,8 @@ const menuPaths: Record<MenuKey, string[]> = {
   resources: [
     "/blog",
     "/tmt-steel-price-today",
-    "/construction-estimation",
     "/guides-articles",
     "/tmt-steel-calculator",
-    "/construction-cost-estimator",
     "/careers",
     "/faqs",
   ],

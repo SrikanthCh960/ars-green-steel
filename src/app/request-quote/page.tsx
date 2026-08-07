@@ -3,7 +3,6 @@ import { Calculator, MapPin, Ruler, ShieldCheck } from "lucide-react";
 import { ContentBand, PageHero, ProofMetrics } from "@/components/page-sections";
 import { LeadForm } from "@/components/lead-form";
 import { MotionSection } from "@/components/motion-section";
-import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata = createPageMetadata({
@@ -69,7 +68,6 @@ export default function RequestQuotePage() {
 
       <section className="bg-white py-14">
         <div className="ars-container">
-          <SiteFooter />
         </div>
       </section>
     </main>

@@ -7,6 +7,7 @@ import { verifiedContactDetails } from "@/data/business-verification";
 type ProductLeadCaptureFormProps = {
   product: "ARS 550D" | "ARS CRS 550D" | "ARS Binders";
   trustItems: string[];
+  showCallSales?: boolean;
 };
 
 const locations = [
@@ -31,7 +32,7 @@ const sourcePages: Record<ProductLeadCaptureFormProps["product"], string> = {
   "ARS Binders": "/ars-binders",
 };
 
-export function ProductLeadCaptureForm({ product, trustItems }: ProductLeadCaptureFormProps) {
+export function ProductLeadCaptureForm({ product, trustItems, showCallSales = true }: ProductLeadCaptureFormProps) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<string>("");
 
@@ -81,9 +82,11 @@ export function ProductLeadCaptureForm({ product, trustItems }: ProductLeadCaptu
                 </li>
               ))}
             </ul>
-            <a href={`tel:${phone}`} className="focus-ring mt-10 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 px-5 py-2.5 text-sm font-bold text-white transition hover:border-white/50 hover:bg-white/10">
-              <Phone size={16} aria-hidden="true" /> Call Sales
-            </a>
+            {showCallSales && (
+              <a href={`tel:${phone}`} className="focus-ring mt-10 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 px-5 py-2.5 text-sm font-bold text-white transition hover:border-white/50 hover:bg-white/10">
+                <Phone size={16} aria-hidden="true" /> Call Sales
+              </a>
+            )}
           </div>
 
           <div className="p-7 md:p-10 lg:p-12">
