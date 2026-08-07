@@ -1,16 +1,5 @@
 export const productCatalog = [
   {
-    slug: "ars-550d",
-    name: "ARS 550D",
-    route: "/product-550d",
-    homeEyebrow: "Earthquake Resistant Steel",
-    overviewTag: "Core TMT grade",
-    description: "High-ductility TMT bars designed for residential, commercial, and earthquake-resistant construction.",
-    homePoints: ["Earthquake-resistant performance", "Superior bendability & ductility", "High-strength TMT bars"],
-    overviewPoints: ["High ductility", "Strong bendability", "Fe-550D · IS 1786:2008"],
-    image: "/ars-assets/logos/ARS550D.png",
-  },
-  {
     slug: "ars-crs-550d",
     name: "ARS CRS 550D",
     route: "/product-crs-550d",
@@ -20,6 +9,17 @@ export const productCatalog = [
     homePoints: ["Corrosion resistance", "High salinity protection", "Longer structural life"],
     overviewPoints: ["Corrosion resistance", "Durability focus", "Fe-550D · IS 1786:2008"],
     image: "/ars-assets/logos/ARSCRS550D.png",
+  },
+  {
+    slug: "ars-550d",
+    name: "ARS 550D",
+    route: "/product-550d",
+    homeEyebrow: "Earthquake Resistant Steel",
+    overviewTag: "Core TMT grade",
+    description: "High-ductility TMT bars designed for residential, commercial, and earthquake-resistant construction.",
+    homePoints: ["Earthquake-resistant performance", "Superior bendability & ductility", "High-strength TMT bars"],
+    overviewPoints: ["High ductility", "Strong bendability", "Fe-550D · IS 1786:2008"],
+    image: "/ars-assets/logos/ARS550D.png",
   },
   {
     slug: "ars-binders",

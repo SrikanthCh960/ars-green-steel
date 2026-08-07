@@ -28,6 +28,7 @@ import type { LucideIcon } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
+import { FaqList } from "@/components/faq-list";
 
 type AudienceGuideSlug =
   | "tmt-steel-bar-guide-homeowners"
@@ -634,8 +635,8 @@ const contractorBuyingPanels = [
 ] as const;
 
 const contractorProducts = [
-  ["ARS Fe550D TMT Bars", "Ideal for general residential, commercial, and infrastructure construction where high strength, excellent ductility, and reliable performance are essential. A trusted choice for everyday construction projects.", "Explore ARS 550D", "/product-550d", "/ars-assets/TMT-Bars.png"],
   ["ARS CRS 550D TMT Bars", "Designed for projects exposed to high moisture, high salinity, and corrosive environments. Its enhanced corrosion resistance helps improve the durability and service life of structures, making it suitable for demanding conditions.", "Explore ARS CRS 550D", "/product-crs-550d", "/ars-assets/logos/ARSCRS550D.png"],
+  ["ARS Fe550D TMT Bars", "Ideal for general residential, commercial, and infrastructure construction where high strength, excellent ductility, and reliable performance are essential. A trusted choice for everyday construction projects.", "Explore ARS 550D", "/product-550d", "/ars-assets/TMT-Bars.png"],
   ["ARS Binders", "Factory-made steel binders designed for consistent dimensions, accurate bends, and faster reinforcement work on site. Manufactured with precision to help improve productivity, reduce manual bending time, and deliver uniform quality across construction projects.", "Explore ARS Binders", "/ars-binders", "/ars-assets/placeholders/binders-factory-placeholder.png"],
 ] as const;
 
@@ -800,18 +801,18 @@ function HomeownerAutoScrollCard({ card, hidden = false }: { card: AudienceCard;
 function ProductPathStrip() {
   const products = [
     {
-      title: "ARS 550D",
-      label: "Core TMT range",
-      body: "High-strength ductile TMT bars for residential, commercial, and everyday structural work.",
-      image: "/ars-assets/TMT-Bars.png",
-      href: "/product-550d",
-    },
-    {
       title: "ARS CRS 550D",
       label: "Corrosion resistant",
       body: "CRS steel for coastal, humid, exposed, and durability-focused construction conditions.",
       image: "/ars-assets/logos/ARSCRS550D.png",
       href: "/product-crs-550d",
+    },
+    {
+      title: "ARS 550D",
+      label: "Core TMT range",
+      body: "High-strength ductile TMT bars for residential, commercial, and everyday structural work.",
+      image: "/ars-assets/TMT-Bars.png",
+      href: "/product-550d",
     },
   ];
 
@@ -868,6 +869,14 @@ function ProductPathStrip() {
 function HomeownerProductRange() {
   const products = [
     {
+      title: "ARS CRS 550D",
+      subtitle: "Corrosion Resistant TMT Bar",
+      grade: "CRS 550D",
+      image: "/ars-assets/logos/ARSCRS550D.png",
+      href: "/product-crs-550d",
+      tags: ["Corrosion resistance", "Exposed conditions"],
+    },
+    {
       title: "ARS 550D",
       subtitle: "High Strength TMT Bar",
       grade: "Fe 550D",
@@ -876,14 +885,6 @@ function HomeownerProductRange() {
       image: "/ars-assets/products-all.png",
       href: "/product-550d",
       tags: ["High strength", "Ductility"],
-    },
-    {
-      title: "ARS CRS 550D",
-      subtitle: "Corrosion Resistant TMT Bar",
-      grade: "CRS 550D",
-      image: "/ars-assets/logos/ARSCRS550D.png",
-      href: "/product-crs-550d",
-      tags: ["Corrosion resistance", "Exposed conditions"],
     },
   ];
 
@@ -1429,7 +1430,7 @@ function EngineersArchitectsGuideContent() {
 
       <section className="bg-[#F4F7FF] py-20 lg:py-28"><div className={homeownerRail}><div className="max-w-3xl"><SectionKicker>TECHNICAL CONSULTATION</SectionKicker><h2 className={homeownerSectionTitle}>Need Help with Product Specification?</h2></div><div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{["Grade Selection", "Product Comparison", "Test Certificates", "Technical Clarifications", "Project Documentation", "Dealer Assistance"].map((item) => <div key={item} className="flex min-h-24 items-center border border-[#0D2B6E]/20 bg-white p-5 font-bold text-ink-900"><BadgeCheck aria-hidden="true" className="mr-3 size-5 shrink-0 text-brand-red" />{item}</div>)}</div><Link href="/contact" className="focus-ring mt-9 inline-flex h-12 items-center gap-3 bg-brand-blue px-6 text-sm font-bold text-white transition hover:bg-brand-red">Request Technical Support <ArrowRight size={17} /></Link></div></section>
 
-      <section className="bg-white py-20 lg:py-24"><div className={`${homeownerRail} max-w-[1180px]`}><SectionKicker>FAQS</SectionKicker><div className="mt-8 divide-y divide-brand-blue/15 border-y border-brand-blue/15">{[["How do I choose the right TMT bar for my project?", "Selection depends on structural design, environmental exposure, durability requirements, and project specifications. Standard Fe550D TMT bars are suitable for most reinforced concrete structures, while corrosion-resistant TMT bars are recommended for coastal and high-salinity environments."], ["What technical documents should be reviewed before specifying TMT bars?", "Engineers should review product specifications, chemical composition, mechanical properties, bend and rebend performance, test certificates, and applicable certifications before finalising specifications."], ["When should CRS TMT bars be specified?", "CRS TMT bars are recommended for structures exposed to coastal weather, high humidity, marine environments, industrial pollution, or high-salinity conditions where additional corrosion resistance improves long-term durability."], ["How can engineers verify product quality?", "Review recognised certifications, test certificates, technical specifications, and manufacturer documentation. Purchasing through authorised channels also helps ensure genuine products."], ["Does ARS provide technical support during specification?", "Yes. ARS provides technical assistance for product selection, specification guidance, documentation, and engineering queries to support consultants, architects, and project teams."]].map(([question, answer]) => <details key={question} className="group"><summary className="focus-ring flex min-h-16 cursor-pointer list-none items-center justify-between gap-5 py-5 font-display text-xl font-bold text-ink-900 [&::-webkit-details-marker]:hidden"><span>{question}</span><span aria-hidden="true" className="relative flex size-8 shrink-0 items-center justify-center border border-brand-blue text-brand-blue before:absolute before:h-3 before:w-0.5 before:bg-current after:absolute after:h-0.5 after:w-3 after:bg-current group-open:before:hidden" /></summary><p className="pb-6 pr-12 text-base leading-8 text-steel-700">{answer}</p></details>)}</div></div></section>
+      <section className="bg-white py-20 lg:py-24"><div className={`${homeownerRail} max-w-[1180px]`}><SectionKicker>FAQS</SectionKicker><FaqList className="mt-8" items={[["How do I choose the right TMT bar for my project?", "Selection depends on structural design, environmental exposure, durability requirements, and project specifications. Standard Fe550D TMT bars are suitable for most reinforced concrete structures, while corrosion-resistant TMT bars are recommended for coastal and high-salinity environments."], ["What technical documents should be reviewed before specifying TMT bars?", "Engineers should review product specifications, chemical composition, mechanical properties, bend and rebend performance, test certificates, and applicable certifications before finalising specifications."], ["When should CRS TMT bars be specified?", "CRS TMT bars are recommended for structures exposed to coastal weather, high humidity, marine environments, industrial pollution, or high-salinity conditions where additional corrosion resistance improves long-term durability."], ["How can engineers verify product quality?", "Review recognised certifications, test certificates, technical specifications, and manufacturer documentation. Purchasing through authorised channels also helps ensure genuine products."], ["Does ARS provide technical support during specification?", "Yes. ARS provides technical assistance for product selection, specification guidance, documentation, and engineering queries to support consultants, architects, and project teams."]].map(([question, answer]) => ({ question, answer }))} /></div></section>
     </>
   );
 }
@@ -1450,8 +1451,8 @@ function HomeownerFigmaContent() {
     { title: "Recognition Matters", icon: BadgeCheck, image: "/ars-assets/awards-certificates-img2.png", paragraphs: ["A strong reputation is built over years of consistent quality and performance. Before choosing TMT bars, consider whether the manufacturer is recognised by respected industry organisations, government initiatives, and independent institutions. Such recognition reflects a long-term commitment to quality, reliability, and responsible manufacturing—not just marketing claims."], tone: "dark" },
   ];
   const products = [
-    { title: "ARS 550D", heading: "ARS 550D TMT Bars", body: "Ideal for residential buildings constructed under normal environmental conditions.", recommended: ["Independent homes", "Villas", "Apartments", "Residential extensions", "General RCC construction"], highlights: ["High strength", "Excellent ductility", "Earthquake-resistant performance", "BIS-certified quality"], href: "/product-550d", cta: "Explore ARS 550D", image: "/ars-assets/TMT-Bars.png" },
     { title: "ARS CRS 550D", heading: "ARS CRS 550D TMT Bars", body: "Designed for structures exposed to higher moisture, coastal weather, and high-salinity environments where corrosion resistance becomes critical.", recommended: ["Coastal homes", "High-humidity regions", "Water-facing properties", "Long-life residential structures"], highlights: ["Superior corrosion resistance", "High ductility", "Reliable structural performance", "BIS-certified manufacturing"], href: "/product-crs-550d", cta: "Explore ARS CRS 550D", image: "/ars-assets/logos/ARSCRS550D.png" },
+    { title: "ARS 550D", heading: "ARS 550D TMT Bars", body: "Ideal for residential buildings constructed under normal environmental conditions.", recommended: ["Independent homes", "Villas", "Apartments", "Residential extensions", "General RCC construction"], highlights: ["High strength", "Excellent ductility", "Earthquake-resistant performance", "BIS-certified quality"], href: "/product-550d", cta: "Explore ARS 550D", image: "/ars-assets/TMT-Bars.png" },
   ] as const;
   const trustCards = [
     { title: "35+ Years of Manufacturing Excellence", icon: Factory, body: "For more than three decades, ARS has been manufacturing high-quality TMT bars trusted across residential, commercial, and infrastructure projects, delivering consistent quality with every bar produced." },
@@ -1503,7 +1504,7 @@ function HomeownerFigmaContent() {
     <section className="relative overflow-hidden bg-[#F4F7FF] py-20 lg:py-28"><div className="absolute inset-y-0 right-0 hidden w-1/3 bg-[linear-gradient(135deg,transparent_0,transparent_48%,rgba(13,43,110,0.04)_48%,rgba(13,43,110,0.04)_52%,transparent_52%)] lg:block" /><div className={`${homeownerRail} relative`}><SectionKicker>FIND THE RIGHT PRODUCT</SectionKicker><h2 className={homeownerSectionTitle}>Choose the Right ARS TMT Bar for Your Home</h2><h3 className="mt-8 font-display text-xl font-bold text-ink-900">Introduction</h3><p className={homeownerSectionCopy}>Every home is different. That&apos;s why ARS offers TMT bars designed for different construction environments. Whether you&apos;re building in standard conditions or in areas exposed to higher corrosion risks, there&apos;s a solution engineered for your project&apos;s needs.</p><div className="mt-11 grid gap-6 lg:grid-cols-2">{products.map((product, index) => <article key={product.title} className="group overflow-hidden border border-brand-blue/15 bg-white shadow-[0_16px_38px_rgba(6,13,30,0.05)] transition duration-300 hover:-translate-y-1 hover:border-brand-blue/35 hover:shadow-[0_24px_58px_rgba(6,13,30,0.12)]"><div className={`relative h-52 overflow-hidden ${index === 0 ? "bg-[#EAF0FF]" : "bg-[#060D1E]"}`}><div className="absolute inset-x-0 top-0 h-1 bg-brand-red" /><Image src={product.image} alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-contain p-10 transition duration-500 group-hover:scale-105" /></div><div className="p-6 md:p-8"><p className="font-technical text-xs font-black uppercase tracking-[0.18em] text-brand-blue">{product.title}</p><h3 className="mt-3 font-display text-3xl font-bold text-ink-900">{product.heading}</h3><p className="mt-4 text-base leading-8 text-steel-700">{product.body}</p><div className="mt-7 grid gap-6 border-t border-brand-blue/12 pt-6 sm:grid-cols-2"><div><h4 className="font-display text-lg font-bold text-ink-900">Recommended for</h4><ul className="mt-3 space-y-2 text-sm leading-6 text-steel-700">{product.recommended.map((item) => <li key={item} className="flex gap-2"><BadgeCheck aria-hidden="true" className="mt-1 size-3.5 shrink-0 text-brand-blue" />{item}</li>)}</ul></div><div><h4 className="font-display text-lg font-bold text-ink-900">Highlights</h4><ul className="mt-3 space-y-2 text-sm leading-6 text-steel-700">{product.highlights.map((item) => <li key={item} className="flex gap-2"><BadgeCheck aria-hidden="true" className="mt-1 size-3.5 shrink-0 text-brand-red" />{item}</li>)}</ul></div></div><Link href={product.href} className="focus-ring mt-8 inline-flex min-h-12 items-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-bold text-white transition hover:bg-brand-blue-dark">{product.cta} <ArrowRight size={16} /></Link></div></article>)}</div><div className="mt-10 overflow-x-auto border border-brand-blue/15 bg-white shadow-[0_16px_38px_rgba(6,13,30,0.05)]"><table className="w-full min-w-[580px] border-collapse text-left"><caption className="border-b border-brand-blue/15 bg-[#060D1E] p-5 text-left font-display text-2xl font-bold text-white">Quick Comparison</caption><thead className="bg-surface-50 text-ink-900"><tr><th scope="col" className="border-b border-brand-blue/15 p-4">If your project is...</th><th scope="col" className="border-l border-b border-brand-blue/15 p-4">Recommended Choice</th></tr></thead><tbody className="text-steel-700">{[["Standard residential construction", "ARS 550D"], ["Coastal region", "ARS CRS 550D"], ["High humidity", "ARS CRS 550D"], ["High salinity", "ARS CRS 550D"]].map(([condition, choice]) => <tr key={condition} className="odd:bg-white even:bg-[#F8FAFC]"><th scope="row" className="border-t border-brand-blue/15 p-4 font-semibold">{condition}</th><td className="border-l border-t border-brand-blue/15 p-4 font-bold text-brand-blue">{choice}</td></tr>)}</tbody></table></div></div></section>
     <section className="relative overflow-hidden bg-[#060D1E] py-20 text-white lg:py-28"><div className="absolute inset-0 opacity-20" style={{ backgroundImage: "linear-gradient(115deg, transparent 0 46%, #ffffff 46% 47%, transparent 47% 100%)", backgroundSize: "28px 28px" }} /><div className={`${homeownerRail} relative`}><SectionKicker variant="light">WHY HOMEOWNERS TRUST ARS</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.16] text-white">Built on Trust. Proven Through Performance.</h2><p className="mt-5 max-w-2xl text-base leading-8 text-white/74">A home is built only once, and the steel inside it should be chosen with confidence. For over three decades, ARS has earned the trust of homeowners, builders, engineers, and government institutions through consistent quality, responsible manufacturing, and independently recognised standards.</p><div className="mt-11 grid gap-px border border-white/15 bg-white/15 md:grid-cols-2">{trustCards.map(({ title, body, icon: Icon }) => <article key={title} className="bg-[#060D1E]/90 p-6 transition hover:bg-white/[0.08] md:p-8"><Icon aria-hidden="true" className="size-6 text-brand-red" /><h3 className="mt-6 font-display text-2xl font-bold text-white">{title}</h3><p className="mt-4 text-base leading-8 text-white/72">{body}</p></article>)}</div><div className="homeowner-proof-marquee mt-10 overflow-hidden py-1"><div className="marquee-frame"><ul className="marquee-track marquee-right gap-3" aria-label="ARS proof points">{[...proofItems, ...proofItems].map((item, index) => <li key={`${item}-${index}`} aria-hidden={index >= proofItems.length ? true : undefined} className="marquee-card flex min-h-16 min-w-[250px] items-center gap-3 border border-brand-blue/15 bg-white px-5 text-sm font-bold leading-5 text-ink-900 shadow-[0_8px_24px_rgba(6,13,30,0.08)]"><BadgeCheck aria-hidden="true" className="size-5 shrink-0 text-brand-red" />{item}</li>)}</ul></div></div><Link href="/our-certification" className="focus-ring mt-9 inline-flex min-h-12 items-center gap-2 rounded-[6px] border border-white/35 bg-white px-5 text-sm font-bold text-brand-blue transition hover:bg-brand-blue hover:text-white">Explore Certifications &amp; Recognitions <ArrowRight size={16} /></Link></div></section>
     <section className="relative overflow-hidden bg-[#F4F7FF] py-20 lg:py-28"><div className={`${homeownerRail} relative`}><SectionKicker>HOME BUILDING TOOLS</SectionKicker><h2 className={homeownerSectionTitle}>Everything You Need Before You Start Building</h2><p className={homeownerSectionCopy}>From estimating your steel requirement to finding an authorised dealer, access practical tools and resources designed to help you make informed decisions throughout your home construction journey.</p><div className="mt-11 grid gap-5 md:grid-cols-2 lg:grid-cols-4">{tools.map((tool) => { const Icon = tool.icon; return <article key={tool.title} className="group relative flex min-h-[330px] flex-col overflow-hidden border border-brand-blue/15 bg-white p-6 shadow-[0_12px_32px_rgba(6,13,30,0.05)] transition duration-300 hover:-translate-y-1 hover:border-brand-blue/35 hover:shadow-[0_24px_48px_rgba(6,13,30,0.10)]"><div className="absolute inset-x-0 top-0 h-24 overflow-hidden"><Image src={tool.image} alt="" fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover opacity-20 grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0" /><div className="absolute inset-0 bg-gradient-to-b from-brand-blue/25 to-white" /></div><div className="relative flex size-11 items-center justify-center rounded-[6px] bg-brand-blue text-white"><Icon aria-hidden="true" size={21} /></div><h3 className="relative mt-10 font-display text-xl font-bold leading-tight text-ink-900">{tool.title}</h3><p className="relative mt-4 text-sm leading-7 text-steel-700">{tool.body}</p><Link href={tool.href} className="focus-ring relative mt-auto inline-flex min-h-11 items-center gap-2 pt-7 text-sm font-bold text-brand-blue transition hover:text-brand-red">{tool.cta} <ArrowRight size={15} /></Link></article> })}<article className="relative flex min-h-[330px] flex-col overflow-hidden border border-brand-blue/15 bg-[#060D1E] p-6 text-white"><div className="absolute right-0 top-0 h-1 w-full bg-brand-red" /><div className="relative flex size-11 items-center justify-center rounded-[6px] bg-white/10 text-white"><FileDown aria-hidden="true" size={21} /></div><h3 className="relative mt-10 font-display text-xl font-bold leading-tight">Download Product Brochures</h3><p className="relative mt-4 text-sm leading-7 text-white/72">Access product brochures, technical specifications, and supporting documents to better understand ARS TMT bars before you build.</p><span aria-disabled="true" className="relative mt-auto inline-flex min-h-11 items-center pt-7 text-sm font-bold text-white/45">Download Brochures</span></article></div></div></section>
-    <section className="bg-white py-20 lg:py-28"><div className={`${homeownerRail} max-w-4xl`}><SectionKicker>FAQs</SectionKicker><h2 className={homeownerSectionTitle}>FAQs</h2><div className="mt-9 divide-y border-y border-brand-blue/15">{faqs.map(([question, answer], index) => <details key={question} className="group relative py-6"><summary className="focus-ring flex cursor-pointer list-none items-start gap-4 pr-4 font-display text-lg font-bold leading-7 text-ink-900 [&::-webkit-details-marker]:hidden"><span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#EAF0FF] font-technical text-xs text-brand-blue">{String(index + 1).padStart(2, "0")}</span><span>{question}</span><span aria-hidden="true" className="ml-auto mt-1 text-brand-red transition group-open:rotate-45">+</span></summary><p className="mt-5 max-w-3xl pl-11 text-base leading-8 text-steel-700">{answer}</p></details>)}</div></div></section>
+    <section className="bg-white py-20 lg:py-28"><div className={`${homeownerRail} max-w-4xl`}><SectionKicker>FAQs</SectionKicker><h2 className={homeownerSectionTitle}>FAQs</h2><FaqList className="mt-9" items={faqs.map(([question, answer]) => ({ question, answer }))} /></div></section>
   </>;
 }
 
@@ -1671,18 +1672,7 @@ function ContractorGuideContent() {
       <section className="bg-white py-20 lg:py-24">
         <div className={`${homeownerRail} max-w-4xl`}>
           <SectionKicker>FAQs</SectionKicker>
-          <div className="mt-9 divide-y divide-brand-blue/15 border-y border-brand-blue/15">
-            {contractorFaqs.map(([question, answer], index) => (
-              <details key={question} className="group relative py-6">
-                <summary className="focus-ring flex cursor-pointer list-none items-start gap-4 pr-4 font-display text-xl font-bold leading-8 text-ink-900 [&::-webkit-details-marker]:hidden">
-                  <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-[#EAF0FF] font-technical text-xs text-brand-blue">{String(index + 1).padStart(2, "0")}</span>
-                  <span>{question}</span>
-                  <span aria-hidden="true" className="ml-auto mt-1 text-brand-red transition group-open:rotate-45">+</span>
-                </summary>
-                <p className="mt-5 max-w-3xl pl-11 text-base leading-8 text-steel-700">{answer}</p>
-              </details>
-            ))}
-          </div>
+          <FaqList className="mt-9" items={contractorFaqs.map(([question, answer]) => ({ question, answer }))} />
         </div>
       </section>
     </>

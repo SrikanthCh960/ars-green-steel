@@ -8,7 +8,7 @@ export const calculatorCities: Record<CalculatorRegion, readonly string[]> = {
   Karnataka: ["Bengaluru", "Mysuru", "Mangaluru", "Hubballi", "Belagavi", "Davanagere", "Ballari"],
 };
 
-export const calculatorProducts = ["ARS 550D", "ARS CRS 550D"] as const;
+export const calculatorProducts = ["ARS CRS 550D", "ARS 550D"] as const;
 export type CalculatorProduct = (typeof calculatorProducts)[number];
 
 export const requirementModes = ["Rods", "Weight (Kgs)"] as const;

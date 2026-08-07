@@ -15,6 +15,7 @@ import { ContactCta } from "@/components/contact-cta";
 import { MotionSection } from "@/components/motion-section";
 import { PageHero } from "@/components/page-sections";
 import { SectionKicker } from "@/components/section-kicker";
+import { FaqList } from "@/components/faq-list";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/site-metadata";
 
@@ -114,7 +115,7 @@ export default function SgpcPage() {
 
       <MotionSection className="bg-white py-20 lg:py-24"><div className="ars-container max-w-4xl"><SectionKicker variant="brand">THE ARS ADVANTAGE</SectionKicker><h2 className="section-title">Why This Matters for Your Project</h2><div className="mt-6 space-y-5 text-base leading-8 text-steel-700 lg:text-lg"><p>Choosing SGBC-certified steel means selecting a product whose environmental performance has been independently assessed—not simply claimed.</p><p>Combined with ARS&apos;s Environmental Product Declaration (EPD), Green Steel manufacturing process, and internationally recognised certifications, it gives project teams greater confidence when specifying materials for sustainable construction.</p></div></div></MotionSection>
 
-      <MotionSection className="bg-surface-50 py-20 lg:py-24"><div className="ars-container max-w-4xl"><SectionKicker variant="brand">FAQs</SectionKicker><h2 className="section-title">FAQs</h2><div className="mt-10 divide-y divide-brand-blue/15 border-y border-brand-blue/15">{faqs.map(([question, answer]) => <details key={question} className="py-6"><summary className="focus-ring cursor-pointer font-display text-lg font-bold text-ink-900">{question}</summary><p className="mt-4 max-w-3xl text-sm leading-7 text-steel-700">{answer}</p></details>)}</div></div></MotionSection>
+      <MotionSection className="bg-surface-50 py-20 lg:py-24"><div className="ars-container max-w-4xl"><SectionKicker variant="brand">FAQs</SectionKicker><h2 className="section-title">FAQs</h2><FaqList className="mt-10" items={faqs.map(([question, answer]) => ({ question, answer }))} /></div></MotionSection>
 
       <ContactCta eyebrow="BUILD WITH CONFIDENCE" headline="Choose Steel Recognised for Sustainability" body="Select certified green steel backed by internationally recognised environmental standards and independently verified performance." primaryLabel="Choose Your Green Steel." primaryHref="/ars-green-steel" secondaryLabel="View SGBC Certificate" secondaryHref={certificate.file} />
     </main>

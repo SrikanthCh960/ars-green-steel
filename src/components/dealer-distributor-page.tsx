@@ -5,10 +5,11 @@ import { ArrowRight, PackageCheck } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
+import { FaqList } from "@/components/faq-list";
 
 const products = [
-  { title: "ARS Fe550D TMT Bars", body: "A dependable TMT steel solution for residential, commercial, and infrastructure projects.", href: "/product-550d", label: "Explore ARS 550D", image: "/ars-assets/TMT-Bars.png" },
   { title: "ARS CRS 550D TMT Bars", body: "A corrosion-resistant TMT solution for projects exposed to moisture, salinity, and demanding environments.", href: "/product-crs-550d", label: "Explore ARS CRS 550D", image: "/ars-assets/logos/ARSCRS550D.png" },
+  { title: "ARS Fe550D TMT Bars", body: "A dependable TMT steel solution for residential, commercial, and infrastructure projects.", href: "/product-550d", label: "Explore ARS 550D", image: "/ars-assets/TMT-Bars.png" },
   { title: "ARS Binders", body: "Precision-made steel binders that help improve consistency and efficiency in reinforcement work.", href: "/ars-binders", label: "Explore ARS Binders", image: "/ars-assets/placeholders/binders-factory-placeholder.png" },
 ] as const;
 
@@ -89,7 +90,7 @@ export function DealerDistributorPage() {
       </section>
 
       <section className="bg-[#F4F7FF] py-20 lg:py-24">
-        <div className="ars-container max-w-4xl"><SectionKicker>FAQS</SectionKicker><div className="mt-8 divide-y divide-brand-blue/15 border-y border-brand-blue/15">{faqs.map(([question, answer]) => <details key={question} className="group py-5"><summary className="focus-ring flex cursor-pointer list-none items-center justify-between gap-4 font-display text-xl font-bold leading-8"><span>{question}</span><span className="relative inline-flex size-11 shrink-0 items-center justify-center border border-brand-blue/20 text-brand-blue" aria-hidden="true"><span className="group-open:hidden">+</span><span className="hidden group-open:inline">−</span></span></summary><p className="mt-4 max-w-3xl text-base leading-8 text-steel-700">{answer}</p></details>)}</div></div>
+        <div className="ars-container max-w-4xl"><SectionKicker>FAQS</SectionKicker><FaqList className="mt-8" items={faqs.map(([question, answer]) => ({ question, answer }))} /></div>
       </section>
 
       <ContactCta eyebrow="DEALER & DISTRIBUTOR ENQUIRY" headline="Build a stronger supply partnership with ARS." body="Connect with the ARS team to discuss your dealer or distributor enquiry, product requirements, and next steps." primaryLabel="Contact ARS" primaryHref="/contact" primaryClassName="bg-brand-blue hover:bg-brand-blue-dark" secondaryLabel="Explore our network" secondaryHref="/our-network" />

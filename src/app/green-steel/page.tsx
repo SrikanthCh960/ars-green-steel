@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, BadgeCheck, Cog, Factory, Recycle, ShieldCheck, type LucideIcon, Zap } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
+import { FaqList } from "@/components/faq-list";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/site-metadata";
 
@@ -300,14 +301,7 @@ export default function GreenSteelPage() {
       <MotionSection className="bg-white py-20 lg:py-24">
         <div className="ars-container max-w-4xl">
           <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.08] text-ink-900">FAQs</h2>
-          <div className="mt-10 divide-y divide-ink-900/10 border-y border-ink-900/10">
-            {greenSteelFaqs.map(([question, answer]) => (
-              <details key={question} className="py-6">
-                <summary className="focus-ring cursor-pointer font-display text-lg font-bold text-ink-900">{question}</summary>
-                <p className="mt-4 text-sm leading-7 text-steel-700">{answer}</p>
-              </details>
-            ))}
-          </div>
+          <FaqList className="mt-10" items={greenSteelFaqs.map(([question, answer]) => ({ question, answer }))} />
         </div>
       </MotionSection>
 

@@ -45,6 +45,7 @@ After creating or materially changing a reusable component, update this file in 
 | `DealerDistributorPage` | `src/components/dealer-distributor-page.tsx` | Source-led commercial partnership page for Dealers & Distributors | XML-aligned hero, partnership and quality bands, canonical product/network links, three native FAQ disclosures, and shared contact/footer CTAs | `/steel-distributors-dealers` |
 | `LegalPage` | `src/components/legal-page.tsx` | Shared legal page shell for readable policy and terms content | Dark legal hero, sticky section index, long-form content column, support CTA, and related-policy link | `/privacy-policy`, `/terms-of-use` |
 | `SteelPriceLookup` | `src/components/steel-price-lookup.tsx` | Interactive workbook-backed price lookup for region, product, and diameter | Uses the `Price Chart Per Ton` mapping; displays GST-inclusive price per kg and per ton | `/steel-price-today`, `/tmt-steel-price-today` |
+| `FaqList` | `src/components/faq-list.tsx` | Shared accessible FAQ disclosure list for page-owned question and answer content | Supports multiple open answers, long React content, keyboard focus, stable IDs, and reduced-motion-safe interaction | FAQ sections across product, calculator, project, sustainability, audience, and informational pages |
 
 ## Shared Data Sources
 

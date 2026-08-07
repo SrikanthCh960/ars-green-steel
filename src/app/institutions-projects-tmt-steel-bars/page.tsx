@@ -14,6 +14,7 @@ import {
 import { ContactCta } from "@/components/contact-cta";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
+import { FaqList } from "@/components/faq-list";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/site-metadata";
 
@@ -50,8 +51,8 @@ const arsStrengths = [
 ] as const;
 
 const products = [
-  ["ARS Fe550D TMT Bars", "High-strength TMT bars designed for residential, commercial, and institutional construction requiring dependable structural performance.", "/product-550d"],
   ["ARS CRS 550D TMT Bars", "Corrosion-resistant TMT bars engineered for structures exposed to high moisture and high salinity environments, helping improve long-term durability.", "/product-crs-550d"],
+  ["ARS Fe550D TMT Bars", "High-strength TMT bars designed for residential, commercial, and institutional construction requiring dependable structural performance.", "/product-550d"],
   ["ARS Binders", "Factory-made reinforcement binders manufactured with precise dimensions and accurate bends to improve consistency and productivity on site.", "/ars-binders"],
 ] as const;
 
@@ -135,7 +136,7 @@ export default function InstitutionsProjectsPage() {
       </MotionSection>
 
       <MotionSection className="bg-white py-20 md:py-28">
-        <div className="ars-container grid gap-12 lg:grid-cols-[0.34fr_0.66fr]"><div><SectionKicker>Frequently asked questions</SectionKicker><h2 className="section-title">Institutional-project questions, answered.</h2></div><div className="divide-y divide-ink-900/10 border-y border-ink-900/10">{faqs.map(([question, answer]) => <details key={question} className="group py-6"><summary className="focus-ring cursor-pointer list-none pr-10 text-lg font-bold leading-7 text-ink-900 marker:content-none">{question}<span aria-hidden="true" className="float-right -mr-8 text-brand-blue transition group-open:rotate-45">+</span></summary><p className="mt-4 max-w-3xl text-[15px] leading-7 text-steel-700">{answer}</p></details>)}</div></div>
+        <div className="ars-container grid gap-12 lg:grid-cols-[0.34fr_0.66fr]"><div><SectionKicker>Frequently asked questions</SectionKicker><h2 className="section-title">Institutional-project questions, answered.</h2></div><FaqList items={faqs.map(([question, answer]) => ({ question, answer }))} /></div>
       </MotionSection>
 
       <MotionSection className="border-t border-ink-900/10 bg-white py-12">

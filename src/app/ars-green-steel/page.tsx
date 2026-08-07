@@ -12,6 +12,7 @@ import {
   Zap,
 } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
+import { FaqList } from "@/components/faq-list";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/site-metadata";

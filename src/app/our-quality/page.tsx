@@ -14,6 +14,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
+import { FaqList } from "@/components/faq-list";
 import { QualityDocumentGallery } from "@/components/quality-document-gallery";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
@@ -393,24 +394,7 @@ export default function OurQualityPage() {
               <SectionKicker variant="brand">ARS Quality Policy</SectionKicker>
               <h2 className="section-title">Frequently Asked Questions</h2>
             </div>
-            <div className="divide-y divide-ink-900/10 border-y border-ink-900/10">
-              {faqs.map((faq) => (
-                <details key={faq.question} className="group py-6">
-                  <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center justify-between gap-5 font-display text-[1.05rem] font-bold text-ink-900">
-                    {faq.question}
-                    <span
-                      aria-hidden="true"
-                      className="flex size-8 shrink-0 items-center justify-center rounded-full border border-ink-900/15 text-brand-blue transition group-open:rotate-45"
-                    >
-                      +
-                    </span>
-                  </summary>
-                  <p className="max-w-3xl pb-2 pr-10 pt-4 text-[14px] leading-[1.8] text-steel-700">
-                    {faq.answer}
-                  </p>
-                </details>
-              ))}
-            </div>
+            <FaqList items={faqs.map(({ question, answer }) => ({ question, answer }))} />
           </div>
         </div>
       </MotionSection>

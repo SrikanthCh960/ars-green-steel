@@ -22,26 +22,31 @@ import { HomeHero } from "@/components/home-hero";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
-import { verifiedContactDetails } from "@/data/business-verification";
 
 const buyingActions = [
   {
-    title: "Today's Price",
+    title: "Check Price",
     detail: "View the latest ARS TMT steel prices by grade and location.",
     href: "/tmt-steel-price-today",
     icon: IndianRupee,
   },
   {
-    title: "TMT Calculator",
+    title: "Calculate Steel",
     detail: "Estimate your TMT steel requirement based on project type, built-up area, floors, and bar size.",
     href: "/tmt-steel-calculator",
     icon: Calculator,
   },
   {
-    title: "Find a Dealer",
+    title: "Find Dealer",
     detail: "Locate your nearest authorised ARS Green Steel dealer or distributor.",
     href: "/our-network",
     icon: MapPin,
+  },
+  {
+    title: "Download Technical Datasheets",
+    detail: "Access product specifications, test certificates, and technical resources.",
+    href: "/certifications#downloads",
+    icon: ClipboardList,
   },
   {
     title: "Request Quote",
@@ -292,11 +297,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="mt-6">
-            <Link className="focus-ring inline-flex min-h-12 items-center gap-2 rounded-[6px] bg-brand-red px-6 text-sm font-bold text-white transition hover:bg-brand-red-dark" href="/request-quote">
-              Get a Quote <ArrowRight size={17} aria-hidden="true" />
-            </Link>
-          </div>
         </div>
       </MotionSection>
 
@@ -355,14 +355,9 @@ export default function Home() {
               <p className="font-technical text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">
                 Clients
               </p>
-              <div className="flex flex-wrap items-center gap-5">
-                <Link className="focus-ring text-sm font-bold text-brand-blue hover:text-brand-red" href="/request-quote">
-                  Get a Quote <ArrowRight size={16} aria-hidden="true" />
-                </Link>
-                <Link className="focus-ring text-sm font-bold text-brand-blue hover:text-brand-red" href="/projects">
-                  Our Projects <ArrowRight size={16} aria-hidden="true" />
-                </Link>
-              </div>
+              <Link className="focus-ring text-sm font-bold text-brand-blue hover:text-brand-red" href="/projects">
+                View project experience
+              </Link>
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-9">
               {partnerCards.map((partner) => (
@@ -404,7 +399,7 @@ export default function Home() {
               href="/blog"
               className="focus-ring inline-flex items-center gap-2 justify-self-start text-sm font-bold text-brand-blue transition hover:text-brand-red lg:justify-self-end"
             >
-              All Articles <ArrowRight size={17} aria-hidden="true" />
+              View all articles <ArrowRight size={17} />
             </Link>
           </div>
 
@@ -420,15 +415,7 @@ export default function Home() {
         </div>
       </MotionSection>
 
-      <ContactCta
-        eyebrow="READY TO BUILD WITH ARS?"
-        headline="Move from planning to a confirmed quote."
-        body="Share your requirement with ARS or speak directly with our sales team for the next step."
-        primaryLabel="Get a Quote"
-        primaryHref="/request-quote"
-        secondaryLabel="Call Sales"
-        secondaryHref={`tel:${verifiedContactDetails.mobile.replace(/\s/g, "")}`}
-      />
+      <ContactCta />
     </main>
   );
 }
@@ -467,7 +454,7 @@ function FeaturedBlogCard({ blog }: { blog: (typeof blogs)[number] }) {
       <div className="relative mt-12 flex items-center justify-between border-t border-white/14 pt-7">
         <span className="text-sm font-bold text-white/50">{blog.readTime}</span>
         <span className="inline-flex items-center gap-2 text-sm font-bold text-white">
-          Read <ArrowRight size={17} className="transition group-hover:translate-x-1" aria-hidden="true" />
+          Read article <ArrowRight size={17} className="transition group-hover:translate-x-1" />
         </span>
       </div>
     </Link>
@@ -530,9 +517,9 @@ function RahulDravidSection() {
             </p>
             <Link
               className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] bg-brand-red px-5 text-sm font-bold text-white transition hover:bg-brand-red-dark"
-              href="/about-us"
+              href="/product-crs-550d"
             >
-              Why ARS <ArrowRight size={17} aria-hidden="true" />
+              Explore ARS CRS 550D <ArrowRight size={17} />
             </Link>
           </div>
 
@@ -582,15 +569,9 @@ function GreenSteelSection() {
           </p>
           <Link
             className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] border border-emerald-300/30 px-5 text-sm font-bold text-emerald-200 transition hover:border-white/45 hover:bg-white hover:text-[#07351f]"
-            href="/green-steel"
+            href="/ars-green-steel"
           >
-            Green Steel <ArrowRight size={17} aria-hidden="true" />
-          </Link>
-          <Link
-            className="focus-ring mt-4 ml-3 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] border border-emerald-300/30 px-5 text-sm font-bold text-emerald-200 transition hover:border-white/45 hover:bg-white hover:text-[#07351f]"
-            href="/embodied-carbon"
-          >
-            Embodied Carbon <ArrowRight size={17} aria-hidden="true" />
+            Learn More About Green Steel <ArrowRight size={17} />
           </Link>
         </div>
 
@@ -676,21 +657,15 @@ function ManufacturingStorySection() {
                 className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-bold text-white transition hover:bg-brand-blue-dark"
                 href="/manufacturing"
               >
-                How It&apos;s Made <ArrowRight size={17} aria-hidden="true" />
+                Explore manufacturing <ArrowRight size={17} />
               </Link>
               <Link
                 className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] border border-brand-blue/18 bg-white px-5 text-sm font-bold text-brand-blue transition hover:border-brand-blue/40 hover:bg-surface-50"
                 href="/about-us"
               >
-                Our Story <ArrowRight size={17} aria-hidden="true" />
+                Our journey <ArrowRight size={17} />
               </Link>
             </div>
-            <Link
-              className="focus-ring mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-blue transition hover:text-brand-red"
-              href="/our-certification"
-            >
-              BIS · ISO 9001 · SGS <ArrowRight size={16} aria-hidden="true" />
-            </Link>
           </div>
         </div>
       </div>
@@ -713,6 +688,12 @@ function BuyingAssistantSection() {
               Check TMT steel prices, calculate steel requirements, locate an authorised dealer, or request a customised quotation—all in one place.
             </p>
             <div className="mt-10 h-px w-full bg-white/12" />
+            <Link
+              className="focus-ring mt-10 inline-flex h-14 items-center justify-center gap-3 rounded-full bg-brand-red px-8 text-base font-bold text-white shadow-[0_18px_44px_rgba(222,18,26,0.25)] transition hover:-translate-y-0.5 hover:bg-[#c90f16]"
+              href="/request-quote"
+            >
+              Request Quote <ArrowRight size={19} />
+            </Link>
           </div>
 
           <div className="grid gap-4">

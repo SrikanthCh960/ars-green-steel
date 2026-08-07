@@ -16,6 +16,7 @@ import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { ProductLeadCaptureForm } from "@/components/product-lead-capture-form";
+import { FaqList } from "@/components/faq-list";
 
 export const metadata = createPageMetadata({
   title: "ARS Binders | ARS Green Steel",
@@ -322,16 +323,7 @@ export default function ArsBindersPage() {
       <MotionSection className="bg-surface-50 py-20 md:py-24">
         <div className="ars-container max-w-5xl">
           <h2 className="text-center font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">FAQs</h2>
-          <div className="mt-10 divide-y divide-surface-100 rounded-[8px] border border-surface-100 bg-white">
-            {faqs.map(([question, answer]) => (
-              <details key={question} className="group">
-                <summary className="focus-ring flex min-h-14 cursor-pointer list-none items-center justify-between gap-5 px-6 py-5 font-display text-[16px] font-bold text-ink-900 [&::-webkit-details-marker]:hidden">
-                  <span>{question}</span><ArrowRight size={18} className="shrink-0 text-brand-red transition group-open:rotate-90" aria-hidden="true" />
-                </summary>
-                <p className="px-6 pb-6 text-[15px] leading-[1.8] text-steel-700">{answer}</p>
-              </details>
-            ))}
-          </div>
+          <FaqList className="mt-10 rounded-[8px] border border-surface-100 bg-white px-6" items={faqs.map(([question, answer]) => ({ question, answer }))} />
         </div>
       </MotionSection>
 

@@ -106,17 +106,14 @@ export function HomeHero() {
             <p className="mt-5 max-w-[590px] text-base leading-7 text-grey-200 sm:mt-6 sm:text-lg sm:leading-9">
               {active.copy}
             </p>
-            <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap">
-              <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] bg-brand-red px-5 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(222,18,26,0.26)] transition hover:bg-brand-red-dark" href="/tmt-steel-price-today">
-                Today&apos;s Price <ArrowRight size={18} aria-hidden="true" />
+            <div className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row">
+              <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] bg-brand-red px-5 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(222,18,26,0.26)] transition hover:bg-brand-red-dark" href="/tmt-steel-calculator">
+                Calculate Steel <ArrowRight size={18} />
               </Link>
-              <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] border border-white/28 bg-white/8 px-5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white hover:text-ink-900" href="/request-quote">
-                Get a Quote <ArrowRight size={18} aria-hidden="true" />
+              <Link className="focus-ring inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[6px] border border-white/28 bg-white/8 px-5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white hover:text-ink-900" href="#products">
+                Explore Products <ArrowRight size={18} />
               </Link>
             </div>
-            <p className="mt-4 max-w-xl text-xs font-semibold tracking-[0.08em] text-white/68 sm:text-sm">
-              BIS-certified · SGS-tested · ARS 550D &amp; CRS 550D · 30+ years
-            </p>
           </div>
         </div>
       </div>

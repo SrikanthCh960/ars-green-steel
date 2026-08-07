@@ -4,6 +4,7 @@ import type { LucideIcon } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
+import { FaqList } from "@/components/faq-list";
 
 type ProjectTypePageProps = {
   eyebrow: string;
@@ -150,17 +151,7 @@ export function ProjectTypePage({
             <SectionKicker>{faqSection.eyebrow}</SectionKicker>
             <h2 className="section-title">{faqSection.title}</h2>
           </div>
-          <div className="divide-y divide-ink-900/10 border-y border-ink-900/10">
-            {faq.map((item) => (
-              <details key={item.question} className="group py-6">
-                <summary className="focus-ring cursor-pointer list-none pr-10 text-lg font-bold leading-7 text-ink-900 marker:content-none">
-                  {item.question}
-                  <span className="float-right -mr-8 text-brand-blue transition group-open:rotate-45" aria-hidden="true">+</span>
-                </summary>
-                <p className="mt-4 max-w-3xl text-base leading-7 text-steel-700">{item.answer}</p>
-              </details>
-            ))}
-          </div>
+          <FaqList items={faq} />
         </div>
       </section>
 

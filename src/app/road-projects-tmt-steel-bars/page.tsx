@@ -12,6 +12,7 @@ import {
 import { ContactCta } from "@/components/contact-cta";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
+import { FaqList } from "@/components/faq-list";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/site-metadata";
 
@@ -40,8 +41,8 @@ const arsStrengths = [
 ] as const;
 
 const products = [
-  ["ARS Fe550D TMT Bars", "For highways, bridges, flyovers, retaining walls, and reinforced concrete structures that demand high strength and excellent ductility.", "/product-550d", "Explore Fe550D"],
   ["ARS CRS 550D TMT Bars", "Designed for road infrastructure exposed to high moisture, water crossings, and high-salinity environments where enhanced corrosion resistance is essential.", "/product-crs-550d", "Explore CRS 550D"],
+  ["ARS Fe550D TMT Bars", "For highways, bridges, flyovers, retaining walls, and reinforced concrete structures that demand high strength and excellent ductility.", "/product-550d", "Explore Fe550D"],
   ["Certified Green Steel", "Manufactured through sustainable processes without compromising structural performance—helping build infrastructure that is stronger and more responsible.", "/green-steel", "Explore Green Steel"],
 ] as const;
 
@@ -95,7 +96,7 @@ export default function RoadProjectsPage() {
 
       <MotionSection className="bg-surface-100 py-20 md:py-28"><div className="ars-container grid gap-12 lg:grid-cols-[0.34fr_0.66fr]"><div><SectionKicker>Road project guide</SectionKicker><h2 className="section-title">A focused reinforcement review.</h2></div><ol className="border-y border-ink-900/10">{["Review the reinforced concrete structures supporting the road network, including bridges, culverts, retaining walls, and drainage systems.", "Align reinforcement with continuous traffic loads, changing weather conditions, and challenging construction environments.", "For high moisture, water crossings, and high-salinity environments, review the need for enhanced corrosion resistance.", "Use certified reinforcement that meets recognised quality standards for consistent manufacturing and dependable structural performance."].map((item, index) => <li key={item} className="flex gap-5 border-b border-ink-900/10 py-6 last:border-b-0"><span className="font-technical text-sm font-bold text-brand-red">0{index + 1}</span><p className="text-[15px] font-semibold leading-7 text-ink-900">{item}</p></li>)}</ol></div></MotionSection>
 
-      <MotionSection className="bg-white py-20 md:py-28"><div className="ars-container grid gap-12 lg:grid-cols-[0.34fr_0.66fr]"><div><SectionKicker>FAQs</SectionKicker><h2 className="section-title">Road-project questions, answered.</h2></div><div className="divide-y divide-ink-900/10 border-y border-ink-900/10">{faqs.map(([question, answer]) => <details key={question} className="group py-6"><summary className="focus-ring cursor-pointer list-none pr-10 text-lg font-bold leading-7 text-ink-900 marker:content-none">{question}<span aria-hidden="true" className="float-right -mr-8 text-brand-blue transition group-open:rotate-45">+</span></summary><p className="mt-4 max-w-3xl text-[15px] leading-7 text-steel-700">{answer}</p></details>)}</div></div></MotionSection>
+      <MotionSection className="bg-white py-20 md:py-28"><div className="ars-container grid gap-12 lg:grid-cols-[0.34fr_0.66fr]"><div><SectionKicker>FAQs</SectionKicker><h2 className="section-title">Road-project questions, answered.</h2></div><FaqList items={faqs.map(([question, answer]) => ({ question, answer }))} /></div></MotionSection>
 
       <MotionSection className="border-t border-ink-900/10 bg-white py-12"><div className="ars-container"><p className="font-technical text-xs font-bold uppercase tracking-[0.2em] text-steel-700">Continue your project review</p><nav aria-label="Related road project resources" className="mt-5 flex flex-wrap gap-x-6 gap-y-4"><Link href="/products" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Products <ArrowRight aria-hidden="true" size={15} /></Link><Link href="/our-certification" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Quality &amp; certifications <ArrowRight aria-hidden="true" size={15} /></Link><Link href="/our-network" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Find a dealer <ArrowRight aria-hidden="true" size={15} /></Link><Link href="/tmt-steel-calculator" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">TMT calculator <ArrowRight aria-hidden="true" size={15} /></Link><Link href="/bridges-projects-tmt-steel-bars" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Bridges &amp; flyovers <ArrowRight aria-hidden="true" size={15} /></Link><Link href="/institutions-projects-tmt-steel-bars" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Institutional projects <ArrowRight aria-hidden="true" size={15} /></Link></nav></div></MotionSection>
 
