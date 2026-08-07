@@ -148,9 +148,9 @@ export default function VisionMissionPage() {
             <div className="pointer-events-none absolute bottom-0 left-0 h-1 w-40 bg-brand-red" aria-hidden="true" />
             <div className="relative z-10">
               <SectionKicker>OUR VISION</SectionKicker>
-              <h2 id="vision-title" className="section-title max-w-4xl">Building India&apos;s Most Trusted Green Steel Brand.</h2>
+              <h2 id="vision-title" className="section-title max-w-4xl">Shaping a Stronger, Greener India Through Sustainable Steel</h2>
               <h3 className="mt-10 font-display text-xl font-bold text-ink-900">Vision Statement</h3>
-              <p className="section-copy max-w-4xl">To become India&apos;s most trusted and reliable steel brand by setting benchmarks in sustainability, carbon neutrality, and stakeholder confidence. Through responsible manufacturing, continuous innovation, and uncompromising transparency, ARS Green Steel is committed to building trust, enabling net-zero construction, and shaping a future where economic growth and environmental stewardship advance together.</p>
+              <p className="section-copy max-w-4xl">To lead India&apos;s transition to sustainable steel manufacturing, building stronger infrastructure, empowering communities, and creating a greener future for generations.</p>
             </div>
           </div>
         </div>

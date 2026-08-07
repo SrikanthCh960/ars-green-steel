@@ -129,7 +129,6 @@ export function ProductLeadCaptureForm({ product, trustItems, showCallSales = tr
                 Get a Quote <ArrowRight size={16} aria-hidden="true" />
               </button>
               {status && <p role="status" className="text-sm leading-6 text-brand-blue">{status}</p>}
-              <p className="text-xs leading-5 text-steel-700">The public enquiry destination is pending ARS confirmation. For an immediate response, use Call Sales.</p>
             </form>
           </div>
         </div>

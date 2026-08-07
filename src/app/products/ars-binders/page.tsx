@@ -8,6 +8,7 @@ import {
   FileText,
   Gauge,
   MapPin,
+  Phone,
   Ruler,
   ShieldCheck,
   Timer,
@@ -160,7 +161,7 @@ export default function ArsBindersPage() {
 
       <section className="ars-page-hero relative flex items-end overflow-hidden bg-ink-950 text-white">
         <Image
-          src="/ars-assets/products/ARSBinders_herobanner.jpg"
+          src="/ars-assets/products/ARSBinders.jpg"
           alt="ARS Binders with campaign spokesperson"
           fill
           priority
@@ -171,7 +172,7 @@ export default function ArsBindersPage() {
         <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.9),transparent_58%)]" />
         <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
           <div className="max-w-4xl">
-            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS Construction Binders</div>
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS BINDERS</div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1.04] tracking-[-0.025em] text-white">
               Factory-Made TMT Binders for Faster, Smarter Construction
             </h1>
@@ -182,7 +183,9 @@ export default function ArsBindersPage() {
               <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90">
                 Request Quote <ArrowRight size={15} />
               </Link>
-              <DisabledBrochureAction dark />
+              <a href="tel:+919710411111" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border border-white/30 px-6 py-3 text-[14px] font-bold text-white transition hover:bg-white hover:text-brand-blue">
+                <Phone size={15} aria-hidden="true" /> Talk to Experts
+              </a>
             </div>
           </div>
         </div>
@@ -271,11 +274,10 @@ export default function ArsBindersPage() {
             </div>
           </div>
           <ul className="grid gap-3 sm:grid-cols-2 lg:content-center">
-            {applications.map(({ label, icon: Icon }, index) => (
+            {applications.map(({ label, icon: Icon }) => (
               <li key={label} className="group relative flex min-h-36 flex-col justify-between overflow-hidden rounded-[8px] border border-ink-900/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-brand-blue/30 hover:shadow-[0_14px_35px_rgba(13,43,110,0.08)]">
                 <div className="flex items-start justify-between gap-4">
                   <span className="flex size-10 items-center justify-center rounded-[6px] bg-brand-blue/[0.06] text-brand-blue"><Icon size={19} aria-hidden="true" /></span>
-                  <span className="font-display text-[13px] font-extrabold tracking-[-0.02em] text-brand-red">{String(index + 1).padStart(2, "0")}</span>
                 </div>
                 <span className="mt-8 max-w-[12rem] text-[16px] font-bold leading-[1.3] text-ink-900">{label}</span>
               </li>
@@ -304,11 +306,10 @@ export default function ArsBindersPage() {
             </div>
           </div>
           <ul className="mt-10 grid gap-px overflow-hidden rounded-[8px] border border-ink-900/10 bg-ink-900/10 sm:grid-cols-2 lg:grid-cols-4">
-            {benefits.map(({ label, icon: Icon }, index) => (
+            {benefits.map(({ label, icon: Icon }) => (
               <li key={label} className="group relative flex min-h-48 flex-col justify-between bg-white p-6 transition hover:bg-surface-50">
                 <div className="flex items-start justify-between gap-4">
                   <span className="flex size-11 items-center justify-center rounded-[6px] bg-brand-blue text-white"><Icon size={19} aria-hidden="true" /></span>
-                  <span className="font-display text-[13px] font-extrabold tracking-[-0.02em] text-brand-red">{String(index + 1).padStart(2, "0")}</span>
                 </div>
                 <span className="mt-8 max-w-[14rem] text-[16px] font-bold leading-[1.35] text-ink-900">{label}</span>
               </li>
@@ -324,31 +325,12 @@ export default function ArsBindersPage() {
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-white py-20 md:py-24">
-        <div className="ars-container">
-          <div className="mb-12 grid items-end gap-8 lg:grid-cols-2">
-            <div><SectionKicker variant="brand">NEXT STEP</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Ready to Build Faster with ARS Binders?</h2></div>
-          </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            <Link href="/request-quote" className="focus-ring group flex min-h-56 flex-col justify-between rounded-[8px] border-[1.5px] border-surface-100 bg-white p-7 transition hover:-translate-y-0.5 hover:shadow-lg"><FileText size={21} className="text-brand-blue" aria-hidden="true" /><h3 className="font-display text-[20px] font-bold text-ink-900">Request Quote</h3><ArrowRight size={16} className="text-brand-red" aria-hidden="true" /></Link>
-            <Link href="/our-network" className="focus-ring group flex min-h-56 flex-col justify-between rounded-[8px] border-[1.5px] border-surface-100 bg-white p-7 transition hover:-translate-y-0.5 hover:shadow-lg"><MapPin size={21} className="text-brand-blue" aria-hidden="true" /><h3 className="font-display text-[20px] font-bold text-ink-900">Find Dealer</h3><ArrowRight size={16} className="text-brand-red" aria-hidden="true" /></Link>
-            <div className="flex min-h-56 flex-col justify-between rounded-[8px] border-[1.5px] border-surface-100 bg-surface-50 p-7"><FileText size={21} className="text-brand-blue/55" aria-hidden="true" /><h3 className="font-display text-[20px] font-bold text-ink-900">Download Brochure</h3><DisabledBrochureAction /></div>
-          </div>
-        </div>
-      </MotionSection>
-
       <MotionSection className="relative overflow-hidden bg-brand-blue py-20">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(222,18,26,0.7) 0%, transparent 55%)" }} />
-        <div className="ars-container relative z-10 flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
-          <div>
-            <SectionKicker variant="light">READY TO BUILD</SectionKicker>
-            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">Simplify Reinforcement. Build with Precision.</h2>
-            <p className="mt-3 max-w-[620px] text-[15px] leading-[1.7] text-white/75">Talk to our team to learn how ARS Binders can help reduce construction time, improve reinforcement accuracy, and deliver consistent quality across every project.</p>
-          </div>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/contact" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white"><FileText size={15} /> Talk to Sales</Link>
-            <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white"><FileText size={15} /> Request Quote</Link>
-          </div>
+        <div className="ars-container relative z-10">
+          <SectionKicker variant="light">READY TO BUILD</SectionKicker>
+          <h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">Simplify Reinforcement. Build with Precision.</h2>
+          <p className="mt-3 max-w-[620px] text-[15px] leading-[1.7] text-white/75">Get a Quote for ARS Binders</p>
         </div>
       </MotionSection>
 

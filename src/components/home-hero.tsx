@@ -96,10 +96,11 @@ export function HomeHero() {
                       exit={reduceMotion ? { opacity: 0 } : { y: "-82%", opacity: 0, rotateX: 18 }}
                       transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
                     >
-                      {active.word}
+                {active.word}
                     </motion.span>
                   </AnimatePresence>
                 </span>
+                Structures.
               </span>
             </h1>
             <p className="mt-5 max-w-[590px] text-base leading-7 text-grey-200 sm:mt-6 sm:text-lg sm:leading-9">
