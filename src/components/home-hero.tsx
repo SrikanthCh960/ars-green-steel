@@ -80,7 +80,7 @@ export function HomeHero() {
               <span className="size-2 rounded-full bg-brand-blue" />
               Since 1992 · Trusted TMT Steel Manufacturer
             </div>
-            <h1 className="max-w-[760px] font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[0.95] tracking-normal text-white">
+          <h1 className="max-w-[760px] font-display text-white">
               <span className="sr-only" aria-live="polite">
                 {active.titlePrefix} {active.word}. {active.copy}
               </span>

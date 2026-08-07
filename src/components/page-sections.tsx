@@ -81,7 +81,7 @@ export function PageHero({
               <span className="size-2 rounded-full bg-brand-blue" />
               {eyebrow}
             </div>
-            <h1 className={`max-w-6xl break-words font-display text-[clamp(2.65rem,6vw,4.5rem)] font-black ${preserveTitleCase ? "" : "uppercase"} leading-[0.92] tracking-normal text-white`}>
+            <h1 className="max-w-6xl break-words font-display text-white">
               {title}
               {accent ? (
                 <span className="block font-serif italic text-brand-red">{accent}</span>

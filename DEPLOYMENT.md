@@ -27,6 +27,24 @@ This is the deployment source of truth for the ARS Green Steel redesign.
 
 Latest confirmed live update:
 
+- Date: 2026-08-07
+- Commit: `79a3438` — `Standardize FAQ presentation`
+- Vercel deployment: `dpl_E1w66Nt94QfCwQsRqnvPU7jMTmaN`
+- Status: `READY`
+- Verified routes: `/`, `/products`, `/our-quality`, `/ars-green-steel`, `/10-mm-steel-rod`, `/tmt-steel-calculator`
+- All verified routes returned HTTP 200.
+
+What went live:
+
+- Shared accessible FAQ presentation and interaction pattern.
+- Consistent FAQ spacing, dividers, typography, focus states, open/closed icon states, and multi-answer behavior.
+- Canonical product ordering: ARS CRS 550D → ARS 550D → ARS BINDERS.
+- Homepage CTA refresh rollback, preserving the original homepage CTA layer.
+
+## Previous Production Deployment
+
+Latest confirmed live update:
+
 - Date: 2026-08-02
 - Commit: `4d5c4fc` - `Refine legal pages and dealer locator`
 - Production URL: https://ars-green-steel.vercel.app/

@@ -39,6 +39,7 @@ The website must not feel:
 - Legal and policy pages use a dark hero, section index, readable content column, visible focus states, and a restrained support CTA.
 - Repeated data-driven content must use stable unique React keys.
 - Internal dealer identifiers are retained for data integrity but are not displayed in public cards.
+- Every page-level H1 uses Title Case and the shared responsive scale `clamp(2.65rem, 6vw, 4rem)`. Background variants may change H1 color, but not the shared display typography, weight, line height, tracking, or wrapping behavior.
 
 ## Color System
 

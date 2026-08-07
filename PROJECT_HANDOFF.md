@@ -9,8 +9,8 @@ Read this file first when continuing the ARS content migration in a new chat.
 ```
 
 - Branch: `codex/metadata-seo`
-- Current committed checkpoint: `faa072f`
-- Latest production deployment: `dpl_3By4xPLn7zLdTKC4J7BSuksAkRxW` — Ready
+- Current committed checkpoint: `79a3438`
+- Latest production deployment: `dpl_E1w66Nt94QfCwQsRqnvPU7jMTmaN` — Ready
 - Production preview alias: https://ars-green-steel.vercel.app/
 - Latest commits:
   - `ec65569 Refresh Home Owners guide`
@@ -19,7 +19,17 @@ Read this file first when continuing the ARS content migration in a new chat.
   - `c74f77d feat: integrate vision and mission into about page`
   - `a80f4da feat: establish shared SEO and content migration foundation`
   - `e446c80 Use local banners for migrated blog articles`
-  - `a7f8375 Complete approved blog migration`
+- `a7f8375 Complete approved blog migration`
+
+## Latest release — 2026-08-07
+
+- Commit: `79a3438` — `Standardize FAQ presentation`
+- Preview was verified Ready before promotion; production deployment is Ready.
+- Added the shared `FaqList` component for consistent, keyboard-accessible FAQ disclosures.
+- Converted the current FAQ sections that had page-specific accordion styling, including product, project, sustainability, calculator, quality, audience, dealer, and informational experiences.
+- Standardized the visible product ordering as: ARS CRS 550D, ARS 550D, ARS BINDERS.
+- Reverted the recently added homepage CTA layer, preserving the original homepage CTA/navigation behavior requested by the product team.
+- Existing calculator editing, image inline-serving, Binders inclusion, and duplicate-footer fixes remain part of the released codebase.
 
 ## Deployment and SEO safety
 

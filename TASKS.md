@@ -55,6 +55,18 @@ The execution order prioritizes:
 - Preserved `next.config.ts` redirect sources for external legacy traffic.
 - Validation passed: TypeScript, route/asset QA, and production build.
 
+## FAQ and product consistency release — 2026-08-07
+
+- Status: Done
+- Commit: `79a3438`
+- Production deployment: `dpl_E1w66Nt94QfCwQsRqnvPU7jMTmaN`
+- Replaced inconsistent FAQ accordion implementations with the shared accessible `FaqList` pattern across the converted site sections.
+- Standardized FAQ question controls, answer panels, dividers, spacing, icon treatment, focus states, stable IDs, and multiple-open interaction.
+- Preserved page-owned FAQ copy and FAQ structured-data sources.
+- Confirmed visible product order everywhere the shared product lists are used: ARS CRS 550D, ARS 550D, ARS BINDERS.
+- Removed the temporary homepage CTA refresh while preserving the original homepage navigation and content paths.
+- Checks passed: `npx tsc --noEmit`, `npm run qa:routes`, and `npm run build`.
+
 ---
 
 ## Latest Implementation Status - 2026-06-28

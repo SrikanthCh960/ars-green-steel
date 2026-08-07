@@ -14,6 +14,17 @@ Current active redesign branch:
 
 - `codex/metadata-seo`
 
+Latest production release:
+
+- Date: 2026-08-07
+- Commit: `79a3438` — Standardize FAQ presentation
+- Deployment: `dpl_E1w66Nt94QfCwQsRqnvPU7jMTmaN`
+- Status: Ready
+- Shared `FaqList` now standardizes FAQ interaction, spacing, dividers, icon states, focus behavior, and multiple-open behavior across converted FAQ sections.
+- Canonical product order is ARS CRS 550D, ARS 550D, then ARS BINDERS wherever the shared product lists are used.
+- The homepage-only CTA refresh was removed while original homepage navigation and content pathways were preserved.
+- Production routes and assets returned HTTP 200 after release.
+
 Latest internal-link release:
 
 - Date: 2026-08-05

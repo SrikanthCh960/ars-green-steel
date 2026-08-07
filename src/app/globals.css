@@ -134,6 +134,17 @@ html {
   height: 100%;
 }
 
+/* Global page-level H1 standard: preserve page-specific color while keeping scale and rhythm consistent. */
+main h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.65rem, 6vw, 4rem) !important;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-transform: capitalize !important;
+  max-width: 60rem;
+}
+
 @media (min-width: 768px) {
   .ars-page-hero {
     min-height: 600px;
@@ -601,4 +612,62 @@ html {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+@media (min-width: 1024px) {
+  .manufacturing-process-row + .manufacturing-process-row {
+    margin-top: 76px;
+  }
+
+  .manufacturing-process-arrow {
+    position: absolute;
+    top: 50%;
+    right: -79px;
+    width: 70px;
+    border-top: 3px solid var(--brand-red);
+    transform: translateY(-50%);
+  }
+
+  .manufacturing-process-arrow::after {
+    position: absolute;
+    top: -8px;
+    right: -1px;
+    width: 15px;
+    height: 15px;
+    border-right: 3px solid var(--brand-red);
+    border-top: 3px solid var(--brand-red);
+    content: "";
+    transform: rotate(45deg);
+  }
+
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .manufacturing-process-row + .manufacturing-process-row {
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 639px) {
+  .manufacturing-process-row + .manufacturing-process-row {
+    margin-top: 12px;
+  }
+
+  .manufacturing-process-step {
+    min-height: 104px;
+    gap: 12px;
+    padding: 20px 16px;
+  }
+
+  .manufacturing-process-step > span:first-child {
+    width: 42px;
+    height: 42px;
+    font-size: 16px;
+  }
+
+  .manufacturing-process-step > img {
+    width: 58px;
+    height: 58px;
+  }
+
 }

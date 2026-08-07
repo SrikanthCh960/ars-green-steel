@@ -46,6 +46,13 @@ After creating or materially changing a reusable component, update this file in 
 | `LegalPage` | `src/components/legal-page.tsx` | Shared legal page shell for readable policy and terms content | Dark legal hero, sticky section index, long-form content column, support CTA, and related-policy link | `/privacy-policy`, `/terms-of-use` |
 | `SteelPriceLookup` | `src/components/steel-price-lookup.tsx` | Interactive workbook-backed price lookup for region, product, and diameter | Uses the `Price Chart Per Ton` mapping; displays GST-inclusive price per kg and per ton | `/steel-price-today`, `/tmt-steel-price-today` |
 | `FaqList` | `src/components/faq-list.tsx` | Shared accessible FAQ disclosure list for page-owned question and answer content | Supports multiple open answers, long React content, keyboard focus, stable IDs, and reduced-motion-safe interaction | FAQ sections across product, calculator, project, sustainability, audience, and informational pages |
+| `ManufacturingProcessFlow` | `src/components/manufacturing-process-flow.tsx` | Ordered nine-stage manufacturing process grid with local ARS icons | Responsive 3-column, 2-column, and single-column layouts; semantic ordered list; icon mapping remains presentation-owned | `/manufacturing` |
+
+## Cross-page consistency rules
+
+- FAQ presentation must use `FaqList`; page-specific FAQ data and SEO JSON-LD remain separate.
+- Visible product lists use the approved order: ARS CRS 550D, ARS 550D, ARS BINDERS.
+- Page-level H1s inherit the global standard from `src/app/globals.css`: Title Case, `clamp(2.65rem, 6vw, 4rem)`, IBM Plex Sans display typography, 800 weight, consistent line height/tracking, and responsive wrapping. Hero variants may change only color and layout context.
 
 ## Shared Data Sources
 

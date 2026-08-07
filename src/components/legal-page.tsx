@@ -32,7 +32,7 @@ export function LegalPage({ label, title, intro, sections, note, relatedHref, re
         <div className="ars-container relative grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-end">
           <div className="max-w-4xl">
             <SectionKicker variant="light">{label}</SectionKicker>
-            <h1 className="mt-6 max-w-4xl font-display text-[clamp(2.65rem,6vw,5rem)] font-bold leading-[0.96] tracking-[-0.035em] text-white">
+            <h1 className="mt-6 max-w-4xl font-display text-white">
               {title}
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-8 text-white/70 md:text-lg">{intro}</p>

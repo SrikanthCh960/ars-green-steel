@@ -44,6 +44,23 @@ Homepage V1 establishes these reusable patterns:
 
 These patterns should become the foundation for product pages, tool pages, application pages, trust pages, and contact pages.
 
+### FAQ consistency
+
+- Use `src/components/faq-list.tsx` for FAQ presentation instead of creating page-specific accordion markup.
+- Keep question and answer content page-owned, but pass it to `FaqList` as `{ question, answer }` items.
+- The shared pattern provides keyboard-accessible buttons, visible focus states, stable answer IDs, multiple open answers, consistent dividers and spacing, and reduced-motion-safe icon transitions.
+- Preserve semantic FAQ headings and any page-specific FAQ JSON-LD separately from the visual component.
+
+### Product ordering
+
+When products are displayed as cards, rows, selectors, or related products, use this order:
+
+1. ARS CRS 550D
+2. ARS 550D
+3. ARS BINDERS
+
+Use canonical routes `/product-crs-550d`, `/product-550d`, and `/ars-binders`. Do not introduce a different visible order without product-owner approval.
+
 ---
 
 ## 1. Color Hierarchy

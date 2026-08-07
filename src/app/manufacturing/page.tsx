@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
+import { ManufacturingProcessFlow } from "@/components/manufacturing-process-flow";
 import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
@@ -231,24 +232,7 @@ export default function ManufacturingPage() {
             </figure>
           </div>
 
-          <ol className="relative mt-4 grid list-none gap-px overflow-hidden rounded-[20px] border border-brand-blue/12 bg-brand-blue/12 sm:grid-cols-2 lg:grid-cols-3">
-            {processStages.map((stage, index) => (
-              <li
-                key={stage}
-                className="relative flex min-h-36 items-start gap-5 overflow-hidden bg-white p-6 md:min-h-40 md:p-8"
-              >
-                <span
-                  aria-hidden="true"
-                  className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-brand-blue font-technical text-xs font-black tracking-[0.12em] text-white"
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="min-w-0 pt-1.5 font-display text-xl font-bold leading-tight text-ink-900 md:text-2xl">
-                  {stage}
-                </h3>
-              </li>
-            ))}
-          </ol>
+          <ManufacturingProcessFlow stages={processStages} />
         </div>
       </section>
 

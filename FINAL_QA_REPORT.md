@@ -4,6 +4,17 @@ Date: 2026-08-05
 
 This pass covers visual polish, SEO readiness, accessibility basics, performance readiness, and deployment checks for the current ARS Green Steel redesign.
 
+## FAQ and Product Consistency Release — 2026-08-07
+
+- Release commit: `79a3438`.
+- Production deployment: `dpl_E1w66Nt94QfCwQsRqnvPU7jMTmaN` (`READY`).
+- Added and documented the shared `FaqList` component.
+- Standardized FAQ accordion behavior, typography, dividers, spacing, controls, visible focus, stable IDs, and reduced-motion-safe transitions across the converted FAQ sections.
+- Preserved page-owned FAQ content and FAQ structured-data sources on steel-size pages.
+- Confirmed canonical product order: ARS CRS 550D, ARS 550D, ARS BINDERS.
+- Removed the homepage-only CTA refresh requested for rollback; original navigation and homepage pathways remain intact.
+- TypeScript, route/asset QA, and production build passed.
+
 Client-confirmed business data and missing old-site media assets are intentionally excluded from this pass and can be added later.
 
 ## Internal-Link QA — 2026-08-05
