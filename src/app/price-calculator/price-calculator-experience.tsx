@@ -104,8 +104,8 @@ export function PriceCalculatorExperience() {
     <section className="relative overflow-hidden bg-ink-950 text-white">
       <div className="steel-grid absolute inset-0 opacity-40" />
       <div className="absolute inset-0 bg-[linear-gradient(115deg,#060d1e_10%,rgba(6,13,30,0.92)_60%,#0d2b6e)]" />
-      <div className="ars-container relative flex min-h-[500px] items-end py-20 md:min-h-[570px] md:py-24">
-        <div className="max-w-3xl"><SectionKicker variant="light">Engineering calculator</SectionKicker><h1 className="mt-6 font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1] tracking-[-0.035em]">Calculate your TMT requirement <span className="text-brand-red">with precision.</span></h1><p className="mt-6 max-w-2xl text-base leading-8 text-white/75 md:text-lg">Use ARS workbook-backed rates and bundle rules to plan rods, weight, and indicative cost before you request a confirmed quote.</p><a href="#calculator" className="focus-ring mt-8 inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white">Start calculating <ArrowRight size={16} /></a></div>
+      <div className="ars-container relative flex min-h-[500px] items-end pb-14 pt-36 md:min-h-[570px] md:pb-20">
+        <div className="max-w-4xl"><div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />Engineering Calculator</div><h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1] tracking-[-0.035em]">Calculate Your TMT Requirement <span className="text-[var(--text-accent-dark)]">With Precision.</span></h1><p className="mt-7 max-w-2xl text-base leading-8 text-white/75 md:text-lg">Use ARS workbook-backed rates and bundle rules to plan rods, weight, and indicative cost before you request a confirmed quote.</p><a href="#calculator" className="focus-ring mt-8 inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white">Start calculating <ArrowRight size={16} /></a></div>
       </div>
     </section>
 

@@ -84,18 +84,9 @@ export default function InstitutionsProjectsPage() {
         <Image src="/ars-assets/blog-banners/6-factors-of-choosing-the-best-steel-bar-for-construction/construction.jpeg" alt="Reinforced concrete construction for an institutional project" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-ink-950/78" aria-hidden="true" />
         <div className="ars-container relative z-10 w-full pb-14 md:pb-16">
-          <nav aria-label="Breadcrumb" className="mb-7">
-            <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold text-white/70">
-              <li><Link href="/" className="focus-ring rounded-sm hover:text-white">Home</Link></li>
-              <li aria-hidden="true">/</li>
-              <li><Link href="/industries" className="focus-ring rounded-sm hover:text-white">Solutions</Link></li>
-              <li aria-hidden="true">/</li>
-              <li aria-current="page" className="text-white">Institutional Construction</li>
-            </ol>
-          </nav>
           <div className="grid gap-9 lg:grid-cols-[minmax(0,0.7fr)_minmax(18rem,0.3fr)] lg:items-end">
             <div>
-              <SectionKicker variant="light">Institutional construction</SectionKicker>
+              <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />Institutional Construction</div>
               <h1 className="max-w-4xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">Reliable TMT Bars for Institutional Projects</h1>
             </div>
             <div className="border-l border-white/25 pl-6 lg:pb-1">

@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Calculator,
   ClipboardList,
-  IndianRupee,
   MapPin,
   ShieldCheck,
 } from "lucide-react";
@@ -88,10 +87,7 @@ export default function SteelPriceTodayPage() {
 
         <div className="ars-container relative z-10 w-full pb-16">
           <div className="max-w-2xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
-              <IndianRupee size={12} className="text-white/60" />
-              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">Steel Price Today</span>
-            </div>
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />Steel Price Today</div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
               Price clarity,
               <br />

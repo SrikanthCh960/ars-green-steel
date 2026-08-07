@@ -169,16 +169,13 @@ export default function ArsBindersPage() {
         />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,13,30,0.96),rgba(6,13,30,0.78)_54%,rgba(6,13,30,0.36))]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.9),transparent_58%)]" />
-        <div className="ars-container relative z-10 w-full pb-14 pt-32 md:pb-16">
+        <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
           <div className="max-w-4xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
-              <span className="size-1.5 rounded-full bg-brand-red" aria-hidden="true" />
-              <span className="text-[11px] font-semibold tracking-[0.08em] text-white/75">ARS CONSTRUCTION BINDERS</span>
-            </div>
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS Construction Binders</div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1.04] tracking-[-0.025em] text-white">
               Factory-Made TMT Binders for Faster, Smarter Construction
             </h1>
-            <p className="mt-5 max-w-2xl text-[16px] leading-[1.75] text-white/75">
+            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">
               Manufactured from premium ARS CRS 550D TMT Bars, ARS Binders are precision-made stirrups that reduce manual bending, minimise steel wastage, and help deliver faster, more consistent reinforcement on site.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">

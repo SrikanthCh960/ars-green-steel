@@ -70,16 +70,13 @@ export default function ProductsPage() {
           <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(6,13,30,0.95) 0%, rgba(6,13,30,0.65) 50%, rgba(6,13,30,0.2) 100%)" }} />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(6,13,30,0.9) 0%, transparent 55%)" }} />
         </div>
-        <div className="ars-container relative z-10 w-full pb-16">
-          <div className="max-w-2xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
-              <Layers aria-hidden="true" size={12} className="text-white/60" />
-              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS 550D vs ARS CRS 550D</span>
-            </div>
+        <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
+          <div className="max-w-4xl">
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS 550D vs ARS CRS 550D</div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
               Choose the Right TMT Bar <span className="italic text-brand-red">for Your Project</span>
             </h1>
-            <p className="mt-5 max-w-[540px] text-[15px] leading-[1.75] text-white/70">Compare ARS 550D and ARS CRS 550D, explore available sizes, download technical specifications, and find the right reinforcement steel for your construction project.</p>
+            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">Compare ARS 550D and ARS CRS 550D, explore available sizes, download technical specifications, and find the right reinforcement steel for your construction project.</p>
           </div>
         </div>
       </section>

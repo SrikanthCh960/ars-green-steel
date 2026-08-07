@@ -213,14 +213,11 @@ export default function Ars550DPage() {
           <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,13,30,0.96),rgba(6,13,30,0.72)_52%,rgba(6,13,30,0.28))]" />
           <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.9),transparent_55%)]" />
         </div>
-        <div className="ars-container relative z-10 w-full pb-14 md:pb-16">
-          <div className="max-w-3xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
-              <Layers size={12} className="text-white/60" />
-              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">ARS 550D TMT Bars | Fe 550D Grade</span>
-            </div>
+        <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
+          <div className="max-w-4xl">
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS 550D TMT Bars | Fe 550D Grade</div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">ARS 550D TMT Bars for Strong, Durable Construction</h1>
-            <p className="mt-5 max-w-2xl text-[15px] leading-[1.75] text-white/75">Engineered for high strength, superior ductility, and dependable performance, ARS 550D TMT Bars are built for modern construction.</p>
+            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">Engineered for high strength, superior ductility, and dependable performance, ARS 550D TMT Bars are built for modern construction.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/request-quote?product=ars-550d" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"><FileText size={14} aria-hidden="true" /> Get a Quote</Link>
               <Link href="/tmt-steel-price-today" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.12]"><IndianRupee size={14} aria-hidden="true" /> Today&apos;s Price</Link>

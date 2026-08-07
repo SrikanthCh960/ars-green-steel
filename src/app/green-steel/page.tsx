@@ -130,11 +130,14 @@ export default function GreenSteelPage() {
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(6,13,30,0.97)_0%,rgba(6,13,30,0.92)_43%,rgba(6,13,30,0.64)_100%)]" />
         <div className="steel-grid absolute inset-0 -z-10 opacity-40" />
-        <div className="ars-page-hero-content ars-container grid h-full gap-10 py-24 md:py-32 lg:grid-cols-[minmax(0,1fr)_minmax(260px,340px)] lg:items-center">
-          <div className="max-w-3xl">
-            <SectionKicker variant="light">Sustainability</SectionKicker>
+        <div className="ars-page-hero-content ars-container relative z-10 grid h-full items-end gap-10 pb-14 pt-36 md:pb-20 lg:grid-cols-[minmax(0,1fr)_minmax(260px,340px)]">
+          <div className="max-w-4xl">
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
+              <span className="h-px w-10 bg-brand-red" aria-hidden="true" />
+              Sustainability
+            </div>
             <h1 className="mt-6 font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[0.98] tracking-[-0.035em]">
-              What Is <span className="text-brand-red">Green Steel?</span>
+              What Is <span className="text-[var(--text-accent-dark)]">Green Steel?</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/75 md:text-lg">
               Green steel is produced using cleaner manufacturing methods that help reduce carbon emissions while delivering the strength, quality, and reliability expected from modern steel.

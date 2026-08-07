@@ -38,10 +38,9 @@ export function DealerDistributorPage() {
 
       <section className="ars-page-hero relative overflow-hidden bg-ink-950 text-white">
         <div className="absolute inset-0 bg-[linear-gradient(125deg,#060D1E_0%,#0D2B6E_57%,#08112A_100%)]" />
-        <div className="absolute bottom-0 left-0 h-1 w-1/3 bg-brand-red" />
         <div className="ars-page-hero-content ars-container relative flex min-h-[560px] items-end py-12 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
           <div className="max-w-4xl">
-            <SectionKicker variant="light">FOR DEALERS &amp; DISTRIBUTORS</SectionKicker>
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />For Dealers &amp; Distributors</div>
             <h1 className="mt-6 max-w-4xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold uppercase leading-[1.03]">Construction excellence. <span className="text-brand-red">Safely delivered.</span></h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/78 md:text-lg">ARS Steel is your dependable partner for TMT steel bars that help make construction projects successful and dependable.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">

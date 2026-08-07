@@ -102,7 +102,7 @@ type AudienceGuideConfig = {
   };
 };
 
-const homeownerRail = "mx-auto w-[min(100%-40px,1180px)]";
+const homeownerRail = "ars-container";
 const homeownerSectionTitle =
   "font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.16] text-ink-900";
 const homeownerSectionCopy = "mt-5 max-w-2xl text-base leading-8 text-steel-700";
@@ -1701,18 +1701,18 @@ export function AudienceGuidePage({ slug }: { slug: AudienceGuideSlug }) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#060D1E]/92 via-transparent to-[#060D1E]/8" />
         </div>
 
-        <div className={`${homeownerRail} ars-page-hero-content h-full relative flex items-end pb-9 pt-24 md:pt-28 lg:pb-11`}>
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-3 rounded-full border border-white/18 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white/78 backdrop-blur">
-              <span className="size-2 rounded-full bg-brand-red" />
+        <div className={`${homeownerRail} ars-page-hero-content relative flex items-end pb-14 pt-36 md:pb-20`}>
+          <div className="max-w-4xl">
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
+              <span className="h-px w-10 bg-brand-red" aria-hidden="true" />
               {config.heroBadge}
             </div>
-            <h1 className="mt-5 font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold uppercase leading-[1.03] tracking-normal [overflow-wrap:normal]">
+            <h1 className="font-display text-white [overflow-wrap:anywhere]">
               {config.heroTitle}
               <span className="sr-only"> </span>
               <span className="block text-brand-red">{config.heroAccent}</span>
             </h1>
-            <p className="mt-5 max-w-xl text-sm font-semibold leading-7 text-white/76 md:text-base">
+            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">
               {config.heroBody}
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
@@ -1723,7 +1723,7 @@ export function AudienceGuidePage({ slug }: { slug: AudienceGuideSlug }) {
                 {config.primaryCta.label} <ArrowRight size={18} />
               </Link>
               <Link
-                className="focus-ring inline-flex h-12 items-center justify-center gap-3 rounded-full border border-white/28 bg-white/[0.04] px-6 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-white hover:text-brand-blue md:text-base"
+                className="focus-ring inline-flex min-h-12 items-center justify-center gap-3 rounded-[6px] border border-white/35 px-6 py-3 text-sm font-bold text-white transition hover:bg-white hover:text-brand-blue md:text-base"
                 href={config.secondaryCta.href}
               >
                 {config.secondaryCta.label} <ArrowRight size={18} />

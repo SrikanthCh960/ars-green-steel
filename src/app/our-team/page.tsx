@@ -1,7 +1,7 @@
 import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Users } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
@@ -140,10 +140,10 @@ export default function OurTeamPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-transparent to-ink-950/20" />
 
         <div className="ars-page-hero-content ars-container relative z-10 flex h-full w-full items-end pb-16 pt-32 md:pb-20">
-          <div className="max-w-2xl">
-            <div className="mb-6 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/[0.16] bg-white/[0.1] px-4 py-2 backdrop-blur-sm">
-              <Users size={12} className="text-white/60" />
-              <span className="text-xs font-semibold tracking-[0.06em] text-white/80">ARS Leadership</span>
+          <div className="max-w-4xl">
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
+              <span className="h-px w-10 bg-brand-red" aria-hidden="true" />
+              ARS Leadership
             </div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
               The People Behind

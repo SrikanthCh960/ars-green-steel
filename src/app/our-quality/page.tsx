@@ -11,7 +11,6 @@ import {
   Droplets,
   FlaskConical,
   Gauge,
-  ShieldCheck,
 } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { FaqList } from "@/components/faq-list";
@@ -176,33 +175,31 @@ export default function OurQualityPage() {
           <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.9)_0%,transparent_58%)]" />
         </div>
 
-        <div className="ars-container relative z-10 w-full pb-16">
-          <div className="max-w-2xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
-              <ShieldCheck size={12} className="text-white/60" />
-              <span className="text-[11px] font-semibold tracking-[0.06em] text-white/70">
-                ARS Quality Policy
-              </span>
+        <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
+          <div className="max-w-4xl">
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
+              <span className="h-px w-10 bg-brand-red" aria-hidden="true" />
+              ARS Quality Policy
             </div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">
               Quality that stands behind
               <br />
               <span className="italic text-brand-red">every structure.</span>
             </h1>
-            <p className="mt-5 max-w-[510px] text-[15px] leading-[1.75] text-white/75">
+            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">
               Quality is built into everything we do. From production to final inspection, every ARS TMT
               bar is carefully tested to meet the standards your project deserves.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="focus-ring inline-flex min-h-11 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
+                className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-[6px] bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
               >
                 Request test report <ArrowRight size={14} />
               </Link>
               <Link
                 href="/our-certification"
-                className="focus-ring inline-flex min-h-11 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.12]"
+                className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-[6px] border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.12]"
               >
                 View certifications
               </Link>

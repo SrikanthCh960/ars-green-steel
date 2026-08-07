@@ -127,7 +127,7 @@ html {
  * HomeHero intentionally keeps its full-viewport treatment.
  */
 .ars-page-hero {
-  min-height: 560px;
+  min-height: 560px !important;
 }
 
 .ars-page-hero-content {
@@ -147,15 +147,15 @@ main h1 {
 
 @media (min-width: 768px) {
   .ars-page-hero {
-    min-height: 600px;
+    min-height: 600px !important;
   }
 }
 
 @media (min-width: 1024px) {
   .ars-page-hero {
-    height: 680px;
-    min-height: 680px;
-    max-height: 680px;
+    height: 680px !important;
+    min-height: 680px !important;
+    max-height: 680px !important;
   }
 }
 

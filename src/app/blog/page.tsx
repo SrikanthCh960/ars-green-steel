@@ -63,7 +63,7 @@ export default function BlogPage() {
 
         <div className="ars-container relative z-10 grid gap-10 pb-14 pt-28 lg:grid-cols-[minmax(0,0.82fr)_minmax(300px,0.42fr)] lg:items-end lg:pb-16">
           <div className="max-w-4xl">
-            <SectionKicker variant="light">ARS knowledge center</SectionKicker>
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS Knowledge Center</div>
             <h1 className="mt-6 max-w-4xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold leading-[0.98] tracking-normal text-white">
               Knowledge for stronger building decisions.
             </h1>

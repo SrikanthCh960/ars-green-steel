@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Atom, CheckCircle2, FlaskConical, Phone, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2, FlaskConical, Phone, ShieldCheck } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
@@ -33,12 +33,9 @@ export default function SteelTestingPage() {
         />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,13,30,0.96),rgba(6,13,30,0.78)_52%,rgba(6,13,30,0.28))]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.92),transparent_58%)]" />
-        <div className="ars-container relative z-10 w-full pb-14 pt-32 md:pb-16">
-          <div className="max-w-3xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.13] bg-white/[0.08] px-3 py-1.5">
-              <Atom aria-hidden="true" size={12} className="text-white/70" />
-              <span className="text-[11px] font-semibold tracking-[0.08em] text-white/75">FREE ON-SITE SPECTRO-METER TESTING</span>
-            </div>
+        <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
+          <div className="max-w-4xl">
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />Free On-Site Spectrometer Testing</div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1.04] tracking-[-0.025em] text-white">
               Ensure Material Excellence: Benefit from On-Site Spectrometer Testing by ARS Steels
             </h1>

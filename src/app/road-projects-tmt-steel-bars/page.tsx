@@ -72,15 +72,8 @@ export default function RoadProjectsPage() {
         <Image src="/ars-assets/blog-banners/how-tmt-bars-are-transforming-rural-infrastructure-development/Infrastructure.jpeg" alt="Steel-reinforced construction work supporting infrastructure development" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-ink-950/80" aria-hidden="true" />
         <div className="ars-container relative z-10 w-full pb-14 md:pb-16">
-          <nav aria-label="Breadcrumb" className="mb-7">
-            <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold text-white/70">
-              <li><Link href="/" className="focus-ring rounded-sm hover:text-white">Home</Link></li><li aria-hidden="true">/</li>
-              <li><Link href="/industries" className="focus-ring rounded-sm hover:text-white">Solutions</Link></li><li aria-hidden="true">/</li>
-              <li aria-current="page" className="text-white">Road Projects</li>
-            </ol>
-          </nav>
           <div className="grid gap-9 lg:grid-cols-[minmax(0,0.7fr)_minmax(18rem,0.3fr)] lg:items-end">
-            <div><SectionKicker variant="light">Road projects</SectionKicker><h1 className="max-w-4xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">Because Every Journey Deserves a Strong Beginning.</h1></div>
+            <div><div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />Road Projects</div><h1 className="max-w-4xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">Because Every Journey Deserves a Strong Beginning.</h1></div>
             <div className="border-l border-white/25 pl-6 lg:pb-1"><p className="text-[15px] leading-7 text-white/80">Designed for highways, expressways, and urban road projects, ARS Fe550D CRS TMT Bars combine strength, durability, and engineering excellence for infrastructure that lasts.</p><Link href="/request-quote" className="focus-ring mt-7 inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-red-dark">Request a Project Quote <ArrowRight aria-hidden="true" size={16} /></Link></div>
           </div>
         </div>
