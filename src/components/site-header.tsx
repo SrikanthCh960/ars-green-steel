@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, BadgeCheck, Calculator, ChevronDown, House, Menu, Search, ShieldCheck, X } from "lucide-react";
+import { ArrowRight, BadgeCheck, Calculator, Check, ChevronDown, House, MapPin, Menu, Search, ShieldCheck, X } from "lucide-react";
 
 type MenuLink = {
   label: string;
@@ -28,14 +28,14 @@ type MegaMenuDefinition = {
 
 type MenuKey = "about" | "products" | "sustainability" | "solutions" | "resources" | "pressMedia" | "contact";
 
-const routeLinks = [
+const routeLinks: { label: string; href: string; menu?: MenuKey }[] = [
   { label: "About", href: "/about-us", menu: "about" },
   { label: "Products", href: "/products", menu: "products" },
   { label: "Sustainability", href: "/green-steel", menu: "sustainability" },
   { label: "Solutions", href: "/industries", menu: "solutions" },
   { label: "Resources", href: "/blog", menu: "resources" },
   { label: "Press Media", href: "/press-media", menu: "pressMedia" },
-  { label: "Contact Us", href: "/contact", menu: "contact" },
+  { label: "Careers", href: "/careers" },
 ];
 
 const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
@@ -61,13 +61,11 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     visual: "Products",
     visualSrc: "/ars-assets/products-all.png",
     links: [
-      { label: "ARS CRS 550D", href: "/product-crs-550d" },
-      { label: "ARS 550D TMT Bar", href: "/product-550d" },
+      { label: "ARS CRS Fe550D", href: "/product-crs-550d" },
+      { label: "ARS Fe550D", href: "/product-550d" },
       { label: "ARS Binders", href: "/ars-binders" },
+      { label: "550D Vs CRS 550D", href: "/products#comparison" },
       { label: "Steel Testing", href: "/steel-testing" },
-      { label: "Product Comparison", href: "/products#comparison" },
-      { label: "Technical Specifications", href: "/product-550d" },
-      { label: "Download Product Brochure", href: "/download-product-brochure" },
     ],
     proof: ["550D ductility", "CRS corrosion resistance", "Residential to infrastructure use"],
   },
@@ -77,12 +75,11 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     visual: "Green steel",
     visualSrc: "/ars-assets/our-quality-1.png",
     links: [
-      { label: "What is Green Steel", href: "/green-steel#what-is-green-steel" },
       { label: "ARS Green Steel", href: "/ars-green-steel" },
       { label: "Embodied Carbon", href: "/embodied-carbon" },
+      { label: "Green Certifications", href: "/our-certification" },
+      { label: "What is Green Steel", href: "/green-steel#what-is-green-steel" },
       { label: "SGBC", href: "/sgbc" },
-      { label: "Certifications & Recognitions", href: "/our-certification" },
-      { label: "Reports & Downloads", href: "/reports-downloads" },
     ],
     proof: ["Green steel story", "EPD / GRIHA / LEED readiness", "Downloadable proof"],
   },
@@ -128,11 +125,10 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     visualSrc: "/ars-assets/awards-certificates-img3.png",
     links: [
       { label: "Steel Price Today", href: "/tmt-steel-price-today" },
-      { label: "Blog / Knowledge Center", href: "/blog" },
-      { label: "Guides & Articles", href: "/guides-articles" },
       { label: "TMT Bar Calculator", href: "/tmt-steel-calculator" },
-      { label: "Career", href: "/careers" },
-      { label: "FAQs", href: "/faqs" },
+      { label: "Become A Dealer", href: "/become-a-steel-distributor" },
+      { label: "Blogs", href: "/blog" },
+      { label: "Downloads", href: "/download-product-brochure" },
     ],
     proof: ["Price clarity", "Calculator journey", "Construction education"],
   },
@@ -331,12 +327,12 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <Link
-            className="focus-ring hidden h-11 items-center gap-2 rounded-full border border-ink-900/12 bg-white/60 px-5 text-sm font-bold text-ink-900 transition hover:border-brand-blue hover:text-brand-blue md:inline-flex"
-            href="/tmt-steel-price-today"
+            className="focus-ring hidden h-11 items-center gap-2 rounded-full bg-brand-red px-5 text-sm font-bold text-white shadow-[0_12px_30px_rgba(222,18,26,0.24)] transition hover:bg-brand-red-dark md:inline-flex"
+            href="/our-network"
           >
-            <Search size={16} /> Steel price
+            <MapPin size={16} /> Find Dealer
           </Link>
-          <Link className="focus-ring inline-flex h-11 items-center gap-2 rounded-full bg-brand-red px-5 text-sm font-bold text-white shadow-[0_12px_30px_rgba(222,18,26,0.24)] transition hover:bg-brand-red-dark" href="/request-quote">
+          <Link className="focus-ring inline-flex h-11 items-center gap-2 rounded-full border border-ink-900/12 bg-white/60 px-5 text-sm font-bold text-ink-900 transition hover:border-brand-blue hover:text-brand-blue" href="/request-quote">
             Get quote <ArrowRight size={16} />
           </Link>
           <div className="relative z-[110] xl:hidden">
@@ -376,6 +372,13 @@ export function SiteHeader() {
                     <ArrowRight size={16} className="text-brand-blue" />
                   </Link>
                   {routeLinks.map((link) => {
+                    if (!link.menu) {
+                      return <Link key={link.label} className="flex items-center justify-between border-t border-ink-900/10 py-3 text-base font-bold text-ink-900" href={link.href} aria-current={pathname === link.href ? "page" : undefined} onClick={() => setMobileOpen(false)}>
+                        {link.label}
+                        <ArrowRight size={16} className="text-brand-blue" />
+                      </Link>;
+                    }
+
                     const menuKey = link.menu as keyof typeof megaMenus;
                     const isExpanded = mobileSection === menuKey;
                     const isActive = menuPaths[menuKey].some((route) => pathMatches(pathname, route));
@@ -484,9 +487,9 @@ function MegaMenuContent({ menu }: { menu: MegaMenu }) {
         ) : (
           <div className="mt-8 grid gap-x-12 gap-y-5 sm:grid-cols-2">
             {menu.links.map((item) => (
-              <a key={item.label} className="focus-ring group flex items-center gap-4 text-lg font-semibold text-steel-700 transition hover:text-brand-blue" href={item.href}>
-                <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-white text-brand-blue ring-1 ring-ink-900/10 transition group-hover:bg-brand-blue group-hover:text-white">
-                  <ArrowRight size={17} />
+              <a key={item.label} className={`focus-ring group flex items-center gap-4 text-lg font-semibold transition ${menu.eyebrow === "Sustainability" && item.label === "ARS Green Steel" ? "text-green-steel hover:text-green-steel" : "text-steel-700 hover:text-brand-blue"}`} href={item.href}>
+                <span className={`inline-flex size-10 aspect-square shrink-0 items-center justify-center rounded-full bg-white ring-1 transition ${menu.eyebrow === "Sustainability" && item.label === "ARS Green Steel" ? "text-green-steel ring-green-steel group-hover:bg-green-steel group-hover:text-white" : "text-brand-blue ring-ink-900/10 group-hover:bg-brand-blue group-hover:text-white"}`}>
+                  {menu.eyebrow === "Sustainability" && item.label === "ARS Green Steel" ? <><ArrowRight size={17} className="group-hover:hidden" /><Check size={17} className="hidden group-hover:block" /></> : <ArrowRight size={17} />}
                 </span>
                 {item.label}
               </a>

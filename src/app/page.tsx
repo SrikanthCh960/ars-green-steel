@@ -269,10 +269,10 @@ export default function Home() {
                   >
                     View product <ArrowRight size={17} />
                   </Link>
-                  {product.slug === "ars-crs-550d" || product.slug === "ars-binders" ? (
+                  {product.slug === "ars-crs-550d" || product.slug === "ars-550d" || product.slug === "ars-binders" ? (
                     <a
                       className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] border border-brand-blue/20 bg-surface-50 px-5 text-sm font-bold text-brand-blue transition hover:border-brand-blue hover:bg-brand-blue hover:text-white"
-                      href={product.slug === "ars-crs-550d" ? "/ars-assets/Downloads/CRS-brochure-English.pdf" : "/ars-assets/Downloads/Binders.pdf"}
+                      href={product.slug === "ars-crs-550d" ? "/ars-assets/Downloads/CRS-brochure-English.pdf" : product.slug === "ars-550d" ? "/ars-assets/Downloads/ARS-550D.pdf" : "/ars-assets/Downloads/Binders.pdf"}
                       target="_blank"
                       rel="noreferrer"
                     >
