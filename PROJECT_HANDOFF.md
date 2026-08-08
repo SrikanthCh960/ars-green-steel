@@ -23,6 +23,16 @@ Read this file first when continuing the ARS content migration in a new chat.
 
 ## Latest release — 2026-08-07
 
+## Latest release — 2026-08-08
+
+- Commit: `871462f` — `Refresh solution page assets and content`.
+- Production deployment: `dpl_4sYbBETKM1uS632v8SMm8ymMSaDt` — Ready.
+- Refreshed solution-page copy, layouts, and local imagery for Road Projects, Bridges & Flyovers, Institutional Projects, Contractors, Engineers & Architects, Dealers & Distributors, and Home Owners.
+- Added local solution imagery and approved Binders/CRS brochure assets where available.
+- TypeScript, route/asset QA, and production build passed; 172 local assets and 154 routes were checked.
+
+## Previous release — 2026-08-07
+
 - Commit: `79a3438` — `Standardize FAQ presentation`
 - Preview was verified Ready before promotion; production deployment is Ready.
 - Added the shared `FaqList` component for consistent, keyboard-accessible FAQ disclosures.

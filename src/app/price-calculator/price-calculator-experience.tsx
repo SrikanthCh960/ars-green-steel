@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
+import Image from "next/image";
 import { useMemo, useState } from "react";
-import { ArrowRight, Calculator, CheckCircle2, ClipboardList, MapPin, Scale, ShieldCheck } from "lucide-react";
+import { ArrowRight, Calculator, CheckCircle2, Scale } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
@@ -102,10 +102,11 @@ export function PriceCalculatorExperience() {
   return <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
     <SiteHeader />
     <section className="relative overflow-hidden bg-ink-950 text-white">
+      <Image src="/ars-assets/products/ProductComparission_HeroBanner.jpg" alt="ARS TMT steel bars for construction planning" fill priority sizes="100vw" className="object-cover object-center" />
       <div className="steel-grid absolute inset-0 opacity-40" />
-      <div className="absolute inset-0 bg-[linear-gradient(115deg,#060d1e_10%,rgba(6,13,30,0.92)_60%,#0d2b6e)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(6,13,30,0.96)_10%,rgba(6,13,30,0.84)_60%,rgba(13,43,110,0.62))]" />
       <div className="ars-container relative flex min-h-[500px] items-end pb-14 pt-36 md:min-h-[570px] md:pb-20">
-        <div className="max-w-4xl"><div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />Engineering Calculator</div><h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1] tracking-[-0.035em]">Calculate Your TMT Requirement <span className="text-[var(--text-accent-dark)]">With Precision.</span></h1><p className="mt-7 max-w-2xl text-base leading-8 text-white/75 md:text-lg">Use ARS workbook-backed rates and bundle rules to plan rods, weight, and indicative cost before you request a confirmed quote.</p><a href="#calculator" className="focus-ring mt-8 inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white">Start calculating <ArrowRight size={16} /></a></div>
+        <div className="max-w-4xl"><div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />TMT Steel Calculator</div><h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1] tracking-[-0.035em]">Calculate Your TMT Requirement <span className="text-[var(--text-accent-dark)]">With Precision.</span></h1><p className="mt-7 max-w-2xl text-base leading-8 text-white/75 md:text-lg">Use ARS workbook-backed rates and bundle rules to plan rods, weight, and indicative cost before you request a confirmed quote.</p><a href="#calculator" className="focus-ring mt-8 inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white">Start calculating <ArrowRight size={16} /></a></div>
       </div>
     </section>
 
@@ -155,8 +156,7 @@ export function PriceCalculatorExperience() {
 
     <MotionSection className="bg-white py-14 md:py-24"><div className="ars-container grid gap-10 lg:grid-cols-[1.15fr_0.85fr]"><div><SectionKicker variant="brand">Calculate with precision</SectionKicker><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.08]">Master your TMT requirements.</h2><div className="mt-6 grid gap-5 text-[15px] leading-7 text-steel-700"><p>Our TMT Calculator simplifies construction planning by estimating the quantity, weight, and indicative cost of TMT steel required for a project.</p><p>Use the result for budgeting and logistics planning, then share the requirement with ARS for a confirmed rate and product guidance.</p></div></div><div className="border-l-4 border-brand-blue bg-surface-50 p-6"><Scale className="text-brand-blue" size={24} aria-hidden="true" /><h3 className="mt-5 font-display text-xl font-bold">A clear starting point</h3><p className="mt-3 text-sm leading-6 text-steel-700">The calculator supports residential, commercial, and infrastructure purchase planning across the ARS regions listed in the workbook.</p></div></div></MotionSection>
     <MotionSection className="bg-surface-50 py-14 md:py-24"><div className="ars-container"><SectionKicker variant="brand">Answers before ordering</SectionKicker><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.08]">Frequently asked questions</h2><FaqList className="mt-8" items={faqs.map(([question, answer]) => ({ question, answer }))} /></div></MotionSection>
-    <MotionSection className="border-t border-ink-900/10 bg-white py-14"><div className="ars-container"><p className="font-technical text-xs font-bold uppercase tracking-[0.2em] text-steel-700">Continue your purchase planning</p><nav aria-label="Related calculator resources" className="mt-5 flex flex-wrap gap-x-6 gap-y-4"><Link href="/our-network" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Dealer locator <MapPin size={15} /></Link><Link href="/products" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Products <ClipboardList size={15} /></Link><Link href="/our-certification" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Certifications <ShieldCheck size={15} /></Link><Link href="/request-quote" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Request quote <ArrowRight size={15} /></Link></nav></div></MotionSection>
-    <ContactCta eyebrow="Ready for a confirmed rate?" headline="Send ARS your requirement." body="Share your selected product, region, quantity, and indicative calculation with the ARS team." primaryLabel="Request quote" primaryHref="/request-quote" secondaryLabel="Find a dealer" secondaryHref="/our-network" tone="solid" />
+    <ContactCta eyebrow="Ready for a confirmed rate?" headline="Send ARS your requirement." body="Share your selected product, region, quantity, and indicative calculation with the ARS team." primaryLabel="Send enquiry" primaryHref="/request-quote" secondaryLabel="Talk to sales" secondaryHref="/our-network" tone="solid" />
   </main>;
 }
 

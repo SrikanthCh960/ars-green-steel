@@ -67,6 +67,15 @@ The execution order prioritizes:
 - Removed the temporary homepage CTA refresh while preserving the original homepage navigation and content paths.
 - Checks passed: `npx tsc --noEmit`, `npm run qa:routes`, and `npm run build`.
 
+## Solution content and asset release — 2026-08-08
+
+- Status: Done
+- Commit: `871462f`
+- Production deployment: `dpl_4sYbBETKM1uS632v8SMm8ymMSaDt`
+- Refreshed Roads, Bridges, Institutions, Contractors, Engineers & Architects, Dealers & Distributors, and Home Owners solution experiences.
+- Added local solution imagery and available brochure/download assets.
+- Checks passed: TypeScript, route/asset QA, and production build.
+
 ---
 
 ## Latest Implementation Status - 2026-06-28

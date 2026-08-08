@@ -458,7 +458,7 @@ function MegaMenuContent({ menu }: { menu: MegaMenu }) {
 
       <div>
         <p className="font-technical text-xs font-bold uppercase tracking-[0.28em] text-brand-blue">{menu.eyebrow}</p>
-        <p className="mt-4 max-w-2xl font-display text-4xl font-black uppercase leading-tight text-ink-900">
+        <p className="mt-4 max-w-2xl font-display text-4xl font-black leading-tight text-ink-900">
           {menu.title}
         </p>
         {menu.groups ? (

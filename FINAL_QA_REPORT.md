@@ -4,6 +4,17 @@ Date: 2026-08-05
 
 This pass covers visual polish, SEO readiness, accessibility basics, performance readiness, and deployment checks for the current ARS Green Steel redesign.
 
+## Solution Content and Asset Release — 2026-08-08
+
+- Release commit: `871462f`.
+- Production deployment: `dpl_4sYbBETKM1uS632v8SMm8ymMSaDt` (`READY`).
+- Updated solution-page content and local imagery across project, audience, and dealer/distributor experiences.
+- Added available local brochure/download assets.
+- TypeScript passed.
+- Internal route and asset QA passed: 154 routes and 172 local assets checked.
+- Production build passed.
+- Verified solution routes returned HTTP 200.
+
 ## FAQ and Product Consistency Release — 2026-08-07
 
 - Release commit: `79a3438`.

@@ -27,6 +27,23 @@ This is the deployment source of truth for the ARS Green Steel redesign.
 
 Latest confirmed live update:
 
+- Date: 2026-08-08
+- Commit: `871462f` — `Refresh solution page assets and content`
+- Vercel deployment: `dpl_4sYbBETKM1uS632v8SMm8ymMSaDt`
+- Status: `READY`
+- Verified routes: `/`, `/road-projects-tmt-steel-bars`, `/bridges-projects-tmt-steel-bars`, `/institutions-projects-tmt-steel-bars`, `/steel-distributors-dealers`, `/tmt-steel-bar-guide-homeowners`
+- All verified routes returned HTTP 200.
+
+What went live:
+
+- Refreshed solution-page content and local ARS imagery.
+- Added local solution assets for Roads, Bridges, Contractors, Dealers, Engineers & Architects, and related page sections.
+- Added available local Binders and CRS brochure assets.
+
+## Previous Production Deployment
+
+Latest confirmed live update:
+
 - Date: 2026-08-07
 - Commit: `79a3438` — `Standardize FAQ presentation`
 - Vercel deployment: `dpl_E1w66Nt94QfCwQsRqnvPU7jMTmaN`

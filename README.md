@@ -16,6 +16,14 @@ Current active redesign branch:
 
 Latest production release:
 
+- Date: 2026-08-08
+- Commit: `871462f` — Refresh solution page assets and content
+- Deployment: `dpl_4sYbBETKM1uS632v8SMm8ymMSaDt`
+- Status: Ready
+- Refreshed Road Projects, Bridges & Flyovers, Institutional Projects, Dealers & Distributors, Contractors, Engineers & Architects, Home Owners, and related solution content with local ARS assets.
+- Added local brochures/download assets where available and verified 172 local assets.
+- Production solution routes returned HTTP 200.
+
 - Date: 2026-08-07
 - Commit: `79a3438` — Standardize FAQ presentation
 - Deployment: `dpl_E1w66Nt94QfCwQsRqnvPU7jMTmaN`
