@@ -105,7 +105,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: dealerDistributorMetadata.title,
       description: dealerDistributorMetadata.description,
       path: page.path,
-      image: "/ars-assets/Contact_banner.png",
+      image: "/ars-assets/Solutions/Dealers/DealersHeroBanner.jpg",
     });
   }
 

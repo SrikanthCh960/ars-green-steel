@@ -9,8 +9,8 @@ import { FaqList } from "@/components/faq-list";
 
 const products = [
   { title: "ARS CRS 550D TMT Bars", body: "A corrosion-resistant TMT solution for projects exposed to moisture, salinity, and demanding environments.", href: "/product-crs-550d", label: "Explore ARS CRS 550D", image: "/ars-assets/logos/ARSCRS550D.png" },
-  { title: "ARS Fe550D TMT Bars", body: "A dependable TMT steel solution for residential, commercial, and infrastructure projects.", href: "/product-550d", label: "Explore ARS 550D", image: "/ars-assets/TMT-Bars.png" },
-  { title: "ARS Binders", body: "Precision-made steel binders that help improve consistency and efficiency in reinforcement work.", href: "/ars-binders", label: "Explore ARS Binders", image: "/ars-assets/placeholders/binders-factory-placeholder.png" },
+  { title: "ARS Fe550D TMT Bars", body: "A dependable TMT steel solution for residential, commercial, and infrastructure projects.", href: "/product-550d", label: "Explore ARS 550D", image: "/ars-assets/logos/ARS550D.png" },
+  { title: "ARS Binders", body: "Precision-made steel binders that help improve consistency and efficiency in reinforcement work.", href: "/ars-binders", label: "Explore ARS Binders", image: "/ars-assets/logos/BinderLogo.png" },
 ] as const;
 
 const faqs = [
@@ -37,14 +37,15 @@ export function DealerDistributorPage() {
       <SiteHeader />
 
       <section className="ars-page-hero relative overflow-hidden bg-ink-950 text-white">
-        <div className="absolute inset-0 bg-[linear-gradient(125deg,#060D1E_0%,#0D2B6E_57%,#08112A_100%)]" />
+        <Image src="/ars-assets/Solutions/Dealers/DealersHeroBanner.jpg" alt="ARS dealer and distributor network" fill priority sizes="100vw" className="object-cover" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.9)_0%,rgba(13,43,110,0.62)_58%,rgba(6,13,30,0.2)_100%)]" />
         <div className="ars-page-hero-content ars-container relative flex min-h-[560px] items-end py-12 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
           <div className="max-w-4xl">
             <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />For Dealers &amp; Distributors</div>
             <h1 className="mt-6 max-w-4xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold uppercase leading-[1.03]">Construction excellence. <span className="text-brand-red">Safely delivered.</span></h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/78 md:text-lg">ARS Steel is your dependable partner for TMT steel bars that help make construction projects successful and dependable.</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact" className="focus-ring inline-flex min-h-12 items-center justify-center gap-3 rounded-[6px] bg-brand-blue px-6 text-sm font-bold text-white transition hover:bg-brand-blue-dark md:text-base">Contact ARS <ArrowRight size={18} aria-hidden="true" /></Link>
+              <Link href="/contact" className="focus-ring inline-flex min-h-12 items-center justify-center gap-3 rounded-[6px] bg-brand-blue px-6 text-sm font-bold text-white transition hover:bg-brand-blue-dark md:text-base">Become a Dealer <ArrowRight size={18} aria-hidden="true" /></Link>
               <Link href="/our-network" className="focus-ring inline-flex min-h-12 items-center justify-center gap-3 rounded-[6px] border border-white/28 px-6 text-sm font-bold text-white transition hover:bg-white hover:text-brand-blue md:text-base">Find our network <ArrowRight size={18} aria-hidden="true" /></Link>
             </div>
           </div>
@@ -53,12 +54,12 @@ export function DealerDistributorPage() {
 
       <section className="bg-white py-20 lg:py-24">
         <div className="ars-container">
-          <EditorialBand image="/ars-assets/ARSHOME1.jpg">
+          <EditorialBand image="/ars-assets/Solutions/Dealers/DealersHeroBanner.jpg">
             <SectionKicker>PARTNERSHIP</SectionKicker>
             <h2 className="mt-6 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1]">Let’s build excellence. <span className="text-brand-red">Together.</span></h2>
             <p className="mt-6 text-base leading-8 text-steel-700">As a contractor, your expertise and dedication are the cornerstones of every successful construction project. Your planning, coordination, and execution help ensure that each build meets high standards of quality and efficiency. The choices you make, from materials to techniques, have a lasting impact on the outcome.</p>
             <p className="mt-5 text-base leading-8 text-steel-700">Partner with a steel manufacturer that supports your commitment to projects built to last.</p>
-            <Link href="/contact" className="focus-ring mt-7 inline-flex min-h-11 items-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-bold text-white transition hover:bg-brand-blue-dark">Contact us <ArrowRight size={16} aria-hidden="true" /></Link>
+            <Link href="/become-a-steel-distributor" className="focus-ring mt-7 inline-flex min-h-11 items-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-bold text-white transition hover:bg-brand-blue-dark">Partner with ARS <ArrowRight size={16} aria-hidden="true" /></Link>
           </EditorialBand>
         </div>
       </section>
@@ -92,7 +93,7 @@ export function DealerDistributorPage() {
         <div className="ars-container max-w-4xl"><SectionKicker>FAQS</SectionKicker><FaqList className="mt-8" items={faqs.map(([question, answer]) => ({ question, answer }))} /></div>
       </section>
 
-      <ContactCta eyebrow="DEALER & DISTRIBUTOR ENQUIRY" headline="Build a stronger supply partnership with ARS." body="Connect with the ARS team to discuss your dealer or distributor enquiry, product requirements, and next steps." primaryLabel="Contact ARS" primaryHref="/contact" primaryClassName="bg-brand-blue hover:bg-brand-blue-dark" secondaryLabel="Explore our network" secondaryHref="/our-network" />
+      <ContactCta eyebrow="DEALER & DISTRIBUTOR ENQUIRY" headline="Build a stronger supply partnership with ARS." body="Connect with the ARS team to discuss your dealer or distributor enquiry, product requirements, and next steps." primaryLabel="Become a Dealer" primaryHref="/become-a-steel-distributor" primaryClassName="bg-brand-blue hover:bg-brand-blue-dark" secondaryLabel="Explore our network" secondaryHref="/our-network" />
     </main>
   );
 }

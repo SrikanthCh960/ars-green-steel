@@ -43,12 +43,6 @@ const buyingActions = [
     icon: MapPin,
   },
   {
-    title: "Download Technical Datasheets",
-    detail: "Access product specifications, test certificates, and technical resources.",
-    href: "/certifications#downloads",
-    icon: ClipboardList,
-  },
-  {
     title: "Request Quote",
     detail: "Get a customised quotation for residential, commercial, or infrastructure projects.",
     href: "/request-quote",
@@ -275,13 +269,24 @@ export default function Home() {
                   >
                     View product <ArrowRight size={17} />
                   </Link>
-                  <span
-                    aria-disabled="true"
-                    className="inline-flex h-12 cursor-not-allowed items-center justify-center gap-2 rounded-[6px] border border-brand-blue/20 bg-surface-50 px-5 text-sm font-bold text-steel-500"
-                    title="The approved product leaflet is not yet available for download."
-                  >
-                    Product leaflet pending
-                  </span>
+                  {product.slug === "ars-crs-550d" || product.slug === "ars-binders" ? (
+                    <a
+                      className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] border border-brand-blue/20 bg-surface-50 px-5 text-sm font-bold text-brand-blue transition hover:border-brand-blue hover:bg-brand-blue hover:text-white"
+                      href={product.slug === "ars-crs-550d" ? "/ars-assets/Downloads/CRS-brochure-English.pdf" : "/ars-assets/Downloads/Binders.pdf"}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Download brochure <ArrowRight size={17} />
+                    </a>
+                  ) : (
+                    <span
+                      aria-disabled="true"
+                      className="inline-flex h-12 cursor-not-allowed items-center justify-center gap-2 rounded-[6px] border border-brand-blue/20 bg-surface-50 px-5 text-sm font-bold text-steel-500"
+                      title="The approved product leaflet is not yet available for download."
+                    >
+                      Product leaflet pending
+                    </span>
+                  )}
                 </div>
               </article>
             ))}
@@ -355,9 +360,6 @@ export default function Home() {
               <p className="font-technical text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">
                 Clients
               </p>
-              <Link className="focus-ring text-sm font-bold text-brand-blue hover:text-brand-red" href="/projects">
-                View project experience
-              </Link>
             </div>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-9">
               {partnerCards.map((partner) => (
@@ -692,7 +694,6 @@ function BuyingAssistantSection() {
             <p className="section-copy section-copy-light">
               Check TMT steel prices, calculate steel requirements, locate an authorised dealer, or request a customised quotation—all in one place.
             </p>
-            <div className="mt-10 h-px w-full bg-white/12" />
           </div>
 
           <div className="grid gap-4">

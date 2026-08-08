@@ -84,17 +84,13 @@ export default function InstitutionsProjectsPage() {
         <Image src="/ars-assets/blog-banners/6-factors-of-choosing-the-best-steel-bar-for-construction/construction.jpeg" alt="Reinforced concrete construction for an institutional project" fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-ink-950/78" aria-hidden="true" />
         <div className="ars-container relative z-10 w-full pb-14 md:pb-16">
-          <div className="grid gap-9 lg:grid-cols-[minmax(0,0.7fr)_minmax(18rem,0.3fr)] lg:items-end">
-            <div>
-              <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />Institutional Construction</div>
-              <h1 className="max-w-4xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">Reliable TMT Bars for Institutional Projects</h1>
-            </div>
-            <div className="border-l border-white/25 pl-6 lg:pb-1">
-              <p className="text-[15px] leading-7 text-white/80">Reliable TMT bars for schools, hospitals, universities, and government buildings where safety, durability, and long-term performance matter.</p>
-              <Link href="/request-quote" className="focus-ring mt-7 inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-red-dark">
-                Contact Our Team <ArrowRight aria-hidden="true" size={16} />
-              </Link>
-            </div>
+          <div className="max-w-4xl">
+            <SectionKicker variant="light">Institutional Construction</SectionKicker>
+            <h1 className="mt-6 max-w-4xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold leading-[1.03] tracking-[-0.025em] text-white">Reliable TMT Bars for Institutional Projects</h1>
+            <p className="mt-6 max-w-2xl text-[15px] leading-7 text-white/80">Reliable TMT bars for schools, hospitals, universities, and government buildings where safety, durability, and long-term performance matter.</p>
+            <Link href="/request-quote" className="focus-ring mt-7 inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-red-dark">
+              Contact Our Team <ArrowRight aria-hidden="true" size={16} />
+            </Link>
           </div>
         </div>
       </section>
@@ -115,7 +111,7 @@ export default function InstitutionsProjectsPage() {
       </MotionSection>
 
       <MotionSection className="bg-bg-dark py-20 text-white md:py-28">
-        <div className="ars-container"><SectionKicker variant="light">Our products</SectionKicker><div className="grid gap-8 lg:grid-cols-[0.48fr_0.52fr] lg:items-end"><h2 className="section-title section-title-light">TMT Bars Engineered for Institutional Construction</h2><p className="text-[15px] leading-7 text-white/70">Choose the right reinforcement solution for institutional projects based on structural requirements, environmental conditions, and long-term performance.</p></div><div className="mt-12 grid gap-4 lg:grid-cols-3">{products.map(([name, body, href]) => <Link key={name} href={href} className="focus-ring group flex min-h-64 flex-col border border-white/20 bg-white/[0.04] p-6 transition hover:border-white/45 hover:bg-white/[0.09]"><p className="font-technical text-xs font-bold tracking-[0.2em] text-white/50">PRODUCT</p><h3 className="mt-10 font-display text-2xl font-bold text-white">{name}</h3><p className="mt-4 text-sm leading-6 text-white/70">{body}</p><span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-bold text-white">View product <ArrowRight aria-hidden="true" size={16} /></span></Link>)}</div></div>
+        <div className="ars-container"><SectionKicker variant="light">ARS Products</SectionKicker><div className="grid gap-8 lg:grid-cols-[0.48fr_0.52fr] lg:items-end"><h2 className="section-title section-title-light">TMT Bars Engineered for Institutional Construction</h2><p className="text-[15px] leading-7 text-white/70">Choose the right reinforcement solution for institutional projects based on structural requirements, environmental conditions, and long-term performance.</p></div><div className="mt-12 grid gap-4 lg:grid-cols-3">{products.map(([name, body, href], index) => <Link key={name} href={href} className="focus-ring group flex min-h-64 flex-col overflow-hidden border border-white/20 bg-white/[0.04] transition hover:border-white/45 hover:bg-white/[0.09]"><div className="relative h-36 bg-[#F4F7FF]"><Image src={["/ars-assets/logos/ARSCRS550D.png", "/ars-assets/logos/ARS550D.png", "/ars-assets/logos/BinderLogo.png"][index]} alt={`${name} product logo`} fill sizes="(min-width: 1024px) 30vw, 100vw" className="object-contain p-7" /></div><div className="flex flex-1 flex-col p-6"><p className="font-technical text-xs font-bold tracking-[0.2em] text-white/50">PRODUCT</p><h3 className="mt-6 font-display text-2xl font-bold text-white">{name}</h3><p className="mt-4 text-sm leading-6 text-white/70">{body}</p><span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-bold text-white">View product <ArrowRight aria-hidden="true" size={16} /></span></div></Link>)}</div></div>
       </MotionSection>
 
       <MotionSection className="bg-white py-20 md:py-28">
@@ -128,10 +124,6 @@ export default function InstitutionsProjectsPage() {
 
       <MotionSection className="bg-white py-20 md:py-28">
         <div className="ars-container grid gap-12 lg:grid-cols-[0.34fr_0.66fr]"><div><SectionKicker>Frequently asked questions</SectionKicker><h2 className="section-title">Institutional-project questions, answered.</h2></div><FaqList items={faqs.map(([question, answer]) => ({ question, answer }))} /></div>
-      </MotionSection>
-
-      <MotionSection className="border-t border-ink-900/10 bg-white py-12">
-        <div className="ars-container"><p className="font-technical text-xs font-bold uppercase tracking-[0.2em] text-steel-700">Continue your project review</p><nav aria-label="Related institutional project resources" className="mt-5 flex flex-wrap gap-x-6 gap-y-4"><Link href="/products" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Products <ArrowRight aria-hidden="true" size={15}/></Link><Link href="/our-certification" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Quality & certifications <ArrowRight aria-hidden="true" size={15}/></Link><Link href="/our-network" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Find a dealer <ArrowRight aria-hidden="true" size={15}/></Link><Link href="/tmt-steel-calculator" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">TMT calculator <ArrowRight aria-hidden="true" size={15}/></Link><Link href="/road-projects-tmt-steel-bars" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Road projects <ArrowRight aria-hidden="true" size={15}/></Link><Link href="/bridges-projects-tmt-steel-bars" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Bridges & flyovers <ArrowRight aria-hidden="true" size={15}/></Link></nav></div>
       </MotionSection>
 
       <ContactCta eyebrow="Institutional projects" headline="Build with Confidence. Build with ARS." body="Whether you’re planning a new institutional project or specifying reinforcement for long-term performance, our team is here to help." primaryLabel="Contact Our Team" primaryHref="/contact" secondaryLabel="Find a Dealer" secondaryHref="/our-network" />

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronRight, CircleGauge, ShieldCheck, Waves } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -136,6 +137,20 @@ export function ProjectTypePage({
             <p className="section-copy section-copy-light max-w-2xl">{relatedSection.body}</p>
           </div>
           <div className="grid gap-3">
+            {relatedSection.eyebrow === "ARS Products" ? (
+              <div className="mb-3 grid gap-3 sm:grid-cols-3">
+                {[
+                  ["ARS CRS 550D", "/ars-assets/logos/ARSCRS550D.png", "/product-crs-550d"],
+                  ["ARS 550D", "/ars-assets/logos/ARS550D.png", "/product-550d"],
+                  ["ARS Binders", "/ars-assets/logos/BinderLogo.png", "/ars-binders"],
+                ].map(([label, image, href]) => (
+                  <Link key={label} href={href} className="focus-ring overflow-hidden rounded-[6px] border border-brand-blue/15 bg-white transition hover:border-brand-blue/40">
+                    <div className="relative h-24 bg-[#F4F7FF]"><Image src={image} alt={`${label} product logo`} fill sizes="(min-width: 640px) 20vw, 33vw" className="object-contain p-4" /></div>
+                    <span className="block border-t border-brand-blue/10 px-3 py-3 text-xs font-bold text-ink-900">{label}</span>
+                  </Link>
+                ))}
+              </div>
+            ) : null}
             {relatedLinks.map((link) => (
               <Link key={link.href} href={link.href} className="focus-ring flex min-h-16 items-center justify-between border border-white/20 bg-white/6 px-5 text-sm font-bold transition hover:bg-white hover:text-ink-900">
                 {link.label} <ArrowRight size={18} />
@@ -164,7 +179,7 @@ export const roadProjectPage = {
   eyebrow: "Road Projects",
   title: "Because Every Journey Deserves a Strong Beginning.",
   description: "Designed for highways, expressways, and urban road projects, ARS Fe550D CRS TMT Bars combine strength, durability, and engineering excellence for infrastructure that lasts.",
-  primaryCta: { label: "Request project quote", href: "/request-quote" },
+  primaryCta: { label: "Calculate Steel", href: "/tmt-steel-calculator" },
   secondaryCta: { label: "View CRS 550D", href: "/product-crs-550d" },
   rationale: {
     title: "Every Road Is Only as Strong as What Lies Beneath.",
@@ -290,7 +305,7 @@ export const institutionalProjectPage = {
     { title: "Environmental conditions", body: "Include local environmental stresses and expected use in the project-specific specification review.", icon: Waves },
   ],
   relatedSection: {
-    eyebrow: "Product, quality, and manufacturing review",
+    eyebrow: "ARS Products",
     title: "Bring the relevant ARS information into the project conversation.",
     body: "Review product specifications, quality information, and manufacturing context with ARS before finalising a project-specific selection.",
   },

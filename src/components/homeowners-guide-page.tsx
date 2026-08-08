@@ -439,8 +439,8 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
       headline: "Partner with ARS for Specification-Led Construction",
       body:
         "Whether you're preparing project specifications, reviewing technical documentation, or selecting the right reinforcement steel, our engineering team is ready to support your project from design to execution.",
-      primaryLabel: "Request technical support",
-      primaryHref: "/request-quote",
+      primaryLabel: "Download ARS Brochure",
+      primaryHref: "/certifications#downloads",
       secondaryLabel: "Contact Engineering Team",
       secondaryHref: "/contact",
     },
@@ -455,7 +455,7 @@ const audienceGuides: Record<AudienceGuideSlug, AudienceGuideConfig> = {
     heroImage: "/ars-assets/home/Contractors.jpg",
     heroImageAlt: "Contractors working on an ARS-supported construction project",
     primaryCta: { label: "Explore Products", href: "/products" },
-    secondaryCta: { label: "Find Nearest Dealer", href: "/our-network" },
+    secondaryCta: { label: "Calculate Steel", href: "/tmt-steel-calculator" },
     stats: [
       { value: "8-32", label: "Bar size range" },
       { value: "550D", label: "Project grade" },
@@ -630,15 +630,15 @@ const contractorBuyingPanels = [
   { image: "/ars-assets/Solutions/Contractors/ConsistentQuality.jpg", alt: "ARS TMT bars representing consistent construction quality", icon: Handshake },
   { image: "/ars-assets/Solutions/Contractors/EasytoBendWorkWith.jpg", alt: "ARS TMT bars designed for efficient bending and site work", icon: FlaskConical },
   { image: "/ars-assets/blog-banners/what-makes-steel-bars-last-long-in-construction-exploring-their-strength-durability/high-strength-and-ductility-1.webp", alt: "High-strength TMT steel reinforcement for durable construction", icon: ShieldCheck },
-  { image: "/ars-assets/ARSHOME4.jpg", alt: "ARS steel supply supporting uninterrupted construction work", icon: Truck },
+  { image: "/ars-assets/Solutions/Contractors/ReliableAvailability.jpg", alt: "ARS steel supply supporting uninterrupted construction work", icon: Truck },
   { image: "/ars-assets/blog-banners/check-tmt-bar-quality-on-site/How-to-Check-TMT-Bar-Quality-On-Site-.jpeg", alt: "On-site TMT bar quality verification before purchase", icon: BadgeCheck },
-  { image: "/ars-assets/products-all.png", alt: "ARS TMT bar range for long-term construction value", icon: IndianRupee },
+  { image: "/ars-assets/Solutions/Contractors/ThinkBeyondTodayCost.jpg", alt: "ARS TMT bar range for long-term construction value", icon: IndianRupee },
 ] as const;
 
 const contractorProducts = [
   ["ARS CRS 550D TMT Bars", "Designed for projects exposed to high moisture, high salinity, and corrosive environments. Its enhanced corrosion resistance helps improve the durability and service life of structures, making it suitable for demanding conditions.", "Explore ARS CRS 550D", "/product-crs-550d", "/ars-assets/logos/ARSCRS550D.png"],
   ["ARS Fe550D TMT Bars", "Ideal for general residential, commercial, and infrastructure construction where high strength, excellent ductility, and reliable performance are essential. A trusted choice for everyday construction projects.", "Explore ARS 550D", "/product-550d", "/ars-assets/TMT-Bars.png"],
-  ["ARS Binders", "Factory-made steel binders designed for consistent dimensions, accurate bends, and faster reinforcement work on site. Manufactured with precision to help improve productivity, reduce manual bending time, and deliver uniform quality across construction projects.", "Explore ARS Binders", "/ars-binders", "/ars-assets/placeholders/binders-factory-placeholder.png"],
+  ["ARS Binders", "Factory-made steel binders designed for consistent dimensions, accurate bends, and faster reinforcement work on site. Manufactured with precision to help improve productivity, reduce manual bending time, and deliver uniform quality across construction projects.", "Explore ARS Binders", "/ars-binders", "/ars-assets/logos/BinderLogo.png"],
 ] as const;
 
 const contractorPerformance = [
@@ -1268,7 +1268,7 @@ const engineerTechnicalParameters = [
     title: "Mechanical Properties",
     body: "Mechanical performance determines how steel behaves under structural loads. Engineers typically evaluate Yield Strength (550 MPa), Ultimate Tensile Strength, Elongation, Yield-to-Tensile Ratio, and Bend & Rebend Performance to ensure the reinforcement meets design and seismic requirements.",
     icon: Ruler,
-    image: "/ars-assets/TMT-Bars.png",
+    image: "/ars-assets/Solutions/EngineersArchitects/MechanicalProperties.jpg",
     imageAlt: "ARS TMT bar detail",
   },
   {
@@ -1296,7 +1296,7 @@ const engineerTechnicalParameters = [
     title: "Technical Documentation",
     body: "Reliable manufacturers provide comprehensive technical documentation, including product specifications, mill test certificates, chemical composition reports, and mechanical test results, enabling engineers to verify compliance before specification and procurement.",
     icon: FileText,
-    image: "/ars-assets/awards-certificates-img3.png",
+    image: "/ars-assets/Solutions/EngineersArchitects/TechnicalDocumentation.jpg",
     imageAlt: "ARS certification documentation",
   },
 ];
@@ -1380,43 +1380,27 @@ function EngineersArchitectsGuideContent() {
         </div>
       </section>
 
-      <section id="engineered-solutions" className="scroll-mt-24 bg-white py-20 lg:py-24">
+      <section id="engineered-solutions" className="scroll-mt-24 bg-[#F4F7FF] py-20 lg:py-28">
         <div className={homeownerRail}>
-          <div className="max-w-3xl">
-            <SectionKicker>ENGINEERED SOLUTIONS</SectionKicker>
-            <h2 className={homeownerSectionTitle}>The Right TMT Bar for Every Project Requirement</h2>
-            <p className={homeownerSectionCopy}>ARS offers a comprehensive range of Fe550D and CRS 550D TMT bars engineered to meet diverse structural and environmental requirements. With certified quality, consistent mechanical properties, and dependable manufacturing, our products help engineers, architects, and consultants specify reinforcement with confidence.</p>
+          <SectionKicker>ENGINEERED SOLUTIONS</SectionKicker>
+          <h2 className={homeownerSectionTitle}>Choose the Right ARS TMT Bar for Your Project</h2>
+          <p className={homeownerSectionCopy}>ARS offers certified Fe550D and CRS 550D TMT bars engineered for different structural and environmental requirements, helping engineers and architects specify with confidence.</p>
+          <div className="mt-11 grid gap-6 lg:grid-cols-2">
+            {[
+              { title: "ARS CRS 550D", heading: "ARS CRS 550D TMT Bars", body: "Corrosion-resistant reinforcement for high-salinity, humid, and demanding environments while maintaining the strength and ductility required for durable construction.", recommended: ["Coastal & High-Salinity Regions", "Bridges & Flyovers", "Water Treatment Plants", "Marine Structures", "Industrial Facilities", "Long-Life Infrastructure Projects"], href: "/product-crs-550d", cta: "Explore ARS CRS 550D", image: "/ars-assets/logos/ARSCRS550D.png" },
+              { title: "ARS 550D", heading: "ARS 550D Fe550D TMT Bars", body: "High-strength, ductile reinforcement for structural applications where reliable performance, bendability, weldability, and seismic confidence matter.", recommended: ["Residential Buildings", "Commercial Buildings", "High-Rise Structures", "Industrial Projects", "Infrastructure Development"], href: "/product-550d", cta: "Explore ARS 550D", image: "/ars-assets/logos/ARS550D.png" },
+            ].map((product) => (
+              <article key={product.title} className="group overflow-hidden border border-brand-blue/15 bg-white shadow-[0_16px_38px_rgba(6,13,30,0.05)] transition duration-300 hover:-translate-y-1 hover:border-brand-blue/35 hover:shadow-[0_24px_58px_rgba(6,13,30,0.12)]">
+                <div className="relative h-52 overflow-hidden bg-[#F4F7FF]"><div className="absolute inset-x-0 top-0 h-1 bg-brand-red" /><Image src={product.image} alt={`${product.title} product logo`} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-contain p-10 transition duration-500 group-hover:scale-105" /></div>
+                <div className="p-6 md:p-8"><p className="font-technical text-xs font-black uppercase tracking-[0.18em] text-brand-blue">{product.title}</p><h3 className="mt-3 font-display text-3xl font-bold text-ink-900">{product.heading}</h3><p className="mt-4 text-base leading-8 text-steel-700">{product.body}</p><div className="mt-7 border-t border-brand-blue/12 pt-6"><h4 className="font-display text-lg font-bold text-ink-900">Recommended for</h4><ul className="mt-3 grid gap-2 text-sm leading-6 text-steel-700 sm:grid-cols-2">{product.recommended.map((item) => <li key={item} className="flex gap-2"><BadgeCheck aria-hidden="true" className="mt-1 size-3.5 shrink-0 text-brand-blue" />{item}</li>)}</ul></div><Link href={product.href} className="focus-ring mt-8 inline-flex min-h-12 items-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-bold text-white transition hover:bg-brand-blue-dark">{product.cta} <ArrowRight size={16} /></Link></div>
+              </article>
+            ))}
           </div>
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <article className="border border-[#0D2B6E]/20 bg-[#F4F7FF] p-7 md:p-9">
-              <h3 className="font-display text-3xl font-bold text-ink-900">ARS 550D Fe550D TMT Bars</h3>
-              <p className="mt-5 text-base leading-8 text-steel-700">Designed for structural applications where high strength, superior ductility, and reliable performance are essential. ARS 550D TMT Bars are manufactured in compliance with IS 1786, offering excellent bendability, weldability, and seismic performance for residential, commercial, and industrial construction.</p>
-              <p className="mt-7 font-bold text-ink-900">Recommended for:</p>
-              <ul className="mt-3 grid gap-2 text-sm font-semibold text-steel-700">
-                {["Residential Buildings", "Commercial Buildings", "High-Rise Structures", "Industrial Projects", "Infrastructure Development"].map((item) => <li key={item}>{item}</li>)}
-              </ul>
-              <Link href="/product-550d" className="focus-ring mt-8 inline-flex items-center gap-2 font-bold text-brand-blue">View Product Details <ArrowRight size={16} /></Link>
-            </article>
-            <article className="border border-[#0D2B6E]/20 bg-white p-7 text-ink-900 md:p-9">
-              <h3 className="font-display text-3xl font-bold">ARS CRS 550D TMT Bars</h3>
-              <p className="mt-5 text-base leading-8 text-steel-700">Engineered with Corrosion Resistant Steel (CRS) technology, ARS CRS 550D TMT Bars are designed for structures exposed to high-salinity, humid, and corrosive environments. Enhanced corrosion resistance helps improve structural durability while maintaining the strength and ductility required for demanding construction applications.</p>
-              <p className="mt-7 font-bold">Recommended for:</p>
-              <ul className="mt-3 grid gap-2 text-sm font-semibold text-steel-700">
-                {["Coastal & High-Salinity Regions", "Bridges & Flyovers", "Water Treatment Plants", "Marine Structures", "Industrial Facilities", "Long-Life Infrastructure Projects"].map((item) => <li key={item}>{item}</li>)}
-              </ul>
-              <Link href="/product-crs-550d" className="focus-ring mt-8 inline-flex items-center gap-2 font-bold text-brand-blue">View Product Details <ArrowRight size={16} /></Link>
-            </article>
-          </div>
-          <div className="mt-12 overflow-x-auto">
-            <table className="min-w-[720px] w-full border-collapse text-left text-sm">
-              <caption className="mb-5 text-left font-display text-2xl font-bold text-ink-900">Product Comparison</caption>
-              <thead><tr className="bg-brand-blue text-white"><th scope="col" className="p-4">Feature</th><th scope="col" className="p-4">ARS 550D</th><th scope="col" className="p-4">ARS CRS 550D</th></tr></thead>
-              <tbody>{[["Grade", "Fe550D", "CRS Fe550D"], ["BIS Certified", "✓", "✓"], ["High Strength", "✓", "✓"], ["Superior Ductility", "✓", "✓"], ["Weldability", "✓", "✓"], ["Bend & Rebend Performance", "✓", "✓"], ["Corrosion Resistance", "Standard", "Enhanced CRS Technology"], ["Best Suited For", "General Construction", "High-Salinity & Corrosive Environments"]].map(([feature, standard, crs], index) => <tr key={feature} className={`border-b border-brand-blue/15 ${index % 2 === 0 ? "bg-white" : "bg-[#F4F7FF]"}`}><th scope="row" className="p-4 font-bold text-ink-900">{feature}</th><td className="p-4 text-steel-700">{standard}</td><td className="p-4 text-steel-700">{crs}</td></tr>)}</tbody>
-            </table>
-          </div>
+          <div className="mt-10 overflow-x-auto border border-brand-blue/15 bg-white shadow-[0_16px_38px_rgba(6,13,30,0.05)]"><table className="w-full min-w-[720px] border-collapse text-left"><caption className="border-b border-brand-blue/15 bg-[#060D1E] p-5 text-left font-display text-2xl font-bold text-white">Quick Comparison</caption><thead className="bg-surface-50 text-ink-900"><tr><th scope="col" className="border-b border-brand-blue/15 p-4">If your project is...</th><th scope="col" className="border-l border-b border-brand-blue/15 p-4">Recommended Choice</th></tr></thead><tbody className="text-steel-700">{[["General structural construction", "ARS 550D"], ["High-rise or industrial projects", "ARS 550D"], ["Coastal or high-salinity sites", "ARS CRS 550D"], ["Marine or water-facing infrastructure", "ARS CRS 550D"]].map(([condition, choice]) => <tr key={condition} className="odd:bg-white even:bg-[#F8FAFC]"><th scope="row" className="border-t border-brand-blue/15 p-4 font-semibold">{condition}</th><td className="border-l border-t border-brand-blue/15 p-4 font-bold text-brand-blue">{choice}</td></tr>)}</tbody></table></div>
         </div>
       </section>
 
+      <section className="bg-white py-20 lg:py-28"><div className={homeownerRail}><div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16"><div className="relative min-h-[280px] self-end overflow-hidden bg-[#F4F7FF]"><Image src="/ars-assets/blog-banners/importance-of-tds-in-steel-manufacturing/TDS-and-its-significance.jpeg" alt="TDS testing for construction water" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover object-[center_bottom]" /><div className="absolute inset-x-0 bottom-0 h-1 bg-brand-red" /></div><div><SectionKicker>FREE TDS TESTING</SectionKicker><h2 className={homeownerSectionTitle}>Design with Data. Build for Durability.</h2><p className={homeownerSectionCopy}>ARS offers free TDS testing to help engineers and architects assess site water conditions during the planning stage. Understanding TDS levels supports informed material selection, particularly where corrosion resistance is critical. Based on the test results, our technical team recommends the appropriate TMT bar solution to enhance structural durability and long-term performance.</p><form className="mt-8 grid gap-3 rounded-xl border border-ink-900/10 bg-white p-5 shadow-[0_8px_24px_rgba(6,13,30,0.05)] sm:grid-cols-2" action="/contact" method="get"><label className="sr-only" htmlFor="engineer-tds-name">Name</label><input id="engineer-tds-name" name="name" autoComplete="name" placeholder="Name" className="h-12 rounded-[6px] border border-ink-900/12 bg-white px-4 text-sm outline-none transition focus:border-brand-blue" /><label className="sr-only" htmlFor="engineer-tds-phone">Phone</label><input id="engineer-tds-phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="+91" className="h-12 rounded-[6px] border border-ink-900/12 bg-white px-4 text-sm outline-none transition focus:border-brand-blue" /><label className="sr-only" htmlFor="engineer-tds-region">Region</label><select id="engineer-tds-region" name="region" defaultValue="" className="h-12 rounded-[6px] border border-ink-900/12 bg-white px-4 text-sm outline-none transition focus:border-brand-blue"><option value="">Region</option><option>Andhra Pradesh</option><option>Karnataka</option><option>Kerala</option><option>Tamil Nadu</option></select><button type="submit" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-red px-5 text-sm font-bold text-white transition hover:bg-[#c90f16]">Schedule a Free TDS Test <ArrowRight size={16} aria-hidden="true" /></button></form></div></div></div></section>
       <section id="technical-performance" className="scroll-mt-24 bg-[#F4F7FF] py-20 lg:py-28">
         <div className={homeownerRail}>
           <div className="max-w-3xl"><SectionKicker>TECHNICAL PERFORMANCE</SectionKicker><h2 className={homeownerSectionTitle}>Verified Mechanical &amp; Chemical Properties</h2><p className={homeownerSectionCopy}>Every ARS TMT bar is manufactured under stringent quality controls and tested to deliver consistent mechanical performance and chemical composition. The values below represent the typical properties of ARS 550D and ARS CRS 550D, manufactured in compliance with IS 1786.</p><p className="mt-5 text-base italic leading-8 text-steel-700">All values comply with the applicable requirements of IS 1786.</p></div>
@@ -1427,9 +1411,32 @@ function EngineersArchitectsGuideContent() {
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-24"><div className={homeownerRail}><div className="max-w-3xl"><SectionKicker>CERTIFICATIONS &amp; RECOGNITION</SectionKicker><h2 className={homeownerSectionTitle}>Certified Quality. Recognised Performance.</h2><p className={homeownerSectionCopy}>Every ARS TMT bar is backed by recognised certifications, independent testing, and regulatory approvals that reflect our commitment to quality, safety, sustainability, and responsible manufacturing. These recognitions provide engineers, consultants, and project teams with added confidence during specification and procurement.</p></div><div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{engineerCertifications.map((item) => <article key={item} className="flex min-h-36 items-end border border-[#0D2B6E]/20 bg-[#F4F7FF] p-6"><span aria-hidden="true" className="mr-3 size-2 shrink-0 bg-brand-red" /><h3 className="font-display text-xl font-bold leading-tight text-ink-900">{item}</h3></article>)}</div></div></section>
+      <section className="bg-[#F4F7FF] py-20 lg:py-24">
+        <div className={homeownerRail}>
+          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+            <div>
+              <SectionKicker>CERTIFICATIONS &amp; RECOGNITION</SectionKicker>
+              <h2 className={homeownerSectionTitle}>Certified Quality. Recognised Performance.</h2>
+              <p className={homeownerSectionCopy}>Every ARS TMT bar is backed by recognised certifications, independent testing, and regulatory approvals that reflect our commitment to quality, safety, sustainability, and responsible manufacturing. These recognitions provide engineers, consultants, and project teams with added confidence during specification and procurement.</p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {engineerCertifications.slice(0, 2).map((item) => (
+                <article key={item} className="group grid min-h-[190px] overflow-hidden rounded-[18px] border border-brand-blue/10 bg-white shadow-[var(--shadow-soft)] sm:grid-rows-[72px_1fr]">
+                  <div className="flex items-center justify-center bg-white p-5"><span className="inline-flex size-11 items-center justify-center rounded-[10px] bg-[#edf5ff] text-brand-blue ring-1 ring-brand-blue/10"><BadgeCheck size={21} /></span></div>
+                  <div className="border-t border-brand-blue/8 bg-brand-blue p-5 text-white"><h3 className="font-display text-xl font-bold">{item}</h3></div>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {engineerCertifications.slice(2).map((item) => (
+              <article key={item} className="rounded-[16px] border border-brand-blue/10 bg-white p-6 shadow-[0_14px_42px_rgba(13,43,110,0.05)]"><span className="inline-flex size-11 items-center justify-center rounded-[10px] bg-[#edf5ff] text-brand-blue ring-1 ring-brand-blue/10"><BadgeCheck size={21} /></span><h3 className="mt-7 font-display text-xl font-bold text-ink-900">{item}</h3></article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      <section className="bg-[#F4F7FF] py-20 lg:py-28"><div className={homeownerRail}><div className="max-w-3xl"><SectionKicker>TECHNICAL CONSULTATION</SectionKicker><h2 className={homeownerSectionTitle}>Need Help with Product Specification?</h2></div><div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{["Grade Selection", "Product Comparison", "Test Certificates", "Technical Clarifications", "Project Documentation", "Dealer Assistance"].map((item) => <div key={item} className="flex min-h-24 items-center border border-[#0D2B6E]/20 bg-white p-5 font-bold text-ink-900"><BadgeCheck aria-hidden="true" className="mr-3 size-5 shrink-0 text-brand-red" />{item}</div>)}</div><Link href="/contact" className="focus-ring mt-9 inline-flex h-12 items-center gap-3 bg-brand-blue px-6 text-sm font-bold text-white transition hover:bg-brand-red">Request Technical Support <ArrowRight size={17} /></Link></div></section>
+      <section className="bg-[#F4F7FF] py-20 lg:py-28"><div className={homeownerRail}><div className="max-w-3xl"><SectionKicker>TECHNICAL CONSULTATION</SectionKicker><h2 className={homeownerSectionTitle}>Need Help with Product Specification?</h2></div><div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{["Grade Selection", "Product Comparison", "Test Certificates", "Technical Clarifications", "Project Documentation", "Dealer Assistance"].map((item) => <div key={item} className="flex min-h-24 items-center border border-[#0D2B6E]/20 bg-white p-5 font-bold text-ink-900"><BadgeCheck aria-hidden="true" className="mr-3 size-5 shrink-0 text-brand-red" />{item}</div>)}</div><Link href="/certifications#downloads" className="focus-ring mt-9 inline-flex h-12 items-center gap-3 bg-brand-blue px-6 text-sm font-bold text-white transition hover:bg-brand-red">Download ARS Brochure <ArrowRight size={17} /></Link></div></section>
 
       <section className="bg-white py-20 lg:py-24"><div className={`${homeownerRail} max-w-[1180px]`}><SectionKicker>FAQS</SectionKicker><FaqList className="mt-8" items={[["How do I choose the right TMT bar for my project?", "Selection depends on structural design, environmental exposure, durability requirements, and project specifications. Standard Fe550D TMT bars are suitable for most reinforced concrete structures, while corrosion-resistant TMT bars are recommended for coastal and high-salinity environments."], ["What technical documents should be reviewed before specifying TMT bars?", "Engineers should review product specifications, chemical composition, mechanical properties, bend and rebend performance, test certificates, and applicable certifications before finalising specifications."], ["When should CRS TMT bars be specified?", "CRS TMT bars are recommended for structures exposed to coastal weather, high humidity, marine environments, industrial pollution, or high-salinity conditions where additional corrosion resistance improves long-term durability."], ["How can engineers verify product quality?", "Review recognised certifications, test certificates, technical specifications, and manufacturer documentation. Purchasing through authorised channels also helps ensure genuine products."], ["Does ARS provide technical support during specification?", "Yes. ARS provides technical assistance for product selection, specification guidance, documentation, and engineering queries to support consultants, architects, and project teams."]].map(([question, answer]) => ({ question, answer }))} /></div></section>
     </>
@@ -1567,7 +1574,7 @@ function ContractorGuideContent() {
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {contractorProducts.map(([title, body, cta, href, image], index) => (
               <article key={title} className="group overflow-hidden rounded-[8px] border border-brand-blue/15 bg-white transition duration-300 hover:-translate-y-1 hover:border-brand-blue/35">
-                <div className={`relative h-52 overflow-hidden ${index === 1 ? "bg-[#060D1E]" : "bg-[#EAF0FF]"}`}>
+                <div className="relative h-52 overflow-hidden bg-[#F4F7FF]">
                   <span aria-hidden="true" className="absolute inset-x-0 top-0 z-10 h-1 bg-brand-red" />
                   <Image src={image} alt="" fill sizes="(min-width: 1024px) 30vw, 100vw" className="object-contain p-9 transition duration-500 group-hover:scale-105" />
                 </div>
@@ -1627,18 +1634,23 @@ function ContractorGuideContent() {
         <div className={`${homeownerRail} grid gap-10 lg:grid-cols-[1fr_0.78fr] lg:items-center`}>
           <div>
             <SectionKicker>QUALITY ASSURANCE</SectionKicker>
-            <h2 className={homeownerSectionTitle}>Advanced Spectrometer Testing for Consistent Quality</h2>
+            <h2 className={homeownerSectionTitle}>Tested Before Production. Verified Before Construction.</h2>
             <p className={homeownerSectionCopy}>
-              Before every batch moves into production, ARS uses advanced Spectrometer Testing to accurately verify the chemical composition of the steel. This helps ensure every TMT bar is manufactured with the right balance of elements for consistent quality, dependable strength, and long-lasting performance.
+              Every ARS TMT bar undergoes advanced Spectrometer Testing to verify its chemical composition before production, ensuring consistent quality, strength, and compliance with industry standards. For project sites, ARS also offers Free TDS Testing to assess water conditions and recommend the right TMT bar for enhanced corrosion resistance and long-term structural durability.
             </p>
           </div>
           <div className="border border-brand-blue/16 bg-white p-8 md:p-10">
-            <Link href="/steel-testing" className="focus-ring inline-flex min-h-12 items-center gap-3 rounded-full bg-brand-blue px-6 text-sm font-bold text-white transition hover:bg-brand-red">
-              Free On-Site Spectro-meter Testing <ArrowRight size={17} />
-            </Link>
-            <a href="tel:+919710411111" className="focus-ring mt-5 inline-flex min-h-11 items-center gap-2 text-base font-bold text-brand-blue">
-              Call: +91 971 041 1111
-            </a>
+            <div className="space-y-4">
+              <Link href="/steel-testing" className="focus-ring flex min-h-12 items-center justify-between gap-3 border-b border-brand-blue/12 pb-4 text-base font-bold text-brand-blue transition hover:text-brand-red">
+                Free On-Site Spectro-meter Testing <ArrowRight size={17} />
+              </Link>
+              <Link href="/contact" className="focus-ring flex min-h-12 items-center justify-between gap-3 border-b border-brand-blue/12 pb-4 text-base font-bold text-brand-blue transition hover:text-brand-red">
+                Free TDS Testing <ArrowRight size={17} />
+              </Link>
+              <Link href="/contact" className="focus-ring inline-flex min-h-12 items-center gap-3 rounded-[6px] bg-brand-red px-6 text-sm font-bold text-white transition hover:bg-brand-blue">
+                Book Now <ArrowRight size={17} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -1650,34 +1662,37 @@ function ContractorGuideContent() {
             <h2 className={homeownerSectionTitle}>Everything You Need to Build with Confidence</h2>
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
-            <Link href="/our-network" className="focus-ring group flex min-h-48 flex-col border border-brand-blue/15 bg-white p-7 transition hover:border-brand-blue/35">
-              <span aria-hidden="true" className="flex size-11 items-center justify-center rounded-[6px] bg-brand-blue text-white"><Truck size={21} /></span>
-              <span className="mt-auto pt-8 font-display text-2xl font-bold text-ink-900">Find Your Nearest Dealer</span>
+            <Link href="/our-network" className="focus-ring group grid min-h-40 grid-cols-[160px_1fr] overflow-hidden border border-brand-blue/15 bg-white transition hover:border-brand-blue/35">
+              <span aria-hidden="true" className="flex h-full min-h-full items-center justify-center bg-[#EAF0FF] text-brand-blue"><Truck size={36} strokeWidth={1.8} /></span>
+              <span className="flex flex-col justify-center px-6 py-6 font-display text-2xl font-bold leading-[1.08] text-ink-900"><span>Find Your</span><span>Nearest Dealer</span></span>
             </Link>
-            <Link href="/tmt-steel-calculator" className="focus-ring group flex min-h-48 flex-col border border-brand-blue/15 bg-white p-7 transition hover:border-brand-blue/35">
-              <span aria-hidden="true" className="flex size-11 items-center justify-center rounded-[6px] bg-brand-blue text-white"><Calculator size={21} /></span>
-              <span className="mt-auto pt-8 font-display text-2xl font-bold text-ink-900">Calculate Steel Requirement</span>
+            <Link href="/tmt-steel-calculator" className="focus-ring group grid min-h-40 grid-cols-[160px_1fr] overflow-hidden border border-brand-blue/15 bg-white transition hover:border-brand-blue/35">
+              <span aria-hidden="true" className="flex h-full min-h-full items-center justify-center bg-[#EAF0FF] text-brand-blue"><Calculator size={36} strokeWidth={1.8} /></span>
+              <span className="flex flex-col justify-center px-6 py-6 font-display text-2xl font-bold leading-[1.08] text-ink-900"><span>Calculate Steel</span><span>Requirement</span></span>
             </Link>
-            <span aria-disabled="true" className="flex min-h-48 flex-col border border-brand-blue/15 bg-white p-7">
-              <span aria-hidden="true" className="flex size-11 items-center justify-center rounded-[6px] bg-[#060D1E] text-white"><FileText size={21} /></span>
-              <span className="mt-auto pt-8 font-display text-2xl font-bold text-steel-500">Download Product Brochures</span>
+            <span aria-disabled="true" className="grid min-h-40 grid-cols-[160px_1fr] overflow-hidden border border-brand-blue/15 bg-white">
+              <span aria-hidden="true" className="flex h-full min-h-full items-center justify-center bg-[#EAF0FF] text-brand-blue"><FileText size={36} strokeWidth={1.8} /></span>
+              <span className="flex flex-col justify-center px-6 py-6 font-display text-2xl font-bold leading-[1.08] text-steel-500"><span>Download Product</span><span>Brochures</span></span>
             </span>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#060D1E] py-20 text-white lg:py-24">
+      <section className="bg-[#F4F7FF] py-20 lg:py-24">
         <div className={homeownerRail}>
-          <div className="max-w-3xl">
-            <SectionKicker variant="light">CERTIFICATIONS & RECOGNITION</SectionKicker>
-            <h2 className="mt-6 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.16] text-white">Certified Quality. Recognised Performance.</h2>
-            <p className="mt-5 text-base leading-8 text-white/72">
-              Every ARS TMT bar is backed by recognised certifications, independent testing, and regulatory approvals that reflect our commitment to quality, safety, sustainability, and responsible manufacturing. These recognitions provide engineers, consultants, and project teams with added confidence during specification and procurement.
-            </p>
+          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+            <div>
+              <SectionKicker>CERTIFICATIONS &amp; RECOGNITION</SectionKicker>
+              <h2 className={homeownerSectionTitle}>Certified Quality. Recognised Performance.</h2>
+              <p className={homeownerSectionCopy}>Every ARS TMT bar is backed by recognised certifications, independent testing, and regulatory approvals that reflect our commitment to quality, safety, sustainability, and responsible manufacturing. These recognitions provide engineers, consultants, and project teams with added confidence during specification and procurement.</p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {contractorCertifications.slice(0, 2).map((item) => <article key={item} className="group grid min-h-[190px] overflow-hidden rounded-[18px] border border-brand-blue/10 bg-white shadow-[var(--shadow-soft)] sm:grid-rows-[72px_1fr]"><div className="flex items-center justify-center bg-white p-5"><span className="inline-flex size-11 items-center justify-center rounded-[10px] bg-[#edf5ff] text-brand-blue ring-1 ring-brand-blue/10"><BadgeCheck size={21} /></span></div><div className="border-t border-brand-blue/8 bg-brand-blue p-5 text-white"><h3 className="font-display text-xl font-bold">{item}</h3></div></article>)}
+            </div>
           </div>
-          <ul className="mt-12 grid gap-px overflow-hidden border border-white/12 bg-white/12 sm:grid-cols-2 lg:grid-cols-4">
-            {contractorCertifications.map((certification) => <li key={certification} className="bg-[#060D1E] p-6 text-sm font-bold leading-6 text-white">{certification}</li>)}
-          </ul>
+          <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {contractorCertifications.slice(2).map((item) => <article key={item} className="rounded-[16px] border border-brand-blue/10 bg-white p-6 shadow-[0_14px_42px_rgba(13,43,110,0.05)]"><span className="inline-flex size-11 items-center justify-center rounded-[10px] bg-[#edf5ff] text-brand-blue ring-1 ring-brand-blue/10"><BadgeCheck size={21} /></span><h3 className="mt-7 font-display text-xl font-bold text-ink-900">{item}</h3></article>)}
+          </div>
         </div>
       </section>
 
