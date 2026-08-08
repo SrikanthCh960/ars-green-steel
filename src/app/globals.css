@@ -38,6 +38,27 @@
   --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
+/* Keep product logo panels consistent across audience product comparisons. */
+div.relative.h-52.overflow-hidden {
+  background-color: #f4f7ff !important;
+}
+
+div.relative.h-52.overflow-hidden > img {
+  padding: 1.5rem !important;
+}
+
+article:nth-child(2) > div.relative.h-52.overflow-hidden > img {
+  transform: scale(1.05);
+}
+
+.homeowner-proof-marquee .marquee-card {
+  color: #060d1e !important;
+}
+
+.homeowner-proof-marquee .marquee-card svg {
+  color: #de121a !important;
+}
+
 @media (min-width: 1024px) {
   section#calculator > .ars-container > .grid > div:first-child .mt-7 {
     display: none;
