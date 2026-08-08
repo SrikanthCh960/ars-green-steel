@@ -275,7 +275,7 @@ export default function ManufacturingPage() {
             href="/green-steel"
             className="focus-ring mt-6 inline-flex min-h-12 items-center gap-3 rounded-full bg-brand-red px-6 py-3.5 text-sm font-bold text-white transition hover:bg-brand-red-dark"
           >
-            <span>Explore responsible Green Steel</span>
+            <span>Explore ARS Green Steel</span>
             <ArrowRight aria-hidden="true" className="shrink-0" size={20} />
           </Link>
         </div>
@@ -347,10 +347,10 @@ export default function ManufacturingPage() {
 
           <div className="flex flex-col gap-4 sm:flex-row lg:flex-col">
             <Link
-              href="/contact?enquiry=plant-visit#enquiry"
+              href="/products"
               className="focus-ring inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-brand-red px-8 text-base font-bold text-white transition hover:-translate-y-0.5 hover:bg-brand-red-dark"
             >
-              Schedule a Plant Visit <ArrowRight aria-hidden="true" size={18} />
+              Explore Products <ArrowRight aria-hidden="true" size={18} />
             </Link>
             <Link
               href="/contact#enquiry"

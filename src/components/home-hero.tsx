@@ -100,7 +100,6 @@ export function HomeHero() {
                     </motion.span>
                   </AnimatePresence>
                 </span>
-                Structures.
               </span>
             </h1>
             <p className="mt-5 max-w-[590px] text-base leading-7 text-grey-200 sm:mt-6 sm:text-lg sm:leading-9">

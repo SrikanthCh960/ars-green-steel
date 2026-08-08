@@ -15,12 +15,10 @@ export const metadata = createPageMetadata({
 });
 
 const storyPoints = [
-  "Integrated Steel Manufacturing Plant – Gummidipoondi, Tamil Nadu",
-  "2,50,000 MT Annual Steel Manufacturing Capacity",
-  "ISO 9001 & ISO 14001 Certified Manufacturing Facility",
-  "SGS Tested & Verified for Every Batch and Consignment",
+  "35+ Years of Manufacturing Excellence",
+  "Integrated Steel Manufacturing Facility",
   "BIS-Certified Fe550D & CRS 550D TMT Bars",
-  "Trusted Across Residential, Commercial & Infrastructure Projects",
+  "ISO 9001 & ISO 14001 Certified",
 ];
 
 const trustPillars = [
@@ -173,10 +171,10 @@ export default function AboutPage() {
             <div>
               <SectionKicker variant="brand">WHO WE ARE</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                More Than Steel. Built on Trust.
+                A Trusted Steel Manufacturer Since 1990.
               </h2>
               <p className="mb-8 mt-5 text-[15px] leading-[1.8] text-steel-700">
-                ARS Green Steel is one of India&apos;s leading integrated steel manufacturers, operating a state-of-the-art manufacturing facility at Gummidipoondi, Tamil Nadu. Since 1992, we have been producing BIS-certified Fe550D and CRS 550D TMT bars, combining advanced manufacturing, rigorous quality standards, and sustainable Green Steel practices to build stronger, safer, and longer-lasting structures.
+                ARS Green Steel is a trusted name in the Indian steel industry, built on more than three decades of manufacturing excellence, technical integrity, and continuous innovation. Founded in 1990 as ARS Metals Private Limited, we have remained committed to manufacturing high-quality steel that consistently meets specifications, delivers dependable performance, and earns the confidence of builders, engineers, contractors, and infrastructure developers. Today, our integrated manufacturing facility at Gummidipoondi, Tamil Nadu, produces BIS-certified Fe550D and CRS 550D TMT bars through precision manufacturing, rigorous quality standards, and responsible Green Steel practices.
               </p>
               <ul className="flex flex-col gap-3">
                 {storyPoints.map((point) => (

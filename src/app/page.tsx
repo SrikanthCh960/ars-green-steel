@@ -544,7 +544,7 @@ function GreenSteelSection() {
     <MotionSection className="relative overflow-hidden bg-bg-dark py-24 text-white" id="ars-green-steel">
       <div className="absolute inset-0">
         <Image
-          src="/ars-assets/ARS-green-bg.png"
+          src="/ars-assets/home/ARS-green-bg.jpg"
           alt=""
           fill
           sizes="100vw"
@@ -597,9 +597,14 @@ function GreenSteelSection() {
             );
           })}
         </div>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 border-y border-white/12 py-5 font-technical text-xs font-bold uppercase tracking-[0.14em] text-emerald-100 sm:gap-x-8">
-          {["GreenPro Certified", "GRIHA Listed", "EPD Documented", "SGS Tested"].map((item) => (
-            <span key={item}>{item}</span>
+        <div className="mt-8 grid gap-3 border-y border-white/12 py-5 sm:grid-cols-2 lg:grid-cols-4">
+          {["GreenPro Certified", "GRIHA", "EPD Documented", "SGS Tested"].map((item) => (
+            <div key={item} className="flex min-h-16 items-center gap-3 rounded-[6px] border border-emerald-200/20 bg-white/[0.06] px-4 py-3 text-xs font-bold uppercase tracking-[0.14em] text-emerald-100 transition hover:border-emerald-200/45 hover:bg-white/[0.1]">
+              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-red text-white">
+                <BadgeCheck size={15} aria-hidden="true" />
+              </span>
+              <span>{item}</span>
+            </div>
           ))}
         </div>
       </div>
@@ -611,27 +616,27 @@ function ManufacturingStorySection() {
   const manufacturingProof = [
     { value: "Since 1992", label: "Manufacturing legacy" },
     { value: "Billet to TMT", label: "Integrated production" },
-    { value: "Gummidipoondi", label: "Manufacturing base · Tamil Nadu" },
+    { value: "Tamil Nadu", label: "Manufacturing base" },
   ];
 
   return (
     <MotionSection className="overflow-hidden bg-white py-20 lg:py-28" id="manufacturing-story">
       <div className="ars-container">
         <div className="grid items-center gap-12 lg:grid-cols-[0.94fr_1.06fr] lg:gap-16">
-          <div className="relative min-h-[420px] overflow-hidden rounded-[20px] bg-surface-100 shadow-[var(--shadow-soft)] sm:min-h-[540px]">
+          <div className="relative min-h-[420px] overflow-hidden rounded-[20px] bg-white sm:min-h-[540px]">
             <Image
               src="/ars-assets/home/ars_home.jpg"
               alt="Aerial view of the ARS steel manufacturing facility in Gummidipoondi"
               fill
               sizes="(min-width: 1024px) 46vw, 100vw"
-              className="object-cover"
+              className="object-contain"
             />
           </div>
 
           <div className="max-w-2xl">
             <SectionKicker>Manufacturing heritage</SectionKicker>
             <h2 className="section-title max-w-xl">
-              Made in India. Built for Generations.
+              Engineering Trust Since 1992
             </h2>
             <p className="section-copy max-w-xl">
               Since 1992, ARS has grown into an integrated steel manufacturer with its manufacturing
@@ -657,13 +662,13 @@ function ManufacturingStorySection() {
                 className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-bold text-white transition hover:bg-brand-blue-dark"
                 href="/manufacturing"
               >
-                Explore manufacturing <ArrowRight size={17} />
+                Our Manufacturing <ArrowRight size={17} />
               </Link>
               <Link
                 className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] border border-brand-blue/18 bg-white px-5 text-sm font-bold text-brand-blue transition hover:border-brand-blue/40 hover:bg-surface-50"
                 href="/about-us"
               >
-                Our journey <ArrowRight size={17} />
+                Our Story <ArrowRight size={17} />
               </Link>
             </div>
           </div>
@@ -688,12 +693,6 @@ function BuyingAssistantSection() {
               Check TMT steel prices, calculate steel requirements, locate an authorised dealer, or request a customised quotation—all in one place.
             </p>
             <div className="mt-10 h-px w-full bg-white/12" />
-            <Link
-              className="focus-ring mt-10 inline-flex h-14 items-center justify-center gap-3 rounded-full bg-brand-red px-8 text-base font-bold text-white shadow-[0_18px_44px_rgba(222,18,26,0.25)] transition hover:-translate-y-0.5 hover:bg-[#c90f16]"
-              href="/request-quote"
-            >
-              Request Quote <ArrowRight size={19} />
-            </Link>
           </div>
 
           <div className="grid gap-4">
