@@ -2,39 +2,37 @@ import "server-only";
 
 import { appendGoogleSheetRow } from "@/lib/google-sheets";
 
-export const PRODUCT_SOURCE_PAGES = {
-  "ARS CRS 550D": "/product-crs-550d",
-  "ARS 550D": "/product-550d",
-  "ARS Binders": "/ars-binders",
-} as const;
+export const QUOTE_REQUEST_STATES = ["Tamil Nadu", "Kerala", "Karnataka", "Andhra Pradesh"] as const;
+export const QUOTE_PROJECT_TYPES = ["Residential", "Commercial", "Road / Infrastructure", "Dealer Enquiry"] as const;
+export const QUOTE_PRODUCT_TYPES = ["ARS CRS 550D", "ARS Fe 550D", "Binders"] as const;
 
-export const PRODUCT_ENQUIRY_STATES = ["Tamil Nadu", "Kerala", "Karnataka", "Andhra Pradesh"] as const;
+type QuoteState = (typeof QUOTE_REQUEST_STATES)[number];
+type QuoteProjectType = (typeof QUOTE_PROJECT_TYPES)[number];
+type QuoteProductType = (typeof QUOTE_PRODUCT_TYPES)[number];
 
-export type ProductName = keyof typeof PRODUCT_SOURCE_PAGES;
-export type ProductEnquiryState = (typeof PRODUCT_ENQUIRY_STATES)[number];
-
-export type ProductEnquiry = {
+export type QuoteRequest = {
   fullName: string;
   phone: string;
   email: string;
-  state: ProductEnquiryState;
+  state: QuoteState;
   city: string;
+  projectType: QuoteProjectType;
+  productType: QuoteProductType;
   requirement: string;
-  product: ProductName;
-  sourcePage: (typeof PRODUCT_SOURCE_PAGES)[ProductName];
+  sourcePage: "/request-quote";
   submittedDate: string;
   submittedTime: string;
   timezone: "Asia/Kolkata";
   isoTimestamp: string;
 };
 
-export type ProductEnquiryValidationResult =
-  | { ok: true; enquiry: ProductEnquiry; submissionId: string; isHoneypot: boolean }
+export type QuoteRequestValidationResult =
+  | { ok: true; quoteRequest: QuoteRequest; submissionId: string; isHoneypot: boolean }
   | { ok: false; errors: Record<string, string> };
 
 const allowedRequestKeys = new Set([
-  "fullName", "phone", "email", "state", "city", "requirement",
-  "product", "sourcePage", "website", "submissionId",
+  "fullName", "phone", "email", "state", "city", "projectType", "productType",
+  "requirement", "sourcePage", "website", "submissionId",
 ]);
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const indiaTimeZone = "Asia/Kolkata" as const;
@@ -53,12 +51,8 @@ function normalizeIndianPhone(value: unknown) {
   return /^[6-9]\d{9}$/.test(localNumber) ? `+91${localNumber}` : "";
 }
 
-function isProductName(value: string): value is ProductName {
-  return Object.prototype.hasOwnProperty.call(PRODUCT_SOURCE_PAGES, value);
-}
-
-function isProductEnquiryState(value: string): value is ProductEnquiryState {
-  return PRODUCT_ENQUIRY_STATES.includes(value as ProductEnquiryState);
+function isAllowed<T extends readonly string[]>(values: T, value: string): value is T[number] {
+  return values.includes(value);
 }
 
 function formatIndiaDateTime(date: Date) {
@@ -73,21 +67,20 @@ function formatIndiaDateTime(date: Date) {
     hour12: false,
   }).formatToParts(date);
   const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
-
   return {
     submittedDate: `${values.day}/${values.month}/${values.year}`,
     submittedTime: `${values.hour}:${values.minute}:${values.second}`,
   };
 }
 
-export function validateProductEnquiry(value: unknown, now = new Date()): ProductEnquiryValidationResult {
+export function validateQuoteRequest(value: unknown, now = new Date()): QuoteRequestValidationResult {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
     return { ok: false, errors: { form: "Please review the form and try again." } };
   }
 
   const record = value as Record<string, unknown>;
   if (Object.keys(record).some((key) => !allowedRequestKeys.has(key))) {
-    return { ok: false, errors: { form: "The enquiry contains unsupported data." } };
+    return { ok: false, errors: { form: "The quote request contains unsupported data." } };
   }
 
   const errors: Record<string, string> = {};
@@ -96,8 +89,9 @@ export function validateProductEnquiry(value: unknown, now = new Date()): Produc
   const email = cleanText(record.email).toLowerCase();
   const state = cleanText(record.state);
   const city = cleanText(record.city);
+  const projectType = cleanText(record.projectType);
+  const productType = cleanText(record.productType);
   const requirement = cleanMultilineText(record.requirement);
-  const product = cleanText(record.product);
   const sourcePage = cleanText(record.sourcePage);
   const website = cleanText(record.website);
   const submissionId = cleanText(record.submissionId);
@@ -106,12 +100,13 @@ export function validateProductEnquiry(value: unknown, now = new Date()): Produc
   else if (fullName.length > 100) errors.fullName = "Full name must be 100 characters or fewer.";
   if (!phone) errors.phone = "Please enter a valid Indian mobile number.";
   if (!emailPattern.test(email) || email.length > 254) errors.email = "Please enter a valid email address.";
-  if (!isProductEnquiryState(state)) errors.state = "Please select an approved state.";
+  if (!isAllowed(QUOTE_REQUEST_STATES, state)) errors.state = "Please select an approved state.";
   if (city.length < 2) errors.city = "Please enter the city or project location.";
   else if (city.length > 120) errors.city = "City or project location must be 120 characters or fewer.";
+  if (!isAllowed(QUOTE_PROJECT_TYPES, projectType)) errors.projectType = "Please select an approved project type.";
+  if (!isAllowed(QUOTE_PRODUCT_TYPES, productType)) errors.productType = "Please select an approved product.";
   if (requirement.length > 1000) errors.requirement = "Requirement must be 1,000 characters or fewer.";
-  if (!isProductName(product)) errors.form = "The selected product is not supported.";
-  else if (sourcePage !== PRODUCT_SOURCE_PAGES[product]) errors.form = "The enquiry source is not supported.";
+  if (sourcePage !== "/request-quote") errors.form = "The quote request source is not supported.";
   if (!/^[a-zA-Z0-9-]{16,80}$/.test(submissionId)) errors.form = "Please refresh the page and try again.";
 
   if (Object.keys(errors).length) return { ok: false, errors };
@@ -121,15 +116,16 @@ export function validateProductEnquiry(value: unknown, now = new Date()): Produc
     ok: true,
     submissionId,
     isHoneypot: Boolean(website),
-    enquiry: {
+    quoteRequest: {
       fullName,
       phone,
       email,
-      state: state as ProductEnquiryState,
+      state: state as QuoteState,
       city,
+      projectType: projectType as QuoteProjectType,
+      productType: productType as QuoteProductType,
       requirement,
-      product: product as ProductName,
-      sourcePage: sourcePage as ProductEnquiry["sourcePage"],
+      sourcePage: "/request-quote",
       submittedDate,
       submittedTime,
       timezone: indiaTimeZone,
@@ -138,20 +134,18 @@ export function validateProductEnquiry(value: unknown, now = new Date()): Produc
   };
 }
 
-function getProductEnquiriesSheetName() {
-  const sheetName = process.env.GOOGLE_SHEETS_SHEET_NAME?.trim();
+export async function appendQuoteRequestToGoogleSheets(quoteRequest: QuoteRequest) {
+  const sheetName = process.env.GOOGLE_SHEETS_QUOTE_REQUESTS_SHEET_NAME?.trim();
   if (!sheetName) throw new Error("GOOGLE_SHEETS_NOT_CONFIGURED");
-  return sheetName;
-}
 
-export async function appendProductEnquiryToGoogleSheets(enquiry: ProductEnquiry) {
   await appendGoogleSheetRow({
-    sheetName: getProductEnquiriesSheetName(),
-    rangeColumns: "A:L",
+    sheetName,
+    rangeColumns: "A:M",
     values: [
-      enquiry.fullName, enquiry.phone, enquiry.email, enquiry.state, enquiry.city, enquiry.requirement,
-      enquiry.product, enquiry.sourcePage, enquiry.submittedDate, enquiry.submittedTime,
-      enquiry.timezone, enquiry.isoTimestamp,
+      quoteRequest.fullName, quoteRequest.phone, quoteRequest.email, quoteRequest.state,
+      quoteRequest.city, quoteRequest.projectType, quoteRequest.productType, quoteRequest.requirement,
+      quoteRequest.sourcePage, quoteRequest.submittedDate, quoteRequest.submittedTime,
+      quoteRequest.timezone, quoteRequest.isoTimestamp,
     ],
   });
 }

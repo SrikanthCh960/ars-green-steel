@@ -166,6 +166,7 @@ The shared product enquiry form posts to `/api/product-enquiries`. The server va
 ```bash
 GOOGLE_SHEETS_SPREADSHEET_ID=
 GOOGLE_SHEETS_SHEET_NAME=Product Enquiries
+GOOGLE_SHEETS_QUOTE_REQUESTS_SHEET_NAME=Quote Requests
 GOOGLE_SERVICE_ACCOUNT_EMAIL=
 GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
 ```
@@ -177,3 +178,11 @@ Full Name | Phone | Email | State | City / Project Location | Requirement | Prod
 ```
 
 Do not prefix these variables with `NEXT_PUBLIC_` or commit their values. The lead payload and provider integration are separated so a Salesforce destination can be added later without changing the product forms.
+
+Request Quote submissions use a separate `Quote Requests` worksheet in the same spreadsheet. Share the spreadsheet with the same service-account email and add this header row to that worksheet:
+
+```text
+Full Name | Phone | Email | State | City / Project Location | Project Type | Product Type | Requirement | Source Page | Submitted Date | Submitted Time | Timezone | ISO Timestamp
+```
+
+The quote-request browser payload remains destination-independent so Salesforce can be added later without changing the form fields.

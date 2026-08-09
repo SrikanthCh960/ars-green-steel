@@ -43,7 +43,11 @@ export default function RequestQuotePage() {
               ))}
             </div>
           </div>
-          <LeadForm title="Request ARS steel quote" />
+          <LeadForm
+            title="Request ARS steel quote"
+            body="Share your project and product details so the ARS sales team can respond with clearer pricing and availability."
+            submission="quote"
+          />
         </div>
       </MotionSection>
 
