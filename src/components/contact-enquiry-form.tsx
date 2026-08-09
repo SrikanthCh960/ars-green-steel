@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowRight, Phone } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { SectionKicker } from "@/components/section-kicker";
@@ -23,6 +24,7 @@ function RequiredLabel({ children }: { children: string }) {
 }
 
 export function ContactEnquiryForm() {
+  const router = useRouter();
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<FormStatus>({ tone: "idle", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -82,6 +84,7 @@ export function ContactEnquiryForm() {
 
     setIsSubmitting(true);
     setStatus({ tone: "idle", message: "" });
+    let isRedirecting = false;
     try {
       const response = await fetch("/api/contact-enquiries", {
         method: "POST",
@@ -100,6 +103,12 @@ export function ContactEnquiryForm() {
         return;
       }
 
+      if (response.status === 201) {
+        isRedirecting = true;
+        router.replace("/thank-you?form=contact");
+        return;
+      }
+
       form.reset();
       setErrors({});
       setSubmissionId(crypto.randomUUID());
@@ -107,7 +116,7 @@ export function ContactEnquiryForm() {
     } catch {
       setStatus({ tone: "error", message: "We could not send your enquiry. Please check your connection and try again." });
     } finally {
-      setIsSubmitting(false);
+      if (!isRedirecting) setIsSubmitting(false);
     }
   }
 

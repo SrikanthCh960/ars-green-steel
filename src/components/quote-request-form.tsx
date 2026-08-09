@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowRight, Phone } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { verifiedContactDetails } from "@/data/business-verification";
@@ -19,6 +20,7 @@ function RequiredLabel({ children }: { children: string }) {
 }
 
 export function QuoteRequestForm({ title, body }: QuoteRequestFormProps) {
+  const router = useRouter();
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<FormStatus>({ tone: "idle", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -82,6 +84,7 @@ export function QuoteRequestForm({ title, body }: QuoteRequestFormProps) {
 
     setIsSubmitting(true);
     setStatus({ tone: "idle", message: "" });
+    let isRedirecting = false;
     try {
       const response = await fetch("/api/quote-requests", {
         method: "POST",
@@ -100,6 +103,12 @@ export function QuoteRequestForm({ title, body }: QuoteRequestFormProps) {
         return;
       }
 
+      if (response.status === 201) {
+        isRedirecting = true;
+        router.replace("/thank-you?form=quote");
+        return;
+      }
+
       form.reset();
       setErrors({});
       setSubmissionId(crypto.randomUUID());
@@ -107,7 +116,7 @@ export function QuoteRequestForm({ title, body }: QuoteRequestFormProps) {
     } catch {
       setStatus({ tone: "error", message: "We could not send your quote request. Please check your connection and try again." });
     } finally {
-      setIsSubmitting(false);
+      if (!isRedirecting) setIsSubmitting(false);
     }
   }
 

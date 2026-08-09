@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowRight, CheckCircle2, Phone } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { verifiedContactDetails } from "@/data/business-verification";
@@ -26,6 +27,7 @@ function RequiredLabel({ children }: { children: string }) {
 }
 
 export function ProductLeadCaptureForm({ product, trustItems, showCallSales = true }: ProductLeadCaptureFormProps) {
+  const router = useRouter();
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<FormStatus>({ tone: "idle", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -83,6 +85,7 @@ export function ProductLeadCaptureForm({ product, trustItems, showCallSales = tr
 
     setIsSubmitting(true);
     setStatus({ tone: "idle", message: "" });
+    let isRedirecting = false;
     try {
       const response = await fetch("/api/product-enquiries", {
         method: "POST",
@@ -102,6 +105,12 @@ export function ProductLeadCaptureForm({ product, trustItems, showCallSales = tr
         return;
       }
 
+      if (response.status === 201) {
+        isRedirecting = true;
+        router.replace("/thank-you?form=product");
+        return;
+      }
+
       form.reset();
       setErrors({});
       setSubmissionId(crypto.randomUUID());
@@ -109,7 +118,7 @@ export function ProductLeadCaptureForm({ product, trustItems, showCallSales = tr
     } catch {
       setStatus({ tone: "error", message: "We could not send your enquiry. Please check your connection and try again." });
     } finally {
-      setIsSubmitting(false);
+      if (!isRedirecting) setIsSubmitting(false);
     }
   }
 
