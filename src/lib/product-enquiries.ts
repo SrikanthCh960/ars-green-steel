@@ -1,0 +1,212 @@
+import "server-only";
+
+import { createSign } from "node:crypto";
+
+export const PRODUCT_SOURCE_PAGES = {
+  "ARS CRS 550D": "/product-crs-550d",
+  "ARS 550D": "/product-550d",
+  "ARS Binders": "/ars-binders",
+} as const;
+
+export const PRODUCT_ENQUIRY_STATES = ["Tamil Nadu", "Kerala", "Karnataka", "Andhra Pradesh"] as const;
+
+export type ProductName = keyof typeof PRODUCT_SOURCE_PAGES;
+export type ProductEnquiryState = (typeof PRODUCT_ENQUIRY_STATES)[number];
+
+export type ProductEnquiry = {
+  fullName: string;
+  phone: string;
+  email: string;
+  state: ProductEnquiryState;
+  city: string;
+  requirement: string;
+  product: ProductName;
+  sourcePage: (typeof PRODUCT_SOURCE_PAGES)[ProductName];
+  submittedDate: string;
+  submittedTime: string;
+  timezone: "Asia/Kolkata";
+  isoTimestamp: string;
+};
+
+export type ProductEnquiryValidationResult =
+  | { ok: true; enquiry: ProductEnquiry; submissionId: string; isHoneypot: boolean }
+  | { ok: false; errors: Record<string, string> };
+
+const allowedRequestKeys = new Set([
+  "fullName", "phone", "email", "state", "city", "requirement",
+  "product", "sourcePage", "website", "submissionId",
+]);
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const indiaTimeZone = "Asia/Kolkata" as const;
+
+function cleanText(value: unknown) {
+  return typeof value === "string" ? value.trim().replace(/\s+/g, " ") : "";
+}
+
+function cleanMultilineText(value: unknown) {
+  return typeof value === "string" ? value.trim().replace(/\r\n?/g, "\n") : "";
+}
+
+function normalizeIndianPhone(value: unknown) {
+  const digits = typeof value === "string" ? value.replace(/\D/g, "") : "";
+  const localNumber = digits.startsWith("91") && digits.length === 12 ? digits.slice(2) : digits;
+  return /^[6-9]\d{9}$/.test(localNumber) ? `+91${localNumber}` : "";
+}
+
+function isProductName(value: string): value is ProductName {
+  return Object.prototype.hasOwnProperty.call(PRODUCT_SOURCE_PAGES, value);
+}
+
+function isProductEnquiryState(value: string): value is ProductEnquiryState {
+  return PRODUCT_ENQUIRY_STATES.includes(value as ProductEnquiryState);
+}
+
+function formatIndiaDateTime(date: Date) {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: indiaTimeZone,
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).formatToParts(date);
+  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+
+  return {
+    submittedDate: `${values.day}/${values.month}/${values.year}`,
+    submittedTime: `${values.hour}:${values.minute}:${values.second}`,
+  };
+}
+
+export function validateProductEnquiry(value: unknown, now = new Date()): ProductEnquiryValidationResult {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return { ok: false, errors: { form: "Please review the form and try again." } };
+  }
+
+  const record = value as Record<string, unknown>;
+  if (Object.keys(record).some((key) => !allowedRequestKeys.has(key))) {
+    return { ok: false, errors: { form: "The enquiry contains unsupported data." } };
+  }
+
+  const errors: Record<string, string> = {};
+  const fullName = cleanText(record.fullName);
+  const phone = normalizeIndianPhone(record.phone);
+  const email = cleanText(record.email).toLowerCase();
+  const state = cleanText(record.state);
+  const city = cleanText(record.city);
+  const requirement = cleanMultilineText(record.requirement);
+  const product = cleanText(record.product);
+  const sourcePage = cleanText(record.sourcePage);
+  const website = cleanText(record.website);
+  const submissionId = cleanText(record.submissionId);
+
+  if (fullName.length < 2) errors.fullName = "Please enter your full name.";
+  else if (fullName.length > 100) errors.fullName = "Full name must be 100 characters or fewer.";
+  if (!phone) errors.phone = "Please enter a valid Indian mobile number.";
+  if (!emailPattern.test(email) || email.length > 254) errors.email = "Please enter a valid email address.";
+  if (!isProductEnquiryState(state)) errors.state = "Please select an approved state.";
+  if (city.length < 2) errors.city = "Please enter the city or project location.";
+  else if (city.length > 120) errors.city = "City or project location must be 120 characters or fewer.";
+  if (requirement.length > 1000) errors.requirement = "Requirement must be 1,000 characters or fewer.";
+  if (!isProductName(product)) errors.form = "The selected product is not supported.";
+  else if (sourcePage !== PRODUCT_SOURCE_PAGES[product]) errors.form = "The enquiry source is not supported.";
+  if (!/^[a-zA-Z0-9-]{16,80}$/.test(submissionId)) errors.form = "Please refresh the page and try again.";
+
+  if (Object.keys(errors).length) return { ok: false, errors };
+
+  const { submittedDate, submittedTime } = formatIndiaDateTime(now);
+  return {
+    ok: true,
+    submissionId,
+    isHoneypot: Boolean(website),
+    enquiry: {
+      fullName,
+      phone,
+      email,
+      state: state as ProductEnquiryState,
+      city,
+      requirement,
+      product: product as ProductName,
+      sourcePage: sourcePage as ProductEnquiry["sourcePage"],
+      submittedDate,
+      submittedTime,
+      timezone: indiaTimeZone,
+      isoTimestamp: now.toISOString(),
+    },
+  };
+}
+
+function base64Url(value: string | Buffer) {
+  return Buffer.from(value).toString("base64url");
+}
+
+function getGoogleSheetsConfig() {
+  const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID?.trim();
+  const sheetName = process.env.GOOGLE_SHEETS_SHEET_NAME?.trim();
+  const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL?.trim();
+  const privateKey = process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY?.replace(/\\n/g, "\n").trim();
+
+  if (!spreadsheetId || !sheetName || !clientEmail || !privateKey) {
+    throw new Error("GOOGLE_SHEETS_NOT_CONFIGURED");
+  }
+  return { spreadsheetId, sheetName, clientEmail, privateKey };
+}
+
+async function getGoogleAccessToken(clientEmail: string, privateKey: string) {
+  const now = Math.floor(Date.now() / 1000);
+  const header = base64Url(JSON.stringify({ alg: "RS256", typ: "JWT" }));
+  const claims = base64Url(JSON.stringify({
+    iss: clientEmail,
+    scope: "https://www.googleapis.com/auth/spreadsheets",
+    aud: "https://oauth2.googleapis.com/token",
+    iat: now,
+    exp: now + 3600,
+  }));
+  const unsignedToken = `${header}.${claims}`;
+  const signer = createSign("RSA-SHA256");
+  signer.update(unsignedToken);
+  signer.end();
+  const assertion = `${unsignedToken}.${base64Url(signer.sign(privateKey))}`;
+
+  const response = await fetch("https://oauth2.googleapis.com/token", {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+      assertion,
+    }),
+    cache: "no-store",
+    signal: AbortSignal.timeout(8_000),
+  });
+  if (!response.ok) throw new Error("GOOGLE_AUTH_FAILED");
+  const data = await response.json() as { access_token?: string };
+  if (!data.access_token) throw new Error("GOOGLE_AUTH_FAILED");
+  return data.access_token;
+}
+
+function safeSheetCell(value: string) {
+  return /^[=+\-@\t\r]/.test(value) ? `'${value}` : value;
+}
+
+export async function appendProductEnquiryToGoogleSheets(enquiry: ProductEnquiry) {
+  const { spreadsheetId, sheetName, clientEmail, privateKey } = getGoogleSheetsConfig();
+  const accessToken = await getGoogleAccessToken(clientEmail, privateKey);
+  const range = encodeURIComponent(`${sheetName}!A:L`);
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${encodeURIComponent(spreadsheetId)}/values/${range}:append?valueInputOption=RAW&insertDataOption=INSERT_ROWS`;
+  const values = [
+    enquiry.fullName, enquiry.phone, enquiry.email, enquiry.state, enquiry.city, enquiry.requirement,
+    enquiry.product, enquiry.sourcePage, enquiry.submittedDate, enquiry.submittedTime,
+    enquiry.timezone, enquiry.isoTimestamp,
+  ].map(safeSheetCell);
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { authorization: `Bearer ${accessToken}`, "content-type": "application/json" },
+    body: JSON.stringify({ values: [values] }),
+    cache: "no-store",
+    signal: AbortSignal.timeout(8_000),
+  });
+  if (!response.ok) throw new Error("GOOGLE_SHEETS_APPEND_FAILED");
+}

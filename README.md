@@ -158,3 +158,22 @@ Read these before making larger changes:
 - `TASKS.md`
 - `DEPLOYMENT.md`
 - `CLIENT_VERIFICATION_CHECKLIST.md`
+
+## Product Enquiry Integration
+
+The shared product enquiry form posts to `/api/product-enquiries`. The server validates and normalizes the lead before appending it to Google Sheets. Configure these server-only environment variables locally and in Vercel:
+
+```bash
+GOOGLE_SHEETS_SPREADSHEET_ID=
+GOOGLE_SHEETS_SHEET_NAME=Product Enquiries
+GOOGLE_SERVICE_ACCOUNT_EMAIL=
+GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+```
+
+Create a Google Cloud service account with access to the Google Sheets API, then share the target spreadsheet with `GOOGLE_SERVICE_ACCOUNT_EMAIL` as an editor. Add this header row to the configured sheet:
+
+```text
+Full Name | Phone | Email | State | City / Project Location | Requirement | Product | Source Page | Submitted Date | Submitted Time | Timezone | ISO Timestamp
+```
+
+Do not prefix these variables with `NEXT_PUBLIC_` or commit their values. The lead payload and provider integration are separated so a Salesforce destination can be added later without changing the product forms.
