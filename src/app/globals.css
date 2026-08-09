@@ -143,10 +143,7 @@ html {
   min-width: 0;
 }
 
-/*
- * Shared interior-page hero baseline.
- * HomeHero intentionally keeps its full-viewport treatment.
- */
+/* Shared page hero baseline, including the homepage video hero. */
 .ars-page-hero {
   min-height: 560px;
 }

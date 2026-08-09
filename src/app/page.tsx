@@ -622,7 +622,7 @@ function ManufacturingStorySection() {
   ];
 
   return (
-    <MotionSection className="overflow-hidden bg-white py-20 lg:py-28" id="manufacturing-story">
+    <MotionSection className="overflow-hidden bg-white py-20" id="manufacturing-story">
       <div className="ars-container">
         <div className="grid items-center gap-12 lg:grid-cols-[0.94fr_1.06fr] lg:gap-16">
           <div className="relative min-h-[420px] overflow-hidden rounded-[20px] bg-white sm:min-h-[540px]">

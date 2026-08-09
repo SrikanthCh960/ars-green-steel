@@ -54,7 +54,7 @@ export function HomeHero() {
     <section
       aria-label="ARS Green Steel hero"
       data-active-word={active.word}
-      className="relative flex min-h-[calc(100svh-76px)] w-full items-center overflow-hidden bg-bg-dark text-white"
+      className="ars-page-hero relative flex w-full items-center overflow-hidden bg-bg-dark text-white"
     >
       <div className="absolute inset-0 h-full w-full bg-bg-dark">
         <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
@@ -73,7 +73,7 @@ export function HomeHero() {
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,30,0.02),rgba(6,13,30,0.68))]" />
       </div>
 
-      <div className="ars-container relative z-10 flex min-h-[calc(100svh-76px)] flex-col justify-center py-20 sm:py-24 lg:justify-end lg:pb-14 lg:pt-24">
+      <div className="ars-container ars-page-hero-content relative z-10 flex min-h-[560px] flex-col justify-center py-20 sm:py-24 md:min-h-[600px] lg:min-h-[680px] lg:justify-end lg:pb-14 lg:pt-24">
         <div className="min-w-0">
           <div className="min-w-0">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-3 py-2 text-sm text-grey-300 backdrop-blur sm:mb-7">
