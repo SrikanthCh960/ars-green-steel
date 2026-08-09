@@ -1,144 +1,104 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Fragment } from "react";
 import {
   ArrowRight,
   BadgeCheck,
   CheckCircle2,
   Factory,
-  FileCheck,
+  FileCheck2,
+  FlaskConical,
+  Gauge,
   Leaf,
   Recycle,
+  ShieldCheck,
+  Sparkles,
   Zap,
 } from "lucide-react";
-import { MotionSection } from "@/components/motion-section";
+import { ContactCta } from "@/components/contact-cta";
 import { FaqList } from "@/components/faq-list";
+import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
-  title: "ARS Green Steel | Sustainable TMT Steel",
+  title: "ARS Green Steel | India’s No. 1 Certified Green Steel Manufacturer",
   description:
-    "Explore ARS Green Steel, its certified sustainability approach, product-strength information, and environmental documentation for construction projects.",
+    "Explore ARS Green Steel: recycled steel, electric furnace technology, verified low-carbon manufacturing, certified performance, products, and environmental documentation.",
   path: "/ars-green-steel",
+  image: "/ars-assets/Sustainability/ARSGreenSteel-heroBanner.jpg",
 });
 
-const heroStats = [
-  { value: "★★★★★", label: "5-Star Green Steel Taxonomy Rating" },
-  { value: "592 kg", label: "CO₂e per tonne — EPD Verified" },
-  { value: "98%", label: "Recycled Steel Route" },
-];
-
-const conceptPoints = [
+const aboutChecklist = [
   "Electric Arc Furnace production, not blast furnace",
   "98% recycled steel as primary input",
   "Independently verified emissions data (EPD)",
   "Fe-550D strength, IS 1786:2008 tested — no trade-off on performance",
-];
+] as const;
 
-const greenSteelFormula = [
-  { title: "Recycled Steel", body: "Circular material input", image: "/ars-assets/Sustainability/ARSGreenSteel/recycle.jpg" },
-  { title: "Renewable Energy", body: "Cleaner energy integration", image: "/ars-assets/Sustainability/ARSGreenSteel/renerwed.jpg" },
-  { title: "Lower-Emission Manufacturing", body: "Efficient steelmaking practices", image: "/ars-assets/Sustainability/ARSGreenSteel/foil.jpg" },
-  { title: "ARS Green Steel", body: "Strength with lower impact", image: "/ars-assets/Sustainability/ARSGreenSteel/greensteel.jpg" },
-];
-
-const proofItems = [
+const performancePillars = [
   {
-    icon: BadgeCheck,
-    title: "★★★★★ 5-Star Green Steel Rating",
-    description: "Ministry of Steel recognition.",
+    icon: Sparkles,
+    title: "Ductility",
+    body: "Every ARS Green Steel bar meets 100% D-Quality classification and is IS 13920-compliant, with a minimum TS/YS ratio of 1.15 — the threshold required for seismic-resistant construction.",
   },
   {
-    icon: FileCheck,
-    title: "EPD Verified",
-    description: "Transparent, third-party verified environmental data.",
-  },
-  {
-    icon: Factory,
-    title: "Electric Arc Furnace (EAF)",
-    description: "Lower-emission steelmaking process.",
-  },
-  {
-    icon: Recycle,
-    title: "Recycled Steel",
-    description: "Supports a circular manufacturing economy.",
+    icon: ShieldCheck,
+    title: "Corrosion Resistance",
+    body: "CRS-grade ARS Green Steel delivers 20–50% higher corrosion resistance than conventional TMT rebar, tested against the same conditions that cause early failure in high-salinity and humid environments.",
   },
   {
     icon: Leaf,
-    title: "GreenPro Certified",
-    description: "Recognized sustainable construction material.",
+    title: "Green Steel",
+    body: "Produced through a recycled scrap, electric arc furnace route, with an EPD-verified emission intensity of 592 kg CO₂e per tonne — a fraction of the conventional blast-furnace figure.",
   },
-  {
-    icon: Zap,
-    title: "Built for Lower Embodied Carbon",
-    description: "Helps projects pursue greener building goals.",
-  },
-];
+] as const;
 
-const advantageItems = [
-  [
-    "100% D-Quality Steel",
-    "Every ARS Green Steel TMT bar is manufactured to meet ductile-grade (D) classification, ensuring consistent strength, ductility, bendability, and weldability across every batch.",
-  ],
-  [
-    "IS 13920 Seismic Compliance",
-    "Designed to comply with IS 13920 requirements, ARS Green Steel maintains a minimum TS/YS ratio of 1.15, making it suitable for earthquake-resistant construction.",
-  ],
-  [
-    "Superior Corrosion Resistance",
-    "ARS CRS technology delivers 20–50% higher corrosion resistance than conventional TMT reinforcement, helping improve durability in high-salinity and demanding environments.",
-  ],
-  [
-    "Independently SGS Tested",
-    "Product quality is verified by SGS, one of the world's leading independent testing and certification organizations, providing confidence beyond internal quality checks.",
-  ],
-  [
-    "Every Batch Laboratory Verified",
-    "An NABL-accredited in-house laboratory verifies mechanical and chemical properties before every batch leaves the manufacturing facility, ensuring consistent product quality.",
-  ],
-  [
-    "30+ Element Spectro Analysis",
-    "Advanced spectro-analysis verifies the chemical composition of every production batch, helping maintain stringent BIS standards and manufacturing consistency.",
-  ],
-  [
-    "Manufactured with 98% Recycled Steel",
-    "Produced using the Electric Arc Furnace (EAF) route with up to 98% recycled steel, ARS Green Steel supports a circular manufacturing economy while reducing embodied carbon.",
-  ],
-  [
-    "Powered by Renewable Energy",
-    "A growing share of manufacturing energy is sourced from renewable power, supporting lower production emissions and more responsible steel manufacturing.",
-  ],
-  [
-    "Real-Time CO₂ Monitoring",
-    "Carbon emissions are monitored through a third-party platform, while environmental performance is supported by certifications including EPD, GreenPro, BIS, ISO 9001, ISO 14001, and the 5-Star Green Steel Rating from the Ministry of Steel.",
-  ],
-];
+const verificationPoints = [
+  "100% D-Quality",
+  "IS 13920 Compliant",
+  "20–50% Higher Corrosion Resistance",
+  "30+ Element Analysis",
+  "NABL Accredited",
+  "SGS Verified",
+] as const;
+
+const manufacturingRoute = [
+  ["Recycled Steel Scrap", "Premium-quality recycled steel scrap forms the primary raw material."],
+  ["Electric Furnace", "The scrap is melted through an electric furnace-based steelmaking route."],
+  ["Refining", "The molten steel is refined to achieve the required composition and quality."],
+  ["Rolling", "The refined steel is rolled into TMT rebars for structural applications."],
+  ["Testing", "Chemical composition and product quality are verified through rigorous testing, including spectro-analysis of 30+ elements for every batch."],
+] as const;
+
+const carbonComparison = [
+  ["India Average Steel", "2.55", "t CO₂e/tonne", "100%"],
+  ["Global Average Steel", "1.85", "t CO₂e/tonne", "72.5%"],
+  ["Conventional Blast Furnace Steel", "~2.9", "t CO₂e/tonne", "100%"],
+  ["ARS Green Steel (EPD)", "0.592", "t CO₂e/tonne", "20.4%"],
+] as const;
 
 const impactItems = [
   ["90", "Trees Equivalent", "per tonne of ARS Green Steel"],
   ["110,000", "Vehicles Equivalent", "at 250,000 MT annual production"],
   ["22 Million", "Trees Equivalent", "annual carbon absorption impact"],
   ["592 kg CO₂e", "EPD Verified", "per tonne of finished steel"],
-];
+] as const;
 
-const greenBuildingItems = [
-  ["Advance Net-Zero & Decarbonization Goals", "Supports lower embodied carbon and helps organizations progress toward decarbonization and net-zero commitments."],
-  ["ESG & Sustainability Reporting", "EPD-backed environmental data strengthens ESG reporting, sustainability disclosures, and responsible material selection."],
-  ["Green Building Certifications", "Supports LEED, IGBC, and GRIHA certification requirements through recognized environmental credentials."],
-  ["Institutional & Government Procurement", "NISST Green Steel Taxonomy, EPD, and recognized certifications help meet sustainability requirements for public and institutional projects."],
-  ["Sustainable Brand Positioning", "Enables developers and organizations to demonstrate measurable environmental responsibility backed by verified data."],
-];
+const roadmap = [
+  ["2023", "6%", "renewable energy", "reducing emissions to 0.85t CO₂e/t steel"],
+  ["2024", "28%", "renewable energy", "reducing emissions to 0.59t CO₂e/t steel"],
+  ["2026", "80%", "renewable energy", "reducing emissions to 0.300t CO₂e/t steel"],
+  ["2027", "ARS", "Becomes Net Zero", ""],
+  ["2030", "MoS", "targets 2.2t CO₂e/t steel", ""],
+] as const;
 
-const audienceItems = [
-  ["For Developers", "EPD-verified environmental data supports LEED, IGBC, and GRIHA certification efforts while providing a credible sustainability story backed by measurable performance—not marketing claims."],
-  ["For Builders & Contractors", "Built to the same Fe550D standards with the same installation and construction practices, ARS Green Steel integrates seamlessly into projects without changing timelines, procurement processes, or budgets."],
-  ["For Structural Engineers & Consultants", "Manufactured in compliance with IS 1786 and IS 13920 requirements, enabling confident specification without compromising structural design, safety, or code compliance."],
-  ["For Government & Infrastructure Projects", "Supported by NISST Green Steel Taxonomy certification and EPD documentation, helping meet institutional procurement requirements and sustainability objectives for public infrastructure projects."],
-  ["For Homeowners", "High corrosion resistance, seismic-grade ductility, and certified quality contribute to stronger, longer-lasting homes designed for long-term durability and peace of mind."],
-  ["For Dealers & Distributors", "Offer customers a certified Green Steel solution backed by verified environmental performance, helping differentiate your product portfolio in a competitive market."],
-];
+const buildingRecognition = [
+  ["EPD Verified", "Third-party verified environmental data covering the carbon and environmental performance of ARS Green Steel."],
+  ["GRIHA Listed", "ARS Green Steel TMT rebar is listed under GRIHA's product catalogue for Life Cycle Assessment and Innovation."],
+  ["LEED", "The published EPD provides environmental data that supports the use of ARS Green Steel in LEED-certified projects."],
+  ["SGBC Leader", "ARS has received the Leader category certification from the Singapore Green Building Council, recognising its contribution to sustainable steel and green building."],
+] as const;
 
 const certifications = [
   ["Environmental Product Declaration (EPD)", "International EPD® System", "Life-cycle carbon emissions, independently measured and disclosed per tonne of steel"],
@@ -150,7 +110,22 @@ const certifications = [
   ["ISO 9001", "International Organization for Standardization", "Quality management systems across manufacturing"],
   ["ISO 14001", "International Organization for Standardization", "Environmental management systems and process controls"],
   ["SGS Testing", "SGS", "Independent, third-party verification of product quality and consistency"],
-];
+] as const;
+
+const products = [
+  ["ARS CRS 550D TMT Bars", "Designed for projects exposed to high moisture, high salinity, and corrosive environments. Its enhanced corrosion resistance helps improve the durability and service life of structures, making it suitable for demanding conditions.", "Explore ARS CRS 550D", "/product-crs-550d", "/ars-assets/logos/ARSCRS550D.png"],
+  ["ARS Fe550D TMT Bars", "Ideal for general residential, commercial, and infrastructure construction where high strength, excellent ductility, and reliable performance are essential. A trusted choice for everyday construction projects.", "Explore ARS 550D", "/product-550d", "/ars-assets/TMT-Bars.png"],
+  ["ARS Binders", "Factory-made steel binders designed for consistent dimensions, accurate bends, and faster reinforcement work on site. Manufactured with precision to help improve productivity, reduce manual bending time, and deliver uniform quality across construction projects.", "Explore ARS Binders", "/ars-binders", "/ars-assets/logos/BinderLogo.png"],
+] as const;
+
+const audiences = [
+  ["For Developers", "EPD-verified environmental data helps developers account for embodied carbon and support green building and sustainability requirements."],
+  ["For Builders & Contractors", "ARS Green Steel is manufactured to established TMT standards and fits into regular construction and reinforcement practices."],
+  ["For Structural Engineers & Consultants", "D-Quality steel, IS 13920 compliance and defined mechanical properties provide the required technical information for structural specification."],
+  ["For Government & Infrastructure Projects", "Green Steel Taxonomy certification, EPD documentation and recognised environmental credentials support sustainability requirements in public and infrastructure projects."],
+  ["For Homeowners", "High ductility, corrosion-resistant options and tested quality make ARS Green Steel suitable for homes where long-term strength and durability matter."],
+  ["For Dealers & Distributors", "ARS Green Steel gives dealers a certified Green Steel product backed by environmental documentation and recognised credentials."],
+] as const;
 
 const faqs = [
   ["What is Green Steel, and how is ARS Green Steel different?", "Green steel refers to steel manufactured with significantly lower carbon emissions than conventional steel. ARS Green Steel achieves this through recycled steel, the Electric Arc Furnace (EAF) route, renewable energy integration, and continuous process improvements. Every environmental claim is backed by recognized certifications and independently verified Environmental Product Declarations (EPDs), giving customers confidence in both performance and sustainability."],
@@ -158,99 +133,185 @@ const faqs = [
   ["What certifications does ARS Green Steel have?", "ARS Green Steel is backed by multiple nationally and internationally recognized certifications, including Environmental Product Declarations (EPDs), GreenPro Certification, BIS compliance, ISO certifications, SGS testing, and recognition under India's Green Steel Taxonomy. These certifications provide independent verification of product quality and environmental performance."],
   ["Can ARS Green Steel support green building projects?", "Yes. ARS Green Steel provides verified environmental data through its EPD and sustainability certifications, helping project teams with documentation for green building rating systems such as LEED, IGBC, and GRIHA. It is a practical choice for projects looking to balance structural performance with environmental responsibility."],
   ["Why is an Environmental Product Declaration (EPD) important when choosing steel?", "An Environmental Product Declaration (EPD) provides independently verified information about a product's environmental impact throughout its life cycle. Instead of relying on marketing claims, architects, engineers, and developers can compare materials using transparent, standardized data and make informed decisions for sustainable construction."],
-];
+] as const;
+
+const primaryButton = "focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-blue-dark";
+const bodyCopy = "text-base leading-8 text-steel-700 lg:text-lg";
 
 export default function ArsGreenSteelPage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-white text-ink-900">
       <SiteHeader />
 
-      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-ink-950">
-        <Image src="/ars-assets/Sustainability/ARSGreenSteel-heroBanner.jpg" alt="Modern construction supported by ARS Green Steel" fill priority sizes="100vw" className="object-cover object-[58%_center]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.58)_48%,rgba(6,13,30,0.92)_100%)]" />
-        <div className="ars-page-hero-content h-full ars-container relative z-10 grid items-end gap-10 pb-14 pt-36 md:pb-20 lg:grid-cols-[minmax(0,1fr)_360px]">
-          <div className="max-w-4xl text-white">
-            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
-              <span className="h-px w-10 bg-brand-red" aria-hidden="true" />
-              India&apos;s No.1 Certified Green Steel
-            </div>
-            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[0.96] tracking-[-0.045em]">Green Steel,<span className="block text-[var(--text-accent-dark)]">Proven — Not Promised.</span></h1>
-            <p className="mt-7 max-w-2xl text-base leading-8 text-white/75 md:text-lg">ARS Green Steel brings recycled-route manufacturing, verified certification, and dependable 550D strength into one responsible construction choice.</p>
+      <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 text-white md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
+        <video className="absolute inset-0 h-full w-full object-cover opacity-70" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+          <source src="/videos/ars-intro.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.94)_0%,rgba(6,13,30,0.72)_52%,rgba(6,13,30,0.24)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-ink-950/80 to-transparent" />
+        <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
+          <div className="max-w-4xl">
+            <SectionKicker variant="light">ARS Green Steel</SectionKicker>
+            <h1 className="mt-7 max-w-4xl font-display font-extrabold leading-[0.98] text-white">India’s No. 1 Certified Green Steel Manufacturer</h1>
+            <p className="mt-7 max-w-2xl text-base leading-8 text-white/78 md:text-lg">ARS Green Steel combines recycled steel, electric furnace technology and verified low-carbon manufacturing to deliver high-performance steel with a lower environmental impact.</p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="/request-quote" className="focus-ring inline-flex h-12 items-center gap-2 rounded-full bg-brand-red px-6 text-sm font-bold text-white transition hover:opacity-90">Request Quote <ArrowRight size={16} /></Link>
-              <Link href="#certifications" className="focus-ring inline-flex h-12 items-center gap-2 rounded-full border border-white/30 px-6 text-sm font-bold text-white transition hover:bg-white/10">View Certification</Link>
+              <Link href="#products" className={primaryButton}>Explore Products <ArrowRight size={17} aria-hidden="true" /></Link>
+              <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-red-dark">Request Quote <ArrowRight size={17} aria-hidden="true" /></Link>
             </div>
           </div>
-          <aside className="rounded-[24px] border border-white/15 bg-white/10 p-7 text-white backdrop-blur-md">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/60">ARS Green Steel impact</p>
-            <div className="mt-5 divide-y divide-white/15">{heroStats.map((stat) => <div key={stat.value} className="grid grid-cols-[150px_1fr] gap-4 py-5 first:pt-0 last:pb-0"><strong className={`font-display text-brand-red ${stat.value === "★★★★★" ? "whitespace-nowrap text-base tracking-[0.08em]" : "text-3xl"}`}>{stat.value}</strong><span className="self-center text-sm font-semibold text-white/80">{stat.label}</span></div>)}</div>
-          </aside>
         </div>
       </section>
 
-      <MotionSection className="bg-white py-20 lg:py-24">
-        <div className="ars-container grid gap-12 lg:grid-cols-2 lg:items-center">
+      <MotionSection className="bg-white py-20 lg:py-28">
+        <div className="ars-container grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:gap-20">
           <div>
-            <SectionKicker variant="brand">The concept</SectionKicker>
-            <h2 className="section-title max-w-xl">What actually makes steel “green.”</h2>
-            <div className="mt-6 space-y-5 text-base leading-8 text-steel-700"><p>Green steel isn&apos;t a finish or a coating. It&apos;s a manufacturing decision made long before the bar reaches a construction site.</p><p>Most steel in India is still produced through the blast furnace route, which depends heavily on iron ore, coal, and limestone. ARS Green Steel takes a different path — an electric arc furnace route built on recycled steel scrap, with renewable energy increasingly built into the process.</p><p>The result shows up in the numbers. Where conventional blast-furnace steel runs close to 2.55 tonnes of CO₂e per tonne produced nationally, ARS Green Steel is independently verified at 592 kg CO₂e per tonne — a difference that&apos;s documented, not estimated.</p><p>None of this changes what the bar is asked to do on site. Every tonne still meets Fe-550D strength requirements and IS 1786:2008 testing, so the choice to go green doesn&apos;t ask engineers or contractors to compromise on what they&apos;re building with.</p></div>
-            <ul className="mt-8 grid gap-3">{conceptPoints.map((point) => <li key={point} className="flex gap-3 text-sm font-semibold leading-6 text-steel-700"><CheckCircle2 size={18} className="mt-0.5 shrink-0 text-brand-red" />{point}</li>)}</ul>
+            <SectionKicker>ABOUT ARS GREEN STEEL</SectionKicker>
+            <h2 className="section-title max-w-3xl">Responsible Manufacturing. Proven Performance.</h2>
+            <div className={`mt-7 space-y-5 ${bodyCopy}`}>
+              <p>ARS has been making TMT bars in Chennai since 1992. Green Steel isn&apos;t a separate product line or a rebrand — it&apos;s the same Fe-550D steel, made through a different route.</p>
+              <p>Most steel in India still comes from the blast furnace process, which runs on iron ore, coal, and limestone. ARS shifted its production toward an electric arc furnace route, built on recycled steel scrap instead of mined ore. That single change is what brings the emissions number down — not an offset purchased after the fact, not a claim added to a brochure.</p>
+              <p>What makes this worth talking about isn&apos;t that ARS calls itself green. It&apos;s that the numbers are checked by outside bodies — an international EPD, a government rating from the Ministry of Steel, and certifications recognized by GRIHA, LEED, and the Singapore Green Building Council. None of that gets awarded on the strength of a press release.</p>
+            </div>
+            <ul className="mt-8 grid gap-3">
+              {aboutChecklist.map((item) => <li key={item} className="flex gap-3 text-sm font-semibold leading-6 text-ink-900"><CheckCircle2 className="mt-0.5 size-5 shrink-0 text-brand-red" aria-hidden="true" />{item}</li>)}
+            </ul>
           </div>
-          <div className="relative overflow-hidden rounded-[24px] bg-surface-50 shadow-[0_24px_70px_rgba(13,43,110,0.12)]"><Image src="/ars-assets/Sustainability/ARSGreenSteel_GreenSteelExplain.jpg" alt="ARS CRS 550D reinforcing a partnership between industry and nature" width={1080} height={1080} sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-square w-full object-cover" /><div className="absolute bottom-6 left-6 rounded-2xl border border-white/20 bg-ink-950/65 px-5 py-4 text-white backdrop-blur"><span className="block text-xs font-bold uppercase tracking-[0.15em] text-white/55">EPD Verified</span><strong className="mt-1 block text-lg">592 kg CO₂e/tonne</strong></div></div>
+          <figure className="relative min-h-[520px] overflow-hidden bg-ink-950">
+            <Image src="/ars-assets/Sustainability/ARSGreenSteel_GreenSteelExplain.jpg" alt="ARS Green Steel reinforcement representing responsible manufacturing" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink-950/82 via-transparent to-transparent" />
+            <figcaption className="absolute inset-x-7 bottom-7 border-l-2 border-brand-red pl-5 text-lg font-bold text-white">Same Fe-550D performance. A lower-carbon manufacturing route.</figcaption>
+          </figure>
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-brand-blue py-20 text-white lg:py-24">
-        <div className="ars-container"><SectionKicker variant="light">ARS Steel — India&apos;s greenest steel</SectionKicker><h2 className="section-title max-w-3xl text-white">Not the greenest by claim. The greenest by rating.</h2><p className="mt-6 max-w-4xl text-base leading-8 text-white/75">Being one of India&apos;s greenest steel manufacturers isn&apos;t defined by a single certification—it&apos;s earned through every stage of production. From Electric Arc Furnace technology and recycled raw materials to EPD-verified environmental performance, GreenPro certification, and a 5-Star Green Steel rating by the Ministry of Steel, ARS has built sustainability into the way steel is made—not just the way it&apos;s marketed.</p><div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">{proofItems.map((item) => { const Icon = item.icon; return <article key={item.title} className="rounded-[20px] border border-white/15 bg-white/10 p-6"><Icon size={20} className="text-brand-red" /><h3 className="mt-6 font-display text-xl font-bold">{item.title}</h3><p className="mt-3 text-sm leading-7 text-white/70">{item.description}</p></article>; })}</div></div>
-      </MotionSection>
-
-      <MotionSection className="bg-white py-16 lg:py-20">
-        <div className="ars-container grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-stretch">
-          <div className="relative min-h-[360px] overflow-hidden bg-brand-blue lg:min-h-0">
-            <Image src="/ars-assets/Sustainability/ARSGreenSteel_leaves.jpg" alt="Industrial manufacturing viewed through a green landscape" fill sizes="(min-width: 1024px) 32vw, 100vw" className="object-cover" />
-          </div>
-          <div>
-            <SectionKicker variant="brand">Green Steel taxonomy</SectionKicker>
-            <h2 className="section-title max-w-2xl">A clear framework for lower-emission steel.</h2>
-            <Image src="/ars-assets/Sustainability/ARSGreenSteel/Graph.jpg" alt="Green Steel emission-intensity rating framework" width={1920} height={1080} sizes="(min-width: 1024px) 65vw, 100vw" className="mt-8 h-auto w-full rounded-[20px] border border-brand-blue/10 bg-white" />
-          </div>
-        </div>
-      </MotionSection>
-
-      <MotionSection className="bg-surface-50 py-20 lg:py-24">
-        <div className="ars-container"><SectionKicker variant="brand">The ARS advantage</SectionKicker><h2 className="section-title max-w-3xl">What Sets ARS Green Steel Apart</h2><p className="mt-5 max-w-4xl text-base leading-8 text-steel-700">Every claim is backed by engineering, testing, and independent verification. Green Steel is more than the manufacturing route—it is the consistency of quality, structural performance, environmental responsibility, and transparency behind every TMT bar.</p><div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{advantageItems.map(([title, description]) => <article key={title} className="border-t-2 border-brand-blue bg-white p-7"><h3 className="font-display text-xl font-bold text-ink-900">{title}</h3><p className="mt-4 text-sm leading-7 text-steel-700">{description}</p></article>)}</div><div className="mt-10 flex flex-wrap items-center gap-4"><Link href="/products" className="focus-ring inline-flex h-12 items-center gap-2 rounded-full bg-brand-blue px-6 text-sm font-bold text-white transition hover:bg-brand-blue-dark">Explore Products <ArrowRight size={16} /></Link><Link href="#certifications" className="focus-ring inline-flex h-12 items-center gap-2 rounded-full border border-brand-blue px-6 text-sm font-bold text-brand-blue transition hover:bg-brand-blue hover:text-white">View Certifications <ArrowRight size={16} /></Link></div></div>
-      </MotionSection>
-
-      <MotionSection className="bg-white py-20 lg:py-24">
-        <div className="ars-container"><SectionKicker variant="brand">Environmental impact</SectionKicker><h2 className="section-title max-w-3xl">The Impact Behind Every Tonne</h2><p className="mt-5 max-w-4xl text-base leading-8 text-steel-700">Every tonne of ARS Green Steel contributes to measurable environmental impact. Backed by EPD-verified data, these numbers demonstrate how responsible manufacturing translates into meaningful carbon reduction at scale.</p><div className="mt-10 grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:items-stretch"><div className="grid gap-4 sm:grid-cols-2">{impactItems.map(([value, title, description], index) => <article key={`${title}-${index}`} className="border border-green-steel/20 bg-surface-50 p-6"><strong className="font-display text-3xl text-green-steel">{value}</strong><h3 className="mt-4 font-display text-lg font-bold text-ink-900">{title}</h3><p className="mt-2 text-sm leading-6 text-steel-600">{description}</p></article>)}</div><div className="relative min-h-[360px] overflow-hidden"><Image src="/ars-assets/Sustainability/ARSGreenSteel_infography.jpg" alt="ARS Green Steel environmental impact metrics" fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover" /></div></div><div className="relative mt-10 overflow-hidden rounded-[24px] bg-ink-950"><Image src="/ars-assets/Sustainability/ARSGreenSteel_WhyitMatters.jpg" alt="ARS CRS 550D rebar connected to a greener future" width={1080} height={1080} sizes="100vw" className="h-[360px] w-full object-cover opacity-70" /><div className="absolute inset-0 bg-gradient-to-r from-ink-950/90 via-ink-950/40 to-transparent" /><div className="absolute bottom-8 left-8 max-w-md text-white"><SectionKicker variant="light">Our sustainability journey</SectionKicker><h3 className="mt-4 font-display text-3xl font-bold">Driving Continuous Carbon Reduction</h3></div></div></div>
-      </MotionSection>
-
-      <MotionSection className="bg-brand-blue py-20 text-white lg:py-24">
-        <div className="ars-container"><SectionKicker variant="light">Sustainable construction</SectionKicker><h2 className="section-title max-w-3xl text-white">Supporting Green Building & ESG Goals</h2><p className="mt-5 max-w-4xl text-base leading-8 text-white/75">ARS Green Steel helps projects meet sustainability objectives with verified environmental performance, recognized certifications, and documentation that supports green building and responsible procurement.</p><div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{greenBuildingItems.map(([title, description]) => <article key={title} className="rounded-[20px] border border-white/15 bg-white/10 p-7"><h3 className="font-display text-xl font-bold">{title}</h3><p className="mt-4 text-sm leading-7 text-white/70">{description}</p></article>)}</div></div>
-      </MotionSection>
-
-      <MotionSection className="bg-white py-14 lg:py-16">
+      <MotionSection className="bg-surface-50 py-20 lg:py-28">
         <div className="ars-container">
-          <SectionKicker variant="brand">The Green Steel formula</SectionKicker><h2 className="section-title max-w-3xl">Responsible inputs. Stronger outcomes.</h2><div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] xl:items-stretch">{greenSteelFormula.map((item,index)=><Fragment key={item.title}><article className={`group relative min-h-[300px] overflow-hidden bg-ink-950 ${index===3?"ring-2 ring-green-steel":""}`}><Image src={item.image} alt={item.title} fill sizes="(min-width:1280px) 25vw, (min-width:768px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105"/><div className="absolute inset-0 bg-gradient-to-t from-ink-950/95 via-ink-950/20 to-transparent"/><div className="absolute inset-x-6 bottom-6 text-white"><p className="text-xs font-bold uppercase tracking-[0.14em] text-green-steel">0{index+1}</p><h3 className="mt-2 font-display text-2xl font-bold">{item.title}</h3><p className="mt-2 text-sm text-white/75">{item.body}</p></div></article>{index<3?<span aria-hidden="true" className="hidden self-center font-display text-4xl font-bold text-green-steel xl:block">{index===2?"=":"+"}</span>:null}</Fragment>)}</div>
+          <SectionKicker>WHY ARS GREEN STEEL</SectionKicker>
+          <h2 className="section-title max-w-4xl">Ductility. Corrosion Resistance. Green Steel.</h2>
+          <p className={`mt-6 max-w-4xl ${bodyCopy}`}>ARS Green Steel brings together three qualities that matter in demanding construction—ductility, corrosion resistance, and lower-carbon manufacturing. From D-Quality steel and CRS technology to recycled steel and electric furnace production, each is backed by defined standards, testing and verified performance.</p>
+          <div className="mt-12 grid border-l border-t border-brand-blue/14 md:grid-cols-3">
+            {performancePillars.map(({ icon: Icon, title, body }) => <article key={title} className="border-b border-r border-brand-blue/14 bg-white p-7 lg:p-9"><Icon className="size-6 text-brand-blue" aria-hidden="true" /><h3 className="mt-7 font-display text-2xl font-bold text-ink-900">{title}</h3><p className="mt-4 text-base leading-8 text-steel-700">{body}</p></article>)}
+          </div>
+          <div className="mt-8 border-l-2 border-brand-red bg-white p-7 lg:p-9">
+            <h3 className="font-display text-2xl font-bold text-ink-900">Quality &amp; Technical Verification</h3>
+            <p className="mt-4 max-w-5xl text-base leading-8 text-steel-700">The performance of ARS Green Steel is supported by rigorous testing. Every batch undergoes spectro-analysis across more than 30 chemical elements, mechanical testing at ARS&apos;s in-house NABL-accredited laboratory, and third-party verification by SGS.</p>
+            <ul className="mt-6 flex flex-wrap gap-2" aria-label="Quality verification points">{verificationPoints.map((item) => <li key={item} className="border border-brand-blue/15 bg-surface-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-brand-blue">{item}</li>)}</ul>
+          </div>
+          <Link href="#certifications" className={`${primaryButton} mt-9`}>View Certifications <ArrowRight size={17} aria-hidden="true" /></Link>
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-white py-20 lg:py-24">
-        <div className="ars-container"><SectionKicker variant="brand">Who this matters for</SectionKicker><h2 className="section-title max-w-3xl">What Certified Green Steel Means for Your Project</h2><p className="mt-5 max-w-4xl text-base leading-8 text-steel-700">Every construction project has different priorities. ARS Green Steel delivers measurable value to developers, engineers, contractors, architects, homeowners, and infrastructure projects—without compromising structural performance or project timelines.</p><div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{audienceItems.map(([title, description]) => <article key={title} className="border-l-2 border-brand-red bg-surface-50 p-7"><h3 className="font-display text-xl font-bold text-ink-900">{title}</h3><p className="mt-4 text-sm leading-7 text-steel-700">{description}</p></article>)}</div><Link href="/products" className="focus-ring mt-10 inline-flex h-12 items-center gap-2 rounded-full bg-brand-red px-6 text-sm font-bold text-white transition hover:opacity-90">Find the Right Grade for Your Project <ArrowRight size={16} /></Link></div>
+      <MotionSection className="relative overflow-hidden bg-ink-950 py-20 text-white lg:py-28">
+        <div className="absolute inset-0 opacity-30"><Image src="/ars-assets/homepage-manufacturing-detail.jpg" alt="" fill sizes="100vw" className="object-cover" /></div>
+        <div className="absolute inset-0 bg-ink-950/88" />
+        <div className="ars-container relative z-10">
+          <SectionKicker variant="light">HOW ARS GREEN STEEL IS MADE</SectionKicker>
+          <h2 className="section-title max-w-4xl text-white">From Recycled Steel to Responsible Manufacturing.</h2>
+          <div className="mt-7 grid gap-6 text-base leading-8 text-white/74 lg:grid-cols-3">
+            <p>ARS Green Steel is produced using approximately 98% premium-quality recycled steel scrap through an electric furnace route. The process allows recovered steel to be brought back into production while reducing the carbon impact associated with conventional blast-furnace steelmaking.</p>
+            <p>The steel is then refined and rolled into TMT bars, with quality checks carried out through the manufacturing process. Renewable energy integration and real-time CO₂ emissions monitoring further support ARS&apos;s approach to responsible steel manufacturing.</p>
+            <p>Every batch passes through spectro-analysis across more than 30 chemical elements, mechanical testing at ARS&apos;s in-house NABL-accredited laboratory, and third-party verification by SGS. Emission intensity is calculated separately and consolidated into the plant&apos;s Environmental Product Declaration.</p>
+          </div>
+          <h3 className="mt-14 font-display text-2xl font-bold">The Manufacturing Route</h3>
+          <ol className="mt-7 grid border-l border-t border-white/16 md:grid-cols-2 lg:grid-cols-5">
+            {manufacturingRoute.map(([title, body], index) => <li key={title} className="border-b border-r border-white/16 bg-white/[0.04] p-6"><span className="font-technical text-xs font-black tracking-[0.18em] text-brand-red">{String(index + 1).padStart(2, "0")}</span><h4 className="mt-6 font-display text-xl font-bold text-white">{title}</h4><p className="mt-4 text-sm leading-7 text-white/68">{body}</p></li>)}
+          </ol>
+          <Link href="/manufacturing" className="focus-ring mt-9 inline-flex min-h-12 items-center gap-2 rounded-[6px] bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-red-dark">ARS Manufacturing <ArrowRight size={17} aria-hidden="true" /></Link>
+        </div>
       </MotionSection>
 
-      <MotionSection id="certifications" className="bg-surface-50 py-20 lg:py-24">
-        <div className="ars-container"><SectionKicker variant="brand">Certifications</SectionKicker><h2 className="section-title max-w-3xl">Every claim on this page traces back to a certificate.</h2><p className="mt-5 max-w-4xl text-base leading-8 text-steel-700">Sustainability language is easy to write. Third-party certification isn&apos;t. Here&apos;s what backs ARS Green Steel, issued by the bodies that actually audit it.</p><div className="mt-8 rounded-[20px] border border-brand-blue/10 bg-white p-5"><Image src="/ars-assets/original-green-steel/environmental-certifications.png" alt="Environmental certification and green-building partners shown on the original ARS Green Steel page" width={773} height={205} className="mx-auto h-auto w-full max-w-4xl" /></div><div className="mt-10 overflow-x-auto border border-brand-blue/15 bg-white"><table className="min-w-[760px] w-full border-collapse text-left"><thead className="bg-brand-blue text-white"><tr><th className="p-5 text-sm font-bold">Certification</th><th className="p-5 text-sm font-bold">Issuing Body</th><th className="p-5 text-sm font-bold">What It Verifies</th></tr></thead><tbody>{certifications.map(([name, issuer, scope]) => <tr key={name} className="border-t border-surface-100 align-top"><td className="p-5 font-display text-base font-bold text-ink-900">{name}</td><td className="p-5 text-sm leading-6 text-steel-700">{issuer}</td><td className="p-5 text-sm leading-6 text-steel-700">{scope}</td></tr>)}</tbody></table></div><Link href="/our-certification" className="focus-ring mt-8 inline-flex h-12 items-center gap-2 rounded-full border border-brand-blue px-6 text-sm font-bold text-brand-blue transition hover:bg-brand-blue hover:text-white">View all Certificates <ArrowRight size={16} /></Link></div>
+      <MotionSection className="bg-white py-20 lg:py-28">
+        <div className="ars-container">
+          <SectionKicker>CARBON TRANSPARENCY</SectionKicker>
+          <h2 className="section-title max-w-4xl">592 kg CO₂e per tonne — Verified Through an EPD.</h2>
+          <p className={`mt-6 max-w-5xl ${bodyCopy}`}>ARS Green Steel has an internationally verified Environmental Product Declaration (EPD) that provides transparent information on the carbon emissions and environmental performance of its steel. The EPD reports an emission intensity of 592 kg CO₂e per tonne of finished steel, giving architects, developers, engineers and project teams clear data to consider embodied carbon when selecting steel for sustainable construction.</p>
+          <a href="/ars-assets/certifications/ARS-STEELS_EPD-CERTIFICATE-2.pdf" target="_blank" rel="noreferrer" aria-label="Open the ARS Environmental Product Declaration source" className="focus-ring mt-12 block border border-brand-blue/14 bg-surface-50 p-6 md:p-9">
+            <div className="flex flex-wrap items-center justify-between gap-4"><h3 className="font-display text-2xl font-bold text-ink-900">Emission Intensity</h3><span className="inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Click chart for source access <ArrowRight size={16} aria-hidden="true" /></span></div>
+            <div className="mt-9 grid gap-7 md:grid-cols-2">
+              {carbonComparison.map(([label, value, unit, width], index) => <div key={label}><div className="flex items-end justify-between gap-4"><span className="text-sm font-bold text-ink-900">{label}</span><span className={`font-display text-xl font-bold ${index === 3 ? "text-green-steel" : "text-ink-900"}`}>{value} <small className="text-xs font-semibold">{unit}</small></span></div><div className="mt-3 h-5 bg-white"><div className={`h-full ${index === 3 ? "bg-green-steel" : index === 1 ? "bg-steel-500" : "bg-brand-blue"}`} style={{ width }} /></div></div>)}
+            </div>
+          </a>
+        </div>
       </MotionSection>
 
-      <MotionSection className="bg-white py-20 lg:py-24">
-        <div className="ars-container max-w-4xl"><SectionKicker variant="brand">FAQs</SectionKicker><h2 className="section-title">Green Steel questions, answered.</h2><div className="mt-10 divide-y divide-ink-900/10 border-y border-ink-900/10">{faqs.map(([question, answer]) => <details key={question} className="group py-6"><summary className="focus-ring cursor-pointer list-none pr-8 font-display text-xl font-bold text-ink-900 marker:hidden">{question}</summary><p className="mt-4 max-w-3xl text-sm leading-7 text-steel-700">{answer}</p></details>)}</div></div>
+      <MotionSection className="bg-surface-50 py-20 lg:py-28">
+        <div className="ars-container">
+          <SectionKicker>Environmental impact</SectionKicker>
+          <h2 className="section-title max-w-3xl">The Impact Behind Every Tonne</h2>
+          <p className={`mt-6 max-w-4xl ${bodyCopy}`}>Every tonne of ARS Green Steel contributes to measurable environmental impact. Backed by EPD-verified data, these numbers demonstrate how responsible manufacturing translates into meaningful carbon reduction at scale.</p>
+          <div className="mt-12 grid gap-8 lg:grid-cols-[.9fr_1.1fr]">
+            <div className="grid border-l border-t border-green-steel/25 sm:grid-cols-2">{impactItems.map(([value, title, body]) => <article key={`${value}-${title}`} className="border-b border-r border-green-steel/25 bg-white p-7"><strong className="font-display text-3xl font-bold text-green-steel">{value}</strong><h3 className="mt-5 font-display text-xl font-bold text-ink-900">{title}</h3><p className="mt-3 text-sm leading-7 text-steel-700">{body}</p></article>)}</div>
+            <figure className="relative min-h-[420px] overflow-hidden bg-ink-950"><Image src="/ars-assets/Sustainability/ARSGreenSteel_infography.jpg" alt="ARS Green Steel environmental impact metrics" fill sizes="(min-width: 1024px) 52vw, 100vw" className="object-cover" /></figure>
+          </div>
+        </div>
       </MotionSection>
 
-      <MotionSection className="bg-brand-blue py-20 text-white">
-        <div className="ars-container flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between"><div className="max-w-2xl"><SectionKicker variant="light">Build Greener</SectionKicker><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,3.25rem)] font-bold leading-[1.08]">Ready to Build Smarter with ARS Green Steel?</h2><p className="mt-5 text-base leading-8 text-white/75">Talk to our team about choosing the right certified green steel solution for your next project. Get product guidance, technical support, and certification documentation.</p></div><div className="flex flex-wrap gap-3"><Link href="/request-quote" className="focus-ring inline-flex h-12 items-center gap-2 rounded-full bg-brand-red px-6 text-sm font-bold text-white transition hover:opacity-90">Request Quote <ArrowRight size={16} /></Link><span className="inline-flex h-12 items-center rounded-full border border-white/30 px-6 text-sm font-semibold text-white/60" aria-disabled="true">Brochure download coming soon</span></div></div>
+      <MotionSection className="bg-brand-blue py-20 text-white lg:py-28">
+        <div className="ars-container">
+          <SectionKicker variant="light">OUR GREEN STEEL ROADMAP</SectionKicker>
+          <h2 className="section-title max-w-4xl text-white">A Clear Path Towards Net-Zero Steel</h2>
+          <p className="mt-6 max-w-4xl text-base leading-8 text-white/74 lg:text-lg">ARS is steadily increasing the use of renewable energy in its manufacturing process while working towards lower carbon emissions. The roadmap reflects the progress already made and the targets ahead as ARS moves towards net-zero steel production.</p>
+          <ol className="relative mt-14 grid gap-4 lg:grid-cols-5">
+            {roadmap.map(([year, value, title, body], index) => <li key={year} className="relative border border-white/18 bg-white/[0.06] p-6"><span className="font-technical text-xs font-black tracking-[0.18em] text-white/55">{year}</span><strong className="mt-7 block font-display text-4xl font-bold text-white">{value}</strong><h3 className="mt-3 font-display text-lg font-bold text-white">{title}</h3>{body ? <p className="mt-3 text-sm leading-6 text-white/66">{body}</p> : null}{index < roadmap.length - 1 ? <ArrowRight className="absolute -right-3 top-1/2 z-10 hidden size-5 text-brand-red lg:block" aria-hidden="true" /> : null}</li>)}
+          </ol>
+          <Link href="/request-quote" className="focus-ring mt-9 inline-flex min-h-12 items-center gap-2 rounded-[6px] bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-red-dark">Start Green <ArrowRight size={17} aria-hidden="true" /></Link>
+        </div>
       </MotionSection>
 
+      <MotionSection className="bg-white py-20 lg:py-28">
+        <div className="ars-container grid gap-12 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:gap-16">
+          <div>
+            <SectionKicker>GOVERNMENT RECOGNISED GREEN STEEL</SectionKicker>
+            <h2 className="section-title">India’s Green Steel Taxonomy</h2>
+            <div className={`mt-7 space-y-5 ${bodyCopy}`}><p>India is the first country globally to introduce an official Green Steel Taxonomy. Issued by the Ministry of Steel, the framework classifies steel based on its carbon emission intensity, using a star-rating system based on CO₂ emissions per tonne of finished steel.</p><p>ARS Green Steel is the first steel manufacturer in India to receive the Green Steel Certificate under this framework. It has also received a 5-Star Green Steel Rating, the highest rating under the Government of India’s classification, along with a 73.5% Greenness Score.</p></div>
+          </div>
+          <div className="border border-green-steel/25 bg-surface-50 p-6 md:p-8">
+            <div className="grid grid-cols-2 gap-px bg-brand-blue/14 sm:grid-cols-4">{[["No Rating", "> 2.2", "t CO₂e/tonne"], ["3-Star", "2.0 – 2.2", "t CO₂e/tonne"], ["4-Star", "1.6 – 2.0", "t CO₂e/tonne"], ["5-Star", "< 1.6", "t CO₂e/tonne"]].map(([rating, value, unit], index) => <div key={rating} className={`${index === 3 ? "bg-green-steel text-white" : "bg-white text-ink-900"} p-5`}><span className="text-xs font-black uppercase tracking-[0.12em]">{rating}</span><strong className="mt-5 block font-display text-2xl">{value}</strong><small className="mt-1 block text-xs opacity-70">{unit}</small></div>)}</div>
+            <div className="mt-6 border-l-4 border-green-steel bg-white p-6"><div className="flex items-start gap-4"><Gauge className="mt-1 size-7 shrink-0 text-green-steel" aria-hidden="true" /><div><span className="text-xs font-black uppercase tracking-[0.14em] text-green-steel">ARS Green Steel</span><strong className="mt-2 block font-display text-4xl text-ink-900">0.592 <small className="text-sm">t CO₂e/tonne</small></strong><p className="mt-3 font-bold text-green-steel">★★★★★ 5-Star Green Steel Rating</p></div></div></div>
+            <div className="mt-4 grid gap-3 sm:grid-cols-3">{["Government of India Green Steel Certificate", "5-Star Green Steel Rating — Highest Rating", "73.5% Greenness Score — Assessed as per Taxonomy"].map((item) => <div key={item} className="flex gap-2 bg-green-steel/10 p-4 text-sm font-bold leading-6 text-green-steel"><BadgeCheck className="mt-0.5 size-4 shrink-0" aria-hidden="true" />{item}</div>)}</div>
+          </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-surface-50 py-20 lg:py-28">
+        <div className="ars-container">
+          <SectionKicker>GREEN BUILDING RECOGNITION</SectionKicker>
+          <h2 className="section-title max-w-4xl">Recognised by Leading Green Building Standards.</h2>
+          <p className={`mt-6 max-w-5xl ${bodyCopy}`}>ARS Green Steel carries recognised environmental credentials that support its use in sustainable construction. Its environmental performance is backed by an Environmental Product Declaration (EPD), while its products are recognised across GRIHA, LEED and SGBC green building frameworks.</p>
+          <div className="mt-12 grid border-l border-t border-brand-blue/14 md:grid-cols-2 lg:grid-cols-4">{buildingRecognition.map(([title, body]) => <article key={title} className="border-b border-r border-brand-blue/14 bg-white p-7"><FileCheck2 className="size-6 text-brand-blue" aria-hidden="true" /><h3 className="mt-6 font-display text-xl font-bold text-ink-900">{title}</h3><p className="mt-4 text-sm leading-7 text-steel-700">{body}</p></article>)}</div>
+
+          <div id="certifications" className="scroll-mt-28 pt-20">
+            <SectionKicker>Certifications</SectionKicker>
+            <h2 className="section-title max-w-4xl">Every Claim Traces Back to Independent Proof.</h2>
+            <div className="mt-8 bg-white p-5"><Image src="/ars-assets/original-green-steel/environmental-certifications.png" alt="ARS environmental certifications and green-building recognition marks" width={773} height={205} sizes="(min-width: 1024px) 773px, 100vw" className="mx-auto h-auto w-full max-w-4xl" /></div>
+            <div className="mt-8 overflow-x-auto border border-brand-blue/15 bg-white"><table className="min-w-[780px] w-full border-collapse text-left"><thead className="bg-brand-blue text-white"><tr><th scope="col" className="p-5 text-sm font-bold">Certification</th><th scope="col" className="p-5 text-sm font-bold">Issuing Body</th><th scope="col" className="p-5 text-sm font-bold">What It Verifies</th></tr></thead><tbody>{certifications.map(([name, issuer, scope]) => <tr key={name} className="border-t border-brand-blue/10 align-top"><th scope="row" className="p-5 font-display text-base font-bold text-ink-900">{name}</th><td className="p-5 text-sm leading-7 text-steel-700">{issuer}</td><td className="p-5 text-sm leading-7 text-steel-700">{scope}</td></tr>)}</tbody></table></div>
+            <Link href="/our-certification" className={`${primaryButton} mt-8`}>View all Certificates <ArrowRight size={17} aria-hidden="true" /></Link>
+          </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection id="products" className="scroll-mt-24 bg-white py-20 lg:py-28">
+        <div className="ars-container">
+          <div className="max-w-4xl"><SectionKicker>Our Products</SectionKicker><h2 className="section-title">Products Built for Modern Construction</h2><p className={`mt-6 ${bodyCopy}`}>Whether you&apos;re building an individual home, an apartment, a commercial building, or a large infrastructure project, choosing the right TMT bar is essential. ARS offers two high-quality reinforcement solutions, allowing you to select the product that best suits your project&apos;s environment and performance requirements.</p></div>
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">{products.map(([title, body, cta, href, image]) => <article key={title} className="group overflow-hidden border border-brand-blue/15 bg-white transition hover:-translate-y-1 hover:border-brand-blue/35"><div className="relative h-52 overflow-hidden bg-surface-50"><span className="absolute inset-x-0 top-0 z-10 h-1 bg-brand-red" aria-hidden="true" /><Image src={image} alt="" fill sizes="(min-width: 1024px) 30vw, 100vw" className="object-contain p-9 transition duration-500 group-hover:scale-105" /></div><div className="p-7"><h3 className="font-display text-2xl font-bold leading-tight text-ink-900">{title}</h3><p className="mt-4 text-base leading-8 text-steel-700">{body}</p><Link href={href} className="focus-ring mt-7 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-brand-blue transition hover:text-brand-red">{cta} <ArrowRight size={16} aria-hidden="true" /></Link></div></article>)}</div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-ink-950 py-20 text-white lg:py-28">
+        <div className="ars-container">
+          <SectionKicker variant="light">WHO THIS MATTERS FOR</SectionKicker>
+          <h2 className="section-title max-w-4xl text-white">What Certified Green Steel Means for Your Project</h2>
+          <p className="mt-6 max-w-5xl text-base leading-8 text-white/74 lg:text-lg">The choice of steel has a role to play in both the structure and the environmental performance of a project. ARS Green Steel combines tested steel quality with verified environmental data, making it relevant across different stages of construction and procurement.</p>
+          <div className="mt-12 grid border-l border-t border-white/16 md:grid-cols-2 lg:grid-cols-3">{audiences.map(([title, body], index) => <article key={title} className="border-b border-r border-white/16 p-7 lg:p-9"><span className="font-technical text-xs font-black tracking-[0.18em] text-brand-red">{String(index + 1).padStart(2, "0")}</span><h3 className="mt-6 font-display text-xl font-bold text-white">{title}</h3><p className="mt-4 text-sm leading-7 text-white/68">{body}</p></article>)}</div>
+          <Link href="/request-quote" className="focus-ring mt-9 inline-flex min-h-12 items-center gap-2 rounded-[6px] bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-red-dark">Get Started Now <ArrowRight size={17} aria-hidden="true" /></Link>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-white py-20 lg:py-28">
+        <div className="ars-container max-w-4xl"><SectionKicker>FAQs</SectionKicker><h2 className="section-title">Green Steel Questions, Answered.</h2><FaqList className="mt-10" items={faqs.map(([question, answer]) => ({ question, answer }))} /></div>
+      </MotionSection>
+
+      <ContactCta eyebrow="BUILD GREENER" headline="Ready to Build Smarter with ARS Green Steel?" body="Talk to our team about choosing the right certified green steel solution for your next project. Get product guidance, technical support, and certification documentation." primaryLabel="Request Quote" primaryHref="/request-quote" secondaryLabel="Talk to Experts" secondaryHref="/contact" tone="solid" />
     </main>
   );
 }
