@@ -147,7 +147,7 @@ export function SiteFooter() {
                 href="tel:+919710411111"
               >
                 <Phone size={18} className="mt-0.5 shrink-0 text-white" />
-                <span><strong className="block text-white">Sales helpline</strong>{verifiedContactDetails.mobile}</span>
+                <span><strong className="block text-white">Customer Care</strong>{verifiedContactDetails.mobile}</span>
               </a>
               <Link
                 className="focus-ring flex min-h-11 items-start gap-3 text-sm text-slate-300 transition hover:text-white"
@@ -181,6 +181,12 @@ export function SiteFooter() {
                 href="/steel-distributors-dealers"
               >
                 Become a dealer
+              </Link>
+              <Link
+                className="focus-ring inline-flex min-h-11 items-center rounded-full border border-white/20 px-5 text-sm font-bold text-white transition hover:border-white/40"
+                href="/contact"
+              >
+                Contact Us
               </Link>
               <div className="flex items-center gap-2 sm:ml-auto">
                 {socialLinks.map((item) => {
