@@ -318,6 +318,8 @@ export default function ArsBindersPage() {
         </div>
       </MotionSection>
 
+      <ProductLeadCaptureForm product="ARS Binders" trustItems={["Factory-made precision", "CRS 550D steel", "IS 1786 compliant", "Consistent quality"]} />
+
       <MotionSection className="bg-surface-50 py-20 md:py-24">
         <div className="ars-container max-w-5xl">
           <h2 className="text-center font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">FAQs</h2>
@@ -334,7 +336,6 @@ export default function ArsBindersPage() {
         </div>
       </MotionSection>
 
-      <ProductLeadCaptureForm product="ARS Binders" trustItems={["Factory-made precision", "CRS 550D steel", "IS 1786 compliant", "Consistent quality"]} />
     </main>
   );
 }
