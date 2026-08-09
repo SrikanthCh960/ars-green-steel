@@ -13,6 +13,7 @@ import {
   Store,
 } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
+import { ContactEnquiryForm } from "@/components/contact-enquiry-form";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { clientVerificationSummary, verifiedContactDetails } from "@/data/business-verification";
@@ -48,7 +49,7 @@ const contactChannels = [
     icon: Mail,
     label: "Email support",
     title: "Use enquiry form",
-    text: "The public inbox should be confirmed by ARS before launch.",
+    text: "Send product, dealer, technical, or business enquiries through this form.",
     href: "#enquiry",
     cta: "Send enquiry",
   },
@@ -96,93 +97,6 @@ const usefulDetails = [
   "Delivery city or project location",
   "Project type and timeline",
 ];
-
-function ContactFormPanel() {
-  return (
-    <div className="rounded-[18px] border border-ink-900/10 bg-white p-5 shadow-[0_24px_80px_rgba(13,43,110,0.08)] md:p-7">
-      <div className="mb-7">
-        <SectionKicker>Sales enquiry</SectionKicker>
-        <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-          Share your requirement.
-        </h2>
-        <p className="mt-4 max-w-xl text-[15px] leading-7 text-steel-700">
-          This front-end form is ready for CRM or email routing once the final ARS destination is confirmed.
-          For live enquiries, use the sales helpline.
-        </p>
-      </div>
-
-      <form className="grid gap-4" id="enquiry">
-        <div className="grid gap-4 md:grid-cols-2">
-          <label className="grid gap-2 text-sm font-bold text-ink-900">
-            Name
-            <input
-              name="name"
-              autoComplete="name"
-              className="h-12 rounded-[10px] border border-ink-900/12 bg-surface-50 px-4 text-base font-normal outline-none transition focus:border-brand-blue"
-              placeholder="Your name"
-            />
-          </label>
-          <label className="grid gap-2 text-sm font-bold text-ink-900">
-            Phone
-            <input
-              name="phone"
-              autoComplete="tel"
-              inputMode="tel"
-              className="h-12 rounded-[10px] border border-ink-900/12 bg-surface-50 px-4 text-base font-normal outline-none transition focus:border-brand-blue"
-              placeholder="+91"
-            />
-          </label>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-2">
-          <label className="grid gap-2 text-sm font-bold text-ink-900">
-            Enquiry type
-            <select
-              name="enquiryType"
-              className="h-12 rounded-[10px] border border-ink-900/12 bg-surface-50 px-4 text-base font-normal outline-none transition focus:border-brand-blue"
-            >
-              <option>Product pricing</option>
-              <option>Project quote</option>
-              <option>Dealer support</option>
-              <option>Technical documents</option>
-              <option>Business enquiry</option>
-            </select>
-          </label>
-          <label className="grid gap-2 text-sm font-bold text-ink-900">
-            City / location
-            <input
-              name="location"
-              autoComplete="address-level2"
-              className="h-12 rounded-[10px] border border-ink-900/12 bg-surface-50 px-4 text-base font-normal outline-none transition focus:border-brand-blue"
-              placeholder="Project city"
-            />
-          </label>
-        </div>
-
-        <label className="grid gap-2 text-sm font-bold text-ink-900">
-          Requirement
-          <textarea
-            name="requirement"
-            className="min-h-36 rounded-[10px] border border-ink-900/12 bg-surface-50 px-4 py-3 text-base font-normal outline-none transition focus:border-brand-blue"
-            placeholder="Tell us grade, size, quantity, delivery location, or project stage."
-          />
-        </label>
-
-        <div className="grid gap-3 pt-2 sm:grid-cols-[1fr_auto] sm:items-center">
-          <p className="text-sm leading-6 text-steel-700">
-            Form destination needs final ARS confirmation. Until then, call the sales helpline for urgent enquiries.
-          </p>
-          <button
-            className="focus-ring inline-flex h-13 items-center justify-center gap-2 rounded-full bg-brand-red px-7 text-sm font-bold text-white shadow-[0_18px_44px_rgba(222,18,26,0.22)] transition hover:-translate-y-0.5 hover:bg-[#c90f16]"
-            type="button"
-          >
-            Send enquiry <ArrowRight size={17} />
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-}
 
 export default function ContactPage() {
   return (
@@ -331,7 +245,7 @@ export default function ContactPage() {
               ))}
             </div>
           </div>
-          <ContactFormPanel />
+          <ContactEnquiryForm />
         </div>
       </MotionSection>
 
@@ -345,8 +259,8 @@ export default function ContactPage() {
               </h2>
             </div>
             <p className="text-[15px] leading-7 text-white/70">
-              Keep these details client-verified before launch. The page currently uses the project
-              verification data already captured in the repository.
+              Reach ARS through the corporate office or manufacturing plant using the verified contact
+              details below.
             </p>
           </div>
 

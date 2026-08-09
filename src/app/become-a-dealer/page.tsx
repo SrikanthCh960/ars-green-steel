@@ -3,7 +3,7 @@ import { ArrowRight, BadgeCheck, Building2, Factory, MapPin } from "lucide-react
 import Image from "next/image";
 import Link from "next/link";
 import { ContactCta } from "@/components/contact-cta";
-import { LeadForm } from "@/components/lead-form";
+import { DistributorEnquiryForm } from "@/components/distributor-enquiry-form";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 
@@ -71,7 +71,7 @@ export default function BecomeDealerPage() {
         </div>
       </section>
 
-      <section id="distributor-form" className="bg-[#F4F7FF] py-20 lg:py-24"><div className="ars-container"><LeadForm intent="dealer" title="Start your distributor enquiry" body="Share your basic details and the ARS team will review your interest and contact you about the next steps." /></div></section>
+      <section id="distributor-form" className="bg-[#F4F7FF] py-20 lg:py-24"><div className="ars-container"><DistributorEnquiryForm /></div></section>
 
       <ContactCta eyebrow="DISTRIBUTOR ENQUIRY" headline="Build a stronger supply partnership with ARS." body="Connect with the ARS team to discuss your distributor or dealer enquiry and product requirements." primaryLabel="Contact ARS" primaryHref="/contact" secondaryLabel="Explore our network" secondaryHref="/our-network" />
     </main>

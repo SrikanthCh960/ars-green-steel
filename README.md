@@ -167,6 +167,8 @@ The shared product enquiry form posts to `/api/product-enquiries`. The server va
 GOOGLE_SHEETS_SPREADSHEET_ID=
 GOOGLE_SHEETS_SHEET_NAME=Product Enquiries
 GOOGLE_SHEETS_QUOTE_REQUESTS_SHEET_NAME=Quote Requests
+GOOGLE_SHEETS_CONTACT_ENQUIRIES_SHEET_NAME=Contact Enquiries
+GOOGLE_SHEETS_DISTRIBUTOR_ENQUIRIES_SHEET_NAME=Distributor Enquiries
 GOOGLE_SERVICE_ACCOUNT_EMAIL=
 GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
 ```
@@ -186,3 +188,19 @@ Full Name | Phone | Email | State | City / Project Location | Project Type | Pro
 ```
 
 The quote-request browser payload remains destination-independent so Salesforce can be added later without changing the form fields.
+
+Contact page submissions use a dedicated `Contact Enquiries` worksheet with this header row:
+
+```text
+Full Name | Phone | Email | Enquiry Type | City / Location | Requirement | Source Page | Submitted Date | Submitted Time | Timezone | ISO Timestamp
+```
+
+The Contact form posts to `/api/contact-enquiries`; its server-owned validation and normalized payload keep the browser form independent from Google Sheets so another provider such as Salesforce can be added later.
+
+Distributor form submissions use a dedicated `Distributor Enquiries` worksheet with this header row:
+
+```text
+Full Name | Phone | Email | State | District | Pincode | Type of User | Enquiry Type | Enquiry Details | Source Page | Submitted Date | Submitted Time | Timezone | ISO Timestamp
+```
+
+The distributor form posts to `/api/distributor-enquiries`. Strict server-side validation and a normalized destination-independent payload allow a future Salesforce provider to be added without changing the browser form.
