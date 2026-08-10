@@ -120,7 +120,7 @@ function EvidenceSection({ id, kicker, title, preview, file, children, reverse =
 
 export default function GreenCertificationsPage() {
   return (
-    <main className="min-h-screen overflow-x-clip bg-white text-ink-900">
+    <main className="min-h-screen overflow-x-clip bg-white text-ink-900 [&_.section-kicker-green]:!text-[#123D2B] [&_.section-kicker-line-green]:!bg-[#2F7650]">
       <SiteHeader />
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-[#0B2A1E] text-white md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
