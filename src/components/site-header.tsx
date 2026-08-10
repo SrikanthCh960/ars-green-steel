@@ -41,7 +41,7 @@ const routeLinks: { label: string; href: string; menu?: MenuKey }[] = [
 const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
   about: {
     eyebrow: "Company trust",
-    title: "Understand ARS Group, leadership, manufacturing, quality, and client proof.",
+    title: "Everything You Need to Know About ARS Group",
     visual: "ARS Group",
     visualSrc: "/ars-assets/right-about-us.png-compress.webp",
     links: [
@@ -57,7 +57,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
   },
   products: {
     eyebrow: "Product proof",
-    title: "Choose ARS steel by grade, application, specification, and project need.",
+    title: "Explore ARS Products by Grade and Application",
     visual: "Products",
     visualSrc: "/ars-assets/products-all.png",
     links: [
@@ -71,7 +71,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
   },
   sustainability: {
     eyebrow: "Sustainability",
-    title: "Show green steel, embodied carbon, certifications, and reports clearly.",
+    title: "Understand ARS Green Steel, Carbon & Certifications",
     visual: "Green steel",
     visualSrc: "/ars-assets/our-quality-1.png",
     links: [
@@ -85,7 +85,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
   },
   solutions: {
     eyebrow: "Solutions",
-    title: "Guide each audience to the proof, product, and next action they need.",
+    title: "Find the Right Solution for Your Construction Project",
     visual: "Audience paths",
     visualSrc: "/ars-assets/home-owner-banner-1.png",
     links: [
@@ -120,7 +120,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
   },
   resources: {
     eyebrow: "Resources",
-    title: "Help buyers estimate, compare, learn, and move toward enquiry.",
+    title: "Everything You Need to Choose, Compare & Buy Steel",
     visual: "Knowledge center",
     visualSrc: "/ars-assets/awards-certificates-img3.png",
     links: [
@@ -134,7 +134,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
   },
   pressMedia: {
     eyebrow: "Press Media",
-    title: "Press Media",
+    title: "Latest News, Updates & Stories from ARS Steel",
     visual: "Press Media",
     visualSrc: "/ars-assets/ARSHOME4.jpg",
     links: [
@@ -461,11 +461,11 @@ function MegaMenuContent({ menu }: { menu: MegaMenu }) {
 
       <div>
         <p className="font-technical text-xs font-bold uppercase tracking-[0.28em] text-brand-blue">{menu.eyebrow}</p>
-        <p className="mt-4 max-w-2xl font-display text-4xl font-black leading-tight text-ink-900">
+        <p className="mt-2 max-w-2xl font-display text-lg font-normal leading-relaxed text-steel-600">
           {menu.title}
         </p>
         {menu.groups ? (
-          <div className="mt-8 grid gap-8 sm:grid-cols-2">
+          <div className="mt-6 grid gap-8 sm:grid-cols-2">
             {menu.groups.map((group) => (
               <div key={group.label} className="border-l border-brand-blue/20 pl-5">
                 <p className="mb-4 font-technical text-[11px] font-black uppercase tracking-[0.18em] text-brand-red">
@@ -485,7 +485,7 @@ function MegaMenuContent({ menu }: { menu: MegaMenu }) {
             ))}
           </div>
         ) : (
-          <div className="mt-8 grid gap-x-12 gap-y-5 sm:grid-cols-2">
+          <div className="mt-6 grid gap-x-12 gap-y-5 sm:grid-cols-2">
             {menu.links.map((item) => (
               <a key={item.label} className={`focus-ring group flex items-center gap-4 text-lg font-semibold transition ${menu.eyebrow === "Sustainability" && item.label === "ARS Green Steel" ? "text-green-steel hover:text-green-steel" : "text-steel-700 hover:text-brand-blue"}`} href={item.href}>
                 <span className={`inline-flex size-10 aspect-square shrink-0 items-center justify-center rounded-full bg-white ring-1 transition ${menu.eyebrow === "Sustainability" && item.label === "ARS Green Steel" ? "text-green-steel ring-green-steel group-hover:bg-green-steel group-hover:text-white" : "text-brand-blue ring-ink-900/10 group-hover:bg-brand-blue group-hover:text-white"}`}>
