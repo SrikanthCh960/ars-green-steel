@@ -640,8 +640,8 @@ main h1 {
   .manufacturing-process-arrow {
     position: absolute;
     top: 50%;
-    right: -79px;
-    width: 70px;
+    right: -49px;
+    width: 42px;
     border-top: 3px solid var(--brand-red);
     transform: translateY(-50%);
   }
