@@ -46,7 +46,7 @@ const footerGroups = [
       { label: "Green Steel Explained", href: "/green-steel" },
       { label: "ARS Green Steel", href: "/ars-green-steel" },
       { label: "Embodied Carbon", href: "/embodied-carbon" },
-      { label: "Environmental Certifications", href: "/our-certification" },
+      { label: "Environmental Certifications", href: "/green-certifications" },
       { label: "Reports & Downloads", href: "/our-certification#downloads" },
     ],
   },

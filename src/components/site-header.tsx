@@ -77,7 +77,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     links: [
       { label: "ARS Green Steel", href: "/ars-green-steel" },
       { label: "Embodied Carbon", href: "/embodied-carbon" },
-      { label: "Green Certifications", href: "/our-certification" },
+      { label: "Green Certifications", href: "/green-certifications" },
       { label: "What is Green Steel", href: "/green-steel#what-is-green-steel" },
       { label: "SGBC", href: "/sgbc" },
     ],
@@ -175,7 +175,7 @@ const menuPaths: Record<MenuKey, string[]> = {
     "/bridges-projects-tmt-steel-bars",
     "/institutions-projects-tmt-steel-bars",
   ],
-  sustainability: ["/green-steel", "/ars-green-steel"],
+  sustainability: ["/green-steel", "/ars-green-steel", "/green-certifications"],
   resources: [
     "/blog",
     "/tmt-steel-price-today",

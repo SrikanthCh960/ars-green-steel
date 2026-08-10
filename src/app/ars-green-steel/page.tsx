@@ -287,7 +287,7 @@ export default function ArsGreenSteelPage() {
             <h2 className="section-title max-w-4xl">Every Claim Traces Back to Independent Proof.</h2>
             <div className="mt-8 border border-[#123D2B]/12 bg-white p-5"><Image src="/ars-assets/original-green-steel/environmental-certifications.png" alt="ARS environmental certifications and green-building recognition marks" width={773} height={205} sizes="(min-width: 1024px) 773px, 100vw" className="mx-auto h-auto w-full max-w-4xl" /></div>
             <div className="mt-8 overflow-x-auto border border-[#123D2B]/18 bg-white"><table className="min-w-[780px] w-full border-collapse text-left"><thead className="bg-[#123D2B] text-white"><tr><th scope="col" className="p-5 text-sm font-bold">Certification</th><th scope="col" className="p-5 text-sm font-bold">Issuing Body</th><th scope="col" className="p-5 text-sm font-bold">What It Verifies</th></tr></thead><tbody>{certifications.map(([name, issuer, scope]) => <tr key={name} className="border-t border-[#123D2B]/10 align-top"><th scope="row" className="p-5 font-display text-base font-bold text-ink-900">{name}</th><td className="p-5 text-sm leading-7 text-steel-700">{issuer}</td><td className="p-5 text-sm leading-7 text-steel-700">{scope}</td></tr>)}</tbody></table></div>
-            <Link href="/our-certification" className={`${primaryButton} mt-8`}>View all Certificates <ArrowRight size={17} aria-hidden="true" /></Link>
+            <Link href="/green-certifications" className={`${primaryButton} mt-8`}>View all Certificates <ArrowRight size={17} aria-hidden="true" /></Link>
           </div>
         </div>
       </MotionSection>

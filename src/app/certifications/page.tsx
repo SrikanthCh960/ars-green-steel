@@ -153,20 +153,6 @@ export default function CertificationsPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_25%,rgba(13,43,110,0.62),transparent_36%),linear-gradient(to_top,rgba(6,13,30,0.94),rgba(6,13,30,0.5))]" />
 
         <div className="ars-container relative z-10 w-full pb-14 md:pb-16">
-          <nav aria-label="Breadcrumb" className="mb-7">
-            <ol className="flex flex-wrap items-center gap-2 text-xs font-semibold text-white/60">
-              <li>
-                <Link className="focus-ring rounded-sm transition hover:text-white" href="/">
-                  Home
-                </Link>
-              </li>
-              <li aria-hidden="true">/</li>
-              <li aria-current="page" className="text-white">
-                Certifications & Awards
-              </li>
-            </ol>
-          </nav>
-
           <div className="max-w-4xl">
             <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70">
               <span className="h-px w-10 bg-brand-red" aria-hidden="true" />
