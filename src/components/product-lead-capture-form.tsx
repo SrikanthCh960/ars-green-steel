@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ArrowRight, CheckCircle2, Phone } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { verifiedContactDetails } from "@/data/business-verification";
+import { trackGenerateLead } from "@/lib/analytics";
 
 type ProductLeadCaptureFormProps = {
   product: "ARS 550D" | "ARS CRS 550D" | "ARS Binders";
@@ -107,6 +108,11 @@ export function ProductLeadCaptureForm({ product, trustItems, showCallSales = tr
 
       if (response.status === 201) {
         isRedirecting = true;
+        trackGenerateLead({
+          formType: "product_enquiry",
+          formId: "product_lead_capture",
+          product,
+        });
         router.replace("/thank-you?form=product");
         return;
       }

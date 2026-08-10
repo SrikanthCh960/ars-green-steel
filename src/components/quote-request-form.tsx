@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ArrowRight, Phone } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { verifiedContactDetails } from "@/data/business-verification";
+import { trackGenerateLead } from "@/lib/analytics";
 
 type QuoteRequestFormProps = { title: string; body: string };
 type FormStatus = { tone: "idle" | "success" | "error"; message: string };
@@ -105,6 +106,7 @@ export function QuoteRequestForm({ title, body }: QuoteRequestFormProps) {
 
       if (response.status === 201) {
         isRedirecting = true;
+        trackGenerateLead({ formType: "quote_request", formId: "quote_request" });
         router.replace("/thank-you?form=quote");
         return;
       }
