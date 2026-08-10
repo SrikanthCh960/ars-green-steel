@@ -43,7 +43,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     eyebrow: "Company trust",
     title: "Everything You Need to Know About ARS Group",
     visual: "ARS Group",
-    visualSrc: "/ars-assets/right-about-us.png-compress.webp",
+    visualSrc: "/ars-assets/navmenu/about.jpg",
     links: [
       { label: "ARS Group", href: "/about-us" },
       { label: "Vision & Mission", href: "/vision-mission" },
@@ -59,7 +59,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     eyebrow: "Product proof",
     title: "Explore ARS Products by Grade and Application",
     visual: "Products",
-    visualSrc: "/ars-assets/products-all.png",
+    visualSrc: "/ars-assets/navmenu/products.jpg",
     links: [
       { label: "ARS CRS Fe550D", href: "/product-crs-550d" },
       { label: "ARS Fe550D", href: "/product-550d" },
@@ -73,7 +73,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     eyebrow: "Sustainability",
     title: "Understand ARS Green Steel, Carbon & Certifications",
     visual: "Green steel",
-    visualSrc: "/ars-assets/our-quality-1.png",
+    visualSrc: "/ars-assets/navmenu/sustainability.jpg",
     links: [
       { label: "ARS Green Steel", href: "/ars-green-steel" },
       { label: "Embodied Carbon", href: "/embodied-carbon" },
@@ -87,7 +87,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     eyebrow: "Solutions",
     title: "Find the Right Solution for Your Construction Project",
     visual: "Audience paths",
-    visualSrc: "/ars-assets/home-owner-banner-1.png",
+    visualSrc: "/ars-assets/navmenu/Solutions.jpg",
     links: [
       { label: "For Home Owners", href: "/tmt-steel-bar-guide-homeowners" },
       { label: "For Engineers & Architects", href: "/tmt-steel-bar-guide-engineers-architects" },
@@ -122,7 +122,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     eyebrow: "Resources",
     title: "Everything You Need to Choose, Compare & Buy Steel",
     visual: "Knowledge center",
-    visualSrc: "/ars-assets/awards-certificates-img3.png",
+    visualSrc: "/ars-assets/navmenu/resources.jpg",
     links: [
       { label: "Steel Price Today", href: "/tmt-steel-price-today" },
       { label: "TMT Bar Calculator", href: "/tmt-steel-calculator" },
@@ -136,7 +136,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     eyebrow: "Press Media",
     title: "Latest News, Updates & Stories from ARS Steel",
     visual: "Press Media",
-    visualSrc: "/ars-assets/ARSHOME4.jpg",
+    visualSrc: "/ars-assets/navmenu/pressandmedia.jpg",
     links: [
       { label: "TV Commercials", href: "/tv-commercials" },
       { label: "News & Press Releases", href: "/news-press-releases" },
@@ -440,7 +440,7 @@ type MegaMenu = (typeof megaMenus)[keyof typeof megaMenus];
 function MegaMenuContent({ menu }: { menu: MegaMenu }) {
   return (
     <div className="ars-container grid gap-12 py-9 lg:grid-cols-[360px_1fr_280px] lg:items-center">
-      <Link className="group relative min-h-[190px] overflow-hidden rounded-[22px] bg-ink-900 p-6 text-white shadow-[0_20px_55px_rgba(15,23,42,0.18)]" href={menu.links[0]?.href ?? "/products"}>
+      <Link className="group relative min-h-[190px] overflow-hidden rounded-[22px] bg-ink-900 p-6 text-white shadow-[0_20px_55px_rgba(15,23,42,0.18)] lg:self-stretch" href={menu.links[0]?.href ?? "/products"}>
         <Image
           src={menu.visualSrc}
           alt={`${menu.visual} ARS`}
@@ -453,9 +453,9 @@ function MegaMenuContent({ menu }: { menu: MegaMenu }) {
         <div className="absolute bottom-5 right-5 inline-flex size-12 items-center justify-center rounded-full bg-white text-brand-blue transition group-hover:translate-x-1">
           <ArrowRight size={20} />
         </div>
-        <div className="relative mt-20">
+        <div className="absolute bottom-5 left-6 right-20">
           <p className="font-technical text-xs font-bold uppercase tracking-[0.28em] text-white/70">{menu.eyebrow}</p>
-          <p className="mt-2 font-display text-3xl font-black uppercase leading-tight">{menu.visual}</p>
+          <p className="mt-2 font-display text-2xl font-black uppercase leading-tight">{menu.visual}</p>
         </div>
       </Link>
 
