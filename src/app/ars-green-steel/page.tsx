@@ -2,12 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  BadgeCheck,
   CheckCircle2,
   Factory,
   FileCheck2,
   FlaskConical,
-  Gauge,
   Leaf,
   Recycle,
   ShieldCheck,
@@ -78,13 +76,6 @@ const carbonComparison = [
   ["ARS Green Steel (EPD)", "0.592", "t CO₂e/tonne", "20.4%"],
 ] as const;
 
-const impactItems = [
-  ["90", "Trees Equivalent", "per tonne of ARS Green Steel"],
-  ["110,000", "Vehicles Equivalent", "at 250,000 MT annual production"],
-  ["22 Million", "Trees Equivalent", "annual carbon absorption impact"],
-  ["592 kg CO₂e", "EPD Verified", "per tonne of finished steel"],
-] as const;
-
 const roadmap = [
   ["2023", "6%", "renewable energy", "reducing emissions to 0.85t CO₂e/t steel"],
   ["2024", "28%", "renewable energy", "reducing emissions to 0.59t CO₂e/t steel"],
@@ -144,17 +135,18 @@ export default function ArsGreenSteelPage() {
       <SiteHeader />
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-[#0B2A1E] text-white md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
-        <Image src="/ars-assets/Sustainability/ARSGreenSteel_leaves.jpg" alt="ARS steel manufacturing facility surrounded by mature green vegetation" fill priority sizes="100vw" className="object-cover object-[64%_center] sm:object-[58%_center] lg:object-[70%_55%]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,42,30,0.97)_0%,rgba(11,42,30,0.88)_42%,rgba(18,61,43,0.48)_70%,rgba(18,61,43,0.18)_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0B2A1E]/70 to-transparent" />
+        <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+          <source src="/ars-assets/ars-green-steel/hero-banner.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-[#0B2A1E]/10" />
         <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
           <div className="max-w-4xl">
             <SectionKicker variant="light">ARS Green Steel</SectionKicker>
             <h1 className="mt-7 max-w-4xl font-display font-extrabold leading-[0.98] text-white">India’s No. 1 Certified Green Steel Manufacturer</h1>
             <p className="mt-7 max-w-2xl text-base leading-8 text-white/78 md:text-lg">ARS Green Steel combines recycled steel, electric furnace technology and verified low-carbon manufacturing to deliver high-performance steel with a lower environmental impact.</p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="#products" className={primaryButton}>Explore Products <ArrowRight size={17} aria-hidden="true" /></Link>
-              <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-red-dark">Request Quote <ArrowRight size={17} aria-hidden="true" /></Link>
+              <Link href="#products" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] bg-[#17633F] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#0F4E30]">Explore Products <ArrowRight size={17} aria-hidden="true" /></Link>
+              <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] bg-white px-6 py-3 text-sm font-bold text-[#17633F] transition hover:bg-[#EEF5EC]">Request Quote <ArrowRight size={17} aria-hidden="true" /></Link>
             </div>
           </div>
         </div>
@@ -175,7 +167,7 @@ export default function ArsGreenSteelPage() {
             </ul>
           </div>
           <figure className="relative min-h-[520px] overflow-hidden bg-[#123D2B]">
-            <Image src="/ars-assets/Sustainability/ARSGreenSteel/greensteel.jpg" alt="Finished reinforcing steel positioned against a green natural landscape" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
+            <Image src="/ars-assets/ars-green-steel/whatisars.jpg" alt="A construction professional and a nature-covered hand holding ARS CRS 550D reinforcing steel" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B2A1E]/88 via-transparent to-transparent" />
             <figcaption className="absolute inset-x-7 bottom-7 border-l-2 border-green-steel pl-5 text-lg font-bold text-white">Same Fe-550D performance. A lower-carbon manufacturing route.</figcaption>
           </figure>
@@ -210,9 +202,7 @@ export default function ArsGreenSteelPage() {
             <p>The steel is then refined and rolled into TMT bars, with quality checks carried out through the manufacturing process. Renewable energy integration and real-time CO₂ emissions monitoring further support ARS&apos;s approach to responsible steel manufacturing.</p>
             <p>Every batch passes through spectro-analysis across more than 30 chemical elements, mechanical testing at ARS&apos;s in-house NABL-accredited laboratory, and third-party verification by SGS. Emission intensity is calculated separately and consolidated into the plant&apos;s Environmental Product Declaration.</p>
           </div>
-          <div className="mt-10 grid grid-cols-2 gap-2 lg:grid-cols-4">
-            {[["/ars-assets/Sustainability/ARSGreenSteel/recycle.jpg", "Recycled steel scrap entering the manufacturing route"], ["/ars-assets/Sustainability/ARSGreenSteel/renerwed.jpg", "Renewable wind energy above a green landscape"], ["/ars-assets/Sustainability/ARSGreenSteel/foil.jpg", "ARS steel manufacturing facility"], ["/ars-assets/Sustainability/ARSGreenSteel/greensteel.jpg", "Finished reinforcing steel beside vegetation"]].map(([src, alt]) => <figure key={src} className="relative aspect-[4/3] overflow-hidden border border-white/12"><Image src={src} alt={alt} fill sizes="(min-width: 1024px) 25vw, 50vw" className="object-cover" /></figure>)}
-          </div>
+          <figure className="relative mt-10 aspect-video w-full overflow-hidden bg-white"><Image src="/ars-assets/ars-green-steel/recycle.jpg" alt="Recycled steel, renewable energy, reduced fossil-fuel dependence, and finished reinforcing steel illustrating the ARS Green Steel manufacturing route" fill sizes="100vw" className="object-contain" /></figure>
           <h3 className="mt-14 font-display text-2xl font-bold">The Manufacturing Route</h3>
           <ol className="mt-7 grid border-l border-t border-white/16 md:grid-cols-2 lg:grid-cols-5">
             {manufacturingRoute.map(([title, body], index) => <li key={title} className="relative border-b border-r border-white/16 bg-white/[0.035] p-6 before:absolute before:left-0 before:top-0 before:h-1 before:w-12 before:bg-[#9BCB83]"><span className="font-technical text-xs font-black tracking-[0.18em] text-[#9BCB83]">{String(index + 1).padStart(2, "0")}</span><h4 className="mt-6 font-display text-xl font-bold text-white">{title}</h4><p className="mt-4 text-sm leading-7 text-white/68">{body}</p></li>)}
@@ -241,10 +231,7 @@ export default function ArsGreenSteelPage() {
           <SectionKicker>Environmental impact</SectionKicker>
           <h2 className="section-title max-w-3xl">The Impact Behind Every Tonne</h2>
           <p className={`mt-6 max-w-4xl ${bodyCopy}`}>Every tonne of ARS Green Steel contributes to measurable environmental impact. Backed by EPD-verified data, these numbers demonstrate how responsible manufacturing translates into meaningful carbon reduction at scale.</p>
-          <div className="relative mt-12 grid gap-8 lg:grid-cols-[.9fr_1.1fr]">
-            <div className="grid border-l border-t border-[#123D2B]/22 sm:grid-cols-2">{impactItems.map(([value, title, body]) => <article key={`${value}-${title}`} className="border-b border-r border-[#123D2B]/22 bg-[#F6F8F1] p-7"><strong className="font-display text-3xl font-bold text-[#17633F]">{value}</strong><h3 className="mt-5 font-display text-xl font-bold text-ink-900">{title}</h3><p className="mt-3 text-sm leading-7 text-steel-700">{body}</p></article>)}</div>
-            <figure className="relative min-h-[420px] overflow-hidden bg-[#0B2A1E]"><Image src="/ars-assets/Sustainability/ARSGreenSteel_infography.jpg" alt="ARS Green Steel environmental impact metrics" fill sizes="(min-width: 1024px) 52vw, 100vw" className="object-cover" /></figure>
-          </div>
+          <figure className="relative mt-12 aspect-video w-full overflow-hidden bg-[#0B2A1E]"><Image src="/ars-assets/Sustainability/ARSGreenSteel_infography.jpg" alt="ARS Green Steel environmental impact metrics" fill sizes="100vw" className="object-cover" /></figure>
         </div>
       </MotionSection>
 
@@ -267,10 +254,10 @@ export default function ArsGreenSteelPage() {
             <h2 className="section-title">India’s Green Steel Taxonomy</h2>
             <div className={`mt-7 space-y-5 ${bodyCopy}`}><p>India is the first country globally to introduce an official Green Steel Taxonomy. Issued by the Ministry of Steel, the framework classifies steel based on its carbon emission intensity, using a star-rating system based on CO₂ emissions per tonne of finished steel.</p><p>ARS Green Steel is the first steel manufacturer in India to receive the Green Steel Certificate under this framework. It has also received a 5-Star Green Steel Rating, the highest rating under the Government of India’s classification, along with a 73.5% Greenness Score.</p></div>
           </div>
-          <div className="border border-[#123D2B]/22 bg-[#EEF5EC] p-6 md:p-8">
-            <div className="grid grid-cols-2 gap-px bg-[#123D2B]/16 sm:grid-cols-4">{[["No Rating", "> 2.2", "t CO₂e/tonne"], ["3-Star", "2.0 – 2.2", "t CO₂e/tonne"], ["4-Star", "1.6 – 2.0", "t CO₂e/tonne"], ["5-Star", "< 1.6", "t CO₂e/tonne"]].map(([rating, value, unit], index) => <div key={rating} className={`${index === 3 ? "bg-[#17633F] text-white" : "bg-white text-ink-900"} p-5`}><span className="text-xs font-black uppercase tracking-[0.12em]">{rating}</span><strong className="mt-5 block font-display text-2xl">{value}</strong><small className="mt-1 block text-xs opacity-70">{unit}</small></div>)}</div>
-            <div className="mt-6 border-l-4 border-[#17633F] bg-white p-6"><div className="flex items-start gap-4"><Gauge className="mt-1 size-7 shrink-0 text-[#17633F]" aria-hidden="true" /><div><span className="text-xs font-black uppercase tracking-[0.14em] text-[#17633F]">ARS Green Steel</span><strong className="mt-2 block font-display text-4xl text-ink-900">0.592 <small className="text-sm">t CO₂e/tonne</small></strong><p className="mt-3 font-bold text-[#17633F]">★★★★★ 5-Star Green Steel Rating</p></div></div></div>
-            <div className="mt-4 grid gap-3 sm:grid-cols-3">{["Government of India Green Steel Certificate", "5-Star Green Steel Rating — Highest Rating", "73.5% Greenness Score — Assessed as per Taxonomy"].map((item) => <div key={item} className="flex gap-2 bg-green-steel/10 p-4 text-sm font-bold leading-6 text-green-steel"><BadgeCheck className="mt-0.5 size-4 shrink-0" aria-hidden="true" />{item}</div>)}</div>
+          <div className="relative min-h-[420px] overflow-hidden bg-[#EEF5EC]">
+            <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+              <source src="/ars-assets/ars-green-steel/GreenSteelTaxonomy.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </MotionSection>
