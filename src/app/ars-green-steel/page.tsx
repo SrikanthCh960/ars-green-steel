@@ -202,7 +202,7 @@ export default function ArsGreenSteelPage() {
             <p>The steel is then refined and rolled into TMT bars, with quality checks carried out through the manufacturing process. Renewable energy integration and real-time CO₂ emissions monitoring further support ARS&apos;s approach to responsible steel manufacturing.</p>
             <p>Every batch passes through spectro-analysis across more than 30 chemical elements, mechanical testing at ARS&apos;s in-house NABL-accredited laboratory, and third-party verification by SGS. Emission intensity is calculated separately and consolidated into the plant&apos;s Environmental Product Declaration.</p>
           </div>
-          <figure className="relative mt-10 aspect-video w-full overflow-hidden bg-white"><Image src="/ars-assets/ars-green-steel/recycle.jpg" alt="Recycled steel, renewable energy, reduced fossil-fuel dependence, and finished reinforcing steel illustrating the ARS Green Steel manufacturing route" fill sizes="100vw" className="object-contain" /></figure>
+          <figure className="relative mt-10 aspect-video w-full overflow-hidden bg-white"><Image src="/ars-assets/ars-green-steel/recycle.png" alt="Recycled steel, renewable energy, reduced fossil-fuel dependence, and finished reinforcing steel illustrating the ARS Green Steel manufacturing route" fill sizes="100vw" className="object-contain" /></figure>
           <h3 className="mt-14 font-display text-2xl font-bold">The Manufacturing Route</h3>
           <ol className="mt-7 grid border-l border-t border-white/16 md:grid-cols-2 lg:grid-cols-5">
             {manufacturingRoute.map(([title, body], index) => <li key={title} className="relative border-b border-r border-white/16 bg-white/[0.035] p-6 before:absolute before:left-0 before:top-0 before:h-1 before:w-12 before:bg-[#9BCB83]"><span className="font-technical text-xs font-black tracking-[0.18em] text-[#9BCB83]">{String(index + 1).padStart(2, "0")}</span><h4 className="mt-6 font-display text-xl font-bold text-white">{title}</h4><p className="mt-4 text-sm leading-7 text-white/68">{body}</p></li>)}
@@ -254,8 +254,8 @@ export default function ArsGreenSteelPage() {
             <h2 className="section-title">India’s Green Steel Taxonomy</h2>
             <div className={`mt-7 space-y-5 ${bodyCopy}`}><p>India is the first country globally to introduce an official Green Steel Taxonomy. Issued by the Ministry of Steel, the framework classifies steel based on its carbon emission intensity, using a star-rating system based on CO₂ emissions per tonne of finished steel.</p><p>ARS Green Steel is the first steel manufacturer in India to receive the Green Steel Certificate under this framework. It has also received a 5-Star Green Steel Rating, the highest rating under the Government of India’s classification, along with a 73.5% Greenness Score.</p></div>
           </div>
-          <div className="relative min-h-[420px] overflow-hidden bg-[#EEF5EC]">
-            <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+          <div className="relative aspect-square overflow-hidden bg-[#EEF5EC]">
+            <video className="absolute inset-0 h-full w-full object-contain" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
               <source src="/ars-assets/ars-green-steel/GreenSteelTaxonomy.mp4" type="video/mp4" />
             </video>
           </div>
