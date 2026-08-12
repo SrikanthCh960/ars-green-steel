@@ -168,8 +168,8 @@ export default function ArsBindersPage() {
           sizes="100vw"
           className="object-cover object-[60%_center]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,13,30,0.96),rgba(6,13,30,0.78)_54%,rgba(6,13,30,0.36))]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.9),transparent_58%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.54)_48%,rgba(6,13,30,0.14)_100%)] md:bg-[linear-gradient(90deg,rgba(6,13,30,0.64)_0%,rgba(6,13,30,0.34)_48%,rgba(6,13,30,0.03)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(0deg,rgba(6,13,30,0.38)_0%,rgba(6,13,30,0.08)_58%,transparent_100%)] md:h-[48%] md:bg-[linear-gradient(0deg,rgba(6,13,30,0.24)_0%,rgba(6,13,30,0.04)_58%,transparent_100%)]" />
         <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
           <div className="max-w-4xl">
             <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS BINDERS</div>

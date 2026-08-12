@@ -125,7 +125,8 @@ export default function GreenCertificationsPage() {
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-[#0B2A1E] text-white md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
         <Image src="/ars-assets/Sustainability/ARSGreenSteel_leaves.jpg" alt="ARS steel manufacturing facility surrounded by green vegetation" fill priority sizes="100vw" className="object-cover object-[64%_center] lg:object-[70%_55%]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,42,30,0.97)_0%,rgba(11,42,30,0.89)_48%,rgba(18,61,43,0.3)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,42,30,0.78)_0%,rgba(11,42,30,0.58)_48%,rgba(18,61,43,0.14)_100%)] md:bg-[linear-gradient(90deg,rgba(11,42,30,0.66)_0%,rgba(11,42,30,0.36)_48%,rgba(18,61,43,0.03)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(0deg,rgba(11,42,30,0.4)_0%,rgba(11,42,30,0.08)_58%,transparent_100%)] md:h-[48%] md:bg-[linear-gradient(0deg,rgba(11,42,30,0.26)_0%,rgba(11,42,30,0.04)_58%,transparent_100%)]" />
         <div className="ars-container relative z-10 w-full pb-14 pt-32 md:pb-20">
           <div className="max-w-4xl">
             <SectionKicker variant="light">Green Certifications</SectionKicker>

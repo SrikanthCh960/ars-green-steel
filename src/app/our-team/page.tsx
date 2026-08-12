@@ -133,11 +133,8 @@ export default function OurTeamPage() {
           sizes="100vw"
           className="object-cover object-[58%_center]"
         />
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(90deg, rgba(6,13,30,0.92) 0%, rgba(6,13,30,0.74) 46%, rgba(6,13,30,0.24) 100%)" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-transparent to-ink-950/20" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.54)_48%,rgba(6,13,30,0.14)_100%)] md:bg-[linear-gradient(90deg,rgba(6,13,30,0.64)_0%,rgba(6,13,30,0.34)_48%,rgba(6,13,30,0.03)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(0deg,rgba(6,13,30,0.38)_0%,rgba(6,13,30,0.08)_58%,transparent_100%)] md:h-[48%] md:bg-[linear-gradient(0deg,rgba(6,13,30,0.24)_0%,rgba(6,13,30,0.04)_58%,transparent_100%)]" />
 
         <div className="ars-page-hero-content ars-container relative z-10 flex h-full w-full items-end pb-16 pt-32 md:pb-20">
           <div className="max-w-4xl">

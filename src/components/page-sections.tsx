@@ -65,13 +65,13 @@ export function PageHero({
         ) : (
           <>
             <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
-            <video className="absolute inset-0 h-full w-full object-cover opacity-58" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+            <video className="absolute inset-0 h-full w-full object-cover opacity-85" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
               <source src="/videos/ars-intro.mp4" type="video/mp4" />
             </video>
           </>
         )}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink-950 via-ink-950/78 to-ink-950/28" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,13,14,0.1),rgba(11,13,14,0.88))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.54)_48%,rgba(6,13,30,0.14)_100%)] md:bg-[linear-gradient(90deg,rgba(6,13,30,0.64)_0%,rgba(6,13,30,0.34)_48%,rgba(6,13,30,0.03)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(0deg,rgba(6,13,30,0.38)_0%,rgba(6,13,30,0.08)_58%,transparent_100%)] md:h-[48%] md:bg-[linear-gradient(0deg,rgba(6,13,30,0.24)_0%,rgba(6,13,30,0.04)_58%,transparent_100%)]" />
       </div>
 
       <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">

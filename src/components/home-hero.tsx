@@ -69,8 +69,8 @@ export function HomeHero() {
         >
           <source src="/ars-assets/home/ARS_Hero_video.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-bg-dark/72 via-bg-dark/46 to-bg-dark/10" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,30,0.02),rgba(6,13,30,0.68))]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.52)_48%,rgba(6,13,30,0.12)_100%)] md:bg-[linear-gradient(90deg,rgba(6,13,30,0.6)_0%,rgba(6,13,30,0.3)_48%,rgba(6,13,30,0.02)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-[62%] bg-[linear-gradient(0deg,rgba(6,13,30,0.42)_0%,rgba(6,13,30,0.08)_58%,transparent_100%)] md:h-[52%] md:bg-[linear-gradient(0deg,rgba(6,13,30,0.28)_0%,rgba(6,13,30,0.04)_58%,transparent_100%)]" />
       </div>
 
       <div className="ars-container ars-page-hero-content relative z-10 flex min-h-[560px] flex-col justify-center py-20 sm:py-24 md:min-h-[600px] lg:min-h-[680px] lg:justify-end lg:pb-14 lg:pt-24">

@@ -184,8 +184,8 @@ export default function Ars550DPage() {
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px]">
         <div className="absolute inset-0">
           <Image src="/ars-assets/products/ARS550DBanner.jpg" alt="ARS TMT steel bars with campaign spokesperson" fill priority sizes="100vw" className="object-cover object-[58%_center]" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(6,13,30,0.96),rgba(6,13,30,0.72)_52%,rgba(6,13,30,0.28))]" />
-          <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.9),transparent_55%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.54)_48%,rgba(6,13,30,0.14)_100%)] md:bg-[linear-gradient(90deg,rgba(6,13,30,0.64)_0%,rgba(6,13,30,0.34)_48%,rgba(6,13,30,0.03)_100%)]" />
+          <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(0deg,rgba(6,13,30,0.38)_0%,rgba(6,13,30,0.08)_58%,transparent_100%)] md:h-[48%] md:bg-[linear-gradient(0deg,rgba(6,13,30,0.24)_0%,rgba(6,13,30,0.04)_58%,transparent_100%)]" />
         </div>
         <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
           <div className="max-w-4xl">

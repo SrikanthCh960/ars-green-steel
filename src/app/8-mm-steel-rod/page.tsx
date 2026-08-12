@@ -79,8 +79,8 @@ export default function EightMmSteelRodPage() {
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
         <Image src={heroImage} alt="ARS 8mm TMT steel reinforcement rod" fill priority sizes="100vw" className="object-cover object-[62%_center]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.97)_0%,rgba(6,13,30,0.8)_48%,rgba(6,13,30,0.22)_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-2/5 bg-[linear-gradient(to_top,rgba(6,13,30,0.82),transparent)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.54)_48%,rgba(6,13,30,0.14)_100%)] md:bg-[linear-gradient(90deg,rgba(6,13,30,0.64)_0%,rgba(6,13,30,0.34)_48%,rgba(6,13,30,0.03)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(0deg,rgba(6,13,30,0.38)_0%,rgba(6,13,30,0.08)_58%,transparent_100%)] md:h-[48%] md:bg-[linear-gradient(0deg,rgba(6,13,30,0.24)_0%,rgba(6,13,30,0.04)_58%,transparent_100%)]" />
         <div className="ars-container relative z-10 w-full pb-14 md:pb-16">
           <div className="max-w-3xl">
             <SectionKicker variant="light">ARS TMT BAR SIZES</SectionKicker>

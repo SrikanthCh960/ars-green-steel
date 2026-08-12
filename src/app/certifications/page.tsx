@@ -150,7 +150,7 @@ export default function CertificationsPage() {
 
       <section className="ars-page-hero relative flex min-h-[520px] items-end overflow-hidden bg-ink-950 md:min-h-[580px] lg:h-[640px] lg:min-h-[640px]">
         <div className="soft-noise absolute inset-0" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_25%,rgba(13,43,110,0.62),transparent_36%),linear-gradient(to_top,rgba(6,13,30,0.94),rgba(6,13,30,0.5))]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_25%,rgba(13,43,110,0.5),transparent_38%),linear-gradient(0deg,rgba(6,13,30,0.78),rgba(6,13,30,0.38))] md:bg-[radial-gradient(circle_at_82%_25%,rgba(13,43,110,0.42),transparent_40%),linear-gradient(0deg,rgba(6,13,30,0.68),rgba(6,13,30,0.28))]" />
 
         <div className="ars-container relative z-10 w-full pb-14 md:pb-16">
           <div className="max-w-4xl">

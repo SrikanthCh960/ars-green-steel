@@ -77,7 +77,6 @@ export default function SgpcPage() {
         <div className="ars-container grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
           <div className="relative overflow-hidden rounded-[18px] bg-ink-950 shadow-[0_24px_60px_rgba(6,13,30,0.2)]">
             <Image src="/ars-assets/sgbc/UnderstandingSGBC.jpg" alt="ARS representative holding the SGBC Green Building Product certificate" width={1080} height={1080} className="aspect-square h-full w-full object-cover transition duration-700 ease-out hover:scale-105" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,13,30,0.04),rgba(6,13,30,0.72))]" />
             <div className="absolute inset-x-0 bottom-0 p-6 md:p-8"><span className="inline-flex size-12 items-center justify-center rounded-full border border-white/25 bg-white/10 text-white backdrop-blur"><Factory size={20} /></span></div>
           </div>
           <div>
