@@ -181,7 +181,6 @@ const menuPaths: Record<MenuKey, string[]> = {
     "/tmt-steel-price-today",
     "/guides-articles",
     "/tmt-steel-calculator",
-    "/careers",
     "/faqs",
   ],
   pressMedia: ["/press-media", "/tv-commercials", "/news-press-releases", "/events", "/gallery", "/video", "/success-stories"],
@@ -256,7 +255,7 @@ export function SiteHeader() {
     >
       <div className="site-header-shell border-b border-ink-900/10 bg-white shadow-[0_8px_28px_rgba(13,43,110,0.08)]">
       <div className="ars-container flex h-[76px] items-center justify-between">
-        <Link href="/" className="focus-ring flex items-center gap-3">
+        <Link href="/" className="focus-ring flex cursor-pointer items-center gap-3">
           <span className="flex h-[55px] w-[117px] items-center justify-center">
             <Image src="/ars-green-steel.svg" alt="ARS Green Steel" width={117} height={55} priority />
           </span>
@@ -267,7 +266,7 @@ export function SiteHeader() {
             href="/"
             aria-label="Home"
             aria-current={pathname === "/" ? "page" : undefined}
-            className={`focus-ring relative inline-flex h-[76px] w-10 items-center justify-center bg-transparent text-brand-blue transition hover:text-ink-900 before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-full before:origin-left before:bg-brand-red before:transition-transform before:duration-300 focus-visible:text-ink-900 focus-visible:before:scale-x-100 ${
+            className={`focus-ring relative inline-flex h-[76px] w-10 cursor-pointer items-center justify-center bg-transparent text-brand-blue transition hover:text-ink-900 before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-full before:origin-left before:bg-brand-red before:transition-transform before:duration-300 focus-visible:text-ink-900 focus-visible:before:scale-x-100 ${
               pathname === "/"
                 ? "text-ink-900 before:scale-x-100"
                 : "before:scale-x-0 hover:before:scale-x-100"
@@ -278,8 +277,11 @@ export function SiteHeader() {
           {links.map((link) => {
             const menuKey = link.menu as keyof typeof megaMenus | undefined;
             const menu = menuKey ? megaMenus[menuKey] : null;
-            const isActive = menuKey ? menuPaths[menuKey].some((route) => pathMatches(pathname, route)) : pathname === link.href;
+            const isActive = menuKey ? menuPaths[menuKey].some((route) => pathMatches(pathname, route)) : pathMatches(pathname, link.href);
             const menuId = menuKey ? `desktop-${menuKey}-menu` : undefined;
+            const navigationClassName = `focus-ring relative inline-flex h-[76px] cursor-pointer items-center gap-1.5 bg-transparent transition hover:text-ink-900 before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-full before:origin-left before:bg-brand-red before:transition-transform before:duration-300 focus-visible:text-ink-900 focus-visible:before:scale-x-100 ${
+              isActive ? "text-ink-900 before:scale-x-100" : "before:scale-x-0 hover:before:scale-x-100"
+            }`;
 
             return (
               <div
@@ -288,26 +290,32 @@ export function SiteHeader() {
                 onPointerEnter={() => menuKey && setOpenMenu(menuKey)}
                 onPointerLeave={() => menuKey && setOpenMenu((current) => current === menuKey ? null : current)}
               >
-                <button
-                  ref={(node) => {
-                    if (menuKey) {
+                {menuKey && menu ? (
+                  <button
+                    ref={(node) => {
                       triggerRefs.current[menuKey] = node;
-                    }
-                  }}
-                  type="button"
-                  className={`relative inline-flex h-[76px] items-center gap-1.5 bg-transparent transition hover:text-ink-900 before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-full before:origin-left before:bg-brand-red before:transition-transform before:duration-300 focus-visible:text-ink-900 focus-visible:before:scale-x-100 ${
-                    isActive ? "text-ink-900 before:scale-x-100" : "before:scale-x-0 hover:before:scale-x-100"
-                  }`}
-                  aria-haspopup={menu ? "true" : undefined}
-                  aria-expanded={menuKey ? openMenu === menuKey : undefined}
-                  aria-controls={menuId}
-                  aria-current={isActive ? "page" : undefined}
-                  onClick={() => menuKey && setOpenMenu(menuKey)}
-                  onFocus={() => menuKey && setOpenMenu(menuKey)}
-                >
-                  {link.label}
-                  {menu ? <ChevronDown size={14} className="text-brand-blue transition group-hover/menu:rotate-180 group-focus-within/menu:rotate-180" /> : null}
-                </button>
+                    }}
+                    type="button"
+                    className={navigationClassName}
+                    aria-haspopup="true"
+                    aria-expanded={openMenu === menuKey}
+                    aria-controls={menuId}
+                    aria-current={isActive ? "page" : undefined}
+                    onClick={() => setOpenMenu(menuKey)}
+                    onFocus={() => setOpenMenu(menuKey)}
+                  >
+                    {link.label}
+                    <ChevronDown size={14} className="text-brand-blue transition group-hover/menu:rotate-180 group-focus-within/menu:rotate-180" />
+                  </button>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className={navigationClassName}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {link.label}
+                  </Link>
+                )}
                 {menu ? (
                   <div
                     id={menuId}
@@ -327,12 +335,12 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <Link
-            className="focus-ring hidden h-11 items-center gap-2 rounded-full bg-brand-red px-5 text-sm font-bold text-white shadow-[0_12px_30px_rgba(222,18,26,0.24)] transition hover:bg-brand-red-dark md:inline-flex"
+            className="focus-ring hidden h-11 cursor-pointer items-center gap-2 rounded-full bg-brand-red px-5 text-sm font-bold text-white shadow-[0_12px_30px_rgba(222,18,26,0.24)] transition hover:bg-brand-red-dark md:inline-flex"
             href="/our-network"
           >
             <MapPin size={16} /> Find Dealer
           </Link>
-          <Link className="focus-ring inline-flex h-11 items-center gap-2 rounded-full border border-ink-900/12 bg-white/60 px-5 text-sm font-bold text-ink-900 transition hover:border-brand-blue hover:text-brand-blue" href="/request-quote">
+          <Link className="focus-ring inline-flex h-11 cursor-pointer items-center gap-2 rounded-full border border-ink-900/12 bg-white/60 px-5 text-sm font-bold text-ink-900 transition hover:border-brand-blue hover:text-brand-blue" href="/request-quote">
             Get quote <ArrowRight size={16} />
           </Link>
           <div className="relative z-[110] xl:hidden">
@@ -373,7 +381,7 @@ export function SiteHeader() {
                   </Link>
                   {routeLinks.map((link) => {
                     if (!link.menu) {
-                      return <Link key={link.label} className="flex items-center justify-between border-t border-ink-900/10 py-3 text-base font-bold text-ink-900" href={link.href} aria-current={pathname === link.href ? "page" : undefined} onClick={() => setMobileOpen(false)}>
+                      return <Link key={link.label} className="flex cursor-pointer items-center justify-between border-t border-ink-900/10 py-3 text-base font-bold text-ink-900" href={link.href} aria-current={pathMatches(pathname, link.href) ? "page" : undefined} onClick={() => setMobileOpen(false)}>
                         {link.label}
                         <ArrowRight size={16} className="text-brand-blue" />
                       </Link>;

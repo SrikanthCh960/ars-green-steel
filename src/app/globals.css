@@ -367,6 +367,11 @@ main h1 {
   margin-top: 0;
 }
 
+.site-header a,
+.site-header button {
+  cursor: pointer;
+}
+
 @media (min-width: 1280px) {
   .site-header-shell {
     transition: border-color 180ms ease, box-shadow 180ms ease;

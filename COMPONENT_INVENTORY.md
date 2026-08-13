@@ -19,7 +19,7 @@ After creating or materially changing a reusable component, update this file in 
 
 | Component | File | Purpose | Variants / Notes | Current Usage |
 |---|---|---|---|---|
-| `SiteHeader` | `src/components/site-header.tsx` | Global header, navigation, mega menu, and primary enquiry actions | Shared across public pages; 76 px navigation row with a 55 px logo and animated brand-red active/hover underline, including the home icon | Homepage and pages |
+| `SiteHeader` | `src/components/site-header.tsx` | Global header, navigation, mega menu, and primary enquiry actions | Shared across public pages; semantic direct-route links and menu-trigger buttons use pointer affordance, keyboard focus, route-aware active states, and the animated brand-red underline; includes the 76 px navigation row, 55 px logo, and home icon | Homepage and pages |
 | `SiteFooter` | `src/components/site-footer.tsx` | Global footer with ARS trust, links, and contact pathways | Contact panel includes Customer Care, quote, dealer, and direct contact actions; rendered once by `src/app/layout.tsx`; page components and `ContactCta` must not render it | All routes |
 | `AnalyticsInteractions` | `src/components/analytics-interactions.tsx` | Shared privacy-minimized telephone-click measurement for direct GA4 | Uses one delegated `tel:` click listener; emits `phone_click` only when public analytics environment gating is enabled; sends no raw telephone URL or visitor-entered data | Root layout across all routes |
 | `SectionKicker` | `src/components/section-kicker.tsx` | Standard section label with horizontal rule | `brand`, `light`, `green`; optional center/end-line mode | Homepage and page sections |
