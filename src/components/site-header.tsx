@@ -78,7 +78,7 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
       { label: "ARS Green Steel", href: "/ars-green-steel" },
       { label: "Embodied Carbon", href: "/embodied-carbon" },
       { label: "Green Certifications", href: "/green-certifications" },
-      { label: "What is Green Steel", href: "/green-steel#what-is-green-steel" },
+      { label: "Green Guide", href: "/green-steel#what-is-green-steel" },
       { label: "SGBC", href: "/sgbc" },
     ],
     proof: ["Green steel story", "EPD / GRIHA / LEED readiness", "Downloadable proof"],

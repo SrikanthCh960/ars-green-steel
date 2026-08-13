@@ -72,7 +72,7 @@ const documents = [
 const pathways = [
   ["ARS Green Steel", "Product performance, manufacturing route, carbon transparency, and environmental impact.", "/ars-green-steel"],
   ["Embodied Carbon", "How material emissions affect the carbon profile of construction projects.", "/embodied-carbon"],
-  ["What is Green Steel", "A practical introduction to Green Steel and lower-carbon manufacturing.", "/green-steel#what-is-green-steel"],
+  ["Green Guide", "A practical introduction to Green Steel and lower-carbon manufacturing.", "/green-steel#what-is-green-steel"],
   ["SGBC", "Detailed information about ARS recognition from the Singapore Green Building Council.", "/sgbc"],
   ["Complete Certifications & Awards", "The full ARS corporate library, including statutory, quality, management, and award documents.", "/our-certification"],
 ] as const;
