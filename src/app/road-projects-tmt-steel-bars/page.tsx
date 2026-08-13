@@ -21,7 +21,7 @@ const pagePath = "/road-projects-tmt-steel-bars";
 export const metadata: Metadata = createPageMetadata({
   title: "TMT Bars for Road Projects | ARS Green Steel",
   description:
-    "For highways, expressways, and urban road projects, ARS Fe550D and CRS 550D TMT Bars combine strength, durability, and engineering excellence for infrastructure that lasts.",
+    "For highways, expressways, and urban road projects, ARS Fe 550D and CRS 550D TMT Bars combine strength, durability, and engineering excellence for infrastructure that lasts.",
   path: pagePath,
   image: "/ars-assets/Solutions/RoadProjects/RoadProjectHeroBanner.jpg",
 });
@@ -41,8 +41,8 @@ const arsStrengths = [
 ] as const;
 
 const products = [
-  ["ARS CRS 550D TMT Bars", "Designed for road infrastructure exposed to high moisture, water crossings, and high-salinity environments where enhanced corrosion resistance is essential.", "/product-crs-550d", "Explore CRS 550D"],
-  ["ARS Fe550D TMT Bars", "For highways, bridges, flyovers, retaining walls, and reinforced concrete structures that demand high strength and excellent ductility.", "/product-550d", "Explore Fe550D"],
+  ["ARS CRS Fe 550D TMT Bars", "Designed for road infrastructure exposed to high moisture, water crossings, and high-salinity environments where enhanced corrosion resistance is essential.", "/product-crs-550d", "Explore CRS 550D"],
+  ["ARS Fe 550D TMT Bars", "For highways, bridges, flyovers, retaining walls, and reinforced concrete structures that demand high strength and excellent ductility.", "/product-550d", "Explore Fe550D"],
   ["ARS Binders", "Factory-made reinforcement binders designed for accurate bends, consistent dimensions, and faster reinforcement work on road infrastructure projects.", "/ars-binders", "Explore ARS Binders"],
 ] as const;
 
@@ -63,7 +63,7 @@ const roadGuideCards = [
 ] as const;
 
 const faqs = [
-  ["Which TMT bar is suitable for road construction?", "Road projects generally require high-strength, high-ductility TMT bars capable of reinforcing bridges, culverts, retaining walls, and other reinforced concrete structures. ARS Fe550D and CRS 550D TMT Bars are designed for such demanding applications."],
+  ["Which TMT bar is suitable for road construction?", "Road projects generally require high-strength, high-ductility TMT bars capable of reinforcing bridges, culverts, retaining walls, and other reinforced concrete structures. ARS Fe 550D and CRS 550D TMT Bars are designed for such demanding applications."],
   ["Which TMT bar is best for highway and bridge construction?", "Projects requiring superior strength, ductility, and long-term durability often specify Fe550D grade reinforcement. For structures exposed to moisture or high salinity, corrosion-resistant CRS 550D provides additional protection."],
   ["Why is ductility important in road infrastructure?", "Ductility enables reinforced concrete structures to absorb stresses and distribute loads more effectively, helping improve structural resilience under dynamic traffic conditions."],
   ["Is corrosion resistance important in road projects?", "Yes. Infrastructure exposed to water, humidity, coastal air, or de-icing environments benefits from corrosion-resistant reinforcement that helps improve long-term durability."],
@@ -82,7 +82,7 @@ export default function RoadProjectsPage() {
           <div className="max-w-4xl">
             <SectionKicker variant="light">Road Projects</SectionKicker>
             <h1 className="mt-6 max-w-4xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold leading-[1.03] tracking-[-0.025em] text-white">Because Every Journey Deserves a Strong Beginning.</h1>
-            <p className="mt-6 max-w-2xl text-[15px] leading-7 text-white/80">Designed for highways, expressways, and urban road projects, ARS Fe550D CRS TMT Bars combine strength, durability, and engineering excellence for infrastructure that lasts.</p>
+            <p className="mt-6 max-w-2xl text-[15px] leading-7 text-white/80">Designed for highways, expressways, and urban road projects, ARS CRS Fe 550D TMT Bars combine strength, durability, and engineering excellence for infrastructure that lasts.</p>
             <Link href="/request-quote" className="focus-ring mt-7 inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-red-dark">Request a Project Quote <ArrowRight aria-hidden="true" size={16} /></Link>
           </div>
         </div>

@@ -111,8 +111,8 @@ const certificationLogos = [
 ] as const;
 
 const products = [
-  ["ARS CRS 550D TMT Bars", "Designed for projects exposed to high moisture, high salinity, and corrosive environments. Its enhanced corrosion resistance helps improve the durability and service life of structures, making it suitable for demanding conditions.", "Explore ARS CRS 550D", "/product-crs-550d", "/ars-assets/logos/ARSCRS550D.png"],
-  ["ARS Fe550D TMT Bars", "Ideal for general residential, commercial, and infrastructure construction where high strength, excellent ductility, and reliable performance are essential. A trusted choice for everyday construction projects.", "Explore ARS 550D", "/product-550d", "/ars-assets/TMT-Bars.png"],
+  ["ARS CRS Fe 550D TMT Bars", "Designed for projects exposed to high moisture, high salinity, and corrosive environments. Its enhanced corrosion resistance helps improve the durability and service life of structures, making it suitable for demanding conditions.", "Explore ARS CRS Fe 550D", "/product-crs-550d", "/ars-assets/logos/ARSCRS550D.png"],
+  ["ARS Fe 550D TMT Bars", "Ideal for general residential, commercial, and infrastructure construction where high strength, excellent ductility, and reliable performance are essential. A trusted choice for everyday construction projects.", "Explore ARS Fe 550D", "/product-550d", "/ars-assets/TMT-Bars.png"],
   ["ARS Binders", "Factory-made steel binders designed for consistent dimensions, accurate bends, and faster reinforcement work on site. Manufactured with precision to help improve productivity, reduce manual bending time, and deliver uniform quality across construction projects.", "Explore ARS Binders", "/ars-binders", "/ars-assets/logos/BinderLogo.png"],
 ] as const;
 
@@ -167,7 +167,7 @@ export default function ArsGreenSteelPage() {
         paragraphs={aboutParagraphs}
         checklist={aboutChecklist}
         imageSrc="/ars-assets/ars-green-steel/whatisars.jpg"
-        imageAlt="A construction professional and a nature-covered hand holding ARS CRS 550D reinforcing steel"
+        imageAlt="A construction professional and a nature-covered hand holding ARS CRS Fe 550D reinforcing steel"
         caption="Same Fe-550D performance. A lower-carbon manufacturing route."
       />
 

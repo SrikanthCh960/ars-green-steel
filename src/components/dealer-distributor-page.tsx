@@ -8,8 +8,8 @@ import { SiteHeader } from "@/components/site-header";
 import { FaqList } from "@/components/faq-list";
 
 const products = [
-  { title: "ARS CRS 550D TMT Bars", body: "A corrosion-resistant TMT solution for projects exposed to moisture, salinity, and demanding environments.", href: "/product-crs-550d", label: "Explore ARS CRS 550D", image: "/ars-assets/logos/ARSCRS550D.png" },
-  { title: "ARS Fe550D TMT Bars", body: "A dependable TMT steel solution for residential, commercial, and infrastructure projects.", href: "/product-550d", label: "Explore ARS 550D", image: "/ars-assets/logos/ARS550D.png" },
+  { title: "ARS CRS Fe 550D TMT Bars", body: "A corrosion-resistant TMT solution for projects exposed to moisture, salinity, and demanding environments.", href: "/product-crs-550d", label: "Explore ARS CRS Fe 550D", image: "/ars-assets/logos/ARSCRS550D.png" },
+  { title: "ARS Fe 550D TMT Bars", body: "A dependable TMT steel solution for residential, commercial, and infrastructure projects.", href: "/product-550d", label: "Explore ARS Fe 550D", image: "/ars-assets/logos/ARS550D.png" },
   { title: "ARS Binders", body: "Precision-made steel binders that help improve consistency and efficiency in reinforcement work.", href: "/ars-binders", label: "Explore ARS Binders", image: "/ars-assets/logos/BinderLogo.png" },
 ] as const;
 

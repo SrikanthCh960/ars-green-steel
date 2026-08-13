@@ -4,7 +4,7 @@ import { appendGoogleSheetRow } from "@/lib/google-sheets";
 
 export const QUOTE_REQUEST_STATES = ["Tamil Nadu", "Kerala", "Karnataka", "Andhra Pradesh"] as const;
 export const QUOTE_PROJECT_TYPES = ["Residential", "Commercial", "Road / Infrastructure", "Dealer Enquiry"] as const;
-export const QUOTE_PRODUCT_TYPES = ["ARS CRS 550D", "ARS Fe 550D", "Binders"] as const;
+export const QUOTE_PRODUCT_TYPES = ["ARS CRS Fe 550D", "ARS Fe 550D", "Binders"] as const;
 
 type QuoteState = (typeof QUOTE_REQUEST_STATES)[number];
 type QuoteProjectType = (typeof QUOTE_PROJECT_TYPES)[number];
@@ -36,6 +36,13 @@ const allowedRequestKeys = new Set([
 ]);
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const indiaTimeZone = "Asia/Kolkata" as const;
+const legacyQuoteProductTypes: Record<string, QuoteProductType> = {
+  "ARS 550D": "ARS Fe 550D",
+  "ARS Fe550D": "ARS Fe 550D",
+  "ARS CRS 550D": "ARS CRS Fe 550D",
+  "ARS CRS Fe550D": "ARS CRS Fe 550D",
+  "ARS 550D CRS": "ARS CRS Fe 550D",
+};
 
 function cleanText(value: unknown) {
   return typeof value === "string" ? value.trim().replace(/\s+/g, " ") : "";
@@ -53,6 +60,10 @@ function normalizeIndianPhone(value: unknown) {
 
 function isAllowed<T extends readonly string[]>(values: T, value: string): value is T[number] {
   return values.includes(value);
+}
+
+function normalizeQuoteProductType(value: string) {
+  return legacyQuoteProductTypes[value] ?? value;
 }
 
 function formatIndiaDateTime(date: Date) {
@@ -90,7 +101,7 @@ export function validateQuoteRequest(value: unknown, now = new Date()): QuoteReq
   const state = cleanText(record.state);
   const city = cleanText(record.city);
   const projectType = cleanText(record.projectType);
-  const productType = cleanText(record.productType);
+  const productType = normalizeQuoteProductType(cleanText(record.productType));
   const requirement = cleanMultilineText(record.requirement);
   const sourcePage = cleanText(record.sourcePage);
   const website = cleanText(record.website);

@@ -21,9 +21,9 @@ import { ProductLeadCaptureForm } from "@/components/product-lead-capture-form";
 import { FaqList } from "@/components/faq-list";
 
 export const metadata = createPageMetadata({
-  title: "ARS 550D TMT Bars | ARS Green Steel",
+  title: "ARS Fe 550D TMT Bars | ARS Green Steel",
   description:
-    "ARS 550D high-strength ductile TMT bars (Fe-550D, IS 1786:2008) for safer residential, commercial, and infrastructure construction.",
+    "ARS Fe 550D high-strength ductile TMT bars (Fe-550D, IS 1786:2008) for safer residential, commercial, and infrastructure construction.",
   path: "/product-550d",
 });
 
@@ -47,12 +47,12 @@ const benefits = [
   {
     icon: <Zap size={20} />,
     title: "High Strength",
-    desc: "Manufactured to Fe550D grade, ARS 550D TMT Bars provide the strength required for residential, commercial, industrial, and infrastructure construction without compromising structural reliability.",
+    desc: "Manufactured to Fe550D grade, ARS Fe 550D TMT Bars provide the strength required for residential, commercial, industrial, and infrastructure construction without compromising structural reliability.",
   },
   {
     icon: <Building2 size={20} />,
     title: "High Ductility",
-    desc: "Designed with low sulphur and low phosphorus content, ARS 550D offers excellent ductility, allowing reinforced concrete structures to perform better under dynamic loads and seismic conditions.",
+    desc: "Designed with low sulphur and low phosphorus content, ARS Fe 550D offers excellent ductility, allowing reinforced concrete structures to perform better under dynamic loads and seismic conditions.",
   },
   {
     icon: <ShoppingCart size={20} />,
@@ -77,7 +77,7 @@ const benefits = [
   {
     icon: <FileText size={20} />,
     title: "Better Weldability",
-    desc: "The controlled chemical composition supports improved weldability, making ARS 550D suitable for a wide range of reinforced concrete construction requirements.",
+    desc: "The controlled chemical composition supports improved weldability, making ARS Fe 550D suitable for a wide range of reinforced concrete construction requirements.",
   },
   {
     icon: <IndianRupee size={20} />,
@@ -115,32 +115,32 @@ const diameterLinks = [
 
 const faqs = [
   [
-    "What is ARS 550D TMT Bar?",
-    "ARS 550D is a high-strength Fe550D grade TMT reinforcement bar manufactured in accordance with IS 1786 standards. It is engineered to provide superior strength, ductility, and durability for residential, commercial, industrial, and infrastructure construction.",
+    "What is ARS Fe 550D TMT Bar?",
+    "ARS Fe 550D is a high-strength Fe550D grade TMT reinforcement bar manufactured in accordance with IS 1786 standards. It is engineered to provide superior strength, ductility, and durability for residential, commercial, industrial, and infrastructure construction.",
   ],
   [
     "What is the difference between Fe500D and Fe550D TMT Bars?",
     "The primary difference is yield strength. Fe550D offers a minimum yield strength of 550 MPa, while Fe500D provides 500 MPa. With higher strength and excellent ductility, Fe550D is preferred for projects that require enhanced structural performance and efficient steel utilisation.",
   ],
   [
-    "Where can ARS 550D TMT Bars be used?",
-    "ARS 550D TMT Bars are suitable for reinforced concrete construction, including residential homes, apartments, commercial buildings, industrial structures, bridges, public infrastructure, foundations, columns, beams, and slabs.",
+    "Where can ARS Fe 550D TMT Bars be used?",
+    "ARS Fe 550D TMT Bars are suitable for reinforced concrete construction, including residential homes, apartments, commercial buildings, industrial structures, bridges, public infrastructure, foundations, columns, beams, and slabs.",
   ],
   [
     "Why is ductility important in Fe550D TMT Bars?",
     "Ductility allows reinforcement steel to deform under heavy loads without sudden failure. This helps reinforced concrete structures absorb stress more effectively, making them safer during earthquakes, dynamic loading, and other demanding service conditions.",
   ],
   [
-    "What standards and certifications does ARS 550D comply with?",
-    "ARS 550D TMT Bars are manufactured in compliance with IS 1786 and are backed by BIS Certification, SGS Testing, SERC Certification, and stringent in-house quality control to ensure consistent product quality and performance.",
+    "What standards and certifications does ARS Fe 550D comply with?",
+    "ARS Fe 550D TMT Bars are manufactured in compliance with IS 1786 and are backed by BIS Certification, SGS Testing, SERC Certification, and stringent in-house quality control to ensure consistent product quality and performance.",
   ],
   [
-    "Is ARS 550D suitable for earthquake-resistant construction?",
-    "Yes. ARS 550D combines high strength with excellent ductility, helping reinforced concrete structures withstand seismic forces more effectively. Its mechanical properties make it a dependable choice for earthquake-resistant construction when used as part of a properly engineered structural design.",
+    "Is ARS Fe 550D suitable for earthquake-resistant construction?",
+    "Yes. ARS Fe 550D combines high strength with excellent ductility, helping reinforced concrete structures withstand seismic forces more effectively. Its mechanical properties make it a dependable choice for earthquake-resistant construction when used as part of a properly engineered structural design.",
   ],
   [
-    "What is the difference between ARS 550D and ARS CRS 550D?",
-    "ARS 550D is designed for general reinforced concrete construction, offering high strength and ductility. ARS CRS 550D provides these benefits along with enhanced corrosion resistance, making it suitable for structures exposed to moisture, coastal environments, and high-salinity conditions.",
+    "What is the difference between ARS Fe 550D and ARS CRS Fe 550D?",
+    "ARS Fe 550D is designed for general reinforced concrete construction, offering high strength and ductility. ARS CRS Fe 550D provides these benefits along with enhanced corrosion resistance, making it suitable for structures exposed to moisture, coastal environments, and high-salinity conditions.",
   ],
 ];
 
@@ -159,7 +159,7 @@ function PropertyTable({
           <tr>
             <th scope="col" className="px-4 py-3 text-[10px] font-bold uppercase tracking-[0.1em] text-white/80">Property</th>
             <th scope="col" className="px-4 py-3 text-[10px] font-bold uppercase tracking-[0.1em] text-white/80">Unit</th>
-            <th scope="col" className="px-4 py-3 text-[10px] font-bold uppercase tracking-[0.1em] text-white/80">ARS 550D</th>
+            <th scope="col" className="px-4 py-3 text-[10px] font-bold uppercase tracking-[0.1em] text-white/80">ARS Fe 550D</th>
           </tr>
         </thead>
         <tbody>
@@ -189,9 +189,9 @@ export default function Ars550DPage() {
         </div>
         <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
           <div className="max-w-4xl">
-            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS 550D TMT Bars | Fe 550D Grade</div>
-            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">ARS 550D TMT Bars for Strong, Durable Construction</h1>
-            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">Engineered for high strength, superior ductility, and dependable performance, ARS 550D TMT Bars are built for modern construction.</p>
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS Fe 550D TMT Bars | Fe 550D Grade</div>
+            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">ARS Fe 550D TMT Bars for Strong, Durable Construction</h1>
+            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">Engineered for high strength, superior ductility, and dependable performance, ARS Fe 550D TMT Bars are built for modern construction.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/request-quote?product=ars-550d" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"><FileText size={14} aria-hidden="true" /> Get a Quote</Link>
               <Link href="/tmt-steel-calculator" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.12]"><Calculator size={14} aria-hidden="true" /> Calculate Steel</Link>
@@ -220,12 +220,12 @@ export default function Ars550DPage() {
             <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.96)_0%,rgba(6,13,30,0.68)_46%,rgba(6,13,30,0.08)_100%)]" />
             <div className="relative z-10 mt-auto max-w-xl">
               <SectionKicker variant="light">PRODUCT OVERVIEW</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">What Are ARS 550D TMT Bars?</h2>
-              <p className="mt-5 text-[15px] leading-[1.8] text-white/80"><strong>Built for Strength. Trusted for Modern Construction.</strong><br />Choosing the right reinforcement steel is one of the most important decisions in any construction project. ARS 550D TMT Bars are engineered to provide the strength, ductility, and consistency required for modern reinforced concrete structures. Manufactured to IS 1786 standards, they are suitable for residential, commercial, industrial, and infrastructure applications where long-term structural performance matters.</p>
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">What Are ARS Fe 550D TMT Bars?</h2>
+              <p className="mt-5 text-[15px] leading-[1.8] text-white/80"><strong>Built for Strength. Trusted for Modern Construction.</strong><br />Choosing the right reinforcement steel is one of the most important decisions in any construction project. ARS Fe 550D TMT Bars are engineered to provide the strength, ductility, and consistency required for modern reinforced concrete structures. Manufactured to IS 1786 standards, they are suitable for residential, commercial, industrial, and infrastructure applications where long-term structural performance matters.</p>
             </div>
           </div>
           <div className="overflow-hidden rounded-2xl border-[1.5px] border-surface-100">
-            <div className="bg-brand-blue px-6 py-3"><p className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/80">ARS 550D Technical Overview</p></div>
+            <div className="bg-brand-blue px-6 py-3"><p className="text-[10px] font-bold uppercase tracking-[0.12em] text-white/80">ARS Fe 550D Technical Overview</p></div>
             {technicalOverview.map((row, index) => <div key={row.label} className={`grid grid-cols-5 px-5 py-4 ${index % 2 === 0 ? "bg-white" : "bg-surface-50"}`}><p className="col-span-2 text-[10px] font-bold uppercase tracking-[0.08em] text-brand-blue">{row.label}</p><p className="col-span-3 text-[13px] leading-[1.6] text-steel-700">{row.value}</p></div>)}
             <div className="border-t border-surface-100 bg-white p-5"><span aria-disabled="true" className="inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-brand-blue/20 px-4 py-2 text-[13px] font-bold text-brand-blue"><Download size={14} aria-hidden="true" /> Download Brochure</span></div>
           </div>
@@ -247,13 +247,13 @@ export default function Ars550DPage() {
 
       <MotionSection className="bg-brand-blue py-20 md:py-24">
         <div className="ars-container">
-          <div className="mb-12 grid items-start gap-8 lg:grid-cols-2"><div><SectionKicker variant="light">WHY CHOOSE ARS 550D</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">Engineered to Perform. Built to Last.</h2></div><p className="text-[15px] leading-[1.8] text-white/75 lg:pt-12">Every ARS 550D TMT Bar is manufactured to deliver the strength, flexibility, and consistency required for modern reinforced concrete construction.</p></div>
+          <div className="mb-12 grid items-start gap-8 lg:grid-cols-2"><div><SectionKicker variant="light">WHY CHOOSE ARS Fe 550D</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">Engineered to Perform. Built to Last.</h2></div><p className="text-[15px] leading-[1.8] text-white/75 lg:pt-12">Every ARS Fe 550D TMT Bar is manufactured to deliver the strength, flexibility, and consistency required for modern reinforced concrete construction.</p></div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{benefits.map((benefit, index) => <article key={benefit.title} className="flex min-h-[235px] flex-col rounded-2xl border border-white/[0.1] bg-white/[0.05] p-6"><div className="flex items-center justify-between"><span className="flex h-10 w-10 items-center justify-center rounded-xl border border-brand-red/30 bg-brand-red/10 text-brand-red">{benefit.icon}</span><span className="text-[12px] font-bold text-white/20">{String(index + 1).padStart(2, "0")}</span></div><h3 className="mt-6 font-display text-[16px] font-bold text-white">{benefit.title}</h3><p className="mt-2 text-[13px] leading-[1.65] text-white/70">{benefit.desc}</p></article>)}</div>
         </div>
       </MotionSection>
 
       <MotionSection className="bg-white py-20 md:py-24">
-        <div className="ars-container"><SectionKicker variant="brand">Key Properties</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Mechanical &amp; Chemical Properties</h2><p className="mt-5 max-w-3xl text-[15px] leading-[1.8] text-steel-700">Manufactured to IS 1786 standards, ARS 550D TMT Bars are engineered to deliver consistent mechanical performance and controlled chemical composition for reliable reinforced concrete construction.</p><div className="mt-10 grid gap-5 lg:grid-cols-2"><PropertyTable caption="Mechanical properties of ARS 550D" rows={mechanicalProperties} /><PropertyTable caption="Chemical properties of ARS 550D" rows={chemicalProperties} /></div></div>
+        <div className="ars-container"><SectionKicker variant="brand">Key Properties</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Mechanical &amp; Chemical Properties</h2><p className="mt-5 max-w-3xl text-[15px] leading-[1.8] text-steel-700">Manufactured to IS 1786 standards, ARS Fe 550D TMT Bars are engineered to deliver consistent mechanical performance and controlled chemical composition for reliable reinforced concrete construction.</p><div className="mt-10 grid gap-5 lg:grid-cols-2"><PropertyTable caption="Mechanical properties of ARS Fe 550D" rows={mechanicalProperties} /><PropertyTable caption="Chemical properties of ARS Fe 550D" rows={chemicalProperties} /></div></div>
       </MotionSection>
 
       <MotionSection className="bg-surface-50 py-20 md:py-24">
@@ -264,9 +264,9 @@ export default function Ars550DPage() {
         <div className="ars-container max-w-5xl"><h2 className="text-center font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">FAQs</h2><FaqList className="mt-10 rounded-2xl border border-surface-100 bg-white px-6" items={faqs.map(([question, answer]) => ({ question, answer }))} /></div>
       </MotionSection>
 
-      <MotionSection className="relative overflow-hidden bg-brand-blue py-20"><div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(222,18,26,0.7) 0%, transparent 55%)" }} /><div className="ars-container relative z-10"><SectionKicker variant="light">READY TO BUILD</SectionKicker><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">Choose ARS 550D for Your Next Project</h2><p className="mt-3 max-w-[540px] text-[14px] leading-[1.7] text-white/75">Get a Quote for ARS 550D</p></div></MotionSection>
+      <MotionSection className="relative overflow-hidden bg-brand-blue py-20"><div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(222,18,26,0.7) 0%, transparent 55%)" }} /><div className="ars-container relative z-10"><SectionKicker variant="light">READY TO BUILD</SectionKicker><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">Choose ARS Fe 550D for Your Next Project</h2><p className="mt-3 max-w-[540px] text-[14px] leading-[1.7] text-white/75">Get a Quote for ARS Fe 550D</p></div></MotionSection>
 
-      <ProductLeadCaptureForm product="ARS 550D" trustItems={["BIS-certified", "SGS-tested", "Fe 550D", "30+ years"]} showCallSales={false} />
+      <ProductLeadCaptureForm product="ARS Fe 550D" trustItems={["BIS-certified", "SGS-tested", "Fe 550D", "30+ years"]} showCallSales={false} />
     </main>
   );
 }

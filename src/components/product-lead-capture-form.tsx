@@ -8,7 +8,7 @@ import { verifiedContactDetails } from "@/data/business-verification";
 import { trackGenerateLead } from "@/lib/analytics";
 
 type ProductLeadCaptureFormProps = {
-  product: "ARS 550D" | "ARS CRS 550D" | "ARS Binders";
+  product: "ARS Fe 550D" | "ARS CRS Fe 550D" | "ARS Binders";
   trustItems: string[];
   showCallSales?: boolean;
 };
@@ -17,8 +17,8 @@ type FormStatus = { tone: "idle" | "success" | "error"; message: string };
 
 const states = ["Tamil Nadu", "Kerala", "Karnataka", "Andhra Pradesh"];
 const sourcePages: Record<ProductLeadCaptureFormProps["product"], string> = {
-  "ARS 550D": "/product-550d",
-  "ARS CRS 550D": "/product-crs-550d",
+  "ARS Fe 550D": "/product-550d",
+  "ARS CRS Fe 550D": "/product-crs-550d",
   "ARS Binders": "/ars-binders",
 };
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

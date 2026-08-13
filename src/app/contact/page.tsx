@@ -92,7 +92,7 @@ const officeDetails = [
 ];
 
 const usefulDetails = [
-  "Product grade: ARS 550D or ARS CRS 550D",
+  "Product grade: ARS Fe 550D or ARS CRS Fe 550D",
   "Bar size and approximate quantity",
   "Delivery city or project location",
   "Project type and timeline",

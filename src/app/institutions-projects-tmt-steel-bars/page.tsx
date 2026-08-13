@@ -51,8 +51,8 @@ const arsStrengths = [
 ] as const;
 
 const products = [
-  ["ARS CRS 550D TMT Bars", "Corrosion-resistant TMT bars engineered for structures exposed to high moisture and high salinity environments, helping improve long-term durability.", "/product-crs-550d"],
-  ["ARS Fe550D TMT Bars", "High-strength TMT bars designed for residential, commercial, and institutional construction requiring dependable structural performance.", "/product-550d"],
+  ["ARS CRS Fe 550D TMT Bars", "Corrosion-resistant TMT bars engineered for structures exposed to high moisture and high salinity environments, helping improve long-term durability.", "/product-crs-550d"],
+  ["ARS Fe 550D TMT Bars", "High-strength TMT bars designed for residential, commercial, and institutional construction requiring dependable structural performance.", "/product-550d"],
   ["ARS Binders", "Factory-made reinforcement binders manufactured with precise dimensions and accurate bends to improve consistency and productivity on site.", "/ars-binders"],
 ] as const;
 

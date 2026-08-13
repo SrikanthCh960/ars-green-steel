@@ -10,7 +10,7 @@ import { FaqList } from "@/components/faq-list";
 
 export const metadata = createPageMetadata({
   title: "Products | ARS Green Steel",
-  description: "Explore the ARS product range, including ARS 550D, ARS CRS 550D, and ARS Binders, then choose the right solution for your construction project.",
+  description: "Explore the ARS product range, including ARS Fe 550D, ARS CRS Fe 550D, and ARS Binders, then choose the right solution for your construction project.",
   path: "/products",
 });
 
@@ -23,7 +23,7 @@ const trustItems = [
 
 const products = productCatalog.map((product) => ({
   ...product,
-  icon: product.name === "ARS 550D" ? ShieldCheck : product.name === "ARS CRS 550D" ? Waves : Layers,
+  icon: product.name === "ARS Fe 550D" ? ShieldCheck : product.name === "ARS CRS Fe 550D" ? Waves : Layers,
   points: product.homePoints,
 }));
 
@@ -51,12 +51,12 @@ const sizes = [
 ] as const;
 
 const faqs = [
-  ["What is the difference between ARS 550D and ARS CRS 550D?", "Both ARS 550D and ARS CRS 550D are Fe550D grade TMT Bars manufactured in accordance with IS 1786 standards. ARS 550D is designed for general reinforced concrete construction, while ARS CRS 550D offers enhanced corrosion resistance for structures exposed to high-salinity and humid environments."],
-  ["Which TMT Bar is better for high-salinity areas?", "ARS CRS 550D is the preferred choice for high-salinity and humid environments. Its advanced Corrosion Resistant Steel (CRS) technology helps improve durability and provides enhanced protection against corrosion over the life of the structure."],
-  ["Can ARS CRS 550D be used for normal residential construction?", "Yes. ARS CRS 550D is suitable for residential construction and offers the same high strength and ductility as ARS 550D, along with enhanced corrosion resistance. It is an ideal choice where long-term durability is a priority."],
-  ["Do ARS 550D and ARS CRS 550D comply with IS 1786 standards?", "Yes. Both ARS 550D and ARS CRS 550D are manufactured in compliance with IS 1786 and are supported by BIS Certification, SGS Testing, SERC Certification, and stringent quality assurance processes."],
-  ["How do I choose the right TMT Bar for my project?", "The right TMT Bar depends on your project environment and durability requirements. ARS 550D is recommended for general reinforced concrete construction, while ARS CRS 550D is better suited for projects exposed to high-salinity, humidity, or corrosive conditions."],
-  ["Are ARS 550D and ARS CRS 550D available in the same sizes?", "Yes. Both ARS 550D and ARS CRS 550D are available in a wide range of standard TMT Bar sizes to meet the reinforcement requirements of residential, commercial, industrial, and infrastructure construction projects."],
+  ["What is the difference between ARS Fe 550D and ARS CRS Fe 550D?", "Both ARS Fe 550D and ARS CRS Fe 550D are Fe550D grade TMT Bars manufactured in accordance with IS 1786 standards. ARS Fe 550D is designed for general reinforced concrete construction, while ARS CRS Fe 550D offers enhanced corrosion resistance for structures exposed to high-salinity and humid environments."],
+  ["Which TMT Bar is better for high-salinity areas?", "ARS CRS Fe 550D is the preferred choice for high-salinity and humid environments. Its advanced Corrosion Resistant Steel (CRS) technology helps improve durability and provides enhanced protection against corrosion over the life of the structure."],
+  ["Can ARS CRS Fe 550D be used for normal residential construction?", "Yes. ARS CRS Fe 550D is suitable for residential construction and offers the same high strength and ductility as ARS Fe 550D, along with enhanced corrosion resistance. It is an ideal choice where long-term durability is a priority."],
+  ["Do ARS Fe 550D and ARS CRS Fe 550D comply with IS 1786 standards?", "Yes. Both ARS Fe 550D and ARS CRS Fe 550D are manufactured in compliance with IS 1786 and are supported by BIS Certification, SGS Testing, SERC Certification, and stringent quality assurance processes."],
+  ["How do I choose the right TMT Bar for my project?", "The right TMT Bar depends on your project environment and durability requirements. ARS Fe 550D is recommended for general reinforced concrete construction, while ARS CRS Fe 550D is better suited for projects exposed to high-salinity, humidity, or corrosive conditions."],
+  ["Are ARS Fe 550D and ARS CRS Fe 550D available in the same sizes?", "Yes. Both ARS Fe 550D and ARS CRS Fe 550D are available in a wide range of standard TMT Bar sizes to meet the reinforcement requirements of residential, commercial, industrial, and infrastructure construction projects."],
 ] as const;
 
 export default function ProductsPage() {
@@ -72,11 +72,11 @@ export default function ProductsPage() {
         </div>
         <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
           <div className="max-w-4xl">
-            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS 550D vs ARS CRS 550D</div>
+            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS Fe 550D vs ARS CRS Fe 550D</div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1.0] tracking-[-0.025em] text-white">
               Choose the Right TMT Bar <span className="italic text-brand-red">for Your Project</span>
             </h1>
-            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">Compare ARS 550D and ARS CRS 550D, explore available sizes, download technical specifications, and find the right reinforcement steel for your construction project.</p>
+            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">Compare ARS Fe 550D and ARS CRS Fe 550D, explore available sizes, download technical specifications, and find the right reinforcement steel for your construction project.</p>
           </div>
         </div>
       </section>
@@ -89,8 +89,8 @@ export default function ProductsPage() {
 
       <MotionSection className="bg-brand-blue py-24" id="comparison">
         <div className="ars-container"><SectionKicker variant="light">Product Comparison</SectionKicker>
-          <div className="hidden overflow-hidden rounded-2xl border border-white bg-brand-blue md:block"><table className="w-full border-collapse text-left"><caption className="sr-only">Comparison of ARS 550D and ARS CRS 550D TMT Bars.</caption><thead className="bg-brand-blue-dark"><tr><th scope="col" className="w-[22%] border-b border-white/35 px-5 py-4 text-[11px] font-bold uppercase tracking-[0.1em] text-white">Feature</th><th scope="col" className="border-b border-white/35 px-5 py-4 text-[12px] font-bold text-white">ARS 550D</th><th scope="col" className="border-b border-white/35 px-5 py-4 text-[12px] font-bold text-white">ARS CRS 550D</th></tr></thead><tbody>{comparisonRows.map(([feature, standard, crs], index) => <tr key={feature} className={index % 2 === 0 ? "bg-brand-blue" : "bg-brand-blue-dark/70"}><th scope="row" className="border-b border-white/25 px-5 py-4 text-[12px] font-semibold uppercase tracking-[0.04em] text-white">{feature}</th><td className="border-b border-white/25 px-5 py-4 text-[13px] leading-[1.5] text-white/85">{standard}</td><td className="border-b border-white/25 px-5 py-4 text-[13px] leading-[1.5] text-white/85">{crs}</td></tr>)}</tbody></table></div>
-          <dl className="divide-y divide-white/25 rounded-2xl border border-white bg-brand-blue md:hidden">{comparisonRows.map(([feature, standard, crs]) => <div key={feature} className="p-5"><dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-white">{feature}</dt><dd className="mt-4 grid gap-4 sm:grid-cols-2"><div><p className="text-[11px] font-bold uppercase tracking-[0.08em] text-white/65">ARS 550D</p><p className="mt-1.5 text-[13px] leading-[1.55] text-white/85">{standard}</p></div><div><p className="text-[11px] font-bold uppercase tracking-[0.08em] text-white/65">ARS CRS 550D</p><p className="mt-1.5 text-[13px] leading-[1.55] text-white/85">{crs}</p></div></dd></div>)}</dl>
+          <div className="hidden overflow-hidden rounded-2xl border border-white bg-brand-blue md:block"><table className="w-full border-collapse text-left"><caption className="sr-only">Comparison of ARS Fe 550D and ARS CRS Fe 550D TMT Bars.</caption><thead className="bg-brand-blue-dark"><tr><th scope="col" className="w-[22%] border-b border-white/35 px-5 py-4 text-[11px] font-bold uppercase tracking-[0.1em] text-white">Feature</th><th scope="col" className="border-b border-white/35 px-5 py-4 text-[12px] font-bold text-white">ARS Fe 550D</th><th scope="col" className="border-b border-white/35 px-5 py-4 text-[12px] font-bold text-white">ARS CRS Fe 550D</th></tr></thead><tbody>{comparisonRows.map(([feature, standard, crs], index) => <tr key={feature} className={index % 2 === 0 ? "bg-brand-blue" : "bg-brand-blue-dark/70"}><th scope="row" className="border-b border-white/25 px-5 py-4 text-[12px] font-semibold uppercase tracking-[0.04em] text-white">{feature}</th><td className="border-b border-white/25 px-5 py-4 text-[13px] leading-[1.5] text-white/85">{standard}</td><td className="border-b border-white/25 px-5 py-4 text-[13px] leading-[1.5] text-white/85">{crs}</td></tr>)}</tbody></table></div>
+          <dl className="divide-y divide-white/25 rounded-2xl border border-white bg-brand-blue md:hidden">{comparisonRows.map(([feature, standard, crs]) => <div key={feature} className="p-5"><dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-white">{feature}</dt><dd className="mt-4 grid gap-4 sm:grid-cols-2"><div><p className="text-[11px] font-bold uppercase tracking-[0.08em] text-white/65">ARS Fe 550D</p><p className="mt-1.5 text-[13px] leading-[1.55] text-white/85">{standard}</p></div><div><p className="text-[11px] font-bold uppercase tracking-[0.08em] text-white/65">ARS CRS Fe 550D</p><p className="mt-1.5 text-[13px] leading-[1.55] text-white/85">{crs}</p></div></dd></div>)}</dl>
         </div>
       </MotionSection>
 
@@ -102,7 +102,7 @@ export default function ProductsPage() {
 
       <MotionSection className="bg-surface-50 py-24" id="faqs"><div className="ars-container max-w-4xl"><SectionKicker variant="brand">FAQs</SectionKicker><FaqList className="mt-10" items={faqs.map(([question, answer]) => ({ question, answer }))} /></div></MotionSection>
 
-      <MotionSection className="relative overflow-hidden bg-brand-blue py-20"><div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(222,18,26,0.7) 0%, transparent 55%)" }} /><div className="ars-container relative z-10"><div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center"><div className="max-w-3xl"><SectionKicker variant="light">READY TO BUILD</SectionKicker><h2 className="mb-3 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">Choose the Right TMT Bar with Confidence</h2><p className="text-[14px] leading-[1.7] text-white/70">Whether you&apos;re building a home, a commercial project, or infrastructure, selecting the right reinforcement steel makes all the difference. Compare ARS 550D and ARS CRS 550D, speak with our experts, and choose the TMT Bar that best matches your project&apos;s structural and environmental requirements.</p></div><div className="flex flex-wrap gap-3"><Link href="/request-quote" className="focus-ring inline-flex min-h-11 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white transition hover:opacity-90">Talk to Sales <ArrowRight aria-hidden="true" size={15} /></Link><Link href="/our-network" className="focus-ring inline-flex min-h-11 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.15]">Find a Dealer <ArrowRight aria-hidden="true" size={15} /></Link></div></div></div></MotionSection>
+      <MotionSection className="relative overflow-hidden bg-brand-blue py-20"><div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(222,18,26,0.7) 0%, transparent 55%)" }} /><div className="ars-container relative z-10"><div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center"><div className="max-w-3xl"><SectionKicker variant="light">READY TO BUILD</SectionKicker><h2 className="mb-3 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.12] tracking-[-0.02em] text-white">Choose the Right TMT Bar with Confidence</h2><p className="text-[14px] leading-[1.7] text-white/70">Whether you&apos;re building a home, a commercial project, or infrastructure, selecting the right reinforcement steel makes all the difference. Compare ARS Fe 550D and ARS CRS Fe 550D, speak with our experts, and choose the TMT Bar that best matches your project&apos;s structural and environmental requirements.</p></div><div className="flex flex-wrap gap-3"><Link href="/request-quote" className="focus-ring inline-flex min-h-11 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3.5 text-[14px] font-bold text-white transition hover:opacity-90">Talk to Sales <ArrowRight aria-hidden="true" size={15} /></Link><Link href="/our-network" className="focus-ring inline-flex min-h-11 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3.5 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.15]">Find a Dealer <ArrowRight aria-hidden="true" size={15} /></Link></div></div></div></MotionSection>
 
     </main>
   );

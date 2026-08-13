@@ -19,7 +19,7 @@ export const metadata = createPageMetadata({
 const credentials = [
   ["NISST Green Steel Taxonomy Certificate", "NISST, Ministry of Steel", "Government of India Green Steel Taxonomy rating for ARS TMT Bars.", "#nisst", true],
   ["Environmental Product Declaration", "The International EPD® System", "Standardised environmental information for ARS Fe 550D TMT rebars.", "#epd", true],
-  ["GRIHA Product Catalogue Recognition", "GRIHA Council", "Product-catalogue inclusion under LCA and Innovation for ARS 550D and 550D CRS rebars.", "#griha", true],
+  ["GRIHA Product Catalogue Recognition", "GRIHA Council", "Product-catalogue inclusion under LCA and Innovation for ARS Fe 550D and 550D CRS rebars.", "#griha", true],
   ["SGBC Leader Recognition", "Singapore Green Building Council", "Leader, 4-Tick product recognition for specified ARS reinforcing-steel models.", "#sgbc", true],
   ["LEED Project Support", "Project documentation support", "Environmental documentation that may support material-selection and embodied-carbon review for LEED projects.", "#leed", false],
 ] as const;
@@ -177,7 +177,7 @@ export default function GreenCertificationsPage() {
 
       <EvidenceSection id="sgbc" kicker="International green-building recognition" title="SGBC Leader Recognition" preview="/ars-assets/certifications/previews/sgbc-certificate.png" file="/ars-assets/certifications/SGBP-6210-ARS-Steels-Alloy-International-Private-Limited-4-1.pdf" reverse>
         <p>The Singapore Green Building Council evaluated ARS Steel under its Green Building Product Certification Scheme and awarded the specified reinforcing-steel models the Leader, 4-Tick rating.</p>
-        <p>The certificate identifies ARS Fe 550D and ARS CRS 550D TMT Bars and records 98% recycled steel for the listed product models.</p>
+        <p>The certificate identifies ARS Fe 550D and ARS CRS Fe 550D TMT Bars and records 98% recycled steel for the listed product models.</p>
         <Link href="/sgbc" className="focus-ring inline-flex min-h-11 items-center gap-2 font-bold text-brand-blue">Explore the detailed SGBC page <ArrowRight size={15} aria-hidden="true" /></Link>
       </EvidenceSection>
 

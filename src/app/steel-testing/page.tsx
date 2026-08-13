@@ -37,7 +37,7 @@ export default function SteelTestingPage() {
           <div className="max-w-4xl">
             <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />Free On-Site Spectrometer Testing</div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1.04] tracking-[-0.025em] text-white">
-              Ensure Material Excellence: Benefit from On-Site Spectrometer Testing by ARS Steels
+              Ensure Material Excellence
             </h1>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90">
@@ -107,11 +107,11 @@ export default function SteelTestingPage() {
             </video>
           </div>
           <div>
-            <SectionKicker variant="brand">SPECTROMETER TESTING VIDEOS</SectionKicker>
-            <h2 className="font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">ARS 550D TMT Bars Certified by SGS</h2>
+            <SectionKicker variant="brand">Spectrometer Test Live</SectionKicker>
+            <h2 className="font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">ARS Fe 550D TMT Bars Certified by SGS</h2>
             <p className="mt-6 text-[15px] leading-[1.85] text-steel-700">Our team of experts is equipped with the latest technology and deep industry knowledge, ready to assist you on-site or at our labs with detailed analyses and reports. Don&apos;t compromise on safety and quality—contact ARS Steels today to schedule your free steel testing.</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/product-550d" className="focus-ring inline-flex min-h-11 items-center gap-2 text-[14px] font-bold text-brand-blue">Explore ARS 550D TMT Bars <ArrowRight aria-hidden="true" size={16} /></Link>
+              <Link href="/product-550d" className="focus-ring inline-flex min-h-11 items-center gap-2 text-[14px] font-bold text-brand-blue">Explore ARS Fe 550D TMT Bars <ArrowRight aria-hidden="true" size={16} /></Link>
               <Link href="/our-certification" className="focus-ring inline-flex min-h-11 items-center gap-2 text-[14px] font-bold text-brand-blue">View Certifications <ArrowRight aria-hidden="true" size={16} /></Link>
             </div>
           </div>

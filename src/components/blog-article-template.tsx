@@ -36,7 +36,7 @@ const topicIcon = {
 const topicCta = {
   "TMT products": {
     eyebrow: "Choose the right steel",
-    title: "Compare ARS 550D and CRS 550D before you buy.",
+    title: "Compare ARS Fe 550D and CRS 550D before you buy.",
     body: "Move from article research to product selection, steel quantity planning, or a quote from the ARS team.",
     primaryLabel: "View products",
     primaryHref: "/products",

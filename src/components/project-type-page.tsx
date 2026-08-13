@@ -140,8 +140,8 @@ export function ProjectTypePage({
             {relatedSection.eyebrow === "ARS Products" ? (
               <div className="mb-3 grid gap-3 sm:grid-cols-3">
                 {[
-                  ["ARS CRS 550D", "/ars-assets/logos/ARSCRS550D.png", "/product-crs-550d"],
-                  ["ARS 550D", "/ars-assets/logos/ARS550D.png", "/product-550d"],
+                  ["ARS CRS Fe 550D", "/ars-assets/logos/ARSCRS550D.png", "/product-crs-550d"],
+                  ["ARS Fe 550D", "/ars-assets/logos/ARS550D.png", "/product-550d"],
                   ["ARS Binders", "/ars-assets/logos/BinderLogo.png", "/ars-binders"],
                 ].map(([label, image, href]) => (
                   <Link key={label} href={href} className="focus-ring overflow-hidden rounded-[6px] border border-brand-blue/15 bg-white transition hover:border-brand-blue/40">
@@ -178,7 +178,7 @@ export function ProjectTypePage({
 export const roadProjectPage = {
   eyebrow: "Road Projects",
   title: "Because Every Journey Deserves a Strong Beginning.",
-  description: "Designed for highways, expressways, and urban road projects, ARS Fe550D CRS TMT Bars combine strength, durability, and engineering excellence for infrastructure that lasts.",
+  description: "Designed for highways, expressways, and urban road projects, ARS CRS Fe 550D TMT Bars combine strength, durability, and engineering excellence for infrastructure that lasts.",
   primaryCta: { label: "Calculate Steel", href: "/tmt-steel-calculator" },
   secondaryCta: { label: "View CRS 550D", href: "/product-crs-550d" },
   rationale: {
@@ -206,7 +206,7 @@ export const roadProjectPage = {
   relatedSection: {
     eyebrow: "Product and quality review",
     title: "Bring the right product information into the project conversation.",
-    body: "Review ARS CRS 550D product information alongside the project’s design, environmental, and specification requirements.",
+    body: "Review ARS CRS Fe 550D product information alongside the project’s design, environmental, and specification requirements.",
   },
   relatedLinks: [
     { label: "View CRS 550D", href: "/product-crs-550d" },
@@ -219,7 +219,7 @@ export const roadProjectPage = {
     title: "Road-project questions, answered.",
   },
   faq: [
-    { question: "Which TMT bar is suitable for road construction?", answer: "Road projects generally require high-strength, high-ductility TMT bars capable of reinforcing bridges, culverts, retaining walls, and other reinforced concrete structures. ARS Fe550D and CRS 550D TMT Bars are designed for such demanding applications." },
+    { question: "Which TMT bar is suitable for road construction?", answer: "Road projects generally require high-strength, high-ductility TMT bars capable of reinforcing bridges, culverts, retaining walls, and other reinforced concrete structures. ARS Fe 550D and CRS 550D TMT Bars are designed for such demanding applications." },
     { question: "Why is ductility important in road infrastructure?", answer: "Ductility enables reinforced concrete structures to absorb stresses and distribute loads more effectively, helping improve structural resilience under dynamic traffic conditions." },
     { question: "Is corrosion resistance important in road projects?", answer: "Yes. Infrastructure exposed to water, humidity, coastal air, or de-icing environments benefits from corrosion-resistant reinforcement that helps improve long-term durability." },
   ],
@@ -310,7 +310,7 @@ export const institutionalProjectPage = {
     body: "Review product specifications, quality information, and manufacturing context with ARS before finalising a project-specific selection.",
   },
   relatedLinks: [
-    { label: "View ARS 550D specifications", href: "/products/ars-550d#specifications" },
+    { label: "View ARS Fe 550D specifications", href: "/products/ars-550d#specifications" },
     { label: "Compare ARS products", href: "/products" },
     { label: "Explore quality information", href: "/our-certification" },
     { label: "Explore manufacturing", href: "/manufacturing" },

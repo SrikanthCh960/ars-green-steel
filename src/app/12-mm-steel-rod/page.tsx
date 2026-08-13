@@ -44,7 +44,7 @@ const faqs = [
   ["How is the 8mm TMT bar weight useful in residential construction?", "The weight of an 8mm steel rod per metre is approximately 0.395 kg. This standard measurement helps in precise calculation and budgeting in construction projects, ensuring efficient use of materials."],
   ["Can an 8mm steel rod be used for decorative purposes?", "The weight of an 8mm steel rod per metre is approximately 0.395 kg. This standard measurement helps in precise calculation and budgeting in construction projects, ensuring efficient use of materials."],
   ["What are the benefits of using 8mm TMT bars for highway projects?", "The weight of an 8mm steel rod per metre is approximately 0.395 kg. This standard measurement helps in precise calculation and budgeting in construction projects, ensuring efficient use of materials."],
-  ["Why should I choose ARS 550D CRS TMT bars for my construction needs?", "The weight of an 8mm steel rod per metre is approximately 0.395 kg. This standard measurement helps in precise calculation and budgeting in construction projects, ensuring efficient use of materials."],
+  ["Why should I choose ARS CRS Fe 550D TMT bars for my construction needs?", "The weight of an 8mm steel rod per metre is approximately 0.395 kg. This standard measurement helps in precise calculation and budgeting in construction projects, ensuring efficient use of materials."],
 ] as const;
 
 export default function TwelveMmSteelRodPage() {

@@ -12,7 +12,7 @@ type FormStatus = { tone: "idle" | "success" | "error"; message: string };
 
 const states = ["Tamil Nadu", "Kerala", "Karnataka", "Andhra Pradesh"];
 const projectTypes = ["Residential", "Commercial", "Road / Infrastructure", "Dealer Enquiry"];
-const productTypes = ["ARS CRS 550D", "ARS Fe 550D", "Binders"];
+const productTypes = ["ARS CRS Fe 550D", "ARS Fe 550D", "Binders"];
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const fieldOrder = ["fullName", "phone", "email", "state", "city", "projectType", "productType", "requirement"];
 

@@ -8,7 +8,7 @@ export const calculatorCities: Record<CalculatorRegion, readonly string[]> = {
   Karnataka: ["Bengaluru", "Mysuru", "Mangaluru", "Hubballi", "Belagavi", "Davanagere", "Ballari"],
 };
 
-export const calculatorProducts = ["ARS CRS 550D", "ARS 550D"] as const;
+export const calculatorProducts = ["ARS CRS Fe 550D", "ARS Fe 550D"] as const;
 export type CalculatorProduct = (typeof calculatorProducts)[number];
 
 export const requirementModes = ["Rods", "Weight (Kgs)"] as const;
@@ -29,20 +29,20 @@ export type CalculatorInputs = Record<string, number>;
 
 export const pricePerTon: Record<CalculatorRegion, Record<CalculatorProduct, Record<string, number>>> = {
   "Tamil Nadu": {
-    "ARS 550D": { "8mm": 67000.4, "10mm": 67000.4, "12mm": 66000.35, "16mm": 66000.35, "20mm": 66000.35, "25mm": 66000.35, "32mm": 67000.4 },
-    "ARS CRS 550D": { "8mm": 69999.96, "10mm": 69999.96, "12mm": 68999.91, "16mm": 68999.91, "20mm": 68999.91, "25mm": 68999.91, "32mm": 69999.96 },
+    "ARS Fe 550D": { "8mm": 67000.4, "10mm": 67000.4, "12mm": 66000.35, "16mm": 66000.35, "20mm": 66000.35, "25mm": 66000.35, "32mm": 67000.4 },
+    "ARS CRS Fe 550D": { "8mm": 69999.96, "10mm": 69999.96, "12mm": 68999.91, "16mm": 68999.91, "20mm": 68999.91, "25mm": 68999.91, "32mm": 69999.96 },
   },
   "Andhra Pradesh": {
-    "ARS 550D": { "8mm": 65584.4, "10mm": 65584.4, "12mm": 64584.35, "16mm": 64584.35, "20mm": 64584.35, "25mm": 64584.35, "32mm": 65584.4 },
-    "ARS CRS 550D": { "8mm": 68583.96, "10mm": 68583.96, "12mm": 67583.91, "16mm": 67583.91, "20mm": 67583.91, "25mm": 67583.91, "32mm": 68583.96 },
+    "ARS Fe 550D": { "8mm": 65584.4, "10mm": 65584.4, "12mm": 64584.35, "16mm": 64584.35, "20mm": 64584.35, "25mm": 64584.35, "32mm": 65584.4 },
+    "ARS CRS Fe 550D": { "8mm": 68583.96, "10mm": 68583.96, "12mm": 67583.91, "16mm": 67583.91, "20mm": 67583.91, "25mm": 67583.91, "32mm": 68583.96 },
   },
   Kerala: {
-    "ARS 550D": { "8mm": 64109.4, "10mm": 64109.4, "12mm": 63109.35, "16mm": 63109.35, "20mm": 63109.35, "25mm": 63109.35, "32mm": 64109.4 },
-    "ARS CRS 550D": { "8mm": 67108.96, "10mm": 67108.96, "12mm": 66108.91, "16mm": 66108.91, "20mm": 66108.91, "25mm": 66108.91, "32mm": 67108.96 },
+    "ARS Fe 550D": { "8mm": 64109.4, "10mm": 64109.4, "12mm": 63109.35, "16mm": 63109.35, "20mm": 63109.35, "25mm": 63109.35, "32mm": 64109.4 },
+    "ARS CRS Fe 550D": { "8mm": 67108.96, "10mm": 67108.96, "12mm": 66108.91, "16mm": 66108.91, "20mm": 66108.91, "25mm": 66108.91, "32mm": 67108.96 },
   },
   Karnataka: {
-    "ARS 550D": { "8mm": 65525.4, "10mm": 65525.4, "12mm": 64525.35, "16mm": 64525.35, "20mm": 64525.35, "25mm": 64525.35, "32mm": 65525.4 },
-    "ARS CRS 550D": { "8mm": 68524.96, "10mm": 68524.96, "12mm": 67524.91, "16mm": 67524.91, "20mm": 67524.91, "25mm": 67524.91, "32mm": 68524.96 },
+    "ARS Fe 550D": { "8mm": 65525.4, "10mm": 65525.4, "12mm": 64525.35, "16mm": 64525.35, "20mm": 64525.35, "25mm": 64525.35, "32mm": 65525.4 },
+    "ARS CRS Fe 550D": { "8mm": 68524.96, "10mm": 68524.96, "12mm": 67524.91, "16mm": 67524.91, "20mm": 67524.91, "25mm": 67524.91, "32mm": 68524.96 },
   },
 };
 

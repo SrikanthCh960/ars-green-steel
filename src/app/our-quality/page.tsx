@@ -21,7 +21,7 @@ import { SiteHeader } from "@/components/site-header";
 export const metadata = createPageMetadata({
   title: "Our Quality | ARS Green Steel",
   description:
-    "ARS quality systems — SGS certification, in-house spectrometry and lab testing, bend/rebend, tensile, and spectro analysis behind ARS 550D TMT bars.",
+    "ARS quality systems — SGS certification, in-house spectrometry and lab testing, bend/rebend, tensile, and spectro analysis behind ARS Fe 550D TMT bars.",
   path: "/our-quality",
 });
 

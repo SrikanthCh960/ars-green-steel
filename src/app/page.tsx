@@ -521,14 +521,14 @@ function RahulDravidSection() {
               className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] bg-brand-red px-5 text-sm font-bold text-white transition hover:bg-brand-red-dark"
               href="/product-crs-550d"
             >
-              Explore ARS CRS 550D <ArrowRight size={17} />
+              Explore ARS CRS Fe 550D <ArrowRight size={17} />
             </Link>
           </div>
 
           <div className="relative min-h-[390px] overflow-hidden bg-[#f5a916] lg:min-h-[560px]">
             <Image
               src="/ars-assets/home/rahul_.jpg"
-              alt="Rahul Dravid representing ARS CRS 550D TMT steel"
+              alt="Rahul Dravid representing ARS CRS Fe 550D TMT steel"
               fill
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="object-cover object-right"

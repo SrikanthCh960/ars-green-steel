@@ -55,7 +55,7 @@ After creating or materially changing a reusable component, update this file in 
 ## Cross-page consistency rules
 
 - FAQ presentation must use `FaqList`; page-specific FAQ data and SEO JSON-LD remain separate.
-- Visible product lists use the approved order: ARS CRS 550D, ARS 550D, ARS BINDERS.
+- Visible product lists use the approved order: ARS CRS Fe 550D, ARS Fe 550D, ARS BINDERS. Forms and application data display these names while server validation normalizes supported legacy product values for backward compatibility.
 - Page-level H1s inherit the global standard from `src/app/globals.css`: Title Case, `clamp(2.65rem, 6vw, 4rem)`, IBM Plex Sans display typography, 800 weight, consistent line height/tracking, and responsive wrapping. Hero variants may change only color and layout context.
 
 ## Shared Data Sources

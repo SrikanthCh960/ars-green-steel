@@ -3,8 +3,8 @@ import "server-only";
 import { appendGoogleSheetRow } from "@/lib/google-sheets";
 
 export const PRODUCT_SOURCE_PAGES = {
-  "ARS CRS 550D": "/product-crs-550d",
-  "ARS 550D": "/product-550d",
+  "ARS CRS Fe 550D": "/product-crs-550d",
+  "ARS Fe 550D": "/product-550d",
   "ARS Binders": "/ars-binders",
 } as const;
 
@@ -38,6 +38,13 @@ const allowedRequestKeys = new Set([
 ]);
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const indiaTimeZone = "Asia/Kolkata" as const;
+const legacyProductNames: Record<string, ProductName> = {
+  "ARS 550D": "ARS Fe 550D",
+  "ARS Fe550D": "ARS Fe 550D",
+  "ARS CRS 550D": "ARS CRS Fe 550D",
+  "ARS CRS Fe550D": "ARS CRS Fe 550D",
+  "ARS 550D CRS": "ARS CRS Fe 550D",
+};
 
 function cleanText(value: unknown) {
   return typeof value === "string" ? value.trim().replace(/\s+/g, " ") : "";
@@ -55,6 +62,10 @@ function normalizeIndianPhone(value: unknown) {
 
 function isProductName(value: string): value is ProductName {
   return Object.prototype.hasOwnProperty.call(PRODUCT_SOURCE_PAGES, value);
+}
+
+function normalizeProductName(value: string) {
+  return legacyProductNames[value] ?? value;
 }
 
 function isProductEnquiryState(value: string): value is ProductEnquiryState {
@@ -97,7 +108,7 @@ export function validateProductEnquiry(value: unknown, now = new Date()): Produc
   const state = cleanText(record.state);
   const city = cleanText(record.city);
   const requirement = cleanMultilineText(record.requirement);
-  const product = cleanText(record.product);
+  const product = normalizeProductName(cleanText(record.product));
   const sourcePage = cleanText(record.sourcePage);
   const website = cleanText(record.website);
   const submissionId = cleanText(record.submissionId);

@@ -22,7 +22,7 @@ import { FaqList } from "@/components/faq-list";
 export const metadata = createPageMetadata({
   title: "ARS Binders | ARS Green Steel",
   description:
-    "Manufactured from premium ARS CRS 550D TMT Bars, ARS Binders are precision-made stirrups that reduce manual bending, minimise steel wastage, and help deliver faster, more consistent reinforcement on site.",
+    "Manufactured from premium ARS CRS Fe 550D TMT Bars, ARS Binders are precision-made stirrups that reduce manual bending, minimise steel wastage, and help deliver faster, more consistent reinforcement on site.",
   path: "/ars-binders",
 });
 
@@ -35,7 +35,7 @@ const trustItems = [
 
 const technicalOverview = [
   { label: "Product", value: "Factory-Made TMT Binders" },
-  { label: "Material", value: "ARS CRS 550D TMT Bars" },
+  { label: "Material", value: "ARS CRS Fe 550D TMT Bars" },
   { label: "Available Sizes", value: "8 mm • 10 mm" },
   { label: "Manufacturing", value: "Machine Bent • Factory Precision" },
   { label: "Compliance", value: "IS 1786 Compliant Steel" },
@@ -60,7 +60,7 @@ const reasons = [
   },
   {
     title: "Superior Ductility",
-    description: "Manufactured using ARS CRS 550D TMT Bars for dependable strength and flexibility.",
+    description: "Manufactured using ARS CRS Fe 550D TMT Bars for dependable strength and flexibility.",
     icon: Gauge,
   },
   {
@@ -110,7 +110,7 @@ const benefits = [
 const faqs = [
   [
     "What are ARS Binders?",
-    "ARS Binders are factory-made TMT stirrups manufactured from premium ARS CRS 550D TMT Bars. Designed for reinforced concrete construction, they provide consistent dimensions, reduce on-site bending, and help improve construction speed and quality.",
+    "ARS Binders are factory-made TMT stirrups manufactured from premium ARS CRS Fe 550D TMT Bars. Designed for reinforced concrete construction, they provide consistent dimensions, reduce on-site bending, and help improve construction speed and quality.",
   ],
   [
     "How are ARS Binders different from manually bent stirrups?",
@@ -122,7 +122,7 @@ const faqs = [
   ],
   [
     "What steel is used to manufacture ARS Binders?",
-    "ARS Binders are manufactured using premium ARS CRS 550D TMT Bars. This provides high strength, superior ductility, and enhanced corrosion resistance for long-lasting reinforced concrete structures.",
+    "ARS Binders are manufactured using premium ARS CRS Fe 550D TMT Bars. This provides high strength, superior ductility, and enhanced corrosion resistance for long-lasting reinforced concrete structures.",
   ],
   [
     "Where can ARS Binders be used?",
@@ -134,7 +134,7 @@ const faqs = [
   ],
   [
     "Are ARS Binders corrosion resistant?",
-    "Yes. ARS Binders are manufactured from ARS CRS 550D TMT Bars, which are engineered to provide enhanced corrosion resistance, making them suitable for structures exposed to humid and high-salinity environments.",
+    "Yes. ARS Binders are manufactured from ARS CRS Fe 550D TMT Bars, which are engineered to provide enhanced corrosion resistance, making them suitable for structures exposed to humid and high-salinity environments.",
   ],
 ] as const;
 
@@ -177,7 +177,7 @@ export default function ArsBindersPage() {
               Factory-Made TMT Binders for Faster, Smarter Construction
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">
-              Manufactured from premium ARS CRS 550D TMT Bars, ARS Binders are precision-made stirrups that reduce manual bending, minimise steel wastage, and help deliver faster, more consistent reinforcement on site.
+              Manufactured from premium ARS CRS Fe 550D TMT Bars, ARS Binders are precision-made stirrups that reduce manual bending, minimise steel wastage, and help deliver faster, more consistent reinforcement on site.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90">
@@ -216,7 +216,7 @@ export default function ArsBindersPage() {
             <div className="relative z-10 mt-auto max-w-xl">
               <SectionKicker variant="light">PRODUCT OVERVIEW</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">What Are ARS Binders?</h2>
-              <p className="mt-5 max-w-2xl text-[16px] leading-[1.8] text-white/80">ARS Binders are factory-manufactured TMT stirrups made from premium ARS CRS 550D TMT Bars. Designed for consistent quality and precision, they eliminate on-site bending, reduce steel wastage, improve construction speed, and deliver reliable reinforcement for reinforced concrete structures.</p>
+              <p className="mt-5 max-w-2xl text-[16px] leading-[1.8] text-white/80">ARS Binders are factory-manufactured TMT stirrups made from premium ARS CRS Fe 550D TMT Bars. Designed for consistent quality and precision, they eliminate on-site bending, reduce steel wastage, improve construction speed, and deliver reliable reinforcement for reinforced concrete structures.</p>
             </div>
           </div>
           <div className="overflow-hidden rounded-[8px] border-[1.5px] border-surface-100 bg-white">
@@ -263,10 +263,9 @@ export default function ArsBindersPage() {
             <p className="mt-5 max-w-xl text-[16px] leading-[1.8] text-steel-700">Suitable for reinforced concrete structures where speed, accuracy, and consistent reinforcement are essential.</p>
             <div className="relative mt-10 min-h-72 overflow-hidden rounded-[8px] bg-ink-950 lg:min-h-[420px]">
               <Image
-                src="/ars-assets/placeholders/binders-rcc-construction-placeholder.png"
-                alt="Temporary placeholder showing a reinforced concrete construction site with a rebar column cage"
+                src="/ars-assets/products/Binders_ModernRCC.jpg"
+                alt="ARS Binders used in modern reinforced concrete construction"
                 fill
-                unoptimized
                 sizes="(max-width: 1024px) 100vw, 38vw"
                 className="object-cover"
               />

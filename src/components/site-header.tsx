@@ -61,8 +61,8 @@ const megaMenus: Record<MenuKey, MegaMenuDefinition> = {
     visual: "Products",
     visualSrc: "/ars-assets/navmenu/products.jpg",
     links: [
-      { label: "ARS CRS Fe550D", href: "/product-crs-550d" },
-      { label: "ARS Fe550D", href: "/product-550d" },
+      { label: "ARS CRS Fe 550D", href: "/product-crs-550d" },
+      { label: "ARS Fe 550D", href: "/product-550d" },
       { label: "ARS Binders", href: "/ars-binders" },
       { label: "550D Vs CRS 550D", href: "/products#comparison" },
       { label: "Steel Testing", href: "/steel-testing" },

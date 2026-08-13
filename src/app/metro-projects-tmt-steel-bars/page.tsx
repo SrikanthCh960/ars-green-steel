@@ -31,10 +31,10 @@ export default function MetroProjectsPage() {
         { title: "Project Continuity", body: "Coordinate product selection and supply planning across phased metro construction packages.", icon: CircleGauge },
       ]}
       relatedSection={{ eyebrow: "Related solutions", title: "Explore ARS project support.", body: "Review ARS products and project guidance for your metro infrastructure requirements." }}
-      relatedLinks={[{ label: "View CRS 550D", href: "/product-crs-550d" }, { label: "View ARS 550D", href: "/product-550d" }, { label: "Contact ARS", href: "/contact" }]}
+      relatedLinks={[{ label: "View CRS 550D", href: "/product-crs-550d" }, { label: "View ARS Fe 550D", href: "/product-550d" }, { label: "Contact ARS", href: "/contact" }]}
       faqSection={{ eyebrow: "Metro project FAQs", title: "Common questions." }}
       faq={[
-        { question: "Which ARS TMT products can support metro projects?", answer: "ARS 550D and ARS CRS 550D can be evaluated based on project specifications, exposure conditions, and engineering requirements." },
+        { question: "Which ARS TMT products can support metro projects?", answer: "ARS Fe 550D and ARS CRS Fe 550D can be evaluated based on project specifications, exposure conditions, and engineering requirements." },
         { question: "Can ARS support large infrastructure enquiries?", answer: "Yes. Contact the ARS team to discuss product selection, technical requirements, and project supply support." },
       ]}
     />

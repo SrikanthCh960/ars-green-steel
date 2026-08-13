@@ -16,7 +16,7 @@ const whatsappHref = `https://wa.me/${verifiedContactDetails.mobile.replace(/\D/
 
 export function SteelPriceLookup() {
   const [region, setRegion] = useState("Tamil Nadu");
-  const [product, setProduct] = useState("ARS 550D");
+  const [product, setProduct] = useState("ARS Fe 550D");
   const [size, setSize] = useState("8mm");
   const [city, setCity] = useState("Chennai");
   const prices = useMemo(() => calculatorBars.map((bar) => ({ ...bar, perKg: getRatePerKg(region, product, bar.size), perTon: getRatePerKg(region, product, bar.size) * 1000 })), [product, region]);

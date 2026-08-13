@@ -84,7 +84,7 @@ const serviceCards = [
 const supportCards = [
   {
     title: "Product proof",
-    text: "Review ARS 550D and CRS 550D product paths before selecting a grade.",
+    text: "Review ARS Fe 550D and CRS 550D product paths before selecting a grade.",
     href: "/products",
     icon: ShieldCheck,
   },

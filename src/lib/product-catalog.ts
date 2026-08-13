@@ -1,7 +1,7 @@
 export const productCatalog = [
   {
     slug: "ars-crs-550d",
-    name: "ARS CRS 550D",
+    name: "ARS CRS Fe 550D",
     route: "/product-crs-550d",
     homeEyebrow: "Corrosion-resistant TMT bars",
     overviewTag: "Corrosion-resistant grade",
@@ -12,7 +12,7 @@ export const productCatalog = [
   },
   {
     slug: "ars-550d",
-    name: "ARS 550D",
+    name: "ARS Fe 550D",
     route: "/product-550d",
     homeEyebrow: "Earthquake Resistant Steel",
     overviewTag: "Core TMT grade",
@@ -43,4 +43,4 @@ export const productComparisonRows = [
 ] as const;
 
 export const missingProductLeafletMessage =
-  "The approved ARS 550D CRS product leaflet is not yet available for download.";
+  "The approved ARS CRS Fe 550D product leaflet is not yet available for download.";
