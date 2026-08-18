@@ -221,7 +221,7 @@ export default function Home() {
               Choose the Right TMT Steel for Your Project
             </h2>
             <p className="section-copy">
-              From corrosion-resistant TMT bars for high-salinity environments to high-strength TMT bars
+              From corrosion-resistant TMT bars for high-salinity, high-TDS environments to high-strength TMT bars
               for earthquake-resistant construction, ARS offers the right solution for every project.
             </p>
           </div>

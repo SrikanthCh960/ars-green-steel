@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Leaf, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2, Leaf, Sparkles } from "lucide-react";
 import { SectionKicker } from "@/components/section-kicker";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -142,24 +142,10 @@ const performancePillars = [
     body: "Every ARS Green Steel bar meets 100% D-Quality classification and is IS 13920-compliant, with a minimum TS/YS ratio of 1.15 — the threshold required for seismic-resistant construction.",
   },
   {
-    icon: ShieldCheck,
-    title: "Corrosion Resistance",
-    body: "CRS-grade ARS Green Steel delivers 20–50% higher corrosion resistance than conventional TMT rebar, tested against the same conditions that cause early failure in high-salinity and humid environments.",
-  },
-  {
     icon: Leaf,
     title: "Green Steel",
     body: "Produced through a recycled scrap, electric arc furnace route, with an EPD-verified emission intensity of 592 kg CO₂e per tonne — a fraction of the conventional blast-furnace figure.",
   },
-] as const;
-
-const verificationPoints = [
-  "100% D-Quality",
-  "IS 13920 Compliant",
-  "20–50% Higher Corrosion Resistance",
-  "30+ Element Analysis",
-  "NABL Accredited",
-  "SGS Verified",
 ] as const;
 
 export function WhyGreenSteelMotion() {
@@ -187,37 +173,19 @@ export function WhyGreenSteelMotion() {
         >
           ARS Green Steel brings together three qualities that matter in demanding construction—ductility, corrosion resistance, and lower-carbon manufacturing. From D-Quality steel and CRS technology to recycled steel and electric furnace production, each is backed by defined standards, testing and verified performance.
         </motion.p>
-        <div className="mt-12 grid border-l border-t border-[#123D2B]/18 md:grid-cols-3">
+        <div className="mt-12 grid border-l border-t border-[#123D2B]/18 md:grid-cols-2">
           {performancePillars.map(({ icon: Icon, title, body }, index) => (
             <motion.article
               key={title}
-              className={`border-b border-r border-[#123D2B]/18 p-7 lg:p-9 ${index === 2 ? "bg-[#123D2B] text-white" : "bg-white"}`}
+              className={`border-b border-r border-[#123D2B]/18 p-7 lg:p-9 ${title === "Green Steel" ? "bg-[#123D2B] text-white" : "bg-white"}`}
               {...revealOnView(18, 0.22 + index * 0.08, 0.58)}
             >
-              <Icon className={`size-6 ${index === 2 ? "text-[#9BCB83]" : "text-brand-blue"}`} aria-hidden="true" />
-              <h3 className={`mt-7 font-display text-2xl font-bold ${index === 2 ? "text-white" : "text-ink-900"}`}>{title}</h3>
-              <p className={`mt-4 text-base leading-8 ${index === 2 ? "text-white/76" : "text-steel-700"}`}>{body}</p>
+              <Icon className={`size-6 ${title === "Green Steel" ? "text-[#9BCB83]" : "text-brand-blue"}`} aria-hidden="true" />
+              <h3 className={`mt-7 font-display text-2xl font-bold ${title === "Green Steel" ? "text-white" : "text-ink-900"}`}>{title}</h3>
+              <p className={`mt-4 text-base leading-8 ${title === "Green Steel" ? "text-white/76" : "text-steel-700"}`}>{body}</p>
             </motion.article>
           ))}
         </div>
-        <motion.div
-          className="mt-8 border-l-2 border-brand-blue bg-white p-7 shadow-[0_16px_38px_rgba(13,43,110,0.05)] lg:p-9"
-          {...revealOnView(18, 0.42, 0.62)}
-        >
-          <h3 className="font-display text-2xl font-bold text-ink-900">Quality &amp; Technical Verification</h3>
-          <p className="mt-4 max-w-5xl text-base leading-8 text-steel-700">The performance of ARS Green Steel is supported by rigorous testing. Every batch undergoes spectro-analysis across more than 30 chemical elements, mechanical testing at ARS&apos;s in-house NABL-accredited laboratory, and third-party verification by SGS.</p>
-          <ul className="mt-6 flex flex-wrap gap-2" aria-label="Quality verification points">
-            {verificationPoints.map((item, index) => (
-              <motion.li
-                key={item}
-                className="border border-brand-blue/15 bg-[#F4F7FF] px-4 py-2 text-xs font-bold uppercase tracking-[0.08em] text-brand-blue"
-                {...revealOnView(10, 0.5 + index * 0.06, 0.42)}
-              >
-                {item}
-              </motion.li>
-            ))}
-          </ul>
-        </motion.div>
         <motion.div className="mt-9" {...revealOnView(14, 0.58, 0.52)}>
           <Link href="#certifications" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-blue-dark">
             View Certifications <ArrowRight size={17} aria-hidden="true" />

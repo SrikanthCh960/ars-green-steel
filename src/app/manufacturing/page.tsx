@@ -32,7 +32,7 @@ const facilityCapabilities = [
   },
   {
     title: "Product Range",
-    text: "Manufacturing Fe500, Fe550, Fe550D, and CRS 550D TMT bars in multiple diameters to suit diverse construction needs.",
+    text: "Manufacturing ARS Fe 550D and ARS CRS Fe 550D TMT bars in multiple diameters to suit diverse construction needs.",
   },
   {
     title: "Process Excellence",

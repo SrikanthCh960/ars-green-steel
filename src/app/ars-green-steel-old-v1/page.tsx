@@ -77,28 +77,12 @@ const proofItems = [
 
 const advantageItems = [
   [
-    "100% D-Quality Steel",
-    "Every ARS Green Steel TMT bar is manufactured to meet ductile-grade (D) classification, ensuring consistent strength, ductility, bendability, and weldability across every batch.",
-  ],
-  [
     "IS 13920 Seismic Compliance",
     "Designed to comply with IS 13920 requirements, ARS Green Steel maintains a minimum TS/YS ratio of 1.15, making it suitable for earthquake-resistant construction.",
   ],
   [
-    "Superior Corrosion Resistance",
-    "ARS CRS technology delivers 20–50% higher corrosion resistance than conventional TMT reinforcement, helping improve durability in high-salinity and demanding environments.",
-  ],
-  [
     "Independently SGS Tested",
     "Product quality is verified by SGS, one of the world's leading independent testing and certification organizations, providing confidence beyond internal quality checks.",
-  ],
-  [
-    "Every Batch Laboratory Verified",
-    "An NABL-accredited in-house laboratory verifies mechanical and chemical properties before every batch leaves the manufacturing facility, ensuring consistent product quality.",
-  ],
-  [
-    "30+ Element Spectro Analysis",
-    "Advanced spectro-analysis verifies the chemical composition of every production batch, helping maintain stringent BIS standards and manufacturing consistency.",
   ],
   [
     "Manufactured with 98% Recycled Steel",

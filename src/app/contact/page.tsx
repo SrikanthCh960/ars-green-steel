@@ -31,7 +31,7 @@ const officePhoneHref = `tel:${verifiedContactDetails.officePhoneCompact.replace
 const contactChannels = [
   {
     icon: Phone,
-    label: "Sales helpline",
+    label: "Customer helpline",
     title: verifiedContactDetails.mobile,
     text: "For product, pricing, quote, dealer, and project enquiry support.",
     href: salesPhoneHref,

@@ -36,7 +36,6 @@ const aboutChecklist = [
 ] as const;
 
 const aboutParagraphs = [
-  "ARS has been making TMT bars in Chennai since 1992. Green Steel isn't a separate product line or a rebrand — it's the same Fe-550D steel, made through a different route.",
   "Most steel in India still comes from the blast furnace process, which runs on iron ore, coal, and limestone. ARS shifted its production toward an electric arc furnace route, built on recycled steel scrap instead of mined ore. That single change is what brings the emissions number down — not an offset purchased after the fact, not a claim added to a brochure.",
   "What makes this worth talking about isn't that ARS calls itself green. It's that the numbers are checked by outside bodies — an international EPD, a government rating from the Ministry of Steel, and certifications recognized by GRIHA, LEED, and the Singapore Green Building Council. None of that gets awarded on the strength of a press release.",
 ] as const;
@@ -46,7 +45,6 @@ const manufacturingRoute = [
   ["Electric Furnace", "The scrap is melted through an electric furnace-based steelmaking route."],
   ["Refining", "The molten steel is refined to achieve the required composition and quality."],
   ["Rolling", "The refined steel is rolled into TMT rebars for structural applications."],
-  ["Testing", "Chemical composition and product quality are verified through rigorous testing, including spectro-analysis of 30+ elements for every batch."],
 ] as const;
 
 const carbonComparison = [
@@ -111,7 +109,7 @@ const certificationLogos = [
 ] as const;
 
 const products = [
-  ["ARS CRS Fe 550D TMT Bars", "Designed for projects exposed to high moisture, high salinity, and corrosive environments. Its enhanced corrosion resistance helps improve the durability and service life of structures, making it suitable for demanding conditions.", "Explore ARS CRS Fe 550D", "/product-crs-550d", "/ars-assets/logos/ARSCRS550D.png"],
+  ["ARS CRS Fe 550D TMT Bars", "Designed for projects exposed to high moisture, high TDS, high salinity, and corrosive environments. Its enhanced corrosion resistance helps improve the durability and service life of structures, making it suitable for demanding conditions.", "Explore ARS CRS Fe 550D", "/product-crs-550d", "/ars-assets/logos/ARSCRS550D.png"],
   ["ARS Fe 550D TMT Bars", "Ideal for general residential, commercial, and infrastructure construction where high strength, excellent ductility, and reliable performance are essential. A trusted choice for everyday construction projects.", "Explore ARS Fe 550D", "/product-550d", "/ars-assets/TMT-Bars.png"],
   ["ARS Binders", "Factory-made steel binders designed for consistent dimensions, accurate bends, and faster reinforcement work on site. Manufactured with precision to help improve productivity, reduce manual bending time, and deliver uniform quality across construction projects.", "Explore ARS Binders", "/ars-binders", "/ars-assets/logos/BinderLogo.png"],
 ] as const;
@@ -180,13 +178,13 @@ export default function ArsGreenSteelPage() {
           <GreenSteelReveal><SectionKicker variant="light">HOW ARS GREEN STEEL IS MADE</SectionKicker></GreenSteelReveal>
           <GreenSteelReveal delay={0.08}><h2 className="section-title max-w-4xl text-white">From Recycled Steel to Responsible Manufacturing.</h2></GreenSteelReveal>
           <div className="mt-7 grid gap-6 text-base leading-8 text-white/74 lg:grid-cols-3">
-            <GreenSteelReveal delay={0.14}><p>ARS Green Steel is produced using approximately 98% premium-quality recycled steel scrap through an electric furnace route. The process allows recovered steel to be brought back into production while reducing the carbon impact associated with conventional blast-furnace steelmaking.</p></GreenSteelReveal>
+            <GreenSteelReveal delay={0.14}><p>ARS Green Steel is produced using approximately 98% premium-quality recyclable steel through an electric furnace route. The process allows recovered steel to be brought back into production while reducing the carbon impact associated with conventional blast-furnace steelmaking.</p></GreenSteelReveal>
             <GreenSteelReveal delay={0.2}><p>The steel is then refined and rolled into TMT bars, with quality checks carried out through the manufacturing process. Renewable energy integration and real-time CO₂ emissions monitoring further support ARS&apos;s approach to responsible steel manufacturing.</p></GreenSteelReveal>
-            <GreenSteelReveal delay={0.26}><p>Every batch passes through spectro-analysis across more than 30 chemical elements, mechanical testing at ARS&apos;s in-house NABL-accredited laboratory, and third-party verification by SGS. Emission intensity is calculated separately and consolidated into the plant&apos;s Environmental Product Declaration.</p></GreenSteelReveal>
+            <GreenSteelReveal delay={0.26}><p>Emission intensity is calculated separately and consolidated into the plant&apos;s Environmental Product Declaration.</p></GreenSteelReveal>
           </div>
           <GreenSteelImageReveal className="relative mt-10 aspect-[1719/815] w-full overflow-hidden" delay={0.08}><Image src="/ars-assets/ars-green-steel/recycle.png" alt="Recycled steel, renewable energy, reduced fossil-fuel dependence, and finished reinforcing steel illustrating the ARS Green Steel manufacturing route" fill sizes="100vw" className="object-contain" /></GreenSteelImageReveal>
           <GreenSteelReveal><h3 className="mt-14 font-display text-2xl font-bold">The Manufacturing Route</h3></GreenSteelReveal>
-          <ol className="mt-7 grid border-l border-t border-white/16 md:grid-cols-2 lg:grid-cols-5">
+          <ol className="mt-7 grid border-l border-t border-white/16 md:grid-cols-2 lg:grid-cols-4">
             {manufacturingRoute.map(([title, body], index) => <GreenSteelListItemReveal key={title} delay={index * 0.06} className="relative border-b border-r border-white/16 bg-white/[0.035] p-6 before:absolute before:left-0 before:top-0 before:h-1 before:w-12 before:bg-[#9BCB83]"><span className="font-technical text-xs font-black tracking-[0.18em] text-[#9BCB83]">{String(index + 1).padStart(2, "0")}</span><h4 className="mt-6 font-display text-xl font-bold text-white">{title}</h4><p className="mt-4 text-sm leading-7 text-white/68">{body}</p></GreenSteelListItemReveal>)}
           </ol>
           <GreenSteelReveal className="mt-9"><Link href="/manufacturing" className="focus-ring inline-flex min-h-12 items-center gap-2 rounded-[6px] bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-red-dark">ARS Manufacturing <ArrowRight size={17} aria-hidden="true" /></Link></GreenSteelReveal>
