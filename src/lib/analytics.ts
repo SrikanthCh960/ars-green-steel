@@ -27,6 +27,12 @@ type PhoneClickEvent = {
   phoneContext: string;
 };
 
+type WhatsAppClickEvent = {
+  pagePath: string;
+  linkLocation: string;
+  linkText: string;
+};
+
 function analyticsIsEnabled() {
   return (
     typeof window !== "undefined" &&
@@ -60,5 +66,19 @@ export function trackPhoneClick({
     link_location: linkLocation,
     link_text: linkText,
     phone_context: phoneContext,
+  });
+}
+
+export function trackWhatsAppClick({
+  pagePath,
+  linkLocation,
+  linkText,
+}: WhatsAppClickEvent) {
+  if (!analyticsIsEnabled()) return;
+
+  sendGAEvent("event", "whatsapp_click", {
+    source_page: pagePath,
+    link_location: linkLocation,
+    link_text: linkText,
   });
 }

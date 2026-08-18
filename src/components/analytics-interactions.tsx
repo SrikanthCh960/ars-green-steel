@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { trackPhoneClick } from "@/lib/analytics";
+import { trackPhoneClick, trackWhatsAppClick } from "@/lib/analytics";
 
 function inferLinkLocation(anchor: HTMLAnchorElement) {
   if (anchor.dataset.analyticsLocation) return anchor.dataset.analyticsLocation;
@@ -14,6 +14,20 @@ export function AnalyticsInteractions() {
   useEffect(() => {
     function handleClick(event: MouseEvent) {
       if (!(event.target instanceof Element)) return;
+
+      const whatsappAnchor = event.target.closest<HTMLAnchorElement>(
+        'a[data-analytics-event="whatsapp_click"]',
+      );
+
+      if (whatsappAnchor) {
+        trackWhatsAppClick({
+          pagePath: window.location.pathname,
+          linkLocation:
+            whatsappAnchor.dataset.analyticsLocation ?? "floating_whatsapp",
+          linkText: whatsappAnchor.dataset.analyticsLabel ?? "chat_on_whatsapp",
+        });
+        return;
+      }
 
       const anchor = event.target.closest<HTMLAnchorElement>('a[href^="tel:"]');
       if (!anchor) return;
