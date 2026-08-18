@@ -17,7 +17,7 @@ const executiveLeadership = [
   {
     name: "Shri Ashwani Kumar Bhatia",
     role: "Managing Director (MD)",
-    bio: "Shri Ashwani Kumar Bhatia, an Economics Honours graduate, is the Founder and Managing Director of ARS Group of Companies and the visionary behind ARS Steels Pvt. Ltd. With over 39 years of distinguished experience in the steel and trade industry, he began his entrepreneurial journey in 1978 through the trading of MS scrap in New Delhi before establishing ARS Steels in 1990 with a vision to manufacture high-quality MS Ingots. As the principal promoter and strategic leader of the company, he continues to steer its growth with an unwavering commitment to manufacturing excellence, innovation, operational integrity, and customer trust, laying the foundation for ARS to become one of South India's leading manufacturers of premium TMT steel bars.",
+    bio: "Shri Ashwani Kumar Bhatia, an Economics Honours graduate, is the Founder and Managing Director of ARS Group of Companies and the visionary behind ARS Steels Pvt. Ltd. With over 39 years of distinguished experience in the steel and trade industry, he began his entrepreneurial journey in 1978 through the trading of recyclable steel materials in New Delhi before establishing ARS Steels in 1990 with a vision to manufacture high-quality MS Ingots. As the principal promoter and strategic leader of the company, he continues to steer its growth with an unwavering commitment to manufacturing excellence, innovation, operational integrity, and customer trust, laying the foundation for ARS to become one of South India's leading manufacturers of premium TMT steel bars.",
     photo: "/ars-assets/leadership/ashwani-kumar-bhatia.png",
   },
   {

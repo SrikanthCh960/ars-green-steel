@@ -36,13 +36,13 @@ const aboutChecklist = [
 ] as const;
 
 const aboutParagraphs = [
-  "Most steel in India still comes from the blast furnace process, which runs on iron ore, coal, and limestone. ARS shifted its production toward an electric arc furnace route, built on recycled steel scrap instead of mined ore. That single change is what brings the emissions number down — not an offset purchased after the fact, not a claim added to a brochure.",
+  "Most steel in India still comes from the blast furnace process, which runs on iron ore, coal, and limestone. ARS shifted its production toward an electric arc furnace route, built on premium-quality recyclable steel instead of mined ore. That single change is what brings the emissions number down — not an offset purchased after the fact, not a claim added to a brochure.",
   "What makes this worth talking about isn't that ARS calls itself green. It's that the numbers are checked by outside bodies — an international EPD, a government rating from the Ministry of Steel, and certifications recognized by GRIHA, LEED, and the Singapore Green Building Council. None of that gets awarded on the strength of a press release.",
 ] as const;
 
 const manufacturingRoute = [
-  ["Recycled Steel Scrap", "Premium-quality recycled steel scrap forms the primary raw material."],
-  ["Electric Furnace", "The scrap is melted through an electric furnace-based steelmaking route."],
+  ["Recyclable Steel", "Premium-quality recyclable steel forms the primary raw material."],
+  ["Electric Furnace", "The recyclable steel is melted through an electric furnace-based steelmaking route."],
   ["Refining", "The molten steel is refined to achieve the required composition and quality."],
   ["Rolling", "The refined steel is rolled into TMT rebars for structural applications."],
 ] as const;

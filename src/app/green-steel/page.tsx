@@ -40,7 +40,7 @@ const highlights: Array<[LucideIcon, string]> = [
 const routeComparison = [
   ["Primary Input", "Higher use of virgin raw materials", "Greater use of recycled steel"],
   ["Energy Source", "Fossil-fuel dependent in many routes", "Greater potential for cleaner electricity"],
-  ["Process Type", "Ore reduction — chemically intensive", "Scrap melting — energy intensive, not chemically intensive*"],
+  ["Process Type", "Ore reduction — chemically intensive", "Recycled-steel melting — energy intensive, not chemically intensive*"],
   ["Emission Intensity", "~2.9 t CO₂e/tonne (typical)*", "Significantly lower, dependent on grid and process efficiency"],
   ["Adoption in India", "Still the dominant production method*", "Emerging route in India*"],
   ["Finished Product", "Meets standard TMT strength grades", "Meets the same strength grades"],

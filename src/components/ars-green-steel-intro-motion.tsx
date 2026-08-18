@@ -144,7 +144,7 @@ const performancePillars = [
   {
     icon: Leaf,
     title: "Green Steel",
-    body: "Produced through a recycled scrap, electric arc furnace route, with an EPD-verified emission intensity of 592 kg CO₂e per tonne — a fraction of the conventional blast-furnace figure.",
+    body: "Produced through a recycled-steel electric arc furnace route, with an EPD-verified emission intensity of 592 kg CO₂e per tonne — a fraction of the conventional blast-furnace figure.",
   },
 ] as const;
 
