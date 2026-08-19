@@ -1,6 +1,6 @@
 "use client";
 
-import { sendGAEvent } from "@next/third-parties/google";
+import { sendGAEvent, sendGTMEvent } from "@next/third-parties/google";
 
 type LeadFormType =
   | "product_enquiry"
@@ -33,18 +33,40 @@ type WhatsAppClickEvent = {
   linkText: string;
 };
 
-function analyticsIsEnabled() {
+function directGaIsEnabled() {
   return (
     typeof window !== "undefined" &&
-    process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true" &&
+    process.env.NEXT_PUBLIC_GA_ENABLED === "true" &&
     Boolean(process.env.NEXT_PUBLIC_GA_ID)
   );
+}
+
+function gtmIsEnabled() {
+  return (
+    typeof window !== "undefined" &&
+    process.env.NEXT_PUBLIC_GTM_ENABLED === "true" &&
+    Boolean(process.env.NEXT_PUBLIC_GTM_ID)
+  );
+}
+
+function analyticsIsEnabled() {
+  return directGaIsEnabled() || gtmIsEnabled();
+}
+
+function sendAnalyticsEvent(eventName: string, parameters: Record<string, string>) {
+  if (directGaIsEnabled()) {
+    sendGAEvent("event", eventName, parameters);
+  }
+
+  if (gtmIsEnabled()) {
+    sendGTMEvent({ event: eventName, ...parameters });
+  }
 }
 
 export function trackGenerateLead({ formType, formId, product }: GenerateLeadEvent) {
   if (!analyticsIsEnabled()) return;
 
-  sendGAEvent("event", "generate_lead", {
+  sendAnalyticsEvent("generate_lead", {
     form_type: formType,
     form_id: formId,
     source_page: window.location.pathname,
@@ -61,7 +83,7 @@ export function trackPhoneClick({
 }: PhoneClickEvent) {
   if (!analyticsIsEnabled()) return;
 
-  sendGAEvent("event", "phone_click", {
+  sendAnalyticsEvent("phone_click", {
     page_path: pagePath,
     link_location: linkLocation,
     link_text: linkText,
@@ -76,7 +98,7 @@ export function trackWhatsAppClick({
 }: WhatsAppClickEvent) {
   if (!analyticsIsEnabled()) return;
 
-  sendGAEvent("event", "whatsapp_click", {
+  sendAnalyticsEvent("whatsapp_click", {
     source_page: pagePath,
     link_location: linkLocation,
     link_text: linkText,
