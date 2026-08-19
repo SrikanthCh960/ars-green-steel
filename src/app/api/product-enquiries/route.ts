@@ -51,6 +51,9 @@ export async function POST(request: Request) {
     return response({ ok: true, message: "Thank you. Your enquiry has been sent to the ARS sales team." }, 201);
   } catch (error) {
     recentSubmissions.delete(submissionKey);
+    console.error("Product enquiry Google Sheets submission failed", {
+      reason: error instanceof Error ? error.message : "UNKNOWN_ERROR",
+    });
     const isConfigurationError = error instanceof Error && error.message === "GOOGLE_SHEETS_NOT_CONFIGURED";
     return response({
       ok: false,

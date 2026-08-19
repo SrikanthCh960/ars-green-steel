@@ -12,10 +12,18 @@ function base64Url(value: string | Buffer) {
   return Buffer.from(value).toString("base64url");
 }
 
+function normalizePrivateKey(value: string | undefined) {
+  let privateKey = value?.trim();
+  if (privateKey?.startsWith('"') && privateKey.endsWith('"')) {
+    privateKey = privateKey.slice(1, -1);
+  }
+  return privateKey?.replace(/\\n/g, "\n").trim();
+}
+
 function getGoogleSheetsConfig() {
   const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID?.trim();
   const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL?.trim();
-  const privateKey = process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY?.replace(/\\n/g, "\n").trim();
+  const privateKey = normalizePrivateKey(process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY);
 
   if (!spreadsheetId || !clientEmail || !privateKey) {
     throw new Error("GOOGLE_SHEETS_NOT_CONFIGURED");
@@ -51,9 +59,9 @@ async function getGoogleAccessToken(clientEmail: string, privateKey: string) {
     signal: AbortSignal.timeout(8_000),
   });
 
-  if (!response.ok) throw new Error("GOOGLE_AUTH_FAILED");
+  if (!response.ok) throw new Error(`GOOGLE_AUTH_FAILED_${response.status}`);
   const data = await response.json() as { access_token?: string };
-  if (!data.access_token) throw new Error("GOOGLE_AUTH_FAILED");
+  if (!data.access_token) throw new Error("GOOGLE_AUTH_FAILED_NO_TOKEN");
   return data.access_token;
 }
 
@@ -81,5 +89,5 @@ export async function appendGoogleSheetRow({ sheetName, rangeColumns, values }: 
     signal: AbortSignal.timeout(8_000),
   });
 
-  if (!response.ok) throw new Error("GOOGLE_SHEETS_APPEND_FAILED");
+  if (!response.ok) throw new Error(`GOOGLE_SHEETS_APPEND_FAILED_${response.status}`);
 }
