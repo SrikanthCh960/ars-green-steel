@@ -1,6 +1,7 @@
 "use client";
 
 import { sendGAEvent, sendGTMEvent } from "@next/third-parties/google";
+import { analyticsConfig } from "@/lib/analytics-config";
 
 type LeadFormType =
   | "product_enquiry"
@@ -34,19 +35,11 @@ type WhatsAppClickEvent = {
 };
 
 function directGaIsEnabled() {
-  return (
-    typeof window !== "undefined" &&
-    process.env.NEXT_PUBLIC_GA_ENABLED === "true" &&
-    Boolean(process.env.NEXT_PUBLIC_GA_ID)
-  );
+  return typeof window !== "undefined" && analyticsConfig.ga4.enabled;
 }
 
 function gtmIsEnabled() {
-  return (
-    typeof window !== "undefined" &&
-    process.env.NEXT_PUBLIC_GTM_ENABLED === "true" &&
-    Boolean(process.env.NEXT_PUBLIC_GTM_ID)
-  );
+  return typeof window !== "undefined" && analyticsConfig.gtm.enabled;
 }
 
 function analyticsIsEnabled() {

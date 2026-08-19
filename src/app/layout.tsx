@@ -3,13 +3,14 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import { AnalyticsInteractions } from "@/components/analytics-interactions";
 import { FloatingWhatsAppButton } from "@/components/floating-whatsapp-button";
+import { analyticsConfig } from "@/lib/analytics-config";
 import { defaultSocialImage, isProductionSite, productionDomain, toProductionUrl } from "@/lib/site-metadata";
 import { SiteFooter } from "@/components/site-footer";
 
-const gaId = process.env.NEXT_PUBLIC_GA_ID;
-const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
-const gaEnabled = process.env.NEXT_PUBLIC_GA_ENABLED === "true" && Boolean(gaId);
-const gtmEnabled = process.env.NEXT_PUBLIC_GTM_ENABLED === "true" && Boolean(gtmId);
+const gaId = analyticsConfig.ga4.measurementId;
+const gtmId = analyticsConfig.gtm.containerId;
+const gaEnabled = analyticsConfig.ga4.enabled && Boolean(gaId);
+const gtmEnabled = analyticsConfig.gtm.enabled && Boolean(gtmId);
 const analyticsEnabled = gaEnabled || gtmEnabled;
 
 export const metadata: Metadata = {

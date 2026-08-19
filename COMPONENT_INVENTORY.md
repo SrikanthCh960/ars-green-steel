@@ -63,6 +63,7 @@ After creating or materially changing a reusable component, update this file in 
 
 | Data Source | File | Purpose | Current Usage | Verification Notes |
 |---|---|---|---|---|
+| `analyticsConfig` | `src/lib/analytics-config.ts` | Single source-controlled GA4 and GTM IDs with independent enable switches | Root layout and shared interaction-event dispatch | Rebuild all hosts from the same commit after changing a switch; prevent duplicate GA4 measurement when GTM contains overlapping GA4 tags |
 | `dealerRecords` | `src/data/dealers.ts` | Normalized ARS dealer list generated from the updated region-wise dealer workbook | `/dealer-locator` | Dealer active status, phone numbers, and city/state spelling should be verified by ARS before final launch |
 | `getBlogArchiveArticles` | `src/lib/blog-content.ts` | Normalizes the 88 migrated ARS articles into typed archive records with category, excerpt, image, date, and read-time metadata | `/blog` | Dates and excerpts are derived from migrated source content and should receive editorial verification during article-template migration |
 

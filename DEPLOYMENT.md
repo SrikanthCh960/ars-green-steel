@@ -15,23 +15,21 @@ This is the deployment source of truth for the ARS Green Steel redesign.
 
 ## Analytics Configuration
 
-Direct GA4 and Google Tag Manager are installed globally but controlled independently. No analytics script is emitted unless its enable flag is `true` and its corresponding ID is present.
+Direct GA4 and Google Tag Manager are installed globally and controlled independently through the shared source configuration in `src/lib/analytics-config.ts`. This makes every build from the same commit use the same analytics setup on Vercel and Hostinger without host-specific environment variables.
 
-| Integration | Enable variable | ID variable | Expected ID format |
+| Integration | Enable field | ID field | Configured ID |
 |---|---|---|---|
-| Direct GA4 | `NEXT_PUBLIC_GA_ENABLED` | `NEXT_PUBLIC_GA_ID` | `G-XXXXXXXXXX` |
-| Google Tag Manager | `NEXT_PUBLIC_GTM_ENABLED` | `NEXT_PUBLIC_GTM_ID` | `GTM-XXXXXXX` |
+| Direct GA4 | `analyticsConfig.ga4.enabled` | `analyticsConfig.ga4.measurementId` | `G-MQXGEGFD37` |
+| Google Tag Manager | `analyticsConfig.gtm.enabled` | `analyticsConfig.gtm.containerId` | `GTM-5SKJ2BWC` |
 
-Example configuration with both integrations disabled:
+Both integrations are currently enabled. To disable either integration for every host, change only its `enabled` value and rebuild both deployments from the same commit:
 
-```env
-NEXT_PUBLIC_GA_ENABLED=false
-NEXT_PUBLIC_GA_ID=
-NEXT_PUBLIC_GTM_ENABLED=false
-NEXT_PUBLIC_GTM_ID=
+```ts
+ga4: { enabled: false, measurementId: "G-MQXGEGFD37" }
+gtm: { enabled: false, containerId: "GTM-5SKJ2BWC" }
 ```
 
-These public variables are embedded during the Next.js build. Configure them separately in Vercel and in the Hostinger build environment, then rebuild and redeploy. Do not publish placeholder IDs.
+GA4 measurement IDs and GTM container IDs are public identifiers that are visible in the delivered website markup. Do not place private analytics credentials or API secrets in this source configuration.
 
 When direct GA4 and GTM are both enabled, confirm that the GTM container is not also sending the same GA4 page views or conversion events unless duplicate measurement is intentionally required. The shared `generate_lead`, `phone_click`, and `whatsapp_click` events are dispatched to each enabled integration.
 
