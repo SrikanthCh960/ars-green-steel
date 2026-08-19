@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle2, FlaskConical, Phone, ShieldCheck } from "luci
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
+import { SteelTestingEnquiryForm } from "@/components/steel-testing-enquiry-form";
 import { createPageMetadata } from "@/lib/site-metadata";
 
 export const metadata: Metadata = createPageMetadata({
@@ -118,17 +119,16 @@ export default function SteelTestingPage() {
         </div>
       </MotionSection>
 
-      <MotionSection className="relative overflow-hidden bg-brand-blue py-20">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle at 15% 50%, rgba(222,18,26,0.7) 0%, transparent 55%)" }} />
-        <div className="ars-container relative z-10 flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
-          <div className="max-w-3xl">
+      <MotionSection className="relative overflow-hidden bg-surface-50 py-20 md:py-24">
+        <div className="ars-container relative z-10 grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
+          <div className="rounded-[8px] bg-brand-blue p-7 text-white md:p-10">
             <SectionKicker variant="light">REQUEST AN ON-SITE SPECTROMETRY TESTING</SectionKicker>
-            <h2 className="font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">Quality You Can Trust. Verified By The Steel Test.</h2>
-            <p className="mt-4 text-[15px] leading-[1.8] text-white/75">Please complete this form with basic information about the testing or analysis you need.</p>
+            <h2 className="mt-6 font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">Quality You Can Trust. Verified By The Steel Test.</h2>
+            <p className="mt-5 text-[15px] leading-[1.8] text-white/75">Share your project and testing requirement. The ARS team will contact you to arrange on-site spectrometer testing.</p>
           </div>
-          <Link href="/request-quote" className="focus-ring inline-flex min-h-12 shrink-0 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90">
-            Request Testing <ArrowRight aria-hidden="true" size={15} />
-          </Link>
+          <div className="rounded-[8px] border border-ink-900/10 bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] md:p-8">
+            <SteelTestingEnquiryForm />
+          </div>
         </div>
       </MotionSection>
 

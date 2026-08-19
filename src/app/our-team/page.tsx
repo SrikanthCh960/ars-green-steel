@@ -17,13 +17,23 @@ const executiveLeadership = [
   {
     name: "Shri Ashwani Kumar Bhatia",
     role: "Managing Director (MD)",
-    bio: "Shri Ashwani Kumar Bhatia, an Economics Honours graduate, is the Founder and Managing Director of ARS Group of Companies and the visionary behind ARS Steels Pvt. Ltd. With over 39 years of distinguished experience in the steel and trade industry, he began his entrepreneurial journey in 1978 through the trading of recyclable steel materials in New Delhi before establishing ARS Steels in 1990 with a vision to manufacture high-quality MS Ingots. As the principal promoter and strategic leader of the company, he continues to steer its growth with an unwavering commitment to manufacturing excellence, innovation, operational integrity, and customer trust, laying the foundation for ARS to become one of South India's leading manufacturers of premium TMT steel bars.",
+    heading: "Shri. Ashwani Kumar Bhatia – Founder & Managing Director",
+    bio: [
+      "Shri Ashwani Kumar Bhatia, an Economics Honours graduate, is the Founder and Manging Director of ARS Steels and the visionary behind the company’s growth and success. A lifelong learner with an unwavering commitment to quality and excellence, he has been instrumental in shaping ARS Steels into a trusted name in the steel industry.",
+      "Driven by a passion for innovation and continuous improvement, he has championed the adoption of cutting-edge technology, sustainable steelmaking practices, and stringent quality standards across the organisation. Under his leadership and vision, ARS Steels continues to combine superior strength, technological innovation, and sustainability to deliver high-quality steel solutions built for the future.",
+      "His forward-thinking approach and commitment to excellence continue to strengthen the ARS legacy — a legacy built on quality, innovation, sustainability, and trust.",
+    ],
     photo: "/ars-assets/leadership/ashwani-kumar-bhatia.png",
   },
   {
     name: "Shri Rajesh Bhatia",
     role: "Executive Director (ED)",
-    bio: "Shri Rajesh Bhatia, Executive Director of ARS Steels & Alloy International Pvt. Ltd., began his journey with the company as a part-time trainee during the final year of his Bachelor's in Business Administration from BVIMR, New Delhi. Complementing his academic foundation with a Diploma in Stock Analysis and Portfolio Management from the BLB Institute of Financial Management, he has played an instrumental role in driving the company's strategic growth and expanding its presence into new business avenues. Combining a progressive outlook with a strong understanding of the steel manufacturing industry, he continues to lead initiatives focused on innovation, operational excellence, sustainable growth, and delivering long-term value to customers and stakeholders.",
+    heading: "Shri. Rajesh Bhatia",
+    bio: [
+      "Shri Rajesh Bhatia, Executive Director, has been an integral part of the company’s growth journey since 2009. Over the years, he has played a pivotal role in shaping the organisation’s strategic direction, expanding into new business avenues, and strengthening ARS Steels’ position in the Indian steel industry.",
+      "With a progressive outlook and a deep understanding of the steel manufacturing sector, he has been instrumental in driving initiatives centred on innovation, operational excellence, sustainability, and customer-focused growth. Under his leadership, ARS Steels has evolved from a traditional steel manufacturer into a modern, consumer-driven, and sustainability-focused steel brand.",
+      "His vision is focused on building a future-ready organisation that combines manufacturing excellence, sustainable steel solutions, innovation, and strong customer relationships, while contributing meaningfully to the transformation of India’s steel industry.",
+    ],
     photo: "/ars-assets/leadership/rajesh-bhatia.png",
   },
 ] as const;
@@ -58,6 +68,20 @@ const salesMarketingLeader = {
   photo: "/ars-assets/Chandra-Mouli-1.jpeg",
 } as const;
 
+const executiveDirectorTeam = [
+  salesMarketingLeader,
+  {
+    name: "Ms. N. Subashini",
+    role: "SGM – People Management",
+    photo: "/ars-assets/leadership/n-subashini.png",
+  },
+  {
+    name: "Mr. M. Babulal",
+    role: "DGM – IT",
+    photo: "/ars-assets/leadership/m-babulal.png",
+  },
+] as const;
+
 const financeLeader = {
   name: "Ms. S. Valarmadhi",
   role: "GM – Finance & Accounts",
@@ -74,16 +98,6 @@ const salesMarketingTeam = [
     name: "Mr. R. Govindarajan",
     role: "SGM – Field Marketing & Technical Services",
     photo: "/ars-assets/leadership/r-govindarajan.png",
-  },
-  {
-    name: "Ms. N. Subashini",
-    role: "SGM – People Management",
-    photo: "/ars-assets/leadership/n-subashini.png",
-  },
-  {
-    name: "Mr. M. Babulal",
-    role: "DGM – IT",
-    photo: "/ars-assets/leadership/m-babulal.png",
   },
   {
     name: "Mr. Balamurali Krishna Chakkaravarthy",
@@ -235,9 +249,11 @@ export default function OurTeamPage() {
                     {member.role}
                   </div>
                   <h3 className="max-w-xl font-display text-[clamp(2rem,3.2vw,3.2rem)] font-bold leading-[1.02] tracking-[-0.03em] text-ink-900">
-                    {member.name}
+                    {member.heading}
                   </h3>
-                  <p className="mt-6 max-w-2xl text-[15px] leading-8 text-steel-700">{member.bio}</p>
+                  <div className="mt-6 max-w-2xl space-y-5 text-[15px] leading-8 text-steel-700">
+                    {member.bio.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                  </div>
                 </div>
               </article>
             ))}
@@ -289,20 +305,24 @@ export default function OurTeamPage() {
               </ol>
             </section>
 
-            <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-5 lg:gap-5">
-              <section aria-labelledby="sales-leader-title" className="relative lg:col-start-1">
-                <div className="absolute -top-14 left-1/2 hidden h-14 w-px bg-brand-blue/35 lg:block" aria-hidden="true" />
-                <h3 id="sales-leader-title" className="sr-only">
-                  Leader reporting to the Executive Director
+            <div className="mt-14 grid gap-10 lg:grid-cols-10 lg:gap-5">
+              <section aria-labelledby="executive-director-team-title" className="relative lg:col-span-4">
+                <div className="absolute -top-14 left-1/4 hidden h-14 w-px bg-brand-blue/35 lg:block" aria-hidden="true" />
+                <h3 id="executive-director-team-title" className="sr-only">
+                  Leaders reporting to the Executive Director
                 </h3>
                 <div className="mb-4 flex items-center gap-3 lg:hidden">
                   <span className="h-px w-8 bg-brand-blue" aria-hidden="true" />
                   <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand-blue">Reports to Executive Director</p>
                 </div>
-                <HierarchyProfileCard member={salesMarketingLeader} emphasis />
+                <ol className="grid gap-5 sm:grid-cols-3">
+                  {executiveDirectorTeam.map((member) => (
+                    <li key={member.name}><HierarchyProfileCard member={member} emphasis /></li>
+                  ))}
+                </ol>
               </section>
 
-              <section aria-labelledby="finance-leader-title" className="relative lg:col-start-3">
+              <section aria-labelledby="finance-leader-title" className="relative lg:col-span-2 lg:col-start-5 lg:mt-0">
                 <div className="absolute -top-14 left-1/2 hidden h-14 w-px bg-brand-blue/35 lg:block" aria-hidden="true" />
                 <h3 id="finance-leader-title" className="sr-only">
                   Leader reporting to the Deputy Director of Finance and Accounts
@@ -311,25 +331,28 @@ export default function OurTeamPage() {
                   <span className="h-px w-8 bg-brand-blue" aria-hidden="true" />
                   <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand-blue">Reports to Dy. Director – Finance & Accounts</p>
                 </div>
-                <HierarchyProfileCard member={financeLeader} emphasis />
+                <div className="mx-auto lg:max-w-[66.667%]">
+                  <HierarchyProfileCard member={financeLeader} emphasis />
+                </div>
               </section>
             </div>
 
             <section aria-labelledby="sales-marketing-team-title" className="relative mt-16 border-t border-brand-blue/20 pt-14 lg:mt-20">
-              <div className="absolute -top-16 left-[10%] hidden h-16 w-px bg-brand-blue/35 lg:block" aria-hidden="true" />
-              <div className="mb-8 flex items-center gap-4">
-                <span className="h-px w-10 bg-brand-red" aria-hidden="true" />
-                <h3 id="sales-marketing-team-title" className="text-xs font-bold uppercase tracking-[0.16em] text-brand-blue">
-                  Sales &amp; Marketing
-                </h3>
+              <h3 id="sales-marketing-team-title" className="sr-only">Team reporting to Mr. G. Chandra Mouli</h3>
+              <div className="mx-auto max-w-[290px]">
+                <HierarchyProfileCard member={salesMarketingLeader} emphasis />
               </div>
-              <ol className="grid gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {salesMarketingTeam.map((member) => (
-                  <li key={member.name}>
-                    <HierarchyProfileCard member={member} />
-                  </li>
-                ))}
-              </ol>
+              <div className="mx-auto h-12 w-px bg-brand-blue/35" aria-hidden="true" />
+              <div className="relative">
+                <div className="absolute left-[10%] right-[10%] top-0 hidden h-px bg-brand-blue/35 lg:block" aria-hidden="true" />
+                <ol className="grid gap-7 pt-0 sm:grid-cols-2 lg:grid-cols-5 lg:pt-10">
+                  {salesMarketingTeam.map((member) => (
+                    <li key={member.name} className="relative lg:before:absolute lg:before:left-1/2 lg:before:top-0 lg:before:h-10 lg:before:w-px lg:before:-translate-y-10 lg:before:bg-brand-blue/35">
+                      <HierarchyProfileCard member={member} />
+                    </li>
+                  ))}
+                </ol>
+              </div>
             </section>
           </div>
         </div>

@@ -21,6 +21,7 @@ import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { ProductLeadCaptureForm } from "@/components/product-lead-capture-form";
 import { FaqList } from "@/components/faq-list";
+import { PhysicalChemicalPropertiesTable } from "@/components/physical-chemical-properties-table";
 
 export const metadata = createPageMetadata({
   title: "ARS CRS Fe 550D TMT Bars | ARS Green Steel",
@@ -56,21 +57,6 @@ const benefits = [
   { icon: <MapPin size={20} />, title: "Designed for Aggressive Environments", desc: "Recommended for coastal regions, marine structures, industrial zones, water-retaining structures, bridges, ports, and projects exposed to high salinity." },
 ];
 
-const mechanicalProperties = [
-  ["Yield Strength", "N/mm²", "560 Min."],
-  ["Tensile Strength", "N/mm²", "620 Min."],
-  ["TS/YS Ratio", "Ratio", "1.08 Min."],
-  ["Elongation", "%", "16 Min."],
-];
-
-const chemicalProperties = [
-  ["Carbon (C)", "%", "0.25 Max."],
-  ["Sulphur (S)", "%", "0.04 Max."],
-  ["Phosphorus (P)", "%", "0.04 Max."],
-  ["Sulphur + Phosphorus (S+P)", "%", "0.075 Max."],
-  ["CRE (Cr+Cu+P+Mo+Ni)", "%", "0.45 Min."],
-];
-
 const certificationBadges = ["BIS Certified", "Green Steel Certified", "TN PWD Approved", "SGBC Leader (4-Star)", "GRIHA", "EPD Verified"];
 
 const faqs = [
@@ -88,32 +74,6 @@ const sellingActions = [
   { icon: <MapPin size={20} />, title: "Find a Dealer", desc: "Locate an authorised ARS dealer near you for product availability and technical assistance.", cta: "Find a Dealer →", href: "/our-network" },
   { icon: <GitCompare size={20} />, title: "Compare ARS Fe 550D", desc: "Compare ARS CRS Fe 550D and ARS Fe 550D to select the right reinforcement steel based on your project environment.", cta: "Compare Grades →", href: "/product-550d" },
 ];
-
-function PropertyTable({ caption, rows }: { caption: string; rows: string[][] }) {
-  return (
-    <div className="overflow-x-auto rounded-2xl border border-surface-100 bg-white">
-      <table className="min-w-[480px] w-full border-collapse text-left">
-        <caption className="sr-only">{caption}</caption>
-        <thead className="bg-brand-blue">
-          <tr>
-            <th scope="col" className="px-4 py-3 text-[10px] font-bold uppercase tracking-[0.1em] text-white/80">Property</th>
-            <th scope="col" className="px-4 py-3 text-[10px] font-bold uppercase tracking-[0.1em] text-white/80">Unit</th>
-            <th scope="col" className="px-4 py-3 text-[10px] font-bold uppercase tracking-[0.1em] text-white/80">ARS CRS Fe 550D</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map(([property, unit, value], index) => (
-            <tr key={property} className={index % 2 === 0 ? "bg-surface-50" : "bg-white"}>
-              <th scope="row" className="px-4 py-3 text-[13px] font-semibold text-ink-900">{property}</th>
-              <td className="px-4 py-3 text-[13px] text-steel-700">{unit}</td>
-              <td className="px-4 py-3 text-[13px] font-bold text-brand-blue">{value}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
 
 export default function ArsCrs550DPage() {
   return (
@@ -145,7 +105,7 @@ export default function ArsCrs550DPage() {
 
       <MotionSection className="bg-brand-blue py-20 md:py-24"><div className="ars-container"><div className="mb-12 grid items-start gap-8 lg:grid-cols-2"><div><SectionKicker variant="light">WHY CHOOSE ARS CRS Fe 550D</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">Engineered for Corrosion Resistance. Built for Generations.</h2></div><p className="text-[15px] leading-[1.8] text-white/75 lg:pt-12">Designed for structures exposed to moisture and aggressive environments, ARS CRS Fe 550D delivers dependable structural performance with long-term corrosion protection.</p></div><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{benefits.map((benefit, index) => <article key={benefit.title} className="flex min-h-[235px] flex-col rounded-2xl border border-white/[0.1] bg-white/[0.05] p-6"><div className="flex items-center justify-between"><span className="flex h-10 w-10 items-center justify-center rounded-xl border border-brand-red/30 bg-brand-red/10 text-brand-red">{benefit.icon}</span><span className="text-[12px] font-bold text-white/20">{String(index + 1).padStart(2, "0")}</span></div><h3 className="mt-6 font-display text-[16px] font-bold text-white">{benefit.title}</h3><p className="mt-2 text-[13px] leading-[1.65] text-white/70">{benefit.desc}</p></article>)}</div></div></MotionSection>
 
-      <MotionSection className="bg-white py-20 md:py-24"><div className="ars-container"><SectionKicker variant="brand">Key Properties</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Mechanical &amp; Chemical Properties</h2><p className="mt-5 max-w-3xl text-[15px] leading-[1.8] text-steel-700">Manufactured to IS 1786 standards, ARS CRS Fe 550D combines corrosion-resistant chemistry with dependable mechanical properties for long-term structural durability.</p><div className="mt-10 grid gap-5 lg:grid-cols-2"><PropertyTable caption="Mechanical properties of ARS CRS Fe 550D" rows={mechanicalProperties} /><PropertyTable caption="Chemical properties of ARS CRS Fe 550D" rows={chemicalProperties} /></div></div></MotionSection>
+      <MotionSection className="bg-white py-20 md:py-24"><div className="ars-container"><SectionKicker variant="brand">Key Properties</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Mechanical &amp; Chemical Properties</h2><p className="mt-5 max-w-3xl text-[15px] leading-[1.8] text-steel-700">Manufactured to IS 1786 standards, ARS CRS Fe 550D combines corrosion-resistant chemistry with dependable mechanical properties for long-term structural durability.</p><div className="mt-10"><PhysicalChemicalPropertiesTable grade="Fe 550D CRS" /></div></div></MotionSection>
 
       <MotionSection className="bg-surface-50 py-20 md:py-24"><div className="ars-container grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]"><div><SectionKicker variant="brand">Trust</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Tested. Certified. Trusted.</h2><div className="mt-7 grid grid-cols-2 gap-3">{certificationBadges.map((badge) => <div key={badge} className="flex min-h-16 items-center gap-3 rounded-xl border border-surface-100 bg-white px-4 text-[13px] font-bold text-brand-blue"><BadgeCheck size={18} className="shrink-0 text-brand-red" />{badge}</div>)}</div><div className="mt-7 flex flex-wrap gap-3"><a href="/ars-assets/Downloads/CRS-brochure-English.pdf" target="_blank" rel="noreferrer" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full border border-brand-blue/20 px-5 py-2.5 text-[13px] font-bold text-brand-blue transition hover:border-brand-blue hover:bg-brand-blue hover:text-white"><Download size={14} aria-hidden="true" /> Download Brochure</a><Link href="/our-certification" className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-blue px-5 py-2.5 text-[13px] font-bold text-white"><Download size={14} /> View All Certifications</Link></div></div><div className="relative min-h-[480px] overflow-hidden rounded-2xl bg-ink-950"><video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source src="/ars-assets/products/TestedCertifiedTrusted..mp4" type="video/mp4" /></video><div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(6,13,30,0.86),rgba(6,13,30,0.08)_62%)]" /><div className="absolute inset-x-6 bottom-6"><p className="text-[11px] font-bold uppercase tracking-[0.1em] text-white/70">High-Strength Fe550D TMT Bars for Strong, Durable Construction</p></div></div></div></MotionSection>
 

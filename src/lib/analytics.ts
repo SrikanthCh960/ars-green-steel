@@ -7,13 +7,15 @@ type LeadFormType =
   | "product_enquiry"
   | "quote_request"
   | "contact_enquiry"
-  | "distributor_enquiry";
+  | "distributor_enquiry"
+  | "steel_testing_enquiry";
 
 type LeadFormId =
   | "product_lead_capture"
   | "quote_request"
   | "contact_enquiry"
-  | "distributor_enquiry";
+  | "distributor_enquiry"
+  | "steel_testing_enquiry";
 
 type GenerateLeadEvent = {
   formType: LeadFormType;

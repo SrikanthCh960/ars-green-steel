@@ -19,6 +19,7 @@ import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { ProductLeadCaptureForm } from "@/components/product-lead-capture-form";
 import { FaqList } from "@/components/faq-list";
+import { PhysicalChemicalPropertiesTable } from "@/components/physical-chemical-properties-table";
 
 export const metadata = createPageMetadata({
   title: "ARS Fe 550D TMT Bars | ARS Green Steel",
@@ -86,21 +87,6 @@ const benefits = [
   },
 ];
 
-const mechanicalProperties = [
-  ["Yield Strength", "N/mm²", "550 Min."],
-  ["Tensile Strength", "N/mm²", "600 Min."],
-  ["TS/YS Ratio", "Ratio", "1.10 Min."],
-  ["Elongation", "%", "16 Min."],
-];
-
-const chemicalProperties = [
-  ["Carbon (C)", "%", "0.25 Max."],
-  ["Sulphur (S)", "%", "0.04 Max."],
-  ["Phosphorus (P)", "%", "0.04 Max."],
-  ["Sulphur + Phosphorus (S+P)", "%", "0.075 Max."],
-  ["Carbon Equivalent (CE)", "%", "0.42 Max."],
-];
-
 const certificationBadges = ["BIS Certified", "Green Steel Certified", "TN PWD Approved", "SGBC Leader (4-Star)", "GRIHA", "EPD Verified"];
 
 const diameterLinks = [
@@ -143,38 +129,6 @@ const faqs = [
     "ARS Fe 550D is designed for general reinforced concrete construction, offering high strength and ductility. ARS CRS Fe 550D provides these benefits along with enhanced corrosion resistance, making it suitable for structures exposed to moisture, coastal environments, and high-salinity conditions.",
   ],
 ];
-
-function PropertyTable({
-  caption,
-  rows,
-}: {
-  caption: string;
-  rows: string[][];
-}) {
-  return (
-    <div className="overflow-hidden rounded-2xl border border-surface-100 bg-white">
-      <table className="w-full border-collapse text-left">
-        <caption className="sr-only">{caption}</caption>
-        <thead className="bg-brand-blue">
-          <tr>
-            <th scope="col" className="px-4 py-3 text-[10px] font-bold uppercase tracking-[0.1em] text-white/80">Property</th>
-            <th scope="col" className="px-4 py-3 text-[10px] font-bold uppercase tracking-[0.1em] text-white/80">Unit</th>
-            <th scope="col" className="px-4 py-3 text-[10px] font-bold uppercase tracking-[0.1em] text-white/80">ARS Fe 550D</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map(([property, unit, value], index) => (
-            <tr key={property} className={index % 2 === 0 ? "bg-surface-50" : "bg-white"}>
-              <th scope="row" className="px-4 py-3 text-[13px] font-semibold text-ink-900">{property}</th>
-              <td className="px-4 py-3 text-[13px] text-steel-700">{unit}</td>
-              <td className="px-4 py-3 text-[13px] font-bold text-brand-blue">{value}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
 
 export default function Ars550DPage() {
   return (
@@ -253,7 +207,7 @@ export default function Ars550DPage() {
       </MotionSection>
 
       <MotionSection className="bg-white py-20 md:py-24">
-        <div className="ars-container"><SectionKicker variant="brand">Key Properties</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Mechanical &amp; Chemical Properties</h2><p className="mt-5 max-w-3xl text-[15px] leading-[1.8] text-steel-700">Manufactured to IS 1786 standards, ARS Fe 550D TMT Bars are engineered to deliver consistent mechanical performance and controlled chemical composition for reliable reinforced concrete construction.</p><div className="mt-10 grid gap-5 lg:grid-cols-2"><PropertyTable caption="Mechanical properties of ARS Fe 550D" rows={mechanicalProperties} /><PropertyTable caption="Chemical properties of ARS Fe 550D" rows={chemicalProperties} /></div></div>
+        <div className="ars-container"><SectionKicker variant="brand">Key Properties</SectionKicker><h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Mechanical &amp; Chemical Properties</h2><p className="mt-5 max-w-3xl text-[15px] leading-[1.8] text-steel-700">Manufactured to IS 1786 standards, ARS Fe 550D TMT Bars are engineered to deliver consistent mechanical performance and controlled chemical composition for reliable reinforced concrete construction.</p><div className="mt-10"><PhysicalChemicalPropertiesTable grade="Fe 550D" /></div></div>
       </MotionSection>
 
       <MotionSection className="bg-surface-50 py-20 md:py-24">

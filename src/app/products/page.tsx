@@ -24,15 +24,15 @@ const trustItems = [
 const products = productCatalog.map((product) => ({
   ...product,
   icon: product.name === "ARS Fe 550D" ? ShieldCheck : product.name === "ARS CRS Fe 550D" ? Waves : Layers,
-  points: product.homePoints,
+  points: product.name === "ARS CRS Fe 550D" ? [...product.homePoints, "EQ"] : product.homePoints,
 }));
 
 const comparisonRows = [
-  ["Best For", "General reinforced concrete construction", "Reinforced concrete construction in high-salinity and humid environments"],
+  ["Best For", "General reinforced concrete construction", "Reinforced concrete construction in high-salinity, high TDS and humid environments"],
   ["Strength Grade", "Fe550D", "Fe550D CRS"],
-  ["Corrosion Resistance", "Standard protection", "2x long life and Enhanced corrosion resistance with CRS technology"],
+  ["Corrosion Resistance", "Standard protection", "2x lifespan and Enhanced corrosion resistance with CRS technology"],
   ["Applications", "Residential, Commercial, Industrial & Infrastructure Projects", "Residential, Commercial, Industrial, Infrastructure & High-Salinity Projects"],
-  ["Structural Performance", "High Strength, Superior Ductility & Bendability", "High Strength, Superior Ductility & Long-Term Corrosion Protection"],
+  ["Structural Performance", "High Strength, Superior Ductility & Bendability", "High Strength, Superior Ductility & Long-Term Corrosion Protection, EQ resistance"],
   ["Service Life", "Designed for long-lasting structural performance", "Designed for extended service life in aggressive environments"],
   ["Earthquake Performance", "Suitable for earthquake-resistant construction", "Suitable for earthquake-resistant construction with added corrosion resistance"],
   ["Concrete Bonding", "Excellent ribbed surface for strong concrete bonding", "Excellent ribbed surface for strong concrete bonding"],
@@ -89,8 +89,8 @@ export default function ProductsPage() {
 
       <MotionSection className="bg-brand-blue py-24" id="comparison">
         <div className="ars-container"><SectionKicker variant="light">Product Comparison</SectionKicker>
-          <div className="hidden overflow-hidden rounded-2xl border border-white bg-brand-blue md:block"><table className="w-full border-collapse text-left"><caption className="sr-only">Comparison of ARS Fe 550D and ARS CRS Fe 550D TMT Bars.</caption><thead className="bg-brand-blue-dark"><tr><th scope="col" className="w-[22%] border-b border-white/35 px-5 py-4 text-[11px] font-bold uppercase tracking-[0.1em] text-white">Feature</th><th scope="col" className="border-b border-white/35 px-5 py-4 text-[12px] font-bold text-white">ARS Fe 550D</th><th scope="col" className="border-b border-white/35 px-5 py-4 text-[12px] font-bold text-white">ARS CRS Fe 550D</th></tr></thead><tbody>{comparisonRows.map(([feature, standard, crs], index) => <tr key={feature} className={index % 2 === 0 ? "bg-brand-blue" : "bg-brand-blue-dark/70"}><th scope="row" className="border-b border-white/25 px-5 py-4 text-[12px] font-semibold uppercase tracking-[0.04em] text-white">{feature}</th><td className="border-b border-white/25 px-5 py-4 text-[13px] leading-[1.5] text-white/85">{standard}</td><td className="border-b border-white/25 px-5 py-4 text-[13px] leading-[1.5] text-white/85">{crs}</td></tr>)}</tbody></table></div>
-          <dl className="divide-y divide-white/25 rounded-2xl border border-white bg-brand-blue md:hidden">{comparisonRows.map(([feature, standard, crs]) => <div key={feature} className="p-5"><dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-white">{feature}</dt><dd className="mt-4 grid gap-4 sm:grid-cols-2"><div><p className="text-[11px] font-bold uppercase tracking-[0.08em] text-white/65">ARS Fe 550D</p><p className="mt-1.5 text-[13px] leading-[1.55] text-white/85">{standard}</p></div><div><p className="text-[11px] font-bold uppercase tracking-[0.08em] text-white/65">ARS CRS Fe 550D</p><p className="mt-1.5 text-[13px] leading-[1.55] text-white/85">{crs}</p></div></dd></div>)}</dl>
+          <div className="hidden overflow-hidden rounded-2xl border border-white bg-brand-blue md:block"><table className="w-full border-collapse text-left"><caption className="sr-only">Comparison of ARS Fe 550D and ARS CRS Fe 550D TMT Bars.</caption><thead className="bg-brand-blue-dark"><tr><th scope="col" className="w-[22%] border-b border-white/35 px-5 py-4 text-[11px] font-bold uppercase tracking-[0.1em] text-white">Feature</th><th scope="col" className="border-b border-white/35 px-5 py-4 text-[12px] font-bold text-white">ARS 550D</th><th scope="col" className="border-b border-white/35 px-5 py-4 text-[12px] font-bold text-white">ARS CRS 550D</th></tr></thead><tbody>{comparisonRows.map(([feature, standard, crs], index) => <tr key={feature} className={index % 2 === 0 ? "bg-brand-blue" : "bg-brand-blue-dark/70"}><th scope="row" className="border-b border-white/25 px-5 py-4 text-[12px] font-semibold uppercase tracking-[0.04em] text-white">{feature}</th><td className="border-b border-white/25 px-5 py-4 text-[13px] leading-[1.5] text-white/85">{standard}</td><td className="border-b border-white/25 px-5 py-4 text-[13px] leading-[1.5] text-white/85">{crs}</td></tr>)}</tbody></table></div>
+          <dl className="divide-y divide-white/25 rounded-2xl border border-white bg-brand-blue md:hidden">{comparisonRows.map(([feature, standard, crs]) => <div key={feature} className="p-5"><dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-white">{feature}</dt><dd className="mt-4 grid gap-4 sm:grid-cols-2"><div><p className="text-[11px] font-bold uppercase tracking-[0.08em] text-white/65">ARS 550D</p><p className="mt-1.5 text-[13px] leading-[1.55] text-white/85">{standard}</p></div><div><p className="text-[11px] font-bold uppercase tracking-[0.08em] text-white/65">ARS CRS 550D</p><p className="mt-1.5 text-[13px] leading-[1.55] text-white/85">{crs}</p></div></dd></div>)}</dl>
         </div>
       </MotionSection>
 

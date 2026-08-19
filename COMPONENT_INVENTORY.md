@@ -52,6 +52,7 @@ After creating or materially changing a reusable component, update this file in 
 | `SteelPriceLookup` | `src/components/steel-price-lookup.tsx` | Interactive workbook-backed price lookup for region, product, and diameter | Uses the `Price Chart Per Ton` mapping; displays GST-inclusive price per kg and per ton | `/steel-price-today`, `/tmt-steel-price-today` |
 | `FaqList` | `src/components/faq-list.tsx` | Shared accessible FAQ disclosure list for page-owned question and answer content | Supports multiple open answers, long React content, keyboard focus, stable IDs, and reduced-motion-safe interaction | FAQ sections across product, calculator, project, sustainability, audience, and informational pages |
 | `ManufacturingProcessFlow` | `src/components/manufacturing-process-flow.tsx` | Ordered nine-stage manufacturing process grid with local ARS icons | Desktop uses two four-card rows with the ninth stage centred below; compact desktop icon/number sizing and single-column mobile flow; semantic ordered list; icon mapping remains presentation-owned | `/manufacturing` |
+| `PhysicalChemicalPropertiesTable` | `src/components/physical-chemical-properties-table.tsx` | Presentation-matched Fe 550D and Fe 550D CRS physical and chemical property tables | Preserves the supplied two-table, IS 1786–2008 comparison structure and highlighted ARS values; horizontal table scrolling protects the required columns on small screens | `/product-550d`, `/product-crs-550d` |
 
 ## Cross-page consistency rules
 

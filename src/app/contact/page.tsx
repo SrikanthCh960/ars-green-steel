@@ -19,7 +19,7 @@ import { SiteHeader } from "@/components/site-header";
 import { clientVerificationSummary, verifiedContactDetails } from "@/data/business-verification";
 
 export const metadata = createPageMetadata({
-  title: "Contact ARS Green Steel",
+  title: "For Any Queries Related to TMT Bar & Rods Contact Us - ARS Steel",
   description:
     "Contact ARS Green Steel for TMT bar pricing, dealer support, product guidance, and project enquiries.",
   path: "/contact",
@@ -82,6 +82,7 @@ const officeDetails = [
     title: "Corporate office",
     detail: verifiedContactDetails.corporateOffice,
     meta: `Phone: ${verifiedContactDetails.officePhone} / Fax: ${verifiedContactDetails.fax}`,
+    helpline: "Customer helpline: 97104 11111",
   },
   {
     icon: Factory,
@@ -285,6 +286,7 @@ export default function ContactPage() {
                   <p className="mt-5 border-t border-white/10 pt-5 text-sm font-semibold leading-6 text-white/75">
                     {item.meta}
                   </p>
+                  {"helpline" in item ? <p className="mt-4 text-sm font-bold text-white">{item.helpline}</p> : null}
                 </article>
               );
             })}

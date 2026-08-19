@@ -30,6 +30,7 @@ import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { FaqList } from "@/components/faq-list";
 import { LeadForm } from "@/components/lead-form";
+import { PhysicalChemicalPropertiesTable } from "@/components/physical-chemical-properties-table";
 
 type AudienceGuideSlug =
   | "tmt-steel-bar-guide-homeowners"
@@ -1404,9 +1405,9 @@ function EngineersArchitectsGuideContent() {
       <section id="technical-performance" className="scroll-mt-24 bg-[#F4F7FF] py-20 lg:py-28">
         <div className={homeownerRail}>
           <div className="max-w-3xl"><SectionKicker>TECHNICAL PERFORMANCE</SectionKicker><h2 className={homeownerSectionTitle}>Verified Mechanical &amp; Chemical Properties</h2><p className={homeownerSectionCopy}>Every ARS TMT bar is manufactured under stringent quality controls and tested to deliver consistent mechanical performance and chemical composition. The values below represent the typical properties of ARS Fe 550D and ARS CRS Fe 550D, manufactured in compliance with IS 1786.</p><p className="mt-5 text-base italic leading-8 text-steel-700">All values comply with the applicable requirements of IS 1786.</p></div>
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            <div className="overflow-x-auto border border-[#0D2B6E]/20 bg-white"><table className="min-w-[540px] w-full border-collapse text-left text-sm"><caption className="bg-brand-blue p-4 text-left font-display text-xl font-bold text-white">Mechanical Properties</caption><thead><tr className="border-b border-brand-blue/15 bg-white"><th scope="col" className="p-4">Property</th><th scope="col" className="p-4">ARS Fe 550D</th><th scope="col" className="p-4">ARS CRS Fe 550D</th></tr></thead><tbody>{[["Yield Strength", "550 MPa Min.", "560 MPa Min."], ["Tensile Strength", "600 MPa Min.", "620 MPa Min."], ["TS / YS Ratio", "1.10 Min.", "1.08 Min."], ["Elongation", "16% Min.", "16% Min."]].map(([property, standard, crs], index) => <tr key={property} className={`border-b border-brand-blue/15 ${index % 2 === 0 ? "bg-white" : "bg-[#F4F7FF]"}`}><th scope="row" className="p-4">{property}</th><td className="p-4">{standard}</td><td className="p-4">{crs}</td></tr>)}</tbody></table></div>
-            <div className="overflow-x-auto border border-[#0D2B6E]/20 bg-white"><table className="min-w-[540px] w-full border-collapse text-left text-sm"><caption className="bg-brand-blue p-4 text-left font-display text-xl font-bold text-white">Chemical Properties</caption><thead><tr className="border-b border-brand-blue/15 bg-white"><th scope="col" className="p-4">Property</th><th scope="col" className="p-4">ARS Fe 550D</th><th scope="col" className="p-4">ARS CRS Fe 550D</th></tr></thead><tbody>{[["Carbon (C)", "0.25% Max.", "0.25% Max."], ["Sulphur (S)", "0.04% Max.", "0.04% Max."], ["Phosphorus (P)", "0.04% Max.", "0.04% Max."], ["Sulphur + Phosphorus", "0.075% Max.", "0.075% Max."], ["Carbon Equivalent (CE)", "0.42% Max.", "—"], ["Corrosion Resistance Equivalent (CRE)*", "—", "0.45% Min."]].map(([property, standard, crs], index) => <tr key={property} className={`border-b border-brand-blue/15 ${index % 2 === 0 ? "bg-white" : "bg-[#F4F7FF]"}`}><th scope="row" className="p-4">{property}</th><td className="p-4">{standard}</td><td className="p-4">{crs}</td></tr>)}</tbody></table></div>
+          <div className="mt-12 grid gap-8">
+            <PhysicalChemicalPropertiesTable grade="Fe 550D" />
+            <PhysicalChemicalPropertiesTable grade="Fe 550D CRS" />
           </div>
         </div>
       </section>
