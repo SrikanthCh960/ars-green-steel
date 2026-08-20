@@ -130,7 +130,7 @@ def review_entry(entry: dict, expected: dict, raw_post: ET.Element, legacy_paths
             "renderedSafeLinkCount": safe_link_count,
             "featuredImageUrl": entry.get("featuredImage", {}).get("url") if entry.get("featuredImage") else None,
             "canonical": entry["finalUrl"],
-            "robots": "noindex, nofollow unless NEXT_PUBLIC_INDEXING_ENABLED=true; index, follow only on the explicitly enabled production build",
+            "robots": "index, follow on explicit opt-in or the non-Vercel production fallback; noindex, nofollow on Vercel preview, development, or explicit opt-out",
             "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
             "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx.",
         },

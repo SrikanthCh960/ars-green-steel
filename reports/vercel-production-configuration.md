@@ -10,6 +10,6 @@ Indexing is controlled by the following explicit build-time flag:
 | Vercel preview | Unset or `false` | Preserve `noindex, nofollow`. |
 | Development | Unset or `false` | Preserve `noindex, nofollow`. |
 
-The metadata code emits `index, follow` only when the value is explicitly `true`; otherwise it safely defaults to `noindex, nofollow` while retaining the intended production canonical.
+The metadata code honors an explicit value first. If the flag is unavailable, a non-Vercel production build uses `index, follow`, while Vercel and development default to `noindex, nofollow` and retain the intended production canonical.
 
 Before deployment, an authorized verifier must record the Hostinger environment scope, value visibility at build time, and verification timestamp in `production-launch-verification-record.md`.

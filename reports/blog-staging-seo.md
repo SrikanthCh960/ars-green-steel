@@ -2,7 +2,7 @@
 
 The article metadata implementation is in `src/app/blog/[slug]/page.tsx`.
 
-When `NEXT_PUBLIC_INDEXING_ENABLED` is omitted or supplied as anything other than `true`, every blog article emits:
+When `NEXT_PUBLIC_INDEXING_ENABLED=false`, or when a Vercel build/local development omits the flag, every blog article emits:
 
 ```html
 <meta name="robots" content="noindex, nofollow">
@@ -29,7 +29,7 @@ The canonical remains self-referencing on `https://arsgroup.in/blog/[slug]`.
 
 ## Environment confirmation
 
-The local implementation has been checked in both modes. Hostinger production must receive the flag at build time; Vercel preview, staging, and local builds must omit it or set it to `false`. Do not infer remote assignments from a local `.env.local` file.
+The local implementation has been checked in both modes. Hostinger stores the production flag, with a non-Vercel production fallback for builds where Hostinger does not expose it during compilation. Vercel preview stays non-indexable by default; any future non-Vercel staging build must explicitly set the flag to `false`. Do not infer remote assignments from a local `.env.local` file.
 
 ## Verification before launch
 

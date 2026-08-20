@@ -24,7 +24,7 @@ Indexing is controlled by one explicit build-time variable:
 NEXT_PUBLIC_INDEXING_ENABLED=true
 ```
 
-Set this variable to `true` only in the Hostinger production environment for `https://arsgroup.in`. Preview, staging, Vercel, and local builds must omit it or set it to `false`; they then emit `noindex, nofollow` automatically.
+Set this variable to `true` only in the Hostinger production environment for `https://arsgroup.in`. An explicit `true` or `false` always wins. As a Hostinger compatibility safeguard, a non-Vercel production build is also indexable when the flag is unavailable during compilation. Vercel builds and local development remain `noindex, nofollow` by default.
 
 The generated `src/app/robots.ts` file is the only robots.txt source:
 
@@ -35,8 +35,8 @@ The generated `src/app/robots.ts` file is the only robots.txt source:
 
 Before every production release:
 
-1. Confirm Hostinger has `NEXT_PUBLIC_INDEXING_ENABLED=true` available during the build.
-2. Confirm the Vercel preview does not have the production value.
+1. Confirm Hostinger stores `NEXT_PUBLIC_INDEXING_ENABLED=true`; the non-Vercel production fallback protects builds where Hostinger does not expose the value during compilation.
+2. Confirm the Vercel preview does not have the production value; Vercel's platform flag keeps it non-indexable by default.
 3. Verify production HTML contains `index, follow` and preview HTML contains `noindex, nofollow`.
 4. Verify production `/robots.txt` allows crawling and references the production sitemap.
 5. Verify no indexable sitemap URL has a conflicting meta robots or `X-Robots-Tag` directive.
@@ -216,7 +216,7 @@ npm run build -- --webpack
 git status
 ```
 
-The default local build is intentionally `noindex, nofollow`. To reproduce the production indexing output locally, use the production-only flag for that build:
+`next dev` is intentionally `noindex, nofollow`. A production build outside Vercel uses the same indexing fallback as Hostinger. To make the production intent explicit during local verification, use:
 
 ```bash
 NEXT_PUBLIC_INDEXING_ENABLED=true npm run build -- --webpack

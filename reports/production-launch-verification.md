@@ -5,7 +5,7 @@ This checklist begins only after the migration audit is zero. Passing it is requ
 ## Deployment environment
 
 - Confirm Hostinger production has `NEXT_PUBLIC_INDEXING_ENABLED=true`.
-- Confirm Preview and Development omit the flag or set it to `false`.
+- Confirm Vercel Preview omits the production value and any non-Vercel staging build explicitly sets the flag to `false`.
 - Redeploy the production target only after the variable scope is verified.
 
 ## Indexing and canonical behaviour

@@ -125,7 +125,7 @@ def main() -> None:
         f"- Migrated article routes reviewed: {summary['testingRoutes']}\n"
         f"- Approved one-hop 301 redirects: {summary['requiredRedirects']}\n"
         "- Testing indexing rule: `noindex, nofollow`; canonical points to `https://arsgroup.in`\n"
-        "- Production indexing rule: `index, follow` only when `NEXT_PUBLIC_INDEXING_ENABLED=true`\n"
+        "- Production indexing rule: explicit flag, or non-Vercel production fallback for Hostinger; Vercel preview remains `noindex, nofollow`\n"
         f"- Sanitization: {summary['htmlSanitizationPassed']}/{summary['sourcePublishedPosts']} registry records passed; {summary['recordsWithSanitizationNotes']} have documented safe transformations.\n"
         f"- Content parity approved: {approved_content}/{summary['testingRoutes']}\n"
         f"- SEO parity approved: {approved_seo}/{summary['testingRoutes']}\n\n"

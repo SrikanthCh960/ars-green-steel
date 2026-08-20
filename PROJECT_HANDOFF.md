@@ -47,8 +47,8 @@ Read this file first when continuing the ARS content migration in a new chat.
 - Production domain: `https://arsgroup.in` — **not assigned or launch-approved**.
 - Do not deploy, push, switch domains, or declare production-ready without explicit user approval.
 - Preview/testing must remain `noindex, nofollow`.
-- Production indexing is enabled only when `NEXT_PUBLIC_INDEXING_ENABLED=true` is available at build time in the Hostinger production environment.
-- Vercel preview, staging, and local builds must omit that flag or set it to `false`, preserving `noindex, nofollow`.
+- Production indexing is enabled by `NEXT_PUBLIC_INDEXING_ENABLED=true`; a non-Vercel production build also falls back to indexable because Hostinger may not expose its saved public flag during Next.js compilation.
+- Vercel preview and local development remain `noindex, nofollow` by default. Set the explicit flag to `false` for any future non-Vercel staging build.
 - Testing canonicals intentionally use the planned production domain while testing pages remain noindex.
 
 ## Current Release Completion
