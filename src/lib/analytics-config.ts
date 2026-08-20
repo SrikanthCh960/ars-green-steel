@@ -7,4 +7,8 @@ export const analyticsConfig = {
     enabled: true,
     containerId: "GTM-5SKJ2BWC",
   },
+  metaPixel: {
+    enabled: true,
+    pixelId: "1310310320950953",
+  },
 } as const;

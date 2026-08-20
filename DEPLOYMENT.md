@@ -4,36 +4,97 @@ This is the deployment source of truth for the ARS Green Steel redesign.
 
 ## Live Project
 
-- Live website: https://ars-green-steel.vercel.app/
-- GitHub repository: https://github.com/baburao/ars-green-steel-redesign
+- Production website: https://arsgroup.in/
+- Production host: Hostinger
+- Primary development repository: https://github.com/baburao/ars-green-steel-redesign
+- Primary development branch: `main`
+- Hostinger-connected production repository: https://github.com/SrikanthCh960/ars-green-steel
+- Hostinger-connected production branch: `main`
+- Secondary Vercel preview: https://ars-green-steel.vercel.app/
 - Vercel project: `ars-green-steel`
 - Vercel team/account: `baburaos-projects-1c568830`
-- Main branch: `main`
-- Active working branch for current redesign work: `homepage-figma-refresh`
-- Current release branch: `codex/metadata-seo`
-- Deployment method: GitHub push plus Vercel production deploy when a reviewed branch needs to go live immediately.
+
+Hostinger and `arsgroup.in` are the production source of truth. A Vercel deployment can remain available for preview and comparison, but it does not prove that the production website has been updated. Do not disconnect or reconfigure Vercel without explicit approval.
+
+## Repository Ownership and Production Flow
+
+All development work originates in Baburao's repository. The local `origin` remote must point to:
+
+```txt
+https://github.com/baburao/ars-green-steel-redesign
+```
+
+Srikanth's repository is a production-connected fork, not the primary development source. Hostinger watches its `main` branch:
+
+```txt
+https://github.com/SrikanthCh960/ars-green-steel
+```
+
+Use this release flow for every approved production change:
+
+1. Review and verify the change locally.
+2. Commit to Baburao's `main` branch.
+3. Push to `baburao/ars-green-steel-redesign`.
+4. Open Srikanth's fork and use **Sync fork → Update branch**.
+5. Wait for Hostinger to show the expected commit as **Completed / Current**.
+6. Verify the affected routes and behaviour on https://arsgroup.in/.
+7. Report the change as live only after production verification passes.
+
+Do not commit directly to Srikanth's fork unless the repository ownership or emergency-release process is explicitly changed and documented.
 
 ## Analytics Configuration
 
-Direct GA4 and Google Tag Manager are installed globally and controlled independently through the shared source configuration in `src/lib/analytics-config.ts`. This makes every build from the same commit use the same analytics setup on Vercel and Hostinger without host-specific environment variables.
+Direct Google Analytics 4 (GA4), Google Tag Manager (GTM), and Meta Pixel are installed globally and controlled independently through the shared source configuration in `src/lib/analytics-config.ts`. This makes every build from the same commit use the same analytics setup on Hostinger and Vercel without host-specific environment variables.
 
 | Integration | Enable field | ID field | Configured ID |
 |---|---|---|---|
 | Direct GA4 | `analyticsConfig.ga4.enabled` | `analyticsConfig.ga4.measurementId` | `G-MQXGEGFD37` |
 | Google Tag Manager | `analyticsConfig.gtm.enabled` | `analyticsConfig.gtm.containerId` | `GTM-5SKJ2BWC` |
+| Meta Pixel | `analyticsConfig.metaPixel.enabled` | `analyticsConfig.metaPixel.pixelId` | `1310310320950953` |
 
-Both integrations are currently enabled. To disable either integration for every host, change only its `enabled` value and rebuild both deployments from the same commit:
+All three integrations are currently enabled. To disable an integration for every host, change only its `enabled` value and rebuild both deployments from the same commit:
 
 ```ts
 ga4: { enabled: false, measurementId: "G-MQXGEGFD37" }
 gtm: { enabled: false, containerId: "GTM-5SKJ2BWC" }
+metaPixel: { enabled: false, pixelId: "1310310320950953" }
 ```
 
-GA4 measurement IDs and GTM container IDs are public identifiers that are visible in the delivered website markup. Do not place private analytics credentials or API secrets in this source configuration.
+GA4 measurement IDs, GTM container IDs, and Meta Pixel IDs are public identifiers that are visible in the delivered website markup. Do not place private analytics credentials or API secrets in this source configuration.
 
 When direct GA4 and GTM are both enabled, confirm that the GTM container is not also sending the same GA4 page views or conversion events unless duplicate measurement is intentionally required. The shared `generate_lead`, `phone_click`, and `whatsapp_click` events are dispatched to each enabled integration.
 
-## Latest Internal-Link Release — 2026-08-05
+Meta Pixel loads globally with an initial `PageView` and sends another `PageView` after each App Router pathname change. Confirm that GTM does not also install Pixel ID `1310310320950953` or send overlapping Meta PageView events, unless duplicate measurement is intentionally required.
+
+Implementation locations:
+
+- `src/app/layout.tsx` installs GA4, GTM, the Meta Pixel script, and both no-JavaScript fallbacks globally.
+- `src/lib/analytics-config.ts` is the only source-controlled enable/disable and public-ID configuration.
+- `src/lib/analytics.ts` dispatches the shared lead, phone, WhatsApp, and Meta route PageView events.
+- `src/components/analytics-interactions.tsx` detects client-side pathname changes without duplicating the initial Meta PageView.
+
+Analytics release checks:
+
+1. Confirm the GA4, GTM, and Meta Pixel enable flags and public IDs before building.
+2. Build and deploy the same commit through the normal Baburao → Srikanth → Hostinger flow.
+3. Verify the tags and intended events on `arsgroup.in` after Hostinger is **Completed / Current**.
+4. Confirm that GTM is not duplicating direct GA4 or Meta Pixel page views and conversions.
+5. Never place private analytics credentials, API secrets, or service-account keys in the source-controlled analytics configuration.
+
+## Latest Hostinger Production Verification — 2026-08-20
+
+- Production commit: `986fa20` — `Handle double-escaped Google private keys`
+- Primary repository: `baburao/ars-green-steel-redesign`
+- Production-connected fork: `SrikanthCh960/ars-green-steel`
+- Production host and URL: Hostinger at https://arsgroup.in/
+- Result: quote-request and product-enquiry Google Sheets submissions confirmed working in production.
+- Operational note: Hostinger stored the service-account PEM newlines with additional escaping. The server now normalizes one or more escape characters before parsing the PKCS#8 key. Never print the key value in logs or documentation.
+
+## Historical Vercel Release Records
+
+The following release records predate Hostinger becoming the production source of truth. Preserve them as deployment history; their Vercel `READY` status does not verify current Hostinger production.
+
+### Internal-Link Release — 2026-08-05
 
 - Commit: `faa072f`
 - Production deployment: `dpl_3By4xPLn7zLdTKC4J7BSuksAkRxW`
@@ -43,7 +104,7 @@ When direct GA4 and GTM are both enabled, confirm that the GTM container is not 
 - `/about` was removed from the sitemap; redirect sources in `next.config.ts` remain unchanged.
 - TypeScript, internal route/asset QA, production build, calculator routes, sitemap, favicon, and logo checks passed.
 
-## Latest Production Deployment
+### Vercel Release — 2026-08-08
 
 Latest confirmed live update:
 
@@ -60,7 +121,7 @@ What went live:
 - Added local solution assets for Roads, Bridges, Contractors, Dealers, Engineers & Architects, and related page sections.
 - Added available local Binders and CRS brochure assets.
 
-## Previous Production Deployment
+### Vercel Release — 2026-08-07
 
 Latest confirmed live update:
 
@@ -78,7 +139,7 @@ What went live:
 - Canonical product ordering: ARS CRS 550D → ARS 550D → ARS BINDERS.
 - Homepage CTA refresh rollback, preserving the original homepage CTA layer.
 
-## Previous Production Deployment
+### Vercel Release — 2026-08-02
 
 Latest confirmed live update:
 
@@ -99,13 +160,7 @@ What went live:
 
 ## Current Recommended Deployment Flow
 
-Use GitHub push deployment as the normal process when working from `main`.
-
-For the active redesign branch, use this flow:
-
-1. Commit reviewed changes on `homepage-figma-refresh`.
-2. Push `homepage-figma-refresh`.
-3. Run a production deploy only after the user approves the reviewed work.
+Use the primary repository's `main` branch for approved releases. A push to Baburao's repository updates the development source; syncing Srikanth's fork triggers the Hostinger production deployment.
 
 Current caution:
 
@@ -153,17 +208,31 @@ git push origin main
 
 After `git push origin main`, Vercel automatically starts a production deployment.
 
-### 4. Confirm Deployment
+This may update the secondary Vercel preview. It does not update Hostinger until Srikanth's fork is synced.
 
-Open Vercel dashboard and check:
+### 4. Sync the Hostinger-Connected Fork
 
-- Deployment status should become `Ready`.
-- Production domain should point to the latest commit.
-- Live site should update at https://ars-green-steel.vercel.app/
+Open https://github.com/SrikanthCh960/ars-green-steel and use **Sync fork → Update branch**. Confirm that Srikanth's `main` shows the same commit SHA as Baburao's `main`.
 
-## Important GitHub And Vercel Notes
+### 5. Confirm Hostinger Production
 
-The repo is connected to Vercel through the GitHub app.
+Open Hostinger and check:
+
+- The expected commit must become **Completed / Current**.
+- Do not test production while the deployment is still building.
+- Hard-refresh and verify the affected routes at https://arsgroup.in/.
+- For form or API changes, confirm the production response and the intended destination result, such as the new Google Sheets row.
+- Use Hostinger runtime logs for backend failures; a minified browser stack only identifies the frontend call site.
+
+### 6. Optional Vercel Verification
+
+If the Vercel preview is relevant to the release, confirm its deployment separately at https://ars-green-steel.vercel.app/. Vercel status is secondary and must not replace Hostinger production verification.
+
+## Important GitHub, Hostinger, and Vercel Notes
+
+The local repository and normal commit history belong to `baburao/ars-green-steel-redesign`. Hostinger is connected to `SrikanthCh960/ars-green-steel`, so both `main` branches must match before production verification.
+
+The primary repository also remains connected to Vercel through the GitHub app.
 
 GitHub app access must include:
 
@@ -171,7 +240,7 @@ GitHub app access must include:
 baburao/ars-green-steel-redesign
 ```
 
-If deployment does not start after a push, check:
+If the secondary Vercel deployment does not start after a push, check:
 
 1. GitHub repo is connected in Vercel.
 2. Vercel GitHub app has access to the repository.
@@ -184,7 +253,7 @@ GitHub app permissions page:
 https://github.com/settings/installations
 ```
 
-## Previous Deployment Issue And Fix
+## Previous Vercel Deployment Issue And Fix
 
 We had a blocked production deployment after commit:
 
@@ -279,9 +348,9 @@ git restore CLAUDE.md
 
 Do not deploy with accidental deleted files.
 
-## Vercel CLI Use
+## Secondary Vercel CLI Use
 
-GitHub push is preferred.
+GitHub push is preferred. Vercel CLI use does not deploy Hostinger production.
 
 Use Vercel CLI only when needed:
 
@@ -290,26 +359,23 @@ vercel link
 vercel deploy --prod
 ```
 
-If Vercel CLI asks to upgrade itself and fails with npm cache errors, skip the upgrade and continue with GitHub deployment instead.
+If Vercel CLI asks to upgrade itself and fails with npm cache errors, skip the upgrade and continue with the normal repository flow instead.
 
-## Production Domain Later
+## Production Domain and Post-Deployment Checks
 
-When the client approves the website:
+The production domain is already live on Hostinger at https://arsgroup.in/. After each relevant production deployment, recheck:
 
-1. Add the real domain in Vercel project settings.
-2. Update DNS records from the domain provider.
-3. Confirm HTTPS is active.
-4. Recheck:
-   - `/robots.txt`
-   - `/sitemap.xml`
-   - old URLs
-   - blog URLs
-   - enquiry/contact flows
-5. Keep https://ars-green-steel.vercel.app/ as the staging/preview reference unless the client wants a different preview URL.
+1. HTTPS and the expected Hostinger commit.
+2. `/robots.txt` and `/sitemap.xml`.
+3. Changed routes, old URLs, and blog URLs.
+4. Enquiry, contact, quote, and other affected conversion flows.
+5. GA4, GTM, and Meta Pixel loading and event behaviour when analytics changed.
+
+Keep https://ars-green-steel.vercel.app/ as the secondary preview reference unless the client requests a different preview arrangement. Do not move `arsgroup.in` to Vercel or disconnect either host without explicit approval.
 
 ## Items That Can Be Added Later
 
-These do not block preview deployment:
+These are future content or product inputs and are unrelated to the documented Hostinger release flow:
 
 - Final client-approved contact details
 - WhatsApp number

@@ -2,19 +2,33 @@
 
 Modern, conversion-led redesign of the ARS Green Steel website.
 
-Live preview:
+Production website:
+
+- https://arsgroup.in/
+- Hosted by Hostinger.
+- Deployed from `SrikanthCh960/ars-green-steel` after it is synced from the primary repository.
+
+Primary development repository:
+
+- https://github.com/baburao/ars-green-steel-redesign
+- Branch: `main`
+
+Production-connected fork:
+
+- https://github.com/SrikanthCh960/ars-green-steel
+- Branch: `main`
+
+Secondary Vercel preview:
 
 - https://ars-green-steel.vercel.app/
+
+See `DEPLOYMENT.md` for the authoritative repository, Hostinger, Vercel, GA4, GTM, and Meta Pixel workflow.
 
 Primary local project path:
 
 - `/Users/baburao/Documents/Codex/2026-05-30/hey-act-as-an-experienced-ui/ars-redesign`
 
-Current active redesign branch:
-
-- `codex/metadata-seo`
-
-Latest production release:
+Historical Vercel releases:
 
 - Date: 2026-08-08
 - Commit: `871462f` — Refresh solution page assets and content
@@ -50,7 +64,8 @@ Latest internal-link release:
 - Tailwind CSS v4
 - Framer Motion
 - Lucide icons
-- Vercel deployment
+- Hostinger production deployment
+- Secondary Vercel preview deployment
 
 ## Approved Design Direction
 
@@ -161,7 +176,7 @@ Read these before making larger changes:
 
 ## Product Enquiry Integration
 
-The shared product enquiry form posts to `/api/product-enquiries`. The server validates and normalizes the lead before appending it to Google Sheets. Configure these server-only environment variables locally and in Vercel:
+The shared product enquiry form posts to `/api/product-enquiries`. The server validates and normalizes the lead before appending it to Google Sheets. Configure these server-only environment variables locally and in each required deployment environment, including Hostinger production. Never commit or print their values:
 
 ```bash
 GOOGLE_SHEETS_SPREADSHEET_ID=

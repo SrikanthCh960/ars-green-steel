@@ -36,12 +36,20 @@ type WhatsAppClickEvent = {
   linkText: string;
 };
 
+type MetaPixelWindow = Window & {
+  fbq?: (command: "track", eventName: "PageView") => void;
+};
+
 function directGaIsEnabled() {
   return typeof window !== "undefined" && analyticsConfig.ga4.enabled;
 }
 
 function gtmIsEnabled() {
   return typeof window !== "undefined" && analyticsConfig.gtm.enabled;
+}
+
+function metaPixelIsEnabled() {
+  return typeof window !== "undefined" && analyticsConfig.metaPixel.enabled;
 }
 
 function analyticsIsEnabled() {
@@ -98,4 +106,10 @@ export function trackWhatsAppClick({
     link_location: linkLocation,
     link_text: linkText,
   });
+}
+
+export function trackMetaPageView() {
+  if (!metaPixelIsEnabled()) return;
+
+  (window as MetaPixelWindow).fbq?.("track", "PageView");
 }

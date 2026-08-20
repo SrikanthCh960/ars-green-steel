@@ -1,7 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
-import { trackPhoneClick, trackWhatsAppClick } from "@/lib/analytics";
+import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
+import {
+  trackMetaPageView,
+  trackPhoneClick,
+  trackWhatsAppClick,
+} from "@/lib/analytics";
 
 function inferLinkLocation(anchor: HTMLAnchorElement) {
   if (anchor.dataset.analyticsLocation) return anchor.dataset.analyticsLocation;
@@ -11,6 +16,16 @@ function inferLinkLocation(anchor: HTMLAnchorElement) {
 }
 
 export function AnalyticsInteractions() {
+  const pathname = usePathname();
+  const previousPathname = useRef(pathname);
+
+  useEffect(() => {
+    if (previousPathname.current === pathname) return;
+
+    previousPathname.current = pathname;
+    trackMetaPageView();
+  }, [pathname]);
+
   useEffect(() => {
     function handleClick(event: MouseEvent) {
       if (!(event.target instanceof Element)) return;
