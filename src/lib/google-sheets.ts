@@ -14,21 +14,39 @@ function base64Url(value: string | Buffer) {
 
 function normalizePrivateKey(value: string | undefined) {
   let privateKey = value?.trim();
-  if (privateKey?.startsWith('"') && privateKey.endsWith('"')) {
+  if (
+    privateKey &&
+    ((privateKey.startsWith('"') && privateKey.endsWith('"')) ||
+      (privateKey.startsWith("'") && privateKey.endsWith("'")))
+  ) {
     privateKey = privateKey.slice(1, -1);
   }
-  return privateKey?.replace(/\\n/g, "\n").trim();
+  return privateKey
+    ?.replace(/\\r\\n/g, "\n")
+    .replace(/\\n/g, "\n")
+    .replace(/\\r/g, "\r")
+    .replace(/\r\n/g, "\n")
+    .trim();
 }
 
 function parsePrivateKey(privateKey: string) {
-  const match = privateKey.match(
-    /^-----BEGIN PRIVATE KEY-----\n([A-Za-z0-9+/=\n\r]+)\n-----END PRIVATE KEY-----$/,
-  );
+  const beginMarker = "-----BEGIN PRIVATE KEY-----";
+  const endMarker = "-----END PRIVATE KEY-----";
+  const beginIndex = privateKey.indexOf(beginMarker);
+  const endIndex = privateKey.indexOf(endMarker, beginIndex + beginMarker.length);
 
-  if (!match) throw new Error("GOOGLE_PRIVATE_KEY_INVALID");
+  if (beginIndex < 0 || endIndex < 0) throw new Error("GOOGLE_PRIVATE_KEY_INVALID");
+
+  const encodedKey = privateKey
+    .slice(beginIndex + beginMarker.length, endIndex)
+    .replace(/\s/g, "");
+
+  if (!encodedKey || !/^[A-Za-z0-9+/]+={0,2}$/.test(encodedKey)) {
+    throw new Error("GOOGLE_PRIVATE_KEY_INVALID");
+  }
 
   return createPrivateKey({
-    key: Buffer.from(match[1].replace(/\s/g, ""), "base64"),
+    key: Buffer.from(encodedKey, "base64"),
     format: "der",
     type: "pkcs8",
   });
