@@ -18,6 +18,7 @@ import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { ProductLeadCaptureForm } from "@/components/product-lead-capture-form";
 import { FaqList } from "@/components/faq-list";
+import { createProductPageWebPageJsonLd, serializeJsonLd } from "@/lib/product-page-schema";
 
 export const metadata = createPageMetadata({
   title: "ARS Binders | ARS Green Steel",
@@ -25,6 +26,15 @@ export const metadata = createPageMetadata({
     "Manufactured from premium ARS CRS Fe 550D TMT Bars, ARS Binders are precision-made stirrups that reduce manual bending, minimise steel wastage, and help deliver faster, more consistent reinforcement on site.",
   path: "/ars-binders",
 });
+
+const productPageJsonLd = createProductPageWebPageJsonLd({
+  path: "/ars-binders",
+  name: "ARS Binders | ARS Group",
+  description:
+    "Manufactured from premium ARS CRS Fe 550D TMT Bars, ARS Binders are precision-made stirrups that reduce manual bending, minimise steel wastage, and help deliver faster, more consistent reinforcement on site.",
+  image: "/ars-assets/products/ARSBinders.jpg",
+});
+const productPageJsonLdString = serializeJsonLd(productPageJsonLd);
 
 const trustItems = [
   { value: "CRS 550D", label: "Manufactured from CRS 550D Steel" },
@@ -157,6 +167,10 @@ function DisabledBrochureAction({ dark = false }: { dark?: boolean }) {
 export default function ArsBindersPage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: productPageJsonLdString }}
+      />
       <SiteHeader />
 
       <section className="ars-page-hero relative flex items-end overflow-hidden bg-ink-950 text-white">

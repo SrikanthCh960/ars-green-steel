@@ -186,33 +186,39 @@ export function BlogArticleTemplate({
   const articleUrl = `${productionDomain}/blog/${article.slug}`;
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
+    "@id": `${articleUrl}#blogposting`,
     headline: registryEntry?.yoastSeoTitle || article.title,
     description: registryEntry?.yoastMetaDescription || article.excerpt,
     image: articleImage.startsWith("http") ? articleImage : `${productionDomain}${articleImage}`,
     author: {
       "@type": "Organization",
-      name: registryEntry?.author || "ARS Green Steel",
+      "@id": `${productionDomain}/#organization`,
     },
     publisher: {
       "@type": "Organization",
-      name: "ARS Green Steel",
+      "@id": `${productionDomain}/#organization`,
     },
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": articleUrl,
     },
     url: articleUrl,
-    datePublished: registryEntry?.publishDate || article.dateLabel || undefined,
-    dateModified: registryEntry?.modifiedDate || registryEntry?.publishDate || article.dateLabel || undefined,
+    datePublished: registryEntry?.publishDate?.slice(0, 10) || article.dateLabel || undefined,
+    dateModified:
+      registryEntry?.modifiedDate?.slice(0, 10) ||
+      registryEntry?.publishDate?.slice(0, 10) ||
+      article.dateLabel ||
+      undefined,
   };
+  const jsonLdString = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
 
   return (
     <main id="main-content" className="min-h-screen overflow-x-clip bg-white text-ink-900">
       <SiteHeader />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdString }}
       />
 
       <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-bg-dark text-white">

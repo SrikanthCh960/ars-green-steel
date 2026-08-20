@@ -8,16 +8,10 @@ import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { FaqList } from "@/components/faq-list";
 import { SiteHeader } from "@/components/site-header";
-import { calculatorBars, calculatorCities, calculatorNotes, calculatorProducts, calculatorRegions, calculateBar, getRatePerKg, type RequirementMode } from "@/data/tmt-calculator";
+import { calculatorBars, calculatorCities, calculatorFaqs, calculatorNotes, calculatorProducts, calculatorRegions, calculateBar, getRatePerKg, type RequirementMode } from "@/data/tmt-calculator";
 
 const fieldClass = "focus-ring h-12 w-full rounded-md border border-ink-900/15 bg-white px-3.5 text-sm text-ink-900 shadow-sm transition hover:border-brand-blue/45";
 const currency = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 });
-const faqs = [
-  ["How does the TMT calculator estimate requirements?", "Choose a region, product, diameter, and requirement unit. The calculator applies the ARS workbook bundle and weight rules to show rods, bundles, weight, and an indicative GST-inclusive amount."],
-  ["Can I calculate by rods, bundles, or weight?", "Yes. The workbook supports all three modes. Weight inputs are converted to whole rods using the mean bundle weight and the workbook rounding rule."],
-  ["Does the displayed rate include GST and delivery?", "The displayed rate includes GST. Delivery, transportation, and loading or unloading charges are extra and should be confirmed with ARS before ordering."],
-] as const;
-
 type Inputs = Record<string, string>;
 type Project = { buildingType: string; floors: string; area: string };
 
@@ -155,7 +149,7 @@ export function PriceCalculatorExperience() {
     </MotionSection>
 
     <MotionSection className="bg-white py-14 md:py-24"><div className="ars-container grid gap-10 lg:grid-cols-[1.15fr_0.85fr]"><div><SectionKicker variant="brand">Calculate with precision</SectionKicker><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.08]">Master your TMT requirements.</h2><div className="mt-6 grid gap-5 text-[15px] leading-7 text-steel-700"><p>Our TMT Calculator simplifies construction planning by estimating the quantity, weight, and indicative cost of TMT steel required for a project.</p><p>Use the result for budgeting and logistics planning, then share the requirement with ARS for a confirmed rate and product guidance.</p></div></div><div className="border-l-4 border-brand-blue bg-surface-50 p-6"><Scale className="text-brand-blue" size={24} aria-hidden="true" /><h3 className="mt-5 font-display text-xl font-bold">A clear starting point</h3><p className="mt-3 text-sm leading-6 text-steel-700">The calculator supports residential, commercial, and infrastructure purchase planning across the ARS regions listed in the workbook.</p></div></div></MotionSection>
-    <MotionSection className="bg-surface-50 py-14 md:py-24"><div className="ars-container"><SectionKicker variant="brand">Answers before ordering</SectionKicker><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.08]">Frequently asked questions</h2><FaqList className="mt-8" items={faqs.map(([question, answer]) => ({ question, answer }))} /></div></MotionSection>
+    <MotionSection className="bg-surface-50 py-14 md:py-24"><div className="ars-container"><SectionKicker variant="brand">Answers before ordering</SectionKicker><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.08]">Frequently asked questions</h2><FaqList className="mt-8" items={calculatorFaqs.map(([question, answer]) => ({ question, answer }))} /></div></MotionSection>
     <ContactCta eyebrow="Ready for a confirmed rate?" headline="Send ARS your requirement." body="Share your selected product, region, quantity, and indicative calculation with the ARS team." primaryLabel="Send enquiry" primaryHref="/request-quote" secondaryLabel="Talk to sales" secondaryHref="/our-network" tone="solid" />
   </main>;
 }

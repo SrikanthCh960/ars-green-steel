@@ -20,6 +20,7 @@ import { SiteHeader } from "@/components/site-header";
 import { ProductLeadCaptureForm } from "@/components/product-lead-capture-form";
 import { FaqList } from "@/components/faq-list";
 import { PhysicalChemicalPropertiesTable } from "@/components/physical-chemical-properties-table";
+import { createProductPageWebPageJsonLd, serializeJsonLd } from "@/lib/product-page-schema";
 
 export const metadata = createPageMetadata({
   title: "ARS Fe 550D TMT Bars | ARS Green Steel",
@@ -27,6 +28,15 @@ export const metadata = createPageMetadata({
     "ARS Fe 550D high-strength ductile TMT bars (Fe-550D, IS 1786:2008) for safer residential, commercial, and infrastructure construction.",
   path: "/product-550d",
 });
+
+const productPageJsonLd = createProductPageWebPageJsonLd({
+  path: "/product-550d",
+  name: "ARS Fe 550D TMT Bars | ARS Group",
+  description:
+    "ARS Fe 550D high-strength ductile TMT bars (Fe-550D, IS 1786:2008) for safer residential, commercial, and infrastructure construction.",
+  image: "/ars-assets/products/ARS550DBanner.jpg",
+});
+const productPageJsonLdString = serializeJsonLd(productPageJsonLd);
 
 const trustItems = [
   { value: "Fe 550D", label: "Grade" },
@@ -133,6 +143,10 @@ const faqs = [
 export default function Ars550DPage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: productPageJsonLdString }}
+      />
       <SiteHeader />
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px]">

@@ -66,3 +66,18 @@ export const calculatorNotes = [
   "Each piece is 12 metres long. Delivery, transportation, and loading/unloading charges are extra.",
   "Dimensions are subject to BIS tolerances; verify piece counts at delivery.",
 ];
+
+export const calculatorFaqs = [
+  [
+    "How does the TMT calculator estimate requirements?",
+    "Choose a region, product, diameter, and requirement unit. The calculator applies the ARS workbook bundle and weight rules to show rods, bundles, weight, and an indicative GST-inclusive amount.",
+  ],
+  [
+    "Can I calculate by rods, bundles, or weight?",
+    "Yes. The workbook supports all three modes. Weight inputs are converted to whole rods using the mean bundle weight and the workbook rounding rule.",
+  ],
+  [
+    "Does the displayed rate include GST and delivery?",
+    "The displayed rate includes GST. Delivery, transportation, and loading or unloading charges are extra and should be confirmed with ARS before ordering.",
+  ],
+] as const;

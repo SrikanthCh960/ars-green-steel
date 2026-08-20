@@ -10,18 +10,48 @@ import { getBlogArchiveArticles, type BlogArchiveArticle } from "@/lib/blog-cont
 import { defaultSocialImage, getSeoMetadata, isIndexingEnabled, toProductionUrl } from "@/lib/site-metadata";
 
 const seo = getSeoMetadata("/blog.html");
+const blogUrl = toProductionUrl("/blog");
+
+const blogCollectionJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${blogUrl}#webpage`,
+  url: blogUrl,
+  name: "Blog | ARS Group",
+  description:
+    "Explore the latest blogs from ARS Group covering TMT bars, steel manufacturing, construction techniques, green steel, engineering insights and industry trends.",
+  inLanguage: "en-IN",
+  isPartOf: {
+    "@id": "https://arsgroup.in/#website",
+  },
+  publisher: {
+    "@id": "https://arsgroup.in/#organization",
+  },
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: toProductionUrl("/legacy-assets/images/ARS-GREEN-STEEL-Logo.png"),
+  },
+  about: [
+    { "@type": "Thing", name: "TMT Bars" },
+    { "@type": "Thing", name: "Steel Manufacturing" },
+    { "@type": "Thing", name: "Construction" },
+    { "@type": "Thing", name: "Green Steel" },
+  ],
+};
+
+const blogCollectionJsonLdString = JSON.stringify(blogCollectionJsonLd).replace(/</g, "\\u003c");
 
 export const metadata: Metadata = {
   title: seo?.title ?? "Steel and Construction Knowledge Center | ARS Green Steel",
   description: seo?.description ?? "Explore ARS guides on TMT steel, construction planning, product quality, green steel, manufacturing, and industry developments.",
   robots: { index: isIndexingEnabled, follow: isIndexingEnabled },
   alternates: {
-    canonical: toProductionUrl("/blog.html"),
+    canonical: blogUrl,
   },
   openGraph: {
     title: seo?.title ?? "Steel and Construction Knowledge Center | ARS Green Steel",
     description: seo?.description ?? "Practical guidance for better steel selection, safer construction, and more confident project decisions.",
-    url: toProductionUrl("/blog.html"),
+    url: blogUrl,
     type: "website",
     images: [{ url: toProductionUrl(defaultSocialImage) }],
   },
@@ -47,6 +77,10 @@ export default function BlogPage() {
 
   return (
     <main id="main-content" className="min-h-screen overflow-x-clip bg-white text-ink-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: blogCollectionJsonLdString }}
+      />
       <SiteHeader />
 
       <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative flex items-end overflow-hidden bg-bg-dark text-white">

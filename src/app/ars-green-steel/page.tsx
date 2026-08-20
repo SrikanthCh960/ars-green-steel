@@ -18,13 +18,15 @@ import {
 import { FaqList } from "@/components/faq-list";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
-import { createPageMetadata } from "@/lib/site-metadata";
+import { createPageMetadata, getSeoMetadata, productionDomain } from "@/lib/site-metadata";
+
+const pagePath = "/ars-green-steel";
 
 export const metadata = createPageMetadata({
   title: "ARS Green Steel | India’s No. 1 Certified Green Steel Manufacturer",
   description:
     "Explore ARS Green Steel: recycled steel, electric furnace technology, verified low-carbon manufacturing, certified performance, products, and environmental documentation.",
-  path: "/ars-green-steel",
+  path: pagePath,
   image: "/ars-assets/Sustainability/ARSGreenSteel-heroBanner.jpg",
 });
 
@@ -131,12 +133,38 @@ const faqs = [
   ["Why is an Environmental Product Declaration (EPD) important when choosing steel?", "An Environmental Product Declaration (EPD) provides independently verified information about a product's environmental impact throughout its life cycle. Instead of relying on marketing claims, architects, engineers, and developers can compare materials using transparent, standardized data and make informed decisions for sustainable construction."],
 ] as const;
 
+const seo = getSeoMetadata(pagePath);
+const arsGreenSteelUrl = `${productionDomain}${pagePath}`;
+const arsGreenSteelJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${arsGreenSteelUrl}#webpage`,
+  url: arsGreenSteelUrl,
+  name: seo?.title ?? "ARS Green Steel | India’s No. 1 Certified Green Steel Manufacturer",
+  headline: "India’s No. 1 Certified Green Steel Manufacturer",
+  description:
+    seo?.description ??
+    "Explore ARS Green Steel: recycled steel, electric furnace technology, verified low-carbon manufacturing, certified performance, products, and environmental documentation.",
+  isPartOf: {
+    "@id": `${productionDomain}/#website`,
+  },
+  about: {
+    "@id": `${productionDomain}/#organization`,
+  },
+  inLanguage: "en-IN",
+};
+const arsGreenSteelJsonLdString = JSON.stringify(arsGreenSteelJsonLd).replace(/</g, "\\u003c");
+
 const primaryButton = "focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-6 py-3 text-sm font-bold text-white transition hover:bg-brand-blue-dark";
 const bodyCopy = "text-base leading-8 text-steel-700 lg:text-lg";
 
 export default function ArsGreenSteelPage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-white text-ink-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: arsGreenSteelJsonLdString }}
+      />
       <SiteHeader />
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-[#0B2A1E] text-white md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">

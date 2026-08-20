@@ -14,7 +14,7 @@ import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { FaqList } from "@/components/faq-list";
 import { SiteHeader } from "@/components/site-header";
-import { createPageMetadata } from "@/lib/site-metadata";
+import { createPageMetadata, getSeoMetadata, productionDomain } from "@/lib/site-metadata";
 
 const pagePath = "/road-projects-tmt-steel-bars";
 
@@ -70,9 +70,64 @@ const faqs = [
   ["Why should road contractors choose certified TMT bars?", "Certified reinforcement ensures compliance with recognised quality standards, consistent manufacturing, and dependable structural performance for critical infrastructure."],
 ] as const;
 
+const seo = getSeoMetadata(pagePath);
+const roadProjectUrl = `${productionDomain}${pagePath}`;
+const roadProjectJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${roadProjectUrl}#webpage`,
+      url: roadProjectUrl,
+      name: seo?.title ?? "TMT Bars for Road Projects | ARS Green Steel",
+      description:
+        seo?.description ??
+        "For highways, expressways, and urban road projects, ARS Fe 550D and CRS 550D TMT Bars combine strength, durability, and engineering excellence for infrastructure that lasts.",
+      inLanguage: "en-IN",
+      isPartOf: {
+        "@id": `${productionDomain}/#website`,
+      },
+      about: {
+        "@id": `${roadProjectUrl}#service`,
+      },
+      publisher: {
+        "@id": `${productionDomain}/#organization`,
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": `${roadProjectUrl}#service`,
+      name: "TMT Steel Bars for Road Construction",
+      serviceType: "Road Infrastructure Steel Reinforcement",
+      provider: {
+        "@id": `${productionDomain}/#organization`,
+      },
+      description:
+        "ARS Fe 550D and ARS CRS Fe 550D TMT bars for highways, expressways, bridges, culverts, retaining walls, and drainage structures that require high strength, durability, and corrosion-resistance considerations.",
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${roadProjectUrl}#faq`,
+      mainEntity: faqs.map(([question, answer]) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answer,
+        },
+      })),
+    },
+  ],
+};
+const roadProjectJsonLdString = JSON.stringify(roadProjectJsonLd).replace(/</g, "\\u003c");
+
 export default function RoadProjectsPage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: roadProjectJsonLdString }}
+      />
       <SiteHeader />
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
