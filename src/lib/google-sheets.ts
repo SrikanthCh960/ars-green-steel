@@ -22,9 +22,9 @@ function normalizePrivateKey(value: string | undefined) {
     privateKey = privateKey.slice(1, -1);
   }
   return privateKey
-    ?.replace(/\\r\\n/g, "\n")
-    .replace(/\\n/g, "\n")
-    .replace(/\\r/g, "\r")
+    ?.replace(/\\+r\\+n/g, "\n")
+    .replace(/\\+n/g, "\n")
+    .replace(/\\+r/g, "\r")
     .replace(/\r\n/g, "\n")
     .trim();
 }
