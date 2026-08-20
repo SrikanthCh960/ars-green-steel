@@ -6,7 +6,7 @@ import "./globals.css";
 import { AnalyticsInteractions } from "@/components/analytics-interactions";
 import { FloatingWhatsAppButton } from "@/components/floating-whatsapp-button";
 import { analyticsConfig } from "@/lib/analytics-config";
-import { defaultSocialImage, isProductionSite, productionDomain, toProductionUrl } from "@/lib/site-metadata";
+import { defaultSocialImage, isIndexingEnabled, productionDomain, toProductionUrl } from "@/lib/site-metadata";
 import { SiteFooter } from "@/components/site-footer";
 
 const gaId = analyticsConfig.ga4.measurementId;
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
     images: [toProductionUrl(defaultSocialImage)],
   },
   robots: {
-    index: isProductionSite,
-    follow: isProductionSite,
+    index: isIndexingEnabled,
+    follow: isIndexingEnabled,
   },
 };
 

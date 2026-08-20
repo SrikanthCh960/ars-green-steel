@@ -47,7 +47,8 @@ Read this file first when continuing the ARS content migration in a new chat.
 - Production domain: `https://arsgroup.in` — **not assigned or launch-approved**.
 - Do not deploy, push, switch domains, or declare production-ready without explicit user approval.
 - Preview/testing must remain `noindex, nofollow`.
-- Production indexing is enabled only when `NEXT_PUBLIC_SITE_URL=https://arsgroup.in` is available at build time in the Vercel Production environment.
+- Production indexing is enabled only when `NEXT_PUBLIC_INDEXING_ENABLED=true` is available at build time in the Hostinger production environment.
+- Vercel preview, staging, and local builds must omit that flag or set it to `false`, preserving `noindex, nofollow`.
 - Testing canonicals intentionally use the planned production domain while testing pages remain noindex.
 
 ## Current Release Completion
@@ -92,7 +93,7 @@ Read this file first when continuing the ARS content migration in a new chat.
 
 - Reusable metadata helper: `src/lib/site-metadata.ts`.
 - Site-wide production canonical, Open Graph, Twitter, default social image, and preview-safe robots handling are in place.
-- `src/app/robots.ts` blocks crawling outside the configured production domain.
+- `src/app/robots.ts` is the only robots.txt source. It allows crawling in every environment so preview crawlers can read `noindex`, and references the sitemap only when production indexing is explicitly enabled.
 - `src/app/sitemap.ts` uses production URLs, includes 88 approved blog records, and excludes the six redirects.
 - The home Green Steel logo points to its available local asset.
 - Missing ARS leaflet actions are disabled rather than linking to a missing PDF.

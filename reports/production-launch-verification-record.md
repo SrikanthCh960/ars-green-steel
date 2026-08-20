@@ -9,7 +9,7 @@
 | Launch date/time | Pending |
 | Verifier | Pending |
 | Client approval reference | Pending |
-| Vercel Production variable confirmed | Pending: `NEXT_PUBLIC_SITE_URL=https://arsgroup.in` available at build time |
+| Hostinger production variable confirmed | Pending: `NEXT_PUBLIC_INDEXING_ENABLED=true` available at build time |
 | Preview variable safety confirmed | Confirmed 2026-07-22: no Vercel project variables configured; do not add the production value |
 | Development variable safety confirmed | Confirmed 2026-07-22: no Vercel project variables configured; do not add the production value |
 | Domain and HTTPS confirmed | Pending |

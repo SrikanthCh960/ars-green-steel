@@ -28,8 +28,8 @@
 ## 4. Robots and Sitemap Validation
 
 - Added `src/app/robots.ts`.
-- Only a build with `NEXT_PUBLIC_SITE_URL=https://arsgroup.in` emits `index, follow`, an allow-all robots policy, and the production sitemap reference.
-- All other environments emit `noindex, nofollow` metadata and a disallow-all robots policy. This keeps testing and preview deployments out of search.
+- Only a build with `NEXT_PUBLIC_INDEXING_ENABLED=true` emits `index, follow`, an allow-all robots policy, and the production sitemap reference.
+- All other environments emit `noindex, nofollow` metadata. Their robots policy allows page crawling so search engines can read the `noindex` directive, but it does not advertise the production sitemap.
 - The sitemap uses only production-domain URLs, includes the 88 records with `migrationStatus: Migrated — approved`, and excludes all six redirect-only blog records.
 - The sitemap route itself remains available on testing deployments, but is not advertised in their robots response and contains no testing-domain URLs.
 

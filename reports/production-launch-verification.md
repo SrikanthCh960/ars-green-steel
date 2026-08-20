@@ -2,10 +2,10 @@
 
 This checklist begins only after the migration audit is zero. Passing it is required before any production-ready declaration or deployment.
 
-## Vercel environment
+## Deployment environment
 
-- Confirm production has `NEXT_PUBLIC_SITE_URL=https://arsgroup.in`.
-- Confirm Preview and Development do not use that exact value.
+- Confirm Hostinger production has `NEXT_PUBLIC_INDEXING_ENABLED=true`.
+- Confirm Preview and Development omit the flag or set it to `false`.
 - Redeploy the production target only after the variable scope is verified.
 
 ## Indexing and canonical behaviour

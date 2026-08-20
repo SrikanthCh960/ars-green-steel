@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { createPageMetadata } from "@/lib/site-metadata";
+import { createPageMetadata, productionDomain } from "@/lib/site-metadata";
 import { productCatalog } from "@/lib/product-catalog";
 import { AudienceJourneySection } from "@/components/audience-journey-section";
 import { ContactCta } from "@/components/contact-cta";
@@ -56,6 +56,106 @@ export const metadata = createPageMetadata({
     "Explore ARS TMT steel products, quality and manufacturing information, dealer support, price guidance, and project planning tools.",
   path: "/",
 });
+
+const organizationId = `${productionDomain}/#organization`;
+const websiteId = `${productionDomain}/#website`;
+const webpageId = `${productionDomain}/#webpage`;
+const homepageUrl = `${productionDomain}/`;
+const organizationLogoUrl = `${productionDomain}/legacy-assets/images/ARS-GREEN-STEEL-Logo.png`;
+
+const homepageJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": organizationId,
+      name: "ARS Steels & Alloy International Pvt. Ltd.",
+      alternateName: "ARS Steels",
+      url: homepageUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: organizationLogoUrl,
+      },
+      description:
+        "ARS Steels & Alloy International Pvt. Ltd. is one of South India's leading manufacturers of premium TMT bars, CRS TMT bars and MS billets, delivering high-quality steel solutions for residential, commercial and infrastructure projects since 1992.",
+      foundingDate: "1992",
+      email: "crm@arssteels.co.in",
+      telephone: "+91-9710411111",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "D-109, LBR Complex, 2nd Floor, Chinthamani",
+        addressLocality: "Chennai",
+        addressRegion: "Tamil Nadu",
+        postalCode: "600102",
+        addressCountry: "IN",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+91-9710411111",
+        contactType: "customer service",
+        availableLanguage: ["English", "Tamil", "Telugu", "Kannada", "Malayalam"],
+      },
+      sameAs: [
+        "https://www.facebook.com/ARSsteelsIndia",
+        "https://www.instagram.com/arsgreensteel",
+        "https://www.youtube.com/channel/UCmzQSAPi4oNfLTVPkRkbPXg",
+      ],
+      knowsAbout: [
+        "TMT Bars",
+        "Steel Manufacturing",
+        "MS Billets",
+        "Construction Steel",
+        "CRS TMT Bars",
+        "Green Steel",
+      ],
+      award: [
+        "ISO 9001 Certified",
+        "ISO 14001 Certified",
+        "SGBC 4-Ticks Leader Rating",
+        "Environmental Product Declaration (EPD) Verified",
+        "GRIHA Product Catalogue Listed",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+      url: homepageUrl,
+      name: "ARS Steels",
+      description: "Official website of ARS Steels & Alloy International Pvt. Ltd.",
+      publisher: {
+        "@id": organizationId,
+      },
+      inLanguage: "en-IN",
+    },
+    {
+      "@type": "WebPage",
+      "@id": webpageId,
+      url: homepageUrl,
+      name: "ARS Steels | Leading TMT Bars Manufacturer in South India",
+      description:
+        "ARS Steels & Alloy International Pvt. Ltd. is one of South India's leading manufacturers of premium TMT bars, CRS TMT bars and MS billets, delivering high-quality steel solutions for residential, commercial and infrastructure projects since 1992.",
+      isPartOf: {
+        "@id": websiteId,
+      },
+      about: {
+        "@id": organizationId,
+      },
+      mainEntity: {
+        "@id": organizationId,
+      },
+      publisher: {
+        "@id": organizationId,
+      },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: organizationLogoUrl,
+      },
+      inLanguage: "en-IN",
+    },
+  ],
+};
+
+const homepageJsonLdString = JSON.stringify(homepageJsonLd).replace(/</g, "\\u003c");
 
 const products = [productCatalog[0], productCatalog[1], productCatalog[2]];
 
@@ -203,6 +303,10 @@ const blogs = [
 export default function Home() {
   return (
     <main className="min-h-screen overflow-x-clip bg-background text-ink-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: homepageJsonLdString }}
+      />
       <SiteHeader />
 
       <HomeHero />

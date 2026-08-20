@@ -7,14 +7,14 @@ import { ContactCta } from "@/components/contact-cta";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { getBlogArchiveArticles, type BlogArchiveArticle } from "@/lib/blog-content";
-import { defaultSocialImage, getSeoMetadata, isProductionSite, toProductionUrl } from "@/lib/site-metadata";
+import { defaultSocialImage, getSeoMetadata, isIndexingEnabled, toProductionUrl } from "@/lib/site-metadata";
 
 const seo = getSeoMetadata("/blog.html");
 
 export const metadata: Metadata = {
   title: seo?.title ?? "Steel and Construction Knowledge Center | ARS Green Steel",
   description: seo?.description ?? "Explore ARS guides on TMT steel, construction planning, product quality, green steel, manufacturing, and industry developments.",
-  robots: { index: isProductionSite, follow: isProductionSite },
+  robots: { index: isIndexingEnabled, follow: isIndexingEnabled },
   alternates: {
     canonical: toProductionUrl("/blog.html"),
   },

@@ -4,7 +4,7 @@ import { BlogArticleTemplate } from "@/components/blog-article-template";
 import { getBlogArchiveArticle, getBlogExcerpt, cleanBlogTitle } from "@/lib/blog-content";
 import { getBlogMigrationEntry } from "@/lib/blog-migration";
 import { getLegacyBlogPages, getLegacyPage } from "@/lib/legacy-content";
-import { getSeoMetadata, isProductionSite, productionDomain, toProductionUrl } from "@/lib/site-metadata";
+import { getSeoMetadata, isIndexingEnabled, productionDomain, toProductionUrl } from "@/lib/site-metadata";
 
 function toProductionAssetUrl(value: string) {
   return toProductionUrl(value);
@@ -39,8 +39,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: resolvedTitle,
     description: resolvedDescription,
     robots: {
-      index: isProductionSite,
-      follow: isProductionSite,
+      index: isIndexingEnabled,
+      follow: isIndexingEnabled,
     },
     alternates: {
       canonical: finalUrl,

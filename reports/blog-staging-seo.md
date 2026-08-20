@@ -2,7 +2,7 @@
 
 The article metadata implementation is in `src/app/blog/[slug]/page.tsx`.
 
-When `NEXT_PUBLIC_SITE_URL` is supplied at build time as anything other than exactly `https://arsgroup.in` (including the Vercel testing domain), every blog article emits:
+When `NEXT_PUBLIC_INDEXING_ENABLED` is omitted or supplied as anything other than `true`, every blog article emits:
 
 ```html
 <meta name="robots" content="noindex, nofollow">
@@ -16,10 +16,10 @@ The canonical always uses the final production domain, not the Vercel testing do
 Set this production environment variable at build time on the `arsgroup.in` deployment:
 
 ```text
-NEXT_PUBLIC_SITE_URL=https://arsgroup.in
+NEXT_PUBLIC_INDEXING_ENABLED=true
 ```
 
-With that exact value, the same metadata implementation emits:
+With that explicit value, the same metadata implementation emits:
 
 ```html
 <meta name="robots" content="index, follow">
@@ -29,7 +29,7 @@ The canonical remains self-referencing on `https://arsgroup.in/blog/[slug]`.
 
 ## Environment confirmation
 
-The local implementation has been checked: the article metadata branches only on the exact build-time value above. The Vercel environment-variable dashboard is not available in this workspace, so the deployed testing and production variable assignments still require confirmation in Vercel before release. Do not infer those remote assignments from a local `.env.local` file.
+The local implementation has been checked in both modes. Hostinger production must receive the flag at build time; Vercel preview, staging, and local builds must omit it or set it to `false`. Do not infer remote assignments from a local `.env.local` file.
 
 ## Verification before launch
 

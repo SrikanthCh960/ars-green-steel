@@ -9,7 +9,7 @@ import { bridgesFlyoversProjectPage, institutionalProjectPage, ProjectTypePage, 
 import { SiteHeader } from "@/components/site-header";
 import { getPlannedPage, plannedPages } from "@/data/planned-pages";
 import { getLegacyPage, getLegacyTopLevelPages } from "@/lib/legacy-content";
-import { createPageMetadata, isProductionSite, toProductionUrl } from "@/lib/site-metadata";
+import { createPageMetadata, isIndexingEnabled, toProductionUrl } from "@/lib/site-metadata";
 
 const audienceGuideSlugs = [
   "tmt-steel-bar-guide-homeowners",
@@ -117,7 +117,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${page.title} | ARS Green Steel`,
     description: page.description,
-    robots: { index: isProductionSite, follow: isProductionSite },
+    robots: { index: isIndexingEnabled, follow: isIndexingEnabled },
     alternates: { canonical: toProductionUrl(page.path) },
     openGraph: {
       title: `${page.title} | ARS Green Steel`,

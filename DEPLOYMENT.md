@@ -16,6 +16,31 @@ This is the deployment source of truth for the ARS Green Steel redesign.
 
 Hostinger and `arsgroup.in` are the production source of truth. A Vercel deployment can remain available for preview and comparison, but it does not prove that the production website has been updated. Do not disconnect or reconfigure Vercel without explicit approval.
 
+## Search Indexing Policy
+
+Indexing is controlled by one explicit build-time variable:
+
+```txt
+NEXT_PUBLIC_INDEXING_ENABLED=true
+```
+
+Set this variable to `true` only in the Hostinger production environment for `https://arsgroup.in`. Preview, staging, Vercel, and local builds must omit it or set it to `false`; they then emit `noindex, nofollow` automatically.
+
+The generated `src/app/robots.ts` file is the only robots.txt source:
+
+- Production allows crawling and references `https://arsgroup.in/sitemap.xml`.
+- Non-production allows crawlers to fetch pages so they can read `noindex, nofollow`, but does not advertise a sitemap.
+- Do not add a second `public/robots.txt`; duplicate sources can produce conflicting deployment output.
+- Do not use `Disallow: /` as a substitute for `noindex`. Use authentication as the primary protection when a preview contains private material.
+
+Before every production release:
+
+1. Confirm Hostinger has `NEXT_PUBLIC_INDEXING_ENABLED=true` available during the build.
+2. Confirm the Vercel preview does not have the production value.
+3. Verify production HTML contains `index, follow` and preview HTML contains `noindex, nofollow`.
+4. Verify production `/robots.txt` allows crawling and references the production sitemap.
+5. Verify no indexable sitemap URL has a conflicting meta robots or `X-Robots-Tag` directive.
+
 ## Repository Ownership and Production Flow
 
 All development work originates in Baburao's repository. The local `origin` remote must point to:
@@ -189,6 +214,12 @@ Run these checks before deploying:
 ```bash
 npm run build -- --webpack
 git status
+```
+
+The default local build is intentionally `noindex, nofollow`. To reproduce the production indexing output locally, use the production-only flag for that build:
+
+```bash
+NEXT_PUBLIC_INDEXING_ENABLED=true npm run build -- --webpack
 ```
 
 If available, also run:

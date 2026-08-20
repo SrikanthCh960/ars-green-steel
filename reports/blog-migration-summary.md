@@ -5,7 +5,7 @@
 - Migrated article routes reviewed: 88
 - Approved one-hop 301 redirects: 6
 - Testing indexing rule: `noindex, nofollow`; canonical points to `https://arsgroup.in`
-- Production indexing rule: `index, follow` only when `NEXT_PUBLIC_SITE_URL=https://arsgroup.in`
+- Production indexing rule: `index, follow` only when `NEXT_PUBLIC_INDEXING_ENABLED=true`
 - Sanitization: 94/94 registry records passed; 44 have documented safe transformations.
 - Content parity approved: 88/88
 - SEO parity approved: 88/88

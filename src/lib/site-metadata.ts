@@ -5,8 +5,12 @@ import blogMetadata from "@/data/seo-blog-metadata.json";
 export const productionDomain = "https://arsgroup.in";
 export const defaultSocialImage = "/ars-assets/ARS-green-bg.png";
 
-export const isProductionSite =
-  process.env.NEXT_PUBLIC_SITE_URL === productionDomain;
+/**
+ * Indexing is an explicit deployment decision. Production must set this to
+ * `true`; preview, staging, and local builds safely default to noindex.
+ */
+export const isIndexingEnabled =
+  process.env.NEXT_PUBLIC_INDEXING_ENABLED?.trim().toLowerCase() === "true";
 
 export function toProductionUrl(path: string) {
   return path.startsWith("http") ? path : `${productionDomain}${path}`;
@@ -55,8 +59,8 @@ export function createPageMetadata({
     title: resolvedTitle,
     description: resolvedDescription,
     robots: {
-      index: isProductionSite,
-      follow: isProductionSite,
+      index: isIndexingEnabled,
+      follow: isIndexingEnabled,
     },
     alternates: {
       canonical: url,
