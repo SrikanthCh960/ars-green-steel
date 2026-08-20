@@ -108,11 +108,13 @@ Analytics release checks:
 
 ## Latest Hostinger Production Verification — 2026-08-20
 
-- Production commit: `986fa20` — `Handle double-escaped Google private keys`
+- Production commit: `a22ae35` — `Handle Hostinger production indexing fallback`
 - Primary repository: `baburao/ars-green-steel-redesign`
 - Production-connected fork: `SrikanthCh960/ars-green-steel`
 - Production host and URL: Hostinger at https://arsgroup.in/
-- Result: quote-request and product-enquiry Google Sheets submissions confirmed working in production.
+- Deployment state: **Completed / Current** at 2026-08-20 16:40 IST.
+- SEO result: homepage, blog, and representative product routes emit `index, follow`; `/thank-you` remains `noindex, follow`; robots.txt allows crawling and references the production sitemap; sitemap returns HTTP 200 XML; homepage Organization, WebSite, and WebPage JSON-LD are live.
+- Existing integration result: quote-request and product-enquiry Google Sheets submissions were previously confirmed working in production and remain part of the deployed history.
 - Operational note: Hostinger stored the service-account PEM newlines with additional escaping. The server now normalizes one or more escape characters before parsing the PKCS#8 key. Never print the key value in logs or documentation.
 
 ## Historical Vercel Release Records
