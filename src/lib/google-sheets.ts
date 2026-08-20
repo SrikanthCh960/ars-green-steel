@@ -1,6 +1,6 @@
 import "server-only";
 
-import { createSign } from "node:crypto";
+import { createPrivateKey, createSign } from "node:crypto";
 
 type AppendGoogleSheetRowOptions = {
   sheetName: string;
@@ -18,6 +18,20 @@ function normalizePrivateKey(value: string | undefined) {
     privateKey = privateKey.slice(1, -1);
   }
   return privateKey?.replace(/\\n/g, "\n").trim();
+}
+
+function parsePrivateKey(privateKey: string) {
+  const match = privateKey.match(
+    /^-----BEGIN PRIVATE KEY-----\n([A-Za-z0-9+/=\n\r]+)\n-----END PRIVATE KEY-----$/,
+  );
+
+  if (!match) throw new Error("GOOGLE_PRIVATE_KEY_INVALID");
+
+  return createPrivateKey({
+    key: Buffer.from(match[1].replace(/\s/g, ""), "base64"),
+    format: "der",
+    type: "pkcs8",
+  });
 }
 
 function getGoogleSheetsConfig() {
@@ -46,7 +60,7 @@ async function getGoogleAccessToken(clientEmail: string, privateKey: string) {
   const signer = createSign("RSA-SHA256");
   signer.update(unsignedToken);
   signer.end();
-  const assertion = `${unsignedToken}.${base64Url(signer.sign(privateKey))}`;
+  const assertion = `${unsignedToken}.${base64Url(signer.sign(parsePrivateKey(privateKey)))}`;
 
   const response = await fetch("https://oauth2.googleapis.com/token", {
     method: "POST",
