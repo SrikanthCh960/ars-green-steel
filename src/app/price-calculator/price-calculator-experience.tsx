@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { type ReactNode, useMemo, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Calculator, CheckCircle2, Scale } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
 import { MotionSection } from "@/components/motion-section";
@@ -16,6 +17,11 @@ type Inputs = Record<string, string>;
 type Project = { buildingType: string; floors: string; area: string };
 
 const projectMix = [0.05, 0.15, 0.25, 0.25, 0.15, 0.1, 0.05];
+
+function CalculatorReveal({ children, delay = 0, y = 18 }: { children: ReactNode; delay?: number; y?: number }) {
+  const reduceMotion = useReducedMotion();
+  return <motion.div data-calculator-motion initial={reduceMotion ? false : { opacity: 0, y }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={reduceMotion ? { duration: 0 } : { duration: 0.58, delay, ease: [0.22, 1, 0.36, 1] }}>{children}</motion.div>;
+}
 
 export function PriceCalculatorExperience() {
   const [region, setRegion] = useState("");
@@ -94,22 +100,23 @@ export function PriceCalculatorExperience() {
   }
 
   return <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
+    <noscript><style>{"[data-calculator-motion] { opacity: 1 !important; transform: none !important; }"}</style></noscript>
     <SiteHeader />
     <section className="relative overflow-hidden bg-ink-950 text-white">
       <Image src="/ars-assets/products/ProductComparission_HeroBanner.jpg" alt="ARS TMT steel bars for construction planning" fill priority sizes="100vw" className="object-cover object-center" />
       <div className="steel-grid absolute inset-0 opacity-40" />
       <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(6,13,30,0.96)_10%,rgba(6,13,30,0.84)_60%,rgba(13,43,110,0.62))]" />
       <div className="ars-container relative flex min-h-[500px] items-end pb-14 pt-36 md:min-h-[570px] md:pb-20">
-        <div className="max-w-4xl"><div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />TMT Steel Calculator</div><h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1] tracking-[-0.035em]">Calculate Your TMT Requirement <span className="text-[var(--text-accent-dark)]">With Precision.</span></h1><p className="mt-7 max-w-2xl text-base leading-8 text-white/75 md:text-lg">Use ARS workbook-backed rates and bundle rules to plan rods, weight, and indicative cost before you request a confirmed quote.</p><a href="#calculator" className="focus-ring mt-8 inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white">Start calculating <ArrowRight size={16} /></a></div>
+        <div className="max-w-4xl"><CalculatorReveal y={14}><div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />TMT Steel Calculator</div></CalculatorReveal><CalculatorReveal delay={0.08} y={20}><h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1] tracking-[-0.035em]">Calculate Your TMT Requirement <span className="text-[var(--text-accent-dark)]">With Precision.</span></h1></CalculatorReveal><CalculatorReveal delay={0.16}><p className="mt-7 max-w-2xl text-base leading-8 text-white/75 md:text-lg">Use ARS workbook-backed rates and bundle rules to plan rods, weight, and indicative cost before you request a confirmed quote.</p></CalculatorReveal><a href="#calculator" className="focus-ring mt-8 inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white">Start calculating <ArrowRight size={16} /></a></div>
       </div>
     </section>
 
     <MotionSection id="calculator" className="scroll-mt-24 bg-white py-14 md:py-24" aria-labelledby="calculator-title">
-      <div className="ars-container"><div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"><div><SectionKicker variant="brand">Information</SectionKicker><h2 id="calculator-title" className="mt-5 font-display text-[clamp(2rem,3.4vw,2.6rem)] font-bold leading-[1.08] tracking-[-0.025em]">Plan your TMT requirement with confidence.</h2><p className="mt-5 text-[15px] leading-7 text-steel-700">Use the ARS workbook-backed calculator to estimate rods, weight, bundles, and indicative cost before requesting a confirmed rate.</p></div><div className="grid gap-4 text-sm leading-6 text-steel-700 lg:pt-12">{calculatorNotes.map((note) => <p key={note} className="flex gap-3"><CheckCircle2 size={18} className="mt-0.5 shrink-0 text-brand-blue" aria-hidden="true" /><span>{note}</span></p>)}</div></div></div>
+      <div className="ars-container"><div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"><CalculatorReveal><div><SectionKicker variant="brand">Information</SectionKicker><h2 id="calculator-title" className="mt-5 font-display text-[clamp(2rem,3.4vw,2.6rem)] font-bold leading-[1.08] tracking-[-0.025em]">Plan your TMT requirement with confidence.</h2><p className="mt-5 text-[15px] leading-7 text-steel-700">Use the ARS workbook-backed calculator to estimate rods, weight, bundles, and indicative cost before requesting a confirmed rate.</p></div></CalculatorReveal><CalculatorReveal delay={0.14}><div className="grid gap-4 text-sm leading-6 text-steel-700 lg:pt-12">{calculatorNotes.map((note) => <p key={note} className="flex gap-3"><CheckCircle2 size={18} className="mt-0.5 shrink-0 text-brand-blue" aria-hidden="true" /><span>{note}</span></p>)}</div></CalculatorReveal></div></div>
     </MotionSection>
 
     <MotionSection className="bg-surface-50 py-14 md:py-24" aria-labelledby="diameter-title">
-      <div className="ars-container"><div className="mb-8"><SectionKicker variant="brand">Calculator</SectionKicker><h2 id="diameter-title" className="mt-5 font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.08]">Set your project details and quantities.</h2><p className="mt-4 max-w-2xl text-sm leading-6 text-steel-700">Choose your region, product, and measurement unit, then enter the quantity required for each bar diameter.</p></div>
+      <div className="ars-container"><div className="mb-8"><CalculatorReveal><SectionKicker variant="brand">Calculator</SectionKicker></CalculatorReveal><CalculatorReveal delay={0.08} y={20}><h2 id="diameter-title" className="mt-5 font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.08]">Set your project details and quantities.</h2></CalculatorReveal><CalculatorReveal delay={0.16}><p className="mt-4 max-w-2xl text-sm leading-6 text-steel-700">Choose your region, product, and measurement unit, then enter the quantity required for each bar diameter.</p></CalculatorReveal></div>
         <div className="grid gap-8 xl:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] xl:items-stretch">
           <form className="h-full rounded-2xl border border-brand-blue/10 bg-[#f4f7ff] p-6 shadow-[0_16px_40px_rgba(13,43,110,0.06)] md:p-8" onSubmit={(event) => { event.preventDefault(); calculateProject(); }} aria-labelledby="project-inputs-title">
             <div className="mb-7 inline-flex items-center gap-2 rounded-full bg-brand-blue/[0.08] px-3 py-2 text-xs font-bold text-brand-blue"><Calculator size={15} aria-hidden="true" /> <span id="project-inputs-title">Project inputs</span></div>
@@ -148,8 +155,8 @@ export function PriceCalculatorExperience() {
       </div>
     </MotionSection>
 
-    <MotionSection className="bg-white py-14 md:py-24"><div className="ars-container grid gap-10 lg:grid-cols-[1.15fr_0.85fr]"><div><SectionKicker variant="brand">Calculate with precision</SectionKicker><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.08]">Master your TMT requirements.</h2><div className="mt-6 grid gap-5 text-[15px] leading-7 text-steel-700"><p>Our TMT Calculator simplifies construction planning by estimating the quantity, weight, and indicative cost of TMT steel required for a project.</p><p>Use the result for budgeting and logistics planning, then share the requirement with ARS for a confirmed rate and product guidance.</p></div></div><div className="border-l-4 border-brand-blue bg-surface-50 p-6"><Scale className="text-brand-blue" size={24} aria-hidden="true" /><h3 className="mt-5 font-display text-xl font-bold">A clear starting point</h3><p className="mt-3 text-sm leading-6 text-steel-700">The calculator supports residential, commercial, and infrastructure purchase planning across the ARS regions listed in the workbook.</p></div></div></MotionSection>
-    <MotionSection className="bg-surface-50 py-14 md:py-24"><div className="ars-container"><SectionKicker variant="brand">Answers before ordering</SectionKicker><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.08]">Frequently asked questions</h2><FaqList className="mt-8" items={calculatorFaqs.map(([question, answer]) => ({ question, answer }))} /></div></MotionSection>
+    <MotionSection className="bg-white py-14 md:py-24"><div className="ars-container grid gap-10 lg:grid-cols-[1.15fr_0.85fr]"><div><CalculatorReveal><SectionKicker variant="brand">Calculate with precision</SectionKicker></CalculatorReveal><CalculatorReveal delay={0.08} y={20}><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.08]">Master your TMT requirements.</h2></CalculatorReveal><CalculatorReveal delay={0.16}><div className="mt-6 grid gap-5 text-[15px] leading-7 text-steel-700"><p>Our TMT Calculator simplifies construction planning by estimating the quantity, weight, and indicative cost of TMT steel required for a project.</p><p>Use the result for budgeting and logistics planning, then share the requirement with ARS for a confirmed rate and product guidance.</p></div></CalculatorReveal></div><CalculatorReveal delay={0.24}><div className="border-l-4 border-brand-blue bg-surface-50 p-6"><Scale className="text-brand-blue" size={24} aria-hidden="true" /><h3 className="mt-5 font-display text-xl font-bold">A clear starting point</h3><p className="mt-3 text-sm leading-6 text-steel-700">The calculator supports residential, commercial, and infrastructure purchase planning across the ARS regions listed in the workbook.</p></div></CalculatorReveal></div></MotionSection>
+    <MotionSection className="bg-surface-50 py-14 md:py-24"><div className="ars-container"><CalculatorReveal><SectionKicker variant="brand">Answers before ordering</SectionKicker></CalculatorReveal><CalculatorReveal delay={0.08} y={20}><h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.08]">Frequently asked questions</h2></CalculatorReveal><FaqList className="mt-8" items={calculatorFaqs.map(([question, answer]) => ({ question, answer }))} /></div></MotionSection>
     <ContactCta eyebrow="Ready for a confirmed rate?" headline="Send ARS your requirement." body="Share your selected product, region, quantity, and indicative calculation with the ARS team." primaryLabel="Send enquiry" primaryHref="/request-quote" secondaryLabel="Talk to sales" secondaryHref="/our-network" tone="solid" />
   </main>;
 }

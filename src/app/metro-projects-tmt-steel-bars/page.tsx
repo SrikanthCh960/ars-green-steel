@@ -12,6 +12,7 @@ export const metadata: Metadata = createPageMetadata({
 export default function MetroProjectsPage() {
   return (
     <ProjectTypePage
+      projectMotion
       eyebrow="Metro infrastructure"
       title="TMT Bars for Metro Projects"
       description="Reliable reinforcement steel for metro stations, viaducts, depots, and the urban infrastructure connecting India's growing cities."

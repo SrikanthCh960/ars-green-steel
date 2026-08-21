@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin, Navigation, Phone, Search, SlidersHorizontal, X } from "lucide-react";
 import { SectionKicker } from "@/components/section-kicker";
 import type { Dealer } from "@/data/dealers";
+import { motion, useReducedMotion } from "framer-motion";
 
 type DealerLocatorExperienceProps = {
   dealers: Dealer[];
@@ -37,6 +38,7 @@ function mapUrl(dealer: Dealer) {
 }
 
 export function DealerLocatorExperience({ dealers }: DealerLocatorExperienceProps) {
+  const reduceMotion = useReducedMotion();
   const [query, setQuery] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
@@ -78,8 +80,9 @@ export function DealerLocatorExperience({ dealers }: DealerLocatorExperienceProp
 
   return (
     <section className="bg-white py-16 lg:py-20" id="dealer-search">
+      <noscript><style>{"[data-dealer-motion] { opacity: 1 !important; transform: none !important; }"}</style></noscript>
       <div className="ars-container">
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+        <motion.div data-dealer-motion initial={reduceMotion ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={reduceMotion ? { duration: 0 } : { duration: 0.58, ease: [0.22, 1, 0.36, 1] }} className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
           <div>
             <SectionKicker>Search dealers</SectionKicker>
             <h2 className="section-title mt-5 max-w-3xl">Find ARS dealer records by location.</h2>
@@ -88,9 +91,9 @@ export function DealerLocatorExperience({ dealers }: DealerLocatorExperienceProp
             Search by city, district, pincode, or dealer name. The list is loaded from the updated
             ARS dealer sheet and can be refreshed as client data changes.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="mt-10 rounded-[24px] border border-brand-blue/10 bg-surface-50 p-4 shadow-[0_22px_70px_rgba(13,43,110,0.1)] lg:p-6">
+        <motion.div data-dealer-motion initial={reduceMotion ? false : { opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.18 }} transition={reduceMotion ? { duration: 0 } : { duration: 0.58, delay: 0.1, ease: [0.22, 1, 0.36, 1] }} className="mt-10 rounded-[24px] border border-brand-blue/10 bg-surface-50 p-4 shadow-[0_22px_70px_rgba(13,43,110,0.1)] lg:p-6">
           <div className="grid gap-3 lg:grid-cols-[1.5fr_0.8fr_0.7fr_auto]">
             <label className="relative block">
               <span className="sr-only">Search dealers</span>
@@ -171,7 +174,7 @@ export function DealerLocatorExperience({ dealers }: DealerLocatorExperienceProp
                 </button>
               ))}
           </div>
-        </div>
+        </motion.div>
 
         <div className="mt-8 flex flex-col gap-3 border-b border-brand-blue/10 pb-5 sm:flex-row sm:items-center sm:justify-between">
           <div>

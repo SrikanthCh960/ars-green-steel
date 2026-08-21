@@ -6,6 +6,7 @@ import { ContactCta } from "@/components/contact-cta";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { FaqList } from "@/components/faq-list";
+import { ProjectSectionMotion } from "@/components/project-motion";
 
 type ProjectTypePageProps = {
   eyebrow: string;
@@ -22,6 +23,7 @@ type ProjectTypePageProps = {
   relatedLinks: { label: string; href: string }[];
   faqSection: { eyebrow: string; title: string };
   faq: { question: string; answer: string }[];
+  projectMotion?: boolean;
 };
 
 /**
@@ -43,12 +45,15 @@ export function ProjectTypePage({
   relatedLinks,
   faqSection,
   faq,
+  projectMotion = false,
 }: ProjectTypePageProps) {
+  const Section = projectMotion ? ProjectSectionMotion : "section";
   return (
     <main className="min-h-screen bg-surface-50 text-ink-900">
+      {projectMotion ? <noscript><style>{"[data-project-motion] { opacity: 1 !important; transform: none !important; }"}</style></noscript> : null}
       <SiteHeader />
 
-      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative isolate flex items-center overflow-hidden bg-ink-950 py-20 text-white md:py-28">
+      <Section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative isolate flex items-center overflow-hidden bg-ink-950 py-20 text-white md:py-28">
         <div className="steel-grid absolute inset-0 opacity-35" aria-hidden="true" />
         <div className="absolute inset-y-0 right-0 w-[64%] bg-[radial-gradient(circle_at_center,rgba(13,43,110,0.76),transparent_64%)]" aria-hidden="true" />
         <div className="ars-container relative">
@@ -82,9 +87,9 @@ export function ProjectTypePage({
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
-      <section className="bg-white py-20 md:py-28">
+      <Section className="bg-white py-20 md:py-28">
         <div className="ars-container grid gap-12 lg:grid-cols-[0.38fr_0.62fr] lg:gap-20">
           <div>
             <SectionKicker>Engineering rationale</SectionKicker>
@@ -92,9 +97,9 @@ export function ProjectTypePage({
           </div>
           <p className="max-w-3xl text-lg leading-9 text-steel-700">{rationale.body}</p>
         </div>
-      </section>
+      </Section>
 
-      <section className="bg-[#e8ecf4] py-20 md:py-28">
+      <Section className="bg-[#e8ecf4] py-20 md:py-28">
         <div className="ars-container">
           <SectionKicker>{applicationsSection.eyebrow}</SectionKicker>
           <h2 className="section-title max-w-3xl">{applicationsSection.title}</h2>
@@ -108,9 +113,9 @@ export function ProjectTypePage({
             ))}
           </div>
         </div>
-      </section>
+      </Section>
 
-      <section className="bg-white py-20 md:py-28">
+      <Section className="bg-white py-20 md:py-28">
         <div className="ars-container">
           <SectionKicker>{considerationsSection.eyebrow}</SectionKicker>
           <h2 className="section-title max-w-3xl">{considerationsSection.title}</h2>
@@ -127,9 +132,9 @@ export function ProjectTypePage({
             })}
           </div>
         </div>
-      </section>
+      </Section>
 
-      <section className="bg-bg-dark py-20 text-white md:py-28">
+      <Section className="bg-bg-dark py-20 text-white md:py-28">
         <div className="ars-container grid gap-10 lg:grid-cols-[0.58fr_0.42fr] lg:items-center">
           <div>
             <SectionKicker variant="light">{relatedSection.eyebrow}</SectionKicker>
@@ -158,9 +163,9 @@ export function ProjectTypePage({
             ))}
           </div>
         </div>
-      </section>
+      </Section>
 
-      <section className="bg-white py-20 md:py-28">
+      <Section className="bg-white py-20 md:py-28">
         <div className="ars-container grid gap-12 lg:grid-cols-[0.35fr_0.65fr]">
           <div>
             <SectionKicker>{faqSection.eyebrow}</SectionKicker>
@@ -168,7 +173,7 @@ export function ProjectTypePage({
           </div>
           <FaqList items={faq} />
         </div>
-      </section>
+      </Section>
 
       <ContactCta />
     </main>

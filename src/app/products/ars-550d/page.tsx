@@ -14,7 +14,7 @@ import {
   ShoppingCart,
   Zap,
 } from "lucide-react";
-import { MotionSection } from "@/components/motion-section";
+import { ProductDetailReveal, ProductDetailSectionMotion as MotionSection } from "@/components/product-detail-motion";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { ProductLeadCaptureForm } from "@/components/product-lead-capture-form";
@@ -143,6 +143,7 @@ const faqs = [
 export default function Ars550DPage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
+      <noscript><style>{"[data-product-detail-motion] { opacity: 1 !important; transform: none !important; }"}</style></noscript>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: productPageJsonLdString }}
@@ -157,14 +158,14 @@ export default function Ars550DPage() {
         </div>
         <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
           <div className="max-w-4xl">
-            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS Fe 550D TMT Bars | Fe 550D Grade</div>
-            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">ARS Fe 550D TMT Bars for Strong, Durable Construction</h1>
-            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">Engineered for high strength, superior ductility, and dependable performance, ARS Fe 550D TMT Bars are built for modern construction.</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <ProductDetailReveal y={14}><div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS Fe 550D TMT Bars | Fe 550D Grade</div></ProductDetailReveal>
+            <ProductDetailReveal delay={0.08} y={22}><h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">ARS Fe 550D TMT Bars for Strong, Durable Construction</h1></ProductDetailReveal>
+            <ProductDetailReveal delay={0.16}><p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">Engineered for high strength, superior ductility, and dependable performance, ARS Fe 550D TMT Bars are built for modern construction.</p></ProductDetailReveal>
+            <ProductDetailReveal delay={0.26}><div className="mt-8 flex flex-wrap gap-3">
               <Link href="/request-quote?product=ars-550d" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"><FileText size={14} aria-hidden="true" /> Get a Quote</Link>
               <Link href="/tmt-steel-calculator" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.12]"><Calculator size={14} aria-hidden="true" /> Calculate Steel</Link>
-            </div>
-            <p className="mt-4 text-xs font-semibold tracking-[0.08em] text-white/70 sm:text-sm">BIS-certified · SGS-tested · Fe 550D · yield 550 N/mm²</p>
+            </div></ProductDetailReveal>
+            <ProductDetailReveal delay={0.34} y={14}><p className="mt-4 text-xs font-semibold tracking-[0.08em] text-white/70 sm:text-sm">BIS-certified · SGS-tested · Fe 550D · yield 550 N/mm²</p></ProductDetailReveal>
           </div>
         </div>
       </section>

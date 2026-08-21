@@ -10,7 +10,7 @@ import {
   Waves,
 } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
-import { MotionSection } from "@/components/motion-section";
+import { ProjectSectionMotion as MotionSection } from "@/components/project-motion";
 import { SectionKicker } from "@/components/section-kicker";
 import { FaqList } from "@/components/faq-list";
 import { SiteHeader } from "@/components/site-header";
@@ -123,7 +123,7 @@ const roadProjectJsonLdString = JSON.stringify(roadProjectJsonLd).replace(/</g, 
 
 export default function RoadProjectsPage() {
   return (
-    <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
+    <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900"><noscript><style>{"[data-project-motion] { opacity: 1 !important; transform: none !important; }"}</style></noscript>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: roadProjectJsonLdString }}

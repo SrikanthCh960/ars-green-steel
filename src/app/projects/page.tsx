@@ -12,7 +12,7 @@ import {
   Network,
   ShieldCheck,
 } from "lucide-react";
-import { MotionSection } from "@/components/motion-section";
+import { ProjectSectionMotion as MotionSection } from "@/components/project-motion";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 
@@ -84,6 +84,7 @@ const reviewSteps = [
 export default function ProjectsPage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-background text-ink-900">
+      <noscript><style>{"[data-project-motion] { opacity: 1 !important; transform: none !important; }"}</style></noscript>
       <SiteHeader />
 
       <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-surface-50">

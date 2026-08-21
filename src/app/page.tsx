@@ -19,7 +19,7 @@ import { productCatalog } from "@/lib/product-catalog";
 import { AudienceJourneySection } from "@/components/audience-journey-section";
 import { ContactCta } from "@/components/contact-cta";
 import { HomeHero } from "@/components/home-hero";
-import { MotionSection } from "@/components/motion-section";
+import { HomepageImageReveal, HomepageReveal, HomepageSectionMotion } from "@/components/homepage-section-motion";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 
@@ -303,6 +303,9 @@ const blogs = [
 export default function Home() {
   return (
     <main className="min-h-screen overflow-x-clip bg-background text-ink-900">
+      <noscript>
+        <style>{"[data-homepage-motion] { opacity: 1 !important; transform: none !important; }"}</style>
+      </noscript>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: homepageJsonLdString }}
@@ -317,25 +320,23 @@ export default function Home() {
 
       <GreenSteelSection />
 
-      <MotionSection className="bg-surface-50 py-16 lg:min-h-[90vh] lg:py-18" id="products">
+      <HomepageSectionMotion className="bg-surface-50 py-16 lg:min-h-[90vh] lg:py-18" id="products">
         <div className="ars-container flex min-h-[calc(90vh-96px)] flex-col justify-center">
           <div className="mb-8 max-w-4xl lg:mb-10">
-            <SectionKicker>Product range</SectionKicker>
-            <h2 className="section-title">
-              Choose the Right TMT Steel for Your Project
-            </h2>
-            <p className="section-copy">
-              From corrosion-resistant TMT bars for high-salinity, high-TDS environments to high-strength TMT bars
-              for earthquake-resistant construction, ARS offers the right solution for every project.
-            </p>
+            <HomepageReveal><SectionKicker>Product range</SectionKicker></HomepageReveal>
+            <HomepageReveal delay={0.08} y={22}><h2 className="section-title">Choose the Right TMT Steel for Your Project</h2></HomepageReveal>
+            <HomepageReveal delay={0.16}>
+              <p className="section-copy">
+                From corrosion-resistant TMT bars for high-salinity, high-TDS environments to high-strength TMT bars
+                for earthquake-resistant construction, ARS offers the right solution for every project.
+              </p>
+            </HomepageReveal>
           </div>
 
           <div className="grid gap-4">
-            {products.map((product) => (
-              <article
-                key={product.name}
-                className="group grid overflow-hidden rounded-[18px] border border-brand-blue/12 bg-white shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:border-brand-blue/45 hover:shadow-[0_22px_72px_rgba(13,43,110,0.12)] lg:grid-cols-[260px_minmax(0,1fr)_220px]"
-              >
+            {products.map((product, index) => (
+              <HomepageReveal key={product.name} delay={0.26 + index * 0.08}>
+                <article className="group grid overflow-hidden rounded-[18px] border border-brand-blue/12 bg-white shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:border-brand-blue/45 hover:shadow-[0_22px_72px_rgba(13,43,110,0.12)] lg:grid-cols-[260px_minmax(0,1fr)_220px]">
                 <div className="flex min-h-[180px] items-center justify-center bg-surface-100 p-6 lg:min-h-[216px]">
                   <Image
                     src={product.image}
@@ -392,26 +393,29 @@ export default function Home() {
                     </span>
                   )}
                 </div>
-              </article>
+                </article>
+              </HomepageReveal>
             ))}
           </div>
 
-          <div className="mt-5 grid gap-4 rounded-[16px] border border-brand-blue/10 bg-white/78 p-5 shadow-[var(--shadow-soft)] lg:grid-cols-4">
-            {["High Strength & Ductility", "Corrosion Resistant", "Earthquake Resistant", "BIS Certified Green Steel"].map((item) => (
-              <div key={item} className="flex items-center gap-3 text-sm font-bold text-steel-700">
-                <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-[#edf5ff] text-brand-blue">
-                  <BadgeCheck size={17} />
-                </span>
-                {item}
-              </div>
-            ))}
-          </div>
+          <HomepageReveal delay={0.56}>
+            <div className="mt-5 grid gap-4 rounded-[16px] border border-brand-blue/10 bg-white/78 p-5 shadow-[var(--shadow-soft)] lg:grid-cols-4">
+              {["High Strength & Ductility", "Corrosion Resistant", "Earthquake Resistant", "BIS Certified Green Steel"].map((item) => (
+                <div key={item} className="flex items-center gap-3 text-sm font-bold text-steel-700">
+                  <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-[#edf5ff] text-brand-blue">
+                    <BadgeCheck size={17} />
+                  </span>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </HomepageReveal>
         </div>
-      </MotionSection>
+      </HomepageSectionMotion>
 
       <BuyingAssistantSection />
 
-      <MotionSection className="bg-surface-50 py-24" id="trusted-by">
+      <HomepageSectionMotion className="bg-surface-50 py-24" id="trusted-by">
         <div className="ars-container">
           <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
             <SectionIntro
@@ -421,105 +425,103 @@ export default function Home() {
             />
 
             <div className="grid gap-4 sm:grid-cols-2">
-              {certificateCards.slice(0, 2).map((item) => (
-                <article
-                  key={item.label}
-                  className="group grid min-h-[290px] overflow-hidden rounded-[18px] border border-brand-blue/10 bg-white shadow-[var(--shadow-soft)] sm:grid-rows-[170px_1fr]"
-                >
-                  <div className="overflow-hidden bg-white p-5">
-                    <Image
-                      src={item.image!}
-                      alt={`${item.label} ARS certification`}
-                      width={368}
-                      height={523}
-                      className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.03]"
-                    />
-                  </div>
-                  <div className="border-t border-brand-blue/8 bg-brand-blue p-5 text-white">
-                    <h3 className="font-display text-xl font-bold">{item.label}</h3>
-                    <p className="mt-2 text-sm leading-6 text-white/70">{item.detail}</p>
-                  </div>
-                </article>
+              {certificateCards.slice(0, 2).map((item, index) => (
+                <HomepageReveal key={item.label} delay={0.24 + index * 0.08}>
+                  <article className="group grid min-h-[290px] overflow-hidden rounded-[18px] border border-brand-blue/10 bg-white shadow-[var(--shadow-soft)] sm:grid-rows-[170px_1fr]">
+                    <div className="overflow-hidden bg-white p-5">
+                      <Image
+                        src={item.image!}
+                        alt={`${item.label} ARS certification`}
+                        width={368}
+                        height={523}
+                        className="h-full w-full object-contain transition duration-500 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                    <div className="border-t border-brand-blue/8 bg-brand-blue p-5 text-white">
+                      <h3 className="font-display text-xl font-bold">{item.label}</h3>
+                      <p className="mt-2 text-sm leading-6 text-white/70">{item.detail}</p>
+                    </div>
+                  </article>
+                </HomepageReveal>
               ))}
             </div>
           </div>
 
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {certificateCards.slice(2).map((item) => (
-              <article
-                key={item.label}
-                className="rounded-[16px] border border-brand-blue/10 bg-white p-6 shadow-[0_14px_42px_rgba(13,43,110,0.05)]"
-              >
-                <span className="inline-flex size-11 items-center justify-center rounded-[10px] bg-[#edf5ff] text-brand-blue ring-1 ring-brand-blue/10">
-                  <BadgeCheck size={21} />
-                </span>
-                <h3 className="mt-7 font-display text-xl font-bold text-ink-900">{item.label}</h3>
-                <p className="mt-2 text-sm leading-6 text-steel-700">{item.detail}</p>
-              </article>
+            {certificateCards.slice(2).map((item, index) => (
+              <HomepageReveal key={item.label} delay={0.42 + index * 0.05}>
+                <article className="rounded-[16px] border border-brand-blue/10 bg-white p-6 shadow-[0_14px_42px_rgba(13,43,110,0.05)]">
+                  <span className="inline-flex size-11 items-center justify-center rounded-[10px] bg-[#edf5ff] text-brand-blue ring-1 ring-brand-blue/10">
+                    <BadgeCheck size={21} />
+                  </span>
+                  <h3 className="mt-7 font-display text-xl font-bold text-ink-900">{item.label}</h3>
+                  <p className="mt-2 text-sm leading-6 text-steel-700">{item.detail}</p>
+                </article>
+              </HomepageReveal>
             ))}
           </div>
 
           <div className="mt-12 border-t border-brand-blue/10 pt-8">
-            <div className="mb-5 flex items-center justify-between gap-6">
-              <p className="font-technical text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">
-                Clients
-              </p>
-            </div>
+            <HomepageReveal delay={0.68}>
+              <div className="mb-5 flex items-center justify-between gap-6">
+                <p className="font-technical text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">Clients</p>
+              </div>
+            </HomepageReveal>
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-9">
-              {partnerCards.map((partner) => (
-                <article
-                  key={partner.name}
-                  className="flex min-h-[76px] items-center justify-center rounded-[12px] border border-ink-900/8 bg-white p-2 text-center"
-                >
-                  <Image
-                    src={partner.logo}
-                    alt={`${partner.name} partner logo`}
-                    width={190}
-                    height={76}
-                    className="max-h-16 w-full object-contain"
-                  />
-                </article>
+              {partnerCards.map((partner, index) => (
+                <HomepageReveal key={partner.name} delay={0.72 + index * 0.04}>
+                  <article className="flex min-h-[76px] items-center justify-center rounded-[12px] border border-ink-900/8 bg-white p-2 text-center">
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} partner logo`}
+                      width={190}
+                      height={76}
+                      className="max-h-16 w-full object-contain"
+                    />
+                  </article>
+                </HomepageReveal>
               ))}
             </div>
           </div>
         </div>
-      </MotionSection>
+      </HomepageSectionMotion>
 
       <RahulDravidSection />
 
-      <MotionSection className="bg-white py-24" id="blogs">
+      <HomepageSectionMotion className="bg-white py-24" id="blogs">
         <div className="ars-container">
           <div className="mb-14 grid items-end gap-8 lg:grid-cols-[0.9fr_1fr]">
             <div>
-              <SectionKicker>Knowledge center</SectionKicker>
-              <h2 className="section-title max-w-3xl">
-                Expert Guides for Smarter Steel Decisions
-              </h2>
-              <p className="section-copy max-w-2xl">
-                Explore expert insights on TMT steel, construction best practices, pricing, corrosion
-                resistance, green steel, and project planning to build with confidence.
-              </p>
+              <HomepageReveal><SectionKicker>Knowledge center</SectionKicker></HomepageReveal>
+              <HomepageReveal delay={0.08} y={22}><h2 className="section-title max-w-3xl">Expert Guides for Smarter Steel Decisions</h2></HomepageReveal>
+              <HomepageReveal delay={0.16}>
+                <p className="section-copy max-w-2xl">
+                  Explore expert insights on TMT steel, construction best practices, pricing, corrosion
+                  resistance, green steel, and project planning to build with confidence.
+                </p>
+              </HomepageReveal>
             </div>
 
-            <Link
-              href="/blog"
-              className="focus-ring inline-flex items-center gap-2 justify-self-start text-sm font-bold text-brand-blue transition hover:text-brand-red lg:justify-self-end"
-            >
-              View all articles <ArrowRight size={17} />
-            </Link>
+            <HomepageReveal delay={0.24} className="justify-self-start lg:justify-self-end">
+              <Link href="/blog" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue transition hover:text-brand-red">
+                View all articles <ArrowRight size={17} />
+              </Link>
+            </HomepageReveal>
           </div>
 
           <div className="grid gap-5 lg:grid-cols-[0.92fr_1.38fr]">
-            <FeaturedBlogCard blog={blogs[0]} />
+            <HomepageReveal delay={0.3}><FeaturedBlogCard blog={blogs[0]} /></HomepageReveal>
 
             <div className="grid gap-5">
-              {blogs.slice(1).map((blog) => (
-                <BlogListCard key={blog.title} blog={blog} />
+              {blogs.slice(1).map((blog, index) => (
+                <HomepageReveal key={blog.title} delay={0.38 + index * 0.08}>
+                  <BlogListCard blog={blog} />
+                </HomepageReveal>
               ))}
             </div>
           </div>
         </div>
-      </MotionSection>
+      </HomepageSectionMotion>
 
       <ContactCta />
     </main>
@@ -608,46 +610,45 @@ function BlogListCard({ blog }: { blog: (typeof blogs)[number] }) {
 
 function RahulDravidSection() {
   return (
-    <MotionSection className="relative overflow-hidden bg-bg-dark text-white" id="brand-ambassador">
+    <HomepageSectionMotion className="relative overflow-hidden bg-bg-dark text-white" id="brand-ambassador">
       <div className="ars-container py-20 lg:py-24">
-        <div className="grid overflow-hidden rounded-[22px] border border-white/12 bg-[#07142f] shadow-[0_30px_90px_rgba(6,13,30,0.28)] lg:grid-cols-[0.86fr_1.14fr]">
+        <div className="group grid overflow-hidden rounded-[22px] border border-white/12 bg-[#07142f] shadow-[0_30px_90px_rgba(6,13,30,0.28)] lg:grid-cols-[0.86fr_1.14fr]">
           <div className="relative z-10 flex flex-col justify-center p-8 sm:p-10 lg:p-14">
-            <SectionKicker variant="light">Brand ambassador</SectionKicker>
-            <h2 className="mt-5 max-w-xl font-display text-[clamp(2.4rem,4.5vw,4.6rem)] font-extrabold leading-[0.94] text-white">
-              A Partnership Built on Trust.
-            </h2>
-            <p className="mt-6 max-w-lg text-base leading-8 text-white/72 lg:text-lg">
-              Rahul Dravid represents the values that define ARS—discipline, integrity, consistency,
-              and trust. His association reflects our commitment to delivering TMT bars engineered to
-              perform with confidence, project after project.
-            </p>
-            <Link
-              className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] bg-brand-red px-5 text-sm font-bold text-white transition hover:bg-brand-red-dark"
-              href="/product-crs-550d"
-            >
-              Explore ARS CRS Fe 550D <ArrowRight size={17} />
-            </Link>
+            <HomepageReveal><SectionKicker variant="light">Brand ambassador</SectionKicker></HomepageReveal>
+            <HomepageReveal delay={0.08} y={22}><h2 className="mt-5 max-w-xl font-display text-[clamp(2.4rem,4.5vw,4.6rem)] font-extrabold leading-[0.94] text-white">A Partnership Built on Trust.</h2></HomepageReveal>
+            <HomepageReveal delay={0.16}>
+              <p className="mt-6 max-w-lg text-base leading-8 text-white/72 lg:text-lg">
+                Rahul Dravid represents the values that define ARS—discipline, integrity, consistency,
+                and trust. His association reflects our commitment to delivering TMT bars engineered to
+                perform with confidence, project after project.
+              </p>
+            </HomepageReveal>
+            <HomepageReveal delay={0.26}>
+              <Link className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] bg-brand-red px-5 text-sm font-bold text-white transition hover:bg-brand-red-dark" href="/product-crs-550d">
+                Explore ARS CRS Fe 550D <ArrowRight size={17} />
+              </Link>
+            </HomepageReveal>
           </div>
 
-          <div className="relative min-h-[390px] overflow-hidden bg-[#f5a916] lg:min-h-[560px]">
-            <Image
-              src="/ars-assets/home/rahul_.jpg"
-              alt="Rahul Dravid representing ARS CRS Fe 550D TMT steel"
-              fill
-              sizes="(min-width: 1024px) 58vw, 100vw"
-              className="object-cover object-right"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#07142f]/55 via-transparent to-transparent lg:from-[#07142f]/24" />
-          </div>
+          <HomepageImageReveal delay={0.18} className="relative min-h-[390px] overflow-hidden bg-[#f5a916] lg:min-h-[560px]">
+              <Image
+                src="/ars-assets/home/rahul_.jpg"
+                alt="Rahul Dravid representing ARS CRS Fe 550D TMT steel"
+                fill
+                sizes="(min-width: 1024px) 58vw, 100vw"
+                className="object-cover object-right transition duration-700 group-hover:scale-[1.02] motion-reduce:transform-none motion-reduce:transition-none"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#07142f]/55 via-transparent to-transparent lg:from-[#07142f]/24" />
+          </HomepageImageReveal>
         </div>
       </div>
-    </MotionSection>
+    </HomepageSectionMotion>
   );
 }
 
 function GreenSteelSection() {
   return (
-    <MotionSection className="relative overflow-hidden bg-bg-dark py-24 text-white" id="ars-green-steel">
+    <HomepageSectionMotion className="relative overflow-hidden bg-bg-dark py-24 text-white" id="ars-green-steel">
       <div className="absolute inset-0">
         <Image
           src="/ars-assets/home/ARS-green-bg.jpg"
@@ -663,58 +664,63 @@ function GreenSteelSection() {
 
       <div className="ars-container relative z-10">
         <div className="mx-auto max-w-5xl text-center">
-          <SectionKicker variant="green" align="center" showEndLine>
-            The Green Steel Advantage
-          </SectionKicker>
-          <h2 className="section-title section-title-light mx-auto">
-            ARS Green Steel
-          </h2>
-          <p className="section-copy section-copy-light mx-auto mt-6 max-w-3xl">
-            As India&apos;s No.1 Certified Green Steel Manufacturer, ARS is setting new benchmarks in sustainable steel
-            manufacturing through lower-emission production, recycled materials, and energy-efficient manufacturing practices.
-          </p>
-          <Link
-            className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] border border-emerald-300/30 px-5 text-sm font-bold text-emerald-200 transition hover:border-white/45 hover:bg-white hover:text-[#07351f]"
-            href="/ars-green-steel"
-          >
-            Learn More About Green Steel <ArrowRight size={17} />
-          </Link>
+          <HomepageReveal>
+            <SectionKicker variant="green" align="center" showEndLine>
+              The Green Steel Advantage
+            </SectionKicker>
+          </HomepageReveal>
+          <HomepageReveal delay={0.08} y={22}>
+            <h2 className="section-title section-title-light mx-auto">ARS Green Steel</h2>
+          </HomepageReveal>
+          <HomepageReveal delay={0.16}>
+            <p className="section-copy section-copy-light mx-auto mt-6 max-w-3xl">
+              As India&apos;s No.1 Certified Green Steel Manufacturer, ARS is setting new benchmarks in sustainable steel
+              manufacturing through lower-emission production, recycled materials, and energy-efficient manufacturing practices.
+            </p>
+          </HomepageReveal>
+          <HomepageReveal delay={0.26}>
+            <Link
+              className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] border border-emerald-300/30 px-5 text-sm font-bold text-emerald-200 transition hover:border-white/45 hover:bg-white hover:text-[#07351f]"
+              href="/ars-green-steel"
+            >
+              Learn More About Green Steel <ArrowRight size={17} />
+            </Link>
+          </HomepageReveal>
         </div>
 
         <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {greenSteelFeatures.map((feature) => {
+          {greenSteelFeatures.map((feature, index) => {
             const Icon = feature.icon;
 
             return (
-              <article
-                key={feature.title}
-                className="rounded-[16px] border border-white/12 bg-white/[0.07] p-7 shadow-[var(--shadow-card)] backdrop-blur-[2px]"
-              >
-                <span className="inline-flex size-14 items-center justify-center rounded-[8px] bg-white/12 text-emerald-200 ring-1 ring-white/12">
-                  <Icon size={24} />
-                </span>
-                <h3 className="mt-8 font-display text-2xl font-bold tracking-normal text-white">
-                  {feature.title}
-                </h3>
-                <p className="mt-4 text-sm leading-7 text-white/78">
-                  {feature.text}
-                </p>
-              </article>
+              <HomepageReveal key={feature.title} delay={0.34 + index * 0.08}>
+                <article className="rounded-[16px] border border-white/12 bg-white/[0.07] p-7 shadow-[var(--shadow-card)] backdrop-blur-[2px] transition duration-300 hover:-translate-y-0.5 hover:border-emerald-200/35 hover:bg-white/[0.1] motion-reduce:transform-none motion-reduce:transition-none">
+                  <span className="inline-flex size-14 items-center justify-center rounded-[8px] bg-white/12 text-emerald-200 ring-1 ring-white/12">
+                    <Icon size={24} />
+                  </span>
+                  <h3 className="mt-8 font-display text-2xl font-bold tracking-normal text-white">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-7 text-white/78">{feature.text}</p>
+                </article>
+              </HomepageReveal>
             );
           })}
         </div>
         <div className="mt-8 grid gap-3 border-y border-white/12 py-5 sm:grid-cols-2 lg:grid-cols-4">
-          {["GreenPro Certified", "GRIHA", "EPD Documented", "SGS Tested"].map((item) => (
-            <div key={item} className="flex min-h-16 items-center gap-3 rounded-[6px] border border-emerald-200/20 bg-white/[0.06] px-4 py-3 text-xs font-bold uppercase tracking-[0.14em] text-emerald-100 transition hover:border-emerald-200/45 hover:bg-white/[0.1]">
-              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-red text-white">
-                <BadgeCheck size={15} aria-hidden="true" />
-              </span>
-              <span>{item}</span>
-            </div>
+          {["GreenPro Certified", "GRIHA", "EPD Documented", "SGS Tested"].map((item, index) => (
+            <HomepageReveal key={item} delay={0.62 + index * 0.05}>
+              <div className="flex min-h-16 items-center gap-3 rounded-[6px] border border-emerald-200/20 bg-white/[0.06] px-4 py-3 text-xs font-bold uppercase tracking-[0.14em] text-emerald-100 transition hover:border-emerald-200/45 hover:bg-white/[0.1]">
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-red text-white">
+                  <BadgeCheck size={15} aria-hidden="true" />
+                </span>
+                <span>{item}</span>
+              </div>
+            </HomepageReveal>
           ))}
         </div>
       </div>
-    </MotionSection>
+    </HomepageSectionMotion>
   );
 }
 
@@ -726,44 +732,45 @@ function ManufacturingStorySection() {
   ];
 
   return (
-    <MotionSection className="overflow-hidden bg-white py-20" id="manufacturing-story">
+    <HomepageSectionMotion className="overflow-hidden bg-white py-20" id="manufacturing-story">
       <div className="ars-container">
         <div className="grid items-center gap-12 lg:grid-cols-[0.94fr_1.06fr] lg:gap-16">
-          <div className="relative min-h-[420px] overflow-hidden rounded-[20px] bg-white sm:min-h-[540px]">
+          <HomepageImageReveal delay={0.16} className="group relative min-h-[420px] overflow-hidden rounded-[20px] bg-white sm:min-h-[540px]">
             <Image
               src="/ars-assets/home/ars_home.jpg"
               alt="Aerial view of the ARS steel manufacturing facility in Gummidipoondi"
               fill
               sizes="(min-width: 1024px) 46vw, 100vw"
-              className="object-contain"
+              className="object-contain transition duration-700 group-hover:scale-[1.02] motion-reduce:transform-none motion-reduce:transition-none"
             />
-          </div>
+          </HomepageImageReveal>
 
           <div className="max-w-2xl">
-            <SectionKicker>Manufacturing heritage</SectionKicker>
-            <h2 className="section-title max-w-xl">
-              Engineering Trust Since 1992
-            </h2>
-            <p className="section-copy max-w-xl">
-              Since 1992, ARS has grown into an integrated steel manufacturer with its manufacturing
-              facility in Gummidipoondi, Tamil Nadu. From billet production and TMT bar manufacturing
-              to rigorous quality testing and dispatch, every stage is managed under one roof to ensure
-              consistent quality, complete traceability, and dependable supply for construction projects
-              across South India.
-            </p>
+            <HomepageReveal><SectionKicker>Manufacturing heritage</SectionKicker></HomepageReveal>
+            <HomepageReveal delay={0.08} y={22}><h2 className="section-title max-w-xl">Engineering Trust Since 1992</h2></HomepageReveal>
+            <HomepageReveal delay={0.16}>
+              <p className="section-copy max-w-xl">
+                Since 1992, ARS has grown into an integrated steel manufacturer with its manufacturing
+                facility in Gummidipoondi, Tamil Nadu. From billet production and TMT bar manufacturing
+                to rigorous quality testing and dispatch, every stage is managed under one roof to ensure
+                consistent quality, complete traceability, and dependable supply for construction projects
+                across South India.
+              </p>
+            </HomepageReveal>
 
-            <dl className="mt-9 grid gap-px overflow-hidden rounded-[16px] border border-brand-blue/10 bg-brand-blue/10 sm:grid-cols-3">
-              {manufacturingProof.map((item) => (
-                <div key={item.value} className="bg-surface-50 p-5">
-                  <dt className="text-sm leading-6 text-steel-600">{item.label}</dt>
-                  <dd className="mt-2 font-display text-xl font-bold leading-tight text-ink-900">
-                    {item.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
+            <HomepageReveal delay={0.26}>
+              <dl className="mt-9 grid gap-px overflow-hidden rounded-[16px] border border-brand-blue/10 bg-brand-blue/10 sm:grid-cols-3">
+                {manufacturingProof.map((item) => (
+                  <div key={item.value} className="bg-surface-50 p-5">
+                    <dt className="text-sm leading-6 text-steel-600">{item.label}</dt>
+                    <dd className="mt-2 font-display text-xl font-bold leading-tight text-ink-900">{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </HomepageReveal>
 
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <HomepageReveal delay={0.36}>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
                 className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-bold text-white transition hover:bg-brand-blue-dark"
                 href="/manufacturing"
@@ -776,28 +783,29 @@ function ManufacturingStorySection() {
               >
                 Our Story <ArrowRight size={17} />
               </Link>
-            </div>
+              </div>
+            </HomepageReveal>
           </div>
         </div>
       </div>
-    </MotionSection>
+    </HomepageSectionMotion>
   );
 }
 
 function BuyingAssistantSection() {
   return (
-    <MotionSection className="relative overflow-hidden bg-brand-blue py-20 text-white lg:py-28" id="buying-assistant">
+    <HomepageSectionMotion className="relative overflow-hidden bg-brand-blue py-20 text-white lg:py-28" id="buying-assistant">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_18%,rgba(255,255,255,0.1),transparent_28%),linear-gradient(135deg,rgba(13,43,110,1),rgba(10,48,125,0.96))]" />
       <div className="ars-container relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-[0.82fr_1.28fr] lg:gap-16">
           <div className="max-w-xl">
-            <SectionKicker>Plan Your Project</SectionKicker>
-            <h2 className="section-title section-title-light">
-              Plan, Calculate & Buy the Right TMT Steel
-            </h2>
-            <p className="section-copy section-copy-light">
-              Check TMT steel prices, calculate steel requirements, locate an authorised dealer, or request a customised quotation—all in one place.
-            </p>
+            <HomepageReveal><SectionKicker>Plan Your Project</SectionKicker></HomepageReveal>
+            <HomepageReveal delay={0.08} y={22}><h2 className="section-title section-title-light">Plan, Calculate & Buy the Right TMT Steel</h2></HomepageReveal>
+            <HomepageReveal delay={0.16}>
+              <p className="section-copy section-copy-light">
+                Check TMT steel prices, calculate steel requirements, locate an authorised dealer, or request a customised quotation—all in one place.
+              </p>
+            </HomepageReveal>
           </div>
 
           <div className="grid gap-4">
@@ -806,36 +814,28 @@ function BuyingAssistantSection() {
               const count = String(index + 1).padStart(2, "0");
 
               return (
-                <Link
-                  key={action.title}
-                  className="focus-ring group grid items-center gap-5 rounded-[18px] border border-white/18 bg-white/[0.11] p-5 shadow-[0_22px_60px_rgba(0,0,0,0.12)] transition duration-300 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.16] sm:grid-cols-[44px_72px_minmax(0,1fr)_24px] lg:p-6"
-                  href={action.href}
-                >
-                  <span className="font-technical text-sm font-black tracking-[0.14em] text-white/42">
-                    {count}
-                  </span>
-                  <span className="inline-flex size-14 items-center justify-center rounded-[14px] bg-white/14 text-white ring-1 ring-white/12 transition group-hover:bg-white/20">
-                    <Icon size={22} />
-                  </span>
-                  <span className="min-w-0">
-                    <span className="block font-display text-xl font-bold tracking-normal text-white lg:text-2xl">
-                      {action.title}
+                <HomepageReveal key={action.title} delay={0.26 + index * 0.07}>
+                  <Link
+                    className="focus-ring group grid items-center gap-5 rounded-[18px] border border-white/18 bg-white/[0.11] p-5 shadow-[0_22px_60px_rgba(0,0,0,0.12)] transition duration-300 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.16] sm:grid-cols-[44px_72px_minmax(0,1fr)_24px] lg:p-6"
+                    href={action.href}
+                  >
+                    <span className="font-technical text-sm font-black tracking-[0.14em] text-white/42">{count}</span>
+                    <span className="inline-flex size-14 items-center justify-center rounded-[14px] bg-white/14 text-white ring-1 ring-white/12 transition group-hover:bg-white/20">
+                      <Icon size={22} />
                     </span>
-                    <span className="mt-1 block text-sm leading-6 text-white/66 lg:text-base">
-                      {action.detail}
+                    <span className="min-w-0">
+                      <span className="block font-display text-xl font-bold tracking-normal text-white lg:text-2xl">{action.title}</span>
+                      <span className="mt-1 block text-sm leading-6 text-white/66 lg:text-base">{action.detail}</span>
                     </span>
-                  </span>
-                  <ArrowRight
-                    size={20}
-                    className="text-white/42 transition duration-300 group-hover:translate-x-1 group-hover:text-white"
-                  />
-                </Link>
+                    <ArrowRight size={20} className="text-white/42 transition duration-300 group-hover:translate-x-1 group-hover:text-white" />
+                  </Link>
+                </HomepageReveal>
               );
             })}
           </div>
         </div>
       </div>
-    </MotionSection>
+    </HomepageSectionMotion>
   );
 }
 
@@ -843,12 +843,14 @@ function SectionIntro({ eyebrow, title, body }: { eyebrow: string; title: string
   return (
     <div className="mb-12 max-w-4xl">
       <div>
-        <SectionKicker className="mb-6">{eyebrow}</SectionKicker>
-        <h2 className="max-w-4xl font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.04] tracking-normal text-ink-900">
-          {title}
-        </h2>
+        <HomepageReveal><SectionKicker className="mb-6">{eyebrow}</SectionKicker></HomepageReveal>
+        <HomepageReveal delay={0.08} y={22}>
+          <h2 className="max-w-4xl font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.04] tracking-normal text-ink-900">{title}</h2>
+        </HomepageReveal>
       </div>
-      <p className="mt-4 max-w-2xl text-base leading-8 text-steel-700 lg:text-lg">{body}</p>
+      <HomepageReveal delay={0.16}>
+        <p className="mt-4 max-w-2xl text-base leading-8 text-steel-700 lg:text-lg">{body}</p>
+      </HomepageReveal>
     </div>
   );
 }

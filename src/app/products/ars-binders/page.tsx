@@ -13,7 +13,7 @@ import {
   ShieldCheck,
   Timer,
 } from "lucide-react";
-import { MotionSection } from "@/components/motion-section";
+import { ProductDetailReveal, ProductDetailSectionMotion as MotionSection } from "@/components/product-detail-motion";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { ProductLeadCaptureForm } from "@/components/product-lead-capture-form";
@@ -167,6 +167,7 @@ function DisabledBrochureAction({ dark = false }: { dark?: boolean }) {
 export default function ArsBindersPage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
+      <noscript><style>{"[data-product-detail-motion] { opacity: 1 !important; transform: none !important; }"}</style></noscript>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: productPageJsonLdString }}
@@ -186,21 +187,21 @@ export default function ArsBindersPage() {
         <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(0deg,rgba(6,13,30,0.38)_0%,rgba(6,13,30,0.08)_58%,transparent_100%)] md:h-[48%] md:bg-[linear-gradient(0deg,rgba(6,13,30,0.24)_0%,rgba(6,13,30,0.04)_58%,transparent_100%)]" />
         <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
           <div className="max-w-4xl">
-            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS BINDERS</div>
-            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1.04] tracking-[-0.025em] text-white">
+            <ProductDetailReveal y={14}><div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS BINDERS</div></ProductDetailReveal>
+            <ProductDetailReveal delay={0.08} y={22}><h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1.04] tracking-[-0.025em] text-white">
               Factory-Made TMT Binders for Faster, Smarter Construction
-            </h1>
-            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">
+            </h1></ProductDetailReveal>
+            <ProductDetailReveal delay={0.16}><p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">
               Manufactured from premium ARS CRS Fe 550D TMT Bars, ARS Binders are precision-made stirrups that reduce manual bending, minimise steel wastage, and help deliver faster, more consistent reinforcement on site.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            </p></ProductDetailReveal>
+            <ProductDetailReveal delay={0.26}><div className="mt-8 flex flex-wrap gap-3">
               <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90">
                 Request Quote <ArrowRight size={15} />
               </Link>
               <a href="tel:+919710411111" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border border-white/30 px-6 py-3 text-[14px] font-bold text-white transition hover:bg-white hover:text-brand-blue">
                 <Phone size={15} aria-hidden="true" /> Talk to Experts
               </a>
-            </div>
+            </div></ProductDetailReveal>
           </div>
         </div>
       </section>

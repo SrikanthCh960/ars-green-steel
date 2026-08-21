@@ -11,7 +11,7 @@ import {
   Waves,
 } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
-import { MotionSection } from "@/components/motion-section";
+import { ProjectSectionMotion as MotionSection } from "@/components/project-motion";
 import { SectionKicker } from "@/components/section-kicker";
 import { FaqList } from "@/components/faq-list";
 import { SiteHeader } from "@/components/site-header";
@@ -81,7 +81,7 @@ const faqs = [
 
 export default function BridgesProjectsPage() {
   return (
-    <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
+    <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900"><noscript><style>{"[data-project-motion] { opacity: 1 !important; transform: none !important; }"}</style></noscript>
       <SiteHeader />
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">

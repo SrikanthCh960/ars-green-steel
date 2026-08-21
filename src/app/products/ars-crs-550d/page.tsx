@@ -16,7 +16,7 @@ import {
   Waves,
   Zap,
 } from "lucide-react";
-import { MotionSection } from "@/components/motion-section";
+import { ProductDetailReveal, ProductDetailSectionMotion as MotionSection } from "@/components/product-detail-motion";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { ProductLeadCaptureForm } from "@/components/product-lead-capture-form";
@@ -88,6 +88,7 @@ const sellingActions = [
 export default function ArsCrs550DPage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
+      <noscript><style>{"[data-product-detail-motion] { opacity: 1 !important; transform: none !important; }"}</style></noscript>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: productPageJsonLdString }}
@@ -102,13 +103,13 @@ export default function ArsCrs550DPage() {
         </div>
         <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">
           <div className="max-w-4xl">
-            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS CRS Fe 550D TMT Bars | Corrosion Resistant Fe 550D Reinforcement Steel</div>
-            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">Corrosion Resistant Fe 550D TMT Bars for Long-Lasting Structures</h1>
-            <p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">Engineered for high-salinity, humid, and demanding environments, ARS CRS Fe 550D combines superior corrosion resistance with high strength and ductility for durable reinforced concrete construction.</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <ProductDetailReveal y={14}><div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />ARS CRS Fe 550D TMT Bars | Corrosion Resistant Fe 550D Reinforcement Steel</div></ProductDetailReveal>
+            <ProductDetailReveal delay={0.08} y={22}><h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.025em] text-white">Corrosion Resistant Fe 550D TMT Bars for Long-Lasting Structures</h1></ProductDetailReveal>
+            <ProductDetailReveal delay={0.16}><p className="mt-7 max-w-2xl text-base leading-7 text-white/75 md:text-lg md:leading-8">Engineered for high-salinity, humid, and demanding environments, ARS CRS Fe 550D combines superior corrosion resistance with high strength and ductility for durable reinforced concrete construction.</p></ProductDetailReveal>
+            <ProductDetailReveal delay={0.26}><div className="mt-8 flex flex-wrap gap-3">
               <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"><FileText size={14} /> Get a Quote</Link>
               <Link href="/tmt-steel-calculator" className="focus-ring inline-flex min-h-12 items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/85 transition hover:bg-white/[0.12]"><Calculator size={14} /> Calculate Steel</Link>
-            </div>
+            </div></ProductDetailReveal>
           </div>
         </div>
       </section>
