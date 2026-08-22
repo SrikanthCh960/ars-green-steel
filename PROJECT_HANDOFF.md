@@ -2,6 +2,14 @@
 
 Read this file first when continuing the ARS content migration in a new chat.
 
+## Pending approved release — 2026-08-22
+
+- Removed incomplete `Product` JSON-LD from the seven quote-led steel-size routes (`8`, `10`, `12`, `16`, `20`, `25`, and `32` mm) without changing their metadata, FAQ schema, visible content, CTAs, or indexability.
+- Redesigned the shared `PhysicalChemicalPropertiesTable` with ARS navy, white, light-surface, steel-grey, and restrained-red styling; all supplied headings, fields, units, standards, values, grade names, and footnotes remain unchanged.
+- Shared table coverage now includes `/product-550d`, `/product-crs-550d`, and both grade variants on `/tmt-steel-bar-guide-engineers-architects`.
+- Production build and route/asset QA pass. Targeted component lint passes; full lint remains blocked by four pre-existing errors in calculator and steel-price files outside this release.
+- Commit and primary-repository push are approved. Deployment, fork synchronization, live Rich Results testing, and Search Console validation remain separate actions requiring confirmation.
+
 ## Project location and current checkpoint
 
 ```txt

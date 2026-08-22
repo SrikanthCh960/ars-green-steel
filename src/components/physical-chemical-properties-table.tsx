@@ -49,28 +49,32 @@ function PropertiesTable({
   rows: readonly PropertyRow[];
 }) {
   return (
-    <div className="min-w-0 overflow-x-auto">
-      <table className="min-w-[560px] w-full border-collapse text-left text-black">
-        <caption className="bg-brand-blue p-4 text-center text-[clamp(1.25rem,2.2vw,1.7rem)] font-extrabold text-white">{label}</caption>
-        <thead>
-          <tr className="align-middle text-center text-[clamp(0.95rem,1.65vw,1.25rem)] font-extrabold leading-[1.1]">
-            <th scope="col" className="w-[36%] px-3 py-4">Properties</th>
-            <th scope="col" className="w-[13%] px-3 py-4">Unit</th>
-            <th scope="col" className="w-[22%] px-3 py-4">IS 1786 – 2008</th>
-            <th scope="col" className="w-[29%] bg-[#fff900] px-3 py-4">ARS {grade}</th>
-          </tr>
-        </thead>
-        <tbody className="text-[clamp(0.92rem,1.55vw,1.2rem)] leading-[1.18]">
-          {rows.map(([property, unit, standard, ars], index) => (
-            <tr key={property} className={index % 2 === 0 ? "bg-white" : "bg-surface-50"}>
-              <th scope="row" className="px-3 py-3 font-medium">{property}</th>
-              <td className="px-3 py-3 text-center">{unit}</td>
-              <td className="px-3 py-3 text-center">{standard}</td>
-              <td className="bg-[#fff900] px-3 py-3 text-center font-extrabold">{ars}</td>
+    <div className="min-w-0 overflow-hidden rounded-[10px] border border-brand-blue/15 bg-white">
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[560px] border-collapse text-left text-ink-900">
+          <caption className="border-b border-white/10 bg-brand-blue px-5 py-4 text-left font-technical text-[11px] font-bold uppercase tracking-[0.16em] text-white">
+            {label}
+          </caption>
+          <thead className="bg-surface-50">
+            <tr className="align-middle font-technical text-[10px] font-bold uppercase leading-[1.35] tracking-[0.08em] text-brand-blue sm:text-[11px]">
+              <th scope="col" className="w-[36%] px-4 py-4 sm:px-5">Properties</th>
+              <th scope="col" className="w-[13%] px-3 py-4 text-center">Unit</th>
+              <th scope="col" className="w-[22%] px-3 py-4 text-center">IS 1786 – 2008</th>
+              <th scope="col" className="w-[29%] border-l border-brand-blue/15 bg-[#EAF0FF] px-3 py-4 text-center">ARS {grade}</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="text-[13px] leading-[1.5] text-steel-700 sm:text-sm">
+            {rows.map(([property, unit, standard, ars], index) => (
+              <tr key={property} className={`border-t border-brand-blue/10 ${index % 2 === 0 ? "bg-white" : "bg-surface-50/70"}`}>
+                <th scope="row" className="px-4 py-4 font-semibold text-ink-900 sm:px-5">{property}</th>
+                <td className="px-3 py-4 text-center tabular-nums">{unit}</td>
+                <td className="px-3 py-4 text-center tabular-nums">{standard}</td>
+                <td className="border-l border-brand-blue/15 bg-[#F0F4FF] px-3 py-4 text-center font-bold text-brand-blue tabular-nums">{ars}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
@@ -79,16 +83,29 @@ export function PhysicalChemicalPropertiesTable({ grade }: Pick<PhysicalChemical
   const rows = presentationRows[grade];
 
   return (
-    <section className="overflow-hidden border border-brand-blue/20 bg-white p-4 text-ink-900 shadow-[0_10px_24px_rgba(6,13,30,0.1)] sm:p-6" aria-label={`Physical and chemical properties for ARS ${grade}`}>
-      <header className="bg-ink-950 px-4 py-5 text-center text-[clamp(2rem,4.2vw,3.5rem)] font-serif font-bold leading-none text-white">
-        Physical &amp; Chemical Properties
+    <section className="overflow-hidden rounded-[14px] border border-brand-blue/15 bg-white text-ink-900 shadow-[0_18px_48px_rgba(13,43,110,0.08)]" aria-label={`Physical and chemical properties for ARS ${grade}`}>
+      <header className="relative border-b border-white/10 bg-ink-950 px-6 py-6 text-white sm:px-8">
+        <span className="absolute inset-y-0 left-0 w-1 bg-brand-red" aria-hidden="true" />
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+          <h3 className="font-display text-2xl font-bold leading-tight tracking-[-0.02em] sm:text-[1.75rem]">
+            Physical &amp; Chemical Properties
+          </h3>
+          <p className="shrink-0 border-l-2 border-brand-red pl-4 font-technical text-[11px] font-bold uppercase tracking-[0.14em] text-white/78 sm:text-right">
+            {grade}
+          </p>
+        </div>
       </header>
-      <h3 className="bg-surface-50 py-5 text-center text-[clamp(2rem,3.6vw,3.1rem)] font-extrabold leading-none text-brand-blue">{grade}</h3>
-      <div className="grid gap-6 xl:grid-cols-2">
-        <PropertiesTable label="CHEMICAL PROPERTIES" grade={grade} rows={rows.chemical} />
-        <PropertiesTable label="PHYSICAL PROPERTIES" grade={grade} rows={rows.physical} />
+      <div className="p-4 sm:p-6 lg:p-8">
+        <div className="grid gap-5 xl:grid-cols-2">
+          <PropertiesTable label="CHEMICAL PROPERTIES" grade={grade} rows={rows.chemical} />
+          <PropertiesTable label="PHYSICAL PROPERTIES" grade={grade} rows={rows.physical} />
+        </div>
+        {grade === "Fe 550D CRS" ? (
+          <p className="mt-5 border-t border-brand-blue/10 pt-4 text-xs font-medium leading-6 text-steel-700">
+            *Corrosion resistant equivalent
+          </p>
+        ) : null}
       </div>
-      {grade === "Fe 550D CRS" ? <p className="mt-5 text-[clamp(0.95rem,1.5vw,1.2rem)] font-medium">*Corrosion resistant equivalent</p> : null}
     </section>
   );
 }

@@ -6,7 +6,7 @@ import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { SteelTestingProof } from "@/components/steel-testing-proof";
-import { createPageMetadata, productionDomain } from "@/lib/site-metadata";
+import { createPageMetadata } from "@/lib/site-metadata";
 
 const pagePath = "/8-mm-steel-rod";
 const heroImage = "/ars-assets/Sizes/8mm_Banner.jpg";
@@ -53,18 +53,6 @@ const faqs = [
 ] as const;
 
 export default function EightMmSteelRodPage() {
-  const productJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "ARS 8mm Steel Rod",
-    description: "ARS 8mm TMT steel rod for detailed reinforcement and lightweight construction applications.",
-    image: `${productionDomain}${heroImage}`,
-    brand: { "@type": "Brand", name: "ARS Green Steel" },
-    additionalProperty: [
-      { "@type": "PropertyValue", name: "Nominal diameter", value: "8 mm" },
-      { "@type": "PropertyValue", name: "Approximate weight per metre", value: "0.395 kg/m" },
-    ],
-  };
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -74,7 +62,6 @@ export default function EightMmSteelRodPage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
       <SiteHeader />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">

@@ -6,7 +6,7 @@ import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { SteelTestingProof } from "@/components/steel-testing-proof";
-import { createPageMetadata, productionDomain } from "@/lib/site-metadata";
+import { createPageMetadata } from "@/lib/site-metadata";
 
 const pagePath = "/12-mm-steel-rod";
 const heroImage = "/ars-assets/Sizes/12mm-banner.png";
@@ -48,13 +48,11 @@ const faqs = [
 ] as const;
 
 export default function TwelveMmSteelRodPage() {
-  const productJsonLd = { "@context": "https://schema.org", "@type": "Product", name: "ARS 12mm TMT Bar", description: "ARS 12mm TMT bar for demanding structural applications.", image: `${productionDomain}${heroImage}`, brand: { "@type": "Brand", name: "ARS Green Steel" }, additionalProperty: [{ "@type": "PropertyValue", name: "Nominal diameter", value: "12 mm" }, { "@type": "PropertyValue", name: "Approximate weight per metre", value: "0.890 kg/m" }] };
   const faqJsonLd = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })) };
 
   return (
     <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
       <SiteHeader />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
         <Image src={heroImage} alt="ARS 12mm TMT steel reinforcement bar" fill priority sizes="100vw" className="object-cover object-[63%_center]" />
