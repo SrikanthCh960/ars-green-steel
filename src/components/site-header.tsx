@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, BadgeCheck, Calculator, Check, ChevronDown, House, MapPin, Menu, Search, ShieldCheck, X } from "lucide-react";
+import { BreadcrumbBar } from "@/components/breadcrumbs";
 
 type MenuLink = {
   label: string;
@@ -191,7 +192,7 @@ function pathMatches(pathname: string, route: string) {
   return pathname === route || pathname.startsWith(`${route}/`);
 }
 
-export function SiteHeader() {
+export function SiteHeader({ showBreadcrumb = true }: { showBreadcrumb?: boolean }) {
   const pathname = usePathname();
   const links = routeLinks;
   const mobileMenuId = "site-mobile-navigation";
@@ -248,6 +249,7 @@ export function SiteHeader() {
   }, [mobileOpen, openMenu]);
 
   return (
+    <>
     <header
       ref={headerRef}
       className={`site-header inset-x-0 top-0 z-50 w-full bg-white text-ink-900 ${mobileOpen ? "fixed" : "sticky"}`}
@@ -440,6 +442,10 @@ export function SiteHeader() {
       </div>
       </div>
     </header>
+    {showBreadcrumb ? <div className="relative z-40 h-0">
+      <BreadcrumbBar pathname={pathname} />
+    </div> : null}
+    </>
   );
 }
 

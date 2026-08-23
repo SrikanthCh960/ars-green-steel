@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ChevronRight, CircleGauge, ShieldCheck, Waves } from "lucide-react";
+import { ArrowRight, CircleGauge, ShieldCheck, Waves } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
 import { SectionKicker } from "@/components/section-kicker";
@@ -57,17 +57,7 @@ export function ProjectTypePage({
         <div className="steel-grid absolute inset-0 opacity-35" aria-hidden="true" />
         <div className="absolute inset-y-0 right-0 w-[64%] bg-[radial-gradient(circle_at_center,rgba(13,43,110,0.76),transparent_64%)]" aria-hidden="true" />
         <div className="ars-container relative">
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-sm text-slate-300">
-            <Link href="/" className="focus-ring hover:text-white">Home</Link>
-            <ChevronRight size={15} aria-hidden="true" />
-            <Link href="/industries" className="focus-ring hover:text-white">Solutions</Link>
-            <ChevronRight size={15} aria-hidden="true" />
-            <span>Project Types</span>
-            <ChevronRight size={15} aria-hidden="true" />
-            <span aria-current="page">{title}</span>
-          </nav>
-
-          <div className="mt-16 grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(18rem,0.25fr)] lg:items-end">
+          <div className="mt-[6.75rem] grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(18rem,0.25fr)] lg:items-end">
             <div>
               <SectionKicker variant="light">{eyebrow}</SectionKicker>
               <h1 className="max-w-5xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-black uppercase leading-[0.94] tracking-normal">

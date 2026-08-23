@@ -22,7 +22,7 @@ const recoveryLinks = [
 export default function NotFound() {
   return (
     <main className="min-h-[calc(100vh-76px)] overflow-hidden bg-surface-50 text-ink-900">
-      <SiteHeader />
+      <SiteHeader showBreadcrumb={false} />
 
       <section className="relative isolate flex min-h-[calc(100vh-76px)] items-center overflow-hidden py-16 sm:py-20 lg:py-24">
         <div aria-hidden="true" className="absolute inset-x-[8%] inset-y-0 border-x border-brand-blue/[0.06]" />

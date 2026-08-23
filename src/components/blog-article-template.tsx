@@ -237,15 +237,6 @@ export function BlogArticleTemplate({
         <div className="ars-page-hero-content h-full ars-container relative z-10 flex items-end pb-12 pt-32 lg:pb-16">
           <div className="grid w-full gap-10 lg:grid-cols-[minmax(0,0.82fr)_minmax(280px,0.32fr)] lg:items-end">
             <div className="max-w-5xl">
-              <nav className="mb-7 flex flex-wrap items-center gap-2 text-sm font-medium text-white/64" aria-label="Breadcrumb">
-                <Link href="/" className="focus-ring transition hover:text-white">
-                  Home
-                </Link>
-                <span aria-hidden="true">/</span>
-                <Link href="/blog" className="focus-ring transition hover:text-white">
-                  Blog
-                </Link>
-              </nav>
               <SectionKicker variant="light">ARS knowledge center</SectionKicker>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <span className="inline-flex min-h-9 items-center gap-2 rounded-[6px] bg-brand-red px-3 py-1.5 font-technical text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-white">
