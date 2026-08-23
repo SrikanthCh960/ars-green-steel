@@ -37,7 +37,12 @@ type WhatsAppClickEvent = {
 };
 
 type MetaPixelWindow = Window & {
-  fbq?: (command: "track", eventName: "PageView") => void;
+  fbq?: (
+    command: "track",
+    eventName: string,
+    parameters?: Record<string, string>,
+    options?: { eventID: string },
+  ) => void;
 };
 
 function directGaIsEnabled() {
@@ -112,4 +117,15 @@ export function trackMetaPageView() {
   if (!metaPixelIsEnabled()) return;
 
   (window as MetaPixelWindow).fbq?.("track", "PageView");
+}
+
+export function trackMetaLead({ eventId, formType }: { eventId: string; formType: LeadFormType }) {
+  if (!metaPixelIsEnabled()) return;
+
+  (window as MetaPixelWindow).fbq?.(
+    "track",
+    "Lead",
+    { content_category: "enquiry", form_type: formType },
+    { eventID: eventId },
+  );
 }

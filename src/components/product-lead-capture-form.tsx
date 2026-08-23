@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { ArrowRight, CheckCircle2, Phone } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { verifiedContactDetails } from "@/data/business-verification";
-import { trackGenerateLead } from "@/lib/analytics";
+import { trackGenerateLead, trackMetaLead } from "@/lib/analytics";
 
 type ProductLeadCaptureFormProps = {
   product: "ARS Fe 550D" | "ARS CRS Fe 550D" | "ARS Binders";
@@ -113,6 +113,7 @@ export function ProductLeadCaptureForm({ product, trustItems, showCallSales = tr
           formId: "product_lead_capture",
           product,
         });
+        trackMetaLead({ eventId: submissionId, formType: "product_enquiry" });
         router.replace("/thank-you?form=product");
         return;
       }

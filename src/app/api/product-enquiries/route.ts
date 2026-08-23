@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { sendMetaLeadEvent } from "@/lib/meta-conversions";
 import { appendProductEnquiryToGoogleSheets, validateProductEnquiry } from "@/lib/product-enquiries";
 
 export const runtime = "nodejs";
@@ -48,6 +49,13 @@ export async function POST(request: Request) {
 
   try {
     await appendProductEnquiryToGoogleSheets(validation.enquiry);
+    await sendMetaLeadEvent(request, {
+      eventId: validation.submissionId,
+      formType: "product_enquiry",
+      sourcePage: validation.enquiry.sourcePage,
+      email: validation.enquiry.email,
+      phone: validation.enquiry.phone,
+    });
     return response({ ok: true, message: "Thank you. Your enquiry has been sent to the ARS sales team." }, 201);
   } catch (error) {
     recentSubmissions.delete(submissionKey);

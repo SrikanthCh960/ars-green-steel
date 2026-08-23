@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { sendMetaLeadEvent } from "@/lib/meta-conversions";
 import { appendSteelTestingEnquiryToGoogleSheets, validateSteelTestingEnquiry } from "@/lib/steel-testing-enquiries";
 
 export const runtime = "nodejs";
@@ -42,6 +43,12 @@ export async function POST(request: Request) {
 
   try {
     await appendSteelTestingEnquiryToGoogleSheets(validation.enquiry);
+    await sendMetaLeadEvent(request, {
+      eventId: validation.submissionId,
+      formType: "steel_testing_enquiry",
+      sourcePage: validation.enquiry.sourcePage,
+      phone: validation.enquiry.phone,
+    });
     return response({ ok: true, message: "Thank you. Your steel testing enquiry has been sent to the ARS team." }, 201);
   } catch (error) {
     recentSubmissions.delete(submissionKey);

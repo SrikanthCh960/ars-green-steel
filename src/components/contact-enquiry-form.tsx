@@ -6,7 +6,7 @@ import { ArrowRight, Phone } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { SectionKicker } from "@/components/section-kicker";
 import { verifiedContactDetails } from "@/data/business-verification";
-import { trackGenerateLead } from "@/lib/analytics";
+import { trackGenerateLead, trackMetaLead } from "@/lib/analytics";
 
 type FormStatus = { tone: "idle" | "success" | "error"; message: string };
 
@@ -107,6 +107,7 @@ export function ContactEnquiryForm() {
       if (response.status === 201) {
         isRedirecting = true;
         trackGenerateLead({ formType: "contact_enquiry", formId: "contact_enquiry" });
+        trackMetaLead({ eventId: submissionId, formType: "contact_enquiry" });
         router.replace("/thank-you?form=contact");
         return;
       }

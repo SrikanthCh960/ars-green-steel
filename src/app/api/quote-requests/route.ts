@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { sendMetaLeadEvent } from "@/lib/meta-conversions";
 import { appendQuoteRequestToGoogleSheets, validateQuoteRequest } from "@/lib/quote-requests";
 
 export const runtime = "nodejs";
@@ -48,6 +49,13 @@ export async function POST(request: Request) {
 
   try {
     await appendQuoteRequestToGoogleSheets(validation.quoteRequest);
+    await sendMetaLeadEvent(request, {
+      eventId: validation.submissionId,
+      formType: "quote_request",
+      sourcePage: validation.quoteRequest.sourcePage,
+      email: validation.quoteRequest.email,
+      phone: validation.quoteRequest.phone,
+    });
     return response({ ok: true, message: "Thank you. Your quote request has been sent to the ARS sales team." }, 201);
   } catch (error) {
     recentSubmissions.delete(submissionKey);
