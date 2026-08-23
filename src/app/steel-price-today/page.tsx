@@ -1,5 +1,6 @@
 import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   Calculator,
@@ -12,6 +13,10 @@ import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { SteelPriceLookup } from "@/components/steel-price-lookup";
 import { clientVerificationSummary } from "@/data/business-verification";
+import {
+  getBlogArchiveArticle,
+  type BlogArchiveArticle,
+} from "@/lib/blog-content";
 
 export const metadata = createPageMetadata({
   title: "Steel Price Today | ARS Green Steel",
@@ -57,6 +62,16 @@ const nextSteps = [
     href: "/our-certification",
   },
 ];
+
+const pricePlanningArticleSlugs = [
+  "know-the-tmt-steel-price-today.html",
+  "top-key-factors-that-affect-tmt-steel-bar-price-in-india.html",
+  "tmt-steel-bar-weight.html",
+];
+
+const pricePlanningArticles = pricePlanningArticleSlugs
+  .map((slug) => getBlogArchiveArticle(slug))
+  .filter((article): article is BlogArchiveArticle => Boolean(article));
 
 export default function SteelPriceTodayPage() {
   return (
@@ -186,6 +201,78 @@ export default function SteelPriceTodayPage() {
                   {a.cta} <ArrowRight size={12} />
                 </span>
               </a>
+            ))}
+          </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-white py-24">
+        <div className="ars-container">
+          <div className="mb-14 grid items-end gap-10 lg:grid-cols-2">
+            <div>
+              <SectionKicker variant="brand">Price Planning Guides</SectionKicker>
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+                Understand the price before you buy.
+              </h2>
+            </div>
+            <p className="text-[15px] leading-[1.8] text-steel-700">
+              Explore practical ARS guidance on checking today&apos;s price, the factors behind it,
+              and estimating the steel your project needs before requesting a confirmed quote.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {pricePlanningArticles.map((article) => (
+              <article
+                key={article.href}
+                className="group flex min-h-full flex-col overflow-hidden rounded-[8px] border border-brand-blue/10 bg-white shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:border-brand-blue/28 hover:shadow-[0_20px_54px_rgba(13,43,110,0.12)]"
+              >
+                <Link
+                  href={article.href}
+                  className="focus-ring relative block aspect-[16/9] overflow-hidden bg-surface-100"
+                  aria-label={`Read ${article.title}`}
+                >
+                  <Image
+                    src={article.image}
+                    alt={article.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition duration-500 group-hover:scale-[1.035]"
+                  />
+                  <span className="absolute inset-0 bg-gradient-to-t from-bg-dark/45 via-transparent to-transparent" />
+                  <span className="absolute bottom-4 left-4 rounded-[6px] bg-white/94 px-3 py-1.5 font-technical text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-brand-blue">
+                    {article.category}
+                  </span>
+                </Link>
+
+                <div className="flex flex-1 flex-col p-5 lg:p-6">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-grey-600">
+                    {article.dateLabel ? <time>{article.dateLabel}</time> : null}
+                    {article.dateLabel ? <span aria-hidden="true">•</span> : null}
+                    <span>{article.readTime}</span>
+                  </div>
+
+                  <h3 className="mt-4 font-display text-xl font-bold leading-[1.25] text-ink-900">
+                    <Link href={article.href} className="focus-ring transition group-hover:text-brand-blue">
+                      {article.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-3 line-clamp-3 text-sm leading-7 text-steel-700">
+                    {article.excerpt}
+                  </p>
+
+                  <Link
+                    href={article.href}
+                    className="focus-ring mt-auto inline-flex min-h-11 items-end gap-2 pt-6 text-sm font-bold text-brand-blue transition hover:text-brand-red"
+                  >
+                    Read article
+                    <ArrowRight
+                      size={17}
+                      className="mb-0.5 transition-transform duration-300 group-hover:translate-x-1"
+                    />
+                  </Link>
+                </div>
+              </article>
             ))}
           </div>
         </div>
