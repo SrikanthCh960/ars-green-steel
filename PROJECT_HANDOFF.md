@@ -2,6 +2,20 @@
 
 Read this file first when continuing the ARS content migration in a new chat.
 
+## Latest performance update — 2026-08-27
+
+- Resolved a calculator hydration mismatch caused by rendering a date at build time and again in the browser. The calculator now uses stable indicative-copy text instead.
+- Added responsive WebP hero delivery for `/tmt-steel-price-today` and `/tmt-steel-calculator`, preserving the original JPGs only as compatibility fallbacks.
+- Production build and local route checks passed with no console errors on either affected page.
+- GTM and Google Ads changes remain intentionally on hold pending SEO-team review.
+
+## Latest operational update — 2026-08-23
+
+- Commit `f777cd2` added Meta Conversions API `Lead` tracking for all five enquiry endpoints and matching browser-side events. Meta Test Events confirmed browser/server deduplication with a shared event ID.
+- The Meta CAPI test-event code was removed from Hostinger after validation. Keep it unset for normal production measurement.
+- Do not store CAPI access tokens in source, Markdown files, chat, browser-visible code, or public environment variables. Generate and install a replacement token through Hostinger before revoking the old token.
+- Commit `c53948b` reordered `/products` so the Product Range section appears above Bar Sizes. The production build passed before the primary-branch push.
+
 ## Pending approved release — 2026-08-22
 
 - Removed incomplete `Product` JSON-LD from the seven quote-led steel-size routes (`8`, `10`, `12`, `16`, `20`, `25`, and `32` mm) without changing their metadata, FAQ schema, visible content, CTAs, or indexability.

@@ -24,6 +24,17 @@ Secondary Vercel preview:
 
 See `DEPLOYMENT.md` for the authoritative repository, Hostinger, Vercel, GA4, GTM, and Meta Pixel workflow.
 
+## Latest performance update — 2026-08-27
+
+- `/tmt-steel-price-today` and `/tmt-steel-calculator` now serve responsive WebP hero images: 26/81 KB for Steel Price and 46/132 KB for Calculator (mobile/desktop), with JPG fallbacks.
+- The calculator's static-date hydration mismatch was removed. GTM/Google Ads changes are deferred for SEO-team approval.
+
+## Latest operational update — 2026-08-23
+
+- Meta Conversions API now sends server-side `Lead` events for successful enquiries and deduplicates them with the browser Meta Pixel event.
+- CAPI credentials are Hostinger-only secrets. See `DEPLOYMENT.md` for the required variables, test procedure, and rotation sequence.
+- `/products` now presents Product Range above Bar Sizes (`c53948b`).
+
 Primary local project path:
 
 - `/Users/baburao/Documents/Codex/2026-05-30/hey-act-as-an-experienced-ui/ars-redesign`

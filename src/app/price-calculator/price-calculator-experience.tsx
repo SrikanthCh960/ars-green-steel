@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { type ReactNode, useMemo, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Calculator, CheckCircle2, Scale } from "lucide-react";
@@ -103,7 +102,11 @@ export function PriceCalculatorExperience() {
     <noscript><style>{"[data-calculator-motion] { opacity: 1 !important; transform: none !important; }"}</style></noscript>
     <SiteHeader />
     <section className="relative overflow-hidden bg-ink-950 text-white">
-      <Image src="/ars-assets/products/ProductComparission_HeroBanner.jpg" alt="ARS TMT steel bars for construction planning" fill priority sizes="100vw" className="object-cover object-center" />
+      <picture className="absolute inset-0">
+        <source media="(max-width: 767px)" srcSet="/ars-assets/products/ProductComparission_HeroBanner-mobile.webp" type="image/webp" />
+        <source srcSet="/ars-assets/products/ProductComparission_HeroBanner-desktop.webp" type="image/webp" />
+        <img src="/ars-assets/products/ProductComparission_HeroBanner.jpg" alt="ARS TMT steel bars for construction planning" fetchPriority="high" decoding="async" className="h-full w-full object-cover object-center" />
+      </picture>
       <div className="steel-grid absolute inset-0 opacity-40" />
       <div className="absolute inset-0 bg-[linear-gradient(115deg,rgba(6,13,30,0.96)_10%,rgba(6,13,30,0.84)_60%,rgba(13,43,110,0.62))]" />
       <div className="ars-container relative flex min-h-[500px] items-end pb-14 pt-36 md:min-h-[570px] md:pb-20">
@@ -136,7 +139,7 @@ export function PriceCalculatorExperience() {
           </form>
 
           <section className="h-full rounded-2xl border border-ink-900/10 bg-white p-6 shadow-[0_16px_40px_rgba(6,13,30,0.06)] md:p-8" aria-labelledby="summary-title">
-            <div className="flex flex-wrap items-center justify-between gap-3"><p className="font-technical text-[11px] font-bold uppercase tracking-[0.22em] text-brand-blue">Estimated requirement</p><p className="text-xs font-semibold text-steel-700">Indicative · {new Intl.DateTimeFormat("en-IN", { day: "numeric", month: "long", year: "numeric" }).format(new Date())}</p></div>
+            <div className="flex flex-wrap items-center justify-between gap-3"><p className="font-technical text-[11px] font-bold uppercase tracking-[0.22em] text-brand-blue">Estimated requirement</p><p className="text-xs font-semibold text-steel-700">Indicative · confirm with ARS</p></div>
             <div className="mt-6 grid gap-4 md:grid-cols-2"><Metric label="Total steel" value={`${(summary.kilograms / 1000).toFixed(2)} t`} detail={`${summary.kilograms.toLocaleString("en-IN", { maximumFractionDigits: 0 })} kg`} /><Metric label="Indicative cost" value={summary.amount ? currency.format(summary.amount) : "—"} detail={`${product || "Select product"} · ${region || "Select region"}, incl. GST`} accent /></div>
             <div className="mt-8 flex flex-wrap items-center justify-between gap-3"><p className="font-technical text-[11px] font-bold uppercase tracking-[0.12em] text-steel-700">Results by diameter</p>{(Object.keys(weightOverrides).length > 0 || Object.keys(draftWeights).length > 0) && <button type="button" onClick={resetWeightDefaults} className="focus-ring min-h-10 rounded-md border border-brand-blue/20 px-3 text-xs font-bold text-brand-blue">Reset defaults</button>}</div>
             <p className="mt-2 text-xs leading-5 text-steel-700">Adjust weight only if you are working with a verified project-specific assumption.</p>

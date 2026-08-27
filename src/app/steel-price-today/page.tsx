@@ -81,15 +81,11 @@ export default function SteelPriceTodayPage() {
       {/* ── Hero ── */}
       <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative flex items-end overflow-hidden bg-ink-950">
         <div className="absolute inset-0">
-          <Image
-            src="/ars-assets/SteelPriceHeroBanner.jpg"
-            alt="ARS TMT steel bars"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-            style={{ objectPosition: "center 50%" }}
-          />
+          <picture className="absolute inset-0">
+            <source media="(max-width: 767px)" srcSet="/ars-assets/SteelPriceHeroBanner-mobile.webp" type="image/webp" />
+            <source srcSet="/ars-assets/SteelPriceHeroBanner-desktop.webp" type="image/webp" />
+            <img src="/ars-assets/SteelPriceHeroBanner.jpg" alt="ARS TMT steel bars" fetchPriority="high" decoding="async" className="h-full w-full object-cover" style={{ objectPosition: "center 50%" }} />
+          </picture>
           <div
             className="absolute inset-0"
             style={{ background: "linear-gradient(to right, rgba(6,13,30,0.95) 0%, rgba(6,13,30,0.65) 50%, rgba(6,13,30,0.2) 100%)" }}

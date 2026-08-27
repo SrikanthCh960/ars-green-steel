@@ -44,6 +44,21 @@ The execution order prioritizes:
 - Duplicate React keys in Green Steel impact cards were resolved.
 - TypeScript, route QA, and production build passed before release.
 
+## INP improvement update — 2026-08-27
+
+- Status: Done locally; pending deployment.
+- Removed the confirmed calculator hydration mismatch and replaced the two affected route heroes with responsive WebP sources.
+- Validation: `npm run build` passed; local calculator and price-page checks found no console errors.
+- Follow-up: monitor Search Console's rolling 28-day INP data after deployment. GTM/Google Ads review is held for the SEO team.
+
+## Meta conversion and products-page update — 2026-08-23
+
+- Status: Done
+- Commits: `f777cd2` (Meta Conversions API lead tracking) and `c53948b` (Product Range before Bar Sizes on `/products`).
+- Meta Test Events confirmed the intended browser/server `Lead` event pair and server-event deduplication.
+- Production CAPI operation requires Hostinger-only secrets and a token-rotation procedure; see `DEPLOYMENT.md`. The temporary test-event code must remain removed outside validation.
+- Production build passed for the products-page change.
+
 ## Internal URL Mapping Release — 2026-08-05
 
 - Status: Done

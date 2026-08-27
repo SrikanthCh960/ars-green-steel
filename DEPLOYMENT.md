@@ -106,6 +106,30 @@ Analytics release checks:
 4. Confirm that GTM is not duplicating direct GA4 or Meta Pixel page views and conversions.
 5. Never place private analytics credentials, API secrets, or service-account keys in the source-controlled analytics configuration.
 
+Performance release checks for the affected calculator and price pages:
+
+1. Verify the new responsive WebP hero image is requested on `/tmt-steel-price-today` and `/tmt-steel-calculator`.
+2. Confirm the calculator loads without a React hydration error in the browser console.
+3. Keep GTM and Google Ads configuration unchanged until the SEO team confirms the tag strategy.
+
+### Meta Conversions API (CAPI)
+
+Server-side `Lead` events complement the browser Meta Pixel event for every successfully appended product, quote, contact, distributor, and steel-testing enquiry. The browser and server events share one event ID, so Meta deduplicates them and counts one conversion.
+
+Hostinger-only server environment variables:
+
+```txt
+META_CAPI_PIXEL_ID=1310310320950953
+META_CAPI_ACCESS_TOKEN=
+META_CAPI_GRAPH_VERSION=v23.0
+META_CAPI_TEST_EVENT_CODE=
+```
+
+- `META_CAPI_ACCESS_TOKEN` is secret. Never commit, log, paste into chat, or expose it with `NEXT_PUBLIC_`.
+- Use `META_CAPI_TEST_EVENT_CODE` only while validating in Meta Events Manager. Remove it, then redeploy, before live conversion measurement.
+- Rotate the token by generating a replacement in Meta Events Manager, replacing only the Hostinger access-token value, redeploying, confirming a new lead, then revoking the prior token.
+- The 2026-08-23 test was successful: Meta received the browser and server `Lead` events and deduplicated the server copy as intended.
+
 ## Latest Hostinger Production Verification — 2026-08-20
 
 - Production commit: `a22ae35` — `Handle Hostinger production indexing fallback`
