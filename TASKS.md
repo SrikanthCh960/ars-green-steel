@@ -51,6 +51,14 @@ The execution order prioritizes:
 - Validation: `npm run build` passed; local calculator and price-page checks found no console errors.
 - Follow-up: monitor Search Console's rolling 28-day INP data after deployment. GTM/Google Ads review is held for the SEO team.
 
+## Homepage mobile performance and legacy redirect — 2026-08-27
+
+- Status: Done locally; pending deployment.
+- `/about.html` permanently redirects to `/about-us` with HTTP 308.
+- Mobile users receive a 768 × 432, 53 KB WebP homepage hero image; the 18 MB hero video remains desktop-only.
+- Validation: production build passed; local mobile verification selected the WebP and did not initialize the video. Desktop verification retained the video.
+- Follow-up: review Hostinger/Cloudflare caching for the homepage's remaining TTFB concern. Do not change marketing tags until the SEO team approves the strategy.
+
 ## Meta conversion and products-page update — 2026-08-23
 
 - Status: Done

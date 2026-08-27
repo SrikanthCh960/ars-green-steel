@@ -2,6 +2,13 @@
 
 Read this file first when continuing the ARS content migration in a new chat.
 
+## Homepage mobile performance and redirect update — 2026-08-27
+
+- `/about.html` now has a one-hop permanent redirect to `/about-us`; verify the 308 response after deployment.
+- The homepage mobile hero now serves a 53 KB WebP still image instead of loading the 18 MB autoplay desktop video. Desktop continues to use the approved video.
+- The homepage is statically prerendered and reports an internal Next.js cache hit. Cloudflare reports the response as dynamic, so further TTFB improvement requires a Hostinger/Cloudflare cache-policy review rather than an application-level cache override.
+- GTM, Google Ads, Meta, and other third-party tag configuration remain unchanged pending SEO-team direction.
+
 ## Latest performance update — 2026-08-27
 
 - Resolved a calculator hydration mismatch caused by rendering a date at build time and again in the browser. The calculator now uses stable indicative-copy text instead.

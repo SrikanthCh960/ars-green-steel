@@ -57,9 +57,19 @@ export function HomeHero() {
       className="ars-page-hero relative flex w-full items-center overflow-hidden bg-bg-dark text-white"
     >
       <div className="absolute inset-0 h-full w-full bg-bg-dark">
-        <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
+        <picture className="absolute inset-0 block h-full w-full md:hidden" aria-hidden="true">
+          <source srcSet="/ars-assets/home/ARS-green-bg-mobile.webp" type="image/webp" />
+          <img
+            src="/ars-assets/home/ARS-green-bg.jpg"
+            alt=""
+            fetchPriority="high"
+            decoding="async"
+            className="h-full w-full object-cover"
+          />
+        </picture>
+        <div className="hero-video-placeholder absolute inset-0 hidden h-full w-full md:block" />
         <video
-          className="absolute inset-0 h-full w-full object-cover opacity-100"
+          className="absolute inset-0 hidden h-full w-full object-cover opacity-100 md:block"
           autoPlay
           muted
           loop
@@ -67,7 +77,7 @@ export function HomeHero() {
           preload="metadata"
           aria-hidden="true"
         >
-          <source src="/ars-assets/home/ARS_Hero_video.mp4" type="video/mp4" />
+          <source media="(min-width: 768px)" src="/ars-assets/home/ARS_Hero_video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.52)_48%,rgba(6,13,30,0.12)_100%)] md:bg-[linear-gradient(90deg,rgba(6,13,30,0.6)_0%,rgba(6,13,30,0.3)_48%,rgba(6,13,30,0.02)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-[62%] bg-[linear-gradient(0deg,rgba(6,13,30,0.42)_0%,rgba(6,13,30,0.08)_58%,transparent_100%)] md:h-[52%] md:bg-[linear-gradient(0deg,rgba(6,13,30,0.28)_0%,rgba(6,13,30,0.04)_58%,transparent_100%)]" />

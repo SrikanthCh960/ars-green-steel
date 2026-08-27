@@ -38,6 +38,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/about.html",
+        destination: "/about-us",
+        permanent: true,
+      },
+      {
         source: "/certifications",
         destination: "/our-certification",
         permanent: true,
