@@ -44,8 +44,11 @@ const staticRoutes = [
   "/terms-of-use",
 ];
 
+// Redirect destinations are the canonical pages; legacy redirect URLs must not
+// be advertised to search engines in the sitemap.
+const excludedRoutes = new Set(["/blog.html"]);
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const today = new Date();
   const seen = new Set<string>();
 
   const approvedBlogRoutes = getBlogMigrationRegistry()
@@ -59,13 +62,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
     .filter((route) => {
       const normalized = route || "/";
+      if (excludedRoutes.has(normalized)) return false;
       if (seen.has(normalized)) return false;
       seen.add(normalized);
       return true;
     })
     .map((route) => ({
       url: `${productionDomain}${route === "/" ? "" : route}`,
-      lastModified: today,
       changeFrequency: route.includes("/blog/") ? "monthly" : "weekly",
       priority: route === "/" ? 1 : route.includes("/blog/") ? 0.55 : 0.75,
     }));

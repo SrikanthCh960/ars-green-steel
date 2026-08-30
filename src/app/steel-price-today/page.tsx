@@ -19,9 +19,9 @@ import {
 } from "@/lib/blog-content";
 
 export const metadata = createPageMetadata({
-  title: "Steel Price Today | ARS Green Steel",
+  title: "Steel Price Today Per Kg in India | Latest TMT Steel Rates – ARS",
   description:
-    "ARS Green Steel TMT bar price context by size, with calculator, dealer, and quote paths for current pricing.",
+    "Check today’s TMT steel price per kg and per tonne in Chennai, Tamil Nadu and South India. Compare ARS Fe 550D and CRS rates by bar size.",
   path: "/tmt-steel-price-today",
 });
 
@@ -100,10 +100,9 @@ export default function SteelPriceTodayPage() {
           <div className="max-w-2xl">
             <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />TMT Steel Price Today</div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1.0] tracking-[-0.025em] text-white">
-              Know Today&apos;s Price.
-              <br />
-              <span className="italic text-brand-red">Build with Confidence.</span>
+              Latest TMT Steel Price Today Per Kg in India
             </h1>
+            <p className="mt-5 font-display text-[clamp(1.5rem,3vw,2.25rem)] font-bold leading-tight text-brand-red">Know Today&apos;s Price. Build with Confidence.</p>
             <p className="mt-5 max-w-[460px] text-[15px] leading-[1.75] text-white/70">
               Stay updated with the latest ARS TMT steel prices, compare available bar sizes, estimate your
               project requirements, and request an accurate quotation—all in one place.
