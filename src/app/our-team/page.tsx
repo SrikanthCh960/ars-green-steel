@@ -38,7 +38,8 @@ const executiveLeadership = [
   },
 ] as const;
 
-const directLeadership = [
+const coreLeadership = [
+  executiveLeadership[0],
   executiveLeadership[1],
   {
     name: "Mr. C.V. Sathyanarayana Murthy",
@@ -82,38 +83,9 @@ const executiveDirectorTeam = [
   },
 ] as const;
 
-const financeLeader = {
-  name: "Ms. S. Valarmadhi",
-  role: "GM – Finance & Accounts",
-  photo: "/ars-assets/leadership/s-valarmadhi.png",
-} as const;
-
-const salesMarketingTeam = [
-  {
-    name: "Mr. TS. Ragu",
-    role: "AVP – Project & Retail Sales",
-    photo: "/ars-assets/leadership/ts-ragu.png",
-  },
-  {
-    name: "Mr. R. Govindarajan",
-    role: "SGM – Field Marketing & Technical Services",
-    photo: "/ars-assets/leadership/r-govindarajan.png",
-  },
-  {
-    name: "Mr. Balamurali Krishna Chakkaravarthy",
-    role: "DGM – New Business Development",
-    photo: "/ars-assets/leadership/balamurali-krishna-chakkaravarthy.jpeg",
-  },
-  {
-    name: "Mr. Jayaprakash",
-    role: "Company Secretary & AGM – Corporate Strategy",
-    photo: "/ars-assets/leadership/r-jayaprakash.jpeg",
-  },
-  {
-    name: "Mr. S. Sivakarthikeyan",
-    role: "AGM – Marketing",
-    photo: "/ars-assets/leadership/s-sivakarthikeyan.jpeg",
-  },
+const coreTeam = [
+  ...coreLeadership,
+  ...executiveDirectorTeam,
 ] as const;
 
 type TeamMember = {
@@ -122,7 +94,7 @@ type TeamMember = {
   photo: string;
 };
 
-function HierarchyProfileCard({
+function CoreTeamProfileCard({
   member,
   emphasis = false,
 }: {
@@ -130,47 +102,20 @@ function HierarchyProfileCard({
   emphasis?: boolean;
 }) {
   return (
-    <article
-      className={`group relative h-full overflow-hidden border bg-white shadow-[0_18px_44px_rgba(13,43,110,0.08)] ${
-        emphasis ? "border-brand-blue/30" : "border-ink-900/8"
-      }`}
-    >
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-100">
+    <article className={`group flex w-full flex-col items-center text-center ${emphasis ? "max-w-[260px]" : "max-w-[220px]"}`}>
+      <div className="relative aspect-square w-full overflow-hidden rounded-[1.15rem] border-2 border-brand-blue/70 bg-surface-100 shadow-[0_14px_32px_rgba(13,43,110,0.14)]">
         <Image
           src={member.photo}
           alt={`${member.name}, ${member.role} at ARS Green Steel`}
           fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+          sizes={emphasis ? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 42vw" : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 28vw"}
           className="object-cover object-top transition duration-500 group-hover:scale-[1.02] motion-reduce:transform-none motion-reduce:transition-none"
         />
       </div>
-      <div className="relative min-h-40 p-5">
-        <span className="mb-4 block h-0.5 w-12 bg-brand-red" aria-hidden="true" />
-        <h3 className="font-display text-lg font-bold leading-[1.2] text-ink-900">{member.name}</h3>
-        <p className="mt-2 text-sm leading-5 text-steel-700">{member.role}</p>
-      </div>
-    </article>
-  );
-}
-
-function PrimaryHierarchyCard({ member }: { member: TeamMember }) {
-  return (
-    <article className="mx-auto grid w-full max-w-3xl overflow-hidden bg-brand-blue text-white shadow-[0_24px_70px_rgba(13,43,110,0.22)] sm:grid-cols-[180px_minmax(0,1fr)]">
-      <div className="relative aspect-[4/3] min-h-48 overflow-hidden bg-brand-blue-dark sm:aspect-auto sm:min-h-56">
-        <Image
-          src={member.photo}
-          alt={`${member.name}, ${member.role} at ARS Green Steel`}
-          fill
-          sizes="(max-width: 640px) 100vw, 180px"
-          className="object-cover object-top"
-        />
-      </div>
-      <div className="flex flex-col justify-center p-7 sm:p-9">
-        <span className="mb-5 h-0.5 w-12 bg-brand-red" aria-hidden="true" />
-        <h3 className="font-display text-[clamp(1.7rem,3vw,2.4rem)] font-bold leading-[1.05] tracking-[-0.025em]">
-          {member.name}
-        </h3>
-        <p className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-white/72">{member.role}</p>
+      <div className={`flex min-h-[104px] w-full flex-col items-center pt-5 ${emphasis ? "px-1" : "px-0"}`}>
+        <span className="mb-3 block h-0.5 w-10 bg-brand-red" aria-hidden="true" />
+        <h3 className={`font-display font-bold leading-[1.2] text-ink-900 ${emphasis ? "text-lg" : "text-base"}`}>{member.name}</h3>
+        <p className="mt-2 text-xs leading-4 text-steel-700">{member.role}</p>
       </div>
     </article>
   );
@@ -228,7 +173,7 @@ export default function OurTeamPage() {
             {executiveLeadership.map((member, index) => (
               <article
                 key={member.name}
-                className={`grid overflow-hidden border-y border-ink-900/10 bg-surface-50 lg:h-[520px] ${
+                className={`grid overflow-hidden border-y border-ink-900/10 bg-surface-50 lg:min-h-[520px] ${
                   index % 2 === 1
                     ? "lg:grid-cols-[minmax(0,1.22fr)_minmax(200px,0.5fr)]"
                     : "lg:grid-cols-[minmax(200px,0.5fr)_minmax(0,1.22fr)]"
@@ -261,7 +206,7 @@ export default function OurTeamPage() {
         </div>
       </MotionSection>
 
-      {/* ── Core team hierarchy ── */}
+      {/* ── Core team ── */}
       <MotionSection className="overflow-hidden bg-surface-50 py-24">
         <div className="ars-container">
           <div className="mx-auto mb-16 max-w-3xl text-center">
@@ -269,92 +214,23 @@ export default function OurTeamPage() {
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
                 Core Team
               </h2>
-              <p className="mt-5 text-[15px] leading-[1.8] text-steel-700">
-                Behind ARS&apos;s continued success is a team of experienced professionals whose expertise, dedication, and collaborative spirit drive excellence across manufacturing, operations, quality, and customer service. Together, they uphold the values that define ARS and contribute to its sustained growth.
-              </p>
+              <p className="mt-5 text-[15px] leading-[1.8] text-steel-700">A collaborative leadership team bringing together experience across manufacturing, commercial operations, finance, people management, and technology.</p>
             </div>
           </div>
-
-          <div role="group" aria-label="ARS leadership reporting hierarchy">
-            <PrimaryHierarchyCard member={executiveLeadership[0]} />
-
-            <div className="mx-auto h-12 w-px bg-brand-blue/35" aria-hidden="true" />
-
-            <section aria-labelledby="direct-leadership-title" className="relative">
-              <h3 id="direct-leadership-title" className="sr-only">
-                Leaders reporting to the Managing Director
-              </h3>
-              <div
-                className="absolute top-0 hidden h-px bg-brand-blue/35 lg:block"
-                style={{
-                  left: "calc((100% - 5rem) / 10)",
-                  right: "calc((100% - 5rem) / 10)",
-                }}
-                aria-hidden="true"
-              />
-              <div className="mb-5 flex items-center gap-3 lg:hidden">
-                <span className="h-px w-8 bg-brand-blue" aria-hidden="true" />
-                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand-blue">Reports to Managing Director</p>
-              </div>
-              <ol className="grid gap-7 md:grid-cols-2 lg:grid-cols-5 lg:gap-5">
-                {directLeadership.map((member) => (
-                  <li key={member.name} className="relative pt-0 lg:pt-10 before:absolute before:left-1/2 before:top-0 before:hidden before:h-10 before:w-px before:bg-brand-blue/35 lg:before:block">
-                    <HierarchyProfileCard member={member} emphasis />
-                  </li>
-                ))}
-              </ol>
-            </section>
-
-            <div className="mt-14 grid gap-10 lg:grid-cols-10 lg:gap-5">
-              <section aria-labelledby="executive-director-team-title" className="relative lg:col-span-4">
-                <div className="absolute -top-14 left-1/4 hidden h-14 w-px bg-brand-blue/35 lg:block" aria-hidden="true" />
-                <h3 id="executive-director-team-title" className="sr-only">
-                  Leaders reporting to the Executive Director
-                </h3>
-                <div className="mb-4 flex items-center gap-3 lg:hidden">
-                  <span className="h-px w-8 bg-brand-blue" aria-hidden="true" />
-                  <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand-blue">Reports to Executive Director</p>
-                </div>
-                <ol className="grid gap-5 sm:grid-cols-3">
-                  {executiveDirectorTeam.map((member) => (
-                    <li key={member.name}><HierarchyProfileCard member={member} emphasis /></li>
-                  ))}
-                </ol>
-              </section>
-
-              <section aria-labelledby="finance-leader-title" className="relative lg:col-span-2 lg:col-start-5 lg:mt-0">
-                <div className="absolute -top-14 left-1/2 hidden h-14 w-px bg-brand-blue/35 lg:block" aria-hidden="true" />
-                <h3 id="finance-leader-title" className="sr-only">
-                  Leader reporting to the Deputy Director of Finance and Accounts
-                </h3>
-                <div className="mb-4 flex items-center gap-3 lg:hidden">
-                  <span className="h-px w-8 bg-brand-blue" aria-hidden="true" />
-                  <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-brand-blue">Reports to Dy. Director – Finance & Accounts</p>
-                </div>
-                <div className="mx-auto lg:max-w-[66.667%]">
-                  <HierarchyProfileCard member={financeLeader} emphasis />
-                </div>
-              </section>
-            </div>
-
-            <section aria-labelledby="sales-marketing-team-title" className="relative mt-16 border-t border-brand-blue/20 pt-14 lg:mt-20">
-              <h3 id="sales-marketing-team-title" className="sr-only">Team reporting to Mr. G. Chandra Mouli</h3>
-              <div className="mx-auto max-w-[290px]">
-                <HierarchyProfileCard member={salesMarketingLeader} emphasis />
-              </div>
-              <div className="mx-auto h-12 w-px bg-brand-blue/35" aria-hidden="true" />
-              <div className="relative">
-                <div className="absolute left-[10%] right-[10%] top-0 hidden h-px bg-brand-blue/35 lg:block" aria-hidden="true" />
-                <ol className="grid gap-7 pt-0 sm:grid-cols-2 lg:grid-cols-5 lg:pt-10">
-                  {salesMarketingTeam.map((member) => (
-                    <li key={member.name} className="relative lg:before:absolute lg:before:left-1/2 lg:before:top-0 lg:before:h-10 lg:before:w-px lg:before:-translate-y-10 lg:before:bg-brand-blue/35">
-                      <HierarchyProfileCard member={member} />
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            </section>
-          </div>
+          <ol className="mx-auto grid max-w-[560px] justify-items-center gap-8 md:grid-cols-2 md:gap-10">
+            {coreTeam.slice(0, 2).map((member) => (
+              <li key={member.name} className="w-full max-w-[260px]">
+                <CoreTeamProfileCard member={member} emphasis />
+              </li>
+            ))}
+          </ol>
+          <ol className="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-x-12 gap-y-8">
+            {coreTeam.slice(2).map((member) => (
+              <li key={member.name} className="w-full max-w-[220px]">
+                <CoreTeamProfileCard member={member} />
+              </li>
+            ))}
+          </ol>
         </div>
       </MotionSection>
 
