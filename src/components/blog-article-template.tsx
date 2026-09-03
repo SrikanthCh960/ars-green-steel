@@ -282,28 +282,50 @@ export function BlogArticleTemplate({
         </div>
       </section>
 
-      <section className="bg-surface-50 py-16 lg:py-20" id="article-content">
-        <div className="ars-container grid gap-10 lg:grid-cols-[180px_minmax(0,1fr)_180px] 2xl:grid-cols-[240px_minmax(0,800px)_240px]">
+      <section className="bg-white py-16 lg:py-20" id="article-content">
+        <div className="ars-container lg:grid lg:max-w-[1180px] lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-10">
           <aside className="hidden lg:block">
-            <div className="sticky top-28 border-l-2 border-brand-blue/18 pl-5">
-              <p className="font-technical text-xs font-medium uppercase tracking-[0.2em] text-brand-red">
-                In this article
-              </p>
-              <div className="mt-5 grid gap-3">
+            <nav aria-label="In this article" className="sticky top-28 rounded-[8px] border border-brand-blue/12 bg-white p-5">
+              <p className="font-technical text-xs font-semibold uppercase tracking-[0.2em] text-brand-red">On this page</p>
+              <ol className="mt-5 grid gap-1">
                 {fallbackSections.slice(0, 10).map((section) => (
-                  <a
-                    key={section.id}
-                    href={`#${section.id}`}
-                    className="focus-ring text-sm font-semibold leading-6 text-steel-700 transition hover:text-brand-blue"
-                  >
-                    {section.title}
-                  </a>
+                  <li key={section.id}>
+                    <a href={`#${section.id}`} className="focus-ring group flex min-h-11 items-start gap-3 py-1.5 text-sm font-semibold leading-5 text-steel-700 transition hover:text-brand-blue">
+                      <span className="mt-0.5 shrink-0 whitespace-nowrap font-technical text-[0.65rem] font-bold tracking-[0.12em] text-brand-red/70 transition group-hover:text-brand-red">
+                        {String(fallbackSections.findIndex((item) => item.id === section.id) + 1).padStart(2, "0")}
+                      </span>
+                      <span className="line-clamp-2">{section.title}</span>
+                    </a>
+                  </li>
                 ))}
-              </div>
-            </div>
+              </ol>
+            </nav>
           </aside>
 
-          <article className="min-w-0 rounded-[8px] border border-brand-blue/10 bg-white p-6 shadow-[var(--shadow-soft)] md:p-10">
+          <div className="min-w-0">
+            <details className="group mb-7 border border-brand-blue/12 bg-white lg:hidden">
+              <summary className="focus-ring flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 px-5 font-technical text-xs font-semibold uppercase tracking-[0.18em] text-brand-blue">
+                On this page
+                <span aria-hidden="true" className="relative flex size-7 items-center justify-center border border-brand-blue/35 text-brand-blue group-open:text-brand-red">
+                  <span className="absolute h-3 w-0.5 bg-current" />
+                  <span className="h-0.5 w-3 bg-current transition-transform group-open:rotate-90" />
+                </span>
+              </summary>
+              <nav aria-label="In this article" className="border-t border-brand-blue/12 px-5 py-3">
+                <ol className="grid gap-1">
+                  {fallbackSections.slice(0, 10).map((section, index) => (
+                    <li key={section.id}>
+                      <a href={`#${section.id}`} className="focus-ring flex min-h-11 items-start gap-3 py-2 text-sm font-semibold leading-5 text-steel-700 transition hover:text-brand-blue">
+                        <span className="shrink-0 whitespace-nowrap font-technical text-[0.65rem] font-bold tracking-[0.12em] text-brand-red/70">{String(index + 1).padStart(2, "0")}</span>
+                        <span>{section.title}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            </details>
+
+            <article className="min-w-0 bg-white px-0 py-1 md:py-3">
             <div className="mb-10 rounded-[8px] border border-brand-blue/12 bg-surface-50 p-5">
               <div className="flex gap-4">
                 <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-[8px] bg-brand-blue text-white">
@@ -331,33 +353,32 @@ export function BlogArticleTemplate({
                 <p className="mt-6 text-lg leading-9 text-steel-700">{section.body}</p>
               </section>
             ))}
-          </article>
+            </article>
 
-          <aside className="lg:pt-2">
-            <div className="rounded-[8px] border border-brand-blue/10 bg-white p-6 shadow-[var(--shadow-soft)] lg:sticky lg:top-28">
-              <p className="font-technical text-xs font-medium uppercase tracking-[0.2em] text-brand-red">
-                Next step
-              </p>
-              <h2 className="mt-4 font-display text-2xl font-bold leading-tight text-ink-900">
-                {cta.title}
-              </h2>
-              <p className="mt-4 text-sm leading-7 text-steel-700">{cta.body}</p>
-              <div className="mt-6 grid gap-3">
+            <section className="mt-12 border-t border-brand-blue/14 pt-8 md:mt-16 md:pt-10" aria-labelledby="article-next-step">
+              <div className="grid gap-7 rounded-[8px] bg-brand-blue px-6 py-7 text-white md:px-8 md:py-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+                <div className="max-w-2xl">
+                  <p className="font-technical text-xs font-semibold uppercase tracking-[0.2em] text-white/58">Next step</p>
+                  <h2 id="article-next-step" className="mt-4 font-display text-[clamp(1.65rem,2.5vw,2.1rem)] font-bold leading-[1.08] text-white">{cta.title}</h2>
+                  <p className="mt-4 max-w-xl text-sm leading-7 text-white/68">{cta.body}</p>
+                </div>
+                <div className="grid gap-3 sm:grid-cols-2 lg:min-w-[330px] lg:grid-cols-1">
                 <Link
                   href={cta.primaryHref}
-                  className="focus-ring inline-flex min-h-11 items-center justify-center gap-2 rounded-[8px] bg-brand-blue px-4 text-sm font-bold text-white transition hover:bg-brand-blue-dark"
+                  className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-[8px] bg-white px-5 text-sm font-bold text-brand-blue transition hover:bg-surface-50"
                 >
                   {cta.primaryLabel} <ArrowRight size={16} aria-hidden="true" />
                 </Link>
                 <Link
                   href={cta.secondaryHref}
-                  className="focus-ring inline-flex min-h-11 items-center justify-center rounded-[8px] border border-brand-blue/22 px-4 text-sm font-bold text-brand-blue transition hover:border-brand-blue hover:bg-surface-50"
+                  className="focus-ring inline-flex min-h-12 items-center justify-center rounded-[8px] border border-white/28 px-5 text-sm font-bold text-white transition hover:border-white/50 hover:bg-white/[0.08]"
                 >
                   {cta.secondaryLabel}
                 </Link>
+                </div>
               </div>
-            </div>
-          </aside>
+            </section>
+          </div>
         </div>
       </section>
 

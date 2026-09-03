@@ -12,6 +12,8 @@ import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { SteelPriceLookup } from "@/components/steel-price-lookup";
+import { FaqList } from "@/components/faq-list";
+import { ContactCta } from "@/components/contact-cta";
 import { clientVerificationSummary } from "@/data/business-verification";
 import {
   getBlogArchiveArticle,
@@ -72,6 +74,64 @@ const pricePlanningArticleSlugs = [
 const pricePlanningArticles = pricePlanningArticleSlugs
   .map((slug) => getBlogArchiveArticle(slug))
   .filter((article): article is BlogArchiveArticle => Boolean(article));
+
+const pricePlanningBenefits = [
+  {
+    number: "01",
+    title: "Plan your budget with more clarity",
+    body: "Use the indicative price as an early planning input, then confirm the rate for your product, quantity, and delivery location before placing an order.",
+  },
+  {
+    number: "02",
+    title: "Estimate the steel you need",
+    body: "A quantity estimate gives your enquiry useful context and helps the ARS team guide you toward a more relevant quotation.",
+  },
+  {
+    number: "03",
+    title: "Compare the right specification",
+    body: "Check the applicable product grade and bar diameter alongside price so your decision supports the needs of the project, not price alone.",
+  },
+  {
+    number: "04",
+    title: "Move from guidance to a confirmed quote",
+    body: "Market conditions, location, quantity, and logistics can affect the final order rate. Share your requirement with ARS for a current quotation.",
+  },
+];
+
+const steelPriceFaqs = [
+  {
+    question: "What is the price of steel in India today?",
+    answer: "Steel prices vary by product grade, bar size, location, quantity, logistics, and market conditions. Use the ARS price table as guidance, then request a confirmed quotation for your specific requirement.",
+  },
+  {
+    question: "Why do TMT steel prices change?",
+    answer: "TMT prices can move with raw-material costs, supply and demand, manufacturing and transport costs, and regional market conditions. These inputs can change between planning and order confirmation.",
+  },
+  {
+    question: "Where can I find the latest ARS TMT prices?",
+    answer: "Start with the price table on this page. For an order-ready rate, share the product, bar size, quantity, and delivery location with the ARS sales team.",
+  },
+  {
+    question: "How is the price of a TMT bar calculated per kg?",
+    answer: "The per-kg rate is derived from the per-tonne rate, with one tonne equal to 1,000 kg. Your final order value also depends on the quantity, applicable taxes, and any delivery or handling charges confirmed for the order.",
+  },
+  {
+    question: "Does the grade of steel affect the price?",
+    answer: "Yes. Product grades and technical requirements can differ, so select the appropriate ARS product for the project before comparing prices. Product specifications should be reviewed with the project team where required.",
+  },
+  {
+    question: "Does the displayed steel price include delivery costs?",
+    answer: "The displayed rate guidance and applicable charges are clarified in the price notes. Delivery, transport, and loading or unloading costs should always be confirmed with ARS for your site location.",
+  },
+  {
+    question: "Can I lock today's steel price for a future order?",
+    answer: "Please speak with the ARS sales team about your required quantity, location, and order timing. They can confirm the commercial terms available for your enquiry.",
+  },
+  {
+    question: "How can I stay informed about changes in steel prices?",
+    answer: "Check this page for the latest published guidance and contact ARS when you are ready to buy. A sales representative can help confirm the current rate and availability for your requirement.",
+  },
+] as const;
 
 export default function SteelPriceTodayPage() {
   return (
@@ -160,6 +220,58 @@ export default function SteelPriceTodayPage() {
           </div>
 
           <SteelPriceLookup />
+        </div>
+      </MotionSection>
+
+      <MotionSection className="border-y border-brand-blue/10 bg-surface-50 py-20 md:py-24">
+        <div className="ars-container grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+          <div>
+            <SectionKicker variant="brand">Price context</SectionKicker>
+            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              Understand the price before you place an order.
+            </h2>
+          </div>
+          <div className="max-w-3xl space-y-5 text-[15px] leading-8 text-steel-700">
+            <p>
+              TMT steel pricing is an important part of construction planning, but it is not the only input.
+              The final rate can vary with the selected product, bar diameter, order quantity, delivery location,
+              logistics, and wider market movement.
+            </p>
+            <p>
+              Use today&apos;s ARS rate guidance to begin your budget and quantity planning. When your requirement is
+              ready, confirm the current order rate with ARS so that product suitability, availability, and delivery
+              details are considered together.
+            </p>
+            <p>
+              For a confident purchase decision, compare the product specification as carefully as the price and
+              work with your project team on the grade and diameter required for the application.
+            </p>
+          </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-white py-20 md:py-24">
+        <div className="ars-container">
+          <div className="mb-12 grid items-end gap-8 lg:grid-cols-2">
+            <div>
+              <SectionKicker variant="brand">Plan with confidence</SectionKicker>
+              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+                Make the price check useful to your project.
+              </h2>
+            </div>
+            <p className="max-w-xl text-[15px] leading-8 text-steel-700">
+              The price table and steel calculator work best when they lead to a clear requirement and a confirmed ARS quotation.
+            </p>
+          </div>
+          <ol className="grid gap-px overflow-hidden rounded-[8px] border border-ink-900/10 bg-ink-900/10 md:grid-cols-2">
+            {pricePlanningBenefits.map((benefit) => (
+              <li key={benefit.number} className="bg-white p-7 md:p-8">
+                <span className="font-technical text-xs font-bold tracking-[0.2em] text-brand-red">{benefit.number}</span>
+                <h3 className="mt-5 font-display text-xl font-bold leading-tight text-ink-900">{benefit.title}</h3>
+                <p className="mt-3 max-w-xl text-sm leading-7 text-steel-700">{benefit.body}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </MotionSection>
 
@@ -272,6 +384,32 @@ export default function SteelPriceTodayPage() {
           </div>
         </div>
       </MotionSection>
+
+      <MotionSection className="bg-surface-50 py-20 md:py-24">
+        <div className="ars-container grid gap-12 lg:grid-cols-[0.38fr_0.62fr]">
+          <div>
+            <SectionKicker variant="brand">FAQs</SectionKicker>
+            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              Steel-price questions, answered.
+            </h2>
+            <p className="mt-5 max-w-sm text-[15px] leading-8 text-steel-700">
+              Find practical guidance before you request a current ARS price and quotation.
+            </p>
+          </div>
+          <FaqList items={steelPriceFaqs} />
+        </div>
+      </MotionSection>
+
+      <ContactCta
+        eyebrow="Ready to confirm your rate?"
+        headline="Get an ARS steel quotation for your project."
+        body="Share your product, bar size, quantity, and delivery location. The ARS team can help confirm today’s order-ready price."
+        primaryLabel="Request a quote"
+        primaryHref="/request-quote"
+        secondaryLabel="Find a dealer"
+        secondaryHref="/our-network"
+        tone="solid"
+      />
 
     </main>
   );
