@@ -1,43 +1,37 @@
 import Image from "next/image";
 import { ContactCta } from "@/components/contact-cta";
-import { CareerOpenings } from "@/components/career-openings";
 import { MotionSection } from "@/components/motion-section";
-import { PageHero, SectionIntro } from "@/components/page-sections";
+import { PageHero } from "@/components/page-sections";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
-import { careerJobs } from "@/data/careers";
 import { createPageMetadata } from "@/lib/site-metadata";
-import { Factory, Gauge, Handshake, ShieldCheck } from "lucide-react";
 
 export const metadata = createPageMetadata({
   title: "Careers at ARS Green Steel",
   description:
-    "Explore career profiles at ARS Green Steel across sales, logistics, and steel plant leadership, and enquire about future opportunities.",
+    "View current ARS Green Steel vacancies across Tamil Nadu and make a general career enquiry.",
   path: "/careers",
 });
 
-const employerPrinciples = [
+const currentOpenings = [
   {
-    icon: Factory,
-    title: "Work close to the industry",
-    text: "Contribute to the commercial, logistics, and plant disciplines that keep steel moving from production to project.",
+    title: "Market Development Engineer",
+    total: "23 positions open",
+    regions: [
+      { name: "Chennai South", count: "8 positions open" },
+      { name: "Rest of Tamil Nadu", count: "15 positions open" },
+    ],
+    description:
+      "Responsible for driving market development and demand generation in the assigned territory through daily site visits, regular influencer visits, customer follow-ups, and relationship building. The role involves identifying new business opportunities, generating demand, developing dealer/channel relationships, monitoring market and competitor activities, and achieving territory-wise business targets.",
   },
   {
-    icon: Gauge,
-    title: "Own measurable outcomes",
-    text: "Take responsibility for customer growth, operating reliability, delivery discipline, quality, and cost performance.",
+    title: "Business Development Executive",
+    total: "10 positions open",
+    regions: [{ name: "Rest of Tamil Nadu", count: "10 positions open" }],
+    description:
+      "Responsible for driving primary and secondary sales in the assigned territory through new dealer additions, demand generation, daily site visits, influencer engagement, and customer follow-ups. The role involves developing new business opportunities, expanding the dealer network, strengthening existing channel relationships, and achieving territory-wise sales and business development targets.",
   },
-  {
-    icon: Handshake,
-    title: "Build across functions",
-    text: "Collaborate across sales, production, dispatch, finance, maintenance, quality, and external partner networks.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Lead with discipline",
-    text: "Bring sound judgement, process rigour, safety awareness, and accountability to work that supports critical infrastructure.",
-  },
-];
+] as const;
 
 export default function CareersPage() {
   return (
@@ -45,54 +39,56 @@ export default function CareersPage() {
       <SiteHeader />
       <PageHero
         eyebrow="Careers at ARS"
-        title="Build what lasts."
-        accent="Grow with ARS."
-        body="Join teams working across steel sales, project development, logistics, and plant operations—where disciplined execution turns engineering capability into dependable supply."
-        primaryLabel="View recent roles"
-        primaryHref="#open-roles"
-        secondaryLabel="Discover ARS"
-        secondaryHref="/about"
+        title="Careers at"
+        accent="ARS Green Steel."
+        body="At ARS Green Steel, we believe that great careers are built where ambition meets purpose."
+        primaryLabel="View current openings"
+        primaryHref="#current-openings"
+        secondaryLabel="Contact ARS"
+        secondaryHref="/contact"
         backgroundImageSrc="/ars-assets/about/ARS-Vision-Misson_hero.jpg"
         backgroundImageAlt="ARS Green Steel plant viewed by an industrial professional"
         backgroundImagePosition="center"
       />
 
-      <MotionSection className="bg-white py-20 md:py-24">
+      <MotionSection id="current-openings" className="scroll-mt-24 bg-white py-20 md:py-24">
         <div className="ars-container">
-          <SectionIntro
-            eyebrow="The work"
-            title="Careers connected to real industrial outcomes."
-            body="ARS roles sit at the intersection of manufacturing, customer trust, operational precision, and infrastructure delivery."
-          />
-          <div className="grid gap-px overflow-hidden rounded-[12px] border border-ink-900/10 bg-ink-900/10 md:grid-cols-2 lg:grid-cols-4">
-            {employerPrinciples.map((principle) => {
-              const Icon = principle.icon;
-              return (
-                <article key={principle.title} className="bg-white p-7 md:p-8">
-                  <span className="inline-flex size-12 items-center justify-center rounded-[8px] bg-brand-blue/7 text-brand-blue">
-                    <Icon size={21} aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-7 font-display text-2xl font-bold leading-tight text-ink-900">{principle.title}</h3>
-                  <p className="mt-4 text-base leading-7 text-steel-700">{principle.text}</p>
-                </article>
-              );
-            })}
+          <div className="max-w-3xl">
+            <SectionKicker>Current Openings</SectionKicker>
+            <h2 className="section-title">33 openings across Tamil Nadu.</h2>
+            <p className="mt-6 text-lg leading-8 text-steel-700">Current live vacancies are listed below by role, region, and number of positions open.</p>
+          </div>
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            {currentOpenings.map((opening, index) => (
+              <article key={opening.title} className="group relative flex min-h-[430px] flex-col overflow-hidden rounded-[10px] border border-ink-900/10 bg-white p-6 shadow-[0_18px_55px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1 hover:border-brand-blue/35 md:p-8">
+                <span aria-hidden="true" className="absolute right-6 top-4 font-display text-7xl font-bold leading-none text-brand-blue/[0.06] md:right-8 md:top-5">
+                  0{index + 1}
+                </span>
+                <div className="relative flex h-full flex-col">
+                  <div className="flex flex-wrap items-start justify-between gap-4 border-b border-ink-900/10 pb-6">
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-blue">Live vacancy</p>
+                      <h3 className="mt-3 max-w-md font-display text-3xl font-bold leading-[1.08] tracking-[-0.025em] text-ink-900">{opening.title}</h3>
+                    </div>
+                    <span className="rounded-full border border-brand-red/20 bg-brand-red/8 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.11em] text-brand-red transition group-hover:bg-brand-red/12">{opening.total}</span>
+                  </div>
+                  <dl className="mt-7 grid gap-3">
+                    {opening.regions.map((region) => (
+                      <div key={region.name} className="flex items-center justify-between gap-4 border-l-2 border-brand-blue bg-surface-50 px-4 py-3">
+                        <dt className="font-semibold text-ink-900">{region.name}</dt>
+                        <dd className="shrink-0 text-sm font-bold text-steel-700">{region.count}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <p className="mt-7 text-base leading-7 text-steel-700">{opening.description}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </MotionSection>
 
-      <MotionSection id="open-roles" className="scroll-mt-24 bg-surface-50 py-20 md:py-24">
-        <div className="ars-container">
-          <SectionIntro
-            eyebrow="Recent roles"
-            title="Explore the experience ARS looks for across key functions."
-            body="These four positions are currently filled. Their role profiles remain available for reference, and future opportunities will be added here when they open."
-          />
-          <CareerOpenings jobs={careerJobs} />
-        </div>
-      </MotionSection>
-
-      <MotionSection className="bg-white py-20 md:py-24">
+      <MotionSection className="bg-surface-50 py-20 md:py-24">
         <div className="ars-container grid gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
           <div className="relative min-h-[420px] overflow-hidden rounded-[14px] bg-ink-950">
             <Image
@@ -105,30 +101,24 @@ export default function CareersPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-ink-950/55 via-transparent to-transparent" />
           </div>
           <div>
-            <SectionKicker>Grow through responsibility</SectionKicker>
-            <h2 className="section-title">Bring depth. Build range. Lead the next outcome.</h2>
+            <SectionKicker>Grow with ARS</SectionKicker>
+            <h2 className="section-title">Build a career where ambition meets purpose.</h2>
             <p className="mt-6 text-lg leading-8 text-steel-700">
-              Industrial careers grow through increasingly complex decisions: winning the right customer, coordinating a dependable dispatch, improving a process, or aligning an entire plant around safety, quality, delivery, and cost.
+              We are not just creating steel. we are building a more sustainable future for industries, communities, and generations to come. And we believe the people who join us should have the opportunity to grow alongside that vision. At ARS Green Steel, your career is not limited by a job title. We encourage our people to learn, take ownership, explore new possibilities, and grow into leadership.
             </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {["Customer and project exposure", "Cross-functional execution", "Operational problem-solving", "Leadership at increasing scale"].map((item) => (
-                <div key={item} className="flex items-center gap-3 border-l-2 border-brand-red bg-surface-50 px-4 py-4 text-sm font-bold text-ink-900">
-                  {item}
-                </div>
-              ))}
-            </div>
+            <p className="mt-6 text-lg leading-8 text-steel-700">Join ARS Green Steel and grow with a team that is building the future. Explore the opportunities and discover where your talent, ambition, and purpose can take you.</p>
           </div>
         </div>
       </MotionSection>
 
       <ContactCta
-        eyebrow="General career enquiry"
-        headline="Do not see the right role today? Start a conversation with ARS."
-        body="Use the contact page to introduce your experience and the kind of industrial work you are looking to take on."
-        primaryLabel="Contact ARS"
-        primaryHref="/contact"
-        secondaryLabel="Review roles"
-        secondaryHref="#open-roles"
+        eyebrow="Career enquiries"
+        headline="Interested in an opening at ARS?"
+        body="For enquiries about current openings, call ARS Customer Care. Please mention the role and preferred region when you call."
+        primaryLabel="Call +91 9710411111"
+        primaryHref="tel:+919710411111"
+        secondaryLabel={null}
+        secondaryHref={null}
       />
     </main>
   );

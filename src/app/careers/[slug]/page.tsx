@@ -64,8 +64,8 @@ export default async function CareerDetailPage({ params }: CareerDetailPageProps
       <section className="ars-page-hero relative overflow-hidden bg-ink-950 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_18%,rgba(13,43,110,0.72),transparent_34%),linear-gradient(125deg,#060d1e_20%,#0d2b6e_125%)]" />
         <div className="ars-container relative z-10 pb-16 pt-36 md:pb-20 md:pt-44">
-          <Link href="/careers#open-roles" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-white/70 transition hover:text-white">
-            <ArrowLeft size={17} aria-hidden="true" /> Back to career roles
+          <Link href="/careers#current-openings" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-white/70 transition hover:text-white">
+            <ArrowLeft size={17} aria-hidden="true" /> Back to current openings
           </Link>
           <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:items-end">
             <div>
@@ -74,8 +74,8 @@ export default async function CareerDetailPage({ params }: CareerDetailPageProps
               <p className="mt-7 max-w-3xl text-lg leading-8 text-white/72">{job.summary}</p>
             </div>
             <div className="grid gap-3 rounded-[10px] border border-white/14 bg-white/[0.06] p-5 backdrop-blur-sm">
-              <div className="inline-flex w-fit rounded-full bg-brand-red px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-white">
-                Position filled
+              <div className="inline-flex w-fit rounded-full bg-white/12 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-white/85">
+                Previous role profile
               </div>
               <div className="flex items-center gap-3 text-sm font-semibold text-white/80">
                 <BriefcaseBusiness size={18} className="text-white" aria-hidden="true" /> {job.department}
@@ -122,14 +122,14 @@ export default async function CareerDetailPage({ params }: CareerDetailPageProps
 
           <aside className="lg:sticky lg:top-28 lg:self-start">
             <div className="rounded-[12px] border border-ink-900/10 bg-surface-50 p-7 shadow-[0_18px_55px_rgba(15,23,42,0.05)]">
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-red">Position filled</p>
-              <h2 className="mt-4 font-display text-2xl font-bold leading-tight text-ink-900">This role is no longer accepting applications.</h2>
-              <p className="mt-4 text-sm leading-6 text-steel-700">The position has been occupied. You can review other role profiles or contact ARS with a general career enquiry.</p>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-steel-700">Previous role profile</p>
+              <h2 className="mt-4 font-display text-2xl font-bold leading-tight text-ink-900">This role is not currently open.</h2>
+              <p className="mt-4 text-sm leading-6 text-steel-700">You can review other role profiles or contact ARS with a general career enquiry.</p>
               <Link href="/contact" className="focus-ring mt-7 inline-flex h-12 w-full items-center justify-center gap-2 rounded-[6px] border border-ink-900/14 px-5 text-sm font-bold text-ink-900 transition hover:border-brand-blue hover:text-brand-blue">
                 General career enquiry <ArrowRight size={17} aria-hidden="true" />
               </Link>
-              <Link href="/careers#open-roles" className="focus-ring mt-3 inline-flex h-12 w-full items-center justify-center gap-2 rounded-[6px] border border-ink-900/14 px-5 text-sm font-bold text-ink-900 transition hover:border-brand-blue hover:text-brand-blue">
-                View all roles
+              <Link href="/careers#current-openings" className="focus-ring mt-3 inline-flex h-12 w-full items-center justify-center gap-2 rounded-[6px] border border-ink-900/14 px-5 text-sm font-bold text-ink-900 transition hover:border-brand-blue hover:text-brand-blue">
+                View current openings
               </Link>
             </div>
           </aside>
@@ -142,8 +142,8 @@ export default async function CareerDetailPage({ params }: CareerDetailPageProps
         body="This position is filled, but you can contact ARS with a general career enquiry and introduce your experience."
         primaryLabel="General career enquiry"
         primaryHref="/contact"
-        secondaryLabel="All roles"
-        secondaryHref="/careers#open-roles"
+        secondaryLabel="Current openings"
+        secondaryHref="/careers#current-openings"
       />
     </main>
   );

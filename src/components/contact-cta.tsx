@@ -7,8 +7,8 @@ type ContactCtaProps = {
   body?: string;
   primaryLabel?: string;
   primaryHref?: string;
-  secondaryLabel?: string;
-  secondaryHref?: string;
+  secondaryLabel?: string | null;
+  secondaryHref?: string | null;
   primaryClassName?: string;
   tone?: "default" | "solid";
 };
@@ -21,8 +21,8 @@ export function ContactCta(props: ContactCtaProps) {
     "Connect with an authorised ARS dealer near you, or speak with our experts to find the right steel solution for your project.";
   const primaryLabel = props.primaryLabel ?? "Find Nearest Dealer";
   const primaryHref = props.primaryHref ?? "/our-network";
-  const secondaryLabel = props.secondaryLabel ?? "Talk to Experts";
-  const secondaryHref = props.secondaryHref ?? "/contact";
+  const secondaryLabel = props.secondaryLabel === undefined ? "Talk to Experts" : props.secondaryLabel;
+  const secondaryHref = props.secondaryHref === undefined ? "/contact" : props.secondaryHref;
   const primaryClassName = props.primaryClassName ?? "bg-brand-red hover:-translate-y-0.5 hover:bg-[#c90f16]";
   const isSolid = props.tone === "solid";
 
@@ -50,12 +50,14 @@ export function ContactCta(props: ContactCtaProps) {
             >
               {primaryLabel} <ArrowRight size={19} />
             </Link>
-            <Link
-              href={secondaryHref}
-              className="focus-ring inline-flex h-14 items-center justify-center gap-3 rounded-full border border-white/22 bg-white/[0.03] px-8 text-base font-bold text-white transition hover:-translate-y-0.5 hover:border-white/36 hover:bg-white/[0.08]"
-            >
-              <Phone size={18} /> {secondaryLabel}
-            </Link>
+            {secondaryLabel && secondaryHref ? (
+              <Link
+                href={secondaryHref}
+                className="focus-ring inline-flex h-14 items-center justify-center gap-3 rounded-full border border-white/22 bg-white/[0.03] px-8 text-base font-bold text-white transition hover:-translate-y-0.5 hover:border-white/36 hover:bg-white/[0.08]"
+              >
+                <Phone size={18} /> {secondaryLabel}
+              </Link>
+            ) : null}
           </div>
         </div>
       </section>
