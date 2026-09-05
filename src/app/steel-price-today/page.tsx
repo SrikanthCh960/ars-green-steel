@@ -1,19 +1,12 @@
 import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowRight,
-  Calculator,
-  ClipboardList,
-  MapPin,
-  ShieldCheck,
-} from "lucide-react";
+import { ArrowRight, ClipboardList, MapPin, ShieldCheck } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { SteelPriceLookup } from "@/components/steel-price-lookup";
 import { FaqList } from "@/components/faq-list";
-import { ContactCta } from "@/components/contact-cta";
 import { clientVerificationSummary } from "@/data/business-verification";
 import {
   getBlogArchiveArticle,
@@ -65,6 +58,29 @@ const nextSteps = [
   },
 ];
 
+const calculatorBenefits = [
+  {
+    number: "01",
+    title: "TRANSPARENCY OF PRICE",
+    body: "Using a TMT calculator enhances transparency in pricing by providing detailed breakdowns of TMT steel bar requirements. This clarity helps users understand the cost implications of their projects and avoid unexpected expenses, promoting a more transparent procurement process.",
+  },
+  {
+    number: "02",
+    title: "EASE OF BUDGETING FOR PURCHASE",
+    body: "The TMT calculator simplifies the budgeting process by accurately estimating the quantity of TMT bars needed for a project. This precision allows for more accurate budget forecasts and financial planning, helping project managers allocate funds more effectively and efficiently.",
+  },
+  {
+    number: "03",
+    title: "ACCURACY OF DAY-TO-DAY INFORMATION",
+    body: "With the TMT calculator, users gain access to real-time data that reflects current market conditions and material costs. This feature ensures that all calculations are based on the most up-to-date information, allowing for more accurate planning and scheduling of construction activities.",
+  },
+  {
+    number: "04",
+    title: "COMPLIANCE TO MINISTRY OF STEEL NORMS",
+    body: "The TMT calculator is designed to align with the latest Ministry of Steel norms, ensuring that all calculations adhere to regulatory standards. This compliance not only fosters trust and credibility but also ensures that the project meets all legal requirements related to material usage and safety standards.",
+  },
+];
+
 const pricePlanningArticleSlugs = [
   "know-the-tmt-steel-price-today.html",
   "top-key-factors-that-affect-tmt-steel-bar-price-in-india.html",
@@ -75,61 +91,42 @@ const pricePlanningArticles = pricePlanningArticleSlugs
   .map((slug) => getBlogArchiveArticle(slug))
   .filter((article): article is BlogArchiveArticle => Boolean(article));
 
-const pricePlanningBenefits = [
-  {
-    number: "01",
-    title: "Plan your budget with more clarity",
-    body: "Use the indicative price as an early planning input, then confirm the rate for your product, quantity, and delivery location before placing an order.",
-  },
-  {
-    number: "02",
-    title: "Estimate the steel you need",
-    body: "A quantity estimate gives your enquiry useful context and helps the ARS team guide you toward a more relevant quotation.",
-  },
-  {
-    number: "03",
-    title: "Compare the right specification",
-    body: "Check the applicable product grade and bar diameter alongside price so your decision supports the needs of the project, not price alone.",
-  },
-  {
-    number: "04",
-    title: "Move from guidance to a confirmed quote",
-    body: "Market conditions, location, quantity, and logistics can affect the final order rate. Share your requirement with ARS for a current quotation.",
-  },
-];
-
 const steelPriceFaqs = [
   {
-    question: "What is the price of steel in India today?",
-    answer: "Steel prices vary by product grade, bar size, location, quantity, logistics, and market conditions. Use the ARS price table as guidance, then request a confirmed quotation for your specific requirement.",
+    question: "What is the price of steel in India?",
+    answer: "Steel prices in India fluctuate regularly. To get the most accurate and up-to-date information, you should check with local steel suppliers or online resources.",
   },
   {
-    question: "Why do TMT steel prices change?",
-    answer: "TMT prices can move with raw-material costs, supply and demand, manufacturing and transport costs, and regional market conditions. These inputs can change between planning and order confirmation.",
+    question: "Why steel prices are increasing today?",
+    answer: "Several factors can contribute to rising steel prices, including increased demand, higher raw material costs, and global economic conditions.",
   },
   {
-    question: "Where can I find the latest ARS TMT prices?",
-    answer: "Start with the price table on this page. For an order-ready rate, share the product, bar size, quantity, and delivery location with the ARS sales team.",
+    question: "Where can I find the latest TMT prices?",
+    answer: "You can find the latest TMT steel prices by checking with local steel suppliers, consulting online price trackers, or following industry news sources.",
   },
   {
-    question: "How is the price of a TMT bar calculated per kg?",
-    answer: "The per-kg rate is derived from the per-tonne rate, with one tonne equal to 1,000 kg. Your final order value also depends on the quantity, applicable taxes, and any delivery or handling charges confirmed for the order.",
+    question: "How is the price of iron rods calculated per kg?",
+    answer: "The price of iron rods per kg is typically determined by factors such as the grade of steel, size, and market demand.",
   },
   {
-    question: "Does the grade of steel affect the price?",
-    answer: "Yes. Product grades and technical requirements can differ, so select the appropriate ARS product for the project before comparing prices. Product specifications should be reviewed with the project team where required.",
+    question: "What factors influence the price of steel?",
+    answer: "Steel prices are influenced by various factors, including global economic conditions, government policies, demand from key industries, and the cost of raw materials like iron ore and coal.",
   },
   {
-    question: "Does the displayed steel price include delivery costs?",
-    answer: "The displayed rate guidance and applicable charges are clarified in the price notes. Delivery, transport, and loading or unloading costs should always be confirmed with ARS for your site location.",
+    question: "How does the grade of steel affect the price?",
+    answer: "Higher-grade steel, such as TMT steel, generally commands a higher price due to its superior strength and durability.",
   },
   {
-    question: "Can I lock today's steel price for a future order?",
-    answer: "Please speak with the ARS sales team about your required quantity, location, and order timing. They can confirm the commercial terms available for your enquiry.",
+    question: "Can I lock in the steel price today for future orders?",
+    answer: "Some steel suppliers offer options to lock in prices for future orders, which can provide protection against price fluctuations.",
+  },
+  {
+    question: "Does the steel price today include delivery costs?",
+    answer: "Delivery costs are typically not included in the base price of steel. You should inquire with your supplier for specific details.",
   },
   {
     question: "How can I stay informed about changes in steel prices?",
-    answer: "Check this page for the latest published guidance and contact ARS when you are ready to buy. A sales representative can help confirm the current rate and availability for your requirement.",
+    answer: "To stay updated on steel price trends, you can subscribe to industry newsletters, follow steel-related news sources, or use online price tracking tools.",
   },
 ] as const;
 
@@ -160,46 +157,42 @@ export default function SteelPriceTodayPage() {
           <div className="max-w-2xl">
             <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />TMT Steel Price Today</div>
             <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1.0] tracking-[-0.025em] text-white">
-              Latest TMT Steel Price Today Per Kg in India
+              Latest Steel Price Today Per Kg in India | Current Steel Rates
             </h1>
             <p className="mt-5 font-display text-[clamp(1.5rem,3vw,2.25rem)] font-bold leading-tight text-brand-red">Know Today&apos;s Price. Build with Confidence.</p>
             <p className="mt-5 max-w-[460px] text-[15px] leading-[1.75] text-white/70">
               Stay updated with the latest ARS TMT steel prices, compare available bar sizes, estimate your
               project requirements, and request an accurate quotation—all in one place.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="/request-quote"
-                className="focus-ring inline-flex items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-[14px] font-bold text-white transition hover:opacity-90"
-              >
-                Get Today&apos;s Price <ArrowRight size={14} />
-              </a>
-              <a
-                href="/tmt-steel-calculator"
-                className="focus-ring inline-flex items-center gap-2.5 rounded-full border-[1.5px] border-white/30 px-6 py-3 text-[14px] font-semibold text-white/80 transition hover:bg-white/[0.12]"
-              >
-                <Calculator size={14} /> Steel Calculator
-              </a>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Stats ── */}
       <MotionSection className="border-b border-surface-100 bg-white py-14">
         <div className="ars-container">
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-ink-900/10">
-            {stats.map((s) => (
-              <div key={s.label} className="flex flex-col px-0 lg:items-center lg:px-8 lg:text-center">
+            {stats.map((step) => (
+              <div key={step.label} className="flex flex-col px-0 lg:items-center lg:px-8 lg:text-center">
                 <span className="font-display text-[clamp(1.8rem,2.5vw,2.4rem)] font-extrabold leading-none tracking-[-0.03em] text-brand-blue">
-                  {s.value}
+                  {step.value}
                 </span>
                 <span className="mb-1 mt-1.5 text-[12px] font-bold uppercase tracking-[0.06em] text-ink-900">
-                  {s.label}
+                  {step.label}
                 </span>
-                <span className="max-w-[200px] text-[12px] leading-normal text-grey-600">{s.sub}</span>
+                <span className="max-w-[200px] text-[12px] leading-normal text-grey-600">{step.sub}</span>
               </div>
             ))}
+          </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="border-y border-brand-blue/10 bg-white py-20 md:py-24">
+        <div className="ars-container">
+          <div className="max-w-4xl border-l-2 border-brand-red pl-6 md:pl-8">
+            <span aria-hidden="true" className="mb-5 block font-technical text-xs font-bold tracking-[0.22em] text-brand-blue/60">01</span>
+            <p className="text-[15px] leading-8 text-steel-700">
+              When it comes to construction projects, understanding the factors of TMT steel price is necessary. As a builder, being well-informed about the fluctuations and factors affecting TMT bar price can help you make informed decisions. You will need to explore the key factors to know about <Link href="/tmt-steel-calculator" className="focus-ring font-semibold text-brand-blue underline decoration-brand-blue/30 underline-offset-4 hover:text-brand-red">steel price today</Link> before embarking on any construction journey. TMT steel price today are subject to various factors that can cause fluctuations. Some of the key influencers include the cost of raw materials, market demand, production capacity, transportation costs, and an IS 1786 – 2008 standard certification adds to its value.
+            </p>
           </div>
         </div>
       </MotionSection>
@@ -209,9 +202,8 @@ export default function SteelPriceTodayPage() {
         <div className="ars-container">
           <div className="mb-12 grid items-end gap-10 lg:grid-cols-2">
             <div>
-              <SectionKicker variant="brand">Price Table</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                Find your size, then get today&apos;s rate.
+                CHECK THE STEEL PRICE TODAY
               </h2>
             </div>
             <p className="text-[15px] leading-[1.8] text-steel-700">
@@ -224,29 +216,19 @@ export default function SteelPriceTodayPage() {
       </MotionSection>
 
       <MotionSection className="border-y border-brand-blue/10 bg-surface-50 py-20 md:py-24">
-        <div className="ars-container grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
-          <div>
-            <SectionKicker variant="brand">Price context</SectionKicker>
-            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-              Understand the price before you place an order.
-            </h2>
-          </div>
-          <div className="max-w-3xl space-y-5 text-[15px] leading-8 text-steel-700">
-            <p>
-              TMT steel pricing is an important part of construction planning, but it is not the only input.
-              The final rate can vary with the selected product, bar diameter, order quantity, delivery location,
-              logistics, and wider market movement.
+        <div className="ars-container grid gap-12 md:grid-cols-2 md:gap-16">
+          <article className="relative overflow-hidden border-t-2 border-brand-blue pt-8">
+            <span aria-hidden="true" className="absolute right-0 top-1 font-display text-7xl font-extrabold leading-none tracking-[-0.08em] text-brand-blue/[0.07] md:text-8xl">02</span>
+            <p className="relative max-w-xl text-[15px] leading-8 text-steel-700">
+              By keeping an eye on these factors, you can better anticipate steel price today per kg currently and plan your construction budget accordingly. Some TMT bars are also optimized to withstand any weather condition and are also certified by international boards such as the SGS to support customer authentication. It is crucial to conduct thorough research and compare different brands and grades based on their specifications and reputation. This will ensure that you select the most suitable TMT bar price per kg for your construction project without compromising on quality or overspending.
             </p>
-            <p>
-              Use today&apos;s ARS rate guidance to begin your budget and quantity planning. When your requirement is
-              ready, confirm the current order rate with ARS so that product suitability, availability, and delivery
-              details are considered together.
+          </article>
+          <article className="relative overflow-hidden border-t-2 border-brand-red pt-8">
+            <span aria-hidden="true" className="absolute right-0 top-1 font-display text-7xl font-extrabold leading-none tracking-[-0.08em] text-brand-red/[0.07] md:text-8xl">03</span>
+            <p className="relative max-w-xl text-[15px] leading-8 text-steel-700">
+              Steel price today in India are subject to market dynamics, and understanding pricing patterns can be beneficial for your construction project. Analysing historical data, market trends, and expert forecasts can provide insights into price movements. By staying updated on pricing patterns, you can make better decisions regarding the timing of purchasing TMT steel, potentially saving costs in the long run.
             </p>
-            <p>
-              For a confident purchase decision, compare the product specification as carefully as the price and
-              work with your project team on the grade and diameter required for the application.
-            </p>
-          </div>
+          </article>
         </div>
       </MotionSection>
 
@@ -254,18 +236,17 @@ export default function SteelPriceTodayPage() {
         <div className="ars-container">
           <div className="mb-12 grid items-end gap-8 lg:grid-cols-2">
             <div>
-              <SectionKicker variant="brand">Plan with confidence</SectionKicker>
               <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                Make the price check useful to your project.
+                BENEFITS OF USING A TMT CALCULATOR
               </h2>
             </div>
             <p className="max-w-xl text-[15px] leading-8 text-steel-700">
-              The price table and steel calculator work best when they lead to a clear requirement and a confirmed ARS quotation.
+              Utilizing a TMT calculator brings a strategic advantage in managing construction projects by ensuring cost-efficiency, regulatory compliance, and accurate material planning.
             </p>
           </div>
           <ol className="grid gap-px overflow-hidden rounded-[8px] border border-ink-900/10 bg-ink-900/10 md:grid-cols-2">
-            {pricePlanningBenefits.map((benefit) => (
-              <li key={benefit.number} className="bg-white p-7 md:p-8">
+            {calculatorBenefits.map((benefit) => (
+              <li key={benefit.title} className="bg-white p-7 md:p-8">
                 <span className="font-technical text-xs font-bold tracking-[0.2em] text-brand-red">{benefit.number}</span>
                 <h3 className="mt-5 font-display text-xl font-bold leading-tight text-ink-900">{benefit.title}</h3>
                 <p className="mt-3 max-w-xl text-sm leading-7 text-steel-700">{benefit.body}</p>
@@ -275,8 +256,7 @@ export default function SteelPriceTodayPage() {
         </div>
       </MotionSection>
 
-      {/* ── Next steps ── */}
-      <MotionSection className="bg-surface-50 py-24">
+      <MotionSection className="bg-surface-50 py-20 md:py-24">
         <div className="ars-container">
           <div className="mb-14 grid items-end gap-10 lg:grid-cols-2">
             <div>
@@ -286,34 +266,44 @@ export default function SteelPriceTodayPage() {
               </h2>
             </div>
             <p className="text-[15px] leading-[1.8] text-steel-700">
-              Price is one input. Estimate your requirement, find a dealer, verify quality, or move straight
-              to a quote.
+              Price is one input. Estimate your requirement, find a dealer, verify quality, or move straight to a quote.
             </p>
           </div>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {nextSteps.map((a) => (
-              <a
-                key={a.title}
-                href={a.href}
+            {nextSteps.map((step) => (
+              <Link
+                key={step.title}
+                href={step.href}
                 className="focus-ring group flex flex-col gap-5 rounded-2xl border-[1.5px] border-surface-100 bg-white p-7 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/[0.06] text-brand-blue">
-                  {a.icon}
+                  {step.icon}
                 </div>
                 <div className="flex-1">
-                  <h3 className="mb-2 font-display text-[16px] font-bold text-ink-900">{a.title}</h3>
-                  <p className="text-[13px] leading-[1.7] text-grey-600">{a.desc}</p>
+                  <h3 className="mb-2 font-display text-[16px] font-bold text-ink-900">{step.title}</h3>
+                  <p className="text-[13px] leading-[1.7] text-grey-600">{step.desc}</p>
                 </div>
                 <span className="inline-flex items-center gap-1.5 text-[12px] font-bold text-brand-red transition-all duration-200 group-hover:gap-2.5">
-                  {a.cta} <ArrowRight size={12} />
+                  {step.cta} <ArrowRight size={12} />
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-white py-24">
+      <MotionSection className="bg-surface-50 py-20 md:py-24">
+        <div className="ars-container grid gap-12 lg:grid-cols-[0.38fr_0.62fr]">
+          <div>
+            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
+              FREQUENTLY ASKED QUESTIONS ABOUT USING THE STEEL PRICE
+            </h2>
+          </div>
+          <FaqList items={steelPriceFaqs} />
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-white py-20 md:py-24">
         <div className="ars-container">
           <div className="mb-14 grid items-end gap-10 lg:grid-cols-2">
             <div>
@@ -385,31 +375,22 @@ export default function SteelPriceTodayPage() {
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-surface-50 py-20 md:py-24">
-        <div className="ars-container grid gap-12 lg:grid-cols-[0.38fr_0.62fr]">
-          <div>
-            <SectionKicker variant="brand">FAQs</SectionKicker>
-            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-              Steel-price questions, answered.
+      <section className="bg-brand-blue py-16 text-white md:py-20">
+        <div className="ars-container grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+          <div className="max-w-2xl">
+            <p className="font-technical text-xs font-black uppercase tracking-[0.22em] text-white/60">ENQUIRY</p>
+            <h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
+              Please complete this form with basic information you need.
             </h2>
-            <p className="mt-5 max-w-sm text-[15px] leading-8 text-steel-700">
-              Find practical guidance before you request a current ARS price and quotation.
-            </p>
           </div>
-          <FaqList items={steelPriceFaqs} />
+          <Link
+            href="/request-quote"
+            className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:opacity-90 lg:justify-self-end"
+          >
+            ORDER NOW <ArrowRight size={16} aria-hidden="true" />
+          </Link>
         </div>
-      </MotionSection>
-
-      <ContactCta
-        eyebrow="Ready to confirm your rate?"
-        headline="Get an ARS steel quotation for your project."
-        body="Share your product, bar size, quantity, and delivery location. The ARS team can help confirm today’s order-ready price."
-        primaryLabel="Request a quote"
-        primaryHref="/request-quote"
-        secondaryLabel="Find a dealer"
-        secondaryHref="/our-network"
-        tone="solid"
-      />
+      </section>
 
     </main>
   );
