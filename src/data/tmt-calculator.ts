@@ -11,7 +11,7 @@ export const calculatorCities: Record<CalculatorRegion, readonly string[]> = {
 export const calculatorProducts = ["ARS CRS Fe 550D", "ARS Fe 550D"] as const;
 export type CalculatorProduct = (typeof calculatorProducts)[number];
 
-export const requirementModes = ["Rods", "Weight (Kgs)"] as const;
+export const requirementModes = ["Rods", "Bundles", "Weight (Kgs)"] as const;
 export type RequirementMode = (typeof requirementModes)[number];
 
 export const calculatorBars = [
@@ -27,57 +27,72 @@ export const calculatorBars = [
 export type CalculatorBar = (typeof calculatorBars)[number];
 export type CalculatorInputs = Record<string, number>;
 
-export const pricePerTon: Record<CalculatorRegion, Record<CalculatorProduct, Record<string, number>>> = {
-  "Tamil Nadu": {
-    "ARS Fe 550D": { "8mm": 67000.4, "10mm": 67000.4, "12mm": 66000.35, "16mm": 66000.35, "20mm": 66000.35, "25mm": 66000.35, "32mm": 67000.4 },
-    "ARS CRS Fe 550D": { "8mm": 69999.96, "10mm": 69999.96, "12mm": 68999.91, "16mm": 68999.91, "20mm": 68999.91, "25mm": 68999.91, "32mm": 69999.96 },
-  },
-  "Andhra Pradesh": {
-    "ARS Fe 550D": { "8mm": 65584.4, "10mm": 65584.4, "12mm": 64584.35, "16mm": 64584.35, "20mm": 64584.35, "25mm": 64584.35, "32mm": 65584.4 },
-    "ARS CRS Fe 550D": { "8mm": 68583.96, "10mm": 68583.96, "12mm": 67583.91, "16mm": 67583.91, "20mm": 67583.91, "25mm": 67583.91, "32mm": 68583.96 },
-  },
-  Kerala: {
-    "ARS Fe 550D": { "8mm": 64109.4, "10mm": 64109.4, "12mm": 63109.35, "16mm": 63109.35, "20mm": 63109.35, "25mm": 63109.35, "32mm": 64109.4 },
-    "ARS CRS Fe 550D": { "8mm": 67108.96, "10mm": 67108.96, "12mm": 66108.91, "16mm": 66108.91, "20mm": 66108.91, "25mm": 66108.91, "32mm": 67108.96 },
-  },
-  Karnataka: {
-    "ARS Fe 550D": { "8mm": 65525.4, "10mm": 65525.4, "12mm": 64525.35, "16mm": 64525.35, "20mm": 64525.35, "25mm": 64525.35, "32mm": 65525.4 },
-    "ARS CRS Fe 550D": { "8mm": 68524.96, "10mm": 68524.96, "12mm": 67524.91, "16mm": 67524.91, "20mm": 67524.91, "25mm": 67524.91, "32mm": 68524.96 },
-  },
-};
+// Approved source: Price - Formula workbook (Regionwise Vs Dia Vs Product) - New.xlsx.
+// Values mirror the workbook's base price, region adjustment, diameter adjustment, and GST formula.
+const workbookPriceInputs = {
+  gst: 0.18,
+  basePricePerTon: {
+    "ARS Fe 550D": 58050.84745762712,
+    "ARS CRS Fe 550D": 60169.491525423735,
+  } satisfies Record<CalculatorProduct, number>,
+  regionAdjustmentPerTon: {
+    "Tamil Nadu": 0,
+    "Andhra Pradesh": -1200,
+    Kerala: -2450,
+    Karnataka: -1250,
+  } satisfies Record<CalculatorRegion, number>,
+  diameterAdjustmentPerTon: {
+    "8mm": 847.5,
+    "10mm": 0,
+    "12mm": 0,
+    "16mm": 0,
+    "20mm": 0,
+    "25mm": 0,
+    "32mm": 847.5,
+  } as Record<CalculatorBar["size"], number>,
+} as const;
+
+export function getRatePerKg(region: string, product: string, size: string) {
+  const basePrice = workbookPriceInputs.basePricePerTon[product as CalculatorProduct];
+  const regionAdjustment = workbookPriceInputs.regionAdjustmentPerTon[region as CalculatorRegion];
+  const diameterAdjustment = workbookPriceInputs.diameterAdjustmentPerTon[size as CalculatorBar["size"]];
+
+  if (basePrice === undefined || regionAdjustment === undefined || diameterAdjustment === undefined) return 0;
+  return ((basePrice + regionAdjustment + diameterAdjustment) * (1 + workbookPriceInputs.gst)) / 1000;
+}
 
 export function calculateBar(bar: CalculatorBar, mode: RequirementMode, input: number) {
   const safeInput = Number.isFinite(input) && input > 0 ? input : 0;
-  const rods = mode === "Weight (Kgs)"
+  const rods = mode === "Bundles"
+    ? safeInput * bar.piecesPerBundle
+    : mode === "Weight (Kgs)"
       ? Math.round((safeInput / bar.meanBundleWeight) * bar.piecesPerBundle)
-      : Math.round(safeInput);
-  const bundles = Math.floor(rods / bar.piecesPerBundle);
-  const remainingRods = rods - bundles * bar.piecesPerBundle;
+      : safeInput;
+  const bundles = rods < bar.piecesPerBundle ? 0 : Math.floor(rods / bar.piecesPerBundle);
+  const remainingRods = bundles === 0 ? rods : rods - bundles * bar.piecesPerBundle;
   const kilograms = (rods / bar.piecesPerBundle) * bar.meanBundleWeight;
+
   return { input: safeInput, rods, bundles, remainingRods, kilograms };
 }
 
-export function getRatePerKg(region: string, product: string, size: string) {
-  return ((pricePerTon as Record<string, Record<string, Record<string, number>>>)[region]?.[product]?.[size] ?? 0) / 1000;
-}
-
 export const calculatorNotes = [
-  "Rates are inclusive of GST and are indicative until ARS confirms the current order rate.",
-  "Each piece is 12 metres long. Delivery, transportation, and loading/unloading charges are extra.",
-  "Dimensions are subject to BIS tolerances; verify piece counts at delivery.",
+  "The above prices are inclusive of all taxes.",
+  "Each piece is 12 m long.",
+  "All dimensions are subject to BIS tolerances. Customers should satisfy themselves, as far as the number of pieces are concerned, at the time of delivery.",
+  "Delivery Charges will be extra (Transportation & Loading /Un-loading).",
 ];
 
 export const calculatorFaqs = [
   [
-    "How does the TMT calculator estimate requirements?",
-    "Choose a region, product, diameter, and requirement unit. The calculator applies the ARS workbook bundle and weight rules to show rods, bundles, weight, and an indicative GST-inclusive amount.",
+    "How does the TMT calculator calculate requirements?",
+    "Choose a region, product, requirement mode, and diameter-wise quantity. The calculator applies the approved bundle-piece, mean-weight, and GST-inclusive rate rules for every selected diameter.",
   ],
   [
     "Can I calculate by rods, bundles, or weight?",
-    "Yes. The workbook supports all three modes. Weight inputs are converted to whole rods using the mean bundle weight and the workbook rounding rule.",
+    "Yes. Rod and bundle quantities are converted to rods using the approved pieces-per-bundle values. Weight inputs are converted to whole rods using the approved mean-weight rounding rule.",
   ],
   [
-    "Does the displayed rate include GST and delivery?",
-    "The displayed rate includes GST. Delivery, transportation, and loading or unloading charges are extra and should be confirmed with ARS before ordering.",
+    "Does the displayed rate include tax and delivery?",
+    "The displayed rate is inclusive of all taxes. Delivery Charges will be extra (Transportation & Loading /Un-loading).",
   ],
 ] as const;

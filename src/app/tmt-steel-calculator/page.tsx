@@ -21,7 +21,7 @@ const calculatorJsonLd = {
       name: "TMT Steel Calculator",
       url: calculatorUrl,
       description:
-        "Estimate TMT bar quantity, weight, bundles, and indicative GST-inclusive cost based on region, product, diameter, building type, floors, and built-up area.",
+        "Calculate TMT bar rods, bundles, weight, and GST-inclusive cost by state, product, and diameter.",
       applicationCategory: "UtilitiesApplication",
       operatingSystem: "Any",
       isPartOf: {
