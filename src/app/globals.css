@@ -564,6 +564,8 @@ main h1 {
 
 .blog-source-content h2 { margin: 2.75rem 0 1rem; font-size: clamp(1.65rem, 3vw, 2.2rem); }
 .blog-source-content h3 { margin: 2rem 0 0.8rem; font-size: 1.35rem; }
+.blog-source-content h2[id],
+.blog-source-content h3[id] { scroll-margin-top: 7rem; }
 .blog-source-content p { margin: 1.25rem 0; }
 .blog-source-content ul,
 .blog-source-content ol { margin: 1.25rem 0; padding-left: 1.5rem; }

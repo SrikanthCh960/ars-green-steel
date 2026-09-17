@@ -25,6 +25,8 @@ type ArticleSection = {
   body: string;
 };
 
+type ArticleHeading = Pick<ArticleSection, "id" | "title">;
+
 const topicIcon = {
   "TMT products": Hammer,
   "Construction knowledge": SearchCheck,
@@ -127,11 +129,62 @@ function cleanBodyCopy(text: string) {
 
 function sectionId(title: string, index: number) {
   const id = title
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
 
   return id || `section-${index + 1}`;
+}
+
+function decodeHeadingText(value: string) {
+  const namedEntities: Record<string, string> = {
+    amp: "&",
+    apos: "'",
+    gt: ">",
+    lt: "<",
+    nbsp: " ",
+    quot: '"',
+  };
+
+  return value
+    .replace(/<[^>]*>/g, " ")
+    .replace(/&(#x[\da-f]+|#\d+|[a-z]+);/gi, (entity, code: string) => {
+      if (code.startsWith("#x")) {
+        return String.fromCodePoint(Number.parseInt(code.slice(2), 16));
+      }
+      if (code.startsWith("#")) {
+        return String.fromCodePoint(Number.parseInt(code.slice(1), 10));
+      }
+      return namedEntities[code.toLowerCase()] ?? entity;
+    })
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function prepareArticleHtml(html: string) {
+  const headings: ArticleHeading[] = [];
+  const idCounts = new Map<string, number>();
+  const headingPattern = /<h([23])([^>]*)>([\s\S]*?)<\/h\1>/gi;
+
+  const contentHtml = html.replace(headingPattern, (heading, level: string, attributes: string, content: string) => {
+    const title = decodeHeadingText(content);
+
+    if (!title) return heading;
+
+    const baseId = sectionId(title, headings.length);
+    const occurrence = (idCounts.get(baseId) ?? 0) + 1;
+    const id = occurrence === 1 ? baseId : `${baseId}-${occurrence}`;
+    const attributesWithoutId = attributes.replace(/\s+id\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, "");
+
+    idCounts.set(baseId, occurrence);
+    headings.push({ id, title: sentenceCaseTitle(title) });
+
+    return `<h${level}${attributesWithoutId} id="${id}">${content}</h${level}>`;
+  });
+
+  return { contentHtml, headings };
 }
 
 function getArticleSections(page: LegacyPage): ArticleSection[] {
@@ -182,6 +235,12 @@ export function BlogArticleTemplate({
   const fallbackSections = sections.length
     ? sections
     : [{ id: "overview", title: "Overview", body: article.excerpt }];
+  const preparedArticle = registryEntry?.fullContentHtml
+    ? prepareArticleHtml(registryEntry.fullContentHtml)
+    : null;
+  const articleHeadings = preparedArticle?.headings ?? fallbackSections;
+  const visibleArticleHeadings = articleHeadings.slice(0, 10);
+  const hasArticleNavigation = visibleArticleHeadings.length > 0;
 
   const articleUrl = `${productionDomain}/blog/${article.slug}`;
   const jsonLd = {
@@ -283,16 +342,19 @@ export function BlogArticleTemplate({
       </section>
 
       <section className="bg-white py-16 lg:py-20" id="article-content">
-        <div className="ars-container lg:grid lg:max-w-[1180px] lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-10">
-          <aside className="hidden lg:block">
+        <div className={hasArticleNavigation
+          ? "ars-container lg:grid lg:max-w-[1180px] lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-10"
+          : "ars-container max-w-[860px]"
+        }>
+          {hasArticleNavigation ? <aside className="hidden lg:block">
             <nav aria-label="In this article" className="sticky top-28 rounded-[8px] border border-brand-blue/12 bg-white p-5">
               <p className="font-technical text-xs font-semibold uppercase tracking-[0.2em] text-brand-red">On this page</p>
               <ol className="mt-5 grid gap-1">
-                {fallbackSections.slice(0, 10).map((section) => (
+                {visibleArticleHeadings.map((section, index) => (
                   <li key={section.id}>
                     <a href={`#${section.id}`} className="focus-ring group flex min-h-11 items-start gap-3 py-1.5 text-sm font-semibold leading-5 text-steel-700 transition hover:text-brand-blue">
                       <span className="mt-0.5 shrink-0 whitespace-nowrap font-technical text-[0.65rem] font-bold tracking-[0.12em] text-brand-red/70 transition group-hover:text-brand-red">
-                        {String(fallbackSections.findIndex((item) => item.id === section.id) + 1).padStart(2, "0")}
+                        {String(index + 1).padStart(2, "0")}
                       </span>
                       <span className="line-clamp-2">{section.title}</span>
                     </a>
@@ -300,10 +362,10 @@ export function BlogArticleTemplate({
                 ))}
               </ol>
             </nav>
-          </aside>
+          </aside> : null}
 
           <div className="min-w-0">
-            <details className="group mb-7 border border-brand-blue/12 bg-white lg:hidden">
+            {hasArticleNavigation ? <details className="group mb-7 border border-brand-blue/12 bg-white lg:hidden">
               <summary className="focus-ring flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 px-5 font-technical text-xs font-semibold uppercase tracking-[0.18em] text-brand-blue">
                 On this page
                 <span aria-hidden="true" className="relative flex size-7 items-center justify-center border border-brand-blue/35 text-brand-blue group-open:text-brand-red">
@@ -313,7 +375,7 @@ export function BlogArticleTemplate({
               </summary>
               <nav aria-label="In this article" className="border-t border-brand-blue/12 px-5 py-3">
                 <ol className="grid gap-1">
-                  {fallbackSections.slice(0, 10).map((section, index) => (
+                  {visibleArticleHeadings.map((section, index) => (
                     <li key={section.id}>
                       <a href={`#${section.id}`} className="focus-ring flex min-h-11 items-start gap-3 py-2 text-sm font-semibold leading-5 text-steel-700 transition hover:text-brand-blue">
                         <span className="shrink-0 whitespace-nowrap font-technical text-[0.65rem] font-bold tracking-[0.12em] text-brand-red/70">{String(index + 1).padStart(2, "0")}</span>
@@ -323,7 +385,7 @@ export function BlogArticleTemplate({
                   ))}
                 </ol>
               </nav>
-            </details>
+            </details> : null}
 
             <article className="min-w-0 bg-white px-0 py-1 md:py-3">
             <div className="mb-10 rounded-[8px] border border-brand-blue/12 bg-surface-50 p-5">
@@ -338,8 +400,8 @@ export function BlogArticleTemplate({
               </div>
             </div>
 
-            {registryEntry?.fullContentHtml ? (
-              <div className="blog-source-content" dangerouslySetInnerHTML={{ __html: registryEntry.fullContentHtml }} />
+            {preparedArticle ? (
+              <div className="blog-source-content" dangerouslySetInnerHTML={{ __html: preparedArticle.contentHtml }} />
             ) : fallbackSections.map((section, index) => (
               <section
                 key={section.id}

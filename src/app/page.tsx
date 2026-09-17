@@ -273,7 +273,7 @@ const blogs = [
   },
   {
     title: "How Green Steel is Produced",
-    href: "/ars-green-steel",
+    href: "/blog/green-steel-manufacturing-using-clean-energy.html",
     category: "Sustainability",
     detail: "A look inside the electric arc furnace process that makes ARS steel cleaner, greener, and future-ready.",
     readTime: "5 min read",
