@@ -9,6 +9,7 @@ const whatsappMessage =
 
 export function FloatingWhatsAppButton() {
   const [footerIsVisible, setFooterIsVisible] = useState(false);
+  const [mobileLeadFormIsVisible, setMobileLeadFormIsVisible] = useState(false);
   const [blockingSurfaceIsOpen, setBlockingSurfaceIsOpen] = useState(false);
 
   useEffect(() => {
@@ -47,6 +48,37 @@ export function FloatingWhatsAppButton() {
   }, []);
 
   useEffect(() => {
+    const leadForms = Array.from(document.querySelectorAll("[data-lead-form]"));
+    if (leadForms.length === 0) return;
+
+    const mobileViewport = window.matchMedia("(max-width: 767px)");
+    const visibleForms = new Set<Element>();
+
+    function updateVisibility() {
+      setMobileLeadFormIsVisible(mobileViewport.matches && visibleForms.size > 0);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) visibleForms.add(entry.target);
+          else visibleForms.delete(entry.target);
+        });
+        updateVisibility();
+      },
+      { threshold: 0.01 },
+    );
+
+    leadForms.forEach((form) => observer.observe(form));
+    mobileViewport.addEventListener("change", updateVisibility);
+
+    return () => {
+      observer.disconnect();
+      mobileViewport.removeEventListener("change", updateVisibility);
+    };
+  }, []);
+
+  useEffect(() => {
     function updateBlockingSurfaceState() {
       setBlockingSurfaceIsOpen(
         Boolean(
@@ -69,7 +101,7 @@ export function FloatingWhatsAppButton() {
     return () => observer.disconnect();
   }, []);
 
-  if (footerIsVisible || blockingSurfaceIsOpen) return null;
+  if (footerIsVisible || mobileLeadFormIsVisible || blockingSurfaceIsOpen) return null;
 
   const whatsappNumber = verifiedContactDetails.mobile.replace(/\D/g, "");
   const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;

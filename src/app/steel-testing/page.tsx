@@ -121,12 +121,12 @@ export default function SteelTestingPage() {
 
       <MotionSection className="relative overflow-hidden bg-surface-50 py-20 md:py-24">
         <div className="ars-container relative z-10 grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
-          <div className="rounded-[8px] bg-brand-blue p-7 text-white md:p-10">
+          <div className="rounded-[8px] bg-brand-blue p-4 text-white sm:p-7 md:p-10">
             <SectionKicker variant="light">REQUEST AN ON-SITE SPECTROMETRY TESTING</SectionKicker>
             <h2 className="mt-6 font-display text-[clamp(2rem,3.4vw,2.5rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">Quality You Can Trust. Verified By The Steel Test.</h2>
             <p className="mt-5 text-[15px] leading-[1.8] text-white/75">Share your project and testing requirement. The ARS team will contact you to arrange on-site spectrometer testing.</p>
           </div>
-          <div className="rounded-[8px] border border-ink-900/10 bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] md:p-8">
+          <div className="min-w-0 rounded-[8px] border border-ink-900/10 bg-white p-4 shadow-[0_20px_60px_rgba(15,23,42,0.06)] sm:p-6 md:p-8">
             <SteelTestingEnquiryForm />
           </div>
         </div>

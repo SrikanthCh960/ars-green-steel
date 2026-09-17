@@ -31,8 +31,8 @@ export function ContactEnquiryForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionId, setSubmissionId] = useState(() => crypto.randomUUID());
   const phoneHref = verifiedContactDetails.mobile.replace(/\s/g, "");
-  const controlClass = "focus-ring h-12 rounded-[6px] border bg-[#f8f9fb] px-4 text-base font-normal outline-none transition focus:border-brand-blue";
-  const labelClass = "grid gap-2 text-sm font-bold text-ink-900";
+  const controlClass = "focus-ring h-12 w-full min-w-0 max-w-full rounded-[6px] border bg-[#f8f9fb] px-4 text-base font-normal outline-none transition focus:border-brand-blue";
+  const labelClass = "grid min-w-0 gap-2 text-sm font-bold text-ink-900";
 
   function clearFieldError(field: string) {
     setErrors((current) => {
@@ -127,14 +127,14 @@ export function ContactEnquiryForm() {
   const errorMessage = (field: string) => errors[field] && <span id={`contact-${field}-error`} className="text-sm font-normal text-brand-red">{errors[field]}</span>;
 
   return (
-    <div className="rounded-[18px] border border-ink-900/10 bg-white p-5 shadow-[0_24px_80px_rgba(13,43,110,0.08)] md:p-7">
+    <div className="min-w-0 rounded-[18px] border border-ink-900/10 bg-white p-4 shadow-[0_24px_80px_rgba(13,43,110,0.08)] sm:p-5 md:p-7">
       <div className="mb-7">
         <SectionKicker>Sales enquiry</SectionKicker>
         <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Share your requirement.</h2>
         <p className="mt-4 max-w-xl text-[15px] leading-7 text-steel-700">Share your requirement and contact details. The ARS team will help route your enquiry to the right sales, dealer, or technical support contact.</p>
       </div>
 
-      <form className="grid gap-5" id="enquiry" onSubmit={handleSubmit} noValidate aria-busy={isSubmitting}>
+      <form className="grid min-w-0 gap-5" id="enquiry" data-lead-form onSubmit={handleSubmit} noValidate aria-busy={isSubmitting}>
         <input type="hidden" name="sourcePage" value="/contact" />
         <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true"><label htmlFor="contact-website">Website</label><input id="contact-website" name="website" tabIndex={-1} autoComplete="off" /></div>
 
@@ -150,7 +150,7 @@ export function ContactEnquiryForm() {
           <label className={labelClass} htmlFor="contact-city"><RequiredLabel>City / Location</RequiredLabel><input id="contact-city" name="city" autoComplete="address-level2" required maxLength={120} placeholder="Project city" className={`${controlClass} ${errors.city ? "border-brand-red" : "border-ink-900/12"}`} aria-invalid={Boolean(errors.city)} aria-describedby={describedBy("city")} onChange={() => clearFieldError("city")} />{errorMessage("city")}</label>
         </div>
 
-        <label className={labelClass} htmlFor="contact-requirement">Requirement <span className="font-normal text-steel-700">(optional)</span><textarea id="contact-requirement" name="requirement" maxLength={1000} className={`focus-ring min-h-36 rounded-[6px] border bg-[#f8f9fb] px-4 py-3 text-base font-normal outline-none transition focus:border-brand-blue ${errors.requirement ? "border-brand-red" : "border-ink-900/12"}`} placeholder="Tell us grade, size, quantity, delivery location, or project stage." aria-invalid={Boolean(errors.requirement)} aria-describedby={describedBy("requirement")} onChange={() => clearFieldError("requirement")} />{errorMessage("requirement")}</label>
+        <label className={labelClass} htmlFor="contact-requirement">Requirement <span className="font-normal text-steel-700">(optional)</span><textarea id="contact-requirement" name="requirement" maxLength={1000} className={`focus-ring min-h-36 w-full min-w-0 max-w-full rounded-[6px] border bg-[#f8f9fb] px-4 py-3 text-base font-normal outline-none transition focus:border-brand-blue ${errors.requirement ? "border-brand-red" : "border-ink-900/12"}`} placeholder="Tell us grade, size, quantity, delivery location, or project stage." aria-invalid={Boolean(errors.requirement)} aria-describedby={describedBy("requirement")} onChange={() => clearFieldError("requirement")} />{errorMessage("requirement")}</label>
 
         <p className="text-sm leading-6 text-steel-700">By submitting this form, you agree to be contacted by ARS Green Steel regarding your enquiry. View our <Link href="/privacy-policy" className="focus-ring font-bold text-brand-blue underline decoration-brand-blue/30 underline-offset-4 hover:text-brand-red">Privacy Policy</Link>.</p>
         <button type="submit" disabled={isSubmitting} className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-[#c90f16] disabled:cursor-wait disabled:opacity-65">{isSubmitting ? "Submitting…" : "Send Enquiry"} {!isSubmitting && <ArrowRight size={16} aria-hidden="true" />}</button>

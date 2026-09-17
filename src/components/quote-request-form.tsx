@@ -27,8 +27,8 @@ export function QuoteRequestForm({ title, body }: QuoteRequestFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionId, setSubmissionId] = useState(() => crypto.randomUUID());
   const phoneHref = verifiedContactDetails.mobile.replace(/\s/g, "");
-  const controlClass = "focus-ring h-12 rounded-[6px] border bg-[#f8f9fb] px-4 text-base font-normal outline-none transition focus:border-brand-blue";
-  const labelClass = "grid gap-2 text-sm font-bold text-ink-900";
+  const controlClass = "focus-ring h-12 w-full min-w-0 max-w-full rounded-[6px] border bg-[#f8f9fb] px-4 text-base font-normal outline-none transition focus:border-brand-blue";
+  const labelClass = "grid min-w-0 gap-2 text-sm font-bold text-ink-900";
 
   function clearFieldError(field: string) {
     setErrors((current) => {
@@ -127,14 +127,14 @@ export function QuoteRequestForm({ title, body }: QuoteRequestFormProps) {
   const errorMessage = (field: string) => errors[field] && <span id={`quote-${field}-error`} className="text-sm font-normal text-brand-red">{errors[field]}</span>;
 
   return (
-    <div className="rounded-[8px] border border-ink-900/10 bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] md:p-8">
+    <div className="min-w-0 rounded-[8px] border border-ink-900/10 bg-white p-4 shadow-[0_20px_60px_rgba(15,23,42,0.06)] sm:p-6 md:p-8">
       <div className="mb-8">
         <p className="text-xs font-bold uppercase tracking-[0.28em] text-brand-blue">Quote request</p>
         <h2 className="mt-4 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.04] tracking-normal text-ink-900">{title}</h2>
         <p className="mt-4 text-base leading-7 text-steel-700">{body}</p>
       </div>
 
-      <form className="grid gap-5" onSubmit={handleSubmit} noValidate aria-busy={isSubmitting}>
+      <form className="grid min-w-0 gap-5" data-lead-form onSubmit={handleSubmit} noValidate aria-busy={isSubmitting}>
         <input type="hidden" name="sourcePage" value="/request-quote" />
         <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true"><label htmlFor="quote-website">Website</label><input id="quote-website" name="website" tabIndex={-1} autoComplete="off" /></div>
 
@@ -155,7 +155,7 @@ export function QuoteRequestForm({ title, body }: QuoteRequestFormProps) {
           <label className={labelClass} htmlFor="quote-productType"><RequiredLabel>Product Type</RequiredLabel><select id="quote-productType" name="productType" defaultValue="" required className={`${controlClass} ${errors.productType ? "border-brand-red" : "border-ink-900/12"}`} aria-invalid={Boolean(errors.productType)} aria-describedby={describedBy("productType")} onChange={() => clearFieldError("productType")}><option value="" disabled>Select product</option>{productTypes.map((type) => <option key={type} value={type}>{type}</option>)}</select>{errorMessage("productType")}</label>
         </div>
 
-        <label className={labelClass} htmlFor="quote-requirement">Requirement <span className="font-normal text-steel-700">(optional)</span><textarea id="quote-requirement" name="requirement" maxLength={1000} className={`focus-ring min-h-32 rounded-[6px] border bg-[#f8f9fb] px-4 py-3 text-base font-normal outline-none transition focus:border-brand-blue ${errors.requirement ? "border-brand-red" : "border-ink-900/12"}`} placeholder="Share size, quantity, delivery location, project stage, or other details." aria-invalid={Boolean(errors.requirement)} aria-describedby={describedBy("requirement")} onChange={() => clearFieldError("requirement")} />{errorMessage("requirement")}</label>
+        <label className={labelClass} htmlFor="quote-requirement">Requirement <span className="font-normal text-steel-700">(optional)</span><textarea id="quote-requirement" name="requirement" maxLength={1000} className={`focus-ring min-h-32 w-full min-w-0 max-w-full rounded-[6px] border bg-[#f8f9fb] px-4 py-3 text-base font-normal outline-none transition focus:border-brand-blue ${errors.requirement ? "border-brand-red" : "border-ink-900/12"}`} placeholder="Share size, quantity, delivery location, project stage, or other details." aria-invalid={Boolean(errors.requirement)} aria-describedby={describedBy("requirement")} onChange={() => clearFieldError("requirement")} />{errorMessage("requirement")}</label>
 
         <p className="text-sm leading-6 text-steel-700">By submitting this form, you agree to be contacted by ARS Green Steel regarding your quote request. View our <Link href="/privacy-policy" className="focus-ring font-bold text-brand-blue underline decoration-brand-blue/30 underline-offset-4 hover:text-brand-red">Privacy Policy</Link>.</p>
         <button type="submit" disabled={isSubmitting} className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-[#c90f16] disabled:cursor-wait disabled:opacity-65">{isSubmitting ? "Submitting…" : "Send Quote Request"} {!isSubmitting && <ArrowRight size={16} aria-hidden="true" />}</button>

@@ -35,8 +35,8 @@ export function DistributorEnquiryForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionId, setSubmissionId] = useState(() => crypto.randomUUID());
   const phoneHref = verifiedContactDetails.mobile.replace(/\s/g, "");
-  const controlClass = "focus-ring h-12 rounded-[6px] border bg-[#f8f9fb] px-4 text-base font-normal outline-none transition focus:border-brand-blue";
-  const labelClass = "grid gap-2 text-sm font-bold text-ink-900";
+  const controlClass = "focus-ring h-12 w-full min-w-0 max-w-full rounded-[6px] border bg-[#f8f9fb] px-4 text-base font-normal outline-none transition focus:border-brand-blue";
+  const labelClass = "grid min-w-0 gap-2 text-sm font-bold text-ink-900";
 
   function clearFieldError(field: string) {
     setErrors((current) => {
@@ -140,7 +140,7 @@ export function DistributorEnquiryForm() {
 
   return (
     <div className="grid overflow-hidden rounded-[8px] border border-ink-900/10 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.06)] lg:grid-cols-[0.72fr_1.28fr]">
-      <div className="bg-brand-blue p-7 text-white md:p-10 lg:p-12">
+      <div className="bg-brand-blue p-4 text-white sm:p-7 md:p-10 lg:p-12">
         <p className="font-technical text-xs font-black uppercase tracking-[0.22em] text-white/60">Distributor enquiry</p>
         <h2 id="distributor-enquiry-title" className="mt-5 max-w-md font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.06] text-white">Start your distributor enquiry.</h2>
         <p className="mt-5 text-base leading-7 text-white/75">Share your business profile and location so the ARS team can route your enquiry to the right partnership or support contact.</p>
@@ -150,8 +150,8 @@ export function DistributorEnquiryForm() {
         <a href={`tel:${phoneHref}`} className="focus-ring mt-10 inline-flex min-h-12 items-center gap-2 rounded-[6px] border border-white/25 px-5 py-2.5 text-sm font-bold text-white transition hover:border-white/50 hover:bg-white/10"><Phone size={17} aria-hidden="true" /> Call {verifiedContactDetails.mobile}</a>
       </div>
 
-      <div className="p-7 md:p-10 lg:p-12">
-        <form className="grid gap-5" aria-labelledby="distributor-enquiry-title" onSubmit={handleSubmit} noValidate aria-busy={isSubmitting}>
+      <div className="min-w-0 p-4 sm:p-7 md:p-10 lg:p-12">
+        <form className="grid min-w-0 gap-5" data-lead-form aria-labelledby="distributor-enquiry-title" onSubmit={handleSubmit} noValidate aria-busy={isSubmitting}>
           <input type="hidden" name="sourcePage" value="/become-a-steel-distributor" />
           <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true"><label htmlFor="distributor-website">Website</label><input id="distributor-website" name="website" tabIndex={-1} autoComplete="off" /></div>
 
@@ -167,14 +167,14 @@ export function DistributorEnquiryForm() {
             <label className={labelClass} htmlFor="distributor-district"><RequiredLabel>District</RequiredLabel><input id="distributor-district" name="district" autoComplete="address-level2" required maxLength={100} className={`${controlClass} ${errors.district ? "border-brand-red" : "border-ink-900/12"}`} aria-invalid={Boolean(errors.district)} aria-describedby={describedBy("district")} onChange={() => clearFieldError("district")} />{errorMessage("district")}</label>
           </div>
 
-          <label className={labelClass} htmlFor="distributor-pincode"><RequiredLabel>Pincode</RequiredLabel><input id="distributor-pincode" name="pincode" inputMode="numeric" autoComplete="postal-code" required maxLength={10} placeholder="600001" className={`${controlClass} ${errors.pincode ? "border-brand-red" : "border-ink-900/12"}`} aria-invalid={Boolean(errors.pincode)} aria-describedby={describedBy("pincode")} onChange={() => clearFieldError("pincode")} />{errorMessage("pincode")}</label>
+          <label className={labelClass} htmlFor="distributor-pincode"><RequiredLabel>Pincode</RequiredLabel><input id="distributor-pincode" name="pincode" inputMode="numeric" autoComplete="postal-code" required maxLength={6} placeholder="600001" className={`${controlClass} ${errors.pincode ? "border-brand-red" : "border-ink-900/12"}`} aria-invalid={Boolean(errors.pincode)} aria-describedby={describedBy("pincode")} onChange={() => clearFieldError("pincode")} />{errorMessage("pincode")}</label>
 
           <div className="grid gap-5 md:grid-cols-2">
             <label className={labelClass} htmlFor="distributor-userType"><RequiredLabel>Type of User</RequiredLabel><select id="distributor-userType" name="userType" defaultValue="" required className={`${controlClass} ${errors.userType ? "border-brand-red" : "border-ink-900/12"}`} aria-invalid={Boolean(errors.userType)} aria-describedby={describedBy("userType")} onChange={() => clearFieldError("userType")}><option value="" disabled>Select user type</option>{userTypes.map((type) => <option key={type} value={type}>{type}</option>)}</select>{errorMessage("userType")}</label>
             <label className={labelClass} htmlFor="distributor-enquiryType"><RequiredLabel>Enquiry Type</RequiredLabel><select id="distributor-enquiryType" name="enquiryType" defaultValue="" required className={`${controlClass} ${errors.enquiryType ? "border-brand-red" : "border-ink-900/12"}`} aria-invalid={Boolean(errors.enquiryType)} aria-describedby={describedBy("enquiryType")} onChange={() => clearFieldError("enquiryType")}><option value="" disabled>Select enquiry type</option>{enquiryTypes.map((type) => <option key={type} value={type}>{type}</option>)}</select>{errorMessage("enquiryType")}</label>
           </div>
 
-          <label className={labelClass} htmlFor="distributor-enquiryDetails"><RequiredLabel>Enquiry Details</RequiredLabel><textarea id="distributor-enquiryDetails" name="enquiryDetails" required minLength={10} maxLength={1500} className={`focus-ring min-h-36 rounded-[6px] border bg-[#f8f9fb] px-4 py-3 text-base font-normal outline-none transition focus:border-brand-blue ${errors.enquiryDetails ? "border-brand-red" : "border-ink-900/12"}`} placeholder="Tell us about your business, location, partnership interest, support request, or enquiry." aria-invalid={Boolean(errors.enquiryDetails)} aria-describedby={describedBy("enquiryDetails")} onChange={() => clearFieldError("enquiryDetails")} />{errorMessage("enquiryDetails")}</label>
+          <label className={labelClass} htmlFor="distributor-enquiryDetails"><RequiredLabel>Enquiry Details</RequiredLabel><textarea id="distributor-enquiryDetails" name="enquiryDetails" required minLength={10} maxLength={1500} className={`focus-ring min-h-36 w-full min-w-0 max-w-full rounded-[6px] border bg-[#f8f9fb] px-4 py-3 text-base font-normal outline-none transition focus:border-brand-blue ${errors.enquiryDetails ? "border-brand-red" : "border-ink-900/12"}`} placeholder="Tell us about your business, location, partnership interest, support request, or enquiry." aria-invalid={Boolean(errors.enquiryDetails)} aria-describedby={describedBy("enquiryDetails")} onChange={() => clearFieldError("enquiryDetails")} />{errorMessage("enquiryDetails")}</label>
 
           <p className="text-sm leading-6 text-steel-700">By submitting this form, you agree to be contacted by ARS Green Steel regarding your distributor enquiry. View our <Link href="/privacy-policy" className="focus-ring font-bold text-brand-blue underline decoration-brand-blue/30 underline-offset-4 hover:text-brand-red">Privacy Policy</Link>.</p>
           <button type="submit" disabled={isSubmitting} className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-[#c90f16] disabled:cursor-wait disabled:opacity-65">{isSubmitting ? "Submitting…" : "Send Distributor Enquiry"} {!isSubmitting && <ArrowRight size={16} aria-hidden="true" />}</button>

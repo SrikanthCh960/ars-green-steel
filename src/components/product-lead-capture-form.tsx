@@ -130,8 +130,8 @@ export function ProductLeadCaptureForm({ product, trustItems, showCallSales = tr
   }
 
   const phone = verifiedContactDetails.mobile.replace(/\s/g, "");
-  const controlClass = "focus-ring h-12 rounded-[6px] border bg-[#f8f9fb] px-4 text-base font-normal outline-none transition focus:border-brand-blue";
-  const labelClass = "grid gap-2 text-sm font-bold text-ink-900";
+  const controlClass = "focus-ring h-12 w-full min-w-0 max-w-full rounded-[6px] border bg-[#f8f9fb] px-4 text-base font-normal outline-none transition focus:border-brand-blue";
+  const labelClass = "grid min-w-0 gap-2 text-sm font-bold text-ink-900";
   const describedBy = (field: string) => errors[field] ? `${fieldId}-${field}-error` : undefined;
   const errorMessage = (field: string) => errors[field] && <span id={`${fieldId}-${field}-error`} className="text-sm font-normal text-brand-red">{errors[field]}</span>;
 
@@ -139,7 +139,7 @@ export function ProductLeadCaptureForm({ product, trustItems, showCallSales = tr
     <section className="bg-surface-50 py-20 md:py-24" aria-labelledby={`${fieldId}-title`}>
       <div className="ars-container">
         <div className="grid overflow-hidden rounded-[8px] border border-ink-900/10 bg-white shadow-[0_20px_60px_rgba(15,23,42,0.06)] lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="bg-brand-blue p-7 text-white md:p-10 lg:p-12">
+          <div className="bg-brand-blue p-4 text-white sm:p-7 md:p-10 lg:p-12">
             <p className="font-technical text-xs font-black uppercase tracking-[0.22em] text-white/60">Product enquiry</p>
             <h2 id={`${fieldId}-title`} className="mt-5 max-w-md font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.06] text-white">Get a Quote for {product}</h2>
             <p className="mt-5 text-base leading-7 text-white/75">Share your project location and contact details so our sales team can respond with the right product support.</p>
@@ -154,8 +154,8 @@ export function ProductLeadCaptureForm({ product, trustItems, showCallSales = tr
             {showCallSales && <a href={`tel:${phone}`} className="focus-ring mt-10 inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 px-5 py-2.5 text-sm font-bold text-white transition hover:border-white/50 hover:bg-white/10"><Phone size={16} aria-hidden="true" /> Call Sales</a>}
           </div>
 
-          <div className="p-7 md:p-10 lg:p-12">
-            <form className="grid gap-5" onSubmit={handleSubmit} noValidate aria-busy={isSubmitting}>
+          <div className="min-w-0 p-4 sm:p-7 md:p-10 lg:p-12">
+            <form className="grid min-w-0 gap-5" data-lead-form onSubmit={handleSubmit} noValidate aria-busy={isSubmitting}>
               <input type="hidden" name="product" value={product} />
               <input type="hidden" name="sourcePage" value={sourcePages[product]} />
               <div className="absolute -left-[10000px] h-px w-px overflow-hidden" aria-hidden="true"><label htmlFor={`${fieldId}-website`}>Website</label><input id={`${fieldId}-website`} name="website" tabIndex={-1} autoComplete="off" /></div>
@@ -172,7 +172,7 @@ export function ProductLeadCaptureForm({ product, trustItems, showCallSales = tr
                 <label className={labelClass} htmlFor={`${fieldId}-city`}><RequiredLabel>City / Project Location</RequiredLabel><input id={`${fieldId}-city`} name="city" autoComplete="address-level2" required maxLength={120} placeholder="Enter city or project location" className={`${controlClass} ${errors.city ? "border-brand-red" : "border-ink-900/12"}`} aria-invalid={Boolean(errors.city)} aria-describedby={describedBy("city")} onChange={() => clearFieldError("city")} />{errorMessage("city")}</label>
               </div>
 
-              <label className={labelClass} htmlFor={`${fieldId}-requirement`}>Requirement <span className="font-normal text-steel-700">(optional)</span><textarea id={`${fieldId}-requirement`} name="requirement" maxLength={1000} className={`focus-ring min-h-32 rounded-[6px] border bg-[#f8f9fb] px-4 py-3 text-base font-normal outline-none transition focus:border-brand-blue ${errors.requirement ? "border-brand-red" : "border-ink-900/12"}`} placeholder="Size, quantity, delivery location, or project stage" aria-invalid={Boolean(errors.requirement)} aria-describedby={describedBy("requirement")} onChange={() => clearFieldError("requirement")} />{errorMessage("requirement")}</label>
+              <label className={labelClass} htmlFor={`${fieldId}-requirement`}>Requirement <span className="font-normal text-steel-700">(optional)</span><textarea id={`${fieldId}-requirement`} name="requirement" maxLength={1000} className={`focus-ring min-h-32 w-full min-w-0 max-w-full rounded-[6px] border bg-[#f8f9fb] px-4 py-3 text-base font-normal outline-none transition focus:border-brand-blue ${errors.requirement ? "border-brand-red" : "border-ink-900/12"}`} placeholder="Size, quantity, delivery location, or project stage" aria-invalid={Boolean(errors.requirement)} aria-describedby={describedBy("requirement")} onChange={() => clearFieldError("requirement")} />{errorMessage("requirement")}</label>
 
               <p className="text-sm leading-6 text-steel-700">By submitting this form, you agree to be contacted by ARS Green Steel regarding your enquiry. View our <Link href="/privacy-policy" className="focus-ring font-bold text-brand-blue underline decoration-brand-blue/30 underline-offset-4 hover:text-brand-red">Privacy Policy</Link>.</p>
               <button type="submit" disabled={isSubmitting} className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:bg-[#c90f16] disabled:cursor-wait disabled:opacity-65">{isSubmitting ? "Submitting…" : "Get a Quote"} {!isSubmitting && <ArrowRight size={16} aria-hidden="true" />}</button>
