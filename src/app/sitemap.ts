@@ -16,6 +16,7 @@ const staticRoutes = [
   "/industries",
   "/institutions-projects-tmt-steel-bars",
   "/manufacturing",
+  "/news-press-releases",
   "/our-quality",
   "/our-team",
   "/vision-mission",
@@ -42,6 +43,7 @@ const staticRoutes = [
   "/tmt-steel-price-today",
   "/tmt-steel-calculator",
   "/terms-of-use",
+  "/tv-commercials",
 ];
 
 // Redirect destinations are the canonical pages; legacy redirect URLs must not

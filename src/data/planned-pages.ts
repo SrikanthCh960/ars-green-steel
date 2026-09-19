@@ -7,8 +7,6 @@ export const plannedPages = [
   { slug: "careers", title: "Career" },
   { slug: "faqs", title: "FAQs" },
   { slug: "press-media", title: "Press Media" },
-  { slug: "tv-commercials", title: "TV Commercials" },
-  { slug: "news-press-releases", title: "News & Press Releases" },
   { slug: "events", title: "Events" },
   { slug: "gallery", title: "Gallery" },
   { slug: "success-stories", title: "Success Stories" },
