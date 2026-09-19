@@ -7,6 +7,9 @@ export type BlogMigrationEntry = {
   title: string;
   sourceH1?: string;
   renderedH1?: string;
+  archiveTitle?: string;
+  excerpt?: string;
+  readTime?: string;
   publishDate: string;
   modifiedDate: string;
   author: string;

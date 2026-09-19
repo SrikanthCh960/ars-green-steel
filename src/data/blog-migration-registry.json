@@ -4154,11 +4154,14 @@
     "originalUrl": "https://arsgroup.in/blog/tmt-steel-bar-weight.html",
     "finalUrl": "https://arsgroup.in/blog/tmt-steel-bar-weight.html",
     "slug": "tmt-steel-bar-weight-8mm-10mm-12-mm-16mm-steel-bars",
-    "title": "TMT Steel Bar Weight - 8mm, 10mm, 12 mm & 16mm steel bars",
+    "title": "TMT Steel Bar Weight Chart – 8mm to 32mm Steel Bars",
     "sourceH1": "",
-    "renderedH1": "TMT Steel Bar Weight - 8mm, 10mm, 12 mm & 16mm steel bars",
+    "renderedH1": "TMT Steel Bar Weight Chart – 8mm to 32mm Steel Bars",
+    "archiveTitle": "TMT Steel Bar Weight Chart – 8mm to 32mm Steel Bars",
+    "excerpt": "Compare ARS TMT bar weight for 8mm–32mm sizes, including kg/m, approximately 40 ft rod weight, pieces per bundle, bundle weight and bars per tonne.",
+    "readTime": "9 min read",
     "publishDate": "2024-01-23 06:09:55",
-    "modifiedDate": "2024-09-24 12:59:35",
+    "modifiedDate": "2026-09-19 18:06:41",
     "author": "sivakarthikeyan",
     "categories": [
       "Uncategorized"
@@ -4178,19 +4181,23 @@
       "sourceUrl": "/ars-assets/blog-banners/tmt-steel-bar-weight-8mm-10mm-12-mm-16mm-steel-bars/steel.webp",
       "fileName": "steel.webp"
     },
-    "yoastSeoTitle": "Explore the Weight of 8mm, 10mm, 12mm, 16mm tmt Steel Bars",
-    "yoastMetaDescription": "Explore the TMT Bar Weight Chart: Comprehensive Information on Various Sizes such as 8mm, 10mm, 12mm, 16mm tmt steel bar. Find the formula to calculate weight of any TMT bar.",
-    "focusKeyword": "steel rod weight, 8mm steel rod weight, 10mm steel rod weight, 12mm steel rod weight, 16mm steel rod weight",
+    "yoastSeoTitle": "TMT Steel Bar Weight Chart: 8mm–32mm, 40 ft & Bundle | ARS",
+    "yoastMetaDescription": "Check ARS TMT steel bar weight for 8mm–32mm bars, including kg/m, 40 ft rod weight, pieces per bundle, bundle weight and bars per tonne.",
+    "focusKeyword": "TMT steel bar weight chart, steel rod weight, 8mm to 32mm TMT bar weight, 40 ft rod weight, TMT bundle weight, bars per tonne",
     "migrationStatus": "Migrated — approved",
-    "contentParityStatus": "Exact match",
-    "seoParityStatus": "Exact match",
+    "contentParityStatus": "Approved editorial improvement",
+    "seoParityStatus": "Approved editorial improvement",
     "redirectStatus": "Exact route required",
     "htmlSanitizationStatus": "Passed",
     "sanitizationNotes": [],
-    "approvedChanges": [],
-    "notes": "Source-of-truth values extracted from WordPress XML. Do not approve parity until the rendered article is compared section by section.",
-    "reviewedAt": "2026-07-22T06:03:29.117513+00:00",
-    "reviewedBy": "Codex XML parity review",
+    "approvedChanges": [
+      "2026-09-19 HCV-supplied content update replaces the visible article with the approved 8mm–32mm weight chart, diameter sections, calculation guidance, tolerance explanation, FAQs and conclusion while preserving the existing URL.",
+      "Updated the SEO title, meta description, visible H1, archive title, excerpt, reading time, internal links and modified date.",
+      "Added a responsive semantic comparison table, accessible FAQ disclosures, curated section navigation and contextual calculator action."
+    ],
+    "notes": "The XML-backed fullContentHtml remains preserved as historical migration evidence. The approved HCV editorial replacement is rendered by src/components/tmt-steel-bar-weight-guide.tsx through the shared article template.",
+    "reviewedAt": "2026-09-19T18:06:41+05:30",
+    "reviewedBy": "HCV content update / Codex implementation review",
     "reviewEvidence": {
       "source": "arssteel.WordPress.2026-07-21.xml",
       "sourcePostSlug": "tmt-steel-bar-weight-8mm-10mm-12-mm-16mm-steel-bars",
@@ -4205,10 +4212,14 @@
       "featuredImageUrl": "/ars-assets/blog-banners/tmt-steel-bar-weight-8mm-10mm-12-mm-16mm-steel-bars/steel.webp",
       "canonical": "https://arsgroup.in/blog/tmt-steel-bar-weight.html",
       "robots": "noindex, nofollow unless NEXT_PUBLIC_SITE_URL=https://arsgroup.in; index, follow only on that production domain",
-      "openGraphAndTwitter": "Generated from the XML-backed Yoast title, description, and featured image in src/app/blog/[slug]/page.tsx.",
-      "structuredData": "Article JSON-LD generated from XML-backed title, description, image, author, canonical, and dates in src/components/blog-article-template.tsx."
+      "openGraphAndTwitter": "Generated from the approved editorial title, description, canonical, and retained local featured image in src/app/blog/[slug]/page.tsx.",
+      "structuredData": "BlogPosting JSON-LD uses the approved visible headline, description, image, author, canonical, and dates. Matching FAQPage JSON-LD is rendered for the visible FAQ disclosures."
     },
-    "approvalNotes": [],
+    "approvalNotes": [
+      "Existing canonical route retained without redirect.",
+      "All supplied nominal, minimum, maximum, bundle and bars-per-tonne figures were implemented without changing their values.",
+      "The 40 ft calculation basis remains approximately 12.2 metres as stated in the supplied content."
+    ],
     "issueDetails": []
   },
   {

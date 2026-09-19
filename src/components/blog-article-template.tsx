@@ -15,6 +15,11 @@ import {
 import { ContactCta } from "@/components/contact-cta";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
+import {
+  TmtSteelBarWeightGuide,
+  tmtSteelBarWeightFaqs,
+  tmtSteelBarWeightHeadings,
+} from "@/components/tmt-steel-bar-weight-guide";
 import { getBlogArchiveArticles, type BlogArchiveArticle } from "@/lib/blog-content";
 import { getBlogMigrationEntry } from "@/lib/blog-migration";
 import type { LegacyPage } from "@/lib/legacy-content";
@@ -238,8 +243,11 @@ export function BlogArticleTemplate({
   const preparedArticle = registryEntry?.fullContentHtml
     ? prepareArticleHtml(registryEntry.fullContentHtml)
     : null;
+  const isTmtSteelBarWeightGuide = article.href === "/blog/tmt-steel-bar-weight.html";
   const articleHeadings = preparedArticle?.headings ?? fallbackSections;
-  const visibleArticleHeadings = articleHeadings.slice(0, 10);
+  const visibleArticleHeadings = isTmtSteelBarWeightGuide
+    ? tmtSteelBarWeightHeadings
+    : articleHeadings.slice(0, 10);
   const hasArticleNavigation = visibleArticleHeadings.length > 0;
 
   const articleUrl = `${productionDomain}/blog/${article.slug}`;
@@ -247,7 +255,7 @@ export function BlogArticleTemplate({
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "@id": `${articleUrl}#blogposting`,
-    headline: registryEntry?.yoastSeoTitle || article.title,
+    headline: articleTitle,
     description: registryEntry?.yoastMetaDescription || article.excerpt,
     image: articleImage.startsWith("http") ? articleImage : `${productionDomain}${articleImage}`,
     author: {
@@ -271,6 +279,20 @@ export function BlogArticleTemplate({
       undefined,
   };
   const jsonLdString = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
+  const faqJsonLdString = isTmtSteelBarWeightGuide
+    ? JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: tmtSteelBarWeightFaqs.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      }).replace(/</g, "\\u003c")
+    : null;
 
   return (
     <main id="main-content" className="min-h-screen overflow-x-clip bg-white text-ink-900">
@@ -279,6 +301,12 @@ export function BlogArticleTemplate({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdString }}
       />
+      {faqJsonLdString ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: faqJsonLdString }}
+        />
+      ) : null}
 
       <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-bg-dark text-white">
         <Image
@@ -312,14 +340,14 @@ export function BlogArticleTemplate({
               </p>
             </div>
 
-            <div className="border-l border-white/18 pl-6 lg:justify-self-end lg:pl-8">
+            <div className="border-l border-white/18 pl-6 lg:justify-self-end lg:pl-8 lg:pr-14 2xl:pr-0">
               <p className="font-technical text-xs font-medium uppercase tracking-[0.2em] text-white/54">
                 Article guide
               </p>
               <div className="mt-5 grid grid-cols-2 gap-6">
                 <div>
                   <strong className="block font-display text-3xl font-bold text-white">
-                    {fallbackSections.length}
+                    {visibleArticleHeadings.length}
                   </strong>
                   <span className="mt-1 block text-sm text-white/58">Sections</span>
                 </div>
@@ -400,7 +428,9 @@ export function BlogArticleTemplate({
               </div>
             </div>
 
-            {preparedArticle ? (
+            {isTmtSteelBarWeightGuide ? (
+              <TmtSteelBarWeightGuide />
+            ) : preparedArticle ? (
               <div className="blog-source-content" dangerouslySetInnerHTML={{ __html: preparedArticle.contentHtml }} />
             ) : fallbackSections.map((section, index) => (
               <section

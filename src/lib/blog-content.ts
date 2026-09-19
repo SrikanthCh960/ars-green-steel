@@ -189,19 +189,19 @@ export function getBlogArchiveArticles(): BlogArchiveArticle[] {
   return getLegacyBlogPages()
     .map((page) => {
       const category = getCategory(page);
-      const title = cleanBlogTitle(page);
       const date = getDate(page);
       const migrationEntry = getBlogMigrationEntry(page.slug);
+      const title = migrationEntry?.archiveTitle || cleanBlogTitle(page);
       const featuredImage = migrationEntry?.featuredImage;
 
       return {
         slug: page.slug.replace(/^blog\//, ""),
         href: page.path,
         title,
-        excerpt: getBlogExcerpt(page, title),
+        excerpt: migrationEntry?.excerpt || getBlogExcerpt(page, title),
         category,
         ...date,
-        readTime: getReadTime(page),
+        readTime: migrationEntry?.readTime || getReadTime(page),
         image: featuredImage?.url || categoryImages[category],
         imageAlt: featuredImage?.alt ?? `${category} guide from ARS Green Steel`,
       };
