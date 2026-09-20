@@ -316,7 +316,7 @@ export default function SteelPriceTodayPage() {
 
           <dl className="my-8 grid gap-px overflow-hidden rounded-xl border border-brand-blue/10 bg-brand-blue/10 sm:grid-cols-2 xl:grid-cols-4">
             {[
-              ["Workbook approved", pricingWorkbookDetails.approvedOnLabel],
+              ["Price updated on", pricingWorkbookDetails.approvedOnLabel],
               ["Source", pricingWorkbookDetails.sourceLabel],
               ["Reviewed by", pricingWorkbookDetails.reviewedBy],
               ["Review cadence", pricingWorkbookDetails.reviewCadence],
