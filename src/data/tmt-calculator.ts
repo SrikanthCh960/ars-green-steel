@@ -27,6 +27,18 @@ export const calculatorBars = [
 export type CalculatorBar = (typeof calculatorBars)[number];
 export type CalculatorInputs = Record<string, number>;
 
+export const pricingWorkbookDetails = {
+  approvedOn: "2026-09-05",
+  approvedOnLabel: "5 September 2026",
+  sourceLabel: "ARS approved region-wise pricing workbook",
+  reviewedBy: "ARS sales and pricing department",
+  reviewCadence: "Updated whenever ARS issues an approved pricing workbook",
+  taxesIncluded: true,
+  freightIncluded: false,
+  loadingAndUnloadingIncluded: false,
+  quotationValidity: "Stated on the confirmed ARS quotation",
+} as const;
+
 // Approved source: Price - Formula workbook (Regionwise Vs Dia Vs Product) - New.xlsx.
 // Values mirror the workbook's base price, region adjustment, diameter adjustment, and GST formula.
 const workbookPriceInputs = {
@@ -59,6 +71,21 @@ export function getRatePerKg(region: string, product: string, size: string) {
 
   if (basePrice === undefined || regionAdjustment === undefined || diameterAdjustment === undefined) return 0;
   return ((basePrice + regionAdjustment + diameterAdjustment) * (1 + workbookPriceInputs.gst)) / 1000;
+}
+
+export function getWorkbookPriceRows(region: CalculatorRegion, product: CalculatorProduct) {
+  return calculatorBars.map((bar) => {
+    const perKg = getRatePerKg(region, product, bar.size);
+    const rodWeight = bar.meanBundleWeight / bar.piecesPerBundle;
+
+    return {
+      ...bar,
+      perKg,
+      perTon: perKg * 1000,
+      rodWeight,
+      approximateRodPrice: perKg * rodWeight,
+    };
+  });
 }
 
 export function calculateBar(bar: CalculatorBar, mode: RequirementMode, input: number) {

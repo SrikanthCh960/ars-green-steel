@@ -8,6 +8,8 @@ export const metadata = createPageMetadata({
   path: "/tmt-steel-price-today",
 });
 
+export const revalidate = 86400;
+
 export default function TmtSteelPriceTodayPage() {
   return <SteelPriceTodayPage />;
 }

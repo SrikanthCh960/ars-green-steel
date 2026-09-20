@@ -1,17 +1,34 @@
-import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ClipboardList, MapPin, ShieldCheck } from "lucide-react";
+import {
+  ArrowRight,
+  Calculator,
+  CalendarClock,
+  ClipboardCheck,
+  IndianRupee,
+  MapPin,
+  Scale,
+  ShieldCheck,
+  Truck,
+} from "lucide-react";
+import { FaqList } from "@/components/faq-list";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { SteelPriceLookup } from "@/components/steel-price-lookup";
-import { FaqList } from "@/components/faq-list";
-import { clientVerificationSummary } from "@/data/business-verification";
+import {
+  calculatorProducts,
+  getWorkbookPriceRows,
+  pricingWorkbookDetails,
+} from "@/data/tmt-calculator";
 import {
   getBlogArchiveArticle,
   type BlogArchiveArticle,
 } from "@/lib/blog-content";
+import {
+  createPageMetadata,
+  productionDomain,
+} from "@/lib/site-metadata";
 
 export const metadata = createPageMetadata({
   title: "Steel Price Today Per Kg in India | Latest TMT Steel Rates – ARS",
@@ -20,66 +37,20 @@ export const metadata = createPageMetadata({
   path: "/tmt-steel-price-today",
 });
 
-const stats = [
-  { value: "Step 01", label: "Select Region", sub: "Choose the region for your price lookup." },
-  { value: "Step 02", label: "Check Price", sub: "Review current ARS TMT price guidance." },
-  { value: "Step 03", label: "Estimate Quantity", sub: "Calculate the quantity your project needs." },
-  { value: "Step 04", label: "Request Quote", sub: "Share your requirement for an accurate quotation." },
-];
+export const revalidate = 86400;
 
-const nextSteps = [
-  {
-    icon: <ClipboardList size={20} />,
-    title: "Explore Products",
-    desc: "Compare ARS TMT products and find the right grade for your project.",
-    cta: "View products",
-    href: "/products",
-  },
-  {
-    icon: <MapPin size={20} />,
-    title: "Find dealer",
-    desc: "Use your location to discover nearby ARS supply support.",
-    cta: "Find a dealer",
-    href: "/our-network",
-  },
-  {
-    icon: <ClipboardList size={20} />,
-    title: "Request quote",
-    desc: "Share size, quantity, and site location for current pricing.",
-    cta: "Request quote",
-    href: "/request-quote",
-  },
-  {
-    icon: <ShieldCheck size={20} />,
-    title: "Verify quality",
-    desc: "Review product proof before making price the only factor.",
-    cta: "View proof",
-    href: "/our-certification",
-  },
-];
+const wholeCurrency = new Intl.NumberFormat("en-IN", {
+  style: "currency",
+  currency: "INR",
+  maximumFractionDigits: 0,
+});
 
-const calculatorBenefits = [
-  {
-    number: "01",
-    title: "TRANSPARENCY OF PRICE",
-    body: "Using a TMT calculator enhances transparency in pricing by providing detailed breakdowns of TMT steel bar requirements. This clarity helps users understand the cost implications of their projects and avoid unexpected expenses, promoting a more transparent procurement process.",
-  },
-  {
-    number: "02",
-    title: "EASE OF BUDGETING FOR PURCHASE",
-    body: "The TMT calculator simplifies the budgeting process by accurately estimating the quantity of TMT bars needed for a project. This precision allows for more accurate budget forecasts and financial planning, helping project managers allocate funds more effectively and efficiently.",
-  },
-  {
-    number: "03",
-    title: "ACCURACY OF DAY-TO-DAY INFORMATION",
-    body: "With the TMT calculator, users gain access to real-time data that reflects current market conditions and material costs. This feature ensures that all calculations are based on the most up-to-date information, allowing for more accurate planning and scheduling of construction activities.",
-  },
-  {
-    number: "04",
-    title: "COMPLIANCE TO MINISTRY OF STEEL NORMS",
-    body: "The TMT calculator is designed to align with the latest Ministry of Steel norms, ensuring that all calculations adhere to regulatory standards. This compliance not only fosters trust and credibility but also ensures that the project meets all legal requirements related to material usage and safety standards.",
-  },
-];
+const perKgCurrency = new Intl.NumberFormat("en-IN", {
+  style: "currency",
+  currency: "INR",
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
 
 const pricePlanningArticleSlugs = [
   "know-the-tmt-steel-price-today.html",
@@ -93,305 +64,468 @@ const pricePlanningArticles = pricePlanningArticleSlugs
 
 const steelPriceFaqs = [
   {
-    question: "What is the price of steel in India?",
-    answer: "Steel prices in India fluctuate regularly. To get the most accurate and up-to-date information, you should check with local steel suppliers or online resources.",
+    question: "What is today’s ARS TMT steel price per kg?",
+    answer:
+      "The selector above shows the current GST-inclusive prices from the approved ARS region-wise pricing workbook. Choose the region, grade, and diameter to see the applicable indicative rate per kg and per tonne.",
   },
   {
-    question: "Why steel prices are increasing today?",
-    answer: "Several factors can contribute to rising steel prices, including increased demand, higher raw material costs, and global economic conditions.",
+    question: "Is GST included in the displayed steel price?",
+    answer:
+      "Yes. The displayed workbook rates include GST. Freight, transportation, loading, and unloading are additional and are confirmed in the final quotation.",
   },
   {
-    question: "Where can I find the latest TMT prices?",
-    answer: "You can find the latest TMT steel prices by checking with local steel suppliers, consulting online price trackers, or following industry news sources.",
+    question: "What is the ARS TMT steel price per tonne?",
+    answer:
+      "The price table provides both per-kg and per-tonne values for every supported diameter. One tonne is calculated as 1,000 kg, using the same approved workbook rate.",
   },
   {
-    question: "How is the price of iron rods calculated per kg?",
-    answer: "The price of iron rods per kg is typically determined by factors such as the grade of steel, size, and market demand.",
+    question: "Are delivery and unloading charges included?",
+    answer:
+      "No. Delivery, transportation, loading, and unloading are not included in the displayed rate because these depend on the order quantity and delivery location.",
   },
   {
-    question: "What factors influence the price of steel?",
-    answer: "Steel prices are influenced by various factors, including global economic conditions, government policies, demand from key industries, and the cost of raw materials like iron ore and coal.",
+    question: "Why do 8 mm and 12 mm TMT bars have different prices?",
+    answer:
+      "The approved pricing workbook can apply a diameter adjustment to selected sizes. That is why the rate for 8 mm or 32 mm may differ from the rate shown for 12 mm in the same region and grade.",
   },
   {
-    question: "How does the grade of steel affect the price?",
-    answer: "Higher-grade steel, such as TMT steel, generally commands a higher price due to its superior strength and durability.",
+    question: "What is the difference between ARS Fe 550D and ARS CRS Fe 550D?",
+    answer:
+      "ARS Fe 550D is the high-strength construction grade, while ARS CRS Fe 550D is designed with additional corrosion-resistant properties. Review the product pages or speak with ARS to choose the grade appropriate for the project environment.",
   },
   {
-    question: "Can I lock in the steel price today for future orders?",
-    answer: "Some steel suppliers offer options to lock in prices for future orders, which can provide protection against price fluctuations.",
+    question: "How much does one 12-metre TMT rod cost?",
+    answer:
+      "The approximate price of one rod is the workbook mean weight per rod multiplied by the selected price per kg. The reference table on this page shows this calculation for Tamil Nadu ARS Fe 550D rates.",
   },
   {
-    question: "Does the steel price today include delivery costs?",
-    answer: "Delivery costs are typically not included in the base price of steel. You should inquire with your supplier for specific details.",
-  },
-  {
-    question: "How can I stay informed about changes in steel prices?",
-    answer: "To stay updated on steel price trends, you can subscribe to industry newsletters, follow steel-related news sources, or use online price tracking tools.",
+    question: "How can I get a confirmed ARS steel quotation?",
+    answer:
+      "Select your requirements above and request a quote by WhatsApp, or use the Request Quote form. ARS will confirm the order rate, quotation validity, quantity, and delivery-related charges.",
   },
 ] as const;
+
+const trustCards = [
+  {
+    icon: IndianRupee,
+    title: "GST included",
+    body: "Displayed workbook rates include GST for clearer initial budgeting.",
+  },
+  {
+    icon: Truck,
+    title: "Delivery quoted separately",
+    body: "Freight, transportation, loading, and unloading depend on the order and location.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "Quotation confirms the order",
+    body: "The final ARS quotation states the confirmed rate, validity, and commercial terms.",
+  },
+];
+
+const nextSteps = [
+  {
+    icon: Calculator,
+    title: "Estimate quantity",
+    body: "Convert rods, bundles, or weight into a practical material estimate.",
+    href: "/tmt-steel-calculator",
+    label: "Open calculator",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Compare ARS grades",
+    body: "Review Fe 550D and CRS Fe 550D before choosing a grade.",
+    href: "/products",
+    label: "Explore products",
+  },
+  {
+    icon: MapPin,
+    title: "Find supply support",
+    body: "Locate ARS distribution support for your project area.",
+    href: "/our-network",
+    label: "View network",
+  },
+];
+
+const tamilNaduPriceTables = calculatorProducts.map((product) => ({
+  product,
+  rows: getWorkbookPriceRows("Tamil Nadu", product),
+  href: product === "ARS CRS Fe 550D" ? "/product-crs-550d" : "/product-550d",
+}));
+
+const perRodRows = getWorkbookPriceRows("Tamil Nadu", "ARS Fe 550D");
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${productionDomain}/tmt-steel-price-today#webpage`,
+      url: `${productionDomain}/tmt-steel-price-today`,
+      name: "Steel Price Today Per Kg in India | Latest TMT Steel Rates – ARS",
+      description:
+        "Check today’s TMT steel price per kg and per tonne in Chennai, Tamil Nadu and South India. Compare ARS Fe 550D and CRS rates by bar size.",
+      isPartOf: { "@id": `${productionDomain}/#website` },
+      about: { "@id": `${productionDomain}/#organization` },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: productionDomain,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "TMT Steel Price Today",
+          item: `${productionDomain}/tmt-steel-price-today`,
+        },
+      ],
+    },
+    {
+      "@type": "Organization",
+      "@id": `${productionDomain}/#organization`,
+      name: "ARS Green Steel",
+      url: productionDomain,
+      logo: `${productionDomain}/ars-assets/ARS-green-bg.png`,
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: steelPriceFaqs.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+};
+
+function PriceTable({ product, rows, href }: (typeof tamilNaduPriceTables)[number]) {
+  return (
+    <article className="min-w-0 overflow-hidden rounded-2xl border border-brand-blue/12 bg-white shadow-[var(--shadow-soft)]">
+      <div className="flex flex-col gap-3 border-b border-ink-900/10 bg-surface-50 p-5 sm:flex-row sm:items-center sm:justify-between md:p-6">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.12em] text-brand-red">Tamil Nadu reference</p>
+          <h3 className="mt-1 font-display text-xl font-bold text-ink-900">{product}</h3>
+        </div>
+        <Link className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue hover:text-brand-red" href={href}>
+          View product <ArrowRight className="size-4" aria-hidden="true" />
+        </Link>
+      </div>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[430px] border-collapse text-left text-sm">
+          <caption className="sr-only">Tamil Nadu {product} steel prices by diameter</caption>
+          <thead>
+            <tr className="border-b border-ink-900/10 text-[11px] font-bold uppercase tracking-[0.1em] text-steel-700">
+              <th scope="col" className="px-5 py-3 md:px-6">Diameter</th>
+              <th scope="col" className="px-4 py-3">Price / kg</th>
+              <th scope="col" className="px-5 py-3 text-right md:px-6">Price / tonne</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.size} className="border-b border-ink-900/8 last:border-0">
+                <th scope="row" className="px-5 py-3 font-bold text-brand-blue md:px-6">{row.size}</th>
+                <td className="px-4 py-3 text-steel-700">{perKgCurrency.format(row.perKg)}</td>
+                <td className="px-5 py-3 text-right font-bold text-ink-900 md:px-6">{wholeCurrency.format(row.perTon)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </article>
+  );
+}
 
 export default function SteelPriceTodayPage() {
   return (
     <main className="min-h-screen bg-surface-50 text-ink-900">
       <SiteHeader />
 
-      {/* ── Hero ── */}
-      <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative flex items-end overflow-hidden bg-ink-950">
-        <div className="absolute inset-0">
-          <picture className="absolute inset-0">
-            <source media="(max-width: 767px)" srcSet="/ars-assets/SteelPriceHeroBanner-mobile.webp" type="image/webp" />
-            <source srcSet="/ars-assets/SteelPriceHeroBanner-desktop.webp" type="image/webp" />
-            <img src="/ars-assets/SteelPriceHeroBanner.jpg" alt="ARS TMT steel bars" fetchPriority="high" decoding="async" className="h-full w-full object-cover" style={{ objectPosition: "center 50%" }} />
-          </picture>
-          <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(to right, rgba(6,13,30,0.95) 0%, rgba(6,13,30,0.65) 50%, rgba(6,13,30,0.2) 100%)" }}
+      <section className="ars-page-hero relative flex min-h-[500px] items-end overflow-hidden bg-ink-950 md:min-h-[560px] lg:min-h-[600px]">
+        <picture className="absolute inset-0">
+          <source media="(max-width: 767px)" srcSet="/ars-assets/SteelPriceHeroBanner-mobile.webp" type="image/webp" />
+          <source srcSet="/ars-assets/SteelPriceHeroBanner-desktop.webp" type="image/webp" />
+          <img
+            src="/ars-assets/SteelPriceHeroBanner.jpg"
+            alt="ARS TMT steel bars"
+            fetchPriority="high"
+            decoding="async"
+            className="h-full w-full object-cover"
           />
-          <div
-            className="absolute inset-0"
-            style={{ background: "linear-gradient(to top, rgba(6,13,30,0.9) 0%, transparent 55%)" }}
-          />
-        </div>
+        </picture>
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.96)_0%,rgba(6,13,30,0.72)_54%,rgba(6,13,30,0.26)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(6,13,30,0.9)_0%,transparent_58%)]" />
 
-        <div className="ars-container relative z-10 w-full pb-16">
-          <div className="max-w-2xl">
-            <div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />TMT Steel Price Today</div>
-            <h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1.0] tracking-[-0.025em] text-white">
+        <div className="ars-container relative z-10 w-full pb-12 md:pb-16">
+          <div className="max-w-3xl">
+            <SectionKicker variant="light">TMT Steel Price Today</SectionKicker>
+            <h1 className="mt-5 font-display text-[clamp(2.55rem,6vw,4.4rem)] font-extrabold leading-[1.02] tracking-[-0.03em] text-white">
               Latest Steel Price Today Per Kg in India | Current Steel Rates
             </h1>
-            <p className="mt-5 font-display text-[clamp(1.5rem,3vw,2.25rem)] font-bold leading-tight text-brand-red">Know Today&apos;s Price. Build with Confidence.</p>
-            <p className="mt-5 max-w-[460px] text-[15px] leading-[1.75] text-white/70">
-              Stay updated with the latest ARS TMT steel prices, compare available bar sizes, estimate your
-              project requirements, and request an accurate quotation—all in one place.
+            <p className="mt-5 max-w-2xl text-[15px] leading-7 text-white/76 md:text-base">
+              Compare indicative ARS Fe 550D and CRS Fe 550D rates by region and diameter, then request a confirmed quotation for your quantity and delivery location.
             </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <a className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-brand-red px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white hover:text-brand-blue" href="#price-table">
+                Check prices <ArrowRight className="size-4" aria-hidden="true" />
+              </a>
+              <Link className="focus-ring inline-flex min-h-12 items-center justify-center rounded-md border border-white/45 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white hover:text-brand-blue" href="/request-quote">
+                Request a quotation
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      <MotionSection className="border-b border-surface-100 bg-white py-14">
-        <div className="ars-container">
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-0 lg:divide-x lg:divide-ink-900/10">
-            {stats.map((step) => (
-              <div key={step.label} className="flex flex-col px-0 lg:items-center lg:px-8 lg:text-center">
-                <span className="font-display text-[clamp(1.8rem,2.5vw,2.4rem)] font-extrabold leading-none tracking-[-0.03em] text-brand-blue">
-                  {step.value}
-                </span>
-                <span className="mb-1 mt-1.5 text-[12px] font-bold uppercase tracking-[0.06em] text-ink-900">
-                  {step.label}
-                </span>
-                <span className="max-w-[200px] text-[12px] leading-normal text-grey-600">{step.sub}</span>
-              </div>
-            ))}
-          </div>
+      <section className="border-b border-brand-blue/10 bg-white py-9" aria-label="Price coverage">
+        <div className="ars-container grid grid-cols-2 gap-x-5 gap-y-7 lg:grid-cols-4 lg:divide-x lg:divide-ink-900/10">
+          {[
+            ["2", "ARS grades"],
+            ["7", "Bar diameters"],
+            ["4", "South Indian regions"],
+            ["12 m", "Standard bar length"],
+          ].map(([value, label]) => (
+            <div key={label} className="lg:px-8 first:lg:pl-0">
+              <p className="font-display text-3xl font-extrabold text-brand-blue">{value}</p>
+              <p className="mt-1 text-xs font-bold uppercase tracking-[0.08em] text-steel-700">{label}</p>
+            </div>
+          ))}
         </div>
-      </MotionSection>
+      </section>
 
-      <MotionSection className="border-y border-brand-blue/10 bg-white py-20 md:py-24">
-        <div className="ars-container">
-          <div className="max-w-4xl border-l-2 border-brand-red pl-6 md:pl-8">
-            <span aria-hidden="true" className="mb-5 block font-technical text-xs font-bold tracking-[0.22em] text-brand-blue/60">01</span>
-            <p className="text-[15px] leading-8 text-steel-700">
-              When it comes to construction projects, understanding the factors of TMT steel price is necessary. As a builder, being well-informed about the fluctuations and factors affecting TMT bar price can help you make informed decisions. You will need to explore the key factors to know about <Link href="/tmt-steel-calculator" className="focus-ring font-semibold text-brand-blue underline decoration-brand-blue/30 underline-offset-4 hover:text-brand-red">steel price today</Link> before embarking on any construction journey. TMT steel price today are subject to various factors that can cause fluctuations. Some of the key influencers include the cost of raw materials, market demand, production capacity, transportation costs, and an IS 1786 – 2008 standard certification adds to its value.
-            </p>
-          </div>
-        </div>
-      </MotionSection>
-
-      {/* ── Price table ── */}
-      <MotionSection className="bg-white py-24" id="price-table">
-        <div className="ars-container">
-          <div className="mb-12 grid items-end gap-10 lg:grid-cols-2">
+      <MotionSection className="bg-white py-16 md:py-24" id="price-table">
+        <div className="ars-container min-w-0">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
             <div>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                CHECK THE STEEL PRICE TODAY
+              <SectionKicker variant="brand">Approved ARS Pricing</SectionKicker>
+              <h2 className="mt-4 max-w-3xl font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.08] tracking-[-0.025em] text-ink-900">
+                Today&apos;s ARS TMT steel prices by bar size
               </h2>
             </div>
-            <p className="text-[15px] leading-[1.8] text-steel-700">
-              {clientVerificationSummary.pricing}
+            <p className="max-w-xl text-[15px] leading-7 text-steel-700">
+              Use these workbook-backed rates for initial planning. The confirmed selling price and commercial terms are provided in an ARS quotation.
             </p>
           </div>
+
+          <dl className="my-8 grid gap-px overflow-hidden rounded-xl border border-brand-blue/10 bg-brand-blue/10 sm:grid-cols-2 xl:grid-cols-4">
+            {[
+              ["Workbook approved", pricingWorkbookDetails.approvedOnLabel],
+              ["Source", pricingWorkbookDetails.sourceLabel],
+              ["Reviewed by", pricingWorkbookDetails.reviewedBy],
+              ["Review cadence", pricingWorkbookDetails.reviewCadence],
+            ].map(([term, detail]) => (
+              <div key={term} className="bg-surface-50 p-4 md:p-5">
+                <dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-brand-blue">{term}</dt>
+                <dd className="mt-1.5 text-sm leading-6 text-steel-700">{detail}</dd>
+              </div>
+            ))}
+          </dl>
 
           <SteelPriceLookup />
         </div>
       </MotionSection>
 
-      <MotionSection className="border-y border-brand-blue/10 bg-surface-50 py-20 md:py-24">
-        <div className="ars-container grid gap-12 md:grid-cols-2 md:gap-16">
-          <article className="relative overflow-hidden border-t-2 border-brand-blue pt-8">
-            <span aria-hidden="true" className="absolute right-0 top-1 font-display text-7xl font-extrabold leading-none tracking-[-0.08em] text-brand-blue/[0.07] md:text-8xl">02</span>
-            <p className="relative max-w-xl text-[15px] leading-8 text-steel-700">
-              By keeping an eye on these factors, you can better anticipate steel price today per kg currently and plan your construction budget accordingly. Some TMT bars are also optimized to withstand any weather condition and are also certified by international boards such as the SGS to support customer authentication. It is crucial to conduct thorough research and compare different brands and grades based on their specifications and reputation. This will ensure that you select the most suitable TMT bar price per kg for your construction project without compromising on quality or overspending.
-            </p>
-          </article>
-          <article className="relative overflow-hidden border-t-2 border-brand-red pt-8">
-            <span aria-hidden="true" className="absolute right-0 top-1 font-display text-7xl font-extrabold leading-none tracking-[-0.08em] text-brand-red/[0.07] md:text-8xl">03</span>
-            <p className="relative max-w-xl text-[15px] leading-8 text-steel-700">
-              Steel price today in India are subject to market dynamics, and understanding pricing patterns can be beneficial for your construction project. Analysing historical data, market trends, and expert forecasts can provide insights into price movements. By staying updated on pricing patterns, you can make better decisions regarding the timing of purchasing TMT steel, potentially saving costs in the long run.
-            </p>
-          </article>
-        </div>
-      </MotionSection>
-
-      <MotionSection className="bg-white py-20 md:py-24">
+      <MotionSection className="border-y border-brand-blue/10 bg-surface-50 py-16 md:py-20">
         <div className="ars-container">
-          <div className="mb-12 grid items-end gap-8 lg:grid-cols-2">
-            <div>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                BENEFITS OF USING A TMT CALCULATOR
-              </h2>
-            </div>
-            <p className="max-w-xl text-[15px] leading-8 text-steel-700">
-              Utilizing a TMT calculator brings a strategic advantage in managing construction projects by ensuring cost-efficiency, regulatory compliance, and accurate material planning.
+          <div className="max-w-3xl">
+            <SectionKicker variant="brand">Read the Rate Correctly</SectionKicker>
+            <h2 className="mt-4 font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">What the displayed price includes</h2>
+            <p className="mt-4 text-[15px] leading-7 text-steel-700">
+              The page separates indicative pricing from final commercial confirmation so procurement teams can plan without treating a website figure as an issued quotation.
             </p>
           </div>
-          <ol className="grid gap-px overflow-hidden rounded-[8px] border border-ink-900/10 bg-ink-900/10 md:grid-cols-2">
-            {calculatorBenefits.map((benefit) => (
-              <li key={benefit.title} className="bg-white p-7 md:p-8">
-                <span className="font-technical text-xs font-bold tracking-[0.2em] text-brand-red">{benefit.number}</span>
-                <h3 className="mt-5 font-display text-xl font-bold leading-tight text-ink-900">{benefit.title}</h3>
-                <p className="mt-3 max-w-xl text-sm leading-7 text-steel-700">{benefit.body}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </MotionSection>
-
-      <MotionSection className="bg-surface-50 py-20 md:py-24">
-        <div className="ars-container">
-          <div className="mb-14 grid items-end gap-10 lg:grid-cols-2">
-            <div>
-              <SectionKicker variant="brand">Next Steps</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                Do more than check a number.
-              </h2>
-            </div>
-            <p className="text-[15px] leading-[1.8] text-steel-700">
-              Price is one input. Estimate your requirement, find a dealer, verify quality, or move straight to a quote.
-            </p>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {nextSteps.map((step) => (
-              <Link
-                key={step.title}
-                href={step.href}
-                className="focus-ring group flex flex-col gap-5 rounded-2xl border-[1.5px] border-surface-100 bg-white p-7 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-              >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/[0.06] text-brand-blue">
-                  {step.icon}
-                </div>
-                <div className="flex-1">
-                  <h3 className="mb-2 font-display text-[16px] font-bold text-ink-900">{step.title}</h3>
-                  <p className="text-[13px] leading-[1.7] text-grey-600">{step.desc}</p>
-                </div>
-                <span className="inline-flex items-center gap-1.5 text-[12px] font-bold text-brand-red transition-all duration-200 group-hover:gap-2.5">
-                  {step.cta} <ArrowRight size={12} />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </MotionSection>
-
-      <MotionSection className="bg-surface-50 py-20 md:py-24">
-        <div className="ars-container grid gap-12 lg:grid-cols-[0.38fr_0.62fr]">
-          <div>
-            <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-              FREQUENTLY ASKED QUESTIONS ABOUT USING THE STEEL PRICE
-            </h2>
-          </div>
-          <FaqList items={steelPriceFaqs} />
-        </div>
-      </MotionSection>
-
-      <MotionSection className="bg-white py-20 md:py-24">
-        <div className="ars-container">
-          <div className="mb-14 grid items-end gap-10 lg:grid-cols-2">
-            <div>
-              <SectionKicker variant="brand">Price Planning Guides</SectionKicker>
-              <h2 className="font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">
-                Understand the price before you buy.
-              </h2>
-            </div>
-            <p className="text-[15px] leading-[1.8] text-steel-700">
-              Explore practical ARS guidance on checking today&apos;s price, the factors behind it,
-              and estimating the steel your project needs before requesting a confirmed quote.
-            </p>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-3">
-            {pricePlanningArticles.map((article) => (
-              <article
-                key={article.href}
-                className="group flex min-h-full flex-col overflow-hidden rounded-[8px] border border-brand-blue/10 bg-white shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-1 hover:border-brand-blue/28 hover:shadow-[0_20px_54px_rgba(13,43,110,0.12)]"
-              >
-                <Link
-                  href={article.href}
-                  className="focus-ring relative block aspect-[16/9] overflow-hidden bg-surface-100"
-                  aria-label={`Read ${article.title}`}
-                >
-                  <Image
-                    src={article.image}
-                    alt={article.imageAlt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition duration-500 group-hover:scale-[1.035]"
-                  />
-                  <span className="absolute inset-0 bg-gradient-to-t from-bg-dark/45 via-transparent to-transparent" />
-                  <span className="absolute bottom-4 left-4 rounded-[6px] bg-white/94 px-3 py-1.5 font-technical text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-brand-blue">
-                    {article.category}
-                  </span>
-                </Link>
-
-                <div className="flex flex-1 flex-col p-5 lg:p-6">
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-grey-600">
-                    {article.dateLabel ? <time>{article.dateLabel}</time> : null}
-                    {article.dateLabel ? <span aria-hidden="true">•</span> : null}
-                    <span>{article.readTime}</span>
-                  </div>
-
-                  <h3 className="mt-4 font-display text-xl font-bold leading-[1.25] text-ink-900">
-                    <Link href={article.href} className="focus-ring transition group-hover:text-brand-blue">
-                      {article.title}
-                    </Link>
-                  </h3>
-                  <p className="mt-3 line-clamp-3 text-sm leading-7 text-steel-700">
-                    {article.excerpt}
-                  </p>
-
-                  <Link
-                    href={article.href}
-                    className="focus-ring mt-auto inline-flex min-h-11 items-end gap-2 pt-6 text-sm font-bold text-brand-blue transition hover:text-brand-red"
-                  >
-                    Read article
-                    <ArrowRight
-                      size={17}
-                      className="mb-0.5 transition-transform duration-300 group-hover:translate-x-1"
-                    />
-                  </Link>
-                </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {trustCards.map(({ icon: Icon, title, body }) => (
+              <article key={title} className="rounded-2xl border border-brand-blue/10 bg-white p-6 md:p-7">
+                <Icon className="size-6 text-brand-red" aria-hidden="true" />
+                <h3 className="mt-5 font-display text-xl font-bold text-ink-900">{title}</h3>
+                <p className="mt-2 text-sm leading-7 text-steel-700">{body}</p>
               </article>
             ))}
           </div>
         </div>
       </MotionSection>
 
-      <section className="bg-brand-blue py-16 text-white md:py-20">
-        <div className="ars-container grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-          <div className="max-w-2xl">
-            <p className="font-technical text-xs font-black uppercase tracking-[0.22em] text-white/60">ENQUIRY</p>
-            <h2 className="mt-5 font-display text-[clamp(2rem,3.4vw,2.25rem)] font-bold leading-[1.1] tracking-[-0.025em] text-white">
-              Please complete this form with basic information you need.
-            </h2>
+      <MotionSection className="bg-white py-16 md:py-24">
+        <div className="ars-container">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
+            <div>
+              <SectionKicker variant="brand">Crawlable Price Reference</SectionKicker>
+              <h2 className="mt-4 font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">ARS Fe 550D vs CRS Fe 550D prices</h2>
+            </div>
+            <p className="text-[15px] leading-7 text-steel-700">
+              Tamil Nadu is shown below as a stable reference. The selector above provides approved workbook rates for every supported region. City selection helps with quotation and delivery context but does not alter the state-level rate.
+            </p>
           </div>
-          <Link
-            href="/request-quote"
-            className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white transition hover:opacity-90 lg:justify-self-end"
-          >
-            ORDER NOW <ArrowRight size={16} aria-hidden="true" />
-          </Link>
+          <div className="mt-10 grid min-w-0 gap-6 lg:grid-cols-2">
+            {tamilNaduPriceTables.map((table) => <PriceTable key={table.product} {...table} />)}
+          </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="border-y border-brand-blue/10 bg-surface-50 py-16 md:py-24">
+        <div className="ars-container">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
+            <div>
+              <SectionKicker variant="brand">Per-Rod Planning</SectionKicker>
+              <h2 className="mt-4 font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">How to calculate the price of one 12-metre TMT bar</h2>
+            </div>
+            <div className="rounded-xl border-l-4 border-brand-red bg-white p-5">
+              <p className="font-display text-lg font-bold text-ink-900">Mean weight per rod × price per kg = approximate price per rod</p>
+              <p className="mt-2 text-sm leading-6 text-steel-700">Reference: Tamil Nadu, ARS Fe 550D, GST-inclusive workbook rates.</p>
+            </div>
+          </div>
+
+          <div className="mt-10 hidden overflow-hidden rounded-2xl border border-brand-blue/12 bg-white md:block">
+            <table className="w-full border-collapse text-left text-sm">
+              <caption className="sr-only">Approximate ARS Fe 550D price per 12-metre rod in Tamil Nadu</caption>
+              <thead>
+                <tr className="border-b border-ink-900/10 bg-brand-blue text-[11px] font-bold uppercase tracking-[0.1em] text-white">
+                  <th scope="col" className="px-6 py-4">Diameter</th>
+                  <th scope="col" className="px-6 py-4">Workbook mean weight / rod</th>
+                  <th scope="col" className="px-6 py-4">Price / kg</th>
+                  <th scope="col" className="px-6 py-4 text-right">Approx. price / rod</th>
+                </tr>
+              </thead>
+              <tbody>
+                {perRodRows.map((row) => (
+                  <tr key={row.size} className="border-b border-ink-900/8 last:border-0">
+                    <th scope="row" className="px-6 py-4 font-bold text-brand-blue">{row.size}</th>
+                    <td className="px-6 py-4 text-steel-700">{row.rodWeight.toFixed(3)} kg</td>
+                    <td className="px-6 py-4 text-steel-700">{perKgCurrency.format(row.perKg)}</td>
+                    <td className="px-6 py-4 text-right font-bold text-ink-900">{wholeCurrency.format(row.approximateRodPrice)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <ul className="mt-8 grid gap-3 md:hidden" aria-label="Approximate ARS Fe 550D price per 12-metre rod in Tamil Nadu">
+            {perRodRows.map((row) => (
+              <li key={row.size} className="rounded-xl border border-brand-blue/12 bg-white p-5">
+                <div className="flex items-baseline justify-between gap-4">
+                  <span className="font-display text-xl font-extrabold text-brand-blue">{row.size}</span>
+                  <strong className="text-lg text-ink-900">{wholeCurrency.format(row.approximateRodPrice)} / rod</strong>
+                </div>
+                <p className="mt-2 text-sm text-steel-700">{row.rodWeight.toFixed(3)} kg mean weight × {perKgCurrency.format(row.perKg)} / kg</p>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-6 flex gap-3 rounded-xl border border-brand-blue/12 bg-white p-5 text-sm leading-6 text-steel-700">
+            <Scale className="mt-0.5 size-5 shrink-0 text-brand-blue" aria-hidden="true" />
+            <p>
+              These estimates use the approved pricing workbook&apos;s mean bundle weight per rod. Actual weights remain subject to applicable BIS tolerances. For nominal engineering weight guidance, read the <Link href="/blog/tmt-steel-bar-weight.html" className="focus-ring font-bold text-brand-blue underline decoration-brand-blue/25 underline-offset-4 hover:text-brand-red">TMT steel bar weight guide</Link>.
+            </p>
+          </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-white py-16 md:py-24">
+        <div className="ars-container grid gap-10 lg:grid-cols-[0.76fr_1.24fr] lg:gap-16">
+          <div>
+            <SectionKicker variant="brand">Buying Context</SectionKicker>
+            <h2 className="mt-4 font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">What affects TMT steel prices in Chennai?</h2>
+            <p className="mt-5 text-[15px] leading-7 text-steel-700">
+              Chennai uses the Tamil Nadu workbook rate. The final quotation can still vary according to the selected grade, diameter mix, order quantity, delivery location, and applicable logistics.
+            </p>
+          </div>
+          <ol className="grid gap-px overflow-hidden rounded-2xl border border-brand-blue/10 bg-brand-blue/10 sm:grid-cols-2">
+            {[
+              ["01", "Grade", "Fe 550D and CRS Fe 550D have different approved base rates."],
+              ["02", "Diameter", "Selected diameters may carry an adjustment in the approved workbook."],
+              ["03", "Quantity", "The required rods, bundles, and total weight shape the final order."],
+              ["04", "Delivery", "Freight and handling depend on the site location and order plan."],
+            ].map(([number, title, body]) => (
+              <li key={number} className="bg-surface-50 p-6 md:p-7">
+                <span className="font-technical text-xs font-bold tracking-[0.18em] text-brand-red">{number}</span>
+                <h3 className="mt-4 font-display text-lg font-bold text-ink-900">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-steel-700">{body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="border-y border-brand-blue/10 bg-surface-50 py-16 md:py-20">
+        <div className="ars-container grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
+          <div>
+            <SectionKicker variant="brand">Common Questions</SectionKicker>
+            <h2 className="mt-4 font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Steel price FAQs</h2>
+            <p className="mt-4 text-[15px] leading-7 text-steel-700">Clear answers on rates, tax, delivery, grades, and quotations.</p>
+          </div>
+          <FaqList items={steelPriceFaqs} />
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-white py-16 md:py-24">
+        <div className="ars-container">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
+            <div>
+              <SectionKicker variant="brand">Continue Planning</SectionKicker>
+              <h2 className="mt-4 font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Move from price checking to a project decision</h2>
+            </div>
+            <p className="text-[15px] leading-7 text-steel-700">Estimate your requirement, compare the available grades, or find ARS supply support before requesting a confirmed quotation.</p>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {nextSteps.map(({ icon: Icon, title, body, href, label }) => (
+              <Link key={title} href={href} className="focus-ring group flex min-h-full flex-col rounded-2xl border border-brand-blue/12 bg-surface-50 p-6 transition hover:-translate-y-0.5 hover:border-brand-blue/30 hover:shadow-[var(--shadow-soft)] md:p-7">
+                <Icon className="size-6 text-brand-red" aria-hidden="true" />
+                <h3 className="mt-5 font-display text-xl font-bold text-ink-900">{title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-7 text-steel-700">{body}</p>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-brand-blue group-hover:text-brand-red">{label} <ArrowRight className="size-4" aria-hidden="true" /></span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </MotionSection>
+
+      {pricePlanningArticles.length ? (
+        <MotionSection className="bg-surface-50 py-16 md:py-24">
+          <div className="ars-container">
+            <SectionKicker variant="brand">Price Planning Guides</SectionKicker>
+            <h2 className="mt-4 max-w-3xl font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Understand the price before you buy</h2>
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              {pricePlanningArticles.map((article) => (
+                <article key={article.href} className="group flex min-h-full flex-col overflow-hidden rounded-xl border border-brand-blue/10 bg-white shadow-[var(--shadow-soft)]">
+                  <Link href={article.href} className="focus-ring relative block aspect-[16/9] overflow-hidden bg-surface-100" aria-label={`Read ${article.title}`}>
+                    <Image src={article.image} alt={article.imageAlt} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-500 group-hover:scale-[1.035]" />
+                  </Link>
+                  <div className="flex flex-1 flex-col p-5 md:p-6">
+                    <p className="text-xs font-bold uppercase tracking-[0.1em] text-brand-red">{article.category}</p>
+                    <h3 className="mt-3 font-display text-xl font-bold leading-tight text-ink-900"><Link className="focus-ring hover:text-brand-blue" href={article.href}>{article.title}</Link></h3>
+                    <p className="mt-3 flex-1 text-sm leading-6 text-steel-700">{article.excerpt}</p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Read guide <ArrowRight className="size-4" aria-hidden="true" /></span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </MotionSection>
+      ) : null}
+
+      <section className="bg-brand-blue py-12 text-white md:py-14">
+        <div className="ars-container grid gap-7 md:grid-cols-[1fr_auto] md:items-center">
+          <div>
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-white/70"><CalendarClock className="size-4" aria-hidden="true" /> Confirm before ordering</div>
+            <h2 className="mt-3 font-display text-[clamp(1.75rem,4vw,2.6rem)] font-bold leading-tight">Ready for a project-specific ARS quotation?</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-white/72">Share the grade, diameter, quantity, and delivery location. ARS will confirm the price and commercial terms.</p>
+          </div>
+          <Link href="/request-quote" className="focus-ring inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-brand-red px-7 py-3 text-sm font-bold text-white transition-colors hover:bg-white hover:text-brand-blue">Request quote <ArrowRight className="size-4" aria-hidden="true" /></Link>
         </div>
       </section>
 
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+      />
     </main>
   );
 }
