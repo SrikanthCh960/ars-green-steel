@@ -8,7 +8,6 @@ import { ContactCta } from "@/components/contact-cta";
 import { AboutIntroMotion, HeroIntroMotion, WhyGreenSteelMotion } from "@/components/ars-green-steel-intro-motion";
 import {
   GreenSteelArticleReveal,
-  GreenSteelCarbonBar,
   GreenSteelImageReveal,
   GreenSteelListItemReveal,
   GreenSteelReveal,
@@ -50,10 +49,42 @@ const manufacturingRoute = [
 ] as const;
 
 const carbonComparison = [
-  ["India Average Steel", "2.55", "t CO₂e/tonne", "100%"],
-  ["Global Average Steel", "1.85", "t CO₂e/tonne", "72.5%"],
-  ["Conventional Blast Furnace Steel", "~2.9", "t CO₂e/tonne", "100%"],
-  ["ARS Green Steel (EPD)", "0.592", "t CO₂e/tonne", "20.4%"],
+  {
+    label: "India Average Steel",
+    chartLabel: "India Average",
+    value: "2.55",
+    unit: "t CO₂e/tonne",
+    height: "85%",
+    barClass: "bg-brand-blue",
+    valueClass: "text-brand-blue",
+  },
+  {
+    label: "Global Average Steel",
+    chartLabel: "Global Average",
+    value: "1.85",
+    unit: "t CO₂e/tonne",
+    height: "61.67%",
+    barClass: "bg-[#64748B]",
+    valueClass: "text-steel-700",
+  },
+  {
+    label: "Conventional Blast Furnace Steel",
+    chartLabel: "Blast Furnace",
+    value: "~2.9",
+    unit: "t CO₂e/tonne",
+    height: "96.67%",
+    barClass: "bg-brand-red",
+    valueClass: "text-brand-red",
+  },
+  {
+    label: "ARS Green Steel (EPD)",
+    chartLabel: "ARS Green Steel",
+    value: "0.592",
+    unit: "t CO₂e/tonne",
+    height: "19.73%",
+    barClass: "bg-green-steel",
+    valueClass: "text-green-steel",
+  },
 ] as const;
 
 const roadmap = [
@@ -224,12 +255,80 @@ export default function ArsGreenSteelPage() {
           <GreenSteelReveal><SectionKicker>CARBON TRANSPARENCY</SectionKicker></GreenSteelReveal>
           <GreenSteelReveal delay={0.08}><h2 className="section-title max-w-4xl">592 kg CO₂e per tonne — Verified Through an EPD.</h2></GreenSteelReveal>
           <GreenSteelReveal delay={0.14}><p className={`mt-6 max-w-5xl ${bodyCopy}`}>ARS Green Steel has an internationally verified Environmental Product Declaration (EPD) that provides transparent information on the carbon emissions and environmental performance of its steel. The EPD reports an emission intensity of 592 kg CO₂e per tonne of finished steel, giving architects, developers, engineers and project teams clear data to consider embodied carbon when selecting steel for sustainable construction.</p></GreenSteelReveal>
-          <GreenSteelReveal delay={0.18}><a href="/ars-assets/certifications/ARS-STEELS_EPD-CERTIFICATE-2.pdf" target="_blank" rel="noreferrer" aria-label="Open the ARS Environmental Product Declaration source" className="focus-ring mt-12 block border border-[#123D2B]/18 bg-white p-6 transition hover:border-green-steel/60 md:p-9">
-            <div className="flex flex-wrap items-center justify-between gap-4"><h3 className="font-display text-2xl font-bold text-ink-900">Emission Intensity</h3><span className="inline-flex items-center gap-2 text-sm font-bold text-brand-blue">Click chart for source access <ArrowRight size={16} aria-hidden="true" /></span></div>
-            <div className="mt-9 grid gap-7 md:grid-cols-2">
-              {carbonComparison.map(([label, value, unit, width], index) => <div key={label}><div className="flex items-end justify-between gap-4"><span className="text-sm font-bold text-ink-900">{label}</span><span className={`font-display text-xl font-bold ${index === 3 ? "text-green-steel" : "text-ink-900"}`}>{value} <small className="text-xs font-semibold">{unit}</small></span></div><div className="mt-3 h-5 border border-[#123D2B]/10 bg-[#EEF5EC]"><GreenSteelCarbonBar width={width} className={`h-full ${index === 3 ? "bg-green-steel" : index === 1 ? "bg-steel-500" : "bg-[#33443D]"}`} /></div></div>)}
+          <GreenSteelReveal delay={0.18} className="mt-12 border border-[#123D2B]/18 bg-white p-5 sm:p-6 md:p-9">
+            <div className="flex flex-col gap-5 border-b border-[#123D2B]/12 pb-6 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h3 className="font-display text-2xl font-bold text-ink-900">Emission Intensity</h3>
+                <p className="mt-2 max-w-2xl text-sm leading-6 text-steel-700">Comparison of carbon dioxide equivalent emissions associated with producing one tonne of steel.</p>
+              </div>
+              <a
+                href="/ars-assets/certifications/ARS-STEELS_EPD-CERTIFICATE-2.pdf"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="View the ARS Environmental Product Declaration certificate (opens in a new tab)"
+                className="focus-ring inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start rounded-[6px] bg-brand-blue px-5 py-2.5 text-sm font-bold text-white transition hover:bg-brand-red sm:self-center"
+              >
+                View Certificate <ArrowRight size={16} aria-hidden="true" />
+              </a>
             </div>
-          </a></GreenSteelReveal>
+
+            <div className="mt-8 grid gap-10 xl:grid-cols-[0.82fr_1.18fr] xl:items-start xl:gap-12">
+              <div className="min-w-0">
+                <h4 className="font-display text-lg font-bold text-ink-900">Emission data</h4>
+                <div className="mt-4 overflow-hidden border border-[#123D2B]/15">
+                  <table className="w-full border-collapse text-left">
+                    <caption className="sr-only">Steel emission intensity comparison in tonnes of carbon dioxide equivalent per tonne</caption>
+                    <thead className="bg-[#123D2B] text-white">
+                      <tr>
+                        <th scope="col" className="px-4 py-3 text-xs font-bold uppercase tracking-[0.08em] sm:px-5">Steel category</th>
+                        <th scope="col" className="px-4 py-3 text-right text-xs font-bold uppercase tracking-[0.08em] sm:px-5">Emission intensity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {carbonComparison.map(({ label, value, unit, valueClass }) => (
+                        <tr key={label} className="border-t border-[#123D2B]/12 align-top first:border-t-0">
+                          <th scope="row" className="px-4 py-4 text-sm font-bold leading-6 text-ink-900 sm:px-5">{label}</th>
+                          <td className={`px-4 py-4 text-right text-sm font-bold leading-6 sm:px-5 ${valueClass}`}>
+                            <span className="whitespace-nowrap">{value} {unit}</span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <figure className="min-w-0" aria-labelledby="emission-chart-title">
+                <figcaption id="emission-chart-title" className="font-display text-lg font-bold text-ink-900">Emission intensity bar chart</figcaption>
+                <p className="mt-1 text-xs leading-5 text-steel-700">Scale: 0–3.0 t CO₂e/tonne</p>
+                <div className="mt-4 grid grid-cols-[2rem_minmax(0,1fr)] gap-3" aria-hidden="true">
+                  <div className="flex h-72 flex-col justify-between pb-12 text-right font-technical text-[0.65rem] font-semibold text-steel-600">
+                    <span>3.0</span>
+                    <span>2.0</span>
+                    <span>1.0</span>
+                    <span>0</span>
+                  </div>
+                  <div className="relative h-72 min-w-0">
+                    <div className="absolute inset-x-0 top-0 h-px bg-[#123D2B]/15" />
+                    <div className="absolute inset-x-0 top-1/3 h-px bg-[#123D2B]/15" />
+                    <div className="absolute inset-x-0 top-2/3 h-px bg-[#123D2B]/15" />
+                    <div className="absolute inset-x-0 bottom-12 h-px bg-[#123D2B]/35" />
+                    <div className="absolute inset-x-0 bottom-0 top-0 grid grid-cols-4 gap-2 sm:gap-4">
+                      {carbonComparison.map(({ chartLabel, value, height, barClass, valueClass }) => (
+                        <div key={chartLabel} className="grid min-w-0 grid-rows-[1fr_3rem]">
+                          <div className="flex min-h-0 flex-col items-center justify-end">
+                            <span className={`mb-2 text-center font-technical text-[0.65rem] font-bold leading-tight sm:text-xs ${valueClass}`}>{value}</span>
+                            <span className={`w-full max-w-16 ${barClass}`} style={{ height }} />
+                          </div>
+                          <span className="flex items-start justify-center px-0.5 pt-2 text-center text-[0.6rem] font-bold leading-tight text-ink-900 sm:text-[0.7rem]">{chartLabel}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </figure>
+            </div>
+          </GreenSteelReveal>
         </div>
       </section>
 
