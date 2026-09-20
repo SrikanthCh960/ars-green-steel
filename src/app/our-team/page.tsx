@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
+import { ResponsiveHeroImage } from "@/components/responsive-hero-image";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata = createPageMetadata({
@@ -128,12 +129,10 @@ export default function OurTeamPage() {
 
       {/* ── Hero ── */}
       <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative flex items-end overflow-hidden bg-ink-950">
-        <Image
-          src="/ars-assets/about/ARS-leadership-banner.jpg"
+        <ResponsiveHeroImage
+          desktopSrc="/ars-assets/cwv/heroes/our-team-desktop.webp"
+          mobileSrc="/ars-assets/cwv/heroes/our-team-mobile.webp"
           alt="ARS leadership team reviewing operations at a steel manufacturing facility"
-          fill
-          priority
-          sizes="100vw"
           className="object-cover object-[58%_center]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.54)_48%,rgba(6,13,30,0.14)_100%)] md:bg-[linear-gradient(90deg,rgba(6,13,30,0.64)_0%,rgba(6,13,30,0.34)_48%,rgba(6,13,30,0.03)_100%)]" />

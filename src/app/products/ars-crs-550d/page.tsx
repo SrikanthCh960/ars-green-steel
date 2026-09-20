@@ -2,13 +2,10 @@ import { createPageMetadata } from "@/lib/site-metadata";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowRight,
   BadgeCheck,
   Calculator,
   Download,
   FileText,
-  GitCompare,
-  IndianRupee,
   Layers,
   MapPin,
   ShieldCheck,
@@ -18,6 +15,7 @@ import {
 } from "lucide-react";
 import { ProductDetailReveal, ProductDetailSectionMotion as MotionSection } from "@/components/product-detail-motion";
 import { SectionKicker } from "@/components/section-kicker";
+import { ResponsiveHeroImage } from "@/components/responsive-hero-image";
 import { SiteHeader } from "@/components/site-header";
 import { ProductLeadCaptureForm } from "@/components/product-lead-capture-form";
 import { FaqList } from "@/components/faq-list";
@@ -79,12 +77,6 @@ const faqs = [
   ["What is the difference between ARS CRS Fe 550D and ARS Fe 550D?", "Both products offer high strength and ductility. ARS CRS Fe 550D additionally provides enhanced corrosion resistance, making it the preferred choice for coastal, humid, industrial, and high-salinity environments where long-term durability is critical."],
 ];
 
-const sellingActions = [
-  { icon: <IndianRupee size={20} />, title: "Check Price", desc: "View the latest ARS CRS Fe 550D TMT Bar price before planning your project.", cta: "View Price →", href: "/tmt-steel-price-today" },
-  { icon: <MapPin size={20} />, title: "Find a Dealer", desc: "Locate an authorised ARS dealer near you for product availability and technical assistance.", cta: "Find a Dealer →", href: "/our-network" },
-  { icon: <GitCompare size={20} />, title: "Compare ARS Fe 550D", desc: "Compare ARS CRS Fe 550D and ARS Fe 550D to select the right reinforcement steel based on your project environment.", cta: "Compare Grades →", href: "/product-550d" },
-];
-
 export default function ArsCrs550DPage() {
   return (
     <main className="min-h-screen overflow-x-clip bg-surface-50 text-ink-900">
@@ -97,7 +89,12 @@ export default function ArsCrs550DPage() {
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px]">
         <div className="absolute inset-0">
-          <Image src="/ars-assets/products/ArsCRS550D.jpg" alt="ARS CRS Fe 550D TMT bars with campaign spokesperson" fill priority sizes="100vw" className="object-cover object-[60%_center]" />
+          <ResponsiveHeroImage
+            desktopSrc="/ars-assets/cwv/heroes/product-crs-550d-desktop.webp"
+            mobileSrc="/ars-assets/cwv/heroes/product-crs-550d-mobile.webp"
+            alt="ARS CRS Fe 550D TMT bars with campaign spokesperson"
+            className="object-cover object-[60%_center]"
+          />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.54)_48%,rgba(6,13,30,0.14)_100%)] md:bg-[linear-gradient(90deg,rgba(6,13,30,0.64)_0%,rgba(6,13,30,0.34)_48%,rgba(6,13,30,0.03)_100%)]" />
           <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(0deg,rgba(6,13,30,0.38)_0%,rgba(6,13,30,0.08)_58%,transparent_100%)] md:h-[48%] md:bg-[linear-gradient(0deg,rgba(6,13,30,0.24)_0%,rgba(6,13,30,0.04)_58%,transparent_100%)]" />
         </div>

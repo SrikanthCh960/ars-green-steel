@@ -46,7 +46,8 @@ export default function CareersPage() {
         primaryHref="#current-openings"
         secondaryLabel="Contact ARS"
         secondaryHref="/contact"
-        backgroundImageSrc="/ars-assets/about/ARS-Vision-Misson_hero.jpg"
+        backgroundImageSrc="/ars-assets/cwv/heroes/careers-desktop.webp"
+        backgroundImageMobileSrc="/ars-assets/cwv/heroes/careers-mobile.webp"
         backgroundImageAlt="ARS Green Steel plant viewed by an industrial professional"
         backgroundImagePosition="center"
       />

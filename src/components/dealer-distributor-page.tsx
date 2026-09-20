@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { ArrowRight, PackageCheck } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
 import { SectionKicker } from "@/components/section-kicker";
+import { ResponsiveHeroImage } from "@/components/responsive-hero-image";
 import { SiteHeader } from "@/components/site-header";
 import { FaqList } from "@/components/faq-list";
 
@@ -37,7 +38,12 @@ export function DealerDistributorPage() {
       <SiteHeader />
 
       <section className="ars-page-hero relative overflow-hidden bg-ink-950 text-white">
-        <Image src="/ars-assets/Solutions/Dealers/DealersHeroBanner.jpg" alt="ARS dealer and distributor network" fill priority sizes="100vw" className="object-cover" />
+        <ResponsiveHeroImage
+          desktopSrc="/ars-assets/cwv/heroes/dealer-distributor-desktop.webp"
+          mobileSrc="/ars-assets/cwv/heroes/dealer-distributor-mobile.webp"
+          alt="ARS dealer and distributor network"
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.9)_0%,rgba(13,43,110,0.62)_58%,rgba(6,13,30,0.2)_100%)]" />
         <div className="ars-page-hero-content ars-container relative flex min-h-[560px] items-end py-12 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
           <div className="max-w-4xl">

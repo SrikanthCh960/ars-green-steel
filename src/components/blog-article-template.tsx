@@ -13,6 +13,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
+import { ResponsiveHeroImage } from "@/components/responsive-hero-image";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import {
@@ -98,6 +99,16 @@ const topicCta = {
 
 const acronymWords = ["ARS", "TMT", "CRS", "SGS", "EPD", "ISO", "SERC", "BIS", "NHAI", "PWD", "GRIHA", "RCC", "PCC", "TDS", "GST", "HYSD", "TOR"];
 const productionDomain = "https://arsgroup.in";
+
+function getBlogHeroMobileSrc(slug: string) {
+  const fileName = slug
+    .replace(/\.html$/, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+  return ["", "ars-assets", "cwv", "blog", `${fileName}-mobile.webp`].join("/");
+}
 
 function sentenceCaseTitle(title: string) {
   if (title.length <= 5 || acronymWords.includes(title)) return title;
@@ -309,13 +320,10 @@ export function BlogArticleTemplate({
       ) : null}
 
       <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-bg-dark text-white">
-        <Image
-          src={articleImage}
+        <ResponsiveHeroImage
+          desktopSrc={articleImage}
+          mobileSrc={getBlogHeroMobileSrc(article.slug)}
           alt={articleImageAlt}
-          fill
-          priority
-          loading="eager"
-          sizes="100vw"
           className="object-cover opacity-42"
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.96)_0%,rgba(6,13,30,0.82)_48%,rgba(6,13,30,0.48)_100%)]" />

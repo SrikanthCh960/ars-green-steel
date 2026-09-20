@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useDeferredValue, useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, MapPin, Navigation, Phone, Search, SlidersHorizontal, X } from "lucide-react";
 import { SectionKicker } from "@/components/section-kicker";
@@ -43,6 +43,9 @@ export function DealerLocatorExperience({ dealers }: DealerLocatorExperienceProp
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
+  const deferredQuery = useDeferredValue(query);
+  const deferredCity = useDeferredValue(city);
+  const deferredState = useDeferredValue(state);
 
   const cities = useMemo(
     () => uniqueSorted(dealers.filter((dealer) => !state || dealer.state === state).map((dealer) => dealer.city)),
@@ -51,16 +54,16 @@ export function DealerLocatorExperience({ dealers }: DealerLocatorExperienceProp
   const states = useMemo(() => uniqueSorted(dealers.map((dealer) => dealer.state)), [dealers]);
 
   const filteredDealers = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase();
+    const normalizedQuery = deferredQuery.trim().toLowerCase();
 
     return dealers.filter((dealer) => {
       const matchesQuery = !normalizedQuery || dealer.searchText.includes(normalizedQuery);
-      const matchesCity = !city || dealer.city === city;
-      const matchesState = !state || dealer.state === state;
+      const matchesCity = !deferredCity || dealer.city === deferredCity;
+      const matchesState = !deferredState || dealer.state === deferredState;
 
       return matchesQuery && matchesCity && matchesState;
     });
-  }, [city, dealers, query, state]);
+  }, [dealers, deferredCity, deferredQuery, deferredState]);
 
   const visibleDealers = filteredDealers.slice(0, visibleCount);
   const hasActiveFilters = Boolean(query || city || state);

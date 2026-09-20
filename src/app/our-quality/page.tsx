@@ -16,6 +16,7 @@ import { MotionSection } from "@/components/motion-section";
 import { FaqList } from "@/components/faq-list";
 import { QualityDocumentGallery } from "@/components/quality-document-gallery";
 import { SectionKicker } from "@/components/section-kicker";
+import { ResponsiveHeroImage } from "@/components/responsive-hero-image";
 import { SiteHeader } from "@/components/site-header";
 
 export const metadata = createPageMetadata({
@@ -163,12 +164,10 @@ export default function OurQualityPage() {
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
         <div className="absolute inset-0">
-          <Image
-            src="/ars-assets/about/Qualitypolicy_hero-banner.jpg"
+          <ResponsiveHeroImage
+            desktopSrc="/ars-assets/cwv/heroes/our-quality-desktop.webp"
+            mobileSrc="/ars-assets/cwv/heroes/our-quality-mobile.webp"
             alt="ARS quality inspector measuring TMT bars at the manufacturing facility"
-            fill
-            priority
-            sizes="100vw"
             className="object-cover object-[60%_center]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.54)_48%,rgba(6,13,30,0.14)_100%)] md:bg-[linear-gradient(90deg,rgba(6,13,30,0.64)_0%,rgba(6,13,30,0.34)_48%,rgba(6,13,30,0.03)_100%)]" />

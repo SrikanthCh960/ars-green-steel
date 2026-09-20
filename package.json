@@ -12,7 +12,8 @@
     "preview": "next start --hostname 127.0.0.1 --port 3001",
     "lint": "eslint",
     "qa:routes": "node scripts/check-internal-routes.mjs",
-    "audit:blog-migration": "node scripts/audit-blog-migration.mjs"
+    "audit:blog-migration": "node scripts/audit-blog-migration.mjs",
+    "generate:cwv-images": "node scripts/generate-cwv-image-variants.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.0",

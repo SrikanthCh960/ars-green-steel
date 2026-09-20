@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowRight, BadgeCheck } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
 import { MotionSection } from "@/components/motion-section";
+import { ResponsiveHeroImage } from "@/components/responsive-hero-image";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 
@@ -20,6 +21,7 @@ type HeroProps = {
   /** Retained for compatibility with source-led callers; global H1 casing is now standardized. */
   preserveTitleCase?: boolean;
   backgroundImageSrc?: string;
+  backgroundImageMobileSrc?: string;
   backgroundImageAlt?: string;
   backgroundImagePosition?: string;
 };
@@ -46,6 +48,7 @@ export function PageHero({
   secondaryHref = "/contact",
   showActions = true,
   backgroundImageSrc,
+  backgroundImageMobileSrc,
   backgroundImageAlt = "",
   backgroundImagePosition = "center",
 }: HeroProps) {
@@ -53,20 +56,28 @@ export function PageHero({
     <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative flex items-end overflow-hidden text-white">
       <div className="absolute inset-0 bg-ink-950">
         {backgroundImageSrc ? (
-          <Image
-            src={backgroundImageSrc}
+          <ResponsiveHeroImage
+            desktopSrc={backgroundImageSrc}
+            mobileSrc={backgroundImageMobileSrc ?? backgroundImageSrc}
             alt={backgroundImageAlt}
-            fill
-            priority
-            sizes="100vw"
             className="object-cover"
             style={{ objectPosition: backgroundImagePosition }}
           />
         ) : (
           <>
-            <div className="hero-video-placeholder absolute inset-0 h-full w-full" />
-            <video className="absolute inset-0 h-full w-full object-cover opacity-85" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
-              <source src="/videos/ars-intro.mp4" type="video/mp4" />
+            <picture className="absolute inset-0 block h-full w-full md:hidden">
+              <source srcSet="/ars-assets/home/ARS-green-bg-mobile.webp" type="image/webp" />
+              <img
+                src="/ars-assets/home/ARS-green-bg.jpg"
+                alt=""
+                decoding="async"
+                fetchPriority="high"
+                className="h-full w-full object-cover"
+              />
+            </picture>
+            <div className="hero-video-placeholder absolute inset-0 hidden h-full w-full md:block" />
+            <video className="absolute inset-0 hidden h-full w-full object-cover opacity-85 md:block" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+              <source media="(min-width: 768px)" src="/videos/ars-intro.mp4" type="video/mp4" />
             </video>
           </>
         )}

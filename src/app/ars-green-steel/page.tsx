@@ -16,6 +16,7 @@ import {
 } from "@/components/ars-green-steel-section-motion";
 import { FaqList } from "@/components/faq-list";
 import { SectionKicker } from "@/components/section-kicker";
+import { ResponsiveHeroImage } from "@/components/responsive-hero-image";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata, getSeoMetadata, productionDomain } from "@/lib/site-metadata";
 
@@ -199,8 +200,24 @@ export default function ArsGreenSteelPage() {
       <SiteHeader />
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-[#0B2A1E] text-white md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
-        <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
-          <source src="/ars-assets/ars-green-steel/hero-banner.mp4" type="video/mp4" />
+        <ResponsiveHeroImage
+          desktopSrc="/ars-assets/cwv/heroes/ars-green-steel-desktop.webp"
+          mobileSrc="/ars-assets/cwv/heroes/ars-green-steel-mobile.webp"
+          alt=""
+          pictureClassName="md:hidden"
+          className="object-cover"
+        />
+        <video
+          className="absolute inset-0 hidden h-full w-full object-cover md:block"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/ars-assets/cwv/heroes/ars-green-steel-desktop.webp"
+          aria-hidden="true"
+        >
+          <source media="(min-width: 768px)" src="/ars-assets/ars-green-steel/hero-banner.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-[#0B2A1E]/10" />
         <div className="ars-container relative z-10 w-full pb-14 pt-36 md:pb-20">

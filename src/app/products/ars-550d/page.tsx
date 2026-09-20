@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { ProductDetailReveal, ProductDetailSectionMotion as MotionSection } from "@/components/product-detail-motion";
 import { SectionKicker } from "@/components/section-kicker";
+import { ResponsiveHeroImage } from "@/components/responsive-hero-image";
 import { SiteHeader } from "@/components/site-header";
 import { ProductLeadCaptureForm } from "@/components/product-lead-capture-form";
 import { FaqList } from "@/components/faq-list";
@@ -152,7 +153,12 @@ export default function Ars550DPage() {
 
       <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px]">
         <div className="absolute inset-0">
-          <Image src="/ars-assets/products/ARS550DBanner.jpg" alt="ARS TMT steel bars with campaign spokesperson" fill priority sizes="100vw" className="object-cover object-[58%_center]" />
+          <ResponsiveHeroImage
+            desktopSrc="/ars-assets/cwv/heroes/product-550d-desktop.webp"
+            mobileSrc="/ars-assets/cwv/heroes/product-550d-mobile.webp"
+            alt="ARS TMT steel bars with campaign spokesperson"
+            className="object-cover object-[58%_center]"
+          />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.54)_48%,rgba(6,13,30,0.14)_100%)] md:bg-[linear-gradient(90deg,rgba(6,13,30,0.64)_0%,rgba(6,13,30,0.34)_48%,rgba(6,13,30,0.03)_100%)]" />
           <div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(0deg,rgba(6,13,30,0.38)_0%,rgba(6,13,30,0.08)_58%,transparent_100%)] md:h-[48%] md:bg-[linear-gradient(0deg,rgba(6,13,30,0.24)_0%,rgba(6,13,30,0.04)_58%,transparent_100%)]" />
         </div>

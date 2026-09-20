@@ -19,6 +19,7 @@ import {
 import { FaqList } from "@/components/faq-list";
 import { MotionSection } from "@/components/motion-section";
 import { SectionKicker } from "@/components/section-kicker";
+import { ResponsiveHeroImage } from "@/components/responsive-hero-image";
 import { SiteHeader } from "@/components/site-header";
 import { createPageMetadata } from "@/lib/site-metadata";
 
@@ -159,13 +160,12 @@ export default function GreenSteelPage() {
         id="what-is-green-steel"
         className="ars-page-hero relative isolate min-h-[560px] scroll-mt-24 overflow-hidden bg-[#060D1E] text-white md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]"
       >
-        <Image
-          src="/ars-assets/Sustainability/WhatisGreenSteel_Banner.jpg"
+        <ResponsiveHeroImage
+          desktopSrc="/ars-assets/cwv/heroes/green-steel-desktop.webp"
+          mobileSrc="/ars-assets/cwv/heroes/green-steel-mobile.webp"
           alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="-z-20 object-cover object-[58%_center]"
+          pictureClassName="-z-20"
+          className="object-cover object-[58%_center]"
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(6,13,30,0.98)_0%,rgba(6,13,30,0.91)_48%,rgba(6,13,30,0.56)_100%)]" />
         <div className="steel-grid absolute inset-0 -z-10 opacity-35" />

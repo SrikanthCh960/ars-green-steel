@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BadgeCheck, Calculator, CircleGauge, FileText, Ruler, ShieldCheck } from "lucide-react";
 import { ContactCta } from "@/components/contact-cta";
 import { MotionSection } from "@/components/motion-section";
+import { ResponsiveHeroImage } from "@/components/responsive-hero-image";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { SteelTestingProof } from "@/components/steel-testing-proof";
@@ -35,7 +36,7 @@ export default function ThirtyTwoMmSteelRodPage() {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
     <section className="ars-page-hero relative flex min-h-[560px] items-end overflow-hidden bg-ink-950 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">
-      <Image src={heroImage} alt="ARS 32mm TMT steel bar for monumental construction" fill priority sizes="100vw" className="object-cover object-[62%_center]" />
+      <ResponsiveHeroImage desktopSrc="/ars-assets/cwv/heroes/rod-32mm-desktop.webp" mobileSrc="/ars-assets/cwv/heroes/rod-32mm-mobile.webp" alt="ARS 32mm TMT steel bar for monumental construction" className="object-cover object-[62%_center]" />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.54)_48%,rgba(6,13,30,0.14)_100%)] md:bg-[linear-gradient(90deg,rgba(6,13,30,0.64)_0%,rgba(6,13,30,0.34)_48%,rgba(6,13,30,0.03)_100%)]" /><div className="absolute inset-x-0 bottom-0 h-[58%] bg-[linear-gradient(0deg,rgba(6,13,30,0.38)_0%,rgba(6,13,30,0.08)_58%,transparent_100%)] md:h-[48%] md:bg-[linear-gradient(0deg,rgba(6,13,30,0.24)_0%,rgba(6,13,30,0.04)_58%,transparent_100%)]" />
       <div className="ars-container relative z-10 w-full pb-14 md:pb-16"><div className="max-w-3xl">
         <SectionKicker variant="light">ARS TMT BAR SIZES</SectionKicker>

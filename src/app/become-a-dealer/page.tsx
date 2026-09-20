@@ -1,10 +1,11 @@
 import { createPageMetadata } from "@/lib/site-metadata";
-import { ArrowRight, BadgeCheck, Building2, Factory, MapPin } from "lucide-react";
+import { ArrowRight, BadgeCheck, Factory, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ContactCta } from "@/components/contact-cta";
 import { DistributorEnquiryForm } from "@/components/distributor-enquiry-form";
 import { SectionKicker } from "@/components/section-kicker";
+import { ResponsiveHeroImage } from "@/components/responsive-hero-image";
 import { SiteHeader } from "@/components/site-header";
 import { DistributorPageReveal as DealerReveal } from "@/components/distributor-page-motion";
 
@@ -28,7 +29,12 @@ export default function BecomeDealerPage() {
       <SiteHeader />
 
       <section className="ars-page-hero relative overflow-hidden bg-ink-950 text-white">
-        <Image src="/ars-assets/home/Distributors.jpg" alt="ARS steel distribution and dealer partnership" fill priority sizes="100vw" className="object-cover" />
+        <ResponsiveHeroImage
+          desktopSrc="/ars-assets/cwv/heroes/distributor-enquiry-desktop.webp"
+          mobileSrc="/ars-assets/cwv/heroes/distributor-enquiry-mobile.webp"
+          alt="ARS steel distribution and dealer partnership"
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.92),rgba(6,13,30,0.58)_54%,rgba(13,43,110,0.28))]" />
         <div className="absolute bottom-0 left-0 h-1 w-1/3 bg-brand-red" />
         <div className="ars-page-hero-content ars-container relative flex min-h-[560px] items-end py-12 md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px]">

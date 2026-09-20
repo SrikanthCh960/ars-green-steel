@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Building2, CheckCircle2, Factory, ShieldCheck, Users } from "lucide-react";
 import { MotionSection } from "@/components/motion-section";
+import { ResponsiveHeroImage } from "@/components/responsive-hero-image";
 import { AboutJourneyTimeline } from "@/components/about-journey-timeline";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
@@ -137,12 +138,10 @@ export default function AboutPage() {
         aria-labelledby="about-hero-title"
       >
         <div className="absolute inset-0">
-          <Image
-            src="/ars-assets/about/ARS-group-hero-banner.jpg"
+          <ResponsiveHeroImage
+            desktopSrc="/ars-assets/cwv/heroes/about-desktop.webp"
+            mobileSrc="/ars-assets/cwv/heroes/about-mobile.webp"
             alt="Aerial view of the ARS Green Steel manufacturing facility"
-            fill
-            priority
-            sizes="100vw"
             className="object-cover object-[58%_center]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.74)_0%,rgba(6,13,30,0.54)_48%,rgba(6,13,30,0.14)_100%)] md:bg-[linear-gradient(90deg,rgba(6,13,30,0.64)_0%,rgba(6,13,30,0.34)_48%,rgba(6,13,30,0.03)_100%)]" />

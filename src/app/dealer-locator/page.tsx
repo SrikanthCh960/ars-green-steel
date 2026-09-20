@@ -1,8 +1,8 @@
 import { createPageMetadata } from "@/lib/site-metadata";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, Phone } from "lucide-react";
 import { DealerLocatorExperience } from "@/components/dealer-locator-experience";
+import { ResponsiveHeroImage } from "@/components/responsive-hero-image";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { clientVerificationSummary, verifiedContactDetails } from "@/data/business-verification";
@@ -39,13 +39,11 @@ export default function DealerLocatorPage() {
       <SiteHeader />
 
       <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-[#071226] text-white">
-        <Image
-          src="/ars-assets/Contact_banner.png"
+        <ResponsiveHeroImage
+          desktopSrc="/ars-assets/Contact_banner.png"
+          mobileSrc="/ars-assets/Contact_banner.png"
           alt="ARS dealer locator support"
-          fill
-          sizes="100vw"
           className="object-cover opacity-[0.58]"
-          priority
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.92)_0%,rgba(6,13,30,0.72)_42%,rgba(6,13,30,0.34)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_28%,rgba(222,18,26,0.22),transparent_28%),linear-gradient(180deg,rgba(6,13,30,0.1),rgba(6,13,30,0.5))]" />
