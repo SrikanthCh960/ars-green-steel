@@ -13,6 +13,7 @@
     "lint": "eslint",
     "qa:routes": "node scripts/check-internal-routes.mjs",
     "audit:blog-migration": "node scripts/audit-blog-migration.mjs",
+    "setup:careers-drive": "node scripts/setup-careers-drive-oauth.mjs",
     "generate:cwv-images": "node scripts/generate-cwv-image-variants.mjs"
   },
   "dependencies": {

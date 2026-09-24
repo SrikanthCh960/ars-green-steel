@@ -123,3 +123,23 @@ export async function appendGoogleSheetRow({ sheetName, rangeColumns, values }: 
 
   if (!response.ok) throw new Error(`GOOGLE_SHEETS_APPEND_FAILED_${response.status}`);
 }
+
+export async function googleSheetColumnContains(sheetName: string, column: string, value: string) {
+  const { spreadsheetId, clientEmail, privateKey } = getGoogleSheetsConfig();
+  if (!sheetName || sheetName.length > 100 || !/^[\w .&()-]+$/.test(sheetName)) {
+    throw new Error("GOOGLE_SHEETS_NOT_CONFIGURED");
+  }
+  if (!/^[A-Z]+$/.test(column)) throw new Error("GOOGLE_SHEETS_RANGE_INVALID");
+
+  const accessToken = await getGoogleAccessToken(clientEmail, privateKey);
+  const range = encodeURIComponent(`${sheetName}!${column}:${column}`);
+  const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${encodeURIComponent(spreadsheetId)}/values/${range}`, {
+    headers: { authorization: `Bearer ${accessToken}` },
+    cache: "no-store",
+    signal: AbortSignal.timeout(8_000),
+  });
+  if (!response.ok) throw new Error(`GOOGLE_SHEETS_READ_FAILED_${response.status}`);
+
+  const payload = await response.json() as { values?: string[][] };
+  return payload.values?.some((row) => row[0] === value) ?? false;
+}

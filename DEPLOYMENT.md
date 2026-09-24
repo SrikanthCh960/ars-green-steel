@@ -16,6 +16,10 @@ This is the deployment source of truth for the ARS Green Steel redesign.
 
 Hostinger and `arsgroup.in` are the production source of truth. A Vercel deployment can remain available for preview and comparison, but it does not prove that the production website has been updated. Do not disconnect or reconfigure Vercel without explicit approval.
 
+## Careers applications — separate pending release
+
+The Careers listing and application flow remain separate from the client-corrections release. The local form is gated until the existing Google spreadsheet has a `Careers` tab, `arsgroupm@gmail.com` has authorized narrow Drive file access, the server-only OAuth values are configured, and the explicit enable flag is set. The form saves each PDF résumé to Drive and appends one row with its link to the Careers tab. It does not use Resend, SMTP, or Salesforce. Follow [the Careers applications setup](docs/careers-applications-setup.md) for exact variables and release checks. Keep the existing customer enquiry integrations unchanged.
+
 ## Primary Repository Client Corrections — 2026-09-23
 
 - The current non-careers change adds the approved nine-logo Clients page and replaces the homepage's small client-logo exports with high-resolution assets derived from the client-supplied files.

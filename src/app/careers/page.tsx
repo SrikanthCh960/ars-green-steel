@@ -1,10 +1,14 @@
 import Image from "next/image";
+import { connection } from "next/server";
 import { ContactCta } from "@/components/contact-cta";
 import { MotionSection } from "@/components/motion-section";
 import { PageHero } from "@/components/page-sections";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
+import { currentCareerOpenings } from "@/data/careers";
+import { getCareerApplicationsConfig } from "@/lib/career-applications-config";
 import { createPageMetadata } from "@/lib/site-metadata";
+import { CareerOpeningCard } from "./career-opening-card";
 
 export const metadata = createPageMetadata({
   title: "Careers at ARS Green Steel",
@@ -13,27 +17,12 @@ export const metadata = createPageMetadata({
   path: "/careers",
 });
 
-const currentOpenings = [
-  {
-    title: "Market Development Engineer",
-    total: "23 positions open",
-    regions: [
-      { name: "Chennai South", count: "8 positions open" },
-      { name: "Rest of Tamil Nadu", count: "15 positions open" },
-    ],
-    description:
-      "Responsible for driving market development and demand generation in the assigned territory through daily site visits, regular influencer visits, customer follow-ups, and relationship building. The role involves identifying new business opportunities, generating demand, developing dealer/channel relationships, monitoring market and competitor activities, and achieving territory-wise business targets.",
-  },
-  {
-    title: "Business Development Executive",
-    total: "10 positions open",
-    regions: [{ name: "Rest of Tamil Nadu", count: "10 positions open" }],
-    description:
-      "Responsible for driving primary and secondary sales in the assigned territory through new dealer additions, demand generation, daily site visits, influencer engagement, and customer follow-ups. The role involves developing new business opportunities, expanding the dealer network, strengthening existing channel relationships, and achieving territory-wise sales and business development targets.",
-  },
-] as const;
+const totalPositions = currentCareerOpenings.reduce((total, opening) => total + opening.positions, 0);
 
-export default function CareersPage() {
+export default async function CareersPage() {
+  await connection();
+  const applicationsEnabled = Boolean(getCareerApplicationsConfig());
+
   return (
     <main className="min-h-screen bg-surface-50 text-ink-900">
       <SiteHeader />
@@ -56,36 +45,15 @@ export default function CareersPage() {
         <div className="ars-container">
           <div className="max-w-3xl">
             <SectionKicker>Current Openings</SectionKicker>
-            <h2 className="section-title">33 openings across Tamil Nadu.</h2>
+            <h2 className="section-title">{totalPositions} openings across Tamil Nadu.</h2>
             <p className="mt-6 text-lg leading-8 text-steel-700">Current live vacancies are listed below by role, region, and number of positions open.</p>
+            <p className="mt-3 text-sm leading-6 text-steel-700">{applicationsEnabled ? "Review each role description, then select Apply to submit your details and résumé to the ARS Careers team." : "Review each role description below. For application enquiries, call ARS Customer Care while the online application form is being prepared."}</p>
           </div>
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            {currentOpenings.map((opening, index) => (
-              <article key={opening.title} className="group relative flex min-h-[430px] flex-col overflow-hidden rounded-[10px] border border-ink-900/10 bg-white p-6 shadow-[0_18px_55px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1 hover:border-brand-blue/35 md:p-8">
-                <span aria-hidden="true" className="absolute right-6 top-4 font-display text-7xl font-bold leading-none text-brand-blue/[0.06] md:right-8 md:top-5">
-                  0{index + 1}
-                </span>
-                <div className="relative flex h-full flex-col">
-                  <div className="flex flex-wrap items-start justify-between gap-4 border-b border-ink-900/10 pb-6">
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-blue">Live vacancy</p>
-                      <h3 className="mt-3 max-w-md font-display text-3xl font-bold leading-[1.08] tracking-[-0.025em] text-ink-900">{opening.title}</h3>
-                    </div>
-                    <span className="rounded-full border border-brand-red/20 bg-brand-red/8 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.11em] text-brand-red transition group-hover:bg-brand-red/12">{opening.total}</span>
-                  </div>
-                  <dl className="mt-7 grid gap-3">
-                    {opening.regions.map((region) => (
-                      <div key={region.name} className="flex items-center justify-between gap-4 border-l-2 border-brand-blue bg-surface-50 px-4 py-3">
-                        <dt className="font-semibold text-ink-900">{region.name}</dt>
-                        <dd className="shrink-0 text-sm font-bold text-steel-700">{region.count}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                  <p className="mt-7 text-base leading-7 text-steel-700">{opening.description}</p>
-                </div>
-              </article>
+          <ol className="mt-12 grid gap-5">
+            {currentCareerOpenings.map((opening, index) => (
+              <CareerOpeningCard key={opening.id} number={index + 1} {...opening} />
             ))}
-          </div>
+          </ol>
         </div>
       </MotionSection>
 
@@ -115,9 +83,9 @@ export default function CareersPage() {
       <ContactCta
         eyebrow="Career enquiries"
         headline="Interested in an opening at ARS?"
-        body="For enquiries about current openings, call ARS Customer Care. Please mention the role and preferred region when you call."
-        primaryLabel="Call +91 9710411111"
-        primaryHref="tel:+919710411111"
+        body={applicationsEnabled ? "Explore our current openings and apply to the role and region that fit your experience." : "For enquiries about current openings, call ARS Customer Care. Please mention the role and preferred region when you call."}
+        primaryLabel={applicationsEnabled ? "View current openings" : "Call +91 9710411111"}
+        primaryHref={applicationsEnabled ? "#current-openings" : "tel:+919710411111"}
         secondaryLabel={null}
         secondaryHref={null}
       />

@@ -21,6 +21,40 @@ export const careerDepartments: CareerDepartment[] = [
   "Plant Leadership",
 ];
 
+/** Current client-supplied vacancies, separate from archived role profiles. */
+export const currentCareerOpenings = [
+  {
+    id: "market-development-engineer-chennai-south",
+    title: "Market Development Engineer",
+    region: "Chennai South",
+    positions: 8,
+    description:
+      "Responsible for driving market development and demand generation in the assigned territory through daily site visits, regular influencer visits, customer follow-ups, and relationship building. The role involves identifying new business opportunities, generating demand, developing dealer/channel relationships, monitoring market and competitor activities, and achieving territory-wise business targets.",
+  },
+  {
+    id: "market-development-engineer-rest-of-tamil-nadu",
+    title: "Market Development Engineer",
+    region: "Rest of Tamil Nadu",
+    positions: 15,
+    description:
+      "Responsible for driving market development and demand generation in the assigned territory through daily site visits, regular influencer visits, customer follow-ups, and relationship building. The role involves identifying new business opportunities, generating demand, developing dealer/channel relationships, monitoring market and competitor activities, and achieving territory-wise business targets.",
+  },
+  {
+    id: "business-development-executive-rest-of-tamil-nadu",
+    title: "Business Development Executive",
+    region: "Rest of Tamil Nadu",
+    positions: 10,
+    description:
+      "Responsible for driving primary and secondary sales in the assigned territory through new dealer additions, demand generation, daily site visits, influencer engagement, and customer follow-ups. The role involves developing new business opportunities, expanding the dealer network, strengthening existing channel relationships, and achieving territory-wise sales and business development targets.",
+  },
+] as const;
+
+export type CurrentCareerOpening = (typeof currentCareerOpenings)[number];
+
+export function getCurrentCareerOpening(id: string) {
+  return currentCareerOpenings.find((opening) => opening.id === id);
+}
+
 export const careerJobs: CareerJob[] = [
   {
     slug: "oem-sales-senior-manager",
