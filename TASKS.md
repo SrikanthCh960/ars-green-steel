@@ -33,26 +33,33 @@ The execution order prioritizes:
 - `Medium`: Improves quality, scalability, or content depth
 - `Low`: Optional cleanup or future enhancement
 
+## Careers applications — live 2026-09-24
+
+- Status: **Done, deployed, and live-verified.** Hostinger showed commit `907f1e7` as **Completed / Current** after the primary repository was synced to the production fork.
+- Careers submissions save applicant details to the `Careers` tab and one PDF résumé to the `ARS carriers` Google Drive folder. They do not go to Salesforce or email. Existing customer enquiry integrations remain separate.
+- The form allows one valid PDF up to 5 MiB and caps the complete request at 6 MiB. There is no application-count cap in website code; monitor Drive storage.
+- A controlled synthetic production submission succeeded and its test row/PDF were cleaned up. The user independently confirmed a successful live submission, Sheets entry, and Drive link. Check restricted-folder access for any additional intended résumé reviewers.
+
 ## Client corrections — 2026-09-23
 
 - Nine client-supplied high-resolution logos now power the homepage and the new `/clients` page.
 - Dealer results stay hidden until a visitor searches or selects a location; Quality wording and Binders brochure access reflect the client corrections.
 - Steel Price Today now collects quantity, unit, name, and phone for a confirmed-price enquiry through the existing Salesforce and Google Sheets delivery pattern.
-- Lint, route/asset checks, build, and desktop/mobile Clients-page review passed. Hostinger release verification remains separate from the primary repository merge.
+- Lint, route/asset checks, build, and desktop/mobile Clients-page review passed. The changes are included in the current Hostinger deployment history.
 
 ## Mobile Core Web Vitals implementation — 2026-09-20
 
-- Status: **Implemented, verified, committed, and pushed to Baburao `main`; production deployment pending.**
+- Status: **Implemented and included in the current Hostinger deployment history.** Separate post-release mobile performance and CDN checks remain to be recorded.
 - Commit: `e2a5014` — `Optimize mobile Core Web Vitals delivery`.
 - Generated 88 mobile WebP heroes for the shared blog article template and 34 responsive hero variants for corporate, product, rod-size, dealer, quality, and sustainability routes.
 - Prevented desktop-only interior and ARS Green Steel hero videos from loading below 768 px.
 - Deferred dealer-locator query/city/state filtering to reduce main-thread interaction pressure across the 1,566-record dataset.
 - Validation passed: targeted ESLint, TypeScript, 160-route/229-asset QA, all 88 migrated blog routes, 180-page production build, 390 px and 1440 px browser QA, no horizontal overflow, and no console errors.
-- Pending release tasks: sync Srikanth's fork, confirm Hostinger **Completed / Current**, clear the CDN cache, and complete representative live mobile/desktop verification.
+- Remaining review: confirm CDN cache state and complete representative live mobile/desktop performance verification; the fork sync and Hostinger deployment are complete.
 - Pending SEO evidence: the four-sheet workbook exposes 46 unique example/representative URLs. Request the remaining 73 LCP URLs and 11 INP examples, plus first-detected dates, current p75 values, and URL-level/origin-level CrUX classification.
 - After the production checks pass, ask the SEO team to start Search Console validation and monitor the rolling field-data window.
 
-## Latest production release — 2026-09-17
+## Prior production release — 2026-09-17
 
 - Status: **Done, deployed, cache-cleared, and live-verified.**
 - Production commit: `0dd5964` — `Fix blog section navigation`.
@@ -426,9 +433,9 @@ Current caveats:
 
 ## Immediate Next Actions
 
-1. Sync Srikanth's fork to `e2a5014`, wait for Hostinger **Completed / Current**, and clear the Hostinger CDN cache.
-2. Live-verify representative homepage, blog, PCC/RCC, product, rod-size, corporate, dealer, Green Steel, and Careers routes on mobile and desktop; no production form submission is needed.
+1. Confirm any additional intended Careers reviewers can open résumé links from the restricted Drive folder, and monitor available Drive storage.
+2. Record the remaining post-release mobile/desktop performance and CDN checks for representative homepage, blog, PCC/RCC, product, rod-size, corporate, dealer, Green Steel, and Careers routes.
 3. Send the prepared evidence request to the SEO team for the remaining 73 LCP URLs and 11 INP examples, first-detected dates, latest p75 values, CrUX scope, and the five Good mobile control URLs.
-4. After live verification, ask the SEO team to start Search Console validation and monitor the next rolling field-data window before judging the result.
-5. Keep Salesforce and Google Sheets production delivery under normal operational monitoring; do not send another production test without explicit approval immediately before submission.
+4. After live performance verification, ask the SEO team to start Search Console validation and monitor the rolling field-data window before judging the result.
+5. Keep the existing Salesforce and Google Sheets customer-enquiry delivery under normal operational monitoring; Careers remains a separate Sheets-and-Drive flow.
 6. Confirm future dealer-data, price-workbook, brochure, certificate, logo, and downloadable-document updates only from approved ARS sources.

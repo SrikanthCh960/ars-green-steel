@@ -1,6 +1,8 @@
 # Careers application storage setup
 
-The Careers form is a separate pending release. It stores each application in a `Careers` tab of the existing Google spreadsheet and the PDF résumé in a dedicated folder in `arsgroupm@gmail.com` My Drive. It does not send email or create Salesforce records. The existing customer enquiry integrations remain unchanged.
+The Careers form is live on Hostinger as of 2026-09-24. It stores each application in a `Careers` tab of the existing Google spreadsheet and the PDF résumé in a dedicated folder in `arsgroupm@gmail.com` My Drive. It does not send email or create Salesforce records. The existing customer enquiry integrations remain unchanged.
+
+The production fork and Hostinger deployment include feature commit `323f02b` and proxy origin fix `907f1e7`. Hostinger showed `907f1e7` as **Completed / Current**. A controlled synthetic live submission returned HTTP 201 and reached Sheets and Drive; its row was removed and the matching PDF moved to Drive trash. The user also confirmed a successful live submission, spreadsheet entry, and working Drive link. Access for any additional intended résumé reviewers should be checked separately.
 
 ## Account access and security
 
@@ -23,14 +25,14 @@ The Hostinger variables are:
 | `GOOGLE_DRIVE_CLIENT_SECRET` | OAuth client secret |
 | `GOOGLE_DRIVE_REFRESH_TOKEN` | Refresh token produced by the one-time local setup |
 | `GOOGLE_DRIVE_CAREERS_FOLDER_ID` | Folder ID produced by the one-time local setup |
-| `CAREERS_APPLICATIONS_ENABLED` | Keep `false` until the separate Careers release and controlled delivery test are ready; then set exact lowercase `true` |
+| `CAREERS_APPLICATIONS_ENABLED` | Exact lowercase `true` accepts applications; `false` leaves the form in preview mode. Live submissions are currently enabled. |
 
-The existing `GOOGLE_SHEETS_SPREADSHEET_ID`, `GOOGLE_SERVICE_ACCOUNT_EMAIL`, and `GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY` values are also required. There are no Resend, SMTP, or Salesforce settings for Careers. Hostinger's **Apply changes** updates server environment variables without a full code redeployment, but the new Careers code itself must be deployed separately.
+The existing `GOOGLE_SHEETS_SPREADSHEET_ID`, `GOOGLE_SERVICE_ACCOUNT_EMAIL`, and `GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY` values are also required. There are no Resend, SMTP, or Salesforce settings for Careers. Hostinger's **Apply changes** updates server environment variables without a full code redeployment. Keep all credential values out of Git and Markdown notes.
 
 ## Submission and release checks
 
-The server validates the opening ID, applicant contact details, short experience text, and one PDF résumé up to 5 MB. It checks the PDF signature and caps the total request at 6 MB. For a valid submission, it finds an existing Drive file with the same submission ID or uploads the PDF, then appends the Careers row. It reports success only after the row is recorded. A retry checks the submission ID in the Sheet first and reuses the Drive file when necessary. The site does not retain the PDF on its server.
+The server validates the opening ID, applicant contact details, short experience text, and one PDF résumé up to 5 MiB (5,242,880 bytes). It checks the PDF extension, MIME type when provided, and `%PDF-` signature, and caps the complete multipart request at 6 MiB. For a valid submission, it finds an existing Drive file with the same submission ID or uploads the PDF, then appends the Careers row. It reports success only after the row is recorded. A retry checks the submission ID in the Sheet first and reuses the Drive file when necessary. The site does not retain the PDF on its server. The website code sets no total application-count limit; monitor available Google Drive storage.
 
-Before enabling production, make one controlled test submission with synthetic applicant details and a harmless PDF. Confirm the role and region, the new Careers row, and that the résumé link opens for the reviewers. Also test missing/invalid PDF, oversized PDF, unknown opening, and retry behavior. An upload that succeeds while a Sheet append fails can leave an unlisted Drive file; the same submission ID is reused on retry. If the OAuth grant is revoked or expires, the form returns an error instead of claiming success. Check Hostinger application logs for a redacted error code and confirm Google Drive storage capacity periodically.
+For future configuration or release changes, make a controlled test submission with synthetic applicant details and a harmless PDF. Confirm the role and region, the new Careers row, and that the résumé link opens for the intended reviewers; remove test records afterward. Also test missing/invalid PDF, oversized PDF, unknown opening, and retry behavior. An upload that succeeds while a Sheet append fails can leave an unlisted Drive file; the same submission ID is reused on retry. If the OAuth grant is revoked or expires, the form returns an error instead of claiming success. Check Hostinger application logs for a redacted error code and confirm Google Drive storage capacity periodically.
 
 References: [Drive `drive.file` scope](https://developers.google.com/workspace/drive/api/guides/api-specific-auth), [Google OAuth offline access](https://developers.google.com/identity/protocols/oauth2/web-server), [OAuth testing expiry](https://support.google.com/cloud/answer/15549945), [Drive uploads](https://developers.google.com/workspace/drive/api/guides/manage-uploads), [Hostinger environment variables](https://www.hostinger.com/support/how-to-edit-or-add-environment-variables-after-deployment/).

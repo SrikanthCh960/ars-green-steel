@@ -2,13 +2,13 @@
 
 Read this file first when continuing the ARS content migration in a new chat.
 
-## Careers applications — committed to primary main, Hostinger release pending, 2026-09-24
+## Careers applications — live on Hostinger, 2026-09-24
 
 - The user chose a `Careers` tab in the existing Google spreadsheet and PDF storage in `arsgroupm@gmail.com` My Drive. The earlier email-delivery proposal has been replaced. `carrier@arsgroup.in` is the corrected ARS email address, but the Careers form does not send email.
-- Feature commit `323f02b` is on primary `main`. It includes the three current role-and-region listings, application form, and server-only Sheets and Drive endpoint with PDF validation. The current lead forms continue to use Salesforce and Google Sheets unchanged.
-- The `Careers` sheet tab exists. The narrow Drive OAuth grant was completed as `arsgroupm@gmail.com`, and the app created the `ARS carriers` folder. Hostinger shows all six Careers environment-variable names; their masked values were not independently verified. Keep `CAREERS_APPLICATIONS_ENABLED=false` until the production release is ready for controlled testing.
-- ESLint, TypeScript, route/asset QA, `git diff --check`, production build, and setup-script syntax check passed. A local synthetic application wrote one Careers row and one PDF to Drive; a retry did not duplicate it, and an invalid opening was rejected. The synthetic rows and PDFs were then removed.
-- Hostinger still showed `4a60b97` as **Completed / Current** after the primary `main` push. Its production connection uses `SrikanthCh960/ars-green-steel`, so syncing that fork and deploying the same commit are separate steps. Share the Drive folder with the intended résumé reviewers and verify their access before enabling public submissions. See `docs/careers-applications-setup.md` for release checks.
+- Feature commit `323f02b` includes the three current role-and-region listings, application form, and server-only Sheets and Drive endpoint. Commit `907f1e7` fixed the production origin check behind Hostinger's proxy. Both commits are on primary and production-fork `main`; Hostinger showed `907f1e7` as **Completed / Current**. Public submissions are enabled.
+- Careers data goes only to the `Careers` tab in the existing spreadsheet and the app-created `ARS carriers` Drive folder under the narrow `drive.file` OAuth grant. The Careers route does not call Salesforce, Resend, or SMTP. Existing customer enquiry routes continue their separate Salesforce and Google Sheets flow.
+- The form accepts one valid PDF résumé per application, up to 5 MiB; the complete request is capped at 6 MiB. There is no application-count limit in website code. Monitor available Drive storage and verify access for any additional intended résumé reviewers.
+- Local lint, route/asset QA, and production build passed. A local synthetic application tested Sheets/Drive, retry deduplication, and invalid-opening validation. A live synthetic application returned HTTP 201 and reached Sheets/Drive; its row was removed and its PDF moved to Drive trash. The user independently confirmed a successful live submission, spreadsheet entry, and working Drive link. See `docs/careers-applications-setup.md` for operating and recovery steps.
 
 ## Client corrections — 2026-09-23
 
@@ -17,10 +17,10 @@ Read this file first when continuing the ARS content migration in a new chat.
 - The Steel Price Today selection has a name, phone, quantity, and inline kg/tonnes selector. Its new endpoint follows the existing Salesforce-then-Google-Sheets delivery pattern, without changing the other form endpoints.
 - Lint, route/asset checks, the production build, and desktop/mobile visual checks passed. Hostinger remains a separate deployment from the primary Git repository.
 
-## Mobile Core Web Vitals release — committed 2026-09-20, production pending
+## Mobile Core Web Vitals implementation — committed 2026-09-20
 
 - Commit `e2a5014` — **Optimize mobile Core Web Vitals delivery** — is on Baburao `main` and has been pushed to `baburao/ars-green-steel-redesign`.
-- This commit is **not yet confirmed on Srikanth's production fork or Hostinger**. Do not describe it as live until the fork shows the same SHA, Hostinger reports **Completed / Current**, the CDN cache is cleared, and production verification passes.
+- This commit is included in the current Hostinger production history through `907f1e7`. A separate recorded post-release mobile performance and CDN verification is still outstanding.
 - The implementation adds 88 mobile WebP blog hero variants plus 34 mobile/desktop WebP variants for shared corporate, product, rod-size, dealer, quality, and sustainability heroes.
 - `ResponsiveHeroImage` provides breakpoint-aware above-the-fold image delivery without re-enabling the Next.js runtime image optimizer. The shared blog template now covers all 88 migrated article routes.
 - The shared interior hero and ARS Green Steel hero no longer load their large desktop hero videos below the 768 px breakpoint. Dealer-locator filtering now uses deferred values so typing and filter controls remain responsive while the 1,566-record list is recalculated.
@@ -28,7 +28,7 @@ Read this file first when continuing the ARS content migration in a new chat.
 - The SEO workbook contains four sheets and exposes 46 unique example/representative affected URLs. The SEO team still needs to supply the unlisted affected URLs: 73 remaining LCP URLs and 11 remaining INP examples, together with first-detected dates, current 75th-percentile values, and URL-level versus origin-level CrUX classification.
 - After production verification, ask the SEO team to start Search Console validation. Field-data improvement is not immediate and must be monitored over the subsequent CrUX/Search Console reporting window.
 
-## Latest production release — 2026-09-17
+## Prior production release — 2026-09-17
 
 - Production commit `0dd5964` — **Fix blog section navigation** — was pushed to Baburao `main`, synced to Srikanth's production fork, deployed by Hostinger, and verified live after the CDN cache was cleared.
 - Shared blog “On this page” links now work on desktop and mobile, scroll to matching headings, and preserve direct fragment URLs.
@@ -55,7 +55,7 @@ Read this file first when continuing the ARS content migration in a new chat.
 - Validation passed: all 56 supported state × product × diameter rate combinations matched the workbook formula; `npm run build` and `git diff --check` passed. A source-level responsive/accessibility review passed, including an accessible polite unavailable-price status. A normal browser rendering review remains recommended before Hostinger release.
 - Future price or formula changes still require a newer approved workbook and a controlled release.
 
-## Latest Hostinger release — 2026-09-01
+## Prior Hostinger release — 2026-09-01
 
 - Production is confirmed on Hostinger from `main` at commit `724ae550b2cb5242efc0b575ace17e4d5fbdc386` (`724ae55`) — **Add leadership, brochure, and media updates**.
 - `/our-team` now uses the approved portrait-led Core Team hierarchy: equal MD and ED entries, smaller centred supporting profiles, a red divider, and name/designation text outside the portrait surface. The two original leadership biographies are no longer clipped.
@@ -101,10 +101,13 @@ Read this file first when continuing the ARS content migration in a new chat.
 ```
 
 - Branch: `main`
-- Current committed checkpoint: `e2a5014` — pushed to Baburao `main`; production release pending
-- Latest Hostinger production checkpoint: `0dd5964` — deployed and live-verified
+- Latest verified code checkpoint before this documentation update: `907f1e7` — on Baburao `main` and Srikanth `main`
+- Latest Hostinger production checkpoint: `907f1e7` — **Completed / Current**; Careers submission and storage verified
 - Production preview alias: https://ars-green-steel.vercel.app/
 - Latest commits:
+  - `907f1e7 Fix careers form origin check behind Hostinger proxy`
+  - `ad357b9 Record Careers release and test status`
+  - `323f02b Add gated Careers applications with Sheets and Drive storage`
   - `e2a5014 Optimize mobile Core Web Vitals delivery`
   - `006d5ae Clarify steel price update date`
   - `de06d58 Improve Green Steel emissions comparison`

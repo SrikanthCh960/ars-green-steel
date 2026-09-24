@@ -26,19 +26,16 @@ See `DEPLOYMENT.md` for the authoritative repository, Hostinger, Vercel, GA4, GT
 
 The September 2026 client-correction release adds a dedicated `/clients` page using nine supplied high-resolution logos, updates the homepage logos, gates dealer results behind a search/filter choice, enables the approved Binders brochure, updates Quality copy, and adds the Steel Price Today enquiry flow. Primary-repository merges and Hostinger production deployment are separate steps.
 
-## Current primary checkpoint — 2026-09-20
+## Current production checkpoint — 2026-09-24
 
-- Baburao `main` is at `e2a5014` — `Optimize mobile Core Web Vitals delivery` — and the primary remote has been verified at the same commit.
-- The release is not yet confirmed on Srikanth's fork or Hostinger; the last confirmed live Hostinger checkpoint remains `0dd5964`.
-- The release adds 88 mobile blog hero WebPs and 34 responsive hero variants for corporate, product, rod-size, dealer, quality, and sustainability templates.
-- Shared interior and ARS Green Steel hero videos are now desktop-only below the 768 px breakpoint, and dealer-locator filtering uses deferred values to protect interaction responsiveness.
-- Local verification passed across ESLint, TypeScript, 160 routes, 229 local assets, all 88 blog routes, a 180-page production build, and representative 390 px/1440 px browser checks without overflow or console errors.
-- Next release step: sync Srikanth's fork, complete Hostinger deployment, clear the CDN cache, and perform representative live verification before asking the SEO team to start Search Console validation.
-- The SEO workbook currently provides 46 unique example/representative URLs; 73 remaining LCP URLs and 11 remaining INP examples still need to be supplied by the SEO team.
+- Baburao `main` and the Hostinger-connected production fork both reached `907f1e7` — `Fix careers form origin check behind Hostinger proxy`. Hostinger showed this commit as **Completed / Current**.
+- The Careers application form is live. It saves applicant details in the `Careers` tab of the existing Google Sheet and one PDF résumé in the restricted `ARS carriers` Drive folder. It does not send Careers data to Salesforce or email; the existing customer enquiry integrations remain separate.
+- The form accepts one valid PDF up to 5 MiB per application, with a 6 MiB total request cap. A controlled synthetic live submission succeeded and was cleaned up; the user also confirmed a successful submission, spreadsheet entry, and working Drive link.
+- The earlier mobile Core Web Vitals code (`e2a5014`) is included in the deployed history. A separate recorded post-release mobile performance audit and the SEO team's remaining URL evidence are still outstanding.
 
-## Latest production release — 2026-09-17
+## Prior production release — 2026-09-17
 
-- Hostinger production is running the release through `main` commit `0dd5964` — `Fix blog section navigation` — after Baburao `main` was synced to the Srikanth production fork.
+- Hostinger production reached `main` commit `0dd5964` — `Fix blog section navigation` — after Baburao `main` was synced to the Srikanth production fork.
 - The Hostinger CDN cache was cleared after deployment.
 - Blog “On this page” links are live-verified on desktop and mobile, including working direct fragment URLs.
 - The homepage Knowledge Center card “How Green Steel is Produced” now opens `/blog/green-steel-manufacturing-using-clean-energy.html`.

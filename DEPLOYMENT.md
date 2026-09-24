@@ -16,36 +16,32 @@ This is the deployment source of truth for the ARS Green Steel redesign.
 
 Hostinger and `arsgroup.in` are the production source of truth. A Vercel deployment can remain available for preview and comparison, but it does not prove that the production website has been updated. Do not disconnect or reconfigure Vercel without explicit approval.
 
-## Careers applications — separate pending release
+## Careers applications — live and verified 2026-09-24
 
-Feature commit `323f02b` is on the primary repository's `main` branch, but has not been synced to the Hostinger-connected production fork. Hostinger still reported `4a60b97` as **Completed / Current** after the push. The `Careers` spreadsheet tab, narrow OAuth grant, app-created `ARS carriers` Drive folder, and six Hostinger variable names are in place; masked variable values remain unverified. A local synthetic submission saved one PDF and one Sheet row, retry deduplication worked, invalid-opening validation passed, and all synthetic records were removed.
+The Careers feature (`323f02b`) and Hostinger proxy origin fix (`907f1e7`) are on primary `main` and the Hostinger-connected production fork. Hostinger reported `907f1e7` as **Completed / Current**. Public submissions are enabled. The form stores each PDF résumé in the app-created `ARS carriers` Google Drive folder and appends applicant details plus the Drive link to the `Careers` tab of the existing spreadsheet. It does **not** send Careers data to Salesforce, Resend, or SMTP; the existing customer enquiry routes remain separate.
 
-The form stays gated by `CAREERS_APPLICATIONS_ENABLED`; keep it `false` until the separate Hostinger deployment, reviewer folder access, and controlled production test are ready. The form stores each PDF résumé in Drive and appends a link in the Careers tab. It does not use Resend, SMTP, or Salesforce, and existing customer enquiry integrations remain unchanged. Follow [the Careers applications setup](docs/careers-applications-setup.md) for release checks.
+Each application accepts one valid PDF of up to 5 MiB (5,242,880 bytes). The complete multipart request is capped at 6 MiB. There is no application-count cap in the website code; available Google Drive storage should be monitored. The live origin check accepted `arsgroup.in` and rejected an unrelated site. A controlled synthetic application returned HTTP 201 and reached Sheets and Drive; its Sheet row was removed and its PDF moved to Drive trash. The user also confirmed a successful live submission, spreadsheet entry, and working Drive link. Intended reviewer access to the restricted folder should be checked separately if additional reviewers need it. Follow [the Careers applications setup](docs/careers-applications-setup.md) for operating and recovery steps.
 
-## Primary Repository Client Corrections — 2026-09-23
+## Client corrections release history — 2026-09-23
 
-- The current non-careers change adds the approved nine-logo Clients page and replaces the homepage's small client-logo exports with high-resolution assets derived from the client-supplied files.
+- This release added the approved nine-logo Clients page and replaced the homepage's small client-logo exports with high-resolution assets derived from the client-supplied files. Its commits are included in the current Hostinger deployment history.
 - It also includes the dealer search gate, Quality page wording, ARS Binders brochure actions, and the Steel Price Today enquiry form. The new price enquiry uses the established Salesforce and Google Sheets delivery paths; it does not change the existing forms.
 - Local verification passed with lint, route/asset checks, a production build, and desktop/mobile Clients-page review. Do not submit a production enquiry solely to verify this release without the user's specific approval immediately before that submission.
-- Pushing to the primary repository does not deploy Hostinger. Sync and verify the production-connected fork as a separate release step.
+- Future primary-repository pushes do not deploy Hostinger by themselves. Sync and verify the production-connected fork for each code release.
 
-## Pending Hostinger Release — Mobile Core Web Vitals, 2026-09-20
+## Mobile Core Web Vitals implementation history — 2026-09-20
 
-- Baburao `main` is at commit `e2a50145168cfc82edbf0b762ef32f36f39c56c1` (`e2a5014`) — `Optimize mobile Core Web Vitals delivery` — and the remote branch was verified at the same SHA.
-- This commit has not yet been confirmed on `SrikanthCh960/ars-green-steel` or in Hostinger. The last confirmed Hostinger production checkpoint remains `0dd5964`.
+- Commit `e2a50145168cfc82edbf0b762ef32f36f39c56c1` (`e2a5014`) — `Optimize mobile Core Web Vitals delivery` — is included in the production history through the current `907f1e7` deployment. Its implementation and local QA are recorded below; a separate post-release mobile performance audit has not been recorded here.
 - Release scope: 88 mobile blog hero WebPs, 34 responsive corporate/product/rod/dealer/sustainability hero WebPs, shared breakpoint-aware hero delivery, mobile suppression of desktop-only hero videos, and deferred dealer filtering.
 - Local verification passed: targeted ESLint, TypeScript, route/asset QA, blog migration parity audit, production build, mobile/desktop browser checks, responsive overflow checks, and browser-console review.
-- Required release sequence:
-  1. Sync Srikanth's fork and confirm its `main` shows `e2a5014`.
-  2. Wait for Hostinger to report the same commit as **Completed / Current**.
-  3. Clear the Hostinger CDN cache after deployment.
-  4. Verify representative production routes on mobile and desktop: homepage, two blog templates including PCC/RCC, `/product-550d`, one rod-size page, `/about-us`, `/our-network`, `/ars-green-steel`, and `/careers`.
-  5. Confirm mobile requests select the new `*-mobile.webp` hero files and that desktop-only hero videos are not requested below 768 px.
-  6. Recheck `/robots.txt`, `/sitemap.xml`, production `index, follow`, and the absence of browser-console errors.
+- Original post-release checklist still requiring a recorded result:
+  1. Confirm Hostinger CDN cache state and verify representative production routes on mobile and desktop: homepage, two blog templates including PCC/RCC, `/product-550d`, one rod-size page, `/about-us`, `/our-network`, `/ars-green-steel`, and `/careers`.
+  2. Confirm mobile requests select the new `*-mobile.webp` hero files and that desktop-only hero videos are not requested below 768 px.
+  3. Recheck `/robots.txt`, `/sitemap.xml`, production `index, follow`, and the absence of browser-console errors.
 - No production form submission is required for this release because lead delivery code and form payloads were not changed.
 - After live verification, ask the SEO team to begin Search Console validation and monitor the rolling field-data window. Do not expect the Core Web Vitals report to change immediately after deployment.
 
-## Latest Hostinger Production Verification — 2026-09-17
+## Prior Hostinger Production Verification — 2026-09-17
 
 - Production commit: `0dd59648d7bd4d1d77e4f8a695fafec950543f07` (`0dd5964`) — `Fix blog section navigation`.
 - Source branch: Baburao `main`, synced to the `SrikanthCh960/ars-green-steel` production fork before Hostinger deployment.
