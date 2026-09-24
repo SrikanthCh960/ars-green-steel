@@ -81,7 +81,7 @@ export function PriceCalculatorExperience() {
       setNotice("Price unavailable for this selection. Please revise your selection or contact ARS for a confirmed quote.");
       return;
     }
-    setNotice("Calculation updated from the approved workbook rules.");
+    setNotice("Calculation updated from current ARS rates and workbook rules.");
   }
 
   function requestRate() {
@@ -117,7 +117,7 @@ export function PriceCalculatorExperience() {
         <div className="max-w-4xl">
           <CalculatorReveal y={14}><div className="mb-7 flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.18em] text-white/70"><span className="h-px w-10 bg-brand-red" aria-hidden="true" />TMT Steel Calculator</div></CalculatorReveal>
           <CalculatorReveal delay={0.08} y={20}><h1 className="font-display text-[clamp(2.65rem,6vw,4.5rem)] font-extrabold leading-[1] tracking-[-0.035em]">Calculate Your TMT Requirement <span className="text-[var(--text-accent-dark)]">With Precision.</span></h1></CalculatorReveal>
-          <CalculatorReveal delay={0.16}><p className="mt-7 max-w-2xl text-base leading-8 text-white/75 md:text-lg">Use approved ARS workbook rates and bundle rules to calculate rods, weight, bundles, and GST-inclusive cost by diameter.</p></CalculatorReveal>
+          <CalculatorReveal delay={0.16}><p className="mt-7 max-w-2xl text-base leading-8 text-white/75 md:text-lg">Use current ARS reference rates and approved bundle rules to calculate rods, weight, bundles, and GST-inclusive cost by diameter.</p></CalculatorReveal>
           <a href="#calculator" className="focus-ring mt-8 inline-flex min-h-12 items-center gap-2.5 rounded-full bg-brand-red px-6 py-3 text-sm font-bold text-white">Start calculating <ArrowRight size={16} /></a>
         </div>
       </div>
@@ -171,7 +171,7 @@ export function PriceCalculatorExperience() {
             <div className="flex flex-wrap items-center justify-between gap-3"><p id="summary-title" className="font-technical text-[11px] font-bold uppercase tracking-[0.22em] text-brand-blue">Calculated requirement</p><p className="text-xs font-semibold text-steel-700">GST-inclusive pricing</p></div>
             <div className="mt-6 grid gap-4 md:grid-cols-2"><Metric label="Total steel" value={hasValidCalculation ? (summary.kilograms / 1000).toFixed(2) + " t" : "—"} detail={hasValidCalculation ? summary.kilograms.toLocaleString("en-IN", { maximumFractionDigits: 2 }) + " kg · " + summary.rods.toLocaleString("en-IN") + " rods" : hasUnavailablePrice ? "Price unavailable for this selection" : "Enter a valid requirement"} /><Metric label="GST-inclusive cost" value={hasValidCalculation ? currency.format(summary.amount) : "—"} detail={hasUnavailablePrice ? "Price unavailable" : (product || "Select product") + " · " + (region || "Select state")} accent /></div>
             <p className="sr-only" role="status" aria-live="polite" aria-atomic="true">{liveStatus}</p>
-            <p className="mt-6 text-xs leading-5 text-steel-700">The total reflects calculated whole rods and the approved GST-inclusive rate for each selected diameter. Delivery Charges will be extra (Transportation & Loading /Un-loading).</p>
+            <p className="mt-6 text-xs leading-5 text-steel-700">The total reflects calculated whole rods and the displayed GST-inclusive rate for each selected diameter. Delivery Charges will be extra (Transportation & Loading /Un-loading).</p>
             <button type="button" onClick={requestRate} className="focus-ring mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-brand-red px-4 py-3 text-sm font-bold text-white transition hover:bg-brand-red/90">Get an exact quote from ARS <ArrowRight size={16} /></button>
           </section>
         </div>

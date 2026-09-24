@@ -66,17 +66,17 @@ const steelPriceFaqs = [
   {
     question: "What is today’s ARS TMT steel price per kg?",
     answer:
-      "The selector above shows the current GST-inclusive prices from the approved ARS region-wise pricing workbook. Choose the region, grade, and diameter to see the applicable indicative rate per kg and per tonne.",
+      "The selector above shows current GST-inclusive reference prices. Tamil Nadu reflects the latest ARS rate update; other regions and the grade and diameter differences follow the ARS pricing workbook.",
   },
   {
     question: "Is GST included in the displayed steel price?",
     answer:
-      "Yes. The displayed workbook rates include GST. Freight, transportation, loading, and unloading are additional and are confirmed in the final quotation.",
+      "Yes. The displayed rates include GST. Freight, transportation, loading, and unloading are additional and are confirmed in the final quotation.",
   },
   {
     question: "What is the ARS TMT steel price per tonne?",
     answer:
-      "The price table provides both per-kg and per-tonne values for every supported diameter. One tonne is calculated as 1,000 kg, using the same approved workbook rate.",
+      "The price table provides both per-kg and per-tonne values for every supported diameter. One tonne is calculated as 1,000 kg, using the same displayed rate.",
   },
   {
     question: "Are delivery and unloading charges included?",
@@ -109,7 +109,7 @@ const trustCards = [
   {
     icon: IndianRupee,
     title: "GST included",
-    body: "Displayed workbook rates include GST for clearer initial budgeting.",
+    body: "Displayed rates include GST for clearer initial budgeting.",
   },
   {
     icon: Truck,
@@ -310,7 +310,7 @@ export default function SteelPriceTodayPage() {
               </h2>
             </div>
             <p className="max-w-xl text-[15px] leading-7 text-steel-700">
-              Use these workbook-backed rates for initial planning. The confirmed selling price and commercial terms are provided in an ARS quotation.
+              Use these current reference rates for initial planning. The confirmed selling price and commercial terms are provided in an ARS quotation.
             </p>
           </div>
 
@@ -318,7 +318,7 @@ export default function SteelPriceTodayPage() {
             {[
               ["Price updated on", pricingWorkbookDetails.approvedOnLabel],
               ["Source", pricingWorkbookDetails.sourceLabel],
-              ["Reviewed by", pricingWorkbookDetails.reviewedBy],
+              ["Rate basis", pricingWorkbookDetails.rateBasis],
               ["Review cadence", pricingWorkbookDetails.reviewCadence],
             ].map(([term, detail]) => (
               <div key={term} className="bg-surface-50 p-4 md:p-5">
@@ -361,7 +361,7 @@ export default function SteelPriceTodayPage() {
               <h2 className="mt-4 font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">ARS Fe 550D vs CRS Fe 550D prices</h2>
             </div>
             <p className="text-[15px] leading-7 text-steel-700">
-              Tamil Nadu is shown below as a stable reference. The selector above provides approved workbook rates for every supported region. City selection helps with quotation and delivery context but does not alter the state-level rate.
+              Tamil Nadu is shown below with its updated ARS rate. The selector above shows the current reference rates for every supported region. City selection helps with quotation and delivery context but does not alter the state-level rate.
             </p>
           </div>
           <div className="mt-10 grid min-w-0 gap-6 lg:grid-cols-2">
@@ -379,7 +379,7 @@ export default function SteelPriceTodayPage() {
             </div>
             <div className="rounded-xl border-l-4 border-brand-red bg-white p-5">
               <p className="font-display text-lg font-bold text-ink-900">Mean weight per rod × price per kg = approximate price per rod</p>
-              <p className="mt-2 text-sm leading-6 text-steel-700">Reference: Tamil Nadu, ARS Fe 550D, GST-inclusive workbook rates.</p>
+              <p className="mt-2 text-sm leading-6 text-steel-700">Reference: Tamil Nadu, ARS Fe 550D, GST-inclusive rates.</p>
             </div>
           </div>
 
@@ -434,7 +434,7 @@ export default function SteelPriceTodayPage() {
             <SectionKicker variant="brand">Buying Context</SectionKicker>
             <h2 className="mt-4 font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">What affects TMT steel prices in Chennai?</h2>
             <p className="mt-5 text-[15px] leading-7 text-steel-700">
-              Chennai uses the Tamil Nadu workbook rate. The final quotation can still vary according to the selected grade, diameter mix, order quantity, delivery location, and applicable logistics.
+              Chennai uses the Tamil Nadu reference rate. The final quotation can still vary according to the selected grade, diameter mix, order quantity, delivery location, and applicable logistics.
             </p>
           </div>
           <ol className="grid gap-px overflow-hidden rounded-2xl border border-brand-blue/10 bg-brand-blue/10 sm:grid-cols-2">

@@ -116,7 +116,7 @@ export function validatePriceEnquiry(value: unknown, now = new Date()): PriceEnq
 
 export function priceEnquiryRequirement(enquiry: PriceEnquiry) {
   const perKg = getRatePerKg(enquiry.region, enquiry.product, enquiry.size);
-  return `${enquiry.quantity} ${enquiry.unit} of ${enquiry.size} ${enquiry.product}; delivery city: ${enquiry.city}; indicative workbook rate: INR ${perKg.toFixed(2)}/kg including GST. Confirm final order rate with ARS.`;
+  return `${enquiry.quantity} ${enquiry.unit} of ${enquiry.size} ${enquiry.product}; delivery city: ${enquiry.city}; indicative ARS rate: INR ${perKg.toFixed(2)}/kg including GST. Confirm final order rate with ARS.`;
 }
 
 export async function appendPriceEnquiryToGoogleSheets(enquiry: PriceEnquiry) {

@@ -280,7 +280,7 @@ main h1 {
   color: var(--text-accent-dark);
 }
 
-:is(.bg-brand-blue, .bg-brand-blue-dark, .bg-ink-950, .bg-bg-dark, .bg-\[\#071126\], .bg-\[\#060D1E\]) .text-ink-900 {
+:is(.bg-brand-blue, .bg-brand-blue-dark, .bg-ink-950, .bg-bg-dark, .bg-\[\#071126\], .bg-\[\#060D1E\]) .text-ink-900:not(:is(input, select, textarea)) {
   color: var(--text-on-dark);
 }
 

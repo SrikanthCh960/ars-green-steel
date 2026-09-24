@@ -28,11 +28,11 @@ export type CalculatorBar = (typeof calculatorBars)[number];
 export type CalculatorInputs = Record<string, number>;
 
 export const pricingWorkbookDetails = {
-  approvedOn: "2026-09-05",
-  approvedOnLabel: "5 September 2026",
-  sourceLabel: "ARS approved region-wise pricing workbook",
-  reviewedBy: "ARS sales and pricing department",
-  reviewCadence: "Updated whenever ARS issues an approved pricing workbook",
+  approvedOn: "2026-09-24",
+  approvedOnLabel: "24 September 2026 (Tamil Nadu)",
+  sourceLabel: "ARS pricing workbook and Tamil Nadu rate update",
+  rateBasis: "Fe 550D base rate with grade and diameter adjustments",
+  reviewCadence: "Updated when ARS confirms revised rates",
   taxesIncluded: true,
   freightIncluded: false,
   loadingAndUnloadingIncluded: false,
@@ -64,13 +64,20 @@ const workbookPriceInputs = {
   } as Record<CalculatorBar["size"], number>,
 } as const;
 
+// The client revised the Tamil Nadu Fe 550D base rate to ₹76,000/tonne including GST.
+// Keep the workbook's product and diameter differences, and leave other states unchanged.
+const tamilNaduBaseRatePerTonIncludingGst = 76000;
+const tamilNaduRateAdjustmentPerTon = tamilNaduBaseRatePerTonIncludingGst
+  - workbookPriceInputs.basePricePerTon["ARS Fe 550D"] * (1 + workbookPriceInputs.gst);
+
 export function getRatePerKg(region: string, product: string, size: string) {
   const basePrice = workbookPriceInputs.basePricePerTon[product as CalculatorProduct];
   const regionAdjustment = workbookPriceInputs.regionAdjustmentPerTon[region as CalculatorRegion];
   const diameterAdjustment = workbookPriceInputs.diameterAdjustmentPerTon[size as CalculatorBar["size"]];
 
   if (basePrice === undefined || regionAdjustment === undefined || diameterAdjustment === undefined) return 0;
-  return ((basePrice + regionAdjustment + diameterAdjustment) * (1 + workbookPriceInputs.gst)) / 1000;
+  const workbookRatePerTonIncludingGst = (basePrice + regionAdjustment + diameterAdjustment) * (1 + workbookPriceInputs.gst);
+  return (workbookRatePerTonIncludingGst + (region === "Tamil Nadu" ? tamilNaduRateAdjustmentPerTon : 0)) / 1000;
 }
 
 export function getWorkbookPriceRows(region: CalculatorRegion, product: CalculatorProduct) {

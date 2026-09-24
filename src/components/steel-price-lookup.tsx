@@ -35,7 +35,7 @@ export function SteelPriceLookup() {
   const pathname = usePathname();
   const [region, setRegion] = useState<CalculatorRegion>("Tamil Nadu");
   const [product, setProduct] = useState<CalculatorProduct>("ARS Fe 550D");
-  const [size, setSize] = useState<CalculatorBar["size"]>("8mm");
+  const [size, setSize] = useState<CalculatorBar["size"]>("12mm");
   const [city, setCity] = useState<(typeof calculatorCities)[CalculatorRegion][number]>("Chennai");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState("");
@@ -151,10 +151,10 @@ export function SteelPriceLookup() {
           </div>
 
           <p className="mt-3 text-xs leading-5 text-steel-700">
-            Workbook rates are state-level. Your city helps ARS prepare delivery and quotation guidance; it does not change the displayed rate.
+            Displayed rates are state-level. Your city helps ARS prepare delivery and quotation guidance; it does not change the displayed rate.
           </p>
 
-          <ul className="mt-6 grid gap-3 md:hidden" aria-label="Workbook-backed ARS steel prices by diameter">
+          <ul className="mt-6 grid gap-3 md:hidden" aria-label="ARS steel prices by diameter">
             {prices.map((row) => (
               <li key={row.size}>
                 <button
@@ -181,7 +181,7 @@ export function SteelPriceLookup() {
 
           <div className="mt-6 hidden max-w-full overflow-x-auto md:block">
             <table className="w-full border-collapse text-left text-sm">
-              <caption className="sr-only">Workbook-backed ARS steel prices by diameter</caption>
+              <caption className="sr-only">ARS steel prices by diameter</caption>
               <thead>
                 <tr className="border-b border-ink-900/10 text-[11px] font-bold uppercase tracking-[0.12em] text-steel-700">
                   <th scope="col" className="py-3 pr-4">Diameter</th>
@@ -211,7 +211,7 @@ export function SteelPriceLookup() {
           </div>
 
           <ul className="mt-5 space-y-1 text-xs leading-5 text-steel-700">
-            <li>Displayed workbook rates include GST.</li>
+            <li>Displayed rates include GST.</li>
             <li>Each piece is approximately 12 m and remains subject to applicable BIS tolerances.</li>
             <li>Freight, transportation, loading and unloading are excluded.</li>
           </ul>
@@ -227,7 +227,7 @@ export function SteelPriceLookup() {
             <div className="rounded-xl bg-white p-5">
               <p className="text-xs font-bold uppercase tracking-[0.1em] text-steel-700">Current selection</p>
               <p className="mt-2 font-display text-xl font-bold text-ink-900">{product} · {region}</p>
-              <p className="mt-1 text-sm text-steel-700">{city} · Indicative workbook rate. Confirm the order rate with ARS.</p>
+              <p className="mt-1 text-sm text-steel-700">{city} · Indicative ARS rate. Confirm the order rate with ARS.</p>
             </div>
           </div>
 
