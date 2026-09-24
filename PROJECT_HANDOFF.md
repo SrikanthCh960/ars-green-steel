@@ -2,13 +2,13 @@
 
 Read this file first when continuing the ARS content migration in a new chat.
 
-## Careers applications — local work pending release, 2026-09-24
+## Careers applications — committed to primary main, Hostinger release pending, 2026-09-24
 
 - The user chose a `Careers` tab in the existing Google spreadsheet and PDF storage in `arsgroupm@gmail.com` My Drive. The earlier email-delivery proposal has been replaced. `carrier@arsgroup.in` is the corrected ARS email address, but the Careers form does not send email.
-- Local uncommitted Careers work includes the three current role-and-region listings, the application form, and a server-only Sheets and Drive endpoint with PDF validation. The UI and endpoint remain disabled until the tab, narrow Drive OAuth grant, Hostinger variables, and explicit enable flag are ready; no résumé has been uploaded.
-- The current lead forms continue to use Salesforce and Google Sheets unchanged. Careers is intended as a separate release, using a `Careers` tab in the existing spreadsheet plus PDF storage in `arsgroupm@gmail.com` Drive through narrow OAuth. See `docs/careers-applications-setup.md` for the remaining setup and verification sequence.
-- The Sheets and Drive path passed ESLint, TypeScript, internal route/asset QA, `git diff --check`, a production build, setup-script syntax check, and local invalid-request rejection checks. A controlled end-to-end upload and Sheets append still require OAuth setup. No real Google Drive upload has been performed.
-- The user reports the non-Careers release is live. That production state was not independently verified in this Careers turn.
+- Feature commit `323f02b` is on primary `main`. It includes the three current role-and-region listings, application form, and server-only Sheets and Drive endpoint with PDF validation. The current lead forms continue to use Salesforce and Google Sheets unchanged.
+- The `Careers` sheet tab exists. The narrow Drive OAuth grant was completed as `arsgroupm@gmail.com`, and the app created the `ARS carriers` folder. Hostinger shows all six Careers environment-variable names; their masked values were not independently verified. Keep `CAREERS_APPLICATIONS_ENABLED=false` until the production release is ready for controlled testing.
+- ESLint, TypeScript, route/asset QA, `git diff --check`, production build, and setup-script syntax check passed. A local synthetic application wrote one Careers row and one PDF to Drive; a retry did not duplicate it, and an invalid opening was rejected. The synthetic rows and PDFs were then removed.
+- Hostinger still showed `4a60b97` as **Completed / Current** after the primary `main` push. Its production connection uses `SrikanthCh960/ars-green-steel`, so syncing that fork and deploying the same commit are separate steps. Share the Drive folder with the intended résumé reviewers and verify their access before enabling public submissions. See `docs/careers-applications-setup.md` for release checks.
 
 ## Client corrections — 2026-09-23
 

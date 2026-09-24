@@ -18,7 +18,9 @@ Hostinger and `arsgroup.in` are the production source of truth. A Vercel deploym
 
 ## Careers applications — separate pending release
 
-The Careers listing and application flow remain separate from the client-corrections release. The local form is gated until the existing Google spreadsheet has a `Careers` tab, `arsgroupm@gmail.com` has authorized narrow Drive file access, the server-only OAuth values are configured, and the explicit enable flag is set. The form saves each PDF résumé to Drive and appends one row with its link to the Careers tab. It does not use Resend, SMTP, or Salesforce. Follow [the Careers applications setup](docs/careers-applications-setup.md) for exact variables and release checks. Keep the existing customer enquiry integrations unchanged.
+Feature commit `323f02b` is on the primary repository's `main` branch, but has not been synced to the Hostinger-connected production fork. Hostinger still reported `4a60b97` as **Completed / Current** after the push. The `Careers` spreadsheet tab, narrow OAuth grant, app-created `ARS carriers` Drive folder, and six Hostinger variable names are in place; masked variable values remain unverified. A local synthetic submission saved one PDF and one Sheet row, retry deduplication worked, invalid-opening validation passed, and all synthetic records were removed.
+
+The form stays gated by `CAREERS_APPLICATIONS_ENABLED`; keep it `false` until the separate Hostinger deployment, reviewer folder access, and controlled production test are ready. The form stores each PDF résumé in Drive and appends a link in the Careers tab. It does not use Resend, SMTP, or Salesforce, and existing customer enquiry integrations remain unchanged. Follow [the Careers applications setup](docs/careers-applications-setup.md) for release checks.
 
 ## Primary Repository Client Corrections — 2026-09-23
 
