@@ -8,6 +8,7 @@ export const runtime = "nodejs";
 const maximumResumeBytes = 5 * 1024 * 1024;
 const maximumBodyBytes = 6 * 1024 * 1024;
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const allowedProductionOrigins = new Set(["https://arsgroup.in", "https://www.arsgroup.in"]);
 
 function response(body: object, status: number) {
   return Response.json(body, { status, headers: { "cache-control": "no-store" } });
@@ -56,7 +57,11 @@ export async function POST(request: Request) {
   const origin = request.headers.get("origin");
   if (origin) {
     try {
-      if (new URL(origin).host !== new URL(request.url).host) {
+      const submittedOrigin = new URL(origin).origin;
+      // Hostinger can expose an internal URL to the route behind its public proxy.
+      const allowedOrigin = allowedProductionOrigins.has(submittedOrigin) ||
+        (process.env.NODE_ENV !== "production" && submittedOrigin === new URL(request.url).origin);
+      if (!allowedOrigin) {
         return response({ ok: false, message: "Please submit the form from the ARS website." }, 403);
       }
     } catch {
