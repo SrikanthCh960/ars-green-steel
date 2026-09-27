@@ -29,7 +29,6 @@ import {
   createPageMetadata,
   productionDomain,
 } from "@/lib/site-metadata";
-import { MultiSizeOrderCalculator } from "./multi-size-order-calculator";
 
 export const metadata = createPageMetadata({
   title: "Steel Price Today Per Kg in India | Latest TMT Steel Rates – ARS",
@@ -132,7 +131,7 @@ const steelPriceFaqs = [
   {
     question: "How can I get a confirmed ARS steel quotation?",
     answer:
-      "Enter your selected size and quantity in the price enquiry form above, or send the multi-size calculation to the Request Quote page. ARS will confirm the order rate, quotation validity, and delivery-related charges.",
+      "Enter your selected size and quantity in the price enquiry form above, or use the Request Quote page. ARS will confirm the order rate, quotation validity, and delivery-related charges.",
   },
 ] as const;
 
@@ -157,6 +156,14 @@ const calculatorBenefits = [
     title: "COMPLIANCE TO MINISTRY OF STEEL NORMS",
     body: "The calculation uses ARS-supplied bar sizes and mean weights, with actual weights subject to applicable BIS tolerances. Review the product specification and certification separately when checking project or regulatory requirements; a price estimate does not certify compliance.",
   },
+] as const;
+
+const steelPriceFactors = [
+  { title: "Cost of raw materials", icon: "/ars-assets/steel-price-factors/01_cost_of_raw_materials.svg" },
+  { title: "Market demand", icon: "/ars-assets/steel-price-factors/02_market_demand.svg" },
+  { title: "Production capacity", icon: "/ars-assets/steel-price-factors/03_production_capacity.svg" },
+  { title: "Transportation costs", icon: "/ars-assets/steel-price-factors/04_transportation_costs.svg" },
+  { title: "IS 1786:2008 standard", icon: "/ars-assets/steel-price-factors/05_is_1786_2008_certification.svg" },
 ] as const;
 
 const trustCards = [
@@ -354,15 +361,32 @@ export default function SteelPriceTodayPage() {
         </div>
       </section>
 
-      <MotionSection className="border-b border-brand-blue/10 bg-white py-16 md:py-20">
-        <div className="ars-container">
-          <SectionKicker variant="brand">Understanding Steel Prices</SectionKicker>
-          <h2 className="mt-4 max-w-4xl font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">What should builders know about TMT steel price today?</h2>
-          <div className="mt-8 max-w-4xl border-l-2 border-brand-red pl-6 md:pl-8">
-            <span aria-hidden="true" className="mb-4 block font-technical text-xs font-bold tracking-[0.22em] text-brand-blue/60">01</span>
-            <p className="text-[15px] leading-8 text-steel-700">
-              When it comes to construction projects, understanding the factors of TMT steel price is necessary. As a builder, being well-informed about the fluctuations and factors affecting TMT bar price can help you make informed decisions. You will need to explore the key factors to know about <Link href="/tmt-steel-calculator" className="focus-ring font-semibold text-brand-blue underline decoration-brand-blue/30 underline-offset-4 hover:text-brand-red">steel price today</Link> before embarking on any construction journey. TMT steel price today are subject to various factors that can cause fluctuations. Some of the key influencers include the cost of raw materials, market demand, production capacity, transportation costs, and an IS 1786 – 2008 standard certification adds to its value.
-            </p>
+      <MotionSection className="border-b border-brand-blue/10 bg-surface-50 py-16 md:py-24">
+        <div className="ars-container grid gap-12 xl:grid-cols-[minmax(0,1fr)_minmax(0,0.96fr)] xl:items-center xl:gap-16">
+          <div className="min-w-0">
+            <SectionKicker variant="brand">Understanding Steel Prices</SectionKicker>
+            <h2 className="mt-8 max-w-3xl font-display text-[clamp(2.35rem,3.6vw,3.5rem)] font-extrabold leading-[1.08] tracking-[-0.03em] text-ink-900">What should builders know about TMT steel price today?</h2>
+            <div className="mt-9 max-w-3xl border-l-2 border-brand-red pl-5 md:pl-8">
+              <span aria-hidden="true" className="mb-4 block font-technical text-sm font-bold tracking-[0.12em] text-brand-blue/50">01</span>
+              <p className="text-[15px] leading-8 text-steel-700 md:text-base md:leading-8">
+                When it comes to construction projects, understanding the factors of TMT steel price is necessary. As a builder, being well-informed about the fluctuations and factors affecting TMT bar price can help you make informed decisions. You will need to explore the key factors to know about <Link href="/tmt-steel-calculator" className="focus-ring font-semibold text-brand-blue underline decoration-brand-blue/30 underline-offset-4 hover:text-brand-red">steel price today</Link> before embarking on any construction journey. TMT steel price today are subject to various factors that can cause fluctuations. Some of the key influencers include the cost of raw materials, market demand, production capacity, transportation costs, and an IS 1786 – 2008 standard certification adds to its value.
+              </p>
+            </div>
+          </div>
+
+          <div className="min-w-0 rounded-2xl border border-brand-blue/15 bg-white p-5 shadow-[var(--shadow-soft)] sm:p-7 lg:p-9">
+            <p className="font-technical text-xs font-bold uppercase tracking-[0.13em] text-steel-700">Key factors that influence</p>
+            <h3 className="mt-2 font-display text-2xl font-bold uppercase leading-tight text-ink-900 md:text-[1.75rem]">TMT steel price today</h3>
+            <ul className="mt-7 grid gap-3 sm:grid-cols-2">
+              {steelPriceFactors.map((factor, index) => (
+                <li key={factor.title} className={`flex min-w-0 gap-4 rounded-xl border border-brand-blue/15 bg-surface-50 p-5 ${index === steelPriceFactors.length - 1 ? "items-center sm:col-span-2" : "min-h-24 items-center sm:min-h-44 sm:flex-col sm:items-start sm:justify-between"}`}>
+                  <span className="flex size-16 shrink-0 items-center justify-center rounded-full bg-brand-red/[0.07] sm:size-20" aria-hidden="true">
+                    <Image src={factor.icon} alt="" width={56} height={56} className="size-11 sm:size-14" />
+                  </span>
+                  <span className="font-display text-lg font-bold leading-snug text-ink-900">{factor.title}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </MotionSection>
@@ -396,17 +420,6 @@ export default function SteelPriceTodayPage() {
           </dl>
 
           <SteelPriceLookup />
-        </div>
-      </MotionSection>
-
-      <MotionSection className="bg-surface-50 py-16 md:py-24" id="detailed-calculation">
-        <div className="ars-container">
-          <SectionKicker variant="brand">Detailed Order Planning</SectionKicker>
-          <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_0.8fr] lg:items-end">
-            <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Check the steel price today for every bar size</h2>
-            <p className="text-[15px] leading-7 text-steel-700">Enter rods, bundles, or weight across the sizes your project needs. The estimate uses the same ARS reference rates as the quick price lookup above.</p>
-          </div>
-          <div className="mt-8"><MultiSizeOrderCalculator /></div>
         </div>
       </MotionSection>
 
