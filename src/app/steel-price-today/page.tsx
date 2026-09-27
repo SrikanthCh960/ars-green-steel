@@ -29,6 +29,7 @@ import {
   createPageMetadata,
   productionDomain,
 } from "@/lib/site-metadata";
+import { MultiSizeOrderCalculator } from "./multi-size-order-calculator";
 
 export const metadata = createPageMetadata({
   title: "Steel Price Today Per Kg in India | Latest TMT Steel Rates – ARS",
@@ -64,44 +65,97 @@ const pricePlanningArticles = pricePlanningArticleSlugs
 
 const steelPriceFaqs = [
   {
-    question: "What is today’s ARS TMT steel price per kg?",
+    question: "What is the price of steel in India?",
     answer:
-      "The selector above shows current GST-inclusive reference prices. Tamil Nadu reflects the latest ARS rate update; other regions and the grade and diameter differences follow the ARS pricing workbook.",
+      "Steel prices in India fluctuate by product, location, size, and order date. Use the ARS selector above for current indicative per-kg and per-tonne rates, then request a confirmed quotation for your project.",
+  },
+  {
+    question: "Why steel prices are increasing today?",
+    answer:
+      "Higher raw material, production, energy, or transportation costs and stronger demand can affect steel prices. A change in any one factor does not mean every ARS rate has changed; check the dated reference rates and confirm your order price with ARS.",
+  },
+  {
+    question: "Where can I find the latest TMT prices?",
+    answer:
+      "Select your state, product, and bar diameter above to see the latest ARS reference rate published on this page. The update date is shown beside the selector; ARS will confirm the final selling price in a quotation.",
+  },
+  {
+    question: "How is the price of iron rods calculated per kg?",
+    answer:
+      "The per-kg rate depends on the selected ARS grade, region, and diameter. For an approximate rod price, multiply the rod’s mean weight by its displayed GST-inclusive price per kg; the table above shows this calculation by size.",
+  },
+  {
+    question: "What factors influence the price of steel?",
+    answer:
+      "Raw material and production costs, market demand, transport, product grade, diameter, and delivery location all matter. The ARS reference table reflects approved grade, region, and diameter differences; freight and handling are confirmed separately.",
+  },
+  {
+    question: "How does the grade of steel affect the price?",
+    answer:
+      "The approved ARS rate differs between Fe 550D and CRS Fe 550D. CRS Fe 550D is designed with additional corrosion-resistant properties. Compare the product specifications and choose the grade suited to your project, as well as its price.",
+  },
+  {
+    question: "Can I lock in the steel price today for future orders?",
+    answer:
+      "A website reference rate does not reserve a future price. Ask ARS for a quotation and check its stated rate, validity period, quantity, and commercial terms before ordering.",
+  },
+  {
+    question: "Does the steel price today include delivery costs?",
+    answer:
+      "The displayed ARS rates include GST, but exclude freight, transportation, loading, and unloading. These charges depend on your order and delivery location and are confirmed in the final quotation.",
+  },
+  {
+    question: "How can I stay informed about changes in steel prices?",
+    answer:
+      "Revisit this page for the dated ARS reference rates and request a quotation when you are ready to buy. Market news can provide context, but ARS will confirm the actual rate and validity for your order.",
   },
   {
     question: "Is GST included in the displayed steel price?",
     answer:
-      "Yes. The displayed rates include GST. Freight, transportation, loading, and unloading are additional and are confirmed in the final quotation.",
+      "Yes. The displayed ARS rates include GST. Delivery-related charges are additional and will be confirmed in your quotation.",
   },
   {
     question: "What is the ARS TMT steel price per tonne?",
     answer:
-      "The price table provides both per-kg and per-tonne values for every supported diameter. One tonne is calculated as 1,000 kg, using the same displayed rate.",
-  },
-  {
-    question: "Are delivery and unloading charges included?",
-    answer:
-      "No. Delivery, transportation, loading, and unloading are not included in the displayed rate because these depend on the order quantity and delivery location.",
+      "The price table provides both per-kg and per-tonne rates for every supported diameter. One tonne is 1,000 kg, using the same displayed rate.",
   },
   {
     question: "Why do 8 mm and 12 mm TMT bars have different prices?",
     answer:
-      "The approved pricing workbook can apply a diameter adjustment to selected sizes. That is why the rate for 8 mm or 32 mm may differ from the rate shown for 12 mm in the same region and grade.",
-  },
-  {
-    question: "What is the difference between ARS Fe 550D and ARS CRS Fe 550D?",
-    answer:
-      "ARS Fe 550D is the high-strength construction grade, while ARS CRS Fe 550D is designed with additional corrosion-resistant properties. Review the product pages or speak with ARS to choose the grade appropriate for the project environment.",
+      "The approved ARS pricing rules apply a diameter adjustment to selected sizes. That is why 8 mm or 32 mm can differ from 12 mm in the same region and grade.",
   },
   {
     question: "How much does one 12-metre TMT rod cost?",
     answer:
-      "The approximate price of one rod is the workbook mean weight per rod multiplied by the selected price per kg. The reference table on this page shows this calculation for Tamil Nadu ARS Fe 550D rates.",
+      "The approximate price of one rod is its mean weight multiplied by the selected price per kg. The per-rod reference table above shows this calculation for Tamil Nadu ARS Fe 550D.",
   },
   {
     question: "How can I get a confirmed ARS steel quotation?",
     answer:
-      "Select your requirements above and request a quote by WhatsApp, or use the Request Quote form. ARS will confirm the order rate, quotation validity, quantity, and delivery-related charges.",
+      "Enter your selected size and quantity in the price enquiry form above, or send the multi-size calculation to the Request Quote page. ARS will confirm the order rate, quotation validity, and delivery-related charges.",
+  },
+] as const;
+
+const calculatorBenefits = [
+  {
+    number: "01",
+    title: "TRANSPARENCY OF PRICE",
+    body: "Using a TMT calculator enhances transparency in pricing by providing detailed breakdowns of TMT steel bar requirements. This clarity helps users understand the cost implications of their projects and avoid unexpected expenses, promoting a more transparent procurement process.",
+  },
+  {
+    number: "02",
+    title: "EASE OF BUDGETING FOR PURCHASE",
+    body: "The TMT calculator simplifies the budgeting process by accurately estimating the quantity of TMT bars needed for a project. This precision allows for more accurate budget forecasts and financial planning, helping project managers allocate funds more effectively and efficiently.",
+  },
+  {
+    number: "03",
+    title: "ACCURACY OF DAY-TO-DAY INFORMATION",
+    body: "The calculator uses the latest ARS reference rates published on this website and the approved bundle and weight rules. Check the displayed update date before planning: these are periodically updated reference rates, not a live market feed or a final quotation.",
+  },
+  {
+    number: "04",
+    title: "COMPLIANCE TO MINISTRY OF STEEL NORMS",
+    body: "The calculation uses ARS-supplied bar sizes and mean weights, with actual weights subject to applicable BIS tolerances. Review the product specification and certification separately when checking project or regulatory requirements; a price estimate does not certify compliance.",
   },
 ] as const;
 
@@ -300,6 +354,19 @@ export default function SteelPriceTodayPage() {
         </div>
       </section>
 
+      <MotionSection className="border-b border-brand-blue/10 bg-white py-16 md:py-20">
+        <div className="ars-container">
+          <SectionKicker variant="brand">Understanding Steel Prices</SectionKicker>
+          <h2 className="mt-4 max-w-4xl font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">What should builders know about TMT steel price today?</h2>
+          <div className="mt-8 max-w-4xl border-l-2 border-brand-red pl-6 md:pl-8">
+            <span aria-hidden="true" className="mb-4 block font-technical text-xs font-bold tracking-[0.22em] text-brand-blue/60">01</span>
+            <p className="text-[15px] leading-8 text-steel-700">
+              When it comes to construction projects, understanding the factors of TMT steel price is necessary. As a builder, being well-informed about the fluctuations and factors affecting TMT bar price can help you make informed decisions. You will need to explore the key factors to know about <Link href="/tmt-steel-calculator" className="focus-ring font-semibold text-brand-blue underline decoration-brand-blue/30 underline-offset-4 hover:text-brand-red">steel price today</Link> before embarking on any construction journey. TMT steel price today are subject to various factors that can cause fluctuations. Some of the key influencers include the cost of raw materials, market demand, production capacity, transportation costs, and an IS 1786 – 2008 standard certification adds to its value.
+            </p>
+          </div>
+        </div>
+      </MotionSection>
+
       <MotionSection className="bg-white py-16 md:py-24" id="price-table">
         <div className="ars-container min-w-0">
           <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
@@ -332,6 +399,30 @@ export default function SteelPriceTodayPage() {
         </div>
       </MotionSection>
 
+      <MotionSection className="bg-surface-50 py-16 md:py-24" id="detailed-calculation">
+        <div className="ars-container">
+          <SectionKicker variant="brand">Detailed Order Planning</SectionKicker>
+          <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_0.8fr] lg:items-end">
+            <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Check the steel price today for every bar size</h2>
+            <p className="text-[15px] leading-7 text-steel-700">Enter rods, bundles, or weight across the sizes your project needs. The estimate uses the same ARS reference rates as the quick price lookup above.</p>
+          </div>
+          <div className="mt-8"><MultiSizeOrderCalculator /></div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="border-y border-brand-blue/10 bg-white py-16 md:py-20">
+        <div className="ars-container grid gap-10 md:grid-cols-2 md:gap-16">
+          <article className="relative border-t-2 border-brand-blue pt-8">
+            <span aria-hidden="true" className="absolute right-0 top-1 font-display text-7xl font-extrabold leading-none tracking-[-0.08em] text-brand-blue/[0.07]">02</span>
+            <p className="relative text-[15px] leading-8 text-steel-700">By keeping an eye on these factors, you can better anticipate steel price today per kg currently and plan your construction budget accordingly. Some TMT bars are also optimized to withstand any weather condition and are also certified by international boards such as the SGS to support customer authentication. It is crucial to conduct thorough research and compare different brands and grades based on their specifications and reputation. This will ensure that you select the most suitable TMT bar price per kg for your construction project without compromising on quality or overspending.</p>
+          </article>
+          <article className="relative border-t-2 border-brand-red pt-8">
+            <span aria-hidden="true" className="absolute right-0 top-1 font-display text-7xl font-extrabold leading-none tracking-[-0.08em] text-brand-red/[0.07]">03</span>
+            <p className="relative text-[15px] leading-8 text-steel-700">Steel price today in India are subject to market dynamics, and understanding pricing patterns can be beneficial for your construction project. Analysing historical data, market trends, and expert forecasts can provide insights into price movements. By staying updated on pricing patterns, you can make better decisions regarding the timing of purchasing TMT steel, potentially saving costs in the long run.</p>
+          </article>
+        </div>
+      </MotionSection>
+
       <MotionSection className="border-y border-brand-blue/10 bg-surface-50 py-16 md:py-20">
         <div className="ars-container">
           <div className="max-w-3xl">
@@ -350,6 +441,25 @@ export default function SteelPriceTodayPage() {
               </article>
             ))}
           </div>
+        </div>
+      </MotionSection>
+
+      <MotionSection className="bg-white py-16 md:py-24">
+        <div className="ars-container">
+          <SectionKicker variant="brand">Plan With Confidence</SectionKicker>
+          <div className="mt-4 grid gap-4 lg:grid-cols-2 lg:items-end">
+            <h2 className="font-display text-[clamp(2rem,4vw,2.75rem)] font-bold leading-[1.1] tracking-[-0.025em] text-ink-900">Benefits of using a TMT calculator</h2>
+            <p className="text-[15px] leading-7 text-steel-700">A diameter-wise estimate helps with construction budgeting and material planning. Use the published reference rate for guidance and confirm the final order with ARS.</p>
+          </div>
+          <ol className="mt-10 grid gap-px overflow-hidden rounded-xl border border-brand-blue/10 bg-brand-blue/10 md:grid-cols-2">
+            {calculatorBenefits.map((benefit) => (
+              <li key={benefit.title} className="bg-surface-50 p-7 md:p-8">
+                <span className="font-technical text-xs font-bold tracking-[0.2em] text-brand-red">{benefit.number}</span>
+                <h3 className="mt-5 font-display text-xl font-bold leading-tight text-ink-900">{benefit.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-steel-700">{benefit.body}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </MotionSection>
 

@@ -4,6 +4,7 @@ import { ContentBand, PageHero, ProofMetrics } from "@/components/page-sections"
 import { LeadForm } from "@/components/lead-form";
 import { MotionSection } from "@/components/motion-section";
 import { SiteHeader } from "@/components/site-header";
+import { calculatorCities, calculatorProducts, calculatorRegions, type CalculatorRegion } from "@/data/tmt-calculator";
 
 export const metadata = createPageMetadata({
   title: "Request Quote | ARS Green Steel",
@@ -11,7 +12,21 @@ export const metadata = createPageMetadata({
   path: "/request-quote",
 });
 
-export default function RequestQuotePage() {
+type SearchParams = Promise<Record<string, string | string[] | undefined>>;
+
+export default async function RequestQuotePage({ searchParams }: { searchParams: SearchParams }) {
+  const params = await searchParams;
+  const value = (key: string) => typeof params[key] === "string" ? params[key] : "";
+  const fromCalculator = ["tmt-steel-price-today", "tmt-steel-calculator"].includes(value("source"));
+  const region = calculatorRegions.find((item) => item === value("region"));
+  const product = calculatorProducts.find((item) => item === value("product"));
+  const city = region && calculatorCities[region as CalculatorRegion].includes(value("city")) ? value("city") : "";
+  const details = value("details").slice(0, 800);
+  const quantity = /^\d+(?:\.\d+)?$/.test(value("quantity")) ? value("quantity") : "";
+  const weight = /^\d+(?:\.\d+)?$/.test(value("weight")) ? value("weight") : "";
+  const requirement = [details, quantity && weight ? `Total: ${quantity} rods, ${weight} kg.` : ""].filter(Boolean).join("\n").slice(0, 1000);
+  const prefill = fromCalculator ? { state: region, city, productType: product, requirement } : undefined;
+
   return (
     <main className="min-h-screen bg-surface-50 text-ink-900">
       <SiteHeader />
@@ -47,6 +62,7 @@ export default function RequestQuotePage() {
             title="Request ARS steel quote"
             body="Share your project and product details so the ARS sales team can respond with clearer pricing and availability."
             submission="quote"
+            prefill={prefill}
           />
         </div>
       </MotionSection>

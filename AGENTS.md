@@ -300,6 +300,14 @@ This balance should be maintained throughout the website.
 
 # Important Technical Constraints
 
+## Content Migration and SEO Parity
+
+This website is a redesign of an existing ARS site. Before changing the content of any migrated page or blog post, compare the proposed page with its legacy source and the last approved redesigned version. Preserve meaningful body copy, headings, FAQs, tables, internal links, images, and calls to action unless ARS has approved an editorial change. Treat a design update or pricing update as no authorization to remove unrelated content.
+
+Record intentional content changes and their reasons in the relevant migration audit. Check that pricing, dates, certification claims, and links remain accurate; replace outdated claims with clearly documented, source-faithful wording. Review rendered desktop and mobile content, metadata, canonical URL, structured data, internal links, and form behavior before considering the page complete. Apply the same parity review to blog pages.
+
+---
+
 Three.js, React Three Fiber and Drei are installed.
 
 However:
