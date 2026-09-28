@@ -24,6 +24,10 @@ Secondary Vercel preview:
 
 See `DEPLOYMENT.md` for the authoritative repository, Hostinger, Vercel, GA4, GTM, and Meta Pixel workflow.
 
+## Latest blog update — 2026-09-28
+
+Four new SEO blog posts are reachable on production: [TMT bar quality before buying](https://arsgroup.in/blog/how-to-check-tmt-bar-quality-before-buying), [TMT bar price factors](https://arsgroup.in/blog/factors-affecting-tmt-bar-price), [TMT manufacturing process](https://arsgroup.in/blog/tmt-bar-manufacturing-process), and [TMT bar grades](https://arsgroup.in/blog/tmt-bar-grades-fe-500-fe-500d-fe-550-fe-550d). They were added in primary `main` commit `ada8356`; the shared blog hero also gained a slightly darker left overlay for readability. The 88 migrated blog URLs remain unchanged. See [the blog plan](BLOG_IMPLEMENTATION_PLAN.md) and [content-migration records](docs/content-migration/README.md) for remaining SEO and technical review work.
+
 The September 2026 client-correction release adds a dedicated `/clients` page using nine supplied high-resolution logos, updates the homepage logos, gates dealer results behind a search/filter choice, enables the approved Binders brochure, updates Quality copy, and adds the Steel Price Today enquiry flow. Primary-repository merges and Hostinger production deployment are separate steps.
 
 ## Current production checkpoint — 2026-09-24

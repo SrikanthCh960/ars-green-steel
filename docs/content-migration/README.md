@@ -4,9 +4,10 @@ This directory contains the evidence-backed migration planning artifacts request
 
 ## Recent implementation records
 
+- Four new SEO blog posts are live as of the 28 September 2026 production check. Their source-parity records, exact URLs, and open editorial/technical follow-ups are linked below. The 88 migrated blog routes remain separate and unchanged.
 - [ARS CRS 550D implementation QA](ars-crs-550d/implementation-qa-report.md)
 - [Steel price today restoration and content-loss lesson](steel-price-today-restoration.md)
-- [TMT bar quality before buying — new blog handoff](tmt-bar-quality-before-buying.md)
-- [TMT bar price factors — new blog handoff](tmt-bar-price-factors.md)
-- [TMT bar manufacturing process — new blog handoff](tmt-bar-manufacturing-process.md)
-- [TMT bar grades comparison — new blog handoff](tmt-bar-grades-comparison.md)
+- [TMT bar quality before buying — live blog record](tmt-bar-quality-before-buying.md)
+- [TMT bar price factors — live blog record](tmt-bar-price-factors.md)
+- [TMT bar manufacturing process — live blog record](tmt-bar-manufacturing-process.md)
+- [TMT bar grades comparison — live blog record](tmt-bar-grades-comparison.md)

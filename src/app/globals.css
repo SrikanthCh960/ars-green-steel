@@ -488,6 +488,10 @@ main h1.blog-editorial-title {
   gap: 0;
 }
 
+.homepage-client-marquee .marquee-right {
+  animation-duration: 80s;
+}
+
 .homepage-client-marquee-group {
   display: flex;
   flex: none;

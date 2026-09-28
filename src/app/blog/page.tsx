@@ -64,9 +64,9 @@ export const metadata: Metadata = {
 };
 
 const featuredSlugs = [
-  "what-is-crs-steel-grades-standards-quality.html",
-  "house-construction-process-in-india.html",
-  "green-steel-manufacturing-using-clean-energy.html",
+  "tmt-bar-grades-fe-500-fe-500d-fe-550-fe-550d",
+  "how-to-check-tmt-bar-quality-before-buying",
+  "factors-affecting-tmt-bar-price",
 ];
 
 export default function BlogPage() {
@@ -134,12 +134,12 @@ export default function BlogPage() {
         <div className="ars-container">
           <div className="grid items-end gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(320px,0.62fr)]">
             <div>
-              <SectionKicker>Latest knowledge</SectionKicker>
+              <SectionKicker>Featured guides</SectionKicker>
               <h2 className="section-title">Start with the decisions that matter now.</h2>
             </div>
             <p className="section-copy section-copy-flush lg:justify-self-end">
-              New and high-value guides covering corrosion resistance, house construction, and
-              lower-carbon steel production.
+              Practical starting points for choosing a TMT grade, checking bar quality before
+              purchase, and understanding what shapes the price.
             </p>
           </div>
 

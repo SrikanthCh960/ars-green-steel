@@ -11,14 +11,25 @@ Phase 2 may add an authenticated article creation form without requiring a visua
 ## Current State
 
 - The original ARS blog archive is available at `/blog.html` and `/blog/`.
-- The redesign currently preserves 88 article URLs through `src/app/blog/[slug]/page.tsx`.
-- Existing articles use `LegacyPageRenderer`, so they still feel like migrated documents rather than polished editorial pages.
+- The redesign preserves 88 migrated article URLs through `src/app/blog/[slug]/page.tsx` and now has four additional repository-managed editorial posts.
+- Migrated and new articles use the shared `BlogArticleTemplate`; the original article routes and migration records remain intact.
 - A bespoke native Next.js archive now exists at `/blog`.
 - `/blog.html` permanently redirects to `/blog`.
-- The archive provides featured content, topic filters, search, and progressive loading for all 88 preserved articles.
-- The archive implementation is local work until it is committed and pushed.
-- Extracted article titles and sections need editorial cleanup before client presentation.
+- The archive provides featured content, topic filters, search, and progressive loading for the 88 migrated articles and four new posts.
+- The four new posts were committed in `ada8356`, pushed to primary `main`, and verified reachable on `arsgroup.in` on 28 September 2026. The exact deployment timestamp was not recorded.
+- Their source-parity and post-publication review notes are in `docs/content-migration/tmt-bar-*.md`. Technical claims, supplied-image gaps, search-intent overlap, publication timestamps, and Search Console indexing remain follow-ups.
 - Existing `.html` article URLs must remain valid for SEO and backlink continuity.
+
+### Four new live editorial posts
+
+| Post | Live URL |
+|---|---|
+| How to Check TMT Bar Quality Before Buying | https://arsgroup.in/blog/how-to-check-tmt-bar-quality-before-buying |
+| What Determines the Cost of TMT Bars? | https://arsgroup.in/blog/factors-affecting-tmt-bar-price |
+| How TMT Bars Achieve Strength and Ductility | https://arsgroup.in/blog/tmt-bar-manufacturing-process |
+| TMT Bar Grades Explained | https://arsgroup.in/blog/tmt-bar-grades-fe-500-fe-500d-fe-550-fe-550d |
+
+The shared blog hero now has a slightly darker left overlay for title readability across all blog posts. This layout adjustment changes no article body copy or migrated URLs.
 
 ## Complete Blog Route Inventory
 

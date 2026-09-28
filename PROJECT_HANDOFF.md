@@ -2,6 +2,22 @@
 
 Read this file first when continuing the ARS content migration in a new chat.
 
+## Client logo refresh — 2026-09-28
+
+- The updated client folder contains 15 numbered PNGs plus four existing WebP logos, for 19 clients total. The four existing logos match the site assets exactly.
+- Five previously shown marks were replaced with the newly supplied versions, ten clients were added, and the four existing-only clients were retained. The shared `src/data/client-logos.ts` list updates both the homepage marquee and `/clients` page.
+- New marks were cropped only to remove surrounding white space and saved as WebP. The homepage marquee duration was adjusted for the larger set. Desktop and mobile visual checks, lint, TypeScript, and production build passed locally. Hostinger deployment requires its separate repository sync and deployment workflow.
+
+## Blog archive featured guides — 2026-09-28
+
+- The `/blog` archive's former “Latest knowledge” section is now “Featured guides”, featuring the new TMT grades, quality-before-buying, and price-factors articles. The manufacturing article remains in the full Article Library. No article body copy, URL, metadata, or migrated blog content changed in this selection update.
+
+## Four SEO blog posts — live check, 2026-09-28
+
+- Commit `ada8356` was pushed to primary `main`. All four new article URLs were then opened successfully on `arsgroup.in`: [quality before buying](https://arsgroup.in/blog/how-to-check-tmt-bar-quality-before-buying), [price factors](https://arsgroup.in/blog/factors-affecting-tmt-bar-price), [manufacturing process](https://arsgroup.in/blog/tmt-bar-manufacturing-process), and [TMT grades](https://arsgroup.in/blog/tmt-bar-grades-fe-500-fe-500d-fe-550-fe-550d). The exact Hostinger deployment timestamp and production-fork commit were not checked in that verification.
+- The shared blog hero's left overlay was darkened slightly for title readability across all posts. The 88 migrated blog URLs and their content remain preserved.
+- See the four linked records in `docs/content-migration/README.md` for source parity and outstanding post-publication reviews. A live page does not itself confirm Search Console indexing, technical-claim approval, or a recorded publication timestamp.
+
 ## Careers applications — live on Hostinger, 2026-09-24
 
 - The user chose a `Careers` tab in the existing Google spreadsheet and PDF storage in `arsgroupm@gmail.com` My Drive. The earlier email-delivery proposal has been replaced. `carrier@arsgroup.in` is the corrected ARS email address, but the Careers form does not send email.
