@@ -23,6 +23,7 @@ import {
 } from "@/components/tmt-steel-bar-weight-guide";
 import { getBlogArchiveArticles, type BlogArchiveArticle } from "@/lib/blog-content";
 import { getBlogMigrationEntry } from "@/lib/blog-migration";
+import type { EditorialBlogPost } from "@/lib/editorial-blog";
 import type { LegacyPage } from "@/lib/legacy-content";
 
 type ArticleSection = {
@@ -223,9 +224,17 @@ function getArticleSections(page: LegacyPage): ArticleSection[] {
 }
 
 function getRelatedArticles(article: BlogArchiveArticle) {
+  const relatedGuide = article.slug === "how-to-check-tmt-bar-quality-before-buying"
+    ? "check-tmt-bar-quality-on-site.html"
+    : article.slug === "check-tmt-bar-quality-on-site.html"
+      ? "how-to-check-tmt-bar-quality-before-buying"
+      : null;
+
   return getBlogArchiveArticles()
     .filter((item) => item.href !== article.href)
     .sort((a, b) => {
+      if (relatedGuide && a.slug === relatedGuide) return -1;
+      if (relatedGuide && b.slug === relatedGuide) return 1;
       if (a.category === article.category && b.category !== article.category) return -1;
       if (a.category !== article.category && b.category === article.category) return 1;
       return b.dateValue - a.dateValue || a.title.localeCompare(b.title);
@@ -236,29 +245,36 @@ function getRelatedArticles(article: BlogArchiveArticle) {
 export function BlogArticleTemplate({
   page,
   article,
+  editorialPost,
 }: {
-  page: LegacyPage;
+  page?: LegacyPage;
   article: BlogArchiveArticle;
+  editorialPost?: EditorialBlogPost;
 }) {
-  const sections = getArticleSections(page);
+  const sections = page ? getArticleSections(page) : [];
   const relatedArticles = getRelatedArticles(article);
   const TopicIcon = topicIcon[article.category];
   const cta = topicCta[article.category];
   const registryEntry = getBlogMigrationEntry(article.slug);
-  const articleTitle = registryEntry?.renderedH1 || registryEntry?.sourceH1 || registryEntry?.title || article.title;
-  const articleImage = registryEntry?.featuredImage?.url || article.image;
-  const articleImageAlt = registryEntry?.featuredImage?.alt || article.imageAlt;
+  const articleTitle = editorialPost?.title || registryEntry?.renderedH1 || registryEntry?.sourceH1 || registryEntry?.title || article.title;
+  const articleImage = editorialPost?.image || registryEntry?.featuredImage?.url || article.image;
+  const articleImageAlt = editorialPost?.imageAlt || registryEntry?.featuredImage?.alt || article.imageAlt;
   const fallbackSections = sections.length
     ? sections
     : [{ id: "overview", title: "Overview", body: article.excerpt }];
-  const preparedArticle = registryEntry?.fullContentHtml
-    ? prepareArticleHtml(registryEntry.fullContentHtml)
+  const articleHtml = editorialPost?.bodyHtml || registryEntry?.fullContentHtml;
+  const preparedArticle = articleHtml
+    ? prepareArticleHtml(articleHtml)
     : null;
   const isTmtSteelBarWeightGuide = article.href === "/blog/tmt-steel-bar-weight.html";
   const articleHeadings = preparedArticle?.headings ?? fallbackSections;
   const visibleArticleHeadings = isTmtSteelBarWeightGuide
     ? tmtSteelBarWeightHeadings
-    : articleHeadings.slice(0, 10);
+    : editorialPost
+      ? editorialPost.guideHeadingIds?.length
+        ? articleHeadings.filter((heading) => editorialPost.guideHeadingIds?.includes(heading.id))
+        : articleHeadings.filter((heading) => /^(?:[1-9]|10)\.\s/.test(heading.title)).slice(0, 10)
+      : articleHeadings.slice(0, 10);
   const hasArticleNavigation = visibleArticleHeadings.length > 0;
 
   const articleUrl = `${productionDomain}/blog/${article.slug}`;
@@ -267,7 +283,7 @@ export function BlogArticleTemplate({
     "@type": "BlogPosting",
     "@id": `${articleUrl}#blogposting`,
     headline: articleTitle,
-    description: registryEntry?.yoastMetaDescription || article.excerpt,
+    description: editorialPost?.metaDescription || registryEntry?.yoastMetaDescription || article.excerpt,
     image: articleImage.startsWith("http") ? articleImage : `${productionDomain}${articleImage}`,
     author: {
       "@type": "Organization",
@@ -322,12 +338,12 @@ export function BlogArticleTemplate({
       <section className="ars-page-hero min-h-[560px] md:min-h-[600px] lg:h-[680px] lg:min-h-[680px] lg:max-h-[680px] relative overflow-hidden bg-bg-dark text-white">
         <ResponsiveHeroImage
           desktopSrc={articleImage}
-          mobileSrc={getBlogHeroMobileSrc(article.slug)}
+          mobileSrc={editorialPost?.mobileImage || getBlogHeroMobileSrc(article.slug)}
           alt={articleImageAlt}
-          className="object-cover opacity-42"
+          className="object-cover opacity-85"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.96)_0%,rgba(6,13,30,0.82)_48%,rgba(6,13,30,0.48)_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(6,13,30,0.72),transparent_58%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,13,30,0.66)_0%,rgba(6,13,30,0.48)_48%,rgba(6,13,30,0.18)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(6,13,30,0.38),transparent_58%)]" />
 
         <div className="ars-page-hero-content h-full ars-container relative z-10 flex items-end pb-12 pt-32 lg:pb-16">
           <div className="grid w-full gap-10 lg:grid-cols-[minmax(0,0.82fr)_minmax(280px,0.32fr)] lg:items-end">
@@ -340,7 +356,7 @@ export function BlogArticleTemplate({
                 </span>
                 <ArticleMeta article={article} light />
               </div>
-              <h1 className="mt-6 max-w-5xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold leading-[1.02] tracking-normal text-white">
+              <h1 className={`mt-6 max-w-5xl font-display text-[clamp(2.65rem,6vw,4.5rem)] font-bold leading-[1.02] tracking-normal text-white${editorialPost ? " blog-editorial-title" : ""}`}>
                 {articleTitle}
               </h1>
               <p className="mt-6 max-w-3xl text-base leading-8 text-white/74 md:text-lg">
@@ -357,7 +373,7 @@ export function BlogArticleTemplate({
                   <strong className="block font-display text-3xl font-bold text-white">
                     {visibleArticleHeadings.length}
                   </strong>
-                  <span className="mt-1 block text-sm text-white/58">Sections</span>
+                  <span className="mt-1 block text-sm text-white/58">{editorialPost?.guideLabel ?? "Sections"}</span>
                 </div>
                 <div>
                   <strong className="block font-display text-3xl font-bold text-white">

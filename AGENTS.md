@@ -302,6 +302,8 @@ This balance should be maintained throughout the website.
 
 ## Content Migration and SEO Parity
 
+**Standing caution for every future page design or content update:** The steel-price page redesign in commit `3377b7c` accidentally omitted migrated explanatory copy and supporting sections. A successful build or attractive new layout did not reveal the loss. Never treat a redesign, price correction, form change, or asset update as approval to delete other page content. See `docs/content-migration/steel-price-today-restoration.md` for the incident record.
+
 This website is a redesign of an existing ARS site. Before changing the content of any migrated page or blog post, compare the proposed page with its legacy source and the last approved redesigned version. Preserve meaningful body copy, headings, FAQs, tables, internal links, images, and calls to action unless ARS has approved an editorial change. Treat a design update or pricing update as no authorization to remove unrelated content.
 
 Record intentional content changes and their reasons in the relevant migration audit. Check that pricing, dates, certification claims, and links remain accurate; replace outdated claims with clearly documented, source-faithful wording. Review rendered desktop and mobile content, metadata, canonical URL, structured data, internal links, and form behavior before considering the page complete. Apply the same parity review to blog pages.

@@ -9,6 +9,16 @@ Destination: `https://arsgroup.in/tmt-steel-price-today`
 Source evidence: live legacy page, `src/data/legacy-pages.json`, and the page implementation before commit `3377b7c`
 Reviewer: Codex, with final publication review by ARS pending
 
+## What went wrong
+
+The original steel-price page contained three contextual paragraphs about TMT price factors, a calculator-benefits section, and legacy FAQ topics. Commit `3377b7c` ("Redesign steel price today page", 20 September 2026) replaced the page implementation with a new price-focused layout. A comparison of `src/app/steel-price-today/page.tsx` immediately before and after that commit shows that the original paragraphs and several supporting sections were omitted. The later Tamil Nadu price and form-contrast update in `4c9839a` was not the commit that removed them.
+
+The mistake was treating a page redesign as permission to replace migrated content. The implementation was reviewed for the new price experience without a complete source-to-destination content inventory. Functional, build, and visual checks alone did not catch the missing crawlable copy. The omission was identified after ARS compared the redesigned page with the legacy staging page. We cannot attribute any measured ranking change to this one omission without search-performance evidence, but losing relevant page content can affect search visibility.
+
+Commit `54c2fa8` restored the legacy editorial content, benefit topics, and FAQ coverage alongside the current pricing experience. Commit `5cbd15f` then implemented the ARS-approved factor-card design and removed only the "Detailed Order Planning" section at ARS's explicit request. The old floating ₹70,000 claim and unsupported real-time/compliance implications were not reintroduced; those intentional edits are listed below.
+
+For future changes to this route, use this inventory as the content baseline. Compare the legacy source, the last approved redesigned page, and the proposed version section by section. A layout, icon, form, or price update must not silently remove body copy, headings, FAQs, links, or structured-data coverage. Record any approved omission or factual correction before implementation, then compare the rendered page and SEO metadata again before release. The same check applies to migrated blog posts.
+
 ## Parity inventory
 
 | Legacy element | Restored destination | Status |

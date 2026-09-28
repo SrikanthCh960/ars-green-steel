@@ -1,6 +1,7 @@
 import type { LegacyPage } from "@/lib/legacy-content";
 import { getLegacyBlogPages } from "@/lib/legacy-content";
 import { getBlogMigrationEntry } from "@/lib/blog-migration";
+import { editorialBlogPosts } from "@/lib/editorial-blog";
 
 export const blogCategories = [
   "All topics",
@@ -186,7 +187,7 @@ function getReadTime(page: LegacyPage) {
 }
 
 export function getBlogArchiveArticles(): BlogArchiveArticle[] {
-  return getLegacyBlogPages()
+  const migratedArticles = getLegacyBlogPages()
     .map((page) => {
       const category = getCategory(page);
       const date = getDate(page);
@@ -207,6 +208,21 @@ export function getBlogArchiveArticles(): BlogArchiveArticle[] {
       };
     })
     .sort((a, b) => b.dateValue - a.dateValue || a.title.localeCompare(b.title));
+
+  const editorialArticles: BlogArchiveArticle[] = editorialBlogPosts.map((post) => ({
+    slug: post.slug,
+    href: `/blog/${post.slug}`,
+    title: post.title,
+    excerpt: post.metaDescription,
+    category: post.category,
+    dateLabel: null,
+    dateValue: 0,
+    readTime: post.readTime,
+    image: post.image,
+    imageAlt: post.imageAlt,
+  }));
+
+  return [...editorialArticles, ...migratedArticles];
 }
 
 export function getBlogArchiveArticle(slug: string) {

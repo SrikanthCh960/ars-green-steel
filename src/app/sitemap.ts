@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getBlogMigrationRegistry } from "@/lib/blog-migration";
+import { editorialBlogPosts } from "@/lib/editorial-blog";
 import { getLegacyTopLevelPages } from "@/lib/legacy-content";
 import { productionDomain } from "@/lib/site-metadata";
 
@@ -62,6 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticRoutes,
     ...getLegacyTopLevelPages().map((page) => page.path),
     ...approvedBlogRoutes,
+    ...editorialBlogPosts.map((post) => `/blog/${post.slug}`),
   ]
     .filter((route) => {
       const normalized = route || "/";

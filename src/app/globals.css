@@ -163,6 +163,10 @@ main h1 {
   max-width: 60rem;
 }
 
+main h1.blog-editorial-title {
+  text-transform: none !important;
+}
+
 @media (min-width: 768px) {
   .ars-page-hero {
     min-height: 600px;
@@ -574,7 +578,8 @@ main h1 {
 }
 
 .blog-source-content h2,
-.blog-source-content h3 {
+.blog-source-content h3,
+.blog-source-content h4 {
   color: var(--ink-900);
   font-family: var(--font-display);
   font-weight: 700;
@@ -583,14 +588,24 @@ main h1 {
 
 .blog-source-content h2 { margin: 2.75rem 0 1rem; font-size: clamp(1.65rem, 3vw, 2.2rem); }
 .blog-source-content h3 { margin: 2rem 0 0.8rem; font-size: 1.35rem; }
+.blog-source-content h4 { margin: 1.5rem 0 0.65rem; font-size: 1.1rem; }
 .blog-source-content h2[id],
-.blog-source-content h3[id] { scroll-margin-top: 7rem; }
+.blog-source-content h3[id],
+.blog-source-content h4[id] { scroll-margin-top: 7rem; }
 .blog-source-content p { margin: 1.25rem 0; }
 .blog-source-content ul,
 .blog-source-content ol { margin: 1.25rem 0; padding-left: 1.5rem; }
 .blog-source-content li { margin: 0.45rem 0; }
 .blog-source-content img { width: 100%; height: auto; margin: 1.5rem 0; border-radius: 8px; }
 .blog-source-content table { display: block; width: 100%; overflow-x: auto; margin: 1.75rem 0; border-collapse: collapse; font-size: 0.95rem; }
+.blog-source-content .grades-table-scroll { max-width: 100%; overflow-x: auto; margin: 1.75rem 0; }
+.blog-source-content .grades-comparison-table { display: table; width: 100%; min-width: 860px; margin: 0; }
+.blog-source-content .grades-comparison-table th:first-child { min-width: 170px; }
+.blog-source-content .grades-comparison-table th:not(:first-child) { min-width: 170px; }
+.blog-source-content .grades-table-hint { display: none; }
+@media (max-width: 767px) {
+  .blog-source-content .grades-table-hint { display: block; margin-bottom: -0.75rem; color: var(--grey-600); font-size: 0.875rem; }
+}
 .blog-source-content th,
 .blog-source-content td { border: 1px solid color-mix(in srgb, var(--brand-blue) 18%, white); padding: 0.75rem; text-align: left; }
 .blog-source-content th { background: var(--surface-50); color: var(--ink-900); }

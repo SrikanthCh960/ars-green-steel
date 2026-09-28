@@ -98,6 +98,8 @@ When the approved source is a DOCX, PDF, spreadsheet, slide deck, or similar fil
 
 Before recommendations, compare every approved section against the implementation:
 
+For a migrated page or blog post, use three versions: the legacy source, the last approved redesigned version, and the proposed version. Do not assume a new design or a single-field update supersedes other existing content. If the legacy source and approved handoff differ, follow the approved-source hierarchy above and record the difference.
+
 | Source section | Current page location | Status | Required action |
 |---|---|---|---|
 | [Approved section] | [Current section or missing] | Exact / Partial / Missing / Conflicting / Unsupported extra | Keep / Restore / Add / Escalate |
@@ -108,6 +110,8 @@ The audit is incomplete until:
 - every current visible section is traced to an approved source or flagged;
 - missing documents, images, links, CTAs, FAQs, forms, and interaction instructions are recorded; and
 - copy differences are reported without silently fixing them.
+
+Record every intentional deletion or substantial rewrite in the page's migration note with its source, exact affected section, reason, and ARS approval. A missing section is a parity issue until that record exists. Check this even when the change request mentions only pricing, styling, icons, forms, or layout.
 
 ## Phase 3: Audit
 
@@ -234,6 +238,7 @@ The audit response must also state:
 - Do not add visible copy simply because a layout has an empty label, heading, caption, or card field.
 - Use approved source wording for all new visible sections.
 - Recheck the parity matrix after implementation so restored content does not introduce omissions or duplicates.
+- Recheck it against the rendered output, not only the source diff: verify body copy, headings, FAQs, tables, meaningful images/alt text, internal links, CTAs, and any matching structured data. Apply this to blog articles and templates as well as ordinary pages.
 - Reuse established components and tokens when suitable.
 - Read `COMPONENT_INVENTORY.md` before creating or extracting a reusable component.
 - Update `COMPONENT_INVENTORY.md` only when a reusable component is created or materially changed.

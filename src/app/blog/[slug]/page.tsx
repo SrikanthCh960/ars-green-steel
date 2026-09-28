@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { BlogArticleTemplate } from "@/components/blog-article-template";
 import { getBlogArchiveArticle, getBlogExcerpt, cleanBlogTitle } from "@/lib/blog-content";
 import { getBlogMigrationEntry } from "@/lib/blog-migration";
+import { editorialBlogPosts, getEditorialBlogPost } from "@/lib/editorial-blog";
 import { getLegacyBlogPages, getLegacyPage } from "@/lib/legacy-content";
 import { getSeoMetadata, isIndexingEnabled, productionDomain, toProductionUrl } from "@/lib/site-metadata";
 
@@ -11,11 +12,37 @@ function toProductionAssetUrl(value: string) {
 }
 
 export function generateStaticParams() {
-  return getLegacyBlogPages().map((page) => ({ slug: page.slug.replace(/^blog\//, "") }));
+  return [
+    ...getLegacyBlogPages().map((page) => ({ slug: page.slug.replace(/^blog\//, "") })),
+    ...editorialBlogPosts.map((post) => ({ slug: post.slug })),
+  ];
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const editorialPost = getEditorialBlogPost(slug);
+  if (editorialPost) {
+    const finalUrl = `${productionDomain}/blog/${slug}`;
+    return {
+      title: editorialPost.metaTitle,
+      description: editorialPost.metaDescription,
+      robots: { index: isIndexingEnabled, follow: isIndexingEnabled },
+      alternates: { canonical: finalUrl },
+      openGraph: {
+        title: editorialPost.ogTitle,
+        description: editorialPost.ogDescription,
+        url: finalUrl,
+        type: "article",
+        images: [{ url: toProductionAssetUrl(editorialPost.image), alt: editorialPost.imageAlt }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: editorialPost.ogTitle,
+        description: editorialPost.ogDescription,
+        images: [toProductionAssetUrl(editorialPost.image)],
+      },
+    };
+  }
   const page = getLegacyPage(`blog/${slug}`);
 
   if (!page) {
@@ -63,6 +90,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function LegacyBlogPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const editorialPost = getEditorialBlogPost(slug);
+  if (editorialPost) {
+    const article = getBlogArchiveArticle(slug);
+    if (!article) notFound();
+    return <BlogArticleTemplate article={article} editorialPost={editorialPost} />;
+  }
   const page = getLegacyPage(`blog/${slug}`);
 
   if (!page) {
