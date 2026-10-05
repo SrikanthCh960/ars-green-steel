@@ -35,6 +35,9 @@ The current approved pricing additions remain: Tamil Nadu Fe 550D base rate of �
 
 ## Intentional editorial changes
 
+- On 5 October 2026, ARS requested that “Price updated on” remain the label while its displayed Tamil Nadu date advances every three days to the previous day of each refresh (for example, on 10 October it shows 9 October). The schedule starts on 7 October; until then the displayed date remains 5 October. The date is calculated in India time at request time. This display cadence does not modify rates, which still require ARS confirmation.
+- On 5 October 2026, ARS requested that the “2 ARS grades” price-coverage strip appear immediately after the hero, followed by the complete “Today's ARS TMT steel prices by bar size” section. Only their positions changed; the price lookup, migrated copy, supporting sections, links, FAQs, and metadata remain intact.
+- On 5 October 2026, ARS requested that the displayed Tamil Nadu price-update date be changed from 24 September to 5 October 2026. No numeric rates, workbook formulas, other state prices, or page content changed with this date-only request.
 - The older “real-time data” benefit now says “latest ARS reference rates published on this website” and identifies the update date. The site does not have a live market feed.
 - The older “Compliance to Ministry of Steel Norms” benefit retains its topic heading, but its description no longer claims that a calculator itself certifies product or project compliance. Product specifications and certification must be checked separately.
 - Original FAQ questions are retained. Their answers now point to dated reference rates and a confirmed ARS quotation rather than implying a guaranteed future rate, current national market price, or included freight.

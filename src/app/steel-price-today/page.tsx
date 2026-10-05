@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { connection } from "next/server";
 import {
   ArrowRight,
   Calculator,
@@ -18,6 +19,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SteelPriceLookup } from "@/components/steel-price-lookup";
 import {
   calculatorProducts,
+  getPriceUpdatedOnLabel,
   getWorkbookPriceRows,
   pricingWorkbookDetails,
 } from "@/data/tmt-calculator";
@@ -36,8 +38,6 @@ export const metadata = createPageMetadata({
     "Check today’s TMT steel price per kg and per tonne in Chennai, Tamil Nadu and South India. Compare ARS Fe 550D and CRS rates by bar size.",
   path: "/tmt-steel-price-today",
 });
-
-export const revalidate = 86400;
 
 const wholeCurrency = new Intl.NumberFormat("en-IN", {
   style: "currency",
@@ -304,7 +304,10 @@ function PriceTable({ product, rows, href }: (typeof tamilNaduPriceTables)[numbe
   );
 }
 
-export default function SteelPriceTodayPage() {
+export default async function SteelPriceTodayPage() {
+  await connection();
+  const priceUpdatedOnLabel = getPriceUpdatedOnLabel();
+
   return (
     <main className="min-h-screen bg-surface-50 text-ink-900">
       <SiteHeader />
@@ -361,6 +364,38 @@ export default function SteelPriceTodayPage() {
         </div>
       </section>
 
+      <MotionSection className="bg-white py-16 md:py-24" id="price-table">
+        <div className="ars-container min-w-0">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
+            <div>
+              <SectionKicker variant="brand">Approved ARS Pricing</SectionKicker>
+              <h2 className="mt-4 max-w-3xl font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.08] tracking-[-0.025em] text-ink-900">
+                Today&apos;s ARS TMT steel prices by bar size
+              </h2>
+            </div>
+            <p className="max-w-xl text-[15px] leading-7 text-steel-700">
+              Use these current reference rates for initial planning. The confirmed selling price and commercial terms are provided in an ARS quotation.
+            </p>
+          </div>
+
+          <dl className="my-8 grid gap-px overflow-hidden rounded-xl border border-brand-blue/10 bg-brand-blue/10 sm:grid-cols-2 xl:grid-cols-4">
+            {[
+              ["Price updated on", priceUpdatedOnLabel],
+              ["Source", pricingWorkbookDetails.sourceLabel],
+              ["Rate basis", pricingWorkbookDetails.rateBasis],
+              ["Review cadence", pricingWorkbookDetails.reviewCadence],
+            ].map(([term, detail]) => (
+              <div key={term} className="bg-surface-50 p-4 md:p-5">
+                <dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-brand-blue">{term}</dt>
+                <dd className="mt-1.5 text-sm leading-6 text-steel-700">{detail}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <SteelPriceLookup />
+        </div>
+      </MotionSection>
+
       <MotionSection className="border-b border-brand-blue/10 bg-surface-50 py-16 md:py-24">
         <div className="ars-container grid gap-12 xl:grid-cols-[minmax(0,1fr)_minmax(0,0.96fr)] xl:items-center xl:gap-16">
           <div className="min-w-0">
@@ -388,38 +423,6 @@ export default function SteelPriceTodayPage() {
               ))}
             </ul>
           </div>
-        </div>
-      </MotionSection>
-
-      <MotionSection className="bg-white py-16 md:py-24" id="price-table">
-        <div className="ars-container min-w-0">
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
-            <div>
-              <SectionKicker variant="brand">Approved ARS Pricing</SectionKicker>
-              <h2 className="mt-4 max-w-3xl font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.08] tracking-[-0.025em] text-ink-900">
-                Today&apos;s ARS TMT steel prices by bar size
-              </h2>
-            </div>
-            <p className="max-w-xl text-[15px] leading-7 text-steel-700">
-              Use these current reference rates for initial planning. The confirmed selling price and commercial terms are provided in an ARS quotation.
-            </p>
-          </div>
-
-          <dl className="my-8 grid gap-px overflow-hidden rounded-xl border border-brand-blue/10 bg-brand-blue/10 sm:grid-cols-2 xl:grid-cols-4">
-            {[
-              ["Price updated on", pricingWorkbookDetails.approvedOnLabel],
-              ["Source", pricingWorkbookDetails.sourceLabel],
-              ["Rate basis", pricingWorkbookDetails.rateBasis],
-              ["Review cadence", pricingWorkbookDetails.reviewCadence],
-            ].map(([term, detail]) => (
-              <div key={term} className="bg-surface-50 p-4 md:p-5">
-                <dt className="text-[11px] font-bold uppercase tracking-[0.1em] text-brand-blue">{term}</dt>
-                <dd className="mt-1.5 text-sm leading-6 text-steel-700">{detail}</dd>
-              </div>
-            ))}
-          </dl>
-
-          <SteelPriceLookup />
         </div>
       </MotionSection>
 

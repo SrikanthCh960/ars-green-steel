@@ -28,16 +28,41 @@ export type CalculatorBar = (typeof calculatorBars)[number];
 export type CalculatorInputs = Record<string, number>;
 
 export const pricingWorkbookDetails = {
-  approvedOn: "2026-09-24",
-  approvedOnLabel: "24 September 2026 (Tamil Nadu)",
+  approvedOn: "2026-10-05",
   sourceLabel: "ARS pricing workbook and Tamil Nadu rate update",
   rateBasis: "Fe 550D base rate with grade and diameter adjustments",
-  reviewCadence: "Updated when ARS confirms revised rates",
+  reviewCadence: "Date refreshed every 3 days; rates revised when ARS confirms",
   taxesIncluded: true,
   freightIncluded: false,
   loadingAndUnloadingIncluded: false,
   quotationValidity: "Stated on the confirmed ARS quotation",
 } as const;
+
+const priceDateRefreshStart = Date.UTC(2026, 9, 7);
+const threeDaysInMilliseconds = 3 * 24 * 60 * 60 * 1000;
+
+export function getPriceUpdatedOnLabel(now = new Date()) {
+  const indiaDateParts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Kolkata",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  }).formatToParts(now);
+  const indiaDate = Object.fromEntries(indiaDateParts.map(({ type, value }) => [type, value]));
+  const today = Date.UTC(Number(indiaDate.year), Number(indiaDate.month) - 1, Number(indiaDate.day));
+  const lastRefresh = priceDateRefreshStart - 24 * 60 * 60 * 1000
+    + Math.floor((today - priceDateRefreshStart) / threeDaysInMilliseconds) * threeDaysInMilliseconds;
+  const approvedDate = Date.parse(pricingWorkbookDetails.approvedOn);
+  const displayedDate = new Date(Math.max(approvedDate, lastRefresh));
+  const dateLabel = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "UTC",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(displayedDate);
+
+  return `${dateLabel} (Tamil Nadu)`;
+}
 
 // Approved source: Price - Formula workbook (Regionwise Vs Dia Vs Product) - New.xlsx.
 // Values mirror the workbook's base price, region adjustment, diameter adjustment, and GST formula.
