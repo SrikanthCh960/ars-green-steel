@@ -28,8 +28,8 @@ export type CalculatorBar = (typeof calculatorBars)[number];
 export type CalculatorInputs = Record<string, number>;
 
 export const pricingWorkbookDetails = {
-  approvedOn: "2026-10-05",
-  sourceLabel: "ARS pricing workbook and Tamil Nadu rate update",
+  approvedOn: "2026-10-07",
+  sourceLabel: "ARS pricing workbook approved 7 October 2026",
   rateBasis: "Fe 550D base rate with grade and diameter adjustments",
   reviewCadence: "Date refreshed every 3 days; rates revised when ARS confirms",
   taxesIncluded: true,
@@ -64,13 +64,13 @@ export function getPriceUpdatedOnLabel(now = new Date()) {
   return `${dateLabel} (Tamil Nadu)`;
 }
 
-// Approved source: Price - Formula workbook (Regionwise Vs Dia Vs Product) - New.xlsx.
-// Values mirror the workbook's base price, region adjustment, diameter adjustment, and GST formula.
+// Approved source: Price - Formula workbook (Regionwise Vs  Dia Vs Product) - New Up - 07-Oct-26.xlsx.
+// Price Chart Per Ton!A2:J12: (product base + region adjustment + diameter adjustment) × (1 + GST).
 const workbookPriceInputs = {
   gst: 0.18,
   basePricePerTon: {
-    "ARS Fe 550D": 58050.84745762712,
-    "ARS CRS Fe 550D": 60169.491525423735,
+    "ARS Fe 550D": 66525.42372881356,
+    "ARS CRS Fe 550D": 67372.8813559322,
   } satisfies Record<CalculatorProduct, number>,
   regionAdjustmentPerTon: {
     "Tamil Nadu": 0,
@@ -79,21 +79,15 @@ const workbookPriceInputs = {
     Karnataka: -1250,
   } satisfies Record<CalculatorRegion, number>,
   diameterAdjustmentPerTon: {
-    "8mm": 847.5,
+    "8mm": 1271,
     "10mm": 0,
     "12mm": 0,
     "16mm": 0,
     "20mm": 0,
     "25mm": 0,
-    "32mm": 847.5,
+    "32mm": 1271,
   } as Record<CalculatorBar["size"], number>,
 } as const;
-
-// The client revised the Tamil Nadu Fe 550D base rate to ₹76,000/tonne including GST.
-// Keep the workbook's product and diameter differences, and leave other states unchanged.
-const tamilNaduBaseRatePerTonIncludingGst = 76000;
-const tamilNaduRateAdjustmentPerTon = tamilNaduBaseRatePerTonIncludingGst
-  - workbookPriceInputs.basePricePerTon["ARS Fe 550D"] * (1 + workbookPriceInputs.gst);
 
 export function getRatePerKg(region: string, product: string, size: string) {
   const basePrice = workbookPriceInputs.basePricePerTon[product as CalculatorProduct];
@@ -102,7 +96,7 @@ export function getRatePerKg(region: string, product: string, size: string) {
 
   if (basePrice === undefined || regionAdjustment === undefined || diameterAdjustment === undefined) return 0;
   const workbookRatePerTonIncludingGst = (basePrice + regionAdjustment + diameterAdjustment) * (1 + workbookPriceInputs.gst);
-  return (workbookRatePerTonIncludingGst + (region === "Tamil Nadu" ? tamilNaduRateAdjustmentPerTon : 0)) / 1000;
+  return workbookRatePerTonIncludingGst / 1000;
 }
 
 export function getWorkbookPriceRows(region: CalculatorRegion, product: CalculatorProduct) {

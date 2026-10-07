@@ -31,10 +31,28 @@ For future changes to this route, use this inventory as the content baseline. Co
 | Enquiry path | Quick price enquiry and Request Quote link | Preserved without another submission endpoint |
 | Calculator and product links | Internal production paths | Restored or preserved |
 
-The current approved pricing additions remain: Tamil Nadu Fe 550D base rate of ₹76,000 per tonne including GST, existing workbook grade/diameter differentials, per-kg and per-tonne tables, per-rod estimates, price update date, delivery exclusions, and the current price-enquiry form. The old floating ₹70,000 retail claim is deliberately excluded because it conflicts with the later ARS rate update.
+The current approved pricing additions remain: the 7 October 2026 ARS workbook rates for four regions, two grades and seven diameters; per-kg and per-tonne tables; per-rod estimates; price update date; delivery exclusions; and the current price-enquiry form. The old floating ₹70,000 retail claim is deliberately excluded because it conflicts with later ARS rate updates.
+
+## Pricing formula history
+
+The previous formula, retained here for audit only, used the earlier `Price - Formula workbook (Regionwise Vs Dia Vs Product) - New.xlsx` inputs plus a later Tamil Nadu override. It is no longer used by the site:
+
+```text
+GST = 18%
+Fe 550D basic price/tonne = 58050.84745762712
+CRS Fe 550D basic price/tonne = 60169.491525423735
+Region adjustment/tonne: Tamil Nadu 0; Andhra Pradesh -1200; Kerala -2450; Karnataka -1250
+Diameter adjustment/tonne: 8 mm and 32 mm +847.5; 10–25 mm 0
+Tamil Nadu override = 76000 - (58050.84745762712 × 1.18) = 7500/tonne including GST
+Old GST-inclusive price/tonne = (basic + region adjustment + diameter adjustment) × 1.18
+                                + (Tamil Nadu ? 7500 : 0)
+```
+
+ARS approved `Price - Formula workbook (Regionwise Vs  Dia Vs Product) - New Up - 07-Oct-26.xlsx` on 7 October 2026. Its `Price Chart Per Ton!A2:J12` has Fe 550D basic price/tonne `66525.42372881356`, CRS Fe 550D `67372.8813559322`, the same four regional adjustments, `+1271` for 8 mm and 32 mm, zero for 10–25 mm, and 18% GST. The new formula is `(basic + region adjustment + diameter adjustment) × 1.18` for every region. There is no separate Tamil Nadu override. Displayed whole-rupee per-tonne values follow the existing site rounding; the workbook's unrounded 8 mm and 32 mm Tamil Nadu Fe rate is ₹79,999.78/tonne.
 
 ## Intentional editorial changes
 
+- On 7 October 2026, ARS approved the new price workbook for all 56 region/grade/diameter combinations. The shared pricing formula and workbook source date changed; the site retains the same page structure and migrated editorial content. The old formula is recorded above.
 - On 5 October 2026, ARS requested that “Price updated on” remain the label while its displayed Tamil Nadu date advances every three days to the previous day of each refresh (for example, on 10 October it shows 9 October). The schedule starts on 7 October; until then the displayed date remains 5 October. The date is calculated in India time at request time. This display cadence does not modify rates, which still require ARS confirmation.
 - On 5 October 2026, ARS requested that the “2 ARS grades” price-coverage strip appear immediately after the hero, followed by the complete “Today's ARS TMT steel prices by bar size” section. Only their positions changed; the price lookup, migrated copy, supporting sections, links, FAQs, and metadata remain intact.
 - On 5 October 2026, ARS requested that the displayed Tamil Nadu price-update date be changed from 24 September to 5 October 2026. No numeric rates, workbook formulas, other state prices, or page content changed with this date-only request.
@@ -48,6 +66,7 @@ The current approved pricing additions remain: Tamil Nadu Fe 550D base rate of �
 
 ## Local verification completed
 
+- For the 7 October workbook, all 56 site rates matched the workbook's cached GST-inclusive prices to floating-point tolerance. The Tamil Nadu 10 mm one-rod calculator total matched the workbook example; the new approval-date floor and three-day display cadence passed boundary checks. ESLint on the changed pricing source, route/asset QA, `git diff --check`, and the production build passed. No page component or migrated editorial copy changed.
 - TypeScript, ESLint on changed source files, production build, route/asset QA, and `git diff --check` passed.
 - Desktop and 390 px mobile layouts were reviewed locally. After the ARS-requested removal, the rendered page has no “Detailed Order Planning” section or horizontal overflow.
 - The rendered page retains one H1, the existing title and description, canonical `https://arsgroup.in/tmt-steel-price-today`, and FAQ structured data for 14 visible questions (including the nine legacy topics).
@@ -57,6 +76,7 @@ The current approved pricing additions remain: Tamil Nadu Fe 550D base rate of �
 
 ## Release checks remaining
 
+- Check the rendered steel-price page and TMT calculator on desktop and mobile after deployment, including the new values, date label and price-enquiry summary. The browser automation session was blocked by its URL policy during this local review.
 - After deployment, verify the production page and compare indexed/crawlable content with the legacy inventory. Content restoration alone cannot guarantee a ranking recovery.
 
 No blog page was edited as part of this restoration. The migration parity rule in `AGENTS.md` applies to future page and blog edits.
