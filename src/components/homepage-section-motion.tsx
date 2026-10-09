@@ -20,8 +20,11 @@ type HomepageRevealProps = {
 
 function reveal(reduceMotion: boolean | null, delay = 0, y = 18) {
   return {
-    initial: reduceMotion ? false : { opacity: 0, y },
-    whileInView: { opacity: 1, y: 0 },
+    // Keep server-rendered content visible even if hydration or the viewport
+    // observer is delayed on a mobile device. Motion should enhance the page,
+    // never gate access to its content.
+    initial: reduceMotion ? false : { y },
+    whileInView: { y: 0 },
     viewport,
     transition: reduceMotion ? { duration: 0 } : { duration: 0.58, delay, ease },
   };
@@ -44,8 +47,8 @@ export function HomepageSectionMotion({
       {...props}
       className={className}
       data-homepage-motion="section"
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
-      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+      initial={shouldReduceMotion ? false : { y: 20 }}
+      whileInView={shouldReduceMotion ? undefined : { y: 0 }}
       viewport={{ once: true, margin: "-72px" }}
       transition={shouldReduceMotion ? undefined : { duration: 0.64, ease }}
     >
@@ -73,8 +76,8 @@ export function HomepageImageReveal({ children, className, delay = 0 }: Omit<Hom
     <motion.div
       className={className}
       data-homepage-motion="image"
-      initial={shouldReduceMotion ? false : { opacity: 0, scale: 1.008 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      initial={shouldReduceMotion ? false : { scale: 1.008 }}
+      whileInView={{ scale: 1 }}
       viewport={viewport}
       transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.68, delay, ease }}
     >

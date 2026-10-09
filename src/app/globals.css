@@ -631,6 +631,19 @@ main h1.blog-editorial-title {
   animation-play-state: paused;
 }
 
+/*
+ * Keep the homepage fully readable on mobile even when a browser delays
+ * hydration, intersection observers, or compositor updates during a fast
+ * scroll. Desktop retains the restrained editorial motion; mobile content is
+ * deliberately static so animation can never leave full sections invisible.
+ */
+@media (max-width: 767px) {
+  [data-homepage-motion] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-word-item {
     animation: none !important;
