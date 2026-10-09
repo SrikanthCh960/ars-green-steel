@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { IBM_Plex_Sans } from "next/font/google";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 import { Suspense } from "react";
@@ -8,6 +9,13 @@ import { FloatingWhatsAppButton } from "@/components/floating-whatsapp-button";
 import { analyticsConfig } from "@/lib/analytics-config";
 import { defaultSocialImage, isIndexingEnabled, productionDomain, toProductionUrl } from "@/lib/site-metadata";
 import { SiteFooter } from "@/components/site-footer";
+
+const ibmPlexSans = IBM_Plex_Sans({
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-ibm-plex-sans",
+  weight: "variable",
+});
 
 const gaId = analyticsConfig.ga4.measurementId;
 const gtmId = analyticsConfig.gtm.containerId;
@@ -52,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className={`${ibmPlexSans.variable} h-full antialiased`}>
       <head>
         {metaPixelEnabled && metaPixelId ? (
           <Script id="meta-pixel" strategy="afterInteractive">
