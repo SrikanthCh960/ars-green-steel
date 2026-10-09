@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import ReactDOM from "react-dom";
 
 const heroSlides = [
   {
@@ -36,6 +37,13 @@ const heroSlides = [
 const cycleMs = 4200;
 
 export function HomeHero() {
+  ReactDOM.preload("/ars-assets/home/ARS-green-bg-mobile.webp", {
+    as: "image",
+    fetchPriority: "high",
+    media: "(max-width: 767px)",
+    type: "image/webp",
+  });
+
   const [activeIndex, setActiveIndex] = useState(0);
   const reduceMotion = useReducedMotion();
   const active = heroSlides[activeIndex];
