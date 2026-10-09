@@ -19,11 +19,11 @@ import { productCatalog } from "@/lib/product-catalog";
 import { AudienceJourneySection } from "@/components/audience-journey-section";
 import { ContactCta } from "@/components/contact-cta";
 import { HomeHero } from "@/components/home-hero";
+import { HomepageClientMarquee } from "@/components/homepage-client-marquee";
 import { HomepageImageReveal, HomepageReveal, HomepageSectionMotion } from "@/components/homepage-section-motion";
 import { ResponsiveContentImage } from "@/components/responsive-content-image";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
-import { clientLogos } from "@/data/client-logos";
 
 const buyingActions = [
   {
@@ -233,6 +233,8 @@ const blogs = [
     readTime: "4 min read",
     icon: Layers,
     image: "/ars-assets/blog-banners/everything-you-need-to-know-about-corrosion-resistance-steel/corrosion-resistance-steel.jpeg",
+    avifSrcSet: "/ars-assets/cwv/homepage/blog/crs-steel-360.avif 360w, /ars-assets/cwv/homepage/blog/crs-steel-720.avif 720w, /ars-assets/cwv/homepage/blog/crs-steel-1080.avif 1080w",
+    webpSrcSet: "/ars-assets/cwv/homepage/blog/crs-steel-360.webp 360w, /ars-assets/cwv/homepage/blog/crs-steel-720.webp 720w, /ars-assets/cwv/homepage/blog/crs-steel-1080.webp 1080w",
   },
   {
     title: "How Green Steel is Produced",
@@ -242,6 +244,8 @@ const blogs = [
     readTime: "5 min read",
     icon: Leaf,
     image: "/ars-assets/original-green-steel/what-is-green-steel.png",
+    avifSrcSet: "/ars-assets/cwv/homepage/blog/green-steel-production-360.avif 360w, /ars-assets/cwv/homepage/blog/green-steel-production-487.avif 487w",
+    webpSrcSet: "/ars-assets/cwv/homepage/blog/green-steel-production-360.webp 360w, /ars-assets/cwv/homepage/blog/green-steel-production-487.webp 487w",
   },
   {
     title: "TMT Bars vs HYSD Bars",
@@ -251,6 +255,8 @@ const blogs = [
     readTime: "6 min read",
     icon: BookOpen,
     image: "/ars-assets/blog-banners/all-you-need-to-know-about-hysd-bars/quality-tmt-bar-3.webp",
+    avifSrcSet: "/ars-assets/cwv/homepage/blog/tmt-bars-vs-hysd-360.avif 360w, /ars-assets/cwv/homepage/blog/tmt-bars-vs-hysd-720.avif 720w, /ars-assets/cwv/homepage/blog/tmt-bars-vs-hysd-1000.avif 1000w",
+    webpSrcSet: "/ars-assets/cwv/homepage/blog/tmt-bars-vs-hysd-360.webp 360w, /ars-assets/cwv/homepage/blog/tmt-bars-vs-hysd-720.webp 720w, /ars-assets/cwv/homepage/blog/tmt-bars-vs-hysd-1000.webp 1000w",
   },
   {
     title: "House Construction Cost in India",
@@ -260,15 +266,14 @@ const blogs = [
     readTime: "7 min read",
     icon: Calculator,
     image: "/ars-assets/blog-banners/average-house-construction-cost-in-india-per-square-feet/WhatsApp-Image-2024-12-02-at-12.34.42-PM.jpeg",
+    avifSrcSet: "/ars-assets/cwv/homepage/blog/house-construction-cost-360.avif 360w, /ars-assets/cwv/homepage/blog/house-construction-cost-720.avif 720w, /ars-assets/cwv/homepage/blog/house-construction-cost-1080.avif 1080w",
+    webpSrcSet: "/ars-assets/cwv/homepage/blog/house-construction-cost-360.webp 360w, /ars-assets/cwv/homepage/blog/house-construction-cost-720.webp 720w, /ars-assets/cwv/homepage/blog/house-construction-cost-1080.webp 1080w",
   },
 ];
 
 export default function Home() {
   return (
     <main className="min-h-screen overflow-x-clip bg-background text-ink-900">
-      <noscript>
-        <style>{"[data-homepage-motion] { opacity: 1 !important; transform: none !important; }"}</style>
-      </noscript>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: homepageJsonLdString }}
@@ -434,27 +439,7 @@ export default function Home() {
                 </Link>
               </div>
             </HomepageReveal>
-            <div className="homepage-client-marquee" aria-label="ARS clients">
-              <div className="marquee-frame">
-                <div className="marquee-track marquee-right">
-                  {[0, 1].map((run) => (
-                    <ul key={run} className="homepage-client-marquee-group" aria-hidden={run === 1 ? true : undefined}>
-                      {clientLogos.map((client) => (
-                        <li key={client.name} className="flex h-20 w-44 shrink-0 items-center justify-center rounded-[10px] border border-ink-900/8 bg-white p-3">
-                          <Image
-                            src={client.src}
-                            alt={run === 1 ? "" : `${client.name} logo`}
-                            width={client.width}
-                            height={client.height}
-                            className="max-h-12 max-w-32 object-contain"
-                          />
-                        </li>
-                      ))}
-                    </ul>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <HomepageClientMarquee />
           </div>
         </div>
       </HomepageSectionMotion>
@@ -510,8 +495,10 @@ function FeaturedBlogCard({ blog }: { blog: (typeof blogs)[number] }) {
       prefetch={false}
       className="focus-ring group relative flex min-h-[500px] flex-col justify-between overflow-hidden rounded-[18px] bg-bg-dark p-7 text-white shadow-[0_24px_70px_rgba(13,43,110,0.18)] transition duration-300 hover:-translate-y-1 lg:p-8"
     >
-      <Image
-        src={blog.image}
+      <ResponsiveContentImage
+        avifSrcSet={blog.avifSrcSet}
+        webpSrcSet={blog.webpSrcSet}
+        fallbackSrc={blog.image}
         alt=""
         fill
         sizes="(min-width: 1024px) 40vw, 100vw"
@@ -551,8 +538,10 @@ function BlogListCard({ blog }: { blog: (typeof blogs)[number] }) {
       className="focus-ring group grid overflow-hidden rounded-[16px] border border-brand-blue/10 bg-surface-50 shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-0.5 hover:border-brand-blue/28 hover:bg-white sm:grid-cols-[180px_minmax(0,1fr)_48px]"
     >
       <span className="relative min-h-[170px] overflow-hidden bg-surface-100 sm:min-h-full">
-        <Image
-          src={blog.image}
+        <ResponsiveContentImage
+          avifSrcSet={blog.avifSrcSet}
+          webpSrcSet={blog.webpSrcSet}
+          fallbackSrc={blog.image}
           alt=""
           fill
           sizes="(min-width: 640px) 180px, 100vw"
@@ -625,8 +614,10 @@ function GreenSteelSection() {
   return (
     <HomepageSectionMotion className="relative overflow-hidden bg-bg-dark py-24 text-white" id="ars-green-steel">
       <div className="absolute inset-0">
-        <Image
-          src="/ars-assets/home/ARS-green-bg.jpg"
+        <ResponsiveContentImage
+          avifSrcSet="/ars-assets/cwv/homepage/green-steel-768.avif 768w, /ars-assets/cwv/homepage/green-steel-1600.avif 1600w"
+          webpSrcSet="/ars-assets/cwv/homepage/green-steel-768.webp 768w, /ars-assets/cwv/homepage/green-steel-1600.webp 1600w"
+          fallbackSrc="/ars-assets/home/ARS-green-bg.jpg"
           alt=""
           fill
           sizes="100vw"

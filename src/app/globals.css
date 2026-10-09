@@ -631,16 +631,50 @@ main h1.blog-editorial-title {
   animation-play-state: paused;
 }
 
-/*
- * Keep the homepage fully readable on mobile even when a browser delays
- * hydration, intersection observers, or compositor updates during a fast
- * scroll. Desktop retains the restrained editorial motion; mobile content is
- * deliberately static so animation can never leave full sections invisible.
- */
+/* Homepage storytelling stays readable without hydration or observers. */
 @media (max-width: 767px) {
   [data-homepage-motion] {
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+@keyframes homepage-section-reveal {
+  from { transform: translateY(20px); }
+  to { transform: none; }
+}
+
+@keyframes homepage-content-reveal {
+  from { transform: translateY(18px); }
+  to { transform: none; }
+}
+
+@keyframes homepage-image-reveal {
+  from { transform: scale(1.008); }
+  to { transform: none; }
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    [data-homepage-motion] {
+      animation-duration: 1ms;
+      animation-fill-mode: both;
+      animation-range: entry 0% entry 28%;
+      animation-timeline: view();
+      animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    [data-homepage-motion="section"] {
+      animation-name: homepage-section-reveal;
+    }
+
+    [data-homepage-motion="content"] {
+      animation-name: homepage-content-reveal;
+    }
+
+    [data-homepage-motion="image"] {
+      animation-name: homepage-image-reveal;
+    }
   }
 }
 

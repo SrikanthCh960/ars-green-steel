@@ -1,23 +1,33 @@
-// Shared by the homepage marquee and Clients page. The September 2026 client batch
-// adds 15 marks to four previously supplied logos. New assets trim only white space.
+// Keep the supplied originals under /ars-assets/clients for regeneration. Routes
+// use pre-sized direct assets so small logo placements do not download 1,000px files.
+function clientLogo(name: string, fileName: string, width: number, height: number) {
+  return {
+    name,
+    src: "/ars-assets/cwv/clients/grid/" + fileName,
+    homepageSrc: "/ars-assets/cwv/clients/homepage/" + fileName,
+    width,
+    height,
+  } as const;
+}
+
 export const clientLogos = [
-  { name: "Akshaya", src: "/ars-assets/clients/akshaya.webp", width: 1175, height: 420 },
-  { name: "AMPA", src: "/ars-assets/clients/ampa.webp", width: 1159, height: 801 },
-  { name: "Baashyaam", src: "/ars-assets/clients/baashyaam.webp", width: 1158, height: 255 },
-  { name: "Casagrand", src: "/ars-assets/clients/casagrand.webp", width: 1157, height: 328 },
-  { name: "Chennai Metro Rail", src: "/ars-assets/clients/chennai-metro-rail.webp", width: 1020, height: 1004 },
-  { name: "DMart", src: "/ars-assets/clients/dmart.webp", width: 1194, height: 398 },
-  { name: "EPIC Group", src: "/ars-assets/clients/epic-group.webp", width: 1150, height: 604 },
-  { name: "Foxconn", src: "/ars-assets/clients/foxconn.webp", width: 1219, height: 307 },
-  { name: "GAAR", src: "/ars-assets/clients/gaar.webp", width: 1132, height: 438 },
-  { name: "KRM", src: "/ars-assets/clients/krm.webp", width: 1049, height: 836 },
-  { name: "Noah Infrastructures", src: "/ars-assets/clients/noah.webp", width: 1220, height: 451 },
-  { name: "RCCL", src: "/ars-assets/clients/rccl.webp", width: 662, height: 841 },
-  { name: "Rohaan Constructions", src: "/ars-assets/clients/rohaan.webp", width: 1182, height: 405 },
-  { name: "SAN", src: "/ars-assets/clients/san.webp", width: 684, height: 1006 },
-  { name: "Sri Ramachandra Institute", src: "/ars-assets/clients/sri-ramachandra-institute.webp", width: 1253, height: 219 },
-  { name: "SRC Infrastructure Builders", src: "/ars-assets/clients/src-infrastructure-builders.webp", width: 1206, height: 806 },
-  { name: "Sri Venkateswara University", src: "/ars-assets/clients/sri-venkateswara-university.webp", width: 1137, height: 1126 },
-  { name: "VGN", src: "/ars-assets/clients/vgn.webp", width: 1251, height: 409 },
-  { name: "V. Sathyamoorthy & Co.", src: "/ars-assets/clients/vs-sathyamoorthy.webp", width: 1254, height: 682 },
+  clientLogo("Akshaya", "akshaya.webp", 1175, 420),
+  clientLogo("AMPA", "ampa.webp", 1159, 801),
+  clientLogo("Baashyaam", "baashyaam.webp", 1158, 255),
+  clientLogo("Casagrand", "casagrand.webp", 1157, 328),
+  clientLogo("Chennai Metro Rail", "chennai-metro-rail.webp", 1020, 1004),
+  clientLogo("DMart", "dmart.webp", 1194, 398),
+  clientLogo("EPIC Group", "epic-group.webp", 1150, 604),
+  clientLogo("Foxconn", "foxconn.webp", 1219, 307),
+  clientLogo("GAAR", "gaar.webp", 1132, 438),
+  clientLogo("KRM", "krm.webp", 1049, 836),
+  clientLogo("Noah Infrastructures", "noah.webp", 1220, 451),
+  clientLogo("RCCL", "rccl.webp", 662, 841),
+  clientLogo("Rohaan Constructions", "rohaan.webp", 1182, 405),
+  clientLogo("SAN", "san.webp", 684, 1006),
+  clientLogo("Sri Ramachandra Institute", "sri-ramachandra-institute.webp", 1253, 219),
+  clientLogo("SRC Infrastructure Builders", "src-infrastructure-builders.webp", 1206, 806),
+  clientLogo("Sri Venkateswara University", "sri-venkateswara-university.webp", 1137, 1126),
+  clientLogo("VGN", "vgn.webp", 1251, 409),
+  clientLogo("V. Sathyamoorthy & Co.", "vs-sathyamoorthy.webp", 1254, 682),
 ] as const;

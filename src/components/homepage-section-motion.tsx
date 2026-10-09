@@ -1,15 +1,6 @@
-"use client";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
-import type { ReactNode } from "react";
-import { motion, type HTMLMotionProps, useReducedMotion } from "framer-motion";
-
-const ease = [0.22, 1, 0.36, 1] as const;
-const viewport = { once: true, amount: 0.18 } as const;
-
-type HomepageSectionMotionProps = Omit<
-  HTMLMotionProps<"section">,
-  "initial" | "whileInView" | "viewport" | "transition"
->;
+type HomepageSectionMotionProps = ComponentPropsWithoutRef<"section">;
 
 type HomepageRevealProps = {
   children: ReactNode;
@@ -18,70 +9,40 @@ type HomepageRevealProps = {
   y?: number;
 };
 
-function reveal(reduceMotion: boolean | null, delay = 0, y = 18) {
-  return {
-    // Keep server-rendered content visible even if hydration or the viewport
-    // observer is delayed on a mobile device. Motion should enhance the page,
-    // never gate access to its content.
-    initial: reduceMotion ? false : { y },
-    whileInView: { y: 0 },
-    viewport,
-    transition: reduceMotion ? { duration: 0 } : { duration: 0.58, delay, ease },
-  };
-}
-
 /**
- * Page-scoped reveal for the homepage's editorial sections. Keeping this
- * separate from MotionSection lets the homepage establish its own measured
- * rhythm without changing motion on interior pages.
+ * Server-rendered homepage wrapper. CSS view-timeline motion is progressive
+ * enhancement only, keeping content visible without hydration or observers.
  */
 export function HomepageSectionMotion({
   children,
   className = "",
   ...props
 }: HomepageSectionMotionProps) {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
-    <motion.section
+    <section
       {...props}
       className={className}
       data-homepage-motion="section"
-      initial={shouldReduceMotion ? false : { y: 20 }}
-      whileInView={shouldReduceMotion ? undefined : { y: 0 }}
-      viewport={{ once: true, margin: "-72px" }}
-      transition={shouldReduceMotion ? undefined : { duration: 0.64, ease }}
     >
       {children}
-    </motion.section>
+    </section>
   );
 }
 
-/** Homepage-only content layer reveal. */
-export function HomepageReveal({ children, className, delay = 0, y = 18 }: HomepageRevealProps) {
-  const shouldReduceMotion = useReducedMotion();
-
+/** Homepage content wrapper; delay and y remain accepted for API compatibility. */
+export function HomepageReveal({ children, className }: HomepageRevealProps) {
   return (
-    <motion.div className={className} data-homepage-motion="content" {...reveal(shouldReduceMotion, delay, y)}>
+    <div className={className} data-homepage-motion="content">
       {children}
-    </motion.div>
+    </div>
   );
 }
 
-/** Homepage-only visual reveal for imagery and media. */
-export function HomepageImageReveal({ children, className, delay = 0 }: Omit<HomepageRevealProps, "y">) {
-  const shouldReduceMotion = useReducedMotion();
-
+/** Homepage visual wrapper with an optional CSS-only scale enhancement. */
+export function HomepageImageReveal({ children, className }: Omit<HomepageRevealProps, "y">) {
   return (
-    <motion.div
-      className={className}
-      data-homepage-motion="image"
-      initial={shouldReduceMotion ? false : { scale: 1.008 }}
-      whileInView={{ scale: 1 }}
-      viewport={viewport}
-      transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.68, delay, ease }}
-    >
+    <div className={className} data-homepage-motion="image">
       {children}
-    </motion.div>
+    </div>
   );
 }

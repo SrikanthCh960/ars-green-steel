@@ -1,4 +1,4 @@
-import { access, mkdir, readFile } from "node:fs/promises";
+import { access, mkdir, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 
@@ -36,6 +36,33 @@ const homepageContentSources = [
 
 const homepageContentWidths = [480, 960];
 
+const homepageBlogSources = [
+  {
+    name: "crs-steel",
+    source: "ars-assets/blog-banners/everything-you-need-to-know-about-corrosion-resistance-steel/corrosion-resistance-steel.jpeg",
+    widths: [360, 720, 1080],
+  },
+  {
+    name: "green-steel-production",
+    source: "ars-assets/original-green-steel/what-is-green-steel.png",
+    widths: [360, 487],
+  },
+  {
+    name: "tmt-bars-vs-hysd",
+    source: "ars-assets/blog-banners/all-you-need-to-know-about-hysd-bars/quality-tmt-bar-3.webp",
+    widths: [360, 720, 1000],
+  },
+  {
+    name: "house-construction-cost",
+    source: "ars-assets/blog-banners/average-house-construction-cost-in-india-per-square-feet/WhatsApp-Image-2024-12-02-at-12.34.42-PM.jpeg",
+    widths: [360, 720, 1080],
+  },
+];
+
+const homepageBlogVariantCount = homepageBlogSources.reduce((count, image) => count + image.widths.length * 2, 0);
+const homepageGreenSteelWidths = [768, 1600];
+const clientLogoSourceDir = path.join(publicDir, "ars-assets", "clients");
+
 function publicPath(relativePath) {
   return path.join(publicDir, relativePath.replace(/^\//, ""));
 }
@@ -67,6 +94,15 @@ async function writeHomepageContentVariant(source, destination, width, format) {
   }
 
   await pipeline.webp({ quality: 68, effort: 5 }).toFile(destination);
+}
+
+async function writeClientLogoVariant(source, destination, width, height) {
+  await mkdir(path.dirname(destination), { recursive: true });
+  await sharp(source)
+    .rotate()
+    .resize({ width, height, fit: "inside", withoutEnlargement: true })
+    .webp({ quality: 82, alphaQuality: 90, effort: 6, smartSubsample: true })
+    .toFile(destination);
 }
 
 async function generateHeroVariants() {
@@ -121,16 +157,86 @@ async function generateHomepageContentVariants() {
   }
 }
 
+async function generateHomepageBlogVariants() {
+  for (const image of homepageBlogSources) {
+    const source = publicPath(image.source);
+    await access(source);
+
+    for (const width of image.widths) {
+      await Promise.all(
+        ["avif", "webp"].map((format) =>
+          writeHomepageContentVariant(
+            source,
+            path.join(cwvDir, "homepage", "blog", `${image.name}-${width}.${format}`),
+            width,
+            format,
+          ),
+        ),
+      );
+    }
+  }
+}
+
+async function generateHomepageGreenSteelVariants() {
+  const source = publicPath("ars-assets/home/ARS-green-bg.jpg");
+  await access(source);
+
+  for (const width of homepageGreenSteelWidths) {
+    await Promise.all(
+      ["avif", "webp"].map((format) =>
+        writeHomepageContentVariant(
+          source,
+          path.join(cwvDir, "homepage", `green-steel-${width}.${format}`),
+          width,
+          format,
+        ),
+      ),
+    );
+  }
+}
+
+async function generateClientLogoVariants() {
+  const logoFiles = (await readdir(clientLogoSourceDir, { withFileTypes: true }))
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".webp"))
+    .map((entry) => entry.name);
+
+  for (const fileName of logoFiles) {
+    const source = path.join(clientLogoSourceDir, fileName);
+    await Promise.all([
+      writeClientLogoVariant(source, path.join(cwvDir, "clients", "homepage", fileName), 256, 96),
+      writeClientLogoVariant(source, path.join(cwvDir, "clients", "grid", fileName), 640, 224),
+    ]);
+  }
+
+  return logoFiles.length;
+}
+
+async function generateHomepagePerformanceVariants() {
+  const [, , logoCount] = await Promise.all([
+    generateHomepageBlogVariants(),
+    generateHomepageGreenSteelVariants(),
+    generateClientLogoVariants(),
+  ]);
+
+  return logoCount;
+}
+
 if (process.argv.includes("--homepage-only")) {
-  await generateHomepageContentVariants();
-  console.log(`Generated ${homepageContentSources.length * homepageContentWidths.length * 2} homepage content variants.`);
+  const [, logoCount] = await Promise.all([
+    generateHomepageContentVariants(),
+    generateHomepagePerformanceVariants(),
+  ]);
+  console.log(
+    `Generated ${homepageContentSources.length * homepageContentWidths.length * 2} homepage content variants, ${homepageBlogVariantCount} blog-card variants, ${homepageGreenSteelWidths.length * 2} green-steel background variants, and ${logoCount * 2} client-logo variants.`,
+  );
 } else {
-  const [, blogVariantCount] = await Promise.all([
+  const [, blogVariantCount, , logoCount] = await Promise.all([
     generateHeroVariants(),
     generateBlogVariants(),
     generateHomepageContentVariants(),
+    generateHomepagePerformanceVariants(),
   ]);
   console.log(
-    `Generated ${heroSources.length * 2} hero variants, ${blogVariantCount} blog variants, and ${homepageContentSources.length * homepageContentWidths.length * 2} homepage content variants.`,
+    `Generated ${heroSources.length * 2} hero variants, ${blogVariantCount} blog variants, ${homepageContentSources.length * homepageContentWidths.length * 2} homepage content variants, ${homepageBlogVariantCount} homepage blog-card variants, ${homepageGreenSteelWidths.length * 2} green-steel background variants, and ${logoCount * 2} client-logo variants.`,
   );
 }
