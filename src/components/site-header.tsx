@@ -327,7 +327,7 @@ export function SiteHeader({ showBreadcrumb = true }: { showBreadcrumb?: boolean
                     role="region"
                     aria-label={`${menu.eyebrow} menu`}
                   >
-                    <MegaMenuContent menu={menu} />
+                    <MegaMenuContent menu={menu} showVisual={openMenu === menuKey} />
                   </div>
                 ) : null}
               </div>
@@ -451,17 +451,20 @@ export function SiteHeader({ showBreadcrumb = true }: { showBreadcrumb?: boolean
 
 type MegaMenu = (typeof megaMenus)[keyof typeof megaMenus];
 
-function MegaMenuContent({ menu }: { menu: MegaMenu }) {
+function MegaMenuContent({ menu, showVisual }: { menu: MegaMenu; showVisual: boolean }) {
   return (
     <div className="ars-container grid gap-12 py-9 lg:grid-cols-[360px_1fr_280px] lg:items-center">
       <Link className="group relative min-h-[190px] overflow-hidden rounded-[22px] bg-ink-900 p-6 text-white shadow-[0_20px_55px_rgba(15,23,42,0.18)] lg:self-stretch" href={menu.links[0]?.href ?? "/products"}>
-        <Image
-          src={menu.visualSrc}
-          alt={`${menu.visual} ARS`}
-          fill
-          sizes="360px"
-          className="object-cover transition duration-500 group-hover:scale-105"
-        />
+        {showVisual ? (
+          <Image
+            src={menu.visualSrc}
+            alt={`${menu.visual} ARS`}
+            fill
+            sizes="360px"
+            loading="eager"
+            className="object-cover transition duration-500 group-hover:scale-105"
+          />
+        ) : null}
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,.08),rgba(15,23,42,.82))]" />
         <div className="absolute -right-10 -top-10 size-36 rounded-full border border-white/24" />
         <div className="absolute bottom-5 right-5 inline-flex size-12 items-center justify-center rounded-full bg-white text-brand-blue transition group-hover:translate-x-1">
