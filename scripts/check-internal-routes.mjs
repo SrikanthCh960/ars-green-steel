@@ -55,7 +55,10 @@ for (const file of collectSourceFiles(path.join(root, "src"))) {
   }
 
   while ((match = assetRegex.exec(source))) {
-    assetReferences.add(match[1]);
+    for (const candidate of match[1].split(",")) {
+      const asset = candidate.trim().replace(/\s+\d+(?:\.\d+)?[wx]$/, "");
+      if (asset) assetReferences.add(asset);
+    }
   }
 }
 

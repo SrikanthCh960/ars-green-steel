@@ -1,7 +1,7 @@
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { HomepageReveal, HomepageSectionMotion } from "@/components/homepage-section-motion";
+import { ResponsiveContentImage } from "@/components/responsive-content-image";
 import { SectionKicker } from "@/components/section-kicker";
 
 const audiencePaths = [
@@ -12,6 +12,8 @@ const audiencePaths = [
     href: "/tmt-steel-bar-guide-homeowners",
     cta: "Explore Home Building",
     image: "/ars-assets/home/home-owners.jpg",
+    avifSrcSet: "/ars-assets/home/home-owners-480.avif 480w, /ars-assets/home/home-owners-960.avif 960w",
+    webpSrcSet: "/ars-assets/home/home-owners-480.webp 480w, /ars-assets/home/home-owners-960.webp 960w",
     imageAlt: "Residential construction supported by ARS steel",
   },
   {
@@ -21,6 +23,8 @@ const audiencePaths = [
     href: "/tmt-steel-bar-guide-engineers-architects",
     cta: "View technical resources",
     image: "/ars-assets/home/engineers-architects.jpg",
+    avifSrcSet: "/ars-assets/home/engineers-architects-480.avif 480w, /ars-assets/home/engineers-architects-960.avif 960w",
+    webpSrcSet: "/ars-assets/home/engineers-architects-480.webp 480w, /ars-assets/home/engineers-architects-960.webp 960w",
     imageAlt: "ARS quality and testing documentation",
   },
   {
@@ -30,6 +34,8 @@ const audiencePaths = [
     href: "/tmt-steel-bar-guide-civil-contractors",
     cta: "Explore Project Solutions",
     image: "/ars-assets/home/Contractors.jpg",
+    avifSrcSet: "/ars-assets/home/contractors-480.avif 480w, /ars-assets/home/contractors-960.avif 960w",
+    webpSrcSet: "/ars-assets/home/contractors-480.webp 480w, /ars-assets/home/contractors-960.webp 960w",
     imageAlt: "ARS TMT steel for construction projects",
   },
   {
@@ -39,6 +45,8 @@ const audiencePaths = [
     href: "/steel-distributors-dealers",
     cta: "Become a Dealer",
     image: "/ars-assets/home/Distributors.jpg",
+    avifSrcSet: "/ars-assets/home/distributors-480.avif 480w, /ars-assets/home/distributors-960.avif 960w",
+    webpSrcSet: "/ars-assets/home/distributors-480.webp 480w, /ars-assets/home/distributors-960.webp 960w",
     imageAlt: "ARS TMT steel product range",
   },
 ];
@@ -68,8 +76,10 @@ export function AudienceJourneySection() {
                 href={path.href}
                 className="focus-ring group relative block aspect-square overflow-hidden bg-ink-950 shadow-[0_14px_34px_rgba(13,43,110,0.12)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_54px_rgba(13,43,110,0.24)] focus-visible:-translate-y-1 focus-visible:shadow-[0_24px_54px_rgba(13,43,110,0.24)] motion-reduce:transform-none motion-reduce:transition-none"
               >
-                <Image
-                  src={path.image}
+                <ResponsiveContentImage
+                  fallbackSrc={path.image}
+                  avifSrcSet={path.avifSrcSet}
+                  webpSrcSet={path.webpSrcSet}
                   alt={path.imageAlt}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"

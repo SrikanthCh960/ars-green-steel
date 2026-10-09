@@ -20,6 +20,7 @@ import { AudienceJourneySection } from "@/components/audience-journey-section";
 import { ContactCta } from "@/components/contact-cta";
 import { HomeHero } from "@/components/home-hero";
 import { HomepageImageReveal, HomepageReveal, HomepageSectionMotion } from "@/components/homepage-section-motion";
+import { ResponsiveContentImage } from "@/components/responsive-content-image";
 import { SectionKicker } from "@/components/section-kicker";
 import { SiteHeader } from "@/components/site-header";
 import { clientLogos } from "@/data/client-logos";
@@ -707,8 +708,10 @@ function ManufacturingStorySection() {
       <div className="ars-container">
         <div className="grid items-center gap-12 lg:grid-cols-[0.94fr_1.06fr] lg:gap-16">
           <HomepageImageReveal delay={0.16} className="group relative min-h-[420px] overflow-hidden rounded-[20px] bg-white sm:min-h-[540px]">
-            <Image
-              src="/ars-assets/home/ars_home.jpg"
+            <ResponsiveContentImage
+              fallbackSrc="/ars-assets/home/ars_home.jpg"
+              avifSrcSet="/ars-assets/home/ars_home-480.avif 480w, /ars-assets/home/ars_home-960.avif 960w"
+              webpSrcSet="/ars-assets/home/ars_home-480.webp 480w, /ars-assets/home/ars_home-960.webp 960w"
               alt="Aerial view of the ARS steel manufacturing facility in Gummidipoondi"
               fill
               sizes="(min-width: 1024px) 46vw, 100vw"

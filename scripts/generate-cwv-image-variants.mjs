@@ -26,6 +26,16 @@ const heroSources = [
   ["rod-32mm", "ars-assets/Sizes/32mm_Banner.jpg"],
 ];
 
+const homepageContentSources = [
+  ["ars_home", "ars-assets/home/ars_home.jpg"],
+  ["home-owners", "ars-assets/home/home-owners.jpg"],
+  ["engineers-architects", "ars-assets/home/engineers-architects.jpg"],
+  ["contractors", "ars-assets/home/Contractors.jpg"],
+  ["distributors", "ars-assets/home/Distributors.jpg"],
+];
+
+const homepageContentWidths = [480, 960];
+
 function publicPath(relativePath) {
   return path.join(publicDir, relativePath.replace(/^\//, ""));
 }
@@ -42,6 +52,21 @@ async function writeVariant(source, destination, width, quality) {
     .resize({ width, withoutEnlargement: true })
     .webp({ quality, effort: 5 })
     .toFile(destination);
+}
+
+async function writeHomepageContentVariant(source, destination, width, format) {
+  await mkdir(path.dirname(destination), { recursive: true });
+
+  const pipeline = sharp(source)
+    .rotate()
+    .resize({ width, withoutEnlargement: true });
+
+  if (format === "avif") {
+    await pipeline.avif({ quality: 48, effort: 5 }).toFile(destination);
+    return;
+  }
+
+  await pipeline.webp({ quality: 68, effort: 5 }).toFile(destination);
 }
 
 async function generateHeroVariants() {
@@ -76,5 +101,36 @@ async function generateBlogVariants() {
   return destinations.size;
 }
 
-const [, blogVariantCount] = await Promise.all([generateHeroVariants(), generateBlogVariants()]);
-console.log(`Generated ${heroSources.length * 2} hero variants and ${blogVariantCount} blog variants.`);
+async function generateHomepageContentVariants() {
+  for (const [name, relativeSource] of homepageContentSources) {
+    const source = publicPath(relativeSource);
+    await access(source);
+
+    for (const width of homepageContentWidths) {
+      await Promise.all(
+        ["avif", "webp"].map((format) =>
+          writeHomepageContentVariant(
+            source,
+            path.join(publicDir, "ars-assets", "home", `${name}-${width}.${format}`),
+            width,
+            format,
+          ),
+        ),
+      );
+    }
+  }
+}
+
+if (process.argv.includes("--homepage-only")) {
+  await generateHomepageContentVariants();
+  console.log(`Generated ${homepageContentSources.length * homepageContentWidths.length * 2} homepage content variants.`);
+} else {
+  const [, blogVariantCount] = await Promise.all([
+    generateHeroVariants(),
+    generateBlogVariants(),
+    generateHomepageContentVariants(),
+  ]);
+  console.log(
+    `Generated ${heroSources.length * 2} hero variants, ${blogVariantCount} blog variants, and ${homepageContentSources.length * homepageContentWidths.length * 2} homepage content variants.`,
+  );
+}
