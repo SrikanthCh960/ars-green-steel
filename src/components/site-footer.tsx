@@ -103,6 +103,7 @@ function FooterLinks({ group }: { group: (typeof footerGroups)[number] }) {
           <Link
             className="focus-ring flex min-h-11 items-center text-sm leading-6 text-slate-300 transition hover:text-white"
             href={link.href}
+            prefetch={false}
           >
             {link.label}
           </Link>
@@ -118,7 +119,7 @@ export function SiteFooter() {
       <section className="border-b border-white/10">
         <div className="ars-container grid gap-10 py-12 md:py-16 lg:grid-cols-[0.9fr_1.35fr] lg:items-start lg:gap-16">
           <div>
-            <Link href="/" className="focus-ring inline-flex items-center gap-3" aria-label="ARS Green Steel home">
+            <Link href="/" prefetch={false} className="focus-ring inline-flex items-center gap-3" aria-label="ARS Green Steel home">
               <Image
                 src="/ars-green-steel-light.svg"
                 alt="ARS Green Steel"
@@ -142,6 +143,7 @@ export function SiteFooter() {
               <Link
                 className="focus-ring flex min-h-11 items-start gap-3 text-sm text-slate-300 transition hover:text-white"
                 href="/contact"
+                prefetch={false}
               >
                 <Mail size={18} className="mt-0.5 shrink-0 text-white" />
                 <span><strong className="block text-white">Email support</strong>Use the enquiry form</span>
@@ -163,18 +165,21 @@ export function SiteFooter() {
               <Link
                 className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-red px-5 text-sm font-bold text-white transition hover:bg-brand-red-dark"
                 href="/request-quote"
+                prefetch={false}
               >
                 Request quote <ArrowRight size={15} />
               </Link>
               <Link
                 className="focus-ring inline-flex min-h-11 items-center rounded-full border border-white/20 px-5 text-sm font-bold text-white transition hover:border-white/40"
                 href="/steel-distributors-dealers"
+                prefetch={false}
               >
                 Become a dealer
               </Link>
               <Link
                 className="focus-ring inline-flex min-h-11 items-center rounded-full border border-white/20 px-5 text-sm font-bold text-white transition hover:border-white/40"
                 href="/contact"
+                prefetch={false}
               >
                 Contact Us
               </Link>
@@ -232,13 +237,13 @@ export function SiteFooter() {
         <div className="ars-container flex flex-col gap-5 py-7 text-xs leading-5 text-slate-400 lg:flex-row lg:items-center lg:justify-between">
           <p>© 2026 ARS Steels & Alloy International Pvt. Ltd. All rights reserved.</p>
           <nav className="flex flex-wrap items-center gap-x-5 gap-y-2" aria-label="Legal links">
-            <Link className="focus-ring inline-flex min-h-11 items-center transition hover:text-white" href="/privacy-policy">
+            <Link className="focus-ring inline-flex min-h-11 items-center transition hover:text-white" href="/privacy-policy" prefetch={false}>
               Privacy Policy
             </Link>
-            <Link className="focus-ring inline-flex min-h-11 items-center transition hover:text-white" href="/terms-of-use">
+            <Link className="focus-ring inline-flex min-h-11 items-center transition hover:text-white" href="/terms-of-use" prefetch={false}>
               Terms of Use
             </Link>
-            <Link className="focus-ring inline-flex min-h-11 items-center transition hover:text-white" href="/sitemap.xml">
+            <Link className="focus-ring inline-flex min-h-11 items-center transition hover:text-white" href="/sitemap.xml" prefetch={false}>
               Sitemap
             </Link>
           </nav>

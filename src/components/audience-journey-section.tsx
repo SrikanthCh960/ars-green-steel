@@ -74,6 +74,7 @@ export function AudienceJourneySection() {
             <HomepageReveal key={path.title} delay={0.26 + index * 0.07}>
               <Link
                 href={path.href}
+                prefetch={false}
                 className="focus-ring group relative block aspect-square overflow-hidden bg-ink-950 shadow-[0_14px_34px_rgba(13,43,110,0.12)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_54px_rgba(13,43,110,0.24)] focus-visible:-translate-y-1 focus-visible:shadow-[0_24px_54px_rgba(13,43,110,0.24)] motion-reduce:transform-none motion-reduce:transition-none"
               >
                 <ResponsiveContentImage

@@ -334,6 +334,7 @@ export default function Home() {
                   <Link
                     className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-bold text-white transition hover:bg-brand-blue-dark"
                     href={product.route}
+                    prefetch={false}
                   >
                     View product <ArrowRight size={17} />
                   </Link>
@@ -428,7 +429,7 @@ export default function Home() {
             <HomepageReveal delay={0.68}>
               <div className="mb-5 flex items-center justify-between gap-6">
                 <p className="font-technical text-xs font-bold uppercase tracking-[0.22em] text-brand-blue">Clients</p>
-                <Link href="/clients" className="focus-ring inline-flex min-h-11 items-center gap-2 text-sm font-bold text-brand-blue transition hover:text-brand-red">
+                <Link href="/clients" prefetch={false} className="focus-ring inline-flex min-h-11 items-center gap-2 text-sm font-bold text-brand-blue transition hover:text-brand-red">
                   View all clients <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>
@@ -475,7 +476,7 @@ export default function Home() {
             </div>
 
             <HomepageReveal delay={0.24} className="justify-self-start lg:justify-self-end">
-              <Link href="/blog" className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue transition hover:text-brand-red">
+              <Link href="/blog" prefetch={false} className="focus-ring inline-flex items-center gap-2 text-sm font-bold text-brand-blue transition hover:text-brand-red">
                 View all articles <ArrowRight size={17} />
               </Link>
             </HomepageReveal>
@@ -506,6 +507,7 @@ function FeaturedBlogCard({ blog }: { blog: (typeof blogs)[number] }) {
   return (
     <Link
       href={blog.href}
+      prefetch={false}
       className="focus-ring group relative flex min-h-[500px] flex-col justify-between overflow-hidden rounded-[18px] bg-bg-dark p-7 text-white shadow-[0_24px_70px_rgba(13,43,110,0.18)] transition duration-300 hover:-translate-y-1 lg:p-8"
     >
       <Image
@@ -545,6 +547,7 @@ function BlogListCard({ blog }: { blog: (typeof blogs)[number] }) {
   return (
     <Link
       href={blog.href}
+      prefetch={false}
       className="focus-ring group grid overflow-hidden rounded-[16px] border border-brand-blue/10 bg-surface-50 shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-0.5 hover:border-brand-blue/28 hover:bg-white sm:grid-cols-[180px_minmax(0,1fr)_48px]"
     >
       <span className="relative min-h-[170px] overflow-hidden bg-surface-100 sm:min-h-full">
@@ -596,7 +599,7 @@ function RahulDravidSection() {
               </p>
             </HomepageReveal>
             <HomepageReveal delay={0.26}>
-              <Link className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] bg-brand-red px-5 text-sm font-bold text-white transition hover:bg-brand-red-dark" href="/product-crs-550d">
+              <Link className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] bg-brand-red px-5 text-sm font-bold text-white transition hover:bg-brand-red-dark" href="/product-crs-550d" prefetch={false}>
                 Explore ARS CRS Fe 550D <ArrowRight size={17} />
               </Link>
             </HomepageReveal>
@@ -654,6 +657,7 @@ function GreenSteelSection() {
             <Link
               className="focus-ring mt-8 inline-flex h-12 w-fit items-center justify-center gap-2 rounded-[6px] border border-emerald-300/30 px-5 text-sm font-bold text-emerald-200 transition hover:border-white/45 hover:bg-white hover:text-[#07351f]"
               href="/ars-green-steel"
+              prefetch={false}
             >
               Learn More About Green Steel <ArrowRight size={17} />
             </Link>
@@ -748,12 +752,14 @@ function ManufacturingStorySection() {
               <Link
                 className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] bg-brand-blue px-5 text-sm font-bold text-white transition hover:bg-brand-blue-dark"
                 href="/manufacturing"
+                prefetch={false}
               >
                 Our Manufacturing <ArrowRight size={17} />
               </Link>
               <Link
                 className="focus-ring inline-flex h-12 items-center justify-center gap-2 rounded-[6px] border border-brand-blue/18 bg-white px-5 text-sm font-bold text-brand-blue transition hover:border-brand-blue/40 hover:bg-surface-50"
                 href="/about-us"
+                prefetch={false}
               >
                 Our Story <ArrowRight size={17} />
               </Link>
@@ -792,6 +798,7 @@ function BuyingAssistantSection() {
                   <Link
                     className="focus-ring group grid items-center gap-5 rounded-[18px] border border-white/18 bg-white/[0.11] p-5 shadow-[0_22px_60px_rgba(0,0,0,0.12)] transition duration-300 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.16] sm:grid-cols-[44px_72px_minmax(0,1fr)_24px] lg:p-6"
                     href={action.href}
+                    prefetch={action.href === "/request-quote" ? null : false}
                   >
                     <span className="font-technical text-sm font-black tracking-[0.14em] text-white/42">{count}</span>
                     <span className="inline-flex size-14 items-center justify-center rounded-[14px] bg-white/14 text-white ring-1 ring-white/12 transition group-hover:bg-white/20">

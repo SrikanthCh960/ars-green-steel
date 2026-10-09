@@ -257,7 +257,7 @@ export function SiteHeader({ showBreadcrumb = true }: { showBreadcrumb?: boolean
     >
       <div className="site-header-shell border-b border-ink-900/10 bg-white shadow-[0_8px_28px_rgba(13,43,110,0.08)]">
       <div className="ars-container flex h-[76px] items-center justify-between">
-        <Link href="/" className="focus-ring flex cursor-pointer items-center gap-3">
+        <Link href="/" prefetch={false} className="focus-ring flex cursor-pointer items-center gap-3">
           <span className="flex h-[55px] w-[117px] items-center justify-center">
             <Image src="/ars-green-steel.svg" alt="ARS Green Steel" width={117} height={55} priority />
           </span>
@@ -266,6 +266,7 @@ export function SiteHeader({ showBreadcrumb = true }: { showBreadcrumb?: boolean
         <nav className="hidden items-center gap-4 text-[14px] font-semibold text-steel-700 xl:flex">
           <Link
             href="/"
+            prefetch={false}
             aria-label="Home"
             aria-current={pathname === "/" ? "page" : undefined}
             className={`focus-ring relative inline-flex h-[76px] w-10 cursor-pointer items-center justify-center bg-transparent text-brand-blue transition hover:text-ink-900 before:absolute before:bottom-0 before:left-0 before:h-0.5 before:w-full before:origin-left before:bg-brand-red before:transition-transform before:duration-300 focus-visible:text-ink-900 focus-visible:before:scale-x-100 ${
@@ -312,6 +313,7 @@ export function SiteHeader({ showBreadcrumb = true }: { showBreadcrumb?: boolean
                 ) : (
                   <Link
                     href={link.href}
+                    prefetch={false}
                     className={navigationClassName}
                     aria-current={isActive ? "page" : undefined}
                   >
@@ -339,6 +341,7 @@ export function SiteHeader({ showBreadcrumb = true }: { showBreadcrumb?: boolean
           <Link
             className="focus-ring hidden h-11 cursor-pointer items-center gap-2 rounded-full bg-brand-red px-5 text-sm font-bold text-white shadow-[0_12px_30px_rgba(222,18,26,0.24)] transition hover:bg-brand-red-dark md:inline-flex"
             href="/our-network"
+            prefetch={false}
           >
             <MapPin size={16} /> Find Dealer
           </Link>
@@ -377,13 +380,13 @@ export function SiteHeader({ showBreadcrumb = true }: { showBreadcrumb?: boolean
                   })}
                 </div>
                 <nav className="grid gap-2">
-                  <Link className="flex items-center justify-between border-t border-ink-900/10 py-3 text-base font-bold text-ink-900" href="/" aria-current={pathname === "/" ? "page" : undefined} onClick={() => setMobileOpen(false)}>
+                  <Link className="flex items-center justify-between border-t border-ink-900/10 py-3 text-base font-bold text-ink-900" href="/" prefetch={false} aria-current={pathname === "/" ? "page" : undefined} onClick={() => setMobileOpen(false)}>
                     Home
                     <ArrowRight size={16} className="text-brand-blue" />
                   </Link>
                   {routeLinks.map((link) => {
                     if (!link.menu) {
-                      return <Link key={link.label} className="flex cursor-pointer items-center justify-between border-t border-ink-900/10 py-3 text-base font-bold text-ink-900" href={link.href} aria-current={pathMatches(pathname, link.href) ? "page" : undefined} onClick={() => setMobileOpen(false)}>
+                      return <Link key={link.label} className="flex cursor-pointer items-center justify-between border-t border-ink-900/10 py-3 text-base font-bold text-ink-900" href={link.href} prefetch={false} aria-current={pathMatches(pathname, link.href) ? "page" : undefined} onClick={() => setMobileOpen(false)}>
                         {link.label}
                         <ArrowRight size={16} className="text-brand-blue" />
                       </Link>;
@@ -416,7 +419,7 @@ export function SiteHeader({ showBreadcrumb = true }: { showBreadcrumb?: boolean
                                   </p>
                                   <div className="grid gap-2">
                                     {group.links.map((item) => (
-                                      <Link key={item.label} className="flex min-h-11 items-center justify-between text-sm font-semibold text-steel-700" href={item.href} onClick={() => setMobileOpen(false)}>
+                                      <Link key={item.label} className="flex min-h-11 items-center justify-between text-sm font-semibold text-steel-700" href={item.href} prefetch={false} onClick={() => setMobileOpen(false)}>
                                         {item.label}
                                         <ArrowRight size={14} className="text-brand-blue" />
                                       </Link>
@@ -425,7 +428,7 @@ export function SiteHeader({ showBreadcrumb = true }: { showBreadcrumb?: boolean
                                 </div>
                               ))
                             : megaMenus[menuKey].links.map((item) => (
-                                <Link key={item.label} className="flex min-h-11 items-center justify-between text-sm font-semibold text-steel-700" href={item.href} onClick={() => setMobileOpen(false)}>
+                                <Link key={item.label} className="flex min-h-11 items-center justify-between text-sm font-semibold text-steel-700" href={item.href} prefetch={false} onClick={() => setMobileOpen(false)}>
                                   {item.label}
                                   <ArrowRight size={14} className="text-brand-blue" />
                                 </Link>
@@ -454,7 +457,7 @@ type MegaMenu = (typeof megaMenus)[keyof typeof megaMenus];
 function MegaMenuContent({ menu, showVisual }: { menu: MegaMenu; showVisual: boolean }) {
   return (
     <div className="ars-container grid gap-12 py-9 lg:grid-cols-[360px_1fr_280px] lg:items-center">
-      <Link className="group relative min-h-[190px] overflow-hidden rounded-[22px] bg-ink-900 p-6 text-white shadow-[0_20px_55px_rgba(15,23,42,0.18)] lg:self-stretch" href={menu.links[0]?.href ?? "/products"}>
+      <Link className="group relative min-h-[190px] overflow-hidden rounded-[22px] bg-ink-900 p-6 text-white shadow-[0_20px_55px_rgba(15,23,42,0.18)] lg:self-stretch" href={menu.links[0]?.href ?? "/products"} prefetch={false}>
         {showVisual ? (
           <Image
             src={menu.visualSrc}
@@ -528,7 +531,7 @@ function MegaMenuContent({ menu, showVisual }: { menu: MegaMenu; showVisual: boo
             </div>
           ))}
         </div>
-        <Link className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-brand-blue" href="/request-quote">
+        <Link className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-brand-blue" href="/request-quote" prefetch={false}>
           Start enquiry <ArrowRight size={16} />
         </Link>
       </div>

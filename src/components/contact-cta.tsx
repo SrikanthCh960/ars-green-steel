@@ -46,6 +46,7 @@ export function ContactCta(props: ContactCtaProps) {
           <div className="flex flex-col gap-4 sm:flex-row lg:justify-end">
             <Link
               href={primaryHref}
+              prefetch={false}
               className={`focus-ring inline-flex h-14 items-center justify-center gap-3 rounded-full px-8 text-base font-bold text-white shadow-[0_18px_44px_rgba(222,18,26,0.24)] transition ${primaryClassName}`}
             >
               {primaryLabel} <ArrowRight size={19} />
@@ -53,6 +54,7 @@ export function ContactCta(props: ContactCtaProps) {
             {secondaryLabel && secondaryHref ? (
               <Link
                 href={secondaryHref}
+                prefetch={false}
                 className="focus-ring inline-flex h-14 items-center justify-center gap-3 rounded-full border border-white/22 bg-white/[0.03] px-8 text-base font-bold text-white transition hover:-translate-y-0.5 hover:border-white/36 hover:bg-white/[0.08]"
               >
                 <Phone size={18} /> {secondaryLabel}
