@@ -31,7 +31,7 @@ export const pricingWorkbookDetails = {
   approvedOn: "2026-10-07",
   sourceLabel: "ARS pricing workbook approved 7 October 2026",
   rateBasis: "Fe 550D base rate with grade and diameter adjustments",
-  reviewCadence: "Date refreshed every 3 days; rates revised when ARS confirms",
+  reviewCadence: "Rates revised when ARS confirms",
   taxesIncluded: true,
   freightIncluded: false,
   loadingAndUnloadingIncluded: false,

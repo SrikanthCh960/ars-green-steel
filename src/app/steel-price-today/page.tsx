@@ -378,10 +378,9 @@ export default async function SteelPriceTodayPage() {
             </p>
           </div>
 
-          <dl className="my-8 grid gap-px overflow-hidden rounded-xl border border-brand-blue/10 bg-brand-blue/10 sm:grid-cols-2 xl:grid-cols-4">
+          <dl className="my-8 grid gap-px overflow-hidden rounded-xl border border-brand-blue/10 bg-brand-blue/10 sm:grid-cols-2 xl:grid-cols-3">
             {[
               ["Price updated on", priceUpdatedOnLabel],
-              ["Source", pricingWorkbookDetails.sourceLabel],
               ["Rate basis", pricingWorkbookDetails.rateBasis],
               ["Review cadence", pricingWorkbookDetails.reviewCadence],
             ].map(([term, detail]) => (
